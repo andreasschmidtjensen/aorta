@@ -1,0 +1,4 @@
+coordination {
+	[+bel(O)]        : [org(role(R,_), objective(O,R), rea(A,R))] => send(A, bel(O))
+	[+org(rea(A,R))] : [bel(agent(Ag))] => send(Ag, org(rea(A,R)))
+}

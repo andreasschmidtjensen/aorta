@@ -1,0 +1,27 @@
+
+AORTA: 
+
+Change language concept:
+- Not generic language but meta-language
+- Other languages should be translated, an example provides using OperA
+
+Implement transition rules
+
+Implement organizational cycle
+
+
+AortaJason:
+
+Integrate with new Aorta; 
+test with simple examples (library/ebay);
+test with OperA example (conference/tender)
+
+ModelChecker:
+
+Change absolute paths to relative paths 
+Package and put on web
+
+
+SCBW:
+
+Package and put on web

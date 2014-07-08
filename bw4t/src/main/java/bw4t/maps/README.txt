@@ -1,0 +1,1 @@
+Map-files should be placed in <BW4T server location>/maps

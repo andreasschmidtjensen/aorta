@@ -1,0 +1,44 @@
+MAS firstresponders {
+	infrastructure: AORTA(organization("firstresponders.org", generic))
+	environment: jason.eis.EISAdapter(
+							"BW4TClient.jar",
+							agent_entity(medic, medic1),
+							agent_entity(medic1, medic1),
+							agent_entity(medic2, medic2),
+							/*agent_entity(medic3, medic3),
+							agent_entity(medic4, medic4),
+							agent_entity(medic5, medic5),*/
+							agent_entity(officer, officer1),
+							agent_entity(officer1, officer1),
+							agent_entity(officer2, officer2),
+							/*agent_entity(officer3, officer3),
+							agent_entity(officer4, officer4),*/
+							agent_entity(f11, F11),
+							agent_entity(f12, F12),
+							/*agent_entity(f13, F13),
+							agent_entity(f14, F14),*/
+							agent_entity(f21, F21),
+							agent_entity(f22, F22),
+							/*agent_entity(f23, F23),
+							agent_entity(f24, F24),*/
+							map(clientip, "localhost"),
+							map(clientport, "2000"),
+							map(serverip, "localhost"),
+							map(serverport, "8000"),
+							map(agentcount, "1"),
+							map(humancount, "0"),
+							map(launchgui, "false"),
+							map(goal, "false"))
+    agents:
+		medic agentClass bw4t.BW4TAgent 
+			  beliefBaseClass bw4t.BW4TBeliefBase #2;
+	
+	  
+		officer agentClass bw4t.BW4TAgent 
+			  beliefBaseClass bw4t.BW4TBeliefBase #2;
+	
+		f1 bystander.asl agentClass bw4t.BW4TAgent 
+			  beliefBaseClass bw4t.BW4TBeliefBase #4;
+		f2 bystander.asl agentClass bw4t.BW4TAgent 
+			  beliefBaseClass bw4t.BW4TBeliefBase #4;
+}

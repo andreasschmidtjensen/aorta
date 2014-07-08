@@ -1,0 +1,13 @@
+options {
+	[bel(me(Me), cap(R)), org(role(R,_))] => consider(rea(Me,R))
+	[bel(me(Me)), org(role(R,Os), rea(Me,R), member(O,Os), objective(O), active(O))] => consider(objective(O))
+}
+actions {
+	[opt(rea(A,R)), bel(me(A))] => enact(R)
+	[opt(objective(O))] => commit(O)
+}
+coordination {
+	[+bel(X)]			 : [bel(me(Me)), org(rea(Me,R2), dependency(R1,R2,X), rea(A,R1))] => send(A, bel(X))
+	[+bel(O)]            : [org(role(R,Os), objective(O), member(O,Os), rea(A,R))] => send(A, bel(O))
+	[+org(rea(A,R))]     : [bel(agent(Ag))] => send(Ag, org(rea(A,R)))
+}

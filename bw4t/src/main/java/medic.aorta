@@ -1,0 +1,15 @@
+init {
+	strategy: Linear
+}
+actions {
+	[opt(rea(A,R)), bel(me(A))] => enact(R)
+	[opt(objective(O)), org(role(R,Os), member(O,Os), rea(Me,R)), bel(me(Me))] => commit(O)
+}
+coordination {
+	[+bel(rescued(V))]   : [org(rea(A,medic))] => send(A,bel(rescued(V)))
+	[+bel(color(I,C,R))] : [org(rea(A,medic))] => send(A,bel(color(I,C,R)))
+	[+bel(holding(V))]	 : [org(rea(A,medic)), bel(me(Me))] => send(A,bel(holding(Me,V)))
+	[+goal(X)]			 : [bel(me(Me)), org(rea(Me,R1), dependency(R1,R2,X), rea(A,R2))] => send(A, goal(X))
+	[+bel(O)]            : [org(role(R,Os), objective(O), member(O,Os), rea(A,R))] => send(A, bel(O))
+	[+org(rea(A,R))]     : [bel(agent(Ag))] => send(Ag, org(rea(A,R)))
+}
