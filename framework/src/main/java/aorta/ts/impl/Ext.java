@@ -12,7 +12,7 @@ import aorta.kr.QueryEngine;
 import aorta.kr.util.Qualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 /**
  *

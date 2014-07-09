@@ -15,7 +15,7 @@ import aorta.reasoning.action.ActAction;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 public class CommitAction extends ActAction {
 

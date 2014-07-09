@@ -14,7 +14,7 @@ import aorta.reasoning.fml.Formula;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.ts.TransitionRule;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 /**
  *

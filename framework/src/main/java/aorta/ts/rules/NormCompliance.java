@@ -13,7 +13,7 @@ import aorta.kr.QueryEngine;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.ts.TransitionRule;
 import java.util.Iterator;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 /**
  *

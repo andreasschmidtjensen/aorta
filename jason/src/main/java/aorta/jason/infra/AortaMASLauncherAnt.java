@@ -16,6 +16,7 @@ public class AortaMASLauncherAnt extends CentralisedMASLauncherAnt {
 	protected String replaceMarks(String script, boolean debug) {
 		 script = replace(script, "<PROJECT-RUNNER-CLASS>", AortaLauncher.class.getName());
 
+		 // TODO: Change to relative paths
 		String lib = "";
 //		lib = lib + "        <pathelement location=\"" + Config.get().getJasonHome() + "/lib/cartago.jar\"/>\n";
 		lib = lib + "        <pathelement location=\"C:/Dropbox/code/phd/AORTA/dist/AORTA.jar\"/>\n";

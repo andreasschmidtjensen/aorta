@@ -3,7 +3,7 @@ package aorta.reasoning.action;
 import aorta.AORTAException;
 import aorta.AgentState;
 import aorta.kr.QueryEngine;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 public abstract class Action {
 

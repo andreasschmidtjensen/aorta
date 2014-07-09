@@ -8,7 +8,7 @@ import aorta.AgentState;
 import aorta.kr.QueryEngine;
 import java.util.Queue;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 /**
  *

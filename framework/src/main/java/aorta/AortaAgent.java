@@ -14,7 +14,7 @@ import aorta.ts.strategy.Strategy;
 import aorta.ts.strategy.StrategyFailedException;
 import java.util.Iterator;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 public class AortaAgent {
 

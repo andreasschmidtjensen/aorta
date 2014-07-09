@@ -18,7 +18,7 @@ import aorta.reasoning.fml.Formula;
 import aorta.tracer.Tracer;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 /**
  *

@@ -13,7 +13,7 @@ import aorta.kr.QueryEngine;
 import aorta.reasoning.action.ActAction;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 public class DeactAction extends ActAction {
 	public static final Logger logger = Logger.getLogger(DeactAction.class.getName());

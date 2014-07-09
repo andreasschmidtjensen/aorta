@@ -14,7 +14,7 @@ import aorta.ts.impl.Chk;
 import aorta.ts.impl.Coord;
 import aorta.ts.impl.Ext;
 import aorta.ts.impl.Opt;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 /**
  *

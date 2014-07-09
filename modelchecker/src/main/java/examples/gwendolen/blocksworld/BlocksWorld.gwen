@@ -1,0 +1,44 @@
+
+GWENDOLEN
+
+:name: ag1
+
+:Initial Beliefs:
+
+cap(builder)
+clear(table)
+
+:Belief Rules:
+
+//B clear(Xc) :- (B on(Xc, Z), ~(B on(Y, Xc) ));
+
+:Initial Goals:
+
+:Plans:
+
+//+!clear(X) [achieve] : {B on(Z, X)} <- +!on(Z, table) [achieve];
+
+//+!on(X,Y) [achieve] : {B ~clear(X)} <- print(clear(X)), +!clear(X) [achieve];
+//+!on(X,Y) [achieve] : {B ~clear(Y)} <- print(clear(Y)), +!clear(Y) [achieve];
++!on(X,Y) [achieve] : {True} <- move(X,Y);
++on(X,Y) : {G on(X,Y) [achieve]} <- -!on(X,Y) [achieve], print(completed1);
+
+:name: ag2
+
+:Initial Beliefs:
+
+cap(overseer)
+
+:Belief Rules:
+
+:Initial Goals:
+
+:Plans:
+
++!delegate(on(X,Y)) [achieve] : {B on(X,Y)} <- +delegate(on(X,Y));
++!delegate(on(X,Y)) [achieve] : {~B on(X,Y)} <- *on(X,Y);
+
++!on(X,Y) [achieve] : {~B delegated} <- +delegated, print(delegates), +!delegate(on(X,Y)) [achieve];
+//+!on(X,Y) [achieve] : {B delegated} <- print(delegated), *on(X,Y);
+
++on(X,Y) : {G on(X,Y) [achieve]} <- -!on(X,Y) [achieve], -!delegate(on(X,Y)) [achieve], print(completed2);

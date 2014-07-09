@@ -1,0 +1,8 @@
+@using = mcapl
+@using = aortamc
+target = ail.util.AJPF_w_AIL
+target_args = /Users/asj/Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/blocksworld/BlocksWorld_mac.ail,/Users/asj/Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/blocksworld/BlocksWorld.psl,rea_ag2
+log.info = ail.mas.DefaultEnvironment,ajpf.product.Product,ajpf.MCAPLAgent,aorta.ail.AortaAILAgent,aorta.ts.impl.Ext,aorta.reasoning.coordination.CoordinationRule
+log.finest = ajpf.psl.buchi.BuchiAutomaton,ajpf.product.MCAPLmodel
+listener+=,.listener.ExecTracker
+et.print_insn=false

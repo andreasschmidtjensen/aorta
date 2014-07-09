@@ -20,8 +20,3 @@ ModelChecker:
 
 Change absolute paths to relative paths 
 Package and put on web
-
-
-SCBW:
-
-Package and put on web

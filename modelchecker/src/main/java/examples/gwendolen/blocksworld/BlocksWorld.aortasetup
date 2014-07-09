@@ -1,0 +1,7 @@
+mas.file = BlocksWorld.gwen
+mas.builder = gwendolen.GwendolenMASBuilder
+
+aorta.organization = BlocksOrganization.org
+aorta.type = generic
+aorta.ag1 = OrgReasoning.aorta
+aorta.ag2 = OrgReasoning.aorta

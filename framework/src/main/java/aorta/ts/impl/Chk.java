@@ -11,7 +11,7 @@ import aorta.msg.IncomingOrganizationalMessage;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 /**
  *

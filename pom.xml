@@ -12,6 +12,8 @@
 		<module>framework</module>
 		<module>jason</module>
 		<module>bw4t</module>
+		<module>ajpf</module>
+		<module>modelchecker</module>
 	</modules>
 	
 	<repositories>		
@@ -24,94 +26,5 @@
 	<properties>
 		<root>${basedir}</root>
 	</properties>
-    
-	<dependencies>
-		<!-- Dependencies for tuprolog -->
-<!--		<dependency>
-			<groupId>tuprolog</groupId>
-			<artifactId>mscorlib</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/tuprolog/mscorlib.jar</systemPath>			
-		</dependency>-->
-<!--		<dependency>
-			<groupId>tuprolog</groupId>
-			<artifactId>javassist</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/tuprolog/javassist.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>tuprolog</groupId>
-			<artifactId>ikvm-api</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/tuprolog/ikvm-api.jar</systemPath>
-		</dependency>
-		<dependency>
-			<groupId>tuprolog</groupId>
-			<artifactId>fit</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/tuprolog/fit.jar</systemPath>
-		</dependency>-->
-		<!-- Dependencies for OperA integration -->
-<!--		<dependency>
-			<groupId>net.sf.ictalive</groupId>
-			<artifactId>operetta</artifactId>
-			<version>2.0.0.20101019</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/operetta/net.sf.ictalive.operetta_2.0.0.20101019.jar</systemPath>			
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>common</artifactId>
-			<version>2.9.0.v20130528-0742</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/operetta/org.eclipse.emf.common_2.9.0.v20130528-0742.jar</systemPath>			
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>ecore</artifactId>
-			<version>2.9.0.v20130528-0742</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/operetta/org.eclipse.emf.ecore_2.9.0.v20130528-0742.jar</systemPath>			
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.emf</groupId>
-			<artifactId>ecore-xmi</artifactId>
-			<version>2.7.0.v20120127-1122</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/operetta/org.eclipse.emf.ecore.xmi_2.7.0.v20120127-1122.jar</systemPath>			
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.gmf.runtime</groupId>
-			<artifactId>notation</artifactId>
-			<version>1.5.0.v20110309-2159</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/operetta/org.eclipse.gmf.runtime.notation_1.5.0.v20110309-2159.jar</systemPath>			
-		</dependency>-->
-		<!-- Dependencies for Jason -->
-<!--		<dependency>
-			<groupId>eis</groupId>
-			<artifactId>eis</artifactId>
-			<version>0.3</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/jason/eis-0.3.jar</systemPath>			
-		</dependency>
-		<dependency>
-			<groupId>jason</groupId>
-			<artifactId>eis</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/jason/jason-eis.jar</systemPath>			
-		</dependency>
-		<dependency>
-			<groupId>jason</groupId>
-			<artifactId>app</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/jason/jason.jar</systemPath>			
-		</dependency>-->
-	</dependencies>
+
 </project>

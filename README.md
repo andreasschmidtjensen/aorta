@@ -8,3 +8,5 @@ The project consists of the following:
 * jason: The integration with Jason
 * bw4t: An example usage of the jason-integration using Blocks World for Teams
 * tuprolog: A slightly modified version of tuprolog used for AORTA
+* ajpf: A modified version of AJPF to incorporate organizational properties as used in AORTA
+* modelchecker: A model checker for AORTA using AJPF. Enables verification of AIL-systems integrated with AORTA.

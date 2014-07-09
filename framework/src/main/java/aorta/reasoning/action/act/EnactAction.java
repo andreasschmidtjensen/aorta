@@ -15,7 +15,7 @@ import aorta.kr.util.Qualifier;
 import aorta.reasoning.action.ActAction;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 public class EnactAction extends ActAction {
 	

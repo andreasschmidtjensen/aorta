@@ -13,7 +13,7 @@ import aorta.ts.rules.OptionRemovalFunction;
 import aorta.ts.rules.TransitionFunction;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 /**
  *
