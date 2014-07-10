@@ -35,8 +35,8 @@ public class Modelchecker {
 	private Map<String, String> properties;
 
 	public Modelchecker(String ailFile, String pslFile) throws Exception {
-		this.ailFile = ailFile;
-		this.pslFile = pslFile;
+		this.ailFile = ailFile.replace("\\", "\\\\");
+		this.pslFile = pslFile.replace("\\", "\\\\");
 
 		properties = new LinkedHashMap<>();
 
