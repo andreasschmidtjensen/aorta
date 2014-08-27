@@ -1,17 +1,37 @@
 package aorta.reasoning;
 
-import aorta.reasoning.action.ActAction;
+import alice.tuprolog.Term;
+import aorta.reasoning.action.Action;
 import aorta.reasoning.fml.Formula;
 
-public class ActionRule extends Rule {
+public class ActionRule  {
+	
+	protected Term option;
+	protected Formula context;
+	protected Action action;
 
-	public ActionRule(Formula rule, ActAction action) {
-		super(rule, action);
+	public ActionRule(Term option, Formula context, Action action) {
+		this.option = option;
+		this.context = context;
+		this.action = action;
 	}
 
-    @Override
-    public ActAction getAction() {
-        return (ActAction) super.getAction();
-    }
+	public Term getOption() {
+		return option;
+	}
+
+	public Formula getContext() {
+		return context;
+	}
+
+	public Action getAction() {
+		return action;
+	}
+
+	@Override
+	public String toString() {
+		return option + " : " + context + " => " + action;
+	}
+	
 
 }

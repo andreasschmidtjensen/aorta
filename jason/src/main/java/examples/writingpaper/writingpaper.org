@@ -1,30 +1,24 @@
 role(editor, [wtitle, wabs, wsectitle, fdv, wcon, sv]).
 role(writer, [wsec, wref]).
 
-objective(wtitle).
-objective(wabs).
-objective(wsectitle).
-objective(fdv).
-objective(wsec).
-objective(wcon).
-objective(wref).
-objective(sv).
-
-order(wtitle, fdv).
-order(wabs, fdv).
-order(wsectitle, fdv).
-order(fdv, wsec).
-order(fdv, wcon).
-order(fdv, wref).
-order(wsec, sv).
-order(wcon, sv).
-order(wref, sv).
+objective(wtitle, []).
+objective(wabs, []).
+objective(wsectitle, []).
+objective(fdv, []).
+objective(wsec, []).
+objective(wcon, []).
+objective(wref, []).
+objective(sv, []).
 
 dependency(writer, editor, fdv).
 dependency(editor, writer, wsec).
 dependency(editor, writer, wref).
 
-restriction(editor, writer).
-
-active(O) :- objective(O), \+ order(_,O), \+ bel(O).
-active(O) :- objective(O), \+ (order(O1,O), \+ bel(O1)), \+ bel(O).
+condition(editor, wtitle, fdv, true).
+condition(editor, wabs, fdv, true).
+condition(editor, wsectitle, fdv, true).
+condition(editor, fdv, (wsec ; wcon ; wref), (wtitle, wabs, wsectitle)).
+condition(writer, wsec, sv, fdv).
+condition(writer, wref, sv, fdv).
+condition(editor, wcon, sv, fdv).
+condition(writer, sv, false, (wsec, wref, wcon)).

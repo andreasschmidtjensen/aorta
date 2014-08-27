@@ -8,8 +8,6 @@ import aorta.kr.MentalState;
 import aorta.kr.util.Qualifier;
 import aorta.msg.OutgoingOrganizationalMessage;
 import aorta.reasoning.ActionRule;
-import aorta.reasoning.OptionRule;
-import aorta.reasoning.coordination.CoordinationRule;
 import aorta.ts.strategy.Strategy;
 import aorta.ts.strategy.StrategyFailedException;
 import java.util.Iterator;
@@ -28,11 +26,11 @@ public class AortaAgent {
 	
 	private boolean lastCycleChangedState = true;
 
-	public AortaAgent(String name, MentalState mentalState, List<OptionRule> optionRules, List<ActionRule> actionRules, List<CoordinationRule> coordinationRules, Strategy strategy) {
+	public AortaAgent(String name, MentalState mentalState, List<ActionRule> actionRules, Strategy strategy) {
 		this.name = name;
 		this.strategy = strategy;
 
-		state = new AgentState(this, mentalState, optionRules, actionRules, coordinationRules);
+		state = new AgentState(this, mentalState, actionRules);
 
 		setup();
 	}
@@ -104,26 +102,16 @@ public class AortaAgent {
 
 	@Override
 	public String toString() {
-		String optRules = "";
-		for (OptionRule r : state.getOptionRules()) {
-			optRules += " > " + r.toString() + "\n";
-		}
 		String actRules = "";
 		for (ActionRule r : state.getActionRules()) {
 			actRules += " > " + r.toString() + "\n";
-		}
-		String coordRules = "";
-		for (CoordinationRule r : state.getCoordinationRules()) {
-			coordRules += " > " + r.toString() + "\n";
 		}
 		return "Agent: " + name + "\n"
 				+ "Strategy: " + strategy.getClass().getName() + "\n"
 				+ "MentalState: \n" + state.getMentalState() + "\n"
 				+ "In: " + state.getExternalAgent().getIncomingMessages() + "\n"
 				+ "Out: " + state.getOut() + "\n"
-				+ "Opt: \n" + optRules
-				+ "Act: \n" + actRules
-				+ "Coord: \n" + coordRules;
+				+ "Act: \n" + actRules;
 	}
 
 	public int getCycle() {

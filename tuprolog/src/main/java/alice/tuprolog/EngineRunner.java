@@ -30,7 +30,7 @@ public class EngineRunner implements java.io.Serializable, Runnable{
     private int pid;
     private boolean detached;
     private boolean solving;
-    public Term query;
+    private Term query;
     private TermQueue msgs;
     private ArrayList<Boolean> next;
     private int countNext;
@@ -296,7 +296,7 @@ public class EngineRunner implements java.io.Serializable, Runnable{
     
     private void refreeze() {
         freeze();
-        env = last_env;       
+        env = last_env;            
     }
     
     private void defreeze() {
@@ -311,9 +311,7 @@ public class EngineRunner implements java.io.Serializable, Runnable{
      */
     
     List<ClauseInfo> find(Term t) {
-		List<ClauseInfo> find = theoryManager.find(t);
-//		System.out.println("find for " + t + ": " + find);
-        return find;
+        return theoryManager.find(t);
     }
     
     void identify(Term t) {

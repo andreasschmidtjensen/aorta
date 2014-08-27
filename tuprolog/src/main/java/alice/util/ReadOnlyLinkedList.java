@@ -37,11 +37,6 @@ public class ReadOnlyLinkedList<E> implements List<E>{
         }
     }
 
-	@Override
-	public String toString() {
-		return list.toString();
-	}
-
     public boolean add(E o){
         throw new UnsupportedOperationException("This is a read-only list");
     }

@@ -14,8 +14,10 @@ public final class PrologLoader {
 
 	private Prolog prolog;
 
-	public PrologLoader() throws InvalidLibraryException {
+	public PrologLoader() throws InvalidLibraryException, InvalidTheoryException, IOException {
 		prolog = new Prolog();
+
+		prolog.addTheory(new Theory(getClass().getResourceAsStream("rules.pl")));
 	}
 
 	public void addTheory(Theory theory, KBType type) throws InvalidTheoryException, FileNotFoundException, IOException {

@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:net.sf.ictalive.operetta="http://ict-alive.sourceforge.net/operetta/OM/1.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <net.sf.ictalive.operetta:OperAModel xmi:id="_GcQeABVZEd-GCupMSMFofg" Name="New OperA Model">
+    <om xmi:type="net.sf.ictalive.operetta:OM" xmi:id="_GcQeARVZEd-GCupMSMFofg">
+      <ss xmi:type="net.sf.ictalive.operetta:SS" xmi:id="_GcQeAhVZEd-GCupMSMFofg">
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_ITnoQBVZEd-GCupMSMFofg" Name="User" conceptName="_NBEO0BVZEd-GCupMSMFofg" objectives="_rEEIYBVZEd-GCupMSMFofg _aKGIQEvYEd-PEs9mhihRkA _EftC8EvZEd-PEs9mhihRkA" RoleType="Ex"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_Ou5CkBVZEd-GCupMSMFofg" Name="InteractionTaskManager" conceptName="_QWwYQBVZEd-GCupMSMFofg" objectives="_23jkkBVZEd-GCupMSMFofg _8s0u0BVZEd-GCupMSMFofg _mULYMBVhEd-GCupMSMFofg _nJHjcEvYEd-PEs9mhihRkA _JimVEEvZEd-PEs9mhihRkA _QczGEEvkEd-vfah8rmQEfw"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_RGlSsBVZEd-GCupMSMFofg" Name="Interface" conceptName="_X0CpMBVZEd-GCupMSMFofg" objectives="_Y01owBViEd-GCupMSMFofg _z1_RABVZEd-GCupMSMFofg _DUthcBVdEd-GCupMSMFofg _E3Dd8BVdEd-GCupMSMFofg"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_YYsOYBVZEd-GCupMSMFofg" Name="ContentAdaptor" conceptName="_ZOCiABVZEd-GCupMSMFofg" objectives="_5SYBMBVZEd-GCupMSMFofg _vCKgMBVaEd-GCupMSMFofg _Dx0bkBVaEd-GCupMSMFofg _P70TQBVaEd-GCupMSMFofg _VB2Y8BVaEd-GCupMSMFofg _nAESABVaEd-GCupMSMFofg _rmXuwBVaEd-GCupMSMFofg _S1VeEBVaEd-GCupMSMFofg _VVeMYDDhEd-znt_gOxM2fQ"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_ZvawwBVZEd-GCupMSMFofg" Name="UserModeller" conceptName="_abrZ0BVZEd-GCupMSMFofg" objectives="_5-upgBVcEd-GCupMSMFofg _xuqbUBVdEd-GCupMSMFofg _g_HU0BVdEd-GCupMSMFofg _eAYS0BVdEd-GCupMSMFofg _YBR3IBVdEd-GCupMSMFofg _p-_DgDDgEd-znt_gOxM2fQ _U9LM8BVdEd-GCupMSMFofg _6bXQMEvYEd-PEs9mhihRkA _VvIjYEvZEd-PEs9mhihRkA"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_bG46ABVZEd-GCupMSMFofg" Name="ContentProvider" conceptName="_c16AkBVZEd-GCupMSMFofg" objectives="_H41iABVfEd-GCupMSMFofg _DwMRoBVfEd-GCupMSMFofg _45wwEBVdEd-GCupMSMFofg" RoleType="Ex"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_dwUaYBVZEd-GCupMSMFofg" Name="EnvironmentalContextManager" conceptName="_gGN6wBVZEd-GCupMSMFofg" objectives="_KU8C8BVdEd-GCupMSMFofg" RoleType="Ex"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_g4ly4BVZEd-GCupMSMFofg" Name="LegalInfoManager" conceptName="_iT7vgBVZEd-GCupMSMFofg" objectives="_PwSRUBVdEd-GCupMSMFofg" RoleType="Ex"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_5-upgBVcEd-GCupMSMFofg" Name="GetUserAge" conceptName="_AgQc0BVdEd-GCupMSMFofg" stateDescription="_UwxYsD1qEd-MFeCdtP-n6Q"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_VvIjYEvZEd-PEs9mhihRkA" Name="ChangeUserPreferencesAndRequirements" conceptName="_X2t68EvZEd-PEs9mhihRkA" stateDescription="_rvLg4EveEd-vfah8rmQEfw"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_6bXQMEvYEd-PEs9mhihRkA" Name="ChangeUserProfile" conceptName="_7_WLcEvYEd-PEs9mhihRkA" stateDescription="_luhmAEveEd-vfah8rmQEfw"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_DUthcBVdEd-GCupMSMFofg" Name="GetUserLocation" conceptName="_EViFQBVdEd-GCupMSMFofg" stateDescription="_xDOHIDHkEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_E3Dd8BVdEd-GCupMSMFofg" Name="GetTime" conceptName="_IG7TQBVdEd-GCupMSMFofg" stateDescription="_0LanIDHkEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_KU8C8BVdEd-GCupMSMFofg" Name="GetWeatherForecast" conceptName="_NupJsBVdEd-GCupMSMFofg" stateDescription="_J7DjYDHlEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_PwSRUBVdEd-GCupMSMFofg" Name="GetLegalAdultAge" conceptName="_QymC4BVdEd-GCupMSMFofg" stateDescription="_VrbaIDHlEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_R0dIgBVdEd-GCupMSMFofg" Name="GetIsAdultAge" conceptName="_UUDXcBVdEd-GCupMSMFofg" stateDescription="_sxFRoDHmEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_VVeMYDDhEd-znt_gOxM2fQ" Name="GatherActivityPreferences" conceptName="_jSyw8DDjEd-znt_gOxM2fQ" stateDescription="_pQ0acDHnEd-0g_cYIXW_sQ" subObjectives="_U9LM8BVdEd-GCupMSMFofg _p-_DgDDgEd-znt_gOxM2fQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_U9LM8BVdEd-GCupMSMFofg" Name="GetIsFoodTime" conceptName="_nIA2YTDgEd-znt_gOxM2fQ" stateDescription="_ECXxYDHoEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_p-_DgDDgEd-znt_gOxM2fQ" Name="GetIsNightTime" conceptName="_tpeYQDDgEd-znt_gOxM2fQ" stateDescription="_KTJy8DHoEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_YBR3IBVdEd-GCupMSMFofg" Name="GetUserRequirements" conceptName="_fTPB0BVdEd-GCupMSMFofg" stateDescription="_9rrxkDHmEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_eAYS0BVdEd-GCupMSMFofg" Name="GetUserMovieCinemaPreferences" conceptName="_gIbkcBVdEd-GCupMSMFofg" stateDescription="_BeNoADHnEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_g_HU0BVdEd-GCupMSMFofg" Name="GetUserFoodPreferences" conceptName="_xECxABVdEd-GCupMSMFofg" stateDescription="_d1xTcDHnEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_xuqbUBVdEd-GCupMSMFofg" Name="GetUserNightPreferences" conceptName="_YxEy4Cz3Ed-33bC2udKDSQ" stateDescription="_gwEhYDHnEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_45wwEBVdEd-GCupMSMFofg" Name="GetMovieCinemaSuggestion" conceptName="_BVETABVfEd-GCupMSMFofg" stateDescription="_E6YQEDHrEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_DwMRoBVfEd-GCupMSMFofg" Name="GetFoodSuggestion" conceptName="_EtJCEBVfEd-GCupMSMFofg" stateDescription="_FVJggDHrEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_H41iABVfEd-GCupMSMFofg" Name="GetNightSuggestion" conceptName="_t8XhYCz2Ed-33bC2udKDSQ" stateDescription="_F38EgDHrEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_rEEIYBVZEd-GCupMSMFofg" Name="ObtainPersonalisedContent" conceptName="_vt72gBVZEd-GCupMSMFofg" stateDescription="_e0ywcD1sEd-MFeCdtP-n6Q" subObjectives="_23jkkBVZEd-GCupMSMFofg _8s0u0BVZEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_EftC8EvZEd-PEs9mhihRkA" Name="ChangePreferencesAndRequirements" conceptName="_A70h8EvYEd-PEs9mhihRkA" stateDescription="_AR3XQEveEd-vfah8rmQEfw" subObjectives="_JimVEEvZEd-PEs9mhihRkA _23jkkBVZEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_aKGIQEvYEd-PEs9mhihRkA" Name="ChangeProfile" conceptName="_8AMVcEvXEd-PEs9mhihRkA" stateDescription="_D5YfQEvYEd-PEs9mhihRkA" subObjectives="_23jkkBVZEd-GCupMSMFofg _nJHjcEvYEd-PEs9mhihRkA"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_z1_RABVZEd-GCupMSMFofg" Name="GetPetitions" conceptName="_4wh5UDDtEd-znt_gOxM2fQ" stateDescription="_Lii7EDHkEd-0g_cYIXW_sQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_23jkkBVZEd-GCupMSMFofg" Name="GatherPetitionType" conceptName="_mFzpMBVaEd-GCupMSMFofg" stateDescription="_ZfldsDHkEd-0g_cYIXW_sQ" subObjectives="_z1_RABVZEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_QczGEEvkEd-vfah8rmQEfw" Name="ComposeContent" conceptName="_c-m-sBVbEd-GCupMSMFofg" stateDescription="_Z4e9YEvkEd-vfah8rmQEfw"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_JimVEEvZEd-PEs9mhihRkA" Name="ManageChangePreferencesAndRequirementsPetition" conceptName="_MlqdcEvZEd-PEs9mhihRkA" stateDescription="_NNOacEveEd-vfah8rmQEfw" subObjectives="_VvIjYEvZEd-PEs9mhihRkA"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_5SYBMBVZEd-GCupMSMFofg" Name="PersonaliseContentToBeProvided" conceptName="_6_TdEBVZEd-GCupMSMFofg" stateDescription="_QfSR4EYcEd-TPp4nuYCJrg" subObjectives="_Dx0bkBVaEd-GCupMSMFofg _P70TQBVaEd-GCupMSMFofg _VB2Y8BVaEd-GCupMSMFofg _nAESABVaEd-GCupMSMFofg _R0dIgBVdEd-GCupMSMFofg _rmXuwBVaEd-GCupMSMFofg _VVeMYDDhEd-znt_gOxM2fQ"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_8s0u0BVZEd-GCupMSMFofg" Name="ManageContentPetition" conceptName="_yudoQBVZEd-GCupMSMFofg" stateDescription="_21Cr0EYcEd-TPp4nuYCJrg" subObjectives="_5SYBMBVZEd-GCupMSMFofg _vCKgMBVaEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_nJHjcEvYEd-PEs9mhihRkA" Name="ManageChangeProfilePetition" conceptName="_rxrC8EvYEd-PEs9mhihRkA" stateDescription="_MeVUIEveEd-vfah8rmQEfw" subObjectives="_6bXQMEvYEd-PEs9mhihRkA"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_Dx0bkBVaEd-GCupMSMFofg" Name="GatherUserContext" conceptName="_PBjDYBVaEd-GCupMSMFofg" stateDescription="_8N86MDHkEd-0g_cYIXW_sQ" subObjectives="_DUthcBVdEd-GCupMSMFofg _E3Dd8BVdEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_P70TQBVaEd-GCupMSMFofg" Name="GatherEnvironmentalContext" conceptName="_RvTDEBVaEd-GCupMSMFofg" stateDescription="_BiiZQDHlEd-0g_cYIXW_sQ" subObjectives="_KU8C8BVdEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_S1VeEBVaEd-GCupMSMFofg" Name="GatherContent" conceptName="_UZKoUBVaEd-GCupMSMFofg" stateDescription="_XQWCIDHoEd-0g_cYIXW_sQ" subObjectives="_45wwEBVdEd-GCupMSMFofg _DwMRoBVfEd-GCupMSMFofg _H41iABVfEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_VB2Y8BVaEd-GCupMSMFofg" Name="GatherLegalInfo" conceptName="_cyNW4BVaEd-GCupMSMFofg" stateDescription="_aJdrsDHlEd-0g_cYIXW_sQ" subObjectives="_PwSRUBVdEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_nAESABVaEd-GCupMSMFofg" Name="GatherUserPersonalData" conceptName="_qo1IcBVaEd-GCupMSMFofg" stateDescription="_xI-7cDHlEd-0g_cYIXW_sQ" subObjectives="_5-upgBVcEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_rmXuwBVaEd-GCupMSMFofg" Name="GatherUserRequirementsAndPreferences" conceptName="_t2KnIBVaEd-GCupMSMFofg" stateDescription="_3N_VYDHmEd-0g_cYIXW_sQ" subObjectives="_YBR3IBVdEd-GCupMSMFofg _eAYS0BVdEd-GCupMSMFofg _g_HU0BVdEd-GCupMSMFofg _xuqbUBVdEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_vCKgMBVaEd-GCupMSMFofg" Name="GatherComposeAndProvideContent" conceptName="_Hb_z8EvkEd-vfah8rmQEfw" stateDescription="_ThKaoDHoEd-0g_cYIXW_sQ" subObjectives="_S1VeEBVaEd-GCupMSMFofg _mULYMBVhEd-GCupMSMFofg"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_mULYMBVhEd-GCupMSMFofg" Name="ComposeAndProvideContent" conceptName="_Z1Of8EviEd-vfah8rmQEfw" stateDescription="_YnVqQDHoEd-0g_cYIXW_sQ" subObjectives="_Y01owBViEd-GCupMSMFofg _QczGEEvkEd-vfah8rmQEfw"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_Y01owBViEd-GCupMSMFofg" Name="ShowContent" conceptName="_Z1XRoBViEd-GCupMSMFofg" stateDescription="_1iH3MDHrEd-0g_cYIXW_sQ"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_-6xbEBcwEd-gAJKBDZycBQ" ID="D0" ObjectOfDependency="_23jkkBVZEd-GCupMSMFofg _8s0u0BVZEd-GCupMSMFofg _nJHjcEvYEd-PEs9mhihRkA _JimVEEvZEd-PEs9mhihRkA" Dependant="_ITnoQBVZEd-GCupMSMFofg" Dependee="_Ou5CkBVZEd-GCupMSMFofg"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_AMpc4EvaEd--h7AvOX1hWw" ID="D1" ObjectOfDependency="_VvIjYEvZEd-PEs9mhihRkA _6bXQMEvYEd-PEs9mhihRkA" Dependant="_Ou5CkBVZEd-GCupMSMFofg" Dependee="_ZvawwBVZEd-GCupMSMFofg"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_FiSsMBcyEd-gAJKBDZycBQ" ID="D2" ObjectOfDependency="_KU8C8BVdEd-GCupMSMFofg" Dependant="_YYsOYBVZEd-GCupMSMFofg" Dependee="_dwUaYBVZEd-GCupMSMFofg"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_ZT98YBcxEd-gAJKBDZycBQ" ID="D3" ObjectOfDependency="_z1_RABVZEd-GCupMSMFofg _Y01owBViEd-GCupMSMFofg" Dependant="_Ou5CkBVZEd-GCupMSMFofg" Dependee="_RGlSsBVZEd-GCupMSMFofg"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_kdSaMBcxEd-gAJKBDZycBQ" ID="D4" ObjectOfDependency="_5SYBMBVZEd-GCupMSMFofg _vCKgMBVaEd-GCupMSMFofg" Dependant="_Ou5CkBVZEd-GCupMSMFofg" Dependee="_YYsOYBVZEd-GCupMSMFofg"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_2HZEcBcxEd-gAJKBDZycBQ" ID="D5" ObjectOfDependency="_DUthcBVdEd-GCupMSMFofg _E3Dd8BVdEd-GCupMSMFofg" Dependant="_YYsOYBVZEd-GCupMSMFofg" Dependee="_RGlSsBVZEd-GCupMSMFofg"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_JmKxUBcyEd-gAJKBDZycBQ" ID="D6" ObjectOfDependency="_PwSRUBVdEd-GCupMSMFofg" Dependant="_YYsOYBVZEd-GCupMSMFofg" Dependee="_g4ly4BVZEd-GCupMSMFofg"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_PFikEBcyEd-gAJKBDZycBQ" ID="D7" ObjectOfDependency="_5-upgBVcEd-GCupMSMFofg _xuqbUBVdEd-GCupMSMFofg _g_HU0BVdEd-GCupMSMFofg _eAYS0BVdEd-GCupMSMFofg _YBR3IBVdEd-GCupMSMFofg _U9LM8BVdEd-GCupMSMFofg _p-_DgDDgEd-znt_gOxM2fQ" Dependant="_YYsOYBVZEd-GCupMSMFofg" Dependee="_ZvawwBVZEd-GCupMSMFofg"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:MarketDependency" xmi:id="_TkN3wTJuEd-fEaiMTSSynQ" ID="D8" ObjectOfDependency="_45wwEBVdEd-GCupMSMFofg _H41iABVfEd-GCupMSMFofg _DwMRoBVfEd-GCupMSMFofg" Dependant="_YYsOYBVZEd-GCupMSMFofg" Dependee="_bG46ABVZEd-GCupMSMFofg"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_d52s8BcyEd-gAJKBDZycBQ" ID="D9" ObjectOfDependency="_mULYMBVhEd-GCupMSMFofg" Dependant="_YYsOYBVZEd-GCupMSMFofg" Dependee="_Ou5CkBVZEd-GCupMSMFofg"/>
+      </ss>
+      <is xmi:type="net.sf.ictalive.operetta:IS" xmi:id="_GcQeAxVZEd-GCupMSMFofg">
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_GcQeBBVZEd-GCupMSMFofg" sceneID="GatherPetitionTypeScene" results="_GCQ8oCzyEd-33bC2udKDSQ" description="Default start scene of an interaction structure" type="start">
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_C2gLQCzyEd-33bC2udKDSQ" playerID="116" role="_Ou5CkBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_Xkm8kCzzEd-33bC2udKDSQ" playerID="105" role="_RGlSsBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_cdc60CzzEd-33bC2udKDSQ" playerID="117" role="_ITnoQBVZEd-GCupMSMFofg"/>
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_Dl8rMCzyEd-33bC2udKDSQ">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_GCQ8oCzyEd-33bC2udKDSQ" name="PetitionTypeIdentifiedLandmark" stateDescription="_ZfldsDHkEd-0g_cYIXW_sQ" entails="_23jkkBVZEd-GCupMSMFofg"/>
+          </interactionPattern>
+        </scenes>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_lLT8cCzrEd-33bC2udKDSQ" sceneID="PersonaliseContentToBeProvidedScene" results="_LPZd8Cz0Ed-33bC2udKDSQ" description="">
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_qHea0CzzEd-33bC2udKDSQ" playerID="116" role="_Ou5CkBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_zaeQMCzzEd-33bC2udKDSQ" playerID="105" role="_RGlSsBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_1HGKECzzEd-33bC2udKDSQ" playerID="99" role="_YYsOYBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_2yCo8CzzEd-33bC2udKDSQ" playerID="109" role="_ZvawwBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_0eAN4UYaEd-TPp4nuYCJrg" playerID="108" role="_g4ly4BVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_5EtTQEYaEd-TPp4nuYCJrg" playerID="101" role="_dwUaYBVZEd-GCupMSMFofg"/>
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_Np-xYCzxEd-33bC2udKDSQ">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_Oj6DACzxEd-33bC2udKDSQ" name="UserDataCollectedLandmark" stateDescription="_cejcEEOyEd-cjpbH8W0zKg" entails="_Dx0bkBVaEd-GCupMSMFofg _nAESABVaEd-GCupMSMFofg"/>
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_cXJwcCzxEd-33bC2udKDSQ" name="ExternalInfoCollectedLandmark" stateDescription="_qE6kEEOyEd-cjpbH8W0zKg" entails="_P70TQBVaEd-GCupMSMFofg _VB2Y8BVaEd-GCupMSMFofg"/>
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_LPZd8Cz0Ed-33bC2udKDSQ" name="ContentToBeProvidedPersonalisedLandmark" stateDescription="_QfSR4EYcEd-TPp4nuYCJrg" entails="_5SYBMBVZEd-GCupMSMFofg"/>
+            <landmarkOrder xmi:type="net.sf.ictalive.operetta:PartialOrder" xmi:id="_lN-f0Cz0Ed-33bC2udKDSQ" from="_cXJwcCzxEd-33bC2udKDSQ" to="_LPZd8Cz0Ed-33bC2udKDSQ"/>
+            <landmarkOrder xmi:type="net.sf.ictalive.operetta:PartialOrder" xmi:id="_oSkSMCz0Ed-33bC2udKDSQ" from="_Oj6DACzxEd-33bC2udKDSQ" to="_LPZd8Cz0Ed-33bC2udKDSQ"/>
+          </interactionPattern>
+        </scenes>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_cVglAEvaEd--h7AvOX1hWw" sceneID="ChangeUserProfileScene">
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_eMfUwEvaEd--h7AvOX1hWw" role="_Ou5CkBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_oyitcEvaEd--h7AvOX1hWw" role="_ZvawwBVZEd-GCupMSMFofg"/>
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_cVglAUvaEd--h7AvOX1hWw">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_4u_jEEvaEd--h7AvOX1hWw" name="UserProfileChanged"/>
+          </interactionPattern>
+        </scenes>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_vI3WUEvaEd--h7AvOX1hWw" sceneID="ChangeUserPreferencesAndRequirementsScene">
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_z_E3UEvaEd--h7AvOX1hWw" role="_Ou5CkBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_1wyskEvaEd--h7AvOX1hWw" role="_ZvawwBVZEd-GCupMSMFofg"/>
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_vI3WUUvaEd--h7AvOX1hWw">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_5e_coEvaEd--h7AvOX1hWw" name="UserPreferencesAndRequirementsChanged"/>
+          </interactionPattern>
+        </scenes>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_Sb3lUCzsEd-33bC2udKDSQ" sceneID="CollectPersonalisedCinemaContentScene" results="_ZVEGMCz2Ed-33bC2udKDSQ">
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_EB5_sCz4Ed-33bC2udKDSQ" playerID="99" role="_YYsOYBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_HVAvMCz4Ed-33bC2udKDSQ" playerID="109" role="_ZvawwBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_KTQB8Cz4Ed-33bC2udKDSQ" playerID="112" role="_bG46ABVZEd-GCupMSMFofg"/>
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_yuWUkCz0Ed-33bC2udKDSQ">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_2eLcUCz0Ed-33bC2udKDSQ" name="GatherUserRequirementsAndMovieCinemaPreferencesLandmark" stateDescription="_3N_VYDHmEd-0g_cYIXW_sQ" entails="_rmXuwBVaEd-GCupMSMFofg"/>
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_ZVEGMCz2Ed-33bC2udKDSQ" name="CollectMovieCinemaContentLandmark" stateDescription="_XQWCIDHoEd-0g_cYIXW_sQ" entails="_S1VeEBVaEd-GCupMSMFofg"/>
+            <landmarkOrder xmi:type="net.sf.ictalive.operetta:PartialOrder" xmi:id="_eSDSsCz4Ed-33bC2udKDSQ" from="_2eLcUCz0Ed-33bC2udKDSQ" to="_ZVEGMCz2Ed-33bC2udKDSQ"/>
+          </interactionPattern>
+        </scenes>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_UmxWoCzsEd-33bC2udKDSQ" sceneID="CollectPersonalisedFoodContentScene" results="_aUmQkCz2Ed-33bC2udKDSQ">
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_OM7pQCz4Ed-33bC2udKDSQ" playerID="99" role="_YYsOYBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_QA5hQCz4Ed-33bC2udKDSQ" playerID="109" role="_ZvawwBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_So3CACz4Ed-33bC2udKDSQ" playerID="112" role="_bG46ABVZEd-GCupMSMFofg"/>
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_JIb8ACz1Ed-33bC2udKDSQ">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_KX1uYCz1Ed-33bC2udKDSQ" name="GatherUserRequirementsAndFoodPreferencesLandmark" stateDescription="_3N_VYDHmEd-0g_cYIXW_sQ" entails="_rmXuwBVaEd-GCupMSMFofg"/>
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_aUmQkCz2Ed-33bC2udKDSQ" name="CollectFoodContentLandmark" stateDescription="_XQWCIDHoEd-0g_cYIXW_sQ" entails="_S1VeEBVaEd-GCupMSMFofg"/>
+            <landmarkOrder xmi:type="net.sf.ictalive.operetta:PartialOrder" xmi:id="_fAwy0Cz4Ed-33bC2udKDSQ" from="_KX1uYCz1Ed-33bC2udKDSQ" to="_aUmQkCz2Ed-33bC2udKDSQ"/>
+          </interactionPattern>
+        </scenes>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_U-jkgCzsEd-33bC2udKDSQ" sceneID="CollectPersonalisedNightContentScene" results="_atQBICz2Ed-33bC2udKDSQ">
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_Vx7rwCz4Ed-33bC2udKDSQ" playerID="99" role="_YYsOYBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_YW2fkCz4Ed-33bC2udKDSQ" playerID="112" role="_bG46ABVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_XEKIoCz4Ed-33bC2udKDSQ" playerID="109" role="_ZvawwBVZEd-GCupMSMFofg"/>
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_JqfgMCz1Ed-33bC2udKDSQ">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_L88D8Cz1Ed-33bC2udKDSQ" name="GatherUserRequirementsAndNightPreferencesLandmark" stateDescription="_3N_VYDHmEd-0g_cYIXW_sQ" entails="_rmXuwBVaEd-GCupMSMFofg"/>
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_atQBICz2Ed-33bC2udKDSQ" name="CollectNightContentLandmark" stateDescription="_XQWCIDHoEd-0g_cYIXW_sQ" entails="_S1VeEBVaEd-GCupMSMFofg"/>
+            <landmarkOrder xmi:type="net.sf.ictalive.operetta:PartialOrder" xmi:id="_dPPx4Cz4Ed-33bC2udKDSQ" from="_L88D8Cz1Ed-33bC2udKDSQ" to="_atQBICz2Ed-33bC2udKDSQ"/>
+          </interactionPattern>
+        </scenes>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_UUhBoCzvEd-33bC2udKDSQ" sceneID="ProvideComposedContentScene" results="_ZXd48C0BEd-33bC2udKDSQ" description="" type="end">
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_0xG5sCz4Ed-33bC2udKDSQ" playerID="99" role="_YYsOYBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_Bd8poC0CEd-33bC2udKDSQ" playerID="116" role="_Ou5CkBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_Cq8BMC0CEd-33bC2udKDSQ" playerID="105" role="_RGlSsBVZEd-GCupMSMFofg"/>
+          <players xmi:type="net.sf.ictalive.operetta:Player" xmi:id="_EY2UgC0CEd-33bC2udKDSQ" playerID="117" role="_ITnoQBVZEd-GCupMSMFofg"/>
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_0RLccCz4Ed-33bC2udKDSQ">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_2EGLkCz4Ed-33bC2udKDSQ" name="ComposeContentLandamrk" stateDescription="_ThKaoDHoEd-0g_cYIXW_sQ" entails="_mULYMBVhEd-GCupMSMFofg"/>
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_ZXd48C0BEd-33bC2udKDSQ" name="ProvideComposedContentLandmark" stateDescription="_B95bYDHsEd-0g_cYIXW_sQ"/>
+            <landmarkOrder xmi:type="net.sf.ictalive.operetta:PartialOrder" xmi:id="_tRMccC0BEd-33bC2udKDSQ" from="_2EGLkCz4Ed-33bC2udKDSQ" to="_ZXd48C0BEd-33bC2udKDSQ"/>
+          </interactionPattern>
+        </scenes>
+        <transitions xmi:type="net.sf.ictalive.operetta:Transition" xmi:id="_JmuesCzuEd-33bC2udKDSQ" transitionID="T4"/>
+        <transitions xmi:type="net.sf.ictalive.operetta:Transition" xmi:id="_SaW3gCzuEd-33bC2udKDSQ" transitionID="T6" transitionType="XOR"/>
+        <transitions xmi:type="net.sf.ictalive.operetta:Transition" xmi:id="_hrjwsCzuEd-33bC2udKDSQ" transitionID="T8"/>
+        <transitions xmi:type="net.sf.ictalive.operetta:Transition" xmi:id="_63KBACzvEd-33bC2udKDSQ" transitionID="T24" transitionType="XOR"/>
+        <transitions xmi:type="net.sf.ictalive.operetta:Transition" xmi:id="_EkvA0DXIEd-Ple_-1tYvwg" transitionID="T16" transitionType="XOR"/>
+        <transitions xmi:type="net.sf.ictalive.operetta:Transition" xmi:id="_ZefpsEvcEd-4b-XfYQlwnw" transitionID="T80"/>
+        <transitions xmi:type="net.sf.ictalive.operetta:Transition" xmi:id="_Z1SZEEvcEd-4b-XfYQlwnw" transitionID="T81"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:SceneToTransitionArc" xmi:id="_KI0fICzuEd-33bC2udKDSQ" arcID="A4" accessible="_YYsOYBVZEd-GCupMSMFofg _ZvawwBVZEd-GCupMSMFofg" from="_lLT8cCzrEd-33bC2udKDSQ" to="_JmuesCzuEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_KueJ4CzuEd-33bC2udKDSQ" arcID="A5" accessible="_YYsOYBVZEd-GCupMSMFofg _ZvawwBVZEd-GCupMSMFofg" from="_JmuesCzuEd-33bC2udKDSQ" to="_Sb3lUCzsEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:SceneToTransitionArc" xmi:id="_TGiBACzuEd-33bC2udKDSQ" arcID="A9" accessible="_YYsOYBVZEd-GCupMSMFofg" from="_Sb3lUCzsEd-33bC2udKDSQ" to="_SaW3gCzuEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_TimR8CzuEd-33bC2udKDSQ" arcID="A10" accessible="_YYsOYBVZEd-GCupMSMFofg" from="_SaW3gCzuEd-33bC2udKDSQ" to="_UUhBoCzvEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_T8yTkCzuEd-33bC2udKDSQ" arcID="A11" accessible="_YYsOYBVZEd-GCupMSMFofg _bG46ABVZEd-GCupMSMFofg _ZvawwBVZEd-GCupMSMFofg" from="_SaW3gCzuEd-33bC2udKDSQ" to="_UmxWoCzsEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_Vl7boCzuEd-33bC2udKDSQ" arcID="A12" accessible="_YYsOYBVZEd-GCupMSMFofg _bG46ABVZEd-GCupMSMFofg _ZvawwBVZEd-GCupMSMFofg" from="_SaW3gCzuEd-33bC2udKDSQ" to="_U-jkgCzsEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:SceneToTransitionArc" xmi:id="_kA5QYCzuEd-33bC2udKDSQ" arcID="A14" accessible="_YYsOYBVZEd-GCupMSMFofg" from="_U-jkgCzsEd-33bC2udKDSQ" to="_hrjwsCzuEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_kycpICzuEd-33bC2udKDSQ" arcID="A15" accessible="_YYsOYBVZEd-GCupMSMFofg" from="_hrjwsCzuEd-33bC2udKDSQ" to="_UUhBoCzvEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:SceneToTransitionArc" xmi:id="_7cF6ECzvEd-33bC2udKDSQ" arcID="A53" accessible="_YYsOYBVZEd-GCupMSMFofg" from="_UmxWoCzsEd-33bC2udKDSQ" to="_63KBACzvEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_73SBQCzvEd-33bC2udKDSQ" arcID="A54" accessible="_YYsOYBVZEd-GCupMSMFofg" from="_63KBACzvEd-33bC2udKDSQ" to="_UUhBoCzvEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_CLUyMCzwEd-33bC2udKDSQ" arcID="A55" accessible="_YYsOYBVZEd-GCupMSMFofg _bG46ABVZEd-GCupMSMFofg _ZvawwBVZEd-GCupMSMFofg" from="_63KBACzvEd-33bC2udKDSQ" to="_U-jkgCzsEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:SceneToTransitionArc" xmi:id="_FEyZ4DXIEd-Ple_-1tYvwg" arcID="A44" from="_GcQeBBVZEd-GCupMSMFofg" to="_EkvA0DXIEd-Ple_-1tYvwg"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_FoGiUDXIEd-Ple_-1tYvwg" arcID="A45" from="_EkvA0DXIEd-Ple_-1tYvwg" to="_lLT8cCzrEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_bys9cEvbEd-4b-XfYQlwnw" arcID="A72" from="_EkvA0DXIEd-Ple_-1tYvwg" to="_cVglAEvaEd--h7AvOX1hWw"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_ex4EUEvbEd-4b-XfYQlwnw" arcID="A86" from="_EkvA0DXIEd-Ple_-1tYvwg" to="_vI3WUEvaEd--h7AvOX1hWw"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:SceneToTransitionArc" xmi:id="_awmx0EvcEd-4b-XfYQlwnw" arcID="A181" from="_cVglAEvaEd--h7AvOX1hWw" to="_Z1SZEEvcEd-4b-XfYQlwnw"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_bRBXQEvcEd-4b-XfYQlwnw" arcID="A182" from="_Z1SZEEvcEd-4b-XfYQlwnw" to="_UUhBoCzvEd-33bC2udKDSQ"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:SceneToTransitionArc" xmi:id="_bp6YYEvcEd-4b-XfYQlwnw" arcID="A183" from="_vI3WUEvaEd--h7AvOX1hWw" to="_ZefpsEvcEd-4b-XfYQlwnw"/>
+        <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_cFQQkEvcEd-4b-XfYQlwnw" arcID="A184" from="_ZefpsEvcEd-4b-XfYQlwnw" to="_UUhBoCzvEd-33bC2udKDSQ"/>
+      </is>
+      <ns xmi:type="net.sf.ictalive.operetta:NS" xmi:id="_GcQeBhVZEd-GCupMSMFofg"/>
+      <cs xmi:type="net.sf.ictalive.operetta:CS" xmi:id="_GcQeBxVZEd-GCupMSMFofg">
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_ITK1ADHkEd-0g_cYIXW_sQ" predicate="isLoggedOnICD" concept="_g05tIEL1Ed-Oy6N7ug40jw" arguments="_baDOAEL1Ed-Oy6N7ug40jw _crUBkEL1Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_Lii7EDHkEd-0g_cYIXW_sQ" predicate="isInteractingWithICD" concept="_raDYwEO3Ed-cjpbH8W0zKg" arguments="_baDOAEL1Ed-Oy6N7ug40jw _crUBkEL1Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_QVP1EDHkEd-0g_cYIXW_sQ" leftStateFormula="_Lii7EDHkEd-0g_cYIXW_sQ" rightStateFormula="_ITK1ADHkEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_ZfldsDHkEd-0g_cYIXW_sQ" predicate="isOfTypePetition" concept="_pzZSIEL1Ed-Oy6N7ug40jw" arguments="_i4hKsEL1Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_Z4e9YEvkEd-vfah8rmQEfw" predicate="ContentComposed"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_rvLg4EveEd-vfah8rmQEfw" predicate="userPreferencesAndRequirementsChanged"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_luhmAEveEd-vfah8rmQEfw" predicate="userProfileChanged"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_MeVUIEveEd-vfah8rmQEfw" predicate="ChangeProfilePetitionManaged"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_NNOacEveEd-vfah8rmQEfw" predicate="ChangePreferencesAndRequirementsPetitionManaged"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_AR3XQEveEd-vfah8rmQEfw" predicate="PreferencesAndRequirementsChanged"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_q9L9ADHkEd-0g_cYIXW_sQ" predicate="hasLocation" concept="_-9KhMEL1Ed-Oy6N7ug40jw" arguments="_crUBkEL1Ed-Oy6N7ug40jw _3nwZ4EL1Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_xDOHIDHkEd-0g_cYIXW_sQ" leftStateFormula="_Lii7EDHkEd-0g_cYIXW_sQ" rightStateFormula="_q9L9ADHkEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_vH6RADHkEd-0g_cYIXW_sQ" predicate="hasTime" concept="_voigkEL1Ed-Oy6N7ug40jw" arguments="_crUBkEL1Ed-Oy6N7ug40jw _2HmOsEL1Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_0LanIDHkEd-0g_cYIXW_sQ" leftStateFormula="_Lii7EDHkEd-0g_cYIXW_sQ" rightStateFormula="_vH6RADHkEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_8N86MDHkEd-0g_cYIXW_sQ" predicate="userContextGathered" concept="_V09woEL8Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_BiiZQDHlEd-0g_cYIXW_sQ" predicate="EnvironmentalContextGathered" concept="_YIOMsEL8Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_HIJ98DHlEd-0g_cYIXW_sQ" predicate="hasForecast" concept="_EFXxIEL2Ed-Oy6N7ug40jw" arguments="_3nwZ4EL1Ed-Oy6N7ug40jw _A3nbsEL2Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_J7DjYDHlEd-0g_cYIXW_sQ" leftStateFormula="_xDOHIDHkEd-0g_cYIXW_sQ" rightStateFormula="_HIJ98DHlEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_PeXa8DHlEd-0g_cYIXW_sQ" predicate="hasLegalAdultAge" concept="_jwWVIEL2Ed-Oy6N7ug40jw" arguments="_3nwZ4EL1Ed-Oy6N7ug40jw _fexLMEL2Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_VrbaIDHlEd-0g_cYIXW_sQ" leftStateFormula="_xDOHIDHkEd-0g_cYIXW_sQ" rightStateFormula="_PeXa8DHlEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_aJdrsDHlEd-0g_cYIXW_sQ" predicate="legalInfoGathered" concept="_ZL0-wEL8Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_xI-7cDHlEd-0g_cYIXW_sQ" predicate="userPersonalDataGathered" concept="_Wy7NsEL8Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_HwZNMDHmEd-0g_cYIXW_sQ" predicate="hasAge" concept="_KofGkEL7Ed-Oy6N7ug40jw" arguments="_baDOAEL1Ed-Oy6N7ug40jw _GzyF4EL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_bRX5gDHmEd-0g_cYIXW_sQ" predicate="greaterThan" concept="_TYyekEL7Ed-Oy6N7ug40jw" arguments="_GzyF4EL7Ed-Oy6N7ug40jw _fexLMEL2Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_pNlVsDHmEd-0g_cYIXW_sQ" leftStateFormula="_VrbaIDHlEd-0g_cYIXW_sQ" rightStateFormula="_HwZNMDHmEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_sxFRoDHmEd-0g_cYIXW_sQ" leftStateFormula="_pNlVsDHmEd-0g_cYIXW_sQ" rightStateFormula="_bRX5gDHmEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_3N_VYDHmEd-0g_cYIXW_sQ" predicate="userRequirementsAndPreferencesGathered" concept="_e1EUoEL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_9rrxkDHmEd-0g_cYIXW_sQ" predicate="hasRequirements" concept="_3WlioEL7Ed-Oy6N7ug40jw" arguments="_baDOAEL1Ed-Oy6N7ug40jw _0gs6oEL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_BeNoADHnEd-0g_cYIXW_sQ" predicate="hasMovieCinemaPreferences" concept="_69msoEL7Ed-Oy6N7ug40jw" arguments="_baDOAEL1Ed-Oy6N7ug40jw _4pet4EL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_d1xTcDHnEd-0g_cYIXW_sQ" predicate="hasFoodPreferences" concept="_Fi7skEL8Ed-Oy6N7ug40jw" arguments="_baDOAEL1Ed-Oy6N7ug40jw _4pet4EL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_gwEhYDHnEd-0g_cYIXW_sQ" predicate="hasNightPreferences" concept="_LMlcsEL8Ed-Oy6N7ug40jw" arguments="_baDOAEL1Ed-Oy6N7ug40jw _4pet4EL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_pQ0acDHnEd-0g_cYIXW_sQ" predicate="ActivityPreferencesGathered" concept="_gEacoEL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_5Sg8cDHnEd-0g_cYIXW_sQ" predicate="fitsInTime" concept="_m0sdoEL7Ed-Oy6N7ug40jw" arguments="_2HmOsEL1Ed-Oy6N7ug40jw _hyNbMEL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_9_Up0DHnEd-0g_cYIXW_sQ" predicate="hasUserFoodTime" concept="_kl31oEL7Ed-Oy6N7ug40jw" arguments="_2HmOsEL1Ed-Oy6N7ug40jw _hyNbMEL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_A0Jh4DHoEd-0g_cYIXW_sQ" predicate="hasUserNightTime" concept="_ojKxoEL7Ed-Oy6N7ug40jw" arguments="_2HmOsEL1Ed-Oy6N7ug40jw _hyNbMEL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_ECXxYDHoEd-0g_cYIXW_sQ" leftStateFormula="_9_Up0DHnEd-0g_cYIXW_sQ" rightStateFormula="_5Sg8cDHnEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_KTJy8DHoEd-0g_cYIXW_sQ" leftStateFormula="_A0Jh4DHoEd-0g_cYIXW_sQ" rightStateFormula="_5Sg8cDHnEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_ThKaoDHoEd-0g_cYIXW_sQ" predicate="ContentGatheredAndComposed" concept="_rETRoEL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_XQWCIDHoEd-0g_cYIXW_sQ" predicate="ContentGathered" concept="_sJbtsEL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_YnVqQDHoEd-0g_cYIXW_sQ" predicate="composeSuggestion" concept="_ynPeoEL7Ed-Oy6N7ug40jw" arguments="_taK80EL7Ed-Oy6N7ug40jw _u4NBEEL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_oTztsDHpEd-0g_cYIXW_sQ" predicate="fitsInRequirements" concept="_9LrGsEL7Ed-Oy6N7ug40jw" arguments="_0gs6oEL7Ed-Oy6N7ug40jw _taK80EL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_sJygwDHpEd-0g_cYIXW_sQ" predicate="fitsInPreferences" concept="__Ui3sEL7Ed-Oy6N7ug40jw" arguments="_4pet4EL7Ed-Oy6N7ug40jw _taK80EL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_Dk45QDHqEd-0g_cYIXW_sQ" leftStateFormula="_oTztsDHpEd-0g_cYIXW_sQ" rightStateFormula="_sJygwDHpEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_zl4e4DHpEd-0g_cYIXW_sQ" predicate="hasMovieCinemaSuggestion" concept="_BMLHsEL8Ed-Oy6N7ug40jw" arguments="_taK80EL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_aOpUYDHqEd-0g_cYIXW_sQ" leftStateFormula="_9rrxkDHmEd-0g_cYIXW_sQ" rightStateFormula="_BeNoADHnEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_tgO50DHqEd-0g_cYIXW_sQ" leftStateFormula="_aOpUYDHqEd-0g_cYIXW_sQ" rightStateFormula="_Dk45QDHqEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_E6YQEDHrEd-0g_cYIXW_sQ" leftStateFormula="_tgO50DHqEd-0g_cYIXW_sQ" rightStateFormula="_zl4e4DHpEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_50J_ADHpEd-0g_cYIXW_sQ" predicate="hasFoodSuggestion" concept="_IGhqsEL8Ed-Oy6N7ug40jw" arguments="_taK80EL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_awPlkDHqEd-0g_cYIXW_sQ" leftStateFormula="_9rrxkDHmEd-0g_cYIXW_sQ" rightStateFormula="_d1xTcDHnEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_t9v8QDHqEd-0g_cYIXW_sQ" leftStateFormula="_awPlkDHqEd-0g_cYIXW_sQ" rightStateFormula="_Dk45QDHqEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_FVJggDHrEd-0g_cYIXW_sQ" leftStateFormula="_t9v8QDHqEd-0g_cYIXW_sQ" rightStateFormula="_50J_ADHpEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_8_pDkDHpEd-0g_cYIXW_sQ" predicate="hasNightSuggestion" concept="_NcK5sEL8Ed-Oy6N7ug40jw" arguments="_taK80EL7Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_bRWHgDHqEd-0g_cYIXW_sQ" leftStateFormula="_9rrxkDHmEd-0g_cYIXW_sQ" rightStateFormula="_gwEhYDHnEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_ugAUwDHqEd-0g_cYIXW_sQ" leftStateFormula="_bRWHgDHqEd-0g_cYIXW_sQ" rightStateFormula="_Dk45QDHqEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_F38EgDHrEd-0g_cYIXW_sQ" leftStateFormula="_ugAUwDHqEd-0g_cYIXW_sQ" rightStateFormula="_8_pDkDHpEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_1iH3MDHrEd-0g_cYIXW_sQ" predicate="shown" concept="_SqVnsEL8Ed-Oy6N7ug40jw" arguments="_P578oEL8Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_B95bYDHsEd-0g_cYIXW_sQ" predicate="ComposedContentProvided" concept="_UAF5sEL8Ed-Oy6N7ug40jw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_QfSR4EYcEd-TPp4nuYCJrg" predicate="ContentPersonalized"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_21Cr0EYcEd-TPp4nuYCJrg" predicate="ContentPetitionManaged"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_HSx_AT1pEd-MFeCdtP-n6Q" leftStateFormula="_HwZNMDHmEd-0g_cYIXW_sQ" rightStateFormula="_QVP1EDHkEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Negation" xmi:id="_XxxhAD1pEd-MFeCdtP-n6Q" stateFormula="_ITK1ADHkEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_sIEEsD1pEd-MFeCdtP-n6Q" leftStateFormula="_Lii7EDHkEd-0g_cYIXW_sQ" rightStateFormula="_XxxhAD1pEd-MFeCdtP-n6Q"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_uwoCYD1pEd-MFeCdtP-n6Q" predicate="hasAge" concept="_KofGkEL7Ed-Oy6N7ug40jw" arguments="_baDOAEL1Ed-Oy6N7ug40jw _lBK6gD1pEd-MFeCdtP-n6Q"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_DpfusD1qEd-MFeCdtP-n6Q" leftStateFormula="_uwoCYD1pEd-MFeCdtP-n6Q" rightStateFormula="_sIEEsD1pEd-MFeCdtP-n6Q"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Disjunction" xmi:id="_UwxYsD1qEd-MFeCdtP-n6Q" leftStateFormula="_HSx_AT1pEd-MFeCdtP-n6Q" rightStateFormula="_DpfusD1qEd-MFeCdtP-n6Q"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="__5DRAD1rEd-MFeCdtP-n6Q" leftStateFormula="_HwZNMDHmEd-0g_cYIXW_sQ" rightStateFormula="_PeXa8DHlEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_Gdi4wD1sEd-MFeCdtP-n6Q" leftStateFormula="__5DRAD1rEd-MFeCdtP-n6Q" rightStateFormula="_bRX5gDHmEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Disjunction" xmi:id="_OqlLoD1sEd-MFeCdtP-n6Q" leftStateFormula="_uwoCYD1pEd-MFeCdtP-n6Q" rightStateFormula="_Gdi4wD1sEd-MFeCdtP-n6Q"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_e0ywcD1sEd-MFeCdtP-n6Q" predicate="PersonalisedContentObtained"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_cejcEEOyEd-cjpbH8W0zKg" leftStateFormula="_8N86MDHkEd-0g_cYIXW_sQ" rightStateFormula="_xI-7cDHlEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_qE6kEEOyEd-cjpbH8W0zKg" leftStateFormula="_BiiZQDHlEd-0g_cYIXW_sQ" rightStateFormula="_aJdrsDHlEd-0g_cYIXW_sQ"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_D5YfQEvYEd-PEs9mhihRkA" predicate="ProfileChanged"/>
+        <ontology xmi:type="net.sf.ictalive.operetta:Ontology" xmi:id="_GcQeCBVZEd-GCupMSMFofg" ontologyID="Default">
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_NBEO0BVZEd-GCupMSMFofg" concept="User" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#User"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_QWwYQBVZEd-GCupMSMFofg" concept="InteractionTaskManager" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#InteractionTaskManager"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_X0CpMBVZEd-GCupMSMFofg" concept="Interface" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#Interface"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_ZOCiABVZEd-GCupMSMFofg" concept="ContentAdaptor" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ContentAdaptor"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_abrZ0BVZEd-GCupMSMFofg" concept="UserModeller" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#UserModeller"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_c16AkBVZEd-GCupMSMFofg" concept="ContentProvider" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ContentProvider"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_gGN6wBVZEd-GCupMSMFofg" concept="EnvironmentalContextManager" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#EnvironmentalContextManager"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_iT7vgBVZEd-GCupMSMFofg" concept="LegalInfoManager" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#LegalInfoManager"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_vt72gBVZEd-GCupMSMFofg" concept="ObtainPersonalisedContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ObtainPersonalisedContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_yudoQBVZEd-GCupMSMFofg" concept="ManageContentPetition" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ManageContentPetition"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_05VkYBVZEd-GCupMSMFofg" concept="CollectPetition" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#CollectPetition"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_2Vup4BVZEd-GCupMSMFofg" concept="CollectPetitions" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#CollectPetitions"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_4N1bABVZEd-GCupMSMFofg" concept="ProvidePetitionType" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ProvidePetitionType"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_6_TdEBVZEd-GCupMSMFofg" concept="PersonaliseContentToBeProvided" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#PersonaliseContentToBeProvided"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_C90LwBVaEd-GCupMSMFofg" concept="ManageConentPetition" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ManageConentPetition"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_PBjDYBVaEd-GCupMSMFofg" concept="GatherUserContext" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GatherUserContext"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_RvTDEBVaEd-GCupMSMFofg" concept="GatherEnvironmentalContext" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GatherEnvironmentalContext"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_UZKoUBVaEd-GCupMSMFofg" concept="GatherContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GatherContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_YpHakBVaEd-GCupMSMFofg" concept="CollectContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#CollectContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_cZLL0BVaEd-GCupMSMFofg" concept="GatherLegalInfoi" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GatherLegalInfoi"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_cyNW4BVaEd-GCupMSMFofg" concept="GatherLegalInfo" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GatherLegalInfo"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_mFzpMBVaEd-GCupMSMFofg" concept="GatherPetitionType" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GatherPetitionType"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_qo1IcBVaEd-GCupMSMFofg" concept="GatherUserPersonalData" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GatherUserPersonalData"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_t2KnIBVaEd-GCupMSMFofg" concept="GatherUserRequirementsAndPreferences" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GatherUserRequirementsAndPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_c-m-sBVbEd-GCupMSMFofg" concept="ComposeContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ComposeContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_g3AzoBVbEd-GCupMSMFofg" concept="ProvideCo" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ProvideCo"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_hrm5UBVbEd-GCupMSMFofg" concept="ProvideComposedContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ProvideComposedContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_AgQc0BVdEd-GCupMSMFofg" concept="GetUserAge" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetUserAge"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_EViFQBVdEd-GCupMSMFofg" concept="GetUserLocation" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetUserLocation"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_IG7TQBVdEd-GCupMSMFofg" concept="GetTime" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_NupJsBVdEd-GCupMSMFofg" concept="GetWeatherForecast" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetWeatherForecast"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_QymC4BVdEd-GCupMSMFofg" concept="GetLegalAdultAge" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetLegalAdultAge"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_UUDXcBVdEd-GCupMSMFofg" concept="GetIsAdultAge" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetIsAdultAge"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_XG3dUBVdEd-GCupMSMFofg" concept="GetIsMealTime" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetIsMealTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Z5YBMBVdEd-GCupMSMFofg" concept="getUserRequirements" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#getUserRequirements"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_evn-cBVdEd-GCupMSMFofg" concept="Get" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#Get"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_fTPB0BVdEd-GCupMSMFofg" concept="GetUserRequirements" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetUserRequirements"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_gIbkcBVdEd-GCupMSMFofg" concept="GetUserMovieCinemaPreferences" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetUserMovieCinemaPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_tu9EgBVdEd-GCupMSMFofg" concept="GetUser" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetUser"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_xECxABVdEd-GCupMSMFofg" concept="GetUserFoodPreferences" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetUserFoodPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_zRm0wBVdEd-GCupMSMFofg" concept="GetUserDrinkPreferences" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetUserDrinkPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_BVETABVfEd-GCupMSMFofg" concept="GetMovieCinemaSuggestion" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetMovieCinemaSuggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_EtJCEBVfEd-GCupMSMFofg" concept="GetFoodSuggestion" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetFoodSuggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_JANZwBVfEd-GCupMSMFofg" concept="GetDrinkSuggestion" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetDrinkSuggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_n_K6YBVhEd-GCupMSMFofg" concept="ComposeMovieCinema" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ComposeMovieCinema"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_tU2loBVhEd-GCupMSMFofg" concept="ComposeMovieCinemaContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ComposeMovieCinemaContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_u_sW0BVhEd-GCupMSMFofg" concept="ComposeFoodContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ComposeFoodContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_w_PzwBVhEd-GCupMSMFofg" concept="ComposeDrinkContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ComposeDrinkContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_1GQscBVhEd-GCupMSMFofg" concept="ProvideComposedMovieCinemaContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ProvideComposedMovieCinemaContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Z1XRoBViEd-GCupMSMFofg" concept="ShowContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ShowContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_t8XhYCz2Ed-33bC2udKDSQ" concept="GetNightSuggestion" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetNightSuggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_y-msMCz2Ed-33bC2udKDSQ" concept="ComposeNightContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ComposeNightContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_YxEy4Cz3Ed-33bC2udKDSQ" concept="GetUserNightPreferences" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetUserNightPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_77p7MC0AEd-33bC2udKDSQ" concept="CollectAndComposeContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#CollectAndComposeContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_nIA2YTDgEd-znt_gOxM2fQ" concept="GetIsFoodTime" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetIsFoodTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_tpeYQDDgEd-znt_gOxM2fQ" concept="GetIsNightTime" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetIsNightTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Yl73kDDhEd-znt_gOxM2fQ" concept="GetActivityPreference" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetActivityPreference"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_7AsbkDDhEd-znt_gOxM2fQ" concept="GetActivityPreferences" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetActivityPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_jSyw8DDjEd-znt_gOxM2fQ" concept="GatherActivityPreferences" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GatherActivityPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_4wh5UDDtEd-znt_gOxM2fQ" concept="GetPetitions" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GetPetitions"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_bqVJwDDuEd-znt_gOxM2fQ" concept="GatherAndComposeContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#GatherAndComposeContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_mrH64D1pEd-MFeCdtP-n6Q" concept="Underage" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#Underage"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_53QYkD1pEd-MFeCdtP-n6Q" concept="UNDERGAE" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#UNDERGAE"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_6sNDkD1pEd-MFeCdtP-n6Q" concept="UNDERAGE" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#UNDERAGE"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_b7UvEEL1Ed-Oy6N7ug40jw" concept="user"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_dJw4IEL1Ed-Oy6N7ug40jw" concept="ICD"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_g05tIEL1Ed-Oy6N7ug40jw" concept="isLoggedOnICD"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_lNDZIEL1Ed-Oy6N7ug40jw" concept="interaction"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_pzZSIEL1Ed-Oy6N7ug40jw" concept="isOfTypePetition"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_uRenAEL1Ed-Oy6N7ug40jw" concept="time"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_voigkEL1Ed-Oy6N7ug40jw" concept="hasTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_4NVMIEL1Ed-Oy6N7ug40jw" concept="location"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_-9KhMEL1Ed-Oy6N7ug40jw" concept="hasLocation"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_C2zFMEL2Ed-Oy6N7ug40jw" concept="Forecast"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_EFXxIEL2Ed-Oy6N7ug40jw" concept="hasForecast"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_gysRMEL2Ed-Oy6N7ug40jw" concept="LegalAdultAge"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_jwWVIEL2Ed-Oy6N7ug40jw" concept="hasLegalAdultAge"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_HhgukEL7Ed-Oy6N7ug40jw" concept="age"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_KofGkEL7Ed-Oy6N7ug40jw" concept="hasAge"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_TYyekEL7Ed-Oy6N7ug40jw" concept="greaterThan"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_e1EUoEL7Ed-Oy6N7ug40jw" concept="userRequirementsAndPreferencesGathered"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_gEacoEL7Ed-Oy6N7ug40jw" concept="ActivityPreferencesGathered"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_if4ZgEL7Ed-Oy6N7ug40jw" concept="userTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_kl31oEL7Ed-Oy6N7ug40jw" concept="hasUserFoodTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_m0sdoEL7Ed-Oy6N7ug40jw" concept="fitsInTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_ojKxoEL7Ed-Oy6N7ug40jw" concept="hasUserNightTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_rETRoEL7Ed-Oy6N7ug40jw" concept="ContentGatheredAndComposed"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_sJbtsEL7Ed-Oy6N7ug40jw" concept="ContentGathered"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_v4h1oEL7Ed-Oy6N7ug40jw" concept="ComposedSuggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_wjkWsEL7Ed-Oy6N7ug40jw" concept="Suggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_ynPeoEL7Ed-Oy6N7ug40jw" concept="composeSuggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_1jEWkEL7Ed-Oy6N7ug40jw" concept="userRequirements"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_3WlioEL7Ed-Oy6N7ug40jw" concept="hasRequirements"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_5Wm5oEL7Ed-Oy6N7ug40jw" concept="userPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_69msoEL7Ed-Oy6N7ug40jw" concept="hasMovieCinemaPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_9LrGsEL7Ed-Oy6N7ug40jw" concept="fitsInRequirements"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="__Ui3sEL7Ed-Oy6N7ug40jw" concept="fitsInPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_BMLHsEL8Ed-Oy6N7ug40jw" concept="hasMovieCinemaSuggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Fi7skEL8Ed-Oy6N7ug40jw" concept="hasFoodPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_IGhqsEL8Ed-Oy6N7ug40jw" concept="hasFoodSuggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_LMlcsEL8Ed-Oy6N7ug40jw" concept="hasNightPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_NcK5sEL8Ed-Oy6N7ug40jw" concept="hasNightSuggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Q_1NsEL8Ed-Oy6N7ug40jw" concept="composedSuggestion"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_SqVnsEL8Ed-Oy6N7ug40jw" concept="shown"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_UAF5sEL8Ed-Oy6N7ug40jw" concept="ComposedContentProvided"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_V09woEL8Ed-Oy6N7ug40jw" concept="userContextGathered"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Wy7NsEL8Ed-Oy6N7ug40jw" concept="userPersonalDataGathered"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_YIOMsEL8Ed-Oy6N7ug40jw" concept="EnvironmentalContextGathered"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_ZL0-wEL8Ed-Oy6N7ug40jw" concept="legalInfoGathered"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_raDYwEO3Ed-cjpbH8W0zKg" concept="isInteractingWithICD"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_uum5wEO3Ed-cjpbH8W0zKg" concept="PersonalisedContentObtained"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_7GSR8EvXEd-PEs9mhihRkA" concept="Change_profile"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_8AMVcEvXEd-PEs9mhihRkA" concept="ChangeProfile"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_9ZeckEvXEd-PEs9mhihRkA" concept=""/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_AGpNcEvYEd-PEs9mhihRkA" concept="ChangePreferencesAndRequiremnets"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_A70h8EvYEd-PEs9mhihRkA" concept="ChangePreferencesAndRequirements"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_rxrC8EvYEd-PEs9mhihRkA" concept="ManageChangeProfilePetition"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_7_WLcEvYEd-PEs9mhihRkA" concept="ChangeUserProfile"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_MlqdcEvZEd-PEs9mhihRkA" concept="ManageChangePreferencesAndRequirementsPetition"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_X2t68EvZEd-PEs9mhihRkA" concept="ChangeUserPreferencesAndRequirements"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_2oDdAEvgEd-vfah8rmQEfw" concept="ProvideAndComposeContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Z1Of8EviEd-vfah8rmQEfw" concept="ComposeAndProvideContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Hb_z8EvkEd-vfah8rmQEfw" concept="GatherComposeAndProvideContent"/>
+        </ontology>
+        <ontology xmi:type="net.sf.ictalive.operetta:Ontology" xmi:id="_8ZEZoEF9Ed-264_KxNMSSw" ontologyID="Additions">
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_AXVmAEF-Ed-264_KxNMSSw" concept="UserInteraction" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#UserInteraction"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Rw89MEF-Ed-264_KxNMSSw" concept="Petition" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#Petition"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_x3uFUEF-Ed-264_KxNMSSw" concept="Location" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#Location"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_KuOE0EF_Ed-264_KxNMSSw" concept="DateTime" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#DateTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_mTmscEF_Ed-264_KxNMSSw" concept="UserName" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#UserName"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_5_Q-wEF_Ed-264_KxNMSSw" concept="UserAge" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#UserAge"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_LD9AEEGGEd-264_KxNMSSw" concept="LegalInfo" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#LegalInfo"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_ar85kEGPEd-264_KxNMSSw" concept="NightTime" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#NightTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_AKW0wEGQEd-264_KxNMSSw" concept="FoodTime" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#FoodTime"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Vpgd8EGQEd-264_KxNMSSw" concept="NightPreferences" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#NightPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_NNcbIEGREd-264_KxNMSSw" concept="FoodPreferences" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#FoodPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_leuNsEGREd-264_KxNMSSw" concept="MovieCinemaPreferences" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#MovieCinemaPreferences"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_JQaIYEGSEd-264_KxNMSSw" concept="WeatherForecast" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#WeatherForecast"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_q1VQkEGSEd-264_KxNMSSw" concept="UserRequirements" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#UserRequirements"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_dfn-QEGTEd-264_KxNMSSw" concept="MovieCinemaContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#MovieCinemaContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_7rYyQEGTEd-264_KxNMSSw" concept="AdultAge" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#AdultAge"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_jxXMMUIOEd-cOe8azE8Igw" concept="FoodContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#FoodContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_1MOrIEIPEd-cOe8azE8Igw" concept="ComposedContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#ComposedContent"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_JehfoEIQEd-cOe8azE8Igw" concept="NightContent" URI="http://ict-alive.svn.sourceforge.net/viewvc/ict-alive/UseCases/TMT/trunk/Demo/Model/TMTOntology/TMT.owl#NightContent"/>
+        </ontology>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_lBK6gD1pEd-MFeCdtP-n6Q" name="UNDERAGE" concept="_6sNDkD1pEd-MFeCdtP-n6Q"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_baDOAEL1Ed-Oy6N7ug40jw" name="user" concept="_b7UvEEL1Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_crUBkEL1Ed-Oy6N7ug40jw" name="ICD" concept="_dJw4IEL1Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_i4hKsEL1Ed-Oy6N7ug40jw" name="interaction" concept="_lNDZIEL1Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_2HmOsEL1Ed-Oy6N7ug40jw" name="time" concept="_uRenAEL1Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_3nwZ4EL1Ed-Oy6N7ug40jw" name="location" concept="_4NVMIEL1Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_A3nbsEL2Ed-Oy6N7ug40jw" name="Forecast" concept="_C2zFMEL2Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_fexLMEL2Ed-Oy6N7ug40jw" name="LegalAdultAge" concept="_gysRMEL2Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_GzyF4EL7Ed-Oy6N7ug40jw" name="age" concept="_HhgukEL7Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_hyNbMEL7Ed-Oy6N7ug40jw" name="userTime" concept="_if4ZgEL7Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_0gs6oEL7Ed-Oy6N7ug40jw" name="userRequirements" concept="_1jEWkEL7Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_4pet4EL7Ed-Oy6N7ug40jw" name="userPreferences" concept="_5Wm5oEL7Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_taK80EL7Ed-Oy6N7ug40jw" name="Suggestion" concept="_wjkWsEL7Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_u4NBEEL7Ed-Oy6N7ug40jw" name="ComposedSuggestion" concept="_v4h1oEL7Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_P578oEL8Ed-Oy6N7ug40jw" name="composedSuggestion" concept="_Q_1NsEL8Ed-Oy6N7ug40jw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_LaiBwEYgEd-TPp4nuYCJrg" name="97"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_Pys74EYgEd-TPp4nuYCJrg" name="98"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_Q9_qUEYgEd-TPp4nuYCJrg" name="99"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_SZew4EYgEd-TPp4nuYCJrg" name="100"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_TgCwUEYgEd-TPp4nuYCJrg" name="101"/>
+      </cs>
+    </om>
+  </net.sf.ictalive.operetta:OperAModel>
+  <notation:Diagram xmi:id="_GdTm4BVZEd-GCupMSMFofg" type="SS" element="_GcQeAhVZEd-GCupMSMFofg" name="SS_Diagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_VikuYBcxEd-gAJKBDZycBQ" type="2001" element="_ITnoQBVZEd-GCupMSMFofg" fontHeight="11">
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikuYhcxEd-gAJKBDZycBQ" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikuYxcxEd-gAJKBDZycBQ" type="5002"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VikuYRcxEd-gAJKBDZycBQ" x="52" y="228"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_VikuZBcxEd-gAJKBDZycBQ" type="2001" element="_Ou5CkBVZEd-GCupMSMFofg" fontHeight="11">
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikuZhcxEd-gAJKBDZycBQ" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikuZxcxEd-gAJKBDZycBQ" type="5002"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VikuZRcxEd-gAJKBDZycBQ" x="264" y="228"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_VikuaBcxEd-gAJKBDZycBQ" type="2001" element="_RGlSsBVZEd-GCupMSMFofg" fontHeight="11">
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikuahcxEd-gAJKBDZycBQ" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikuaxcxEd-gAJKBDZycBQ" type="5002"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VikuaRcxEd-gAJKBDZycBQ" x="424" y="44"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_VikubBcxEd-gAJKBDZycBQ" type="2001" element="_YYsOYBVZEd-GCupMSMFofg" fontHeight="11">
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikubhcxEd-gAJKBDZycBQ" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikubxcxEd-gAJKBDZycBQ" type="5002"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VikubRcxEd-gAJKBDZycBQ" x="552" y="236"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_VikucBcxEd-gAJKBDZycBQ" type="2001" element="_ZvawwBVZEd-GCupMSMFofg" fontHeight="11">
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikuchcxEd-gAJKBDZycBQ" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikucxcxEd-gAJKBDZycBQ" type="5002"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VikucRcxEd-gAJKBDZycBQ" x="416" y="396"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_VikudBcxEd-gAJKBDZycBQ" type="2001" element="_bG46ABVZEd-GCupMSMFofg" fontHeight="11">
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikudhcxEd-gAJKBDZycBQ" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikudxcxEd-gAJKBDZycBQ" type="5002"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VikudRcxEd-gAJKBDZycBQ" x="820" y="236"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_VikueBcxEd-gAJKBDZycBQ" type="2001" element="_dwUaYBVZEd-GCupMSMFofg" fontHeight="11">
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikuehcxEd-gAJKBDZycBQ" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikuexcxEd-gAJKBDZycBQ" type="5002"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VikueRcxEd-gAJKBDZycBQ" x="760" y="52"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_VikufBcxEd-gAJKBDZycBQ" type="2001" element="_g4ly4BVZEd-GCupMSMFofg" fontHeight="11">
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikufhcxEd-gAJKBDZycBQ" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_VikufxcxEd-gAJKBDZycBQ" type="5002"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VikufRcxEd-gAJKBDZycBQ" x="812" y="364"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_GdTm4RVZEd-GCupMSMFofg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_Vit4UBcxEd-gAJKBDZycBQ" type="4003" element="_-6xbEBcwEd-gAJKBDZycBQ" source="_VikuYBcxEd-gAJKBDZycBQ" target="_VikuZBcxEd-gAJKBDZycBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_Vit4UxcxEd-gAJKBDZycBQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vit4VBcxEd-gAJKBDZycBQ" x="23" y="-53"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_Vit4URcxEd-gAJKBDZycBQ" fontHeight="11"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Vit4UhcxEd-gAJKBDZycBQ" points="[0, 0, 0, 60]$[0, -60, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Vi3pUhcxEd-gAJKBDZycBQ" id="(0.9857142857142858,0.4523809523809524)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Vi3pUxcxEd-gAJKBDZycBQ" id="(0.011695906432748537,0.4523809523809524)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_v92TUBcxEd-gAJKBDZycBQ" type="4003" element="_ZT98YBcxEd-gAJKBDZycBQ" source="_VikuZBcxEd-gAJKBDZycBQ" target="_VikuaBcxEd-gAJKBDZycBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_v92TUxcxEd-gAJKBDZycBQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_v92TVBcxEd-gAJKBDZycBQ" x="21" y="-43"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_v92TURcxEd-gAJKBDZycBQ" fontHeight="11"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v92TUhcxEd-gAJKBDZycBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_v92TWhcxEd-gAJKBDZycBQ" type="4003" element="_kdSaMBcxEd-gAJKBDZycBQ" source="_VikuZBcxEd-gAJKBDZycBQ" target="_VikubBcxEd-gAJKBDZycBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_v92TXRcxEd-gAJKBDZycBQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_v92TXhcxEd-gAJKBDZycBQ" x="-22" y="-21"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_v92TWxcxEd-gAJKBDZycBQ" fontHeight="11"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_v92TXBcxEd-gAJKBDZycBQ" points="[68, -15, -203, -23]$[136, -30, -135, -38]$[220, -7, -51, -15]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_9Dc3oBcxEd-gAJKBDZycBQ" type="4003" element="_2HZEcBcxEd-gAJKBDZycBQ" source="_VikubBcxEd-gAJKBDZycBQ" target="_VikuaBcxEd-gAJKBDZycBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_9Dc3oxcxEd-gAJKBDZycBQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_9Dc3pBcxEd-gAJKBDZycBQ" x="4" y="50"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_9Dc3oRcxEd-gAJKBDZycBQ" fontHeight="11"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9Dc3ohcxEd-gAJKBDZycBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_ioV1UBcyEd-gAJKBDZycBQ" type="4003" element="_FiSsMBcyEd-gAJKBDZycBQ" source="_VikubBcxEd-gAJKBDZycBQ" target="_VikueBcxEd-gAJKBDZycBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ioV1UxcyEd-gAJKBDZycBQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ioV1VBcyEd-gAJKBDZycBQ" x="73" y="49"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ioV1URcyEd-gAJKBDZycBQ" fontHeight="11"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ioV1UhcyEd-gAJKBDZycBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_ioV1VRcyEd-gAJKBDZycBQ" type="4003" element="_JmKxUBcyEd-gAJKBDZycBQ" source="_VikubBcxEd-gAJKBDZycBQ" target="_VikufBcxEd-gAJKBDZycBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ioV1WBcyEd-gAJKBDZycBQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ioV1WRcyEd-gAJKBDZycBQ" x="36" y="-27"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ioV1VhcyEd-gAJKBDZycBQ" fontHeight="11"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ioV1VxcyEd-gAJKBDZycBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_ioV1WhcyEd-gAJKBDZycBQ" type="4003" element="_PFikEBcyEd-gAJKBDZycBQ" source="_VikubBcxEd-gAJKBDZycBQ" target="_VikucBcxEd-gAJKBDZycBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ioV1XRcyEd-gAJKBDZycBQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ioV1XhcyEd-gAJKBDZycBQ" x="-31" y="-97"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ioV1WxcyEd-gAJKBDZycBQ" fontHeight="11"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ioV1XBcyEd-gAJKBDZycBQ" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_ioV1ZBcyEd-gAJKBDZycBQ" type="4003" element="_d52s8BcyEd-gAJKBDZycBQ" source="_VikubBcxEd-gAJKBDZycBQ" target="_VikuZBcxEd-gAJKBDZycBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ioV1ZxcyEd-gAJKBDZycBQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ioV1aBcyEd-gAJKBDZycBQ" x="11" y="-14"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ioV1ZRcyEd-gAJKBDZycBQ" fontHeight="11"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ioV1ZhcyEd-gAJKBDZycBQ" points="[-64, 8, 255, 38]$[-184, 24, 135, 54]$[-267, -9, 52, 21]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_HCG4cTMmEd-Nc65trzaV6g" type="4002" element="_TkN3wTJuEd-fEaiMTSSynQ" source="_VikubBcxEd-gAJKBDZycBQ" target="_VikudBcxEd-gAJKBDZycBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_HCIGkDMmEd-Nc65trzaV6g" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HCIGkTMmEd-Nc65trzaV6g" x="22" y="-33"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_HCHfgDMmEd-Nc65trzaV6g" fontName="Lucida Grande" fontHeight="11"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HCHfgTMmEd-Nc65trzaV6g" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_XcF3oEvdEd-vfah8rmQEfw" type="4003" element="_AMpc4EvaEd--h7AvOX1hWw" source="_VikuZBcxEd-gAJKBDZycBQ" target="_VikucBcxEd-gAJKBDZycBQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_XcGesEvdEd-vfah8rmQEfw" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XcGesUvdEd-vfah8rmQEfw" x="-46" y="92"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_XcF3oUvdEd-vfah8rmQEfw" fontName="Lucida Grande" fontHeight="11"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XcF3okvdEd-vfah8rmQEfw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_Gdcw0BVZEd-GCupMSMFofg" type="IS" element="_GcQeAxVZEd-GCupMSMFofg" name="IS_Diagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Node" xmi:id="_dBpjICzqEd-33bC2udKDSQ" type="2102" element="_GcQeBBVZEd-GCupMSMFofg">
+      <children xmi:type="notation:DecorationNode" xmi:id="_dBpjJCzqEd-33bC2udKDSQ" type="5102"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_dBpjISzqEd-33bC2udKDSQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_dBpjIizqEd-33bC2udKDSQ" fontName="Segoe UI"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dBpjIyzqEd-33bC2udKDSQ" x="68" y="228"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_lLWYsCzrEd-33bC2udKDSQ" type="2101" element="_lLT8cCzrEd-33bC2udKDSQ" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_lLW_wCzrEd-33bC2udKDSQ" type="5101"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lLWYsSzrEd-33bC2udKDSQ" x="120" y="328"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Sb4zcCzsEd-33bC2udKDSQ" type="2101" element="_Sb3lUCzsEd-33bC2udKDSQ" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_Sb5agCzsEd-33bC2udKDSQ" type="5101"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Sb4zcSzsEd-33bC2udKDSQ" x="400" y="324"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Um1BACzsEd-33bC2udKDSQ" type="2101" element="_UmxWoCzsEd-33bC2udKDSQ" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_Um2PICzsEd-33bC2udKDSQ" type="5101"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Um1BASzsEd-33bC2udKDSQ" x="608" y="500"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_U-nO4CzsEd-33bC2udKDSQ" type="2101" element="_U-jkgCzsEd-33bC2udKDSQ" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_U-odACzsEd-33bC2udKDSQ" type="5101"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U-n18CzsEd-33bC2udKDSQ" x="732" y="384"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_JmxiACzuEd-33bC2udKDSQ" type="2104" element="_JmuesCzuEd-33bC2udKDSQ" fontName="Segoe UI">
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JmxiASzuEd-33bC2udKDSQ" x="344" y="336"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_SagBcCzuEd-33bC2udKDSQ" type="2106" element="_SaW3gCzuEd-33bC2udKDSQ" fontName="Segoe UI">
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SagBcSzuEd-33bC2udKDSQ" x="649" y="328"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_hrm0ACzuEd-33bC2udKDSQ" type="2104" element="_hrjwsCzuEd-33bC2udKDSQ" fontName="Segoe UI">
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hrm0ASzuEd-33bC2udKDSQ" x="948" y="396"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_63O5gCzvEd-33bC2udKDSQ" type="2106" element="_63KBACzvEd-33bC2udKDSQ" fontName="Segoe UI">
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_63O5gSzvEd-33bC2udKDSQ" x="904" y="504"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_8OdF8C0BEd-33bC2udKDSQ" type="2103" element="_UUhBoCzvEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_8OdF9C0BEd-33bC2udKDSQ" type="5103"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_8OdF8S0BEd-33bC2udKDSQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_8OdF8i0BEd-33bC2udKDSQ" fontName="Segoe UI"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8OdF8y0BEd-33bC2udKDSQ" x="1036" y="320"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_GiY-kC3sEd-7AKCJw9XQ7A" type="Note" fontName="Segoe UI" description="GatherPetitionTypeScene" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_GiaMsC3sEd-7AKCJw9XQ7A" type="DiagramName">
+        <element xsi:nil="true"/>
+      </children>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_GiazwC3sEd-7AKCJw9XQ7A" type="Description">
+        <element xsi:nil="true"/>
+      </children>
+      <styles xmi:type="notation:TextStyle" xmi:id="_GiY-kS3sEd-7AKCJw9XQ7A"/>
+      <styles xmi:type="notation:LineTypeStyle" xmi:id="_GiY-ki3sEd-7AKCJw9XQ7A"/>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GiY-ky3sEd-7AKCJw9XQ7A" x="4" y="152" width="186" height="41"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_SAnVYC3sEd-7AKCJw9XQ7A" type="Note" fontName="Segoe UI" description="ProvideComposedContentScene" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_SAn8cC3sEd-7AKCJw9XQ7A" type="DiagramName">
+        <element xsi:nil="true"/>
+      </children>
+      <children xmi:type="notation:BasicDecorationNode" xmi:id="_SAn8cS3sEd-7AKCJw9XQ7A" type="Description">
+        <element xsi:nil="true"/>
+      </children>
+      <styles xmi:type="notation:TextStyle" xmi:id="_SAnVYS3sEd-7AKCJw9XQ7A"/>
+      <styles xmi:type="notation:LineTypeStyle" xmi:id="_SAnVYi3sEd-7AKCJw9XQ7A"/>
+      <element xsi:nil="true"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SAnVYy3sEd-7AKCJw9XQ7A" x="1032" y="440"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_EkyrMDXIEd-Ple_-1tYvwg" type="2106" element="_EkvA0DXIEd-Ple_-1tYvwg" fontName="Lucida Grande">
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EkyrMTXIEd-Ple_-1tYvwg" x="208" y="244"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_oS68wEvbEd-4b-XfYQlwnw" type="2101" element="_cVglAEvaEd--h7AvOX1hWw" fontName="Lucida Grande">
+      <children xmi:type="notation:DecorationNode" xmi:id="_oS68wkvbEd-4b-XfYQlwnw" type="5101"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oS68wUvbEd-4b-XfYQlwnw" x="560" y="152"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_oS68w0vbEd-4b-XfYQlwnw" type="2101" element="_vI3WUEvaEd--h7AvOX1hWw" fontName="Lucida Grande">
+      <children xmi:type="notation:DecorationNode" xmi:id="_oS7j0EvbEd-4b-XfYQlwnw" type="5101"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oS68xEvbEd-4b-XfYQlwnw" x="492" y="236"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_ZeiF8EvcEd-4b-XfYQlwnw" type="2104" element="_ZefpsEvcEd-4b-XfYQlwnw" fontName="Lucida Grande">
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZeiF8UvcEd-4b-XfYQlwnw" x="936" y="252"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_Z1TnMEvcEd-4b-XfYQlwnw" type="2104" element="_Z1SZEEvcEd-4b-XfYQlwnw" fontName="Lucida Grande">
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z1TnMUvcEd-4b-XfYQlwnw" x="932" y="168"/>
+    </children>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_Gdcw0RVZEd-GCupMSMFofg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_KI27YCzuEd-33bC2udKDSQ" type="4102" element="_KI0fICzuEd-33bC2udKDSQ" source="_lLWYsCzrEd-33bC2udKDSQ" target="_JmxiACzuEd-33bC2udKDSQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_KI3icCzuEd-33bC2udKDSQ" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KI3icSzuEd-33bC2udKDSQ" points="[21, 0, -87, -5]$[107, 4, -1, -1]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KI9pECzuEd-33bC2udKDSQ" id="(0.8970588235294118,0.46)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_KufYACzuEd-33bC2udKDSQ" type="4101" element="_KueJ4CzuEd-33bC2udKDSQ" source="_JmxiACzuEd-33bC2udKDSQ" target="_Sb4zcCzsEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_Kuf_ECzuEd-33bC2udKDSQ" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Kuf_ESzuEd-33bC2udKDSQ" x="-5" y="-12"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_KufYASzuEd-33bC2udKDSQ" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KufYAizuEd-33bC2udKDSQ" points="[8, -2, -89, 12]$[83, -15, -14, -1]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_KujpcCzuEd-33bC2udKDSQ" id="(0.06334841628959276,0.48)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_TGjPICzuEd-33bC2udKDSQ" type="4102" element="_TGiBACzuEd-33bC2udKDSQ" source="_Sb4zcCzsEd-33bC2udKDSQ" target="_SagBcCzuEd-33bC2udKDSQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_TGjPISzuEd-33bC2udKDSQ" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TGjPIizuEd-33bC2udKDSQ" points="[30, -1, -161, -1]$[184, -13, -7, -13]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TGmScCzuEd-33bC2udKDSQ" id="(0.8642533936651584,0.4)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_T8zhsCzuEd-33bC2udKDSQ" type="4101" element="_T8yTkCzuEd-33bC2udKDSQ" source="_SagBcCzuEd-33bC2udKDSQ" target="_Um1BACzsEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_T80IwCzuEd-33bC2udKDSQ" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_T80IwSzuEd-33bC2udKDSQ" x="-6" y="16"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_T8zhsSzuEd-33bC2udKDSQ" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_T8zhsizuEd-33bC2udKDSQ" points="[8, 11, -118, -190]$[122, 193, -4, -8]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_T84aMCzuEd-33bC2udKDSQ" id="(0.2849462365591398,0.18)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_Vl934CzuEd-33bC2udKDSQ" type="4101" element="_Vl7boCzuEd-33bC2udKDSQ" source="_SagBcCzuEd-33bC2udKDSQ" target="_U-nO4CzsEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_Vl_GACzuEd-33bC2udKDSQ" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Vl_GASzuEd-33bC2udKDSQ" x="9" y="-12"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_Vl934SzuEd-33bC2udKDSQ" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Vl934izuEd-33bC2udKDSQ" points="[1, 15, 0, -77]$[3, 90, 2, -2]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VmGawCzuEd-33bC2udKDSQ" id="(0.015957446808510637,0.46)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_kA_XACzuEd-33bC2udKDSQ" type="4102" element="_kA5QYCzuEd-33bC2udKDSQ" source="_U-nO4CzsEd-33bC2udKDSQ" target="_hrm0ACzuEd-33bC2udKDSQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_kA_XASzuEd-33bC2udKDSQ" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kA_XAizuEd-33bC2udKDSQ" points="[14, 0, -55, -4]$[62, 3, -7, -1]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kBDBYCzuEd-33bC2udKDSQ" id="(0.9285714285714286,0.54)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_7cHvQCzvEd-33bC2udKDSQ" type="4102" element="_7cF6ECzvEd-33bC2udKDSQ" source="_Um1BACzsEd-33bC2udKDSQ" target="_63O5gCzvEd-33bC2udKDSQ">
+      <styles xmi:type="notation:FontStyle" xmi:id="_7cHvQSzvEd-33bC2udKDSQ" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7cHvQizvEd-33bC2udKDSQ" points="[17, 4, -73, -20]$[83, 24, -7, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7cNO0CzvEd-33bC2udKDSQ" id="(0.9166666666666666,0.34)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_CLWAUCzwEd-33bC2udKDSQ" type="4101" element="_CLUyMCzwEd-33bC2udKDSQ" source="_63O5gCzvEd-33bC2udKDSQ" target="_U-nO4CzsEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_CLWnYCzwEd-33bC2udKDSQ" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_CLWnYSzwEd-33bC2udKDSQ" x="-5" y="12"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_CLWAUSzwEd-33bC2udKDSQ" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_CLWAUizwEd-33bC2udKDSQ" points="[-7, 10, 127, -145]$[-30, 136, 104, -19]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_fEiUIS3rEd-7AKCJw9XQ7A" type="4101" element="_TimR8CzuEd-33bC2udKDSQ" source="_SagBcCzuEd-33bC2udKDSQ" target="_8OdF8C0BEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_fEjiQC3rEd-7AKCJw9XQ7A" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_fEjiQS3rEd-7AKCJw9XQ7A" x="23" y="-8"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_fEiUIi3rEd-7AKCJw9XQ7A" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fEiUIy3rEd-7AKCJw9XQ7A" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_fEpo4C3rEd-7AKCJw9XQ7A" type="4101" element="_kycpICzuEd-33bC2udKDSQ" source="_hrm0ACzuEd-33bC2udKDSQ" target="_8OdF8C0BEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_fEqP8C3rEd-7AKCJw9XQ7A" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_fEqP8S3rEd-7AKCJw9XQ7A" x="-2" y="-14"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_fEpo4S3rEd-7AKCJw9XQ7A" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fEpo4i3rEd-7AKCJw9XQ7A" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_fEtTQC3rEd-7AKCJw9XQ7A" type="4101" element="_73SBQCzvEd-33bC2udKDSQ" source="_63O5gCzvEd-33bC2udKDSQ" target="_8OdF8C0BEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_fEtTQy3rEd-7AKCJw9XQ7A" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_fEtTRC3rEd-7AKCJw9XQ7A" x="-13" y="13"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_fEtTQS3rEd-7AKCJw9XQ7A" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fEtTQi3rEd-7AKCJw9XQ7A" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_GiwyAC3sEd-7AKCJw9XQ7A" type="NoteAttachment" source="_GiY-kC3sEd-7AKCJw9XQ7A" target="_dBpjICzqEd-33bC2udKDSQ" lineWidth="1">
+      <styles xmi:type="notation:ArrowStyle" xmi:id="_GiwyAS3sEd-7AKCJw9XQ7A"/>
+      <styles xmi:type="notation:LineTypeStyle" xmi:id="_GiwyAi3sEd-7AKCJw9XQ7A"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_GiwyAy3sEd-7AKCJw9XQ7A" points="[0, 0, -65, -45]$[40, 27, -25, -18]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_SAq_wC3sEd-7AKCJw9XQ7A" type="NoteAttachment" source="_SAnVYC3sEd-7AKCJw9XQ7A" target="_8OdF8C0BEd-33bC2udKDSQ" lineWidth="1">
+      <styles xmi:type="notation:ArrowStyle" xmi:id="_SAq_wS3sEd-7AKCJw9XQ7A"/>
+      <styles xmi:type="notation:LineTypeStyle" xmi:id="_SAq_wi3sEd-7AKCJw9XQ7A"/>
+      <element xsi:nil="true"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SAq_wy3sEd-7AKCJw9XQ7A" points="[0, 0, -1070, -345]$[1045, 336, -25, -9]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_FEzoADXIEd-Ple_-1tYvwg" type="4102" element="_FEyZ4DXIEd-Ple_-1tYvwg" source="_dBpjICzqEd-33bC2udKDSQ" target="_EkyrMDXIEd-Ple_-1tYvwg">
+      <styles xmi:type="notation:FontStyle" xmi:id="_FEzoATXIEd-Ple_-1tYvwg" fontName="Lucida Grande"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_FEzoAjXIEd-Ple_-1tYvwg" points="[5, 2, -138, 0]$[141, 2, -2, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FE1dMDXIEd-Ple_-1tYvwg" id="(0.9,0.64)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FE1dMTXIEd-Ple_-1tYvwg" id="(0.13333333333333333,0.5333333333333333)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_FoHJYDXIEd-Ple_-1tYvwg" type="4101" element="_FoGiUDXIEd-Ple_-1tYvwg" source="_EkyrMDXIEd-Ple_-1tYvwg" target="_lLWYsCzrEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_FoHwcDXIEd-Ple_-1tYvwg" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_FoHwcTXIEd-Ple_-1tYvwg" x="-4" y="-23"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_FoHJYTXIEd-Ple_-1tYvwg" fontName="Lucida Grande"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_FoHJYjXIEd-Ple_-1tYvwg" points="[-7, 4, 117, -75]$[-134, 67, -10, -12]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FoJloDXIEd-Ple_-1tYvwg" id="(0.44680851063829785,0.24)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_oS-AEEvbEd-4b-XfYQlwnw" type="4101" element="_bys9cEvbEd-4b-XfYQlwnw" source="_EkyrMDXIEd-Ple_-1tYvwg" target="_oS68wEvbEd-4b-XfYQlwnw">
+      <children xmi:type="notation:DecorationNode" xmi:id="_oS-nIEvbEd-4b-XfYQlwnw" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_oS-nIUvbEd-4b-XfYQlwnw" x="-9" y="-14"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_oS-AEUvbEd-4b-XfYQlwnw" fontName="Lucida Grande"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oS-AEkvbEd-4b-XfYQlwnw" points="[6, -15, -401, 67]$[33, -82, -374, 0]$[345, -82, -62, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_oS_OMEvbEd-4b-XfYQlwnw" type="4101" element="_ex4EUEvbEd-4b-XfYQlwnw" source="_EkyrMDXIEd-Ple_-1tYvwg" target="_oS68w0vbEd-4b-XfYQlwnw">
+      <children xmi:type="notation:DecorationNode" xmi:id="_oS_OM0vbEd-4b-XfYQlwnw" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_oS_ONEvbEd-4b-XfYQlwnw" x="-10" y="-21"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_oS_OMUvbEd-4b-XfYQlwnw" fontName="Lucida Grande"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oS_OMkvbEd-4b-XfYQlwnw" points="[8, -1, -269, 11]$[277, -12, 0, 0]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JJ4LsEvcEd-4b-XfYQlwnw" id="(0.0,0.46)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_awn_8EvcEd-4b-XfYQlwnw" type="4102" element="_awmx0EvcEd-4b-XfYQlwnw" source="_oS68wEvbEd-4b-XfYQlwnw" target="_Z1TnMEvcEd-4b-XfYQlwnw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_awn_8UvcEd-4b-XfYQlwnw" fontName="Lucida Grande"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_awn_8kvcEd-4b-XfYQlwnw" points="[29, 3, -198, -21]$[225, 22, -2, -2]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_awp1IEvcEd-4b-XfYQlwnw" id="(0.768,0.56)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_awp1IUvcEd-4b-XfYQlwnw" id="(0.13333333333333333,0.4)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_bRB-UEvcEd-4b-XfYQlwnw" type="4101" element="_bRBXQEvcEd-4b-XfYQlwnw" source="_Z1TnMEvcEd-4b-XfYQlwnw" target="_8OdF8C0BEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_bRB-U0vcEd-4b-XfYQlwnw" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_bRB-VEvcEd-4b-XfYQlwnw" x="-14" y="-13"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_bRB-UUvcEd-4b-XfYQlwnw" fontName="Lucida Grande"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bRB-UkvcEd-4b-XfYQlwnw" points="[8, 5, -173, -133]$[156, 129, -25, -9]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_bp6_cEvcEd-4b-XfYQlwnw" type="4102" element="_bp6YYEvcEd-4b-XfYQlwnw" source="_oS68w0vbEd-4b-XfYQlwnw" target="_ZeiF8EvcEd-4b-XfYQlwnw">
+      <styles xmi:type="notation:FontStyle" xmi:id="_bp6_cUvcEd-4b-XfYQlwnw" fontName="Lucida Grande"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bp6_ckvcEd-4b-XfYQlwnw" points="[24, 1, -226, 0]$[243, 1, -7, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_bp8NkEvcEd-4b-XfYQlwnw" id="(0.8933333333333333,0.6)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_cFQ3oEvcEd-4b-XfYQlwnw" type="4101" element="_cFQQkEvcEd-4b-XfYQlwnw" source="_ZeiF8EvcEd-4b-XfYQlwnw" target="_8OdF8C0BEd-33bC2udKDSQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_cFQ3o0vcEd-4b-XfYQlwnw" type="6101">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cFQ3pEvcEd-4b-XfYQlwnw" x="-12" y="10"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_cFQ3oUvcEd-4b-XfYQlwnw" fontName="Lucida Grande"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cFQ3okvcEd-4b-XfYQlwnw" points="[8, 10, -153, -220]$[143, 205, -18, -25]"/>
+    </edges>
+  </notation:Diagram>
+</xmi:XMI>

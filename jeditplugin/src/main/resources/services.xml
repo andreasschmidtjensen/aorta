@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE SERVICES SYSTEM "services.dtd">
+<SERVICES>
+    <SERVICE NAME="aorta" CLASS="sidekick.SideKickParser">
+        new aorta.jeditplugin.AortaSideKickParser();
+    </SERVICE>
+    <SERVICE NAME="aorta_metamodel" CLASS="sidekick.SideKickParser">
+        new aorta.jeditplugin.AortaMetamodelSideKickParser();
+    </SERVICE>
+</SERVICES>

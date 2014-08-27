@@ -323,7 +323,6 @@ public class BuiltIn extends Library {
 		 goal = convertTermToGoal(goal);
 		 if (goal == null)
 			 throw PrologError.type_error(engineManager, 1, "callable", goal);
-		 
 		 engineManager.identify(goal);
 		 engineManager.pushSubGoal(ClauseInfo.extractBody(goal));
 		 return true;

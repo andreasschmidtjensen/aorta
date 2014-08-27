@@ -4,6 +4,8 @@
  */
 package aorta;
 
+import alice.tuprolog.NoSolutionException;
+import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Var;
 import aorta.kr.KBType;
@@ -13,9 +15,6 @@ import aorta.kr.util.Qualifier;
 import aorta.msg.IncomingOrganizationalMessage;
 import aorta.msg.OutgoingOrganizationalMessage;
 import aorta.reasoning.ActionRule;
-import aorta.reasoning.OptionRule;
-import aorta.reasoning.coordination.CoordinationRule;
-import aorta.reasoning.coordination.MentalStateChange;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -34,30 +33,22 @@ public class AgentState {
 	
 	private AortaAgent agent;
 	private MentalState mentalState;
-	private List<OptionRule> optionRules;
 	private List<ActionRule> actionRules;
-	private List<CoordinationRule> coordinationRules;
 	private Queue<OutgoingOrganizationalMessage> out;
 	private ExternalAgent externalAgent;
 	private AortaBridge bridge;
 	private List<Var> bindings;
 	
-	private MentalStateChange msc;
-
-	public AgentState(AortaAgent agent, MentalState mentalState, List<OptionRule> optionRules, List<ActionRule> actionRules, List<CoordinationRule> coordinationRules) {
+	public AgentState(AortaAgent agent, MentalState mentalState, List<ActionRule> actionRules) {
 		this.agent = agent;
 		this.mentalState = mentalState;
-		this.optionRules = optionRules;
 		this.actionRules = actionRules;
-		this.coordinationRules = coordinationRules;
 
 		out = new LinkedList<>();
 
 		externalAgent = new ExternalAgent();
 
 		bindings = new ArrayList<>();
-		
-		msc = new MentalStateChange();
 	}
 
 	public void newCycle() {
@@ -178,12 +169,10 @@ public class AgentState {
 
 	public void insertInMentalState(QueryEngine engine, Struct contents) {
 		engine.insert(mentalState, contents);
-		msc.inserted(contents);
 	}
 
 	public void removeFromMentalState(QueryEngine engine, final Struct qualified) {
 		engine.remove(mentalState, qualified);
-		msc.removed(qualified);
 	}
 	
 	public List<Var> getBindings() {
@@ -196,6 +185,16 @@ public class AgentState {
 
 	public void addBindings(List<Var> bindings) {
 		this.bindings = mergeBindings(this.bindings, bindings);
+	}
+	
+	public void addBindings(SolveInfo info) {
+		if (info.isSuccess()) {
+			try {
+				bindings = mergeBindings(bindings, info.getBindingVars());
+			} catch (NoSolutionException ex) {
+				// ignore because of isSuccess
+			}
+		}
 	}
 
 	public MentalState getMentalState() {
@@ -210,16 +209,8 @@ public class AgentState {
 		return out;
 	}
 
-	public List<OptionRule> getOptionRules() {
-		return Collections.unmodifiableList(optionRules);
-	}
-
 	public List<ActionRule> getActionRules() {
 		return Collections.unmodifiableList(actionRules);
-	}
-
-	public List<CoordinationRule> getCoordinationRules() {
-		return Collections.unmodifiableList(coordinationRules);
 	}
 
 	public synchronized ExternalAgent getExternalAgent() {
@@ -228,17 +219,6 @@ public class AgentState {
 
 	public AortaAgent getAgent() {
 		return agent;
-	}
-
-	@Override
-	public synchronized AgentState clone() {
-		AgentState clone = new AgentState(agent, mentalState.clone(), optionRules, actionRules, coordinationRules);
-		clone.out = new LinkedList<>(out);
-		clone.bindings = new ArrayList<>(bindings);
-		clone.externalAgent = externalAgent;
-		clone.bridge = bridge;
-		clone.msc = msc.clone();
-		return clone;
 	}
 
 	public static List<Var> mergeBindings(List<Var> currentBindings, List<Var> newBindings) {
@@ -256,10 +236,6 @@ public class AgentState {
 			}
 		}
 		return result;
-	}
-
-	public MentalStateChange getMentalStateChange() {
-		return msc;
 	}
 
 }

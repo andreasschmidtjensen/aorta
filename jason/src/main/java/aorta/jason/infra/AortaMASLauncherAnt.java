@@ -5,6 +5,7 @@
 package aorta.jason.infra;
 
 import jason.infra.centralised.CentralisedMASLauncherAnt;
+import jason.jeditplugin.Config;
 
 /**
  *
@@ -16,13 +17,8 @@ public class AortaMASLauncherAnt extends CentralisedMASLauncherAnt {
 	protected String replaceMarks(String script, boolean debug) {
 		 script = replace(script, "<PROJECT-RUNNER-CLASS>", AortaLauncher.class.getName());
 
-		 // TODO: Change to relative paths
 		String lib = "";
-//		lib = lib + "        <pathelement location=\"" + Config.get().getJasonHome() + "/lib/cartago.jar\"/>\n";
-		lib = lib + "        <pathelement location=\"C:/Dropbox/code/phd/AORTA/dist/AORTA.jar\"/>\n";
-		lib = lib + "        <pathelement location=\"C:/Dropbox/code/phd/AORTAJason/dist/AORTAJason.jar\"/>\n";
-		lib = lib + "        <pathelement location=\"C:/Dropbox/code/phd/AORTA/lib/tuprolog.jar\"/>\n";
-		lib = lib + "        <pathelement location=\"C:/Dropbox/code/phd/AORTA/lib/antlr-4.1-complete.jar\"/>\n";
+		lib = lib + "        <pathelement location=\"" + Config.get().getJasonHome() + "/lib/aorta-standalone.jar\"/>\n";
 
 		script = replace(script, "<PATH-LIB>", lib + "\n<PATH-LIB>");
 

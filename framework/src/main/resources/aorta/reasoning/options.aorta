@@ -1,4 +1,0 @@
-options {
-	[org(role(R,Os)), bel(me(Me), \+(member(O,Os), \+ cap(O)))] => consider(rea(Me,R))
-	[bel(me(Me)), org(role(R,Os), rea(Me,R), member(O,Os), objective(O), active(O))] => consider(objective(O))
-}

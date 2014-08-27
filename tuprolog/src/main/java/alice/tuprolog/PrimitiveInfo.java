@@ -18,7 +18,6 @@
 package alice.tuprolog;
 
 import java.lang.reflect.*;
-import java.util.Arrays;
 
 
 /**
@@ -146,7 +145,7 @@ public class PrimitiveInfo {
     
     
     public String toString() {
-        return "[ primitive: method "+method.getName()+" - "+Arrays.toString(primitive_args)+" - N args: "+primitive_args.length+" - "+source.getClass().getName()+" ]\n";
+        return "[ primitive: method "+method.getName()+" - "+primitive_args+" - N args: "+primitive_args.length+" - "+source.getClass().getName()+" ]\n";
     }
     
 }

@@ -1,5 +1,6 @@
 package aorta.reasoning.action;
 
+import alice.tuprolog.Term;
 import aorta.AORTAException;
 import aorta.AgentState;
 import aorta.kr.QueryEngine;
@@ -12,14 +13,14 @@ public abstract class Action {
 	public Action() {
 	}
     
-    public final AgentState execute(QueryEngine engine, AgentState state) throws AORTAException {
-        final AgentState result = executeAction(engine, state);
+    public final AgentState execute(QueryEngine engine, Term option, AgentState state) throws AORTAException {
+        final AgentState result = executeAction(engine, option, state);
         if (result != null) {
             logger.fine("[" + state.getAgent().getName() + "] Executing action: " + this);
         }
         return result;
     }
     
-	protected abstract AgentState executeAction(QueryEngine engine, AgentState state) throws AORTAException;
+	protected abstract AgentState executeAction(QueryEngine engine, Term option, AgentState state) throws AORTAException;
 	
 }

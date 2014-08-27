@@ -1,8 +1,5 @@
 package aorta;
 
-import alice.tuprolog.Prolog;
-import aorta.kr.language.OrganizationType;
-import aorta.kr.language.OrganizationalLanguage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,36 +8,16 @@ public class Aorta {
 	public static final String ORG_MESSAGE_FUNCTOR = "om";
 	
 	private List<AortaAgent> agents;
-	private OrganizationType organizationType;
-    private OrganizationalLanguage organizationalSpecification;
 	private String organizationLocation;
 	
-	public Aorta(OrganizationType organizationType, String organizationLocation) throws AORTAException {
-		if (organizationType == null) {
-			throw new AORTAException("No organization specified (infrastructure parameter missing: organization(\"path\", type))!");
-		}
+	public Aorta(String organizationLocation) throws AORTAException {
 		agents = new ArrayList<>();
         
-        organizationalSpecification = organizationType.getLanguage();
-		this.organizationType = organizationType;
 		this.organizationLocation = organizationLocation;
-        
-        Prolog prolog = new Prolog();
-        if (!organizationalSpecification.isValid(prolog)) {
-            throw new AORTAException("Organizational language is not valid!");
-        }
 	}
-
-    public OrganizationalLanguage getOrganizationalSpecification() {
-        return organizationalSpecification;
-    }
 
 	public String getOrganizationLocation() {
 		return organizationLocation;
-	}
-
-	public OrganizationType getOrganizationType() {
-		return organizationType;
 	}
 
 	public AortaAgent getAgent(String name) {

@@ -10,7 +10,6 @@ import alice.tuprolog.Theory;
 import alice.tuprolog.Var;
 import aorta.AortaAgent;
 import aorta.kr.util.Qualifier;
-import aorta.kr.util.TermFormatter;
 import aorta.kr.util.TermVisitor;
 import aorta.reasoning.fml.Formula;
 import aorta.reasoning.fml.OrganizationalFormula;
@@ -26,7 +25,7 @@ public class MentalState {
 
         tv = new TermVisitor(prolog);
     }
-
+	
     public void setAgent(AortaAgent agent) {
         this.agent = agent;
         
@@ -35,9 +34,11 @@ public class MentalState {
         if (!prolog.solve(qualified).isSuccess()) {
             qualified = Qualifier.qualifyStruct(new Struct("me", new Var()), KBType.BELIEF.getType());
             ClauseInfo ci;
-            while ((ci = prolog.getTheoryManager().retract(qualified)) != null) {
-                // retracting all
-            }
+			try {
+				while ((ci = prolog.getTheoryManager().retract(qualified)) != null) {
+					// retracting all
+				}
+			} catch (Exception ex) {}
 
             // adds to the knowledgebase the agents own name
             qualified = Qualifier.qualifyStruct(new Struct("me", new Struct(agent.getName())), KBType.BELIEF.getType());
@@ -81,36 +82,10 @@ public class MentalState {
         return result;
     }
 
-    public Struct getNorms() {
-        Formula norms = new OrganizationalFormula("findall(Norm, (role(R,_), member(R," + getEnactingRoles().toString() + "), norm(Norm,R)), L)");
-
-		SolveInfo info = prolog.solve(norms.getAsTerm());
-        
-        Struct listTerm = new Struct(); // XXX: Fix this
-        if (info.isSuccess()) {
-            try {
-                for (Var v : info.getBindingVars()) {
-                    if (v.getName().equals("L")) {
-                        listTerm = (Struct) v.getTerm();
-                    }
-                }
-            } catch (NoSolutionException ex) {
-                    // cannot happen (we have confirmed that it isSuccess()
-            }
-        }
-        return listTerm;
-    }
-
-    @Override
-    public MentalState clone() {
-		Prolog plCopy = new Prolog(prolog);
-		MentalState clone = new MentalState(plCopy);
-		clone.setAgent(agent);
-		return clone;
-    }
-
     @Override
     public String toString() {
-        return TermFormatter.sortedToString(prolog, prolog.getTheory());
+		String theory = prolog.getTheory().toString();
+		theory = theory.replace("\n\n", "\n");
+		return theory;
     }
 }

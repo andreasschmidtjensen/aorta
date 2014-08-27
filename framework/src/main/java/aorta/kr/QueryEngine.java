@@ -1,11 +1,13 @@
 package aorta.kr;
 
+import alice.tuprolog.ClauseInfo;
 import aorta.kr.util.Qualifier;
 import java.util.ArrayList;
 import java.util.List;
 
 import alice.tuprolog.MalformedGoalException;
 import alice.tuprolog.NoMoreSolutionException;
+import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.Prolog;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
@@ -18,7 +20,7 @@ public class QueryEngine {
 	public QueryEngine() {
 	}
 	
-	public boolean exists(MentalState ms, Struct term) {
+	public boolean exists(MentalState ms, Term term) {
 		return ms.getProlog().solve(term).isSuccess();
 	}
 		
@@ -33,12 +35,17 @@ public class QueryEngine {
 	}
 	
 	public SolveInfo solve(MentalState ms, Formula fml) {
-		return solve(ms, Qualifier.qualifyGoal(fml));
+		return solve(ms, Qualifier.qualifyGoal(ms, fml));
 	}
 	
 	public SolveInfo solve(MentalState ms, Term term) {
 		return ms.getProlog().solve(term);
 	}
+	
+	public SolveInfo solve(MentalState ms, String query) throws MalformedGoalException {
+		return ms.getProlog().solve(query);
+	}
+	
 	public boolean hasMoreSolutions(MentalState ms) {
 		return ms.getProlog().hasOpenAlternatives();
 	}
@@ -60,16 +67,13 @@ public class QueryEngine {
 		}
 	}
 
-	public List<SolveInfo> findAll(Prolog prolog, Formula fml) {
-		return findAll(prolog, Qualifier.qualifyFormula(fml));		
-	}
-	
 	public List<SolveInfo> findAll(MentalState ms, Formula fml) {
-		return findAll(ms.getProlog(), Qualifier.qualifyFormula(fml));		
+		return findAll(ms, Qualifier.qualifyFormula(fml));		
 	}
 	
-	public List<SolveInfo> findAll(Prolog pl, Term term) {
+	public List<SolveInfo> findAll(MentalState ms, Term term) {
 		List<SolveInfo> result = new ArrayList<>();
+		Prolog pl = ms.getProlog();
 		
 		SolveInfo solve = pl.solve(term);
 		result.add(solve);
@@ -88,6 +92,16 @@ public class QueryEngine {
 
 	public void unify(MentalState ms, Term qualified, List<Var> bindings) {
 		ms.getTv().unify(qualified, bindings);
+	}
+	
+	public void unify(MentalState ms, Term qualified, SolveInfo solveInfo) {
+		if (solveInfo.isSuccess()) { 
+			try {
+				unify(ms, qualified, solveInfo.getBindingVars());
+			} catch (NoSolutionException ex) {
+				// ignore because of isSuccess
+			}
+		}
 	}
 
 	public List<Var> getVars(Term term) {

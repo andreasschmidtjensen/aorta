@@ -1,0 +1,4 @@
+actions {
+	role(R, Os) : true => enact(R)
+	obligation(A,R,bel(returned(Book)),bel(day(Deadline))) : ~goal(returned(Book)), bel(day(Now), Deadline > Now) => commit(returned(Book))
+}

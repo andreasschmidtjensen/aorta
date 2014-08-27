@@ -10,7 +10,6 @@ import ail.util.AILConfig;
 import ajpf.util.AJPFLogger;
 import aorta.AORTAException;
 import aorta.Aorta;
-import aorta.kr.language.OrganizationType;
 
 /**
  *
@@ -23,9 +22,8 @@ public class AortaMAS extends MAS {
 	public AortaMAS(MAS mas, AILConfig config) throws AORTAException {
 		setEnv(mas.getEnv());
 		setController(mas.getController());
-		String type = config.getProperty("aorta.type").toUpperCase();
 		String organization = config.getProperty("aorta.organization");
-		aorta = new Aorta(OrganizationType.valueOf(type), organization);
+		aorta = new Aorta(organization);
 
 		for (AILAgent ag : mas.getAgs().values()) {
 			try {

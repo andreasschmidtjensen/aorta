@@ -12,7 +12,7 @@ import alice.tuprolog.Term;
  * @author ascje
  */
 public abstract class OrganizationalMessage {
-	
+
 	protected Term message;
 
 	public OrganizationalMessage(Term message) {

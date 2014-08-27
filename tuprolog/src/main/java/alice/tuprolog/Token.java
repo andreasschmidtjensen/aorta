@@ -30,11 +30,6 @@ class Token implements Serializable {
     String seq;
     // token type and attribute
     int type;
-
-	@Override
-	public String toString() {
-		return seq;
-	}
     
     public Token(String seq_,int type_) {
         seq = seq_;

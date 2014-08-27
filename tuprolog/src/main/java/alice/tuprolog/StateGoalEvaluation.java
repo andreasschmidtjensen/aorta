@@ -44,6 +44,7 @@ public class StateGoalEvaluation extends State {
 			} catch (HaltException he) {
 				e.nextState = c.END_HALT;
 			} catch (Throwable t) {
+
 				if (t instanceof PrologError) {
 					// cast da Throwable a PrologError
 					PrologError error = (PrologError) t;

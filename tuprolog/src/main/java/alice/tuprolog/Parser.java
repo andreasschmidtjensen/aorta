@@ -201,7 +201,7 @@ public class Parser implements /*Castagna 06/2011*/IParser,/**/ Serializable
 			if (term == null)
 				throw new InvalidTermException("Term is null");
 			if (!p.tokenizer.readToken().isEOF())
-				throw new InvalidTermException("The entire string could not be read as one term");
+				throw new InvalidTermException("The enitire string could not be read as one term");
 			term.resolveTerm();
 			return term;
 		} catch (IOException ex) {

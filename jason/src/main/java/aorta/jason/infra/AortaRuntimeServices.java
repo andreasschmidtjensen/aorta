@@ -11,7 +11,6 @@ import aorta.gui.AortaGui;
 import aorta.jason.AortaAgentArch;
 import aorta.jason.AortaJasonBridge;
 import aorta.kr.language.OrganizationImportException;
-import aorta.kr.language.OrganizationType;
 import aorta.parser.helper.AortaBuilder;
 import jason.asSyntax.ASSyntax;
 import jason.asSyntax.Literal;
@@ -52,27 +51,18 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 			gui = new AortaGui();
 		}
 		
-		OrganizationType orgType;
 		String location;
 		
 		try {
 			String org = masRunner.getProject().getInfrastructure().getParameter("organization");
 			Literal orgLiteral = ASSyntax.parseLiteral(org);
 			location = ((StringTerm) orgLiteral.getTerm(0)).getString();
-			String type;
-			if (orgLiteral.getTerm(1) instanceof StringTerm) {
-				type = ((StringTerm) orgLiteral.getTerm(1)).getString();
-			} else {
-				type = orgLiteral.getTerm(1).toString();
-			}
-			
-			orgType = OrganizationType.get(type);
 		} catch (ParseException ex) {
 			throw new RuntimeException(ex);
 		}
 		
 		try {
-			aorta = new Aorta(orgType, location);
+			aorta = new Aorta(location);
 		} catch (AORTAException ex) {
 			logger.log(Level.SEVERE, "Could not launch AORTA; exiting.", ex);
 			throw new RuntimeException(ex);

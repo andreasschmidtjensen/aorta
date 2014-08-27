@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE DOCKABLES SYSTEM "dockables.dtd">
+
+<DOCKABLES>
+    <DOCKABLE NAME="aorta">
+        new aorta.jeditplugin.AortaIDE(view, position);
+    </DOCKABLE>
+</DOCKABLES>

@@ -1,0 +1,13 @@
+role(borrower, [borrowed(Book), returned(Book)]).
+
+objective(borrowed(Book), []).
+objective(returned(Book), []).
+
+condition(borrower, bel(returned(Book)), bel(day(ReturnDate)), bel(borrowed(Book, ReturnDate))).
+condition(borrower, bel(paidFine(Book)), bel(day(FineDate)), org(violation(Agent, borrower, bel(returned(Book)), FineDate))).
+
+bel(borrowed(Book,ReturnDate)) 
+	:- bel(borrowed(Book)), bel(returnDate(Book,ReturnDate)).
+
+org(violation(Agent, borrower, bel(returned(Book)), FineDate)) 
+	:- org(violation(Agent, borrower, bel(returned(Book)))), bel(borrowed(Book,ReturnDate)), FineDate is ReturnDate+2.

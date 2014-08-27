@@ -1,0 +1,38 @@
+role(buyer, [bought(Goods, Amount, Seller), paid(Amount, Seller), canceled(Seller, Goods, Amount)]).
+role(seller, [sold(Goods, Buyer), delivered(Goods, Buyer)]).
+
+objective(bought(Goods, Amount, Seller), []).
+objective(paid(Amount, Seller), []).
+objective(canceled(Seller, Goods, Amount), []).
+objective(sold(Goods, Buyer), []).
+objective(delivered(Goods, Buyer), []).
+
+dependency(seller, buyer, bel(delivered(Goods, Buyer))).
+dependency(buyer, seller, bel(paid(Amount, Seller))).
+
+condition(
+		seller, 
+		bel(delivered(Goods, Buyer)), 
+		bel(day(Deadline)), 
+		(bel(sold(Goods, Buyer, Day)), bel(deadline(Day,3,Deadline)))).
+condition(
+		buyer, 
+		bel(paid(Amount, Seller)),	
+		bel(day(Deadline)), 
+		(bel(delivered(Goods,Buyer,Day)), bel(bought(Goods, Amount, Seller)), bel(deadline(Day,2,Deadline)))).
+condition(
+		buyer, 
+		bel(canceled(Seller,Goods,Amount)), 
+		bel(day(Deadline)), 
+		(org(viol(delivered(Goods, Buyer))), bel(bought(Goods, Amount, Seller)), bel(day(Now), Deadline is Now+2))).
+condition(
+		buyer, 
+		bel(paid(NewAmount, Seller)), 
+		bel(day(Deadline)), 
+		(org(viol(paid(Amount,Seller)), NewAmount is Amount*1.10), bel(day(Now), Deadline is Now+3))).
+
+bel(deadline(Now,Days,Deadline)) :- Deadline is Now + Days.
+
+bel(bought(G,A,S)) :- bel(bought(G,A,S,_)).
+bel(sold(G,B)) :- bel(sold(G,B,_)).
+bel(delivered(B,G)) :- bel(delivered(B,G,_)).

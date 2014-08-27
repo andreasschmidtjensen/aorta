@@ -4,6 +4,7 @@
  */
 package aorta.gui;
 
+import alice.tuprolog.MalformedGoalException;
 import aorta.AortaAgent;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
@@ -13,7 +14,6 @@ import aorta.parser.AORTAParser;
 import aorta.reasoning.fml.Formula;
 import aorta.tracer.Tracer;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,11 +37,9 @@ public class AgentInspector extends JPanel {
 	private static final Logger logger = Logger.getLogger(AgentInspector.class.getName());
 	public static final String SOLVE = "Solve";
 	public static final String SOLVE_AGAIN = "Solve again";
-	
 	private AortaAgent agent;
 	private String formula;
 	private MentalState currentMs;
-	
 	private JTextArea solveResult;
 	private JTextField solveFml;
 	private JButton solveButton;
@@ -53,20 +51,20 @@ public class AgentInspector extends JPanel {
 
 		JPanel mainPanel = new JPanel(new GridLayout(1, 2));
 		add(mainPanel, BorderLayout.CENTER);
-		
+
 		final JTextArea mentalStateArea = new JTextArea();
 		mainPanel.add(new JScrollPane(mentalStateArea));
-		
+
 		final JTextArea traceArea = new JTextArea();
 		mainPanel.add(new JScrollPane(traceArea));
 
 		JPanel fmlTester = new JPanel(new BorderLayout());
 		solveResult = new JTextArea(3, 0);
 		solveResult.setEditable(false);
-		
+
 		solveFml = new JTextField();
 		solveButton = new JButton(SOLVE);
-		
+
 		solveFml.addKeyListener(new KeyListener() {
 			@Override
 			public void keyTyped(KeyEvent e) {
@@ -134,7 +132,7 @@ public class AgentInspector extends JPanel {
 				if (solveFml.getText().equals(formula)) {
 					solveResult.append("\n" + engine.solveNext(currentMs).toString());
 				} else {
-					currentMs = agent.getState().getMentalState().clone();
+					currentMs = agent.getState().getMentalState();
 					formula = solveFml.getText();
 
 					AORTAParser parser = new AORTAParser(null);
@@ -148,16 +146,32 @@ public class AgentInspector extends JPanel {
 					parser.setTokenStream(tokens);
 					parser.setTrace(false);
 					Formula fml = parser.formulas().fml;
-					
+
 					if (fml == null) {
-						solveResult.setText("Could not parse " + formula);
+						try {
+							solveResult.setText("Could not parse " + formula + " trying as text:\n" + currentMs.getProlog().solve(formula));
+
+							solveButton.setText(SOLVE_AGAIN);
+						} catch (MalformedGoalException ex) {
+							solveResult.setText("Could not parse " + formula + ": " + ex);
+						}
 					} else {
-						solveResult.setText("Solving " + TermFormatter.toString(fml.getAsTerm()) + ":\n" + engine.solve(currentMs, fml).toString());
+						try {
+							solveResult.setText("Solving " + TermFormatter.toString(fml.getAsTerm()) + ":\n" + engine.solve(currentMs, fml).toString());
+						} catch (Exception ex) {
+							try {
+								solveResult.setText("Could not parse " + formula + " trying as text:\n" + currentMs.getProlog().solve(formula));
+
+								solveButton.setText(SOLVE_AGAIN);
+							} catch (MalformedGoalException ex1) {
+								solveResult.setText("Could not parse " + formula + ": " + ex1);
+							}
+						}
 
 						solveButton.setText(SOLVE_AGAIN);
 					}
 				}
-				
+
 				if (!engine.hasMoreSolutions(currentMs)) {
 					solveButton.setEnabled(false);
 				}

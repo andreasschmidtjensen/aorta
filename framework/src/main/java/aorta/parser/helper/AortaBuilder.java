@@ -65,7 +65,7 @@ public class AortaBuilder {
 
 		AORTAParser.AortaAgentContext aortaAgentContext = parser.aortaAgent(agentName);
 		aortaAgentContext.agent.setBridge(bridge);
-		aortaAgentContext.agent.setOrganization(aorta.getOrganizationType(), aorta.getOrganizationLocation());
+		aortaAgentContext.agent.setOrganizationPath(aorta.getOrganizationLocation());
 		
 		return aortaAgentContext.agent.build(file);
 	}

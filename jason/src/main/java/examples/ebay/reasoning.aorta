@@ -1,0 +1,5 @@
+actions {
+	role(R, Os) : true => enact(R).
+	send(_Role, tell, org(rea(Me,R))) : bel(findall(A, (agent(A), me(Me), A \= Me, \+ sent(A, org(rea(Me,R)))), L), L \= []) => send(L, org(rea(Me,R))).
+	send(Role, tell, bel(O)) : bel(agent(A)), org(rea(A,Role)), bel(me(Me), A \= Me, \+ sent(A, bel(O))) => send(A, bel(O)).
+}

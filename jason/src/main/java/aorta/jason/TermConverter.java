@@ -4,6 +4,7 @@
  */
 package aorta.jason;
 
+import alice.tuprolog.Number;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
@@ -37,7 +38,7 @@ public class TermConverter {
 	}
 
 	//<editor-fold defaultstate="collapsed" desc="(Jason -> AORTA) Literal -> Struct">
-	private static Term convertToTerm(jason.asSyntax.Term term) {
+	public static Term convertToTerm(jason.asSyntax.Term term) {
 		if (term instanceof Rule) {
 			Rule r = (Rule) term;
 			return new Struct(":-", convertToTerm(r.headClone()), convertToTerm(r.getBody()));
@@ -131,8 +132,12 @@ public class TermConverter {
 		if (term instanceof Struct) {
 			return parseStruct((Struct) term);
 		} else if (term instanceof Var) {
-			VarTerm var = new VarTerm(((Var) term).getName());
-			return var;
+			if (((Var) term).isGround()) {
+				return convertToJasonTerm(((Var) term).getTerm());
+			} else {
+				VarTerm var = new VarTerm(((Var) term).getName());
+				return var;
+			}
 		}
 		throw new IllegalArgumentException("term of wrong type: " + term);
 	}

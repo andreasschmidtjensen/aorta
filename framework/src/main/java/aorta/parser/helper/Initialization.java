@@ -4,7 +4,6 @@
  */
 package aorta.parser.helper;
 
-import aorta.kr.language.OrganizationType;
 import aorta.ts.strategy.Linear;
 
 /**
@@ -14,7 +13,6 @@ import aorta.ts.strategy.Linear;
 public class Initialization {
     
     public String orgPath;
-    public OrganizationType orgType;
     public String strategy = Linear.class.getSimpleName();
     
 }

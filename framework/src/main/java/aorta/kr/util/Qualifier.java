@@ -1,6 +1,5 @@
 package aorta.kr.util;
 
-import alice.tuprolog.DefaultOperatorManager;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -12,6 +11,7 @@ import alice.tuprolog.Term;
 import alice.tuprolog.Theory;
 import alice.tuprolog.Var;
 import aorta.kr.KBType;
+import aorta.kr.MentalState;
 import aorta.reasoning.fml.ConjunctFormula;
 import aorta.reasoning.fml.Formula;
 import aorta.reasoning.fml.NegatedFormula;
@@ -33,7 +33,16 @@ public class Qualifier {
 			Term.createTerm("append(_,_,_)"),
 			Term.createTerm("findall(_,_,_)"),
 			Term.createTerm("intersection(_,_,_)"),
-			Term.createTerm("union(_,_,_)") };
+			Term.createTerm("union(_,_,_)"),
+			Term.createTerm("_ is _"),
+			Term.createTerm("is(_,_)"),
+			Term.createTerm("_ + _"),
+			Term.createTerm("'+'(_,_)"),
+			Term.createTerm("_ - _"),
+			Term.createTerm("_ * _"),
+			Term.createTerm("_ / _"),
+			Term.createTerm("_ > _"),
+			Term.createTerm("_ < _") };
 	
 	public static Theory qualifyTheory(Prolog prolog, KBType type, Theory theory)
 			throws InvalidTheoryException {
@@ -48,12 +57,12 @@ public class Qualifier {
 		return new Theory(clauseList);
 	}
 
-	public static Term qualifyGoal(Formula fml) {
-		return qualifyGoal(fml, false);
+	public static Term qualifyGoal(MentalState ms, Formula fml) {
+		return qualifyGoal(ms, fml, false);
 	}
 	
-	public static Term qualifyGoal(Formula fml, boolean qualifyUnboundVars) {
-		Parser parser = new Parser(new DefaultOperatorManager(), qualifyGoalFml(fml, qualifyUnboundVars));
+	public static Term qualifyGoal(MentalState ms, Formula fml, boolean qualifyUnboundVars) {
+		Parser parser = new Parser(ms.getProlog().getOperatorManager(), qualifyGoalFml(fml, qualifyUnboundVars));
 		return parser.nextTerm(false);
 	}
 	
@@ -173,6 +182,10 @@ public class Qualifier {
     
 	public static Term qualifyTerm(Term query, String reasoningType) {
 		return qualifyTerm(query, reasoningType, false);
+	}
+	
+	public static Term qualifyTerm(Term query, KBType reasoningType, boolean qualifyUnboundVars) {
+		return qualifyTerm(query, reasoningType.getType(), qualifyUnboundVars);
 	}
 	
 	public static Term qualifyTerm(Term query, String reasoningType, boolean qualifyUnboundVars) {
