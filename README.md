@@ -20,4 +20,4 @@ The *jeditplugin* includes a build-configuration that creates a consolidated jar
 It can be run with the following command:
 ```
 java -jar aorta-standalone.jar install <Jason-location>
-``
+```
