@@ -1,0 +1,8 @@
+MAS writingpaper {
+	infrastructure: AORTA(organization("writingpaper.mm", generic))
+    agents:
+		tom [aorta="reasoning.aorta"];
+		alice [aorta="reasoning.aorta"];
+		bob [aorta="reasoning.aorta"];
+		eva [aorta="reasoning.aorta"];
+}

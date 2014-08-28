@@ -1,0 +1,35 @@
+S 40 60
+R 15 15 10 10 Blue Blue 
+D 15 10 H 15 15
+R 25 15 10 10 Blue 
+D 25 10 H 25 15
+R 15 35 10 10 
+D 15 30 H 15 35
+R 25 35 10 10 Blue 
+D 25 30 H 25 35
+Z 20 55 20 10 Blue Blue Blue Blue 
+E medic1 20 45
+E medic2 16 43
+E officer1 24 43
+E officer2 16 47
+E F11 23 45
+E F21 27 45
+E F12 13 25
+E F22 17 25
+N RoomA1 15 15 FrontRoomA1
+N FrontRoomA1 15 5 RoomA1 LeftHallA FrontRoomA2
+N RoomA2 25 15 FrontRoomA2
+N FrontRoomA2 25 5 RoomA2 FrontRoomA1 RightHallA
+N RoomB1 15 35 FrontRoomB1
+N FrontRoomB1 15 25 RoomB1 LeftHallB FrontRoomB2
+N RoomB2 25 35 FrontRoomB2
+N FrontRoomB2 25 25 RoomB2 FrontRoomB1 RightHallB
+N LeftHallA 5 5 LeftHallB FrontRoomA1
+N RightHallA 35 5 RightHallB FrontRoomA2
+N LeftHallB 5 25 LeftHallC FrontRoomB1 LeftHallA
+N RightHallB 35 25 RightHallC FrontRoomB2 RightHallA
+N DropZone 20 55 FrontDropZone
+D 20 50 H 20 55
+N FrontDropZone 20 45 DropZone LeftHallC RightHallC
+N LeftHallC 5 45 FrontDropZone LeftHallB
+N RightHallC 35 45 FrontDropZone RightHallB

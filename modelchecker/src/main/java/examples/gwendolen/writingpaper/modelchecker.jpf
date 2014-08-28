@@ -1,8 +1,0 @@
-@using = mcapl
-@using = aortamc
-target = ail.util.AJPF_w_AIL
-target_args = C:\\Dropbox\\code\\phd\\maven\\aorta\\modelchecker/src/main/java/examples/gwendolen/writingpaper/WritingPaper.ail,C:\\Dropbox\\code\\phd\\maven\\aorta\\modelchecker/src/main/java/examples/gwendolen/writingpaper/WritingPaper.psl,error
-log.info = ail.mas.DefaultEnvironment,ajpf.product.Product,ajpf.MCAPLAgent,aorta.ail.AortaAILAgent,aorta.ts.impl.Ext,aorta.reasoning.coordination.CoordinationRule
-log.finest = ajpf.psl.buchi.BuchiAutomaton,ajpf.product.MCAPLmodel
-listener+=,.listener.ExecTracker
-et.print_insn=false

@@ -1,0 +1,7 @@
+MAS ebay {
+	infrastructure: AORTA(organization("ebay.org"))
+	environment: examples.ebay.Ebay(2)
+    agents:
+		alice [aorta="reasoning.aorta"];
+		bob [aorta="reasoning.aorta"];
+}
