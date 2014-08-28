@@ -1,5 +1,0 @@
-role(overseer, [on(X,Y)]).
-role(builder, []).
-objective(on(a,b)).
-
-dependency(overseer, builder, on(X,Y)).
