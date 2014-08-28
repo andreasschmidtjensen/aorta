@@ -103,29 +103,6 @@ public class EngineRunner implements java.io.Serializable, Runnable{
         cond = lockVar.newCondition();
         semaphore = new Object();
     }
-	
-	void initialize(Prolog vm, EngineRunner er) {
-		initialize(vm);
-
-		detached = er.detached;
-		solving = er.solving;
-		sinfo = er.sinfo;
-		msgs = new TermQueue(er.msgs);
-		next.addAll(er.next);
-		countNext = er.countNext;
-		env = er.env;
-		if (env != null) {
-			env.manager = this;
-		}
-		last_env = er.last_env;
-		if (last_env != null) {
-			last_env.manager = this;
-		}
-		stackEnv.addAll(er.stackEnv);
-		for (Engine e : stackEnv) {
-			e.manager = this;
-		}
-	}
     
     void spy(String action, Engine env) {
         mediator.spy(action,env);
@@ -456,4 +433,8 @@ public class EngineRunner implements java.io.Serializable, Runnable{
         public int msgQSize(){
                 return msgs.size();
         }
+        
+        TheoryManager getTheoryManager() {
+            return theoryManager;
+         }
 }

@@ -188,8 +188,12 @@ public class AortaMetamodelSideKickParser extends sidekick.SideKickParser {
 				message = "mismatched input " + getTokenErrorDisplay(fpe.getOffendingToken()) + " expecting " + fpe.getExpectedTokens().toString(recognizer.getTokenNames());
 			} else if (ex instanceof InputMismatchException) {
 				InputMismatchException ime = (InputMismatchException) ex;
-				String ruleName = recognizer.getRuleNames()[recognizer.getContext().getRuleIndex()];
-				message = "rule " + ruleName + " " + ime.getMessage();
+				try {
+					String ruleName = recognizer.getRuleNames()[recognizer.getContext().getRuleIndex()];
+					message = "rule " + ruleName + " " + ime.getMessage();
+				} catch (Exception ex2) {
+					message = ex.toString();
+				}
 			}
 
 			errorSource.addError(new DefaultErrorSource.DefaultError(

@@ -75,7 +75,6 @@ public class ApplyApplicablePlans implements OSRule {
 		Iterator<ApplicablePlan> aps = a.getApplicablePlans();
 		
 		ApplicablePlan p = a.selectPlan(aps, i);
-		System.out.println("ApplyApplicablePlans: plan=" + p);
 		if (! p.noChangePlan()) {
 		
 			ArrayList<Guard> guardstack = p.getGuard();
@@ -89,8 +88,6 @@ public class ApplyApplicablePlans implements OSRule {
 				// change the head of the guardstack to trivial - we've already checked it holds
 				guardstack.set(guardstack.size() - 1, new Guard(new GBelief(GBelief.GTrue)));
 				a.setIntention(new Intention(state, p.getPrefix(), guardstack, p.getUnifier().clone()));
-				
-				System.out.println("ApplyApplicablePlans: Setting intention: " + a.getIntention());
 			} else {
 				// This plan has been triggered by an event and should be added to the intention associated with that event.
 				i.dropP(p.getN());
@@ -105,8 +102,6 @@ public class ApplyApplicablePlans implements OSRule {
 				} else if(! i.empty()) {
 					i.hdU().compose(p.getUnifier().clone());
 				}
-				
-				System.out.println("ApplyApplicablePlans: Intention changed: " + a.getIntention());
 			}
 		}
 		

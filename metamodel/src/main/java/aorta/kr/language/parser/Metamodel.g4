@@ -39,8 +39,8 @@ roles returns [List<Role> roleList]
 role returns [Role r] : name=ATOM COLON objectiveList FULLSTOP { $r = new Role($name.text, $objectiveList.terms); };
 objectiveList returns [List<Term> terms] : 
 			{ $terms = new ArrayList<>(); }
-		   ( struct { $terms.add($struct.fml); }
-		   | struct SEMICOLON ol=objectiveList { $terms.add($struct.fml); $terms.addAll($ol.terms); });
+		   ( term { $terms.add($term.fml); }
+		   | term SEMICOLON ol=objectiveList { $terms.add($term.fml); $terms.addAll($ol.terms); });
 
 objectives returns [List<Objective> objList] 
 	: { $objList = new ArrayList<>(); }
@@ -53,7 +53,7 @@ dependencies returns [List<Dependency> dependencyList]
 	DEPENDENCIES COLON (dependency { $dependencyList.add($dependency.d); })+;
 dependency returns [Dependency d] 
 	: dependee=ATOM GT dependant=ATOM COLON prolog FULLSTOP
-	  { $d = new Dependency($dependant.text, $dependee.text, $prolog.fml); };
+	  { $d = new Dependency($dependee.text, $dependant.text, $prolog.fml); };
 
 obligations returns [List<Obligation> obligationList] 
 	: { $obligationList = new ArrayList<>(); }

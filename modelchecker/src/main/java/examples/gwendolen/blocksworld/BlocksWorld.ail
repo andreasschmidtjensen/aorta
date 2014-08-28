@@ -22,7 +22,7 @@
 // http://www.csc.liv.ac.uk/~lad
 //----------------------------------------------------------------------------
 
-env = examples.gwendolen.blocksworld.BlocksWorldEnv
+env = examples.gwendolen.BlocksWorldEnv
 
 mas.file = BlocksWorld.aortasetup
 mas.builder = aorta.ail.AortaMASBuilder

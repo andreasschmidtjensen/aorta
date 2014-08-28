@@ -84,7 +84,7 @@ public class Perceive implements OSRule {
 		AILEnv env = a.getEnv();
 		Set<Predicate> percepts = env.getPercepts(a.getAgName(), true);
 		Set<Message> messages = env.getMessages(a.getAgName());
-			
+				
 		// if percepts == null then there is no change in the agent's perceptions.
 		if (percepts != null) {
 			List<Intention> is = a.getIntentions();

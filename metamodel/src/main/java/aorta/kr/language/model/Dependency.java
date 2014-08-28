@@ -37,7 +37,8 @@ public class Dependency {
 	}
 	
 	public Term toProlog() {
-		return new MetaLanguage().dependency(new Struct(dependant), new Struct(dependee), objective);
+		MetaLanguage ml = new MetaLanguage();
+		return ml.dependency(new Struct(dependant), new Struct(dependee), ml.qualify(objective));
 	}	
 
 	@Override

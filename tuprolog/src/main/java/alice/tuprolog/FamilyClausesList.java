@@ -302,15 +302,15 @@ class FamilyClausesList extends LinkedList<ClauseInfo> {
 				listCompClausesList.remove(ci);
 			} else if(t.isAtomic()){
 				if(t instanceof Number){
-					numCompClausesIndex.delete((Number) t);
+					numCompClausesIndex.delete((Number) t,ci);
 				} else if(t instanceof Struct){
-					constantCompClausesIndex.delete(((Struct) t).getName());
+					constantCompClausesIndex.delete(((Struct) t).getName(),ci);
 				}
 			} else if(t instanceof Struct){
 				if(t.isList()){
 					listCompClausesList.remove(ci);
 				} else {
-					structCompClausesIndex.delete(((Struct) t).getPredicateIndicator());
+					structCompClausesIndex.delete(((Struct) t).getPredicateIndicator(),ci);
 				}
 			}
 		}

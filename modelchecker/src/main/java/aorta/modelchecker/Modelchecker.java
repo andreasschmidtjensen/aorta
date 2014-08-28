@@ -4,6 +4,8 @@
  */
 package aorta.modelchecker;
 
+import ail.mas.AIL;
+import ajpf.util.AJPFLogger;
 import gov.nasa.jpf.util.JPFSiteUtils;
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,6 +16,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.logging.Level;
 
 /**
  *
@@ -22,17 +25,27 @@ import java.util.Map;
 public class Modelchecker {
 
 	public static void main(String[] args) throws Exception {
-		if (args.length < 2) {
-			System.out.println("Usage: Modelchecker AIL-File PSL-File");
+		if (args.length < 1) {
+			System.out.println("Usage: Modelchecker AIL-File [PSL-File]");
 			System.exit(1);
 		}
-		Modelchecker runner = new Modelchecker(args[0], args[1]);
+
+		Modelchecker runner;
+		if (args.length == 1) {
+			runner = new Modelchecker(args[0]);
+		} else {
+			runner = new Modelchecker(args[0], args[1]);
+		}
 		runner.run();
 	}
 	
 	private String ailFile;
 	private String pslFile;
 	private Map<String, String> properties;
+
+	public Modelchecker(String ailFile) {
+		this.ailFile = ailFile;
+	}
 
 	public Modelchecker(String ailFile, String pslFile) throws Exception {
 		this.ailFile = ailFile.replace("\\", "\\\\");
@@ -53,33 +66,38 @@ public class Modelchecker {
 	}
 
 	public void run() throws Exception {
-		for (String propertyKey : properties.keySet()) {
-			String property = properties.get(propertyKey);
-			String jpfFile = createJPFFile(propertyKey);
+		if (pslFile == null) {
+			AJPFLogger.setLevel("ail.semantics.AILAgent", Level.WARNING);
+			AIL.runAIL(ailFile);
+		} else {
+			for (String propertyKey : properties.keySet()) {
+				String property = properties.get(propertyKey);
+				String jpfFile = createJPFFile(propertyKey);
 
-			System.out.println("Verifying property: " + property);
-			
-			String jarLocation = JPFSiteUtils.getSiteCoreDir().getAbsolutePath() + "/build/runJPF.jar";
-			System.out.println("Executing java -jar " + jarLocation + " +shell.port=4242 " + jpfFile + " in " + System.getProperty("user.dir"));
-			Process process = new ProcessBuilder("java", "-jar", jarLocation, "+shell.port=4242", jpfFile).start();
-			
-			InputStream is = process.getInputStream();
-			InputStreamReader isr = new InputStreamReader(is);
-			BufferedReader br = new BufferedReader(isr);
-			String line;
+				System.out.println("Verifying property: " + property);
 
-			boolean print = true;
-			while ((line = br.readLine()) != null) {
-				if (!print && line.equals("====================================================== results")) {
-					print = true;
-				}
-				
-				if (print) {
-					System.out.println(line);
-				}
-				
-				if (print && line.startsWith("====================================================== search started:")) {
-					print = false;
+				String jarLocation = JPFSiteUtils.getSiteCoreDir().getAbsolutePath() + "/build/runJPF.jar";
+				System.out.println("Executing java -jar " + jarLocation + " +shell.port=4242 " + jpfFile + " in " + System.getProperty("user.dir"));
+				Process process = new ProcessBuilder("java", "-jar", jarLocation, "+shell.port=4242", jpfFile).start();
+
+				InputStream is = process.getInputStream();
+				InputStreamReader isr = new InputStreamReader(is);
+				BufferedReader br = new BufferedReader(isr);
+				String line;
+
+				boolean print = true;
+				while ((line = br.readLine()) != null) {
+					if (!print && line.equals("====================================================== results")) {
+						print = true;
+					}
+
+					if (print) {
+						System.out.println(line);
+					}
+
+					if (print && line.startsWith("====================================================== search started:")) {
+						print = false;
+					}
 				}
 			}
 		}

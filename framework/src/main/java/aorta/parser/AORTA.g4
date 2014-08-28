@@ -54,7 +54,7 @@ option returns [Term fml]
 	(
 	  (NOT {pos=false;})? ROLE START term END { $fml = new Struct("role", $term.fml); if (!pos) { $fml = new Struct("~", $fml); } }
 	| (NOT {pos=false;})? OBJ START term END { $fml = new Struct("obj", $term.fml); if (!pos) { $fml = new Struct("~", $fml); } }
-	| SEND START term COMMA illForce COMMA term END  { $fml = new Struct("send", $term.fml, $illForce.fml, $term.fml); }
+	| SEND START t1=term COMMA illForce COMMA t2=term END  { $fml = new Struct("send", $t1.fml, $illForce.fml, $t2.fml); }
 	);
 
 illForce returns [Term fml]
@@ -157,7 +157,7 @@ DISREGARD: 'disregard';
 ENACT: 'enact';
 DEACT: 'deact';
 COMMIT: 'commit';
-SEND: {action}? 'send';
+SEND: /*{action}?*/ 'send';
 DROP: 'drop';
 TRUE: 'true';
 

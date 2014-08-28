@@ -12,10 +12,6 @@ public class TermQueue {
 		queue=new LinkedList<Term>();
 	}
 	
-	public TermQueue(TermQueue tq) {
-		queue = new LinkedList<Term>(tq.queue);
-	}
-	
 	public synchronized boolean get(Term t, Prolog engine, EngineRunner er){
 		return searchLoop(t,engine,true, true, er);
 	}

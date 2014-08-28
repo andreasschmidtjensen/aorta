@@ -89,8 +89,6 @@ public class SelectIntention implements OSRule {
 
 			a.setIntentions(Is);
 			a.setIntention(iprime);
-			
-			System.out.println("SelectIntention:Setting intention to: " + iprime);
 		} 
   		Is = new ArrayList<Intention>();
   		iprime = null;

@@ -30,18 +30,6 @@ import java.util.*;
 @SuppressWarnings("serial")
 class ClauseDatabase extends HashMap<String,FamilyClausesList> implements Iterable<ClauseInfo> {
 
-	@Override
-	public ClauseDatabase clone() {
-		ClauseDatabase clone = new ClauseDatabase();
-		for (String key : keySet()) {
-			for (ClauseInfo ci : get(key)) {
-				clone.addLast(key, ci);
-			}
-		}
-		
-		return clone;		
-	}
-	
 	void addFirst(String key, ClauseInfo d) {
 		FamilyClausesList family = get(key);
 		if (family == null)

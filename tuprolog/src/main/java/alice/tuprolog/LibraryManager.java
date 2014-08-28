@@ -34,11 +34,6 @@ public class LibraryManager {
 		currentLibraries = new ArrayList<Library>();
 	}
 
-	LibraryManager(LibraryManager lm) {
-		currentLibraries = new ArrayList<Library>(lm.currentLibraries);
-		externalLibraries = new Hashtable<String, URL>(lm.externalLibraries);
-	}
-	
 	/**
 	 * Config this Manager
 	 */
@@ -316,5 +311,7 @@ public class LibraryManager {
 		return klass.getClassLoader().getResource(
 				klass.getName().replace('.', '/') + ".class");
 	}
+	
+	
 
 }

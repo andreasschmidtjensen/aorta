@@ -17,7 +17,7 @@ public class EngineManager implements java.io.Serializable {
 	private Hashtable<Integer, EngineRunner> runners;	//key: id; obj: runner
 	private Hashtable<Integer, Integer> threads;	//key: pid; obj: id
 	private int rootID = 0;
-	public EngineRunner er1;
+	private EngineRunner er1;
 	private int id = 0;
 	
 	private Hashtable<String, TermQueue> queues;
@@ -32,12 +32,6 @@ public class EngineManager implements java.io.Serializable {
 		
 		er1 = new EngineRunner(rootID);
 		er1.initialize(vm);	
-	}
-	
-	public void initialize(Prolog vm, EngineManager em) {
-		initialize(vm);
-		er1 = new EngineRunner(rootID);
-		er1.initialize(vm, em.er1);
 	}
 	
 	public synchronized boolean threadCreate(Term threadID, Term goal) {
@@ -220,8 +214,9 @@ public class EngineManager implements java.io.Serializable {
 	}
 	
 	void pushSubGoal(SubGoalTree goals) {
-		EngineRunner runner = findRunner();
+		EngineRunner runner= findRunner();
 		runner.pushSubGoal(goals);
+		
 	}
 	
 	public synchronized SolveInfo solve(Term query) {

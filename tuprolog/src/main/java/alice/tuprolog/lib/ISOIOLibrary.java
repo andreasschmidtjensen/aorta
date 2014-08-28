@@ -392,7 +392,7 @@ public class ISOIOLibrary extends Library{
         }
         else if(in != null){
             String in_name = get_input_name(in);
-            if(in_name.equals("stdin")){
+            if(in_name.equals(inputStreamName)){ //Modificato Mastrovito < in_name.equals("stdin") >
                 return true;
             }
             try {
@@ -402,8 +402,8 @@ public class ISOIOLibrary extends Library{
                     inputStreams.remove(in);
                     in = null;
                     if(in_name.equals(inputStreamName)){
-                        inputStreamName = "stdin";
-                        inputStream = System.in;
+                        //Rimosso Mastrovito <inputStreamName = "stdin";>
+                        inputStream = IOLib.getInputStreamByContext(inputStreamName); //Modificato Mastrovito < = System.in >
                     }
                 }
                 else{
@@ -447,7 +447,7 @@ public class ISOIOLibrary extends Library{
         }
         else if(in != null){
             String in_name = get_input_name(in);
-            if(in_name.equals("stdin")){
+            if(in_name.equals(inputStreamName)){ //Modificato Mastrovito < in_name.equals("stdin") >
                 return true;
             }
             try {
@@ -456,8 +456,8 @@ public class ISOIOLibrary extends Library{
                 throw PrologError.system_error(new Struct("An error has occurred on stream closure."));
             }
             if(in_name.equals(inputStreamName)){
-                inputStreamName = "stdin";
-                inputStream = System.in;
+            	//Rimosso Mastrovito <inputStreamName = "stdin";>
+                inputStream = IOLib.getInputStreamByContext(inputStreamName); //Modificato Mastrovito < = System.in >
             }
             inputStreams.remove(in);
         }
@@ -713,7 +713,7 @@ public class ISOIOLibrary extends Library{
         
         //se lo stream e' stdin, leggo il carattere esattamente come fa get0 di IOLib
         //stdin lo scrivo come stringa, non posso usare inputStreamName, perche' in quel campo ci deve rimanere lo stream corrente, e se e' stato cambiato, non ho piu' sdtin
-        if(file_name.equals("stdin")){ 
+        if(file_name.equals(inputStreamName)){ //Modificato Mastrovito <"stdin">
         	IOLib.get0_1(arg);
         	return true;
         }
@@ -806,7 +806,7 @@ public class ISOIOLibrary extends Library{
         //senza preoccuparmi di controllare tutte le opzioni dello stream. 
         Struct struct_name = (Struct) element.get("file_name");
         String file_name = struct_name.toString();
-        if(file_name.equals("stdin")){ 
+        if(file_name.equals(inputStreamName)){ //Modificato Mastrovito <"stdin">
         		try {
                     value = inputStream.read();
                 } 
@@ -903,7 +903,7 @@ public class ISOIOLibrary extends Library{
         Hashtable<String,Term> element = (Hashtable<String, Term>) inputStreams.get(stream);
         String file_name = ((Struct)element.get("file_name")).getName();
         
-        if(file_name.equals("stdin")){
+        if(file_name.equals(inputStreamName)){ //Modificato Mastrovito < "stdin" >
         	return get_char_2(stream_or_alias,in_char);
         }
         
@@ -2122,7 +2122,7 @@ public class ISOIOLibrary extends Library{
             }
         }
         
-        if(stream_name.contains("Input") || stream_name.equals("stdin"))
+        if(stream_name.contains("Input") || stream_name.equals(inputStreamName)) //Modificato Mastrovito < "stdin" >
         	throw PrologError.permission_error(engine.getEngineManager(), "input", "stream", stream_or_alias, new Struct("S_or_a is an input stream."));
 
         if(flag == 0)

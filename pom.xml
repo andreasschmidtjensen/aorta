@@ -8,6 +8,7 @@
     <name>aorta</name>
 
     <modules>
+        <module>tuprolog</module>
         <module>metamodel</module>
         <module>opera</module>
         <module>framework</module>
@@ -27,6 +28,8 @@
 	
     <properties>
         <root>${basedir}</root>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
 </project>

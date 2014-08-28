@@ -34,16 +34,45 @@ import java.io.*;
 @SuppressWarnings("serial")
 public class IOLibrary extends Library {
 
+	
+	protected UserContextInputStream input;
     protected String inputStreamName = "stdin";
     protected InputStream inputStream = System.in;
     protected String outputStreamName = "stdout";
     protected OutputStream outputStream = System.out;
     private Random gen = new Random();
+    
+    public static final String graphicExecution = "graphic";
 
     public IOLibrary() {
         gen.setSeed(System.currentTimeMillis());
     }
+    
+    /************ Mirco Mastrovito - Input da Console ***********/
+    public UserContextInputStream getUserContextInputStream()
+    {
+    	return this.input;
+    }
+    
+    public void setExecutionType(String input)
+    {
+    	this.inputStreamName = input;
+    	this.input = new UserContextInputStream(inputStreamName);
+    	inputStream = this.input;
+    }
 
+    public InputStream getInputStreamByContext(String inputStreamName)
+    {
+    	InputStream result = null;
+    	
+    	if(inputStreamName.compareTo("stdin") == 0)
+    		result = System.in;
+    	else if (inputStreamName.compareTo("graphic") == 0)
+    		result = input;
+    	return result;
+    }
+    /************************************************************/
+    
     public boolean see_1(Term arg) throws PrologError {
         arg = arg.getTerm();
         if (arg instanceof Var)
@@ -59,8 +88,8 @@ public class IOLibrary extends Library {
             } catch (IOException e) {
                 return false;
             }
-        if (arg0.getName().equals("stdin")) {
-            inputStream = System.in;
+        if (arg0.getName().equals(inputStreamName)) {// Modificato Mastrovito: <arg0.getName().equals("stdin")>
+        	inputStream = getInputStreamByContext(inputStreamName); //Modificato Mastrovito: < = System.in >
         } else {
             try {
                 inputStream = new FileInputStream(((Struct) arg0).getName());
@@ -74,14 +103,14 @@ public class IOLibrary extends Library {
     }
 
     public boolean seen_0() {
-        if (inputStream != System.in) {
+        if (inputStream != getInputStreamByContext(inputStreamName)) { //Modificato Mastrovito: < != System.in >
             try {
                 inputStream.close();
             } catch (IOException e) {
                 return false;
             }
-            inputStream = System.in;
-            inputStreamName = "stdin";
+            inputStream = getInputStreamByContext(inputStreamName);; //Modificato Mastrovito < = System.in >
+            //Rimosso Mastrovito <inputStreamName = "stdin";>
         }
         return true;
     }

@@ -68,9 +68,9 @@
 			<version>1.5.0.v20110309-2159</version>
 		</dependency>
 		<dependency>
-			<groupId>tuprolog</groupId>
+			<groupId>dk.dtu.compute.algolog.aorta</groupId>
 			<artifactId>tuprolog</artifactId>
-			<version>2.8.0</version>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>dk.dtu.compute.algolog.aorta</groupId>

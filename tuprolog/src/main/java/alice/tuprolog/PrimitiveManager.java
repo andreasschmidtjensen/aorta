@@ -40,30 +40,14 @@ public class PrimitiveManager /*Castagna 06/2011*/implements IPrimitiveManager/*
         predicateHashMap  = Collections.synchronizedMap(new HashMap<String,PrimitiveInfo>());
         functorHashMap    = Collections.synchronizedMap(new HashMap<String,PrimitiveInfo>());
     }
-	
-	PrimitiveManager(PrimitiveManager pm) {
-		this();
-		directiveHashMap.putAll(pm.directiveHashMap);
-		predicateHashMap.putAll(pm.predicateHashMap);
-		functorHashMap.putAll(pm.functorHashMap);
-		libHashMap.putAll(pm.libHashMap);
-	}
     
     /**
      * Config this Manager
      */
     void initialize(Prolog vm) {
-        createPrimitiveInfo(new BuiltIn(vm));
-	}
-	
-	void clone(Prolog vm) {
-		for (IPrimitives key : libHashMap.keySet()) {
-			if (key instanceof BuiltIn) {
-				((BuiltIn)key).init(vm);
-			}
-		}
-	}
-	
+        createPrimitiveInfo(new BuiltIn(vm)); 
+    }
+    
     void createPrimitiveInfo(IPrimitives src) {
         Map<Integer,List<PrimitiveInfo>> prims = src.getPrimitives();
         Iterator<PrimitiveInfo> it = prims.get(PrimitiveInfo.DIRECTIVE).iterator();
@@ -207,6 +191,5 @@ public class PrimitiveManager /*Castagna 06/2011*/implements IPrimitiveManager/*
     public boolean containsTerm(String name, int nArgs) {
 		return (functorHashMap.containsKey(name + "/" + nArgs) || predicateHashMap.containsKey(name + "/" + nArgs));
 	}
-
-	
+    /**/
 }

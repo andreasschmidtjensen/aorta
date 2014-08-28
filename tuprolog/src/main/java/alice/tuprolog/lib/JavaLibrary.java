@@ -261,7 +261,8 @@ public class JavaLibrary extends Library {
         }
     }
     
-    /**
+
+    /*
      * @author Michele Mannino
      * Creates of a java object - not backtrackable case
      * @param className The name of the class 
@@ -269,7 +270,9 @@ public class JavaLibrary extends Library {
      * @param argl The list of the arguments used by the constructor
      * @param id The name of the prolog term
      * @throws JavaException
-     */
+     * 
+     * Deprecated in 2.8, see the manual.
+     * 
     public boolean java_object_4(Term className, Term argl, Term id, Term paths)
             throws JavaException {
         paths = paths.getTerm();
@@ -298,6 +301,7 @@ public class JavaLibrary extends Library {
         	throw new JavaException(e);
 		}
     }
+    */
     
     /**
      * Destroy the link to a java object - called not directly, but from
@@ -504,6 +508,9 @@ public class JavaLibrary extends Library {
 							throw new JavaException(ex);
 						}
 					}
+					/*
+					 * Deprecated in 2.8, see the manual.
+					 * 
 					else if (id.getArity() == 2 && id.getName().equals("class")) {
 
 						String clName = alice.util.Tools.removeApices(((Struct) objId).getArg(1).toString());
@@ -532,8 +539,9 @@ public class JavaLibrary extends Library {
 							// Pulisco il class loader (solo gli URL inseriti)
 							classLoader.removeURLs(getURLsFromStringArray(listOfPaths));
 						}
-
-					} else {
+					} 
+					*/
+					else {
 						// the object is the string itself
 						Method m = java.lang.String.class.getMethod(methodName, args.getTypes());
 						m.setAccessible(true);
@@ -711,8 +719,10 @@ public class JavaLibrary extends Library {
             	String[] listOfPaths = null;
             	// Case: class(className)
             	if(((Struct) objId).getArity() == 1)         	
-            		 clName = alice.util.Tools.removeApices(((Struct) objId)
-                             .getArg(0).toString());
+            		 clName = alice.util.Tools.removeApices(((Struct) objId).getArg(0).toString());
+            	
+            	/*
+            	 * Deprecated in 2.8, see the manual.
             	// Case: class(paths, className)
             	else if(((Struct) objId).getArity() == 2)
             	{
@@ -724,6 +734,8 @@ public class JavaLibrary extends Library {
                 	
                 	classLoader.addURLs(getURLsFromStringArray(listOfPaths));
             	}
+            	*/
+            	
             	if(clName != null)
             	{
             		try {
@@ -740,10 +752,14 @@ public class JavaLibrary extends Library {
                                                 .removeApices(((Struct) objId)
                                                         .getArg(0).toString()));
                         return false;
-                    } finally{
+                    }
+                    /*
+                     * Deprecated in 2.8, see the manual.
+                    finally{
                     	if(((Struct) objId).getArity() == 2)
                     		classLoader.removeURLs(getURLsFromStringArray(listOfPaths));
                     }
+                    */
             	}
             }
             else {
@@ -814,6 +830,8 @@ public class JavaLibrary extends Library {
             	if(((Struct) objId).getArity() == 1)         	
             		 clName = alice.util.Tools.removeApices(((Struct) objId)
                              .getArg(0).toString());
+            	/*
+            	 * Deprecated in 2.8, see the manual.
             	// Case: class(paths, className)
             	else if(((Struct) objId).getArity() == 2)
             	{
@@ -825,6 +843,8 @@ public class JavaLibrary extends Library {
                 	
                 	classLoader.addURLs(getURLsFromStringArray(listOfPaths));
             	}
+            	*/
+            	
             	if(clName != null)
             	{
             		try {
@@ -841,10 +861,14 @@ public class JavaLibrary extends Library {
                                                 .removeApices(((Struct) objId)
                                                         .getArg(0).toString()));
                         return false;
-                    } finally{
+                    }
+                    /*
+                     * Deprecated in 2.8, see the manual.
+            		finally{
                     	if(((Struct) objId).getArity() == 2)
                     		classLoader.removeURLs(getURLsFromStringArray(listOfPaths));
                     }
+                    */
             	}
             }
             else {

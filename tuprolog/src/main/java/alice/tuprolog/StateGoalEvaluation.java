@@ -64,8 +64,6 @@ public class StateGoalEvaluation extends State {
 					/*Castagna 06/2011*/					
 					e.manager.exception(exception.getException().toString());
 					/**/
-				} else {
-					t.printStackTrace();
 				}
 
 				// mi sposto nello stato EXCEPTION

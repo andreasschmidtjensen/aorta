@@ -58,7 +58,6 @@ public class DoNothing implements OSRule {
 	 * @see ail.semantics.operationalrules.OSRule#apply(ail.semantics.AILAgent)
 	 */
 	public void apply(AILAgent a) {
-		System.out.println("DoNothing: Ignoring intentnion: " + a.getIntention());
 	}
 	
 }

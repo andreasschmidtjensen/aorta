@@ -13,6 +13,7 @@ import ail.syntax.Message;
 import ail.syntax.SendAction;
 import ail.syntax.annotation.SourceAnnotation;
 import ail.util.AILexception;
+import ajpf.util.AJPFLogger;
 import alice.tuprolog.Term;
 import aorta.AortaBridge;
 import aorta.msg.OutgoingOrganizationalMessage;
@@ -60,8 +61,6 @@ public class AILBridge implements AortaBridge {
 
 	@Override
 	public boolean addGoal(Term goal) {
-//		System.out.println("[" + agent.getAgName() + "]: add goal: " + new Goal(TermConverter.toLiteral(goal), Goal.achieveGoal));
-//		agent.addGoal(new Goal(TermConverter.toLiteral(goal), Goal.achieveGoal));
 		agent.addNewIntention(new Intention(new Goal(TermConverter.toLiteral(goal), Goal.achieveGoal), SOURCE_AORTA));
 		agent.tellawake();
 		
@@ -95,6 +94,7 @@ public class AILBridge implements AortaBridge {
 //				break;
 //					
 //		}
+		AJPFLogger.info(AILBridge.class.getName(), "Sending organizational message: " + msg.getMessage() + " to " + msg.getRecipients());
 		for (Term recipient : msg.getRecipients()) {
 			try {
 				// same approach as	ail.semantics.operationalrules.HandleSendAction

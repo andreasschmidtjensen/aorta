@@ -38,10 +38,6 @@ class FlagManager {
         flags = new ArrayList<Flag>();
     }
 
-	FlagManager(FlagManager fm) {
-		flags = new ArrayList<Flag>(fm.flags);
-	}
-	
     /**
      * Config this Manager
      */
@@ -121,5 +117,5 @@ class FlagManager {
         }
         return false;
     }
-	
+
 }

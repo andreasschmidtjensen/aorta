@@ -45,14 +45,6 @@ import alice.tuprolog.interfaces.IOperatorManager;
     /** highest operator priority */
     public static final int OP_HIGH = 1200;
     
-	protected OperatorManager() {
-	}
-	
-	OperatorManager(OperatorManager om) {
-		this();
-		operatorList = (OperatorRegister) om.operatorList.clone();
-	}
-	
     /**
      * Creates a new operator. If the operator is already provided,
      * it replaces it with the new one

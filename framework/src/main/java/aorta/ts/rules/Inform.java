@@ -41,7 +41,9 @@ public class Inform extends Transition {
 		Struct orgDep = Qualifier.qualifyStruct(dep, KBType.ORGANIZATION);
 		Struct optInf = Qualifier.qualifyStruct(inf, KBType.OPTION);
 		
-		// org(rea(A,R2)), org(dependency(R1,R2,O)), bel(O), \+ opt(inform(R1, O))
+		
+		// TODO: O in dependency IS NOT QUALIFIED so O does not work!!!w 
+		// org(rea(A,R2)), org(dep(R1,R2,O)), bel(O), \+ opt(inform(R1, O))
 		Term test = Term.createTerm(orgRea + ", " + orgDep + ", O, \\+ " + optInf);
 
 		SolveInfo result = engine.solve(ms, test);

@@ -1,0 +1,9 @@
+ROLES:
+overseer: on(X,Y).
+builder.
+
+OBJECTIVES:
+on(a,b).
+
+DEPENDENCIES:
+overseer > builder: on(X,Y).

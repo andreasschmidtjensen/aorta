@@ -697,22 +697,10 @@ public class Struct extends Term {
         if (isEmptyList()) return "[]";
         // list case
         if (name.equals(".") && arity == 2) {
-			return ("[" + toString0() + "]");
+            return ("[" + toString0() + "]");
         } else if (name.equals("{}")) {
             return ("{" + toString0_bracket() + "}");
-		} else if (name.equals("\\+") && arity == 1) {
-			return ("\\+ (" + arg[0].toString() + ")");
-		} else if ((name.equals(",") || name.equals(";")) && arity == 2) {
-			return (arg[0].toString() + name + " " + arg[1].toString());
-		} else if (name.equals(":-")) {
-			String body = "";
-			for (int i = 1; i < arity; i++) {
-				if (i > 1) 
-					body += ", ";
-				body += arg[i].toString();
-			}
-			return arg[0].toString() + " :- " + body;
-		} else {
+        } else {
             String s = (Parser.isAtom(name) ? name : "'" + name + "'");
             if (arity > 0) {
                 s = s + "(";

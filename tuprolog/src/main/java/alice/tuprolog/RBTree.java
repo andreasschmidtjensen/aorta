@@ -1,5 +1,7 @@
 package alice.tuprolog;
 
+import java.util.LinkedList;
+
 /* Copyright (c) 2010 the authors listed at the following URL, and/or
 the authors of referenced articles or incorporated external code:
 http://en.literateprograms.org/Red-black_tree_(Java)?action=history&offset=20100112141306
@@ -297,31 +299,43 @@ public class RBTree<K extends Comparable<? super K>,V>
         }
     }
 
-    public void delete(K key) {
+    public void delete(K key, ClauseInfo c) {
+    	
         Node<K,V> n = lookupNode(key);
         if (n == null)
             return;  // Key not found, do nothing
-        if (n.left != null && n.right != null) {
-            // Copy key/value from predecessor and then delete it instead
-            Node<K,V> pred = maximumNode(n.left);
-            n.key   = pred.key;
-            n.value = pred.value;
-            n = pred;
+        
+        /*must be check if node is a list of clause*/
+		LinkedList<ClauseInfo> nodeClause= (LinkedList<ClauseInfo>)n.value;
+        if(nodeClause.size()>1){
+        	
+        	nodeClause.remove(c);
         }
-
-        assert n.left == null || n.right == null;
-        Node<K,V> child = (n.right == null) ? n.left : n.right;
-        if (nodeColor(n) == Color.BLACK) {
-            n.color = nodeColor(child);
-            deleteCase1(n);
+        else{
+	        if (n.left != null && n.right != null) {
+	        	
+	            // Copy key/value from predecessor and then delete it instead
+	            Node<K,V> pred = maximumNode(n.left);
+	            n.key   = pred.key;
+	            n.value = pred.value;
+	            n = pred;
+	        }
+	
+	        assert n.left == null || n.right == null;
+	        Node<K,V> child = (n.right == null) ? n.left : n.right;
+	  
+	        if (nodeColor(n) == Color.BLACK) {
+	            n.color = nodeColor(child);
+	            deleteCase1(n);
+	        }
+	        replaceNode(n, child);
+	
+	        if (nodeColor(root) == Color.RED) {
+	            root.color = Color.BLACK;
+	        }
+	
+	        verifyProperties();
         }
-        replaceNode(n, child);
-
-        if (nodeColor(root) == Color.RED) {
-            root.color = Color.BLACK;
-        }
-
-        verifyProperties();
     }
 
     private static <K extends Comparable<? super K>,V> Node<K,V> maximumNode(Node<K,V> n) {

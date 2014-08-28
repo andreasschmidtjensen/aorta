@@ -57,10 +57,13 @@
 						<argument>-classpath</argument>
 						<classpath/>
 						<argument>aorta.modelchecker.Modelchecker</argument>
-						<argument>${basedir}/src/main/java/examples/gwendolen/blocksworld/BlocksWorld.ail</argument>
-						<argument>${basedir}/src/main/java/examples/gwendolen/blocksworld/BlocksWorld.psl</argument>
+						<argument>${basedir}/src/main/java/examples/gwendolen/writingpaper/WritingPaper.ail</argument>
+						<argument>${basedir}/src/main/java/examples/gwendolen/writingpaper/WritingPaper.psl</argument>
+						<!--<argument>${basedir}/src/main/java/examples/gwendolen/blocksworld/BlocksWorld.ail</argument>-->
+						<!--<argument>${basedir}/src/main/java/examples/gwendolen/blocksworld/BlocksWorld.psl</argument>-->
 					</arguments>
-					<workingDirectory>${basedir}/src/main/java/examples/gwendolen/blocksworld/</workingDirectory>
+					<workingDirectory>${basedir}/src/main/java/examples/gwendolen/writingpaper/</workingDirectory>
+					<!--<workingDirectory>${basedir}/src/main/java/examples/gwendolen/blocksworld/</workingDirectory>-->
 				</configuration>
 			</plugin>
 		</plugins>
@@ -96,9 +99,9 @@
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>tuprolog</groupId>
+			<groupId>dk.dtu.compute.algolog.aorta</groupId>
 			<artifactId>tuprolog</artifactId>
-			<version>2.8.0</version>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

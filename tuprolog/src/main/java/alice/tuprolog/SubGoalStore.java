@@ -103,5 +103,8 @@ public class SubGoalStore {
     public boolean getFetched(){
         return fetched;
     }
+    public DefaultSubGoalId getCurSGId() {
+        return curSGId;
+    }
         
 }

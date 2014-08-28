@@ -1,6 +1,4 @@
-actions {
-	role(R, Os) : true => enact(R)
-	obligation(A, R, O, D) : true => commit(O)
-	delegate(R, O) : org(rea(Ag, R)) => send(Ag, goal(O))
-	inform(R, O) : org(rea(Ag, R)) => send(Ag, bel(O))
-}
+role(R) : true => enact(R).
+obj(O) : true => commit(O).
+send(R, achieve, O) : org(rea(Ag, R)) => send(Ag, goal(O)).
+send(R, tell, O) : org(rea(Ag, R)) => send(Ag, bel(O)).

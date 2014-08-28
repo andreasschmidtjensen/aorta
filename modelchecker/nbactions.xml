@@ -5,6 +5,62 @@
             <displayName>Run modelchecker</displayName>
             <goals>
                 <goal>exec:exec</goal>
+                
             </goals>
+        </action>
+        <action>
+            <actionName>CUSTOM-Build &amp; Run modelchecker</actionName>
+            <displayName>Build &amp; Run modelchecker</displayName>
+            <preAction>build-with-dependencies</preAction>
+            <goals>
+                <goal>exec:exec</goal>
+                
+            </goals>
+        </action>
+        <action>
+            <actionName>run</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-classpath %classpath aorta.modelchecker.Modelchecker /Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/writingpaper/WritingPaper.ail /Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/writingpaper/WritingPaper.psl</exec.args>
+                <exec.executable>java</exec.executable>
+                <exec.workingdir>/Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/writingpaper/</exec.workingdir>
+            </properties>
+        </action>
+        <action>
+            <actionName>debug</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath aorta.modelchecker.Modelchecker /Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/writingpaper/WritingPaper.ail /Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/writingpaper/WritingPaper.psl</exec.args>
+                <exec.executable>java</exec.executable>
+                <jpda.listen>true</jpda.listen>
+                <exec.workingdir>/Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/writingpaper/</exec.workingdir>
+            </properties>
+        </action>
+        <action>
+            <actionName>profile</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-classpath %classpath aorta.modelchecker.Modelchecker /Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/writingpaper/WritingPaper.ail /Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/writingpaper/WritingPaper.psl</exec.args>
+                <exec.executable>java</exec.executable>
+                <exec.workingdir>/Dropbox/code/phd/maven/aorta/modelchecker/src/main/java/examples/gwendolen/writingpaper/</exec.workingdir>
+            </properties>
         </action>
     </actions>

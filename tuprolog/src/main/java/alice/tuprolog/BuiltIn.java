@@ -42,10 +42,6 @@ public class BuiltIn extends Library {
 
 	public BuiltIn(Prolog mediator) {
 		super();
-		init(mediator);
-	}
-
-	public void init(Prolog mediator) {
 		setEngine(mediator);
 		engineManager = mediator.getEngineManager();
 		theoryManager = mediator.getTheoryManager();

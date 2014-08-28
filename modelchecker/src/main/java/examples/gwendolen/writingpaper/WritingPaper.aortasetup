@@ -1,0 +1,7 @@
+mas.file = WritingPaper.gwen
+mas.builder = gwendolen.GwendolenMASBuilder
+
+aorta.organization = WritingPaper.mm
+aorta.type = generic
+aorta.alice = Reasoning.aorta
+aorta.bob = Reasoning.aorta

@@ -57,7 +57,7 @@ public class OrganizationLoader {
 			parser.setTokenStream(tokens);
 			parser.setTrace(false);
 
-			parser.removeErrorListeners();
+//			parser.removeErrorListeners();
 			parser.setErrorHandler(new BailErrorStrategy());
 
 			MetamodelParser.MetamodelContext modelContext = parser.metamodel();

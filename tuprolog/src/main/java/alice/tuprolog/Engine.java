@@ -45,6 +45,7 @@ public class Engine /*Castagna 06/2011*/implements IEngine/**/{
 		this.nextState = manager.INIT;
 		this.query = query;
 		this.mustStop = false;
+		this.manager.getTheoryManager().clearRetractDB();
 	}
 
 
@@ -72,7 +73,7 @@ public class Engine /*Castagna 06/2011*/implements IEngine/**/{
 				break;
 			}
 			action = nextState.toString();
-			
+
 			nextState.doJob(this);
 			manager.spy(action, this);
 			

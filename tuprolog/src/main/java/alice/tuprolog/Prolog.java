@@ -22,6 +22,7 @@ import java.io.*;
 
 import alice.tuprolog.event.*;
 import alice.tuprolog.interfaces.IProlog;
+import alice.tuprologx.ide.ToolBar;
 
 
 
@@ -32,6 +33,7 @@ import alice.tuprolog.interfaces.IProlog;
  */
 @SuppressWarnings("serial")
 public class Prolog implements /*Castagna 06/2011*/IProlog,/**/ Serializable {
+
 
 	/*  manager of current theory */
 	private TheoryManager theoryManager;
@@ -150,35 +152,6 @@ public class Prolog implements /*Castagna 06/2011*/IProlog,/**/ Serializable {
         absolutePathList = new ArrayList<String>();
 		initializeManagers();
 	}
-	
-	public Prolog(Prolog prolog) {
-		spy = prolog.spy;
-		warning = prolog.warning;
-		exception = prolog.exception;
-
-		theoryListeners = new ArrayList<TheoryListener>(prolog.theoryListeners);
-		queryListeners = new ArrayList<QueryListener>(prolog.queryListeners);
-		libraryListeners = new ArrayList<LibraryListener>(prolog.libraryListeners);
-        absolutePathList = new ArrayList<String>(prolog.absolutePathList);
-		outputListeners = new ArrayList<OutputListener>(prolog.outputListeners);
-		spyListeners = new ArrayList<SpyListener>(prolog.spyListeners);
-		warningListeners = new ArrayList<WarningListener>(prolog.warningListeners);
-		exceptionListeners = new ArrayList<ExceptionListener>(prolog.exceptionListeners);
-		
-		flagManager = new FlagManager(prolog.flagManager);
-		libraryManager = new LibraryManager(prolog.libraryManager);
-		opManager = new OperatorManager(prolog.opManager);
-		theoryManager = new TheoryManager();
-		primitiveManager = new PrimitiveManager(prolog.primitiveManager);
-		engineManager = new EngineManager();
-		
-		//config managers
-		theoryManager.initialize(this, prolog.theoryManager);
-		libraryManager.initialize(this);
-		flagManager.initialize(this);
-		primitiveManager.clone(this);
-		engineManager.initialize(this, prolog.engineManager);
-	}
 
 
 	private void initializeManagers() {
@@ -250,8 +223,16 @@ public class Prolog implements /*Castagna 06/2011*/IProlog,/**/ Serializable {
      */
     public String getCurrentDirectory() {
         String directory = "";
+        String s;
         if(absolutePathList.isEmpty()) {
-       		directory = System.getProperty("user.dir");
+        	if((s = ToolBar.getPath())!=null)
+        	{
+        		directory = s;
+        	}
+        	else
+        	{
+        		directory = System.getProperty("user.dir");
+        	}
         } else {
             directory = absolutePathList.get(absolutePathList.size()-1);
         }
@@ -442,6 +423,7 @@ public class Prolog implements /*Castagna 06/2011*/IProlog,/**/ Serializable {
 	 * @see SolveInfo
 	 **/
 	public SolveInfo solve(Term g) {
+		//System.out.println("ENGINE SOLVE #0: "+g);
 		if (g == null) return null;
 		
 		SolveInfo sinfo = engineManager.solve(g);
@@ -466,7 +448,6 @@ public class Prolog implements /*Castagna 06/2011*/IProlog,/**/ Serializable {
 			Term t = p.nextTerm(true);
 			return solve(t);
 		} catch (InvalidTermException ex) {
-			ex.printStackTrace();
 			throw new MalformedGoalException();
 		}
 	}
@@ -625,7 +606,7 @@ public class Prolog implements /*Castagna 06/2011*/IProlog,/**/ Serializable {
 			ExecutionContext ctx = e.currentContext;
 			int i=0;
 			String g = "-";
-			if (ctx != null && ctx.fatherCtx != null){
+			if (ctx.fatherCtx != null){
 				i = ctx.depth-1;
 				g = ctx.fatherCtx.currentGoal.toString();
 			}

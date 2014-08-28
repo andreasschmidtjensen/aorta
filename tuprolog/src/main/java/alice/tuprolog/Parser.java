@@ -201,7 +201,7 @@ public class Parser implements /*Castagna 06/2011*/IParser,/**/ Serializable
 			if (term == null)
 				throw new InvalidTermException("Term is null");
 			if (!p.tokenizer.readToken().isEOF())
-				throw new InvalidTermException("The enitire string could not be read as one term");
+				throw new InvalidTermException("The entire string could not be read as one term");
 			term.resolveTerm();
 			return term;
 		} catch (IOException ex) {
@@ -227,7 +227,7 @@ public class Parser implements /*Castagna 06/2011*/IParser,/**/ Serializable
 
 			int YFX = opManager.opPrio(t.seq, "yfx");
 			int YF = opManager.opPrio(t.seq, "yf");
-			
+
 			//YF and YFX has a higher priority than the left side expr and less then top limit
 			// if (YF < leftSide.priority && YF > OperatorManager.OP_HIGH) YF = -1;
 			if (YF < leftSide.priority || YF > maxPriority) YF = -1;

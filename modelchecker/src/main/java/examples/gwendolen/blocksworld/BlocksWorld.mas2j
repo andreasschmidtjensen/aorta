@@ -1,0 +1,5 @@
+MAS bw {
+	infrastructure: AORTA(organization("BlocksOrganization.mm"))
+    agents:
+		ag1 [aorta="OrgReasoning.aorta"];
+}

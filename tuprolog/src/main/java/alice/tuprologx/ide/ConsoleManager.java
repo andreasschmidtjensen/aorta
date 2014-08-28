@@ -2,6 +2,7 @@ package alice.tuprologx.ide;
 
 import alice.tuprolog.*;
 import alice.tuprolog.event.*;
+import alice.tuprolog.lib.IOLibrary;
 import alice.tuprologx.ide.EngineThread;
 
 import java.beans.PropertyChangeEvent;
@@ -46,6 +47,7 @@ public class ConsoleManager
     {
     	//dialog.setTermPanel(engine.termSolve(getGoal()));
     	
+    	resetInputStream();
         dialog.clearResults();
         if (!getGoal().equals(""))
         {
@@ -179,6 +181,12 @@ public class ConsoleManager
     public void setStatusMessage(String message)
     {
         dialog.setStatusMessage(message);
+    }
+    
+    public void resetInputStream()
+    {
+    	IOLibrary IO = (IOLibrary)engine.getLibrary("alice.tuprolog.lib.IOLibrary");
+    	IO.getUserContextInputStream().setCounter();
     }
 
     public void propertyChange(PropertyChangeEvent event) {

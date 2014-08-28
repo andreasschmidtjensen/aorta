@@ -51,28 +51,19 @@ public class TheoryManager implements Serializable {
 
 	private ClauseDatabase dynamicDBase;
 	private ClauseDatabase staticDBase;
+	private ClauseDatabase retractDBase;
 	private Prolog engine;
 	private PrimitiveManager primitiveManager;
 	private Stack<Term> startGoalStack;
 	Theory lastConsultedTheory;
 
-	TheoryManager() {
-	}
-	
 	public void initialize(Prolog vm) {
 		dynamicDBase = new ClauseDatabase();
 		staticDBase = new ClauseDatabase();
+		retractDBase = new ClauseDatabase();
 		lastConsultedTheory = new Theory();
 		engine = vm;
 		primitiveManager = engine.getPrimitiveManager();
-	}
-	
-	void initialize(Prolog vm, TheoryManager tm) {
-		initialize(vm);
-		
-		dynamicDBase = tm.dynamicDBase.clone();
-		staticDBase = tm.staticDBase.clone();
-		lastConsultedTheory = tm.lastConsultedTheory;
 	}
 
 	/**
@@ -114,13 +105,42 @@ public class TheoryManager implements Serializable {
 		Struct clause = toClause(cl);
 		Struct struct = ((Struct) clause.getArg(0));
 		FamilyClausesList family = dynamicDBase.get(struct.getPredicateIndicator());
-		if (family == null)
+		ExecutionContext ctx = engine.getEngineManager().getCurrentContext();
+		
+		/*creo un nuovo clause database x memorizzare la teoria all'atto della retract 
+		 * questo lo faccio solo al primo giro della stessa retract 
+		 * (e riconosco questo in base all'id del contesto)
+		 * sarˆ la retract da questo db a restituire il risultato
+		 */    
+		FamilyClausesList familyQuery;
+	    if(!retractDBase.containsKey("ctxId "+ctx.getId())){
+	    	familyQuery=new FamilyClausesList();
+	    	for (int i = 0; i < family.size(); i++) {
+	 	       familyQuery.add(family.get(i));
+	 	    }
+	    	//familyQuery.addAll(family);
+	    	retractDBase.put("ctxId "+ctx.getId(), familyQuery);
+	    }
+	   else {
+		   familyQuery=retractDBase.get("ctxId "+ctx.getId());
+	   }
+		
+	    if (familyQuery == null)
 			return null;
-		for (Iterator<ClauseInfo> it = family.iterator(); it.hasNext();) {
-			ClauseInfo d = it.next();
+		//fa la retract dalla teoria base
+		if (family != null){
+			for (Iterator<ClauseInfo> it = family.iterator(); it.hasNext();) {
+				ClauseInfo d = it.next();
+				if (clause.match(d.getClause())) {
+					it.remove();
+				}
+			}
+		}
+		//fa la retract dal retract db
+		for (Iterator<ClauseInfo> i = familyQuery.iterator(); i.hasNext();) {
+			ClauseInfo d = i.next();
 			if (clause.match(d.getClause())) {
-				it.remove();
-//				family.unregister(d);
+				i.remove();
 				engine.spy("DELETE: " + d.getClause() + "\n");
 				return new ClauseInfo(d.getClause(), null);
 			}
@@ -336,6 +356,10 @@ public class TheoryManager implements Serializable {
 	 */
 	public synchronized Theory getLastConsultedTheory() {
 		return lastConsultedTheory;
+	}
+	
+	public void clearRetractDB() {
+		this.retractDBase=new ClauseDatabase();
 	}
 
 }

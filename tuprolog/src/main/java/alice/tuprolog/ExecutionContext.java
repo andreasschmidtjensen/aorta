@@ -120,7 +120,7 @@ public class ExecutionContext {
    
     void performTailRecursionOptimization(Engine e){
         	
-    	 	if(!haveAlternatives && !e.currentContext.goalsToEval.haveSubGoals() && !(e.currentContext.currentGoal.getName().equalsIgnoreCase("catch") || e.currentContext.currentGoal.getName().equalsIgnoreCase("java_catch")))
+    	 	if(!haveAlternatives && e.currentContext.goalsToEval.getCurSGId() == null && !e.currentContext.goalsToEval.haveSubGoals() && !(e.currentContext.currentGoal.getName().equalsIgnoreCase("catch") || e.currentContext.currentGoal.getName().equalsIgnoreCase("java_catch")))
         		{
     	 			fatherCtx = e.currentContext.fatherCtx;
     	 			//position of the new context in the list

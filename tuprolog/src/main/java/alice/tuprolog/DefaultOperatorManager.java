@@ -23,18 +23,9 @@ package alice.tuprolog;
  *
  */
 @SuppressWarnings("serial")
-public class DefaultOperatorManager extends OperatorManager {
+class DefaultOperatorManager extends OperatorManager {
     
     public DefaultOperatorManager() {
-        setup();
-    }
-
-	public DefaultOperatorManager(OperatorManager om) {
-		super(om);
-		setup();
-	}
-
-	private void setup() {
         opNew(":-", "xfx", 1200);
         opNew("-->", "xfx", 1200);
         opNew(":-", "fx", 1200);

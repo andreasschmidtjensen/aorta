@@ -19,6 +19,7 @@ package alice.tuprologx.ide;
 
 import alice.tuprolog.*;
 import alice.tuprolog.event.*;
+import alice.tuprolog.lib.IOLibrary;
 
 import javax.swing.*;
 
@@ -156,6 +157,11 @@ public class JavaIDE
         // Set a title bar icon
         ImageIcon icon = new ImageIcon(getClass().getResource("img/tuProlog.gif"));
         setIconImage(icon.getImage());
+        
+        //Aggiunto Mastrovito 12/2013
+        IOLibrary IO = (IOLibrary)engine.getLibrary("alice.tuprolog.lib.IOLibrary");
+        IO.setExecutionType(IO.graphicExecution);
+        InputDialog f = new InputDialog(IO.getUserContextInputStream());
     }
     
     public static ConsoleManager getConsoleManager()

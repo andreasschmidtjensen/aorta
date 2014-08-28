@@ -33,6 +33,8 @@ cap(overseer)
 
 :Initial Goals:
 
+on(X,Y) [achieve]
+
 :Plans:
 
 +!delegate(on(X,Y)) [achieve] : {B on(X,Y)} <- +delegate(on(X,Y));

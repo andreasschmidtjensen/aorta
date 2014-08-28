@@ -80,7 +80,6 @@ public class GenerateApplicablePlansEmpty implements OSRule {
 			} 
 		}
 		
-		System.out.println("GenerateApplicablePlansEmpty: Setting applicablePlans: " + Plp);
 		a.setApplicablePlans(Plp.iterator());
 	}
 		

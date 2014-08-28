@@ -132,8 +132,8 @@ class FamilyClausesIndex<K extends Comparable<? super K>>
      *
      * @param key   The key
      */
-    public void remove(K key){
-        super.delete(key);
+    public void remove(K key,ClauseInfo clause ){
+        super.delete(key,clause);
     }
 
     public void removeShared(ClauseInfo clause){
