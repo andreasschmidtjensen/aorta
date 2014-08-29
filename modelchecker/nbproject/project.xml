@@ -6,6 +6,7 @@
             <name>modelchecker</name>
             <source-roots>
                 <root id="src.java.dir"/>
+                <root id="src.examples.dir"/>
             </source-roots>
             <test-roots>
                 <root id="test.test.dir"/>

@@ -1,4 +1,4 @@
-package examples.gwendolen;
+package gwendolen;
 
 import ail.mas.ActionScheduler;
 import ail.mas.DefaultEnvironment;

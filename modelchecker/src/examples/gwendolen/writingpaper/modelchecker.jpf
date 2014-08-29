@@ -1,7 +1,7 @@
 @using = mcapl
 @using = aortamc
 target = ail.util.AJPF_w_AIL
-target.args = WritingPaper.ail,WritingPaper.psl,error
+target.args = WritingPaper.ail,WritingPaper.psl,rea_unrea
 log.info = ail.mas.DefaultEnvironment,ajpf.product.Product,ajpf.MCAPLAgent,aorta.ail.AortaAILAgent,aorta.ts.impl.Ext,aorta.reasoning.coordination.CoordinationRule
 log.finest = ajpf.psl.buchi.BuchiAutomaton,ajpf.product.MCAPLmodel
 listener+=,.listener.ExecTracker

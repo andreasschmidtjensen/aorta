@@ -4,33 +4,15 @@
  */
 package aorta.ail;
 
-import ail.mas.AILEnv;
-import ail.mas.MAS;
 import ail.semantics.AILAgent;
-import ail.semantics.OSRule;
-import ail.semantics.RCStage;
-import ail.semantics.ReasoningCycle;
 import ail.syntax.AILAnnotation;
-import ail.syntax.Action;
-import ail.syntax.ApplicablePlan;
-import ail.syntax.BeliefBase;
 import ail.syntax.Deed;
-import ail.syntax.Event;
 import ail.syntax.Goal;
-import ail.syntax.Guard;
 import ail.syntax.Intention;
 import ail.syntax.Literal;
 import ail.syntax.Message;
-import ail.syntax.Plan;
-import ail.syntax.PlanLibrary;
 import ail.syntax.PredicatewAnnotation;
-import ail.syntax.Rule;
-import ail.syntax.RuleBase;
 import ail.syntax.StringTerm;
-import ail.syntax.Term;
-import ail.syntax.Unifier;
-import ail.syntax.annotation.SourceAnnotation;
-import ail.util.AILexception;
 import ajpf.psl.MCAPLFormula;
 import ajpf.psl.MCAPLPredicate;
 import ajpf.util.AJPFLogger;
@@ -49,14 +31,10 @@ import aorta.msg.IncomingOrganizationalMessage;
 import aorta.parser.helper.AortaBuilder;
 import aorta.ts.strategy.StrategyFailedException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 // TODO: Avoid large statespace in beginning when setting up agents
-// TODO: Keep the existing AILAgent as a field and forward *all* method calls to this instead (if possible?).
 /**
  *
  * @author asj

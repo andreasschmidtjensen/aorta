@@ -78,7 +78,7 @@ public class Modelchecker {
 
 				String jarLocation = JPFSiteUtils.getSiteCoreDir().getAbsolutePath() + "/build/runJPF.jar";
 				System.out.println("Executing java -jar " + jarLocation + " +shell.port=4242 " + jpfFile + " in " + System.getProperty("user.dir"));
-				Process process = new ProcessBuilder("java", "-jar", jarLocation, "+shell.port=4242", jpfFile).start();
+				Process process = new ProcessBuilder("java", "-Xmx1000m", "-jar", jarLocation, "+shell.port=4242", jpfFile).start();
 
 				InputStream is = process.getInputStream();
 				InputStreamReader isr = new InputStreamReader(is);
@@ -87,16 +87,9 @@ public class Modelchecker {
 
 				boolean print = true;
 				while ((line = br.readLine()) != null) {
-					if (!print && line.equals("====================================================== results")) {
-						print = true;
-					}
-
+					print = !line.trim().startsWith("# exception: java.util.NoSuchElementException@");
 					if (print) {
 						System.out.println(line);
-					}
-
-					if (print && line.startsWith("====================================================== search started:")) {
-						print = false;
 					}
 				}
 			}

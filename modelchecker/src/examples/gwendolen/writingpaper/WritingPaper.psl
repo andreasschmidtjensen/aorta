@@ -1,0 +1,8 @@
+rea_unrea: <>(Org(alice, rea(alice, editor)) & <>(Org(alice, ~rea(alice, editor))))
+rea_a: <>(Org(alice, rea(alice, editor)))
+rea_b: <>(Org(bob, rea(bob, writer)))
+rea_tell_ab: <>(Org(alice, rea(bob, writer)))
+rea_tell_ba: <>(Org(bob, rea(alice, editor)))
+deact_a: <>(Opt(alice, ~role(editor)))
+deact_b: <>(Opt(bob, ~role(writer)))
+error: <>(B(alice, x))
