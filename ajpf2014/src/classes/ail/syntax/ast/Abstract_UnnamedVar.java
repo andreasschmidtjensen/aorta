@@ -58,6 +58,7 @@ import ail.syntax.UnnamedVar;
  * 
  */
 public class Abstract_UnnamedVar extends Abstract_VarTerm {
+	private static final long serialVersionUID = 20L;
 
 	/**
 	 * Constructor.

@@ -26,6 +26,10 @@ public class DropAction extends Action {
 		this.objective = objective;
 	}
 
+	public Term getObjective() {
+		return objective;
+	}
+
 	@Override
 	protected AgentState executeAction(QueryEngine engine, Term option, AgentState state) throws AORTAException {
 		AgentState newState = state;

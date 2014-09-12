@@ -25,6 +25,10 @@ public class EnactAction extends Action {
 		this.role = role;
 	}
 
+	public Term getRole() {
+		return role;
+	}
+
 	@Override
 	protected AgentState executeAction(QueryEngine engine, Term option, AgentState state) throws AORTAException {
 		AgentState newState = state;

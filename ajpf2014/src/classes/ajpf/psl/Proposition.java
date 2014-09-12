@@ -28,6 +28,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import ajpf.util.AJPFLogger;
+import java.io.Serializable;
 
 /**
  * Default class for properties which are proposition.
@@ -35,7 +36,8 @@ import ajpf.util.AJPFLogger;
  * @author louiseadennis
  *
  */
-public abstract class Proposition implements MCAPLProperty {
+public abstract class Proposition implements MCAPLProperty, Serializable {
+	private static final long serialVersionUID = 1L;
 	boolean keepinold;
 	boolean current_truth_value;
 	
@@ -95,7 +97,8 @@ public abstract class Proposition implements MCAPLProperty {
 	}
 	
 	public abstract boolean equals(Object phi); 
-	
+	public abstract int hashCode();
+
 	/**
 	 * Atomic proposition do not split the automata state.
 	 */

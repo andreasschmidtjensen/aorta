@@ -37,6 +37,8 @@ import java.util.logging.Logger;
 import ajpf.psl.Proposition;
 
 import gov.nasa.jpf.Config;
+import java.io.Serializable;
+import java.util.Collection;
 
 
 /**
@@ -50,9 +52,10 @@ import gov.nasa.jpf.Config;
  * @author louiseadennis
  *
  */
-public class MCAPLmodel {
+public class MCAPLmodel implements Serializable {
+	private static final long serialVersionUID = 1L;
 	 protected static Logger log = JPF.getLogger("ajpf.product.MCAPLmodel");
-	 
+
 	 /*
 	  * States in the model indexed by their JPF state number.
 	  */
@@ -84,7 +87,7 @@ public class MCAPLmodel {
 	 /*
 	  * For printing.  An enuemration of the possible output formats.
 	  */
-	 protected enum OutputFormat {
+	 protected enum OutputFormat implements Serializable {
 		 Promela, Default, Prism
 	 }
 	
@@ -97,7 +100,7 @@ public class MCAPLmodel {
 	 /*
 	  * The configuration of this AJPF run.  Only used for generating output.
 	  */
-	 Config config;
+	 transient Config config;
 			
 
 	 /**
@@ -119,6 +122,10 @@ public class MCAPLmodel {
 		 }
  		
 		 return null;
+	 }
+	 
+	 public Set<Integer> getNeighbors(int statenum) {
+		 return model_edges.get(statenum);
 	 }
 	 
 	 /**

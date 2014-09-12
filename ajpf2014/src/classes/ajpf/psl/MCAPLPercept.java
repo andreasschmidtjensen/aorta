@@ -37,12 +37,12 @@ public class MCAPLPercept extends Proposition {
 	/**
 	 * The formula that is the percept.
 	 */
-	private MCAPLFormula percept;
+	private transient MCAPLFormula percept;
 	
 	/**
 	 * The multi-agent system - from which the environment can be extracted.
 	 */
-	private MCAPLmas mas;
+	private transient MCAPLmas mas;
 	
 	/**
 	 * Constructor.

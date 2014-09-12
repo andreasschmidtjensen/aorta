@@ -33,8 +33,10 @@ public class ObligationSatisfied extends Transition {
 
 		MetaLanguage language = new MetaLanguage();
 		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
+		Struct obj = language.obj(new Var("O"));
 
 		Struct orgObl = Qualifier.qualifyStruct(obl, KBType.ORGANIZATION);
+		Struct optObj = Qualifier.qualifyStruct(obj, KBType.OPTION);
 
 		List<SolveInfo> obligations = engine.findAll(ms, orgObl);
 		for (SolveInfo obligation : obligations) {
@@ -45,7 +47,9 @@ public class ObligationSatisfied extends Transition {
 				if (var.isGround() && engine.exists(ms, var.getTerm())) {
 					//XXX: newState = state.clone();
 					engine.unify(ms, orgObl, obligation);
-					newState.removeTerm(engine, orgObl);			
+					engine.unify(ms, optObj, obligation);
+					newState.removeTerm(engine, orgObl);
+					newState.removeTerm(engine, optObj);
 
 					logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Removing obligation: " + orgObl);
 					Tracer.trace(state.getAgent().getName(), "(" + getName() + ") Satisfied " + orgObl.getArg(0) + "\n");

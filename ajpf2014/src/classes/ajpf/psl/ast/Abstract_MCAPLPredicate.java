@@ -27,6 +27,7 @@ package ajpf.psl.ast;
 
 public class Abstract_MCAPLPredicate extends Abstract_TermImpl implements
 		Abstract_Formula {
+	private static final long serialVersionUID = 24L;
 
 	public Abstract_MCAPLPredicate(String f) {
 		super(f);

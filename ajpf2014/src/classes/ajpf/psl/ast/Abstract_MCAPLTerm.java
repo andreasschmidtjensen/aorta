@@ -26,16 +26,13 @@ package ajpf.psl.ast;
 
 import gov.nasa.jpf.vm.VM;
 import gov.nasa.jpf.vm.MJIEnv;
-import ajpf.MCAPLcontroller;
-import ajpf.MCAPLmas;
-import ajpf.psl.MCAPLFormula;
 import ajpf.psl.MCAPLTerm;
-import ajpf.psl.MCAPLProperty;
+import java.io.Serializable;
 
 /**
  * Common interface for all kind of Terms
  */
-public interface Abstract_MCAPLTerm extends Cloneable {
+public interface Abstract_MCAPLTerm extends Cloneable, Serializable {
 
 	public int createInJPF(VM vm);
 	

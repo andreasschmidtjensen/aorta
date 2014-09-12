@@ -33,8 +33,10 @@ import gov.nasa.jpf.vm.MJIEnv;
 import gov.nasa.jpf.vm.ThreadInfo;
 import ajpf.util.AJPFLogger;
 import ajpf.psl.MCAPLListTermImpl;
+import java.util.Objects;
 
 public class Abstract_MCAPLListTermImpl implements Abstract_MCAPLListTerm {
+	private static final long serialVersionUID = 22L;
 	private String logname = "ajpf.psl.ast.Abstract_MCAPLListTerm";
 	protected Abstract_MCAPLTerm head;
 	protected Abstract_MCAPLListTerm tail;
@@ -113,6 +115,32 @@ public class Abstract_MCAPLListTermImpl implements Abstract_MCAPLListTerm {
 		}
 		s += "]";
 		return s;
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 3;
+		hash = 41 * hash + Objects.hashCode(this.head);
+		hash = 41 * hash + Objects.hashCode(this.tail);
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Abstract_MCAPLListTermImpl other = (Abstract_MCAPLListTermImpl) obj;
+		if (!Objects.equals(this.head, other.head)) {
+			return false;
+		}
+		if (!Objects.equals(this.tail, other.tail)) {
+			return false;
+		}
+		return true;
 	}
 
 }

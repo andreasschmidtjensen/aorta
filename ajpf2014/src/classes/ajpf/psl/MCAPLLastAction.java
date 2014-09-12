@@ -42,12 +42,12 @@ public class MCAPLLastAction extends Proposition {
 	/**
 	 * The formula that is the agent's goal.
 	 */
-	private MCAPLFormula action;
+	private transient MCAPLFormula action;
 	
 	/**
 	 * The multi-agent system.
 	 */
-	private MCAPLmas mas;
+	private transient MCAPLmas mas;
 	
 	private int hashcode;
 	

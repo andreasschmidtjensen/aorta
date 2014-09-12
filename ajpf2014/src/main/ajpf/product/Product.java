@@ -29,6 +29,8 @@ import ajpf.psl.buchi.BuchiState;
 import ajpf.psl.MCAPLProperty;
 import ajpf.psl.Until;
 import ajpf.psl.Proposition;
+import ajpf.psl.ast.Abstract_MCAPLPredicate;
+import ajpf.psl.ast.NativeOrgBelief;
 
 import gov.nasa.jpf.JPF;
 import gov.nasa.jpf.Config;
@@ -133,6 +135,14 @@ public class Product {
 		}
 	}
 
+	MCAPLmodel newModel;
+	public void setModel(MCAPLmodel model) {
+		newModel = model;
+		for (ModelState ms : newModel.states_by_num.values()) {
+			ms.reset();
+		}
+	}
+
 	/**
 	 * Create the automata from a negated property.
 	 * @param negprop
@@ -158,7 +168,11 @@ public class Product {
 			if (log.getLevel().intValue() < Level.FINE.intValue()) {
 				log.finer("Props are: " + props);
 			}
-			s = new ModelState(modelstatenum, props);
+			if (newModel != null) {
+				s = newModel.getState(modelstatenum);
+			} else {
+				s = new ModelState(modelstatenum, props);
+			}
 			m.addState(s);
 		}
 		m.addEdge(s);
@@ -177,9 +191,13 @@ public class Product {
 		// If s == null then this model state does not already exist
 		// Otherwise we just want to add a link to this model state from the end of the current path.
 		if (s == null) {
-			s = new ModelState(modelstatenum, props);
+			if (newModel != null) {
+				s = newModel.getState(modelstatenum);
+			} else {
+				s = new ModelState(modelstatenum, props);
+			}
 			m.addState(s);
-
+			
 			// model only is for situations where LTL model checking is delegated to some external system
 			// and we are just building a model of the program.  There for there is no need to build the
 			// property automata.
@@ -250,8 +268,8 @@ public class Product {
 		log.fine("Current Path Ended");
 		List<Integer> current_model_path = m.getCurrentPath();
 		if (m.currentPathSize() > 0) {
-		newProductStates(current_model_path.get(m.currentPathSize() - 1));
-		m.getState(current_model_path.get(m.currentPathSize() - 1)).markdone();
+			newProductStates(current_model_path.get(m.currentPathSize() - 1));
+			m.getState(current_model_path.get(m.currentPathSize() - 1)).markdone();
 		}
 		accepting_path = DFS();
 		
@@ -284,7 +302,6 @@ public class Product {
 				// We calculate the successors for the product states now we know there is a (non-looping) new edge in the model state.
 				has_succs = p.calculateSuccessors(newModelState.getNum(), false);
 			}
-			
 			
 		}
 		return (has_succs);
@@ -323,7 +340,7 @@ public class Product {
 			}
 		} 
 		existence.put(modelnum, indexedbybuchi);
-
+		
 		// Add to S1 (the depth first LTL search tree) as new start states.
 		if (lowerLogLevelThan(Level.FINER)) {
 			log.finer(S1.toString());

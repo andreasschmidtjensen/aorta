@@ -37,14 +37,6 @@ public class AortaMASBuilder implements MASBuilder {
 			
 			buildMas(masBuilder, abs_filename);
 			buildAortaMas(config);
-
-//			if (!Verify.isRunningInJPF()) {
-//				AortaGui gui = new AortaGui();
-//				for (AILAgent ag : aortaMas.getAgs().values()) {
-//					gui.addAgent(((AortaAILAgent) ag).getAortaAgent());
-//				}
-//				gui.setVisible(true);
-//			}
 			
 			return aortaMas;
 		} catch (Exception ex) {

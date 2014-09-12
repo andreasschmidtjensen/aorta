@@ -40,11 +40,11 @@ public class MCAPLOrgOption extends Proposition {
 	/**
 	 * The agent which is required to believe the formula.
 	 */
-	private MCAPLAgent agent;
+	private transient MCAPLAgent agent;
 	/**
 	 * The formula the agent believes.
 	 */
-	private MCAPLFormula fmla;
+	private transient MCAPLFormula fmla;
 	
 	private int hashcode;
 		

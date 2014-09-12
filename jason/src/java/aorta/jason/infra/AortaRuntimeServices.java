@@ -82,7 +82,7 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 			aortaLocation = aortaLocation.replaceAll("\\\\", "/");
 				
 			AortaBuilder builder = new AortaBuilder();			
-			AortaAgent aortaAgent = builder.parseAgent(actualAgName, aortaLocation, aorta, new AortaJasonBridge(agentArch));
+			AortaAgent aortaAgent = builder.parseAgent(actualAgName, aortaLocation, aorta.getOrganizationLocation(), new AortaJasonBridge(agentArch));
 			
 			if (aortaAgent != null) {
 				aorta.addAgent(aortaAgent);

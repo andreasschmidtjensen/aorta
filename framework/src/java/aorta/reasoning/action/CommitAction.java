@@ -1,6 +1,5 @@
 package aorta.reasoning.action;
 
-import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
@@ -15,7 +14,6 @@ import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import java.util.logging.Level;
 import aorta.logging.Logger;
-import aorta.reasoning.action.Action;
 
 public class CommitAction extends Action {
 
@@ -24,6 +22,10 @@ public class CommitAction extends Action {
 
 	public CommitAction(Term objective) {
 		this.objective = objective;
+	}
+
+	public Term getObjective() {
+		return objective;
 	}
 
 	@Override
@@ -43,6 +45,8 @@ public class CommitAction extends Action {
 		Term test = Term.createTerm("\\+ " + belTerm + ", \\+ " + goalTerm);
 
 		SolveInfo result = engine.solve(ms, test);
+//		System.out.println("Trying to commit to " + clonedObjTerm + " via test: " + test + ": " + result);
+//		System.out.println("Mental state: " + ms);
 
 		logger.log(Level.FINE, "Attempting to commit: " + result.isSuccess());
 		if (result.isSuccess()) {

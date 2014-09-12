@@ -60,6 +60,7 @@ import gov.nasa.jpf.vm.Verify;
  * Represents arithmetic expressions like "10 < 30".
  */
 public class Abstract_ArithExpr implements Abstract_NumberTerm {
+	private static final long serialVersionUID = 11L;
 	
 	public static int none = 0;
 	public static int plus = 1;

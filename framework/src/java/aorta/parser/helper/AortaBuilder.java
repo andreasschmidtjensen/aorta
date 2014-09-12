@@ -40,7 +40,7 @@ public class AortaBuilder {
 		this.lexer = new AORTALexer(null);
 	}
 
-	public AortaAgent parseAgent(String agentName, String file, Aorta aorta, AortaBridge bridge) throws InvalidTheoryException, IOException, InvalidLibraryException, OrganizationImportException, AORTAException {
+	public AortaAgent parseAgent(String agentName, String file, String metamodelLocation, AortaBridge bridge) throws InvalidTheoryException, IOException, InvalidLibraryException, OrganizationImportException, AORTAException {
 		Reader r = null;
 		if (new File(file).exists()) {
 			r = new InputStreamReader(new FileInputStream(file), "UTF-8");			
@@ -65,7 +65,7 @@ public class AortaBuilder {
 
 		AORTAParser.AortaAgentContext aortaAgentContext = parser.aortaAgent(agentName);
 		aortaAgentContext.agent.setBridge(bridge);
-		aortaAgentContext.agent.setOrganizationPath(aorta.getOrganizationLocation());
+		aortaAgentContext.agent.setOrganizationPath(metamodelLocation);
 		
 		return aortaAgentContext.agent.build(file);
 	}

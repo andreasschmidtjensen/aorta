@@ -60,6 +60,7 @@ import ail.syntax.Action;
  *
  */
 public class Abstract_Action extends Abstract_Predicate {
+	private static final long serialVersionUID = 10L;
 	/**
 	 * Normally actions are just predicates, but we may want special actions
 	 * with particular content.  AIL defines some here.

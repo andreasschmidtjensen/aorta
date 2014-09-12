@@ -56,6 +56,7 @@ import ail.syntax.Predicate;
  * A Pred is a Predicate with annotations, eg a(1)[an1,an2].
  */
 public class Abstract_Pred extends Abstract_Predicate {
+	private static final long serialVersionUID = 17L;
 
 	/**
 	 * Constructor.

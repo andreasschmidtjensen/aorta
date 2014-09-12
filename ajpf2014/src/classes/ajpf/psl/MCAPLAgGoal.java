@@ -26,6 +26,7 @@ package ajpf.psl;
 
 import ajpf.MCAPLAgent;
 import ajpf.MCAPLcontroller;
+import java.util.Objects;
 
 /**
  * The formula G(a, phi) - a has a goal phi.
@@ -38,11 +39,11 @@ public class MCAPLAgGoal extends Proposition {
 	/**
 	 * The agent which is required to have the goal.
 	 */
-	private MCAPLAgent agent;
+	private transient MCAPLAgent agent;
 	/**
 	 * The formula that is the agent's goal.
 	 */
-	private MCAPLFormula goal;
+	private transient MCAPLFormula goal;
 	private int hashcode;
 	
 	/**
@@ -89,10 +90,12 @@ public class MCAPLAgGoal extends Proposition {
 		
 		return false;
 	}
-	
-	public int hashcode() {
-		return hashcode();
+
+	@Override
+	public int hashCode() {
+		return hashcode;
 	}
+	
 	
 	/**
 	 * Getter method for the Goal.

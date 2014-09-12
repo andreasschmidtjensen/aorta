@@ -32,7 +32,7 @@ public class AortaMAS extends MAS {
 		setController(mas.getController());
 		String organization = config.getProperty("aorta.organization");
 		aorta = new Aorta(organization);
-
+		
 		for (MCAPLLanguageAgent mcaplAg : mas.getMCAPLAgents()) {
 			if (mcaplAg instanceof AILAgent) {
 				AILAgent ag = (AILAgent) mcaplAg;

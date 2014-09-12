@@ -46,7 +46,7 @@ public abstract class Native_Proposition extends Proposition {
 	 protected static Logger log = JPF.getLogger("ajpf.psl.ast.Native_Proposition");
 	int objref;
 	
-	VM vm;
+	transient VM vm;
 
 	
 	/**

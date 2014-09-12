@@ -1,6 +1,5 @@
 package aorta.reasoning.action;
 
-import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
@@ -14,7 +13,6 @@ import aorta.kr.language.MetaLanguage;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
-import aorta.reasoning.action.Action;
 
 public class DeactAction extends Action {
 	public static final Logger logger = Logger.getLogger(DeactAction.class.getName());
@@ -23,6 +21,10 @@ public class DeactAction extends Action {
 	
 	public DeactAction(Term role) {
 		this.role = role;
+	}
+
+	public Term getRole() {
+		return role;
 	}
 
 	@Override

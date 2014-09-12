@@ -61,6 +61,7 @@ import ail.syntax.StringTerm;
  *
  */
 public class Abstract_BroadcastSendAction extends Abstract_Action {
+	private static final long serialVersionUID = 12L;
 	/**
 	 * Illocutionary force (Performative).
 	 */

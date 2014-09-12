@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.logging.Logger;
 
 import ajpf.psl.Proposition;
+import java.io.Serializable;
 
 /**
  * A state in the model consists of the number of the JPF state and,
@@ -39,8 +40,9 @@ import ajpf.psl.Proposition;
  * @author louiseadennis
  *
  */
-public class ModelState implements Comparable<ModelState> {
-	 protected static Logger log = JPF.getLogger("ajpf.product.ModelState");
+public class ModelState implements Comparable<ModelState>, Serializable {
+	private static final long serialVersionUID = 1L;
+	 protected transient static Logger log = JPF.getLogger("ajpf.product.ModelState");
 	/* The JPF state number for this point in the program */
 	int JPFstatenum;
 	
@@ -48,7 +50,7 @@ public class ModelState implements Comparable<ModelState> {
 	Set<Proposition> props = new HashSet<Proposition>();
 	
 	/* Any annotation on the state*/
-	ModelAnnotation a;
+	transient ModelAnnotation a;
 	
 	/* done states whether all outgoing edges from this state are left to be explored */
 	boolean done = false;
@@ -59,6 +61,10 @@ public class ModelState implements Comparable<ModelState> {
 	public void markdone() {
 		log.fine("In ModelState: " + this + "  Setting done");
 		done = true;
+	}
+	
+	public void reset() {
+		done = false;
 	}
 	
 	/**

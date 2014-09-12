@@ -39,6 +39,9 @@ import gov.nasa.jpf.vm.VM;
 import gov.nasa.jpf.vm.MJIEnv;
 import gov.nasa.jpf.vm.ThreadInfo;
 import gov.nasa.jpf.vm.Types;
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * Generic Description of Abstract Classes in AIL and AJPF
@@ -67,6 +70,7 @@ import gov.nasa.jpf.vm.Types;
  * Represents a Predicate in First-Order Logic.
  */
 public class Abstract_Predicate implements Abstract_Term, Abstract_Formula {
+	private static final long serialVersionUID = 9L;
 	static HashMap<String,Integer> strings = new HashMap<String,Integer>();
 	
 	/**

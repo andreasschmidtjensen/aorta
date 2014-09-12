@@ -26,8 +26,6 @@ package ajpf.psl.ast;
 
 import gov.nasa.jpf.vm.ElementInfo;
 import gov.nasa.jpf.vm.VM;
-import ajpf.MCAPLmas;
-import ajpf.psl.MCAPLPercept;
 
 /**
  * The formula P(phi) means phi is "true" in the environment.
@@ -36,6 +34,7 @@ import ajpf.psl.MCAPLPercept;
  * 
  */
 public class NativePercept extends Native_Proposition {
+	private static final long serialVersionUID = 8L;
 	
 	/**
 	 * The formula that is the percept.

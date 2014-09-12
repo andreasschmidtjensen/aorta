@@ -63,6 +63,7 @@ import gov.nasa.jpf.vm.MJIEnv;
  *
  */
 public class Abstract_Goal extends Abstract_Pred implements Abstract_GuardAtom {
+	private static final long serialVersionUID = 13L;
 	/**
 	 * The four types of goal: achieve, test, perform and maintain.
 	 */

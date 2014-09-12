@@ -269,7 +269,7 @@ public class BuchiState implements Comparable<BuchiState> {
 				}
 			} 
 		}
-		
+	
 	}
 	
 	/**

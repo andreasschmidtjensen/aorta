@@ -60,6 +60,7 @@ import ail.syntax.Action;
  *
  */
 public class Abstract_SendAction extends Abstract_Action {
+	private static final long serialVersionUID = 18L;
 	
 	/**
 	 * Illocutionary force.

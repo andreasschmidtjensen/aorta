@@ -1,6 +1,6 @@
 role(R) : true => enact(R).
-~role(R) : true => deact(R).
+%~role(R) : true => deact(R).
 obj(bel(O)) : bel(me(Me)), org(obl(Me,_,bel(O),_)) => commit(O).
 send(_, tell, org(rea(Me,R))) : bel(me(Me), agent(Ag), Ag \= Me), ~(bel(sent(Ag, org(rea(Me,R))))) => send(Ag, org(rea(Me,R))).
 send(R, achieve, O) : org(rea(Ag, R)), bel(me(Me), Ag \= Me), ~(bel(sent(Ag, goal(O)))) => send(Ag, goal(O)).
-send(R, tell, O) : org(rea(Ag, R)), bel(me(Me), Ag \= Me), ~(bel(sent(Ag, bel(O)))) => send(Ag, bel(O)).
+send(R, tell, bel(O)) : org(rea(Ag, R)), bel(me(Me), Ag \= Me), ~(bel(sent(Ag, bel(O)))) => send(Ag, bel(O)).

@@ -48,12 +48,15 @@ import gov.nasa.jpf.vm.VM;
 import gov.nasa.jpf.vm.MJIEnv;
 import gov.nasa.jpf.vm.ThreadInfo;
 import gov.nasa.jpf.vm.Types;
+import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * Represents a structure: a functor with <i>n</i> arguments, e.g.: val(10,x(3)). <i>n</i> can be
  * 0, so this class also represents atoms.
  */
 public class Abstract_TermImpl implements Abstract_MCAPLTerm {
+	private static final long serialVersionUID = 25L;
 	
 	private String functor; // immutable field- not if you want to rename variables!
     private Abstract_MCAPLTerm[] terms = new Abstract_MCAPLTerm[0];
@@ -169,6 +172,32 @@ public class Abstract_TermImpl implements Abstract_MCAPLTerm {
 	        }
 	        return s.toString();
 	    }
+
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		hash = 19 * hash + Objects.hashCode(this.functor);
+		hash = 19 * hash + Arrays.deepHashCode(this.terms);
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Abstract_TermImpl other = (Abstract_TermImpl) obj;
+		if (!Objects.equals(this.functor, other.functor)) {
+			return false;
+		}
+		if (!Arrays.deepEquals(this.terms, other.terms)) {
+			return false;
+		}
+		return true;
+	}
 	    
 
 }

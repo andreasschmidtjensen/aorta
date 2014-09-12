@@ -59,6 +59,7 @@ import gov.nasa.jpf.vm.Verify;
  * @author jomi
  */
 public final class Abstract_StringTermImpl implements Abstract_StringTerm {
+	private static final long serialVersionUID = 19L;
 	/**
 	 * The String.
 	 */

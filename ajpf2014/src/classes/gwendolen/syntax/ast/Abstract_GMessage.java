@@ -36,6 +36,7 @@ import ail.syntax.ast.Abstract_StringTermImpl;
  *
  */
 public class Abstract_GMessage extends Abstract_Literal {
+	private static final long serialVersionUID = 26L;
 	
 	public Abstract_GMessage() {
 		super("message");

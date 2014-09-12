@@ -61,6 +61,7 @@ import gov.nasa.jpf.vm.ThreadInfo;
 
 /** Implements a term that represents a number */
 public final class Abstract_NumberTermImpl implements Abstract_NumberTerm {
+	private static final long serialVersionUID = 16L;
 
 	/**
 	 * The actual value

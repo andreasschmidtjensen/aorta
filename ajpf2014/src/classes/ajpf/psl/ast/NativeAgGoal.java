@@ -28,6 +28,8 @@ import gov.nasa.jpf.vm.ElementInfo;
 import gov.nasa.jpf.vm.VM;
 import ajpf.MCAPLAgent;
 import ajpf.MCAPLcontroller;
+import gov.nasa.jpf.vm.Verify;
+import java.util.Objects;
 
 /**
  * The formula G(a, phi) - a has a goal phi.
@@ -36,6 +38,7 @@ import ajpf.MCAPLcontroller;
  * 
  */
 public class NativeAgGoal extends Native_Proposition {
+	private static final long serialVersionUID = 3L;
 	
 	/**
 	 * The agent which is required to have the goal.
@@ -71,8 +74,16 @@ public class NativeAgGoal extends Native_Proposition {
 		return false;
 	}
 	
-	public int hashcode() {
-		return hashcode();
+	@Override	
+	public int hashCode() {
+		if (Verify.isRunningInJPF()) {
+			return objref;
+		} else {				
+			int hash = 7;
+			hash = 67 * hash + Objects.hashCode(this.agent);
+			hash = 67 * hash + Objects.hashCode(this.goal);
+			return hash;
+		}
 	}
 	
 	/**

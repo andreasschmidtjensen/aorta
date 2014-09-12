@@ -37,6 +37,7 @@ import gov.nasa.jpf.vm.ThreadInfo;
 
 /** Immutable class that implements a term that represents a number */
 public final class Abstract_MCAPLNumberTermImpl implements Abstract_MCAPLNumberTerm {
+	private static final long serialVersionUID = 23L;
 
 	private final double fValue;
 	
@@ -62,6 +63,28 @@ public final class Abstract_MCAPLNumberTermImpl implements Abstract_MCAPLNumberT
 	public Abstract_MCAPLNumberTermImpl clone() {
 		//return new NumberTermImpl(solve());
 		return this;
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 7;
+		hash = 23 * hash + (int) (Double.doubleToLongBits(this.fValue) ^ (Double.doubleToLongBits(this.fValue) >>> 32));
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Abstract_MCAPLNumberTermImpl other = (Abstract_MCAPLNumberTermImpl) obj;
+		if (Double.doubleToLongBits(this.fValue) != Double.doubleToLongBits(other.fValue)) {
+			return false;
+		}
+		return true;
 	}
 	
     

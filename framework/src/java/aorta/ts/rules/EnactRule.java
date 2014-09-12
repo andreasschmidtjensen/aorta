@@ -5,6 +5,7 @@
 package aorta.ts.rules;
 
 import alice.tuprolog.MalformedGoalException;
+import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
@@ -41,7 +42,7 @@ public class EnactRule extends Transition {
 		Struct orgRole = Qualifier.qualifyStruct(role, KBType.ORGANIZATION);
 		Struct orgRea = Qualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 		Struct optRole = Qualifier.qualifyStruct(oRole, KBType.OPTION);
-
+		
 		String test = orgRole.toString() + ", \\+ " + orgRea.toString() + ", \\+ " + optRole.toString() + ", cl(Os, Out), member(G,Out), goal(G).";
 		try {
 			// org(role(R,Os)), \+ org(rea(Ag,R)), \+ opt(role(R,Os)), cl(Os,OsOut), member(G,OsOut), goal(G)

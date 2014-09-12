@@ -60,6 +60,7 @@ import ail.syntax.Term;
  *
  */
 public class Abstract_ListTermImpl implements Abstract_ListTerm {
+	private static final long serialVersionUID = 14L;
 	/**
 	 * Head of the list.
 	 */

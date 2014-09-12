@@ -13,6 +13,7 @@ import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
+import aorta.kr.util.TermVisitor;
 import aorta.reasoning.fml.Formula;
 
 public class QueryEngine {
@@ -91,7 +92,7 @@ public class QueryEngine {
 	}
 
 	public void unify(MentalState ms, Term qualified, List<Var> bindings) {
-		ms.getTv().unify(qualified, bindings);
+		new TermVisitor(ms.getProlog()).unify(qualified, bindings);
 	}
 	
 	public void unify(MentalState ms, Term qualified, SolveInfo solveInfo) {

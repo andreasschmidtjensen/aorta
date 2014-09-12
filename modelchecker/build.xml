@@ -19,7 +19,7 @@
 			<zipgroupfileset dir="../metamodel/dist" includes="metamodel.jar"/>
 			<zipgroupfileset dir="../framework/dist" includes="framework.jar"/>
 			<zipgroupfileset dir="../ajpf2014/dist" includes="mcapl.jar"/>
-			<zipgroupfileset dir="../lib" includes="**/*.jar" excludes="jedit/**, jason.jar, junit-4.10.jar, tuprolog4ajpf.jar, operetta/**"/>
+			<zipgroupfileset dir="../lib" includes="**/*.jar" excludes="jedit/**, jason.jar, junit-4.10.jar, tuprolog-2.8.0.jar, operetta/**"/>
 			<zipgroupfileset dir="../ajpf2014/lib/3rdparty" includes="jpf.jar" />
 			<manifest>
 				<attribute name="Main-Class" value="aorta.modelchecker.Modelchecker"/>

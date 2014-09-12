@@ -183,6 +183,10 @@ public class AgentState {
 		this.bindings = bindings;
 	}
 
+	public void clearBindings() {
+		bindings.clear();
+	}
+	
 	public void addBindings(List<Var> bindings) {
 		this.bindings = mergeBindings(this.bindings, bindings);
 	}

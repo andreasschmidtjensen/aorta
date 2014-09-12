@@ -30,6 +30,8 @@ import gov.nasa.jpf.vm.VM;
 import gov.nasa.jpf.vm.ElementInfo;
 
 import ajpf.psl.ast.Abstract_Formula;
+import gov.nasa.jpf.vm.Verify;
+import java.util.Objects;
 
 /**
  * The formula A(a, phi) - the last action performed was agent a doing phi.
@@ -38,6 +40,7 @@ import ajpf.psl.ast.Abstract_Formula;
  * 
  */
 public class NativeLastAction extends Native_Proposition {
+	private static final long serialVersionUID = 5L;
 	
 	/**
 	 * The agent which is required to have the goal.
@@ -74,6 +77,17 @@ public class NativeLastAction extends Native_Proposition {
 		return false;
 	}
 	
+	@Override	
+	public int hashCode() {
+		if (Verify.isRunningInJPF()) {
+			return objref;
+		} else {				
+			int hash = 7;
+			hash = 67 * hash + Objects.hashCode(this.agent);
+			hash = 67 * hash + Objects.hashCode(this.action);
+			return hash;
+		}
+	}
 	
 	/**
 	 * Getter method for the Action.

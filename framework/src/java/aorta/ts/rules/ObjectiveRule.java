@@ -36,12 +36,14 @@ public class ObjectiveRule extends Transition {
 
 		MetaLanguage language = new MetaLanguage();
 		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
+		Struct rea = language.rea(new Var("A"), new Var("R"));
 		Struct obj = language.obj(new Var("O"));
 
 		Struct orgObl = Qualifier.qualifyStruct(obl, KBType.ORGANIZATION);
+		Struct orgRea = Qualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 		Struct optObj = Qualifier.qualifyStruct(obj, KBType.OPTION);
 
-		Term test = Term.createTerm(orgObl.toString() + ", \\+ " + optObj.toString());
+		Term test = Term.createTerm(orgObl.toString() + ", " + orgRea.toString() + ", bel(me(A)), \\+ " + optObj.toString());
 		List<SolveInfo> conditionals = engine.findAll(ms, test);
 		for (SolveInfo conditional : conditionals) {
 			if (conditional.isSuccess()) {

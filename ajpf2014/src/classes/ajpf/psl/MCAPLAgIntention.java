@@ -38,11 +38,11 @@ public class MCAPLAgIntention extends Proposition {
 	/**
 	 * The agent which is required to have the goal.
 	 */
-	private MCAPLAgent agent;
+	private transient MCAPLAgent agent;
 	/**
 	 * The formula that is the agent's goal.
 	 */
-	private MCAPLFormula goal;
+	private transient MCAPLFormula goal;
 	
 	private int hashcode;
 	

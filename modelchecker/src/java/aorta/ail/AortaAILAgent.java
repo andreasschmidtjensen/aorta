@@ -22,6 +22,7 @@ import alice.tuprolog.Struct;
 import aorta.AORTAException;
 import aorta.Aorta;
 import aorta.AortaAgent;
+import aorta.ail.abs.Abstract_AortaAgent;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
@@ -43,6 +44,7 @@ public class AortaAILAgent extends AILAgent {
 
 	private static final String logname = AortaAILAgent.class.getName();
 	private AortaAgent aortaAgent;
+	private Abstract_AortaAgent absAortaAgent;
 
 	public AortaAILAgent(AILAgent ailAgent, Aorta aorta, String aortaFile) {
 		setEnv(ailAgent.getEnv());
@@ -54,17 +56,18 @@ public class AortaAILAgent extends AILAgent {
 		setPlanLibrary(ailAgent.getPL());
 		setReasoningCycle(ailAgent.getReasoningCycle());
 		
-		AortaBuilder builder = new AortaBuilder();
+		buildAortaAgent(ailAgent.getAgName(), aortaFile, aorta.getOrganizationLocation());
 		try {
-			aortaAgent = builder.parseAgent(ailAgent.getAgName(), aortaFile, aorta, new AILBridge(this));
-			aortaAgent.setAorta(aorta);
-
-			for (Literal b : getBB().getAll()) {
-				aortaAgent.getState().getExternalAgent().addBelief(TermConverter.fromLiteral(b));
-			}
-		} catch (InvalidTheoryException | IOException | InvalidLibraryException | OrganizationImportException | AORTAException ex) {
+			aortaAgent = absAortaAgent.toAORTA();
+			aortaAgent.getState().setBridge(new AILBridge(this));
+		} catch (InvalidTheoryException ex) {
 			AJPFLogger.severe(logname, "Could not parse AORTA program: " + ex.getMessage());
 			ex.printStackTrace();
+		}	
+		
+		aortaAgent.setAorta(aorta);
+		for (Literal b : getBB().getAll()) {
+			aortaAgent.getState().getExternalAgent().addBelief(TermConverter.fromLiteral(b));
 		}
 		
 		AJPFLogger.info(logname, getAgName() + ": Initial goal: " + getIntention());
@@ -75,6 +78,17 @@ public class AortaAILAgent extends AILAgent {
 			Deed deed = initialGoal.deeds().get(0);
 			Goal goal = deed.getGoal();
 			addGoalToAorta(goal);
+		}
+	}
+	
+	public void buildAortaAgent(String agName, String aortaFile, String metamodelLocation) {
+		AortaBuilder builder = new AortaBuilder();
+		try {
+			AortaAgent ag = builder.parseAgent(agName, aortaFile, metamodelLocation, new AILBridge(this));
+			absAortaAgent = new Abstract_AortaAgent(ag);
+		} catch (InvalidTheoryException | IOException | InvalidLibraryException | OrganizationImportException | AORTAException ex) {
+			AJPFLogger.severe(logname, "Could not parse AORTA program: " + ex.getMessage());
+			ex.printStackTrace();
 		}
 	}
 
@@ -116,7 +130,8 @@ public class AortaAILAgent extends AILAgent {
 	@Override
 	public boolean MCAPLhasOrganizationalBelief(MCAPLFormula phi) {
 		MentalState ms = aortaAgent.getState().getMentalState();
-		boolean hasOrgBel = new QueryEngine().exists(ms, Qualifier.qualifyStruct(TermConverter.fromLiteral(new Literal(Literal.LPos, new PredicatewAnnotation((MCAPLPredicate) phi))), KBType.ORGANIZATION));
+		Struct aortaTerm = Qualifier.qualifyStruct(TermConverter.fromLiteral(new Literal(Literal.LPos, new PredicatewAnnotation((MCAPLPredicate) phi))), KBType.ORGANIZATION);
+		boolean hasOrgBel = new QueryEngine().exists(ms, aortaTerm);
 		return hasOrgBel;
 	}
 
@@ -132,7 +147,6 @@ public class AortaAILAgent extends AILAgent {
 	public void MCAPLreason(int flag) {
 		try {
 			aortaAgent.newCycle();
-			System.out.println("[ " + getAgName() + "] new cycle: " + aortaAgent.getCycle());
 		} catch (StrategyFailedException ex) {
 			AJPFLogger.warning(logname, "Could not finish cycle: " + ex.getMessage());
 		}
@@ -193,12 +207,9 @@ public class AortaAILAgent extends AILAgent {
 	}
 
 	private void addGoalToAorta(Goal g) {
-		System.out.println(g + " = " + g.getLiteral());
 		QueryEngine qe = new QueryEngine();
 		Struct aortaGoal = TermConverter.fromLiteral(g.getLiteral());
 		Struct qualifiedGoal = Qualifier.qualifyStruct(aortaGoal, KBType.GOAL);
-		System.out.println("aortaGoal=" + aortaGoal);
-		System.out.println("qualified=" + qualifiedGoal);
 		
 		if (!qe.exists(aortaAgent.getState().getMentalState(), qualifiedGoal)) {
 			aortaAgent.getState().getExternalAgent().addGoal(aortaGoal);

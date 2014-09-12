@@ -26,6 +26,8 @@ package ajpf.psl.ast;
 
 import gov.nasa.jpf.vm.ElementInfo;
 import gov.nasa.jpf.vm.VM;
+import gov.nasa.jpf.vm.Verify;
+import java.util.Objects;
 
 
 /**
@@ -35,6 +37,7 @@ import gov.nasa.jpf.vm.VM;
  * 
  */
 public class NativeOrgBelief extends Native_Proposition {
+	private static final long serialVersionUID = 6L;
 	
 	/**
 	 * The agent which is required to believe the formula.
@@ -68,10 +71,18 @@ public class NativeOrgBelief extends Native_Proposition {
 		
 		return false;
 	}
+
+	@Override	
 	public int hashCode() {
-		return objref;
+		if (Verify.isRunningInJPF()) {
+			return objref;
+		} else {				
+			int hash = 7;
+			hash = 67 * hash + Objects.hashCode(this.agent);
+			hash = 67 * hash + Objects.hashCode(this.fmla);
+			return hash;
+		}
 	}
-	
 	/**
 	 * Getter method for the MCAPL Formula to be believed.
 	 * 

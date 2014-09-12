@@ -59,6 +59,7 @@ import ail.syntax.Literal;
  * @author louiseadennis
  */
 public class Abstract_Literal extends Abstract_Pred {
+	private static final long serialVersionUID = 15L;
 
 	/**
 	 * Some useful constants for positive and negative literals.

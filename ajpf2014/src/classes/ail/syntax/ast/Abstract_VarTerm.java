@@ -63,6 +63,7 @@ import ail.syntax.VarTerm;
  */
 public class Abstract_VarTerm extends Abstract_Literal implements Abstract_NumberTerm, Abstract_ListTerm, Abstract_StringTerm {
 
+	private static final long serialVersionUID = 21L;
 	/**
 	 * Constructor.
 	 * @param s

@@ -20,6 +20,8 @@ import aorta.ts.rules.ObligationSatisfied;
 import aorta.ts.rules.ObligationViolated;
 import aorta.ts.rules.EnactRule;
 import aorta.ts.rules.ObjectiveRule;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -30,27 +32,77 @@ public class Linear implements Strategy {
 	private static final Logger logger = Logger.getLogger(Linear.class.getName());
 	
 	private QueryEngine engine = new QueryEngine();
+	private List<Executor> executors = new ArrayList<>();
+	{
+		executors.add(new ExecuteStar(new Check()));
+		executors.add(new ExecuteOnce(new Ext()));
+		executors.add(new ExecuteStar(new ObligationActivated()));
+		executors.add(new ExecuteStar(new ObligationSatisfied()));
+		executors.add(new ExecuteStar(new ObligationViolated()));
+		executors.add(new ExecuteStar(new EnactRule()));
+		executors.add(new ExecuteStar(new DeactRule()));
+		executors.add(new ExecuteStar(new ObjectiveRule()));
+		executors.add(new ExecuteStar(new Delegate()));
+		executors.add(new ExecuteStar(new Inform()));
+		executors.add(new ExecuteOnce(new ActionExecution()));
+	}
 
 	@Override
 	public AgentState execute(AgentState s0) throws StrategyFailedException {
 		AgentState next = s0;
 		
-		next = executeStar(new Check(), next); 
-		next = executeOnce(new Ext(), next);
-		next = executeStar(new ObligationActivated(), next);
-		next = executeStar(new ObligationSatisfied(), next);
-		next = executeStar(new ObligationViolated(), next);
-		next = executeStar(new EnactRule(), next);
-		next = executeStar(new DeactRule(), next);
-		next = executeStar(new ObjectiveRule(), next);
-		next = executeStar(new Delegate(), next);
-		next = executeStar(new Inform(), next);
-		next = executeOnce(new ActionExecution(), next);
+		long total = 0;
+		for (Executor exec : executors) {
+			long ms = System.currentTimeMillis();
+			next = exec.execute(next);
+			long elapsed = System.currentTimeMillis() - ms;
+			total += elapsed;
+//			System.out.println("* " + exec.transition.getName() + ": " + elapsed + "ms");
+		}
+//		System.out.println("Total: " + total + "ms");
 
 		if (next != s0) {
 			Tracer.trace(s0.getAgent().getName(), "--------------------\n");
 		}
 		return next;
+	}
+	
+	abstract class Executor {
+		protected Transition transition;
+
+		public Executor(Transition transition) {
+			this.transition = transition;
+		}
+		
+		abstract AgentState execute(AgentState state);
+	}
+	class ExecuteOnce extends Executor {
+
+		public ExecuteOnce(Transition transition) {
+			super(transition);
+		}
+		
+		@Override
+		AgentState execute(AgentState state) {
+			return executeOnce(transition, state);
+		}
+	}
+	class ExecuteStar extends Executor {
+
+		public ExecuteStar(Transition transition) {
+			super(transition);
+		}
+		
+		@Override
+		AgentState execute(AgentState state) {
+			AgentState newState = null;
+			while (state != newState) {
+				AgentState nextState = executeOnce(transition, state);
+				newState = state;
+				state = nextState;
+			}
+			return newState;
+		}
 	}
 	
 	private AgentState executeOnce(Transition transition, AgentState currentState) {
@@ -62,15 +114,5 @@ public class Linear implements Strategy {
 			return currentState;
 		}
 	}
-	
-	private AgentState executeStar(Transition transition, AgentState currentState) {
-		AgentState newState = null;
-		while (currentState != newState) {
-			AgentState nextState = executeOnce(transition, currentState);
-			newState = currentState;
-			currentState = nextState;
-		}
-		return newState;
-	}
-	
+		
 }

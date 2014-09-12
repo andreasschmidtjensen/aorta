@@ -29,9 +29,9 @@ It can be run with the following command:
 ### Model Checking
 The *modelchecker* works as a JPF plugin. It furthermore includes a build-configuration that creates a jar with all dependencies. This jar (in the folder `standalone`) can be run as follows:
 
-    java -jar aorta-modelchecker.jar AIL-file [PSL-file]
+    java -jar aorta-modelchecker.jar AIL-file [PSL-file] [p=Propertyname] [m=Modelfile] [-save]
 
-If no PSL-file is provided, the system is executed normally. Otherwise, modelchecking using JPF is performed. The jar should be executed in the working directory of the system to be verified.
+If no PSL-file is provided, the system is executed normally. Otherwise, modelchecking using JPF is performed. The jar should be executed in the working directory of the system to be verified. To model check a specific property in the PSL-file, use `p=Propertyname`. To generate a model of the entire system (use with precaution, can get quite large), use `p=Propertyname m=Modelfile -save` (will be generated using the property specified by `Propertyname`). To use the model file afterwards instead of running the system, use `m=Modelfile`.
 
 #### Setup of the modelchecking system
 The system relies on JPF and should therefore be setup as follows:
@@ -42,5 +42,5 @@ The system relies on JPF and should therefore be setup as follows:
      
         mcapl = <Parent of AORTA project dir>/aorta/ajpf2014
 
-4. Run `aorta.modelchecker.Modelchecker AIL-file PSL-file` (or use the JAR file) to verify the system in AIL-file using all the properties in PSL-file
+4. Run the JAR file as specified above to verify the system in AIL-file using all the properties in PSL-file
  

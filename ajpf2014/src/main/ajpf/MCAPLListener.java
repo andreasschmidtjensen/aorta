@@ -24,6 +24,8 @@
 
 package ajpf;
 
+import ajpf.product.MCAPLmodel;
+import ajpf.product.ModelState;
 import gov.nasa.jpf.PropertyListenerAdapter;
 import gov.nasa.jpf.search.Search;
 import gov.nasa.jpf.vm.VM;
@@ -46,10 +48,18 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import ajpf.product.Product;
+import ajpf.product.Product.ProductState;
 import ajpf.psl.ast.Property_AST;
 import ajpf.psl.MCAPLProperty;
 import ajpf.psl.ast.Native_Proposition;
 import ajpf.psl.Proposition;
+import ajpf.psl.Until;
+import ajpf.psl.buchi.BuchiAutomaton;
+import ajpf.psl.buchi.BuchiState;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.List;
 
 /**
  * Special listener class for the MCAPL Project.
@@ -296,6 +306,19 @@ public class MCAPLListener extends PropertyListenerAdapter {
 		 Config config = search.getVM().getConfig();
 		 product_automata.setConfig(config);
 
+		 if (config.containsKey("ajpf.model.file")) {
+			 try {
+				MCAPLmodel model = product_automata.getModel();
+				 FileOutputStream fout = new FileOutputStream(config.getProperty("ajpf.model.file"));
+				 try (ObjectOutputStream oos = new ObjectOutputStream(fout)) {
+					 oos.writeObject(model);
+				 }
+			 } catch (IOException ex) {
+				 log.severe("Could not save model to file: " + ex.getMessage());
+				 ex.printStackTrace(System.err);
+			 }
+		 }
+		 		 
 		 // Are we generating a model in some particular format 
 		 if (config.containsKey("ajpf.model.location")) {
 

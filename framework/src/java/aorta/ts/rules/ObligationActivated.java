@@ -41,6 +41,7 @@ public class ObligationActivated extends Transition {
 		Struct orgCond = Qualifier.qualifyStruct(cond, KBType.ORGANIZATION);
 		Struct orgObl = Qualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 		
+		// org(rea(A,R)), org(cond(R,O,D,C)), C, \+ O, \+ obl(A,R,O,D)
 		Term term = Term.createTerm(orgRea + ", " + orgCond + ", C, \\+ O, \\+ " + orgObl);
 		
 		List<SolveInfo> conditionals = engine.findAll(ms, term);
