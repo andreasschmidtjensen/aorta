@@ -50,6 +50,7 @@ public class Objective {
 		StringBuilder sb = new StringBuilder();
 		sb.append(objective);
 		if (!subObjectives.isEmpty()) {
+			sb.append(": ");
 			for (int i = 0; i < subObjectives.size(); i++) {
 				if (i > 0) {
 					sb.append(";");

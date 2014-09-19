@@ -65,7 +65,8 @@ public class ConversionUtils {
 			result = new Struct(c.getName());
 		} else if (operaTerm instanceof Variable) {
 			Variable v = (Variable) operaTerm;
-			result = new Var(v.getName());			
+			String vName = v.getName().substring(0, 1).toUpperCase() + v.getName().substring(1);
+			result = new Var(vName);			
 		} else if (operaTerm instanceof Function) {
 			Function f = (Function) operaTerm;
 			Term[] terms = new Term[f.getArguments().size()];
