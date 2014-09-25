@@ -11,4 +11,4 @@ borrower: paidFine(Book) < day(FineDate) | org(violation(Agent, borrower, bel(re
 
 RULES:
 borrowed(Book, ReturnDate) :- borrowed(Book), returnDate(Book, ReturnDate).
-org(violation(Agent, borrower, bel(returned(Book)), FineDate)) :- org(violation(Agent, borrower, bel(returned(Book)))), borrowed(Book, ReturnDate), FineDate is ReturnDate+2.
+org(violation(Agent, borrower, bel(returned(Book)), FineDate)) :- org(violation(Agent, borrower, bel(returned(Book)))), borrowed(Book, ReturnDate), FineDate is ReturnDate + 2.

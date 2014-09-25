@@ -11,3 +11,4 @@
 *.mm~
 *.mm~
 *.class
+bin/
