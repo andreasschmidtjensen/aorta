@@ -7,7 +7,7 @@ import aorta.AORTAException;
 import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.tracer.Tracer;
@@ -39,7 +39,7 @@ public class DeactAction extends Action {
 				
 		Term reaDef = ml.rea(agent, clonedRoleTerm);
 		
-		Term term = Qualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
+		Term term = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
 		MentalState ms = state.getMentalState();
 
 		SolveInfo result = engine.solve(ms, term);
@@ -49,7 +49,7 @@ public class DeactAction extends Action {
 		if (result.isSuccess()) {
 			state.addBindings(result);
 			
-			Term qualified = Qualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
+			Term qualified = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
 			engine.unify(ms, qualified, state.getBindings());
 			
 			if (!qualified.isGround()) {

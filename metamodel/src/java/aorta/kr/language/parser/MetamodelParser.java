@@ -35,7 +35,7 @@ public class MetamodelParser extends Parser {
 	public static final String[] tokenNames = {
 		"<INVALID>", "' is '", "'['", "']'", "'ROLES'", "'OBJECTIVES'", "'DEPENDENCIES'", 
 		"'OBLIGATIONS'", "'RULES'", "':-'", "':'", "';'", "'.'", "'|'", "'('", 
-		"')'", "','", "'<'", "'>'", "ATOM", "NUMBER", "VAR", "MATH_OP", "BINARY_OP", 
+		"')'", "','", "'<'", "GT", "ATOM", "NUMBER", "VAR", "MATH_OP", "BINARY_OP", 
 		"'\\+'", "STRING", "COMMENT", "WS"
 	};
 	public static final int

@@ -1,7 +1,7 @@
 package aorta.kr;
 
 import alice.tuprolog.ClauseInfo;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,11 +32,15 @@ public class QueryEngine {
 	}
 	
 	public boolean remove(MentalState ms, Struct term) {
-		return ms.getProlog().getTheoryManager().retract(term) != null;
+		if (exists(ms, term)) {
+			return ms.getProlog().getTheoryManager().retract(term) != null;
+		} else {
+			return false;
+		}
 	}
 	
 	public SolveInfo solve(MentalState ms, Formula fml) {
-		return solve(ms, Qualifier.qualifyGoal(ms, fml));
+		return solve(ms, FormulaQualifier.qualifyGoal(ms, fml));
 	}
 	
 	public SolveInfo solve(MentalState ms, Term term) {
@@ -69,7 +73,7 @@ public class QueryEngine {
 	}
 
 	public List<SolveInfo> findAll(MentalState ms, Formula fml) {
-		return findAll(ms, Qualifier.qualifyFormula(fml));		
+		return findAll(ms, FormulaQualifier.qualifyFormula(fml));		
 	}
 	
 	public List<SolveInfo> findAll(MentalState ms, Term term) {
@@ -77,6 +81,25 @@ public class QueryEngine {
 		Prolog pl = ms.getProlog();
 		
 		SolveInfo solve = pl.solve(term);
+		result.add(solve);
+		while (pl.hasOpenAlternatives()) {
+			try {
+				SolveInfo solveInfo = pl.solveNext();
+				if (solveInfo.isSuccess()) {
+					result.add(solveInfo);
+				}
+			} catch (NoMoreSolutionException e) {
+				// not thrown since hasOpenAlternatives has been checked.
+			}
+		}
+		return result;
+	}
+
+	public List<SolveInfo> findAll(MentalState ms, String query) throws MalformedGoalException {
+		List<SolveInfo> result = new ArrayList<>();
+		Prolog pl = ms.getProlog();
+		
+		SolveInfo solve = pl.solve(query);
 		result.add(solve);
 		while (pl.hasOpenAlternatives()) {
 			try {

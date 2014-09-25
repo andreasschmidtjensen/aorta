@@ -14,7 +14,7 @@
 	<target name="-post-clean">
 		<delete dir="installer" />
 	</target>
-	
+		
 	<target name="make-installer" depends="deps-jar,jar">
 		<mkdir dir="installer" />
 		<jar destfile="installer/aorta-standalone.jar" filesetmanifest="skip" basedir="${build.classes.dir}">

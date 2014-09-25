@@ -27,7 +27,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.OrganizationImportException;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.msg.IncomingOrganizationalMessage;
 import aorta.parser.helper.AortaBuilder;
 import aorta.ts.strategy.StrategyFailedException;
@@ -130,7 +130,7 @@ public class AortaAILAgent extends AILAgent {
 	@Override
 	public boolean MCAPLhasOrganizationalBelief(MCAPLFormula phi) {
 		MentalState ms = aortaAgent.getState().getMentalState();
-		Struct aortaTerm = Qualifier.qualifyStruct(TermConverter.fromLiteral(new Literal(Literal.LPos, new PredicatewAnnotation((MCAPLPredicate) phi))), KBType.ORGANIZATION);
+		Struct aortaTerm = FormulaQualifier.qualifyStruct(TermConverter.fromLiteral(new Literal(Literal.LPos, new PredicatewAnnotation((MCAPLPredicate) phi))), KBType.ORGANIZATION);
 		boolean hasOrgBel = new QueryEngine().exists(ms, aortaTerm);
 		return hasOrgBel;
 	}
@@ -138,7 +138,7 @@ public class AortaAILAgent extends AILAgent {
 	@Override
 	public boolean MCAPLhasOrganizationalOption(MCAPLFormula phi) {
 		MentalState ms = aortaAgent.getState().getMentalState();
-		Struct aortaTerm = Qualifier.qualifyStruct(TermConverter.fromLiteral(new Literal(Literal.LPos, new PredicatewAnnotation((MCAPLPredicate) phi))), KBType.OPTION);
+		Struct aortaTerm = FormulaQualifier.qualifyStruct(TermConverter.fromLiteral(new Literal(Literal.LPos, new PredicatewAnnotation((MCAPLPredicate) phi))), KBType.OPTION);
 		boolean hasOption = new QueryEngine().exists(ms, aortaTerm);
 		return hasOption;
 	}
@@ -209,7 +209,7 @@ public class AortaAILAgent extends AILAgent {
 	private void addGoalToAorta(Goal g) {
 		QueryEngine qe = new QueryEngine();
 		Struct aortaGoal = TermConverter.fromLiteral(g.getLiteral());
-		Struct qualifiedGoal = Qualifier.qualifyStruct(aortaGoal, KBType.GOAL);
+		Struct qualifiedGoal = FormulaQualifier.qualifyStruct(aortaGoal, KBType.GOAL);
 		
 		if (!qe.exists(aortaAgent.getState().getMentalState(), qualifiedGoal)) {
 			aortaAgent.getState().getExternalAgent().addGoal(aortaGoal);

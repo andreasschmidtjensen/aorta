@@ -61,10 +61,12 @@ public class SSConverter {
 			List<Struct> dependencies = new ArrayList<>();
 			for (Objective o : dep.getObjectOfDependency()) {
 				dependencies.add(ConversionUtils.stateDescriptionToStruct(o.getStateDescription()));
+				
+				mm.getDependencies().add(new aorta.kr.language.model.Dependency(r1.getName(), r2.getName(), ConversionUtils.stateDescriptionToStruct(o.getStateDescription())));
 			}
 			Struct obj = ConversionUtils.combine(",", dependencies);
 			
-			mm.getDependencies().add(new aorta.kr.language.model.Dependency(r1.getName(), r2.getName(), obj));
+//			mm.getDependencies().add(new aorta.kr.language.model.Dependency(r1.getName(), r2.getName(), obj));
 		}
 	}
 	

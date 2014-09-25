@@ -14,7 +14,7 @@ grammar Metamodel;
 }
 
 @lexer::members {
-	boolean ignore = true;
+	boolean dependencies = false;
 }
 
 metamodel returns [Metamodel mm] 
@@ -111,8 +111,8 @@ START_BRACKET: '[';
 END_BRACKET: ']';
 ROLES: 'ROLES';
 OBJECTIVES: 'OBJECTIVES';
-DEPENDENCIES: 'DEPENDENCIES';
-OBLIGATIONS: 'OBLIGATIONS';
+DEPENDENCIES: 'DEPENDENCIES' {dependencies = true;};
+OBLIGATIONS: 'OBLIGATIONS' {dependencies = false;};
 RULES: 'RULES';
 ENTAILS: ':-';
 COLON: ':';
@@ -123,14 +123,14 @@ START : '(';
 END : ')';
 COMMA: ',';
 LT : '<';
-GT : '>';
+GT : {dependencies}? '>';
 
 // Prolog
 ATOM: [a-z][a-zA-Z0-9_]*;
 NUMBER: '-'?[0-9]+('.'[0-9]+)?;
 VAR: [A-Z_][a-zA-Z0-9_]*;
 MATH_OP: ('+'|'-'|'*'|'/');
-BINARY_OP: ('<'|'>'|'='|'=..'|'=:='|'=<'|'=='|'=\\='|'>'|'>='|'\\='|'\\=='|'+'|'-'|'*'|'/');
+BINARY_OP: ('<'|'>'|'='|'=..'|'=:='|'=<'|'=='|'=\\='|'>='|'\\='|'\\=='|'+'|'-'|'*'|'/');
 UNARY_OP: '\\+';
 
 STRING : [a-zA-Z]+;

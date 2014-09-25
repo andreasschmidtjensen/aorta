@@ -13,7 +13,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.msg.OutgoingOrganizationalMessage;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
@@ -98,7 +98,7 @@ public class SendAction extends Action {
 		for (Term recipient : recipientList) {
 			// add mental note that the message was sent to a recipient
 			Struct sent = ml.sent(recipient, message);
-			state.insertInMentalState(engine, Qualifier.qualifyStruct(sent, KBType.BELIEF));
+			state.insertInMentalState(engine, FormulaQualifier.qualifyStruct(sent, KBType.BELIEF));
 		}
 		OutgoingOrganizationalMessage msg = new OutgoingOrganizationalMessage(recipientList, message);
 		state.sendMessage(msg);

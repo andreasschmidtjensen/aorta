@@ -4,7 +4,6 @@
  */
 package aorta.ts.rules;
 
-import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Term;
 import aorta.AORTAException;
@@ -12,10 +11,9 @@ import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 import aorta.reasoning.ActionRule;
-import aorta.reasoning.action.SendAction;
 import aorta.reasoning.fml.Formula;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
@@ -38,44 +36,46 @@ public class ActionExecution extends Transition {
 		for (ActionRule ar : state.getActionRules()) {
 			try {
 				Term option = Term.createTerm(ar.getOption().toString());
-				Term qualifiedOption = Qualifier.qualifyTerm(option, KBType.OPTION);
+				Term qualifiedOption = FormulaQualifier.qualifyTerm(option, KBType.OPTION);
 				
 				MentalState ms = state.getMentalState();
 
 				List<SolveInfo> solutions = engine.findAll(ms, qualifiedOption);
 				for (SolveInfo info : solutions) {
 					if (info.isSuccess()) {
-//					if (ar.getAction() instanceof SendAction) System.out.println("Testing " + qualifiedOption + ": " + info);
-
 						Formula context = ar.getContext();
-						Term qualified = Qualifier.qualifyGoal(ms, context);
+						Term qualified = FormulaQualifier.qualifyGoal(ms, context);
 
 						engine.unify(ms, qualified, info);
 						SolveInfo contextSolution = engine.solve(ms, qualified);
-//						if (ar.getAction() instanceof SendAction) System.out.println("Testing context: " + qualified + ": " + contextSolution);
-//						if (ar.getAction() instanceof SendAction) System.out.println(ms);
 
 						if (contextSolution.isSuccess()) {
 							newState.clearBindings();
 							newState.addBindings(info);
 							newState.addBindings(contextSolution);
 
-							Tracer.queue(state.getAgent().getName(), "(" + getName() + ") ");
-							Tracer.queue(state.getAgent().getName(), option + " : " + qualified + " => ");
-							engine.unify(ms, option, newState.getBindings());							
-							newState = ar.getAction().execute(engine, option, newState);
-
-							Tracer.queue(state.getAgent().getName(), "\n");
-							Tracer.trace(state.getAgent().getName());
-
-							break;
+							engine.unify(ms, option, newState.getBindings());	
+							try {
+								Tracer.queue(state.getAgent().getName(), "(" + getName() + ") ");
+								Tracer.queue(state.getAgent().getName(), option + " : " + qualified + " => ");
+								
+								newState = ar.getAction().execute(engine, option, newState);
+								
+								Tracer.queue(state.getAgent().getName(), "\n");
+								Tracer.trace(state.getAgent().getName());
+								
+								break;
+							} catch (TransitionNotPossibleException ex) {
+								Tracer.clearQueue(state.getAgent().getName());
+								logger.log(Level.FINE, "Transition was not possible (" + ex.getMessage() + ")");								
+							}
 						}
 
 					}
 				}
 			} catch (AORTAException ex) {
 				Tracer.clearQueue(state.getAgent().getName());
-				logger.log(Level.FINE, "Transition was not possible (" + ex.getMessage() + ")");
+				logger.log(Level.INFO, "Transition was not possible (" + ex.getMessage() + ")");
 
 				newState = state;
 			}

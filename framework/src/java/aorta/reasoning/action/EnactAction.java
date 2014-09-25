@@ -10,7 +10,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
@@ -42,8 +42,8 @@ public class EnactAction extends Action {
         Term roleDef = ml.role(clonedRoleTerm, new Var());
         Term reaDef = ml.rea(agent, clonedRoleTerm);
         		
-		Term t1 = Qualifier.qualifyTerm(roleDef, KBType.ORGANIZATION.getType());
-		Term t2 = Qualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
+		Term t1 = FormulaQualifier.qualifyTerm(roleDef, KBType.ORGANIZATION.getType());
+		Term t2 = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
 
 		Term test = Term.createTerm(t1 + ", \\+ " + t2);
 		engine.unify(ms, test, state.getBindings());
@@ -54,7 +54,7 @@ public class EnactAction extends Action {
 		if (result.isSuccess()) {
 			state.addBindings(result);
 
-			Term qualified = Qualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
+			Term qualified = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
 			engine.unify(ms, qualified, state.getBindings());
 			
 			if (!qualified.isGround()) {
@@ -62,10 +62,10 @@ public class EnactAction extends Action {
 			} else if (qualified instanceof Struct) {
 				//XXX: newState = state.clone();
 				newState.insertTerm(engine, (Struct) qualified);
-				newState.removeTerm(engine, Qualifier.qualifyStruct((Struct) option, KBType.OPTION));
+				newState.removeTerm(engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
 				
 				Struct send = ml.send(clonedRoleTerm, new Struct("tell"), qualified);
-				newState.insertTerm(engine, Qualifier.qualifyStruct(send, KBType.OPTION));
+				newState.insertTerm(engine, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
 				
 				logger.info("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
 				Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");

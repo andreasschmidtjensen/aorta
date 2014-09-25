@@ -146,10 +146,10 @@ public class AgentInspector extends JPanel {
 					parser.setTokenStream(tokens);
 					parser.setTrace(false);
 					Formula fml = parser.formulas().fml;
-
+					
 					if (fml == null) {
 						try {
-							solveResult.setText("Could not parse " + formula + " trying as text:\n" + currentMs.getProlog().solve(formula));
+							solveResult.setText("Could not parse " + formula + " trying as text:\n" + engine.findAll(currentMs, formula));
 
 							solveButton.setText(SOLVE_AGAIN);
 						} catch (MalformedGoalException ex) {
@@ -157,10 +157,10 @@ public class AgentInspector extends JPanel {
 						}
 					} else {
 						try {
-							solveResult.setText("Solving " + TermFormatter.toString(fml.getAsTerm()) + ":\n" + engine.solve(currentMs, fml).toString());
+							solveResult.setText("Solving " + TermFormatter.toString(fml.getAsTerm()) + ":\n" + engine.findAll(currentMs, fml).toString());
 						} catch (Exception ex) {
 							try {
-								solveResult.setText("Could not parse " + formula + " trying as text:\n" + currentMs.getProlog().solve(formula));
+								solveResult.setText("Could not parse " + formula + " trying as text:\n" + engine.findAll(currentMs, formula));
 
 								solveButton.setText(SOLVE_AGAIN);
 							} catch (MalformedGoalException ex1) {

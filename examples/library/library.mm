@@ -6,7 +6,7 @@ borrowed(Book).
 returned(Book).
 
 OBLIGATIONS:
-borrower: returned(Book) < day(ReturnDate) | borrowed(Book, ReturnDate).
+borrower: returned(Book) < day(ReturnDate) | borrowed(Book), returnDate(Book, ReturnDate).
 borrower: paidFine(Book) < day(FineDate) | org(violation(Agent, borrower, bel(returned(Book)), FineDate)).
 
 RULES:

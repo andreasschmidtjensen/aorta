@@ -24,8 +24,8 @@ public class ConversionExample {
 		prolog.addTheory(theory);
 		
 		System.out.println(mm);
-		System.out.println("---");
-		System.out.println(prolog.getTheory().toString().replace("\n\n", "\n"));
+//		System.out.println("---");
+//		System.out.println(prolog.getTheory().toString().replace("\n\n", "\n"));
 	}
 	
 }

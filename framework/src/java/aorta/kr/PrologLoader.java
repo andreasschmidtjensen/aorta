@@ -1,6 +1,6 @@
 package aorta.kr;
 
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -29,7 +29,7 @@ public final class PrologLoader {
 
 	public void addTheory(Theory theory, KBType type) throws InvalidTheoryException, FileNotFoundException, IOException {
 		try {
-			Theory qTheory = Qualifier.qualifyTheory(prolog, type, theory);
+			Theory qTheory = FormulaQualifier.qualifyTheory(prolog, type, theory);
 			prolog.addTheory(qTheory);
 		} catch (Error ex) {
 			ex.printStackTrace();

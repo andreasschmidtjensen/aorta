@@ -7,6 +7,7 @@ package aorta.kr.language.model;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import aorta.kr.language.MetaLanguage;
+import static aorta.kr.util.TermFormatter.toString;
 
 /**
  *
@@ -37,7 +38,7 @@ public class Rule {
 
 	@Override
 	public String toString() {
-		return head + " :- " + body + ".";
+		return head + " :- " + toString(body) + ".";
 	}
 
 }

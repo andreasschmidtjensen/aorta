@@ -13,7 +13,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
@@ -37,11 +37,11 @@ public class ObligationActivated extends Transition {
 		Struct cond = language.condition(new Var("R"), new Var("O"), new Var("D"), new Var("C"));
 		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
 
-		Struct orgRea = Qualifier.qualifyStruct(rea, KBType.ORGANIZATION);
-		Struct orgCond = Qualifier.qualifyStruct(cond, KBType.ORGANIZATION);
-		Struct orgObl = Qualifier.qualifyStruct(obl, KBType.ORGANIZATION);
+		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
+		Struct orgCond = FormulaQualifier.qualifyStruct(cond, KBType.ORGANIZATION);
+		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 		
-		// org(rea(A,R)), org(cond(R,O,D,C)), C, \+ O, \+ obl(A,R,O,D)
+		// org(rea(A,R)), org(cond(R,O,D,C)), C, \+ O, \+ org(obl(A,R,O,D))
 		Term term = Term.createTerm(orgRea + ", " + orgCond + ", C, \\+ O, \\+ " + orgObl);
 		
 		List<SolveInfo> conditionals = engine.findAll(ms, term);
@@ -50,20 +50,22 @@ public class ObligationActivated extends Transition {
 				Var objective = new Var("O");
 				engine.unify(ms, objective, conditional);
 
-				if (objective.isGround()) {
-					engine.unify(ms, orgObl, conditional);
-
-					if (!engine.exists(ms, objective.getTerm())
-							&& !engine.exists(ms, orgObl)) {
-						//XXX: newState = newState.clone();
-						newState.insertTerm(engine, orgObl);
-
-						logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding obligation: " + objective.getTerm());
-						Tracer.trace(state.getAgent().getName(), "(" + getName() + ") " + orgObl.getArg(0) + "\n");
-
-						break;
-					}
+				if (!objective.isGround()) {
+					logger.warning("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Objective is not ground");
 				}
+				engine.unify(ms, orgObl, conditional);
+
+				if (!engine.exists(ms, objective.getTerm())
+						&& !engine.exists(ms, orgObl)) {
+					//XXX: newState = newState.clone();
+					newState.insertTerm(engine, orgObl);
+
+					logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding obligation: " + objective.getTerm());
+					Tracer.trace(state.getAgent().getName(), "(" + getName() + ") " + orgObl.getArg(0) + "\n");
+
+					break;
+				}
+//				}
 
 			}
 		}

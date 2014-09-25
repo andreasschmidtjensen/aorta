@@ -1,0 +1,10 @@
+MAS tender {
+    infrastructure: AORTA(organization("tender.mm"))
+
+    agents: 
+		bob [aorta="bidder.aorta"];
+		carol [aorta="contractor.aorta"];
+		peter [aorta="contractor.aorta"];
+}
+
+

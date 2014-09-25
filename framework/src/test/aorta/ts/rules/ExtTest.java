@@ -13,7 +13,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.PrologLoader;
 import aorta.kr.QueryEngine;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.ts.Transition;
 import aorta.ts.strategy.Linear;
 import static org.junit.Assert.assertFalse;
@@ -42,24 +42,24 @@ public class ExtTest {
 		Struct bel = new Struct("raining");
 		Struct goal = new Struct("hold_umbrella");
 		
-		assertFalse(engine.exists(state.getMentalState(), Qualifier.qualifyTerm(bel, KBType.BELIEF)));
-		assertFalse(engine.exists(state.getMentalState(), Qualifier.qualifyTerm(goal, KBType.GOAL)));
+		assertFalse(engine.exists(state.getMentalState(), FormulaQualifier.qualifyTerm(bel, KBType.BELIEF)));
+		assertFalse(engine.exists(state.getMentalState(), FormulaQualifier.qualifyTerm(goal, KBType.GOAL)));
 		
 		state.getExternalAgent().addBelief(bel);
 		state.getExternalAgent().addGoal(goal);
 		state = t.executeTransition(engine, state);
 		state = t.executeTransition(engine, state);
 		
-		assertTrue(engine.exists(state.getMentalState(), Qualifier.qualifyTerm(bel, KBType.BELIEF)));
-		assertTrue(engine.exists(state.getMentalState(), Qualifier.qualifyTerm(goal, KBType.GOAL)));
+		assertTrue(engine.exists(state.getMentalState(), FormulaQualifier.qualifyTerm(bel, KBType.BELIEF)));
+		assertTrue(engine.exists(state.getMentalState(), FormulaQualifier.qualifyTerm(goal, KBType.GOAL)));
 		
 		state.getExternalAgent().removeBelief(bel);
 		state.getExternalAgent().removeGoal(goal);
 		state = t.executeTransition(engine, state);
 		state = t.executeTransition(engine, state);
 		
-		assertFalse(engine.exists(state.getMentalState(), Qualifier.qualifyTerm(bel, KBType.BELIEF)));
-		assertFalse(engine.exists(state.getMentalState(), Qualifier.qualifyTerm(goal, KBType.GOAL)));
+		assertFalse(engine.exists(state.getMentalState(), FormulaQualifier.qualifyTerm(bel, KBType.BELIEF)));
+		assertFalse(engine.exists(state.getMentalState(), FormulaQualifier.qualifyTerm(goal, KBType.GOAL)));
 		
 	}
 	

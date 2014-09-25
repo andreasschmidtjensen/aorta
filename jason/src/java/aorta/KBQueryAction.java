@@ -12,7 +12,7 @@ import aorta.jason.TermConverter;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import jason.JasonException;
 import jason.asSemantics.DefaultInternalAction;
 import jason.asSemantics.TransitionSystem;
@@ -52,7 +52,7 @@ public abstract class KBQueryAction extends DefaultInternalAction {
 		AortaJasonAgent ag = (AortaJasonAgent) ts.getAg();
 		AortaAgent aorta = ag.getAortaAgent();
 		MentalState ms = aorta.getState().getMentalState();
-		alice.tuprolog.Term qualified = Qualifier.qualifyTerm(aortaTerm, kbType, true);
+		alice.tuprolog.Term qualified = FormulaQualifier.qualifyTerm(aortaTerm, kbType, true);
 		
 		QueryEngine q = new QueryEngine();
 		SolveInfo info = q.solve(ms, qualified);

@@ -9,7 +9,7 @@ import aorta.AgentState;
 import aorta.ExternalAgent;
 import aorta.kr.KBType;
 import aorta.kr.QueryEngine;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
 import aorta.logging.Logger;
@@ -36,28 +36,28 @@ public class Ext extends Transition {
 			
 			Struct struct;
 			while ((struct = ext.getRemovedBelief()) != null) {
-				Struct qualified = Qualifier.qualifyStruct(struct, KBType.BELIEF.getType());
+				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.BELIEF.getType());
 				newState.removeFromMentalState(engine, qualified);
 				remBeliefs++;
 				
 				Tracer.trace(state.getAgent().getName(), "-" + qualified + ";");
 			}
 			while ((struct = ext.getNewBelief()) != null) {
-				Struct qualified = Qualifier.qualifyStruct(struct, KBType.BELIEF.getType());
+				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.BELIEF.getType());
 				newState.insertInMentalState(engine, qualified);
 				newBeliefs++;
 
 				Tracer.trace(state.getAgent().getName(), "+" + qualified + ";");
 			}
 			while ((struct = ext.getRemovedGoal()) != null) {
-				Struct qualified = Qualifier.qualifyStruct(struct, KBType.GOAL.getType());
+				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.GOAL.getType());
 				newState.removeFromMentalState(engine, qualified);
 				remGoals++;
 				
 				Tracer.trace(state.getAgent().getName(), "-" + qualified + ";");
 			}
 			while ((struct = ext.getNewGoal()) != null) {
-				Struct qualified = Qualifier.qualifyStruct(struct, KBType.GOAL.getType());
+				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.GOAL.getType());
 				newState.insertInMentalState(engine, qualified);
 				newGoals++;
 				

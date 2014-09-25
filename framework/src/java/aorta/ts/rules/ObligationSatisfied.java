@@ -6,13 +6,15 @@ package aorta.ts.rules;
 
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
+import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
+import aorta.kr.util.TermQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
@@ -33,18 +35,27 @@ public class ObligationSatisfied extends Transition {
 
 		MetaLanguage language = new MetaLanguage();
 		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
-		Struct obj = language.obj(new Var("O"));
-
-		Struct orgObl = Qualifier.qualifyStruct(obl, KBType.ORGANIZATION);
-		Struct optObj = Qualifier.qualifyStruct(obj, KBType.OPTION);
+		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 
 		List<SolveInfo> obligations = engine.findAll(ms, orgObl);
 		for (SolveInfo obligation : obligations) {
 			if (obligation.isSuccess()) {
-				Var var = new Var("O");
-				engine.unify(ms, var, obligation);
+				
+				Struct obj = language.obj(new Var("O"));
+				Struct optObj = FormulaQualifier.qualifyStruct(obj, KBType.OPTION);
+				engine.unify(ms, optObj, obligation);
+				
+				Term objectiveArg = obj.getArg(0);
+				if (objectiveArg instanceof Var && ((Var)objectiveArg).getTerm() instanceof Struct) {
+					objectiveArg = ((Var)objectiveArg).getTerm();
+				}
+				if (objectiveArg instanceof Struct) {
+					if (TermQualifier.isQualified((Struct)objectiveArg)) {
+						optObj = (Struct) TermQualifier.qualifyTerm(language.obj(FormulaQualifier.getQualified((Struct)objectiveArg)), KBType.OPTION.getType());
+					}
+				}
 
-				if (var.isGround() && engine.exists(ms, var.getTerm())) {
+				if (engine.exists(ms, optObj)) {
 					//XXX: newState = state.clone();
 					engine.unify(ms, orgObl, obligation);
 					engine.unify(ms, optObj, obligation);

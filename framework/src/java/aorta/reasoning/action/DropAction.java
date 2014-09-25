@@ -10,7 +10,7 @@ import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
@@ -37,7 +37,7 @@ public class DropAction extends Action {
 		final Term clonedObjTerm = Term.createTerm(objective.toString());
 				
 		// Check that it is already a goal
-		Term goalTerm = Qualifier.qualifyTerm(clonedObjTerm, KBType.GOAL.getType(), true);
+		Term goalTerm = FormulaQualifier.qualifyTerm(clonedObjTerm, KBType.GOAL.getType(), true);
 		MentalState ms = state.getMentalState();
 		SolveInfo result = engine.solve(ms, goalTerm);
 		

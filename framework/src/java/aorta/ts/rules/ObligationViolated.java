@@ -14,7 +14,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
@@ -36,7 +36,7 @@ public class ObligationViolated extends Transition {
 		MetaLanguage language = new MetaLanguage();
 		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
 		
-		Struct orgObl = Qualifier.qualifyStruct(obl, KBType.ORGANIZATION);
+		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 		
 		List<SolveInfo> obligations = engine.findAll(ms, orgObl);
 		for (SolveInfo obligation : obligations) {
@@ -48,7 +48,7 @@ public class ObligationViolated extends Transition {
 				engine.unify(ms, deadline, obligation);
 				
 				if (objective.isGround() && deadline.isGround()) {
-					Struct orgViol = Qualifier.qualifyStruct(language.violation(new Var("A"), new Var("R"), new Var("O")), KBType.ORGANIZATION);
+					Struct orgViol = FormulaQualifier.qualifyStruct(language.violation(new Var("A"), new Var("R"), new Var("O")), KBType.ORGANIZATION);
 					engine.unify(ms, orgViol, obligation);
 
 					if (!engine.exists(ms, objective.getTerm())  //objective not completed

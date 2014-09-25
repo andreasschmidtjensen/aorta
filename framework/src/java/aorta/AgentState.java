@@ -11,7 +11,7 @@ import alice.tuprolog.Var;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.msg.IncomingOrganizationalMessage;
 import aorta.msg.OutgoingOrganizationalMessage;
 import aorta.reasoning.ActionRule;
@@ -84,7 +84,7 @@ public class AgentState {
 		}
 
 		if (insert) {
-			final Struct qualified = Qualifier.qualifyStruct(term, type);
+			final Struct qualified = FormulaQualifier.qualifyStruct(term, type);
 			insertInMentalState(engine, qualified);
 
 			logger.log(Level.FINE, "Updating mental state; inserting " + qualified);
@@ -97,20 +97,20 @@ public class AgentState {
 
 		boolean insert = true;
 		if (bridge != null) {
-			KBType type = Qualifier.getQualifier(contents);
+			KBType type = FormulaQualifier.getQualifier(contents);
 			if (type == KBType.BELIEF) {
 				try {
-					insert = bridge.addReceivedBelief(msg.getSender(), Qualifier.getQualified(contents));
+					insert = bridge.addReceivedBelief(msg.getSender(), FormulaQualifier.getQualified(contents));
 				} catch (IllegalArgumentException ex) {
 					ex.printStackTrace();
-					System.out.println("msg for exception: " + msg + ", type=" + type + ", cont= " + contents + ", qcont=" + Qualifier.getQualified(contents));
+					System.out.println("msg for exception: " + msg + ", type=" + type + ", cont= " + contents + ", qcont=" + FormulaQualifier.getQualified(contents));
 				}
 			} else if (type == KBType.GOAL) {
 				try {
-					insert = bridge.addReceivedGoal(msg.getSender(), Qualifier.getQualified(contents));
+					insert = bridge.addReceivedGoal(msg.getSender(), FormulaQualifier.getQualified(contents));
 				} catch (IllegalArgumentException ex) {
 					ex.printStackTrace();
-					System.out.println("msg for exception: " + msg + ", type=" + type + ", cont= " + contents + ", qcont=" + Qualifier.getQualified(contents));
+					System.out.println("msg for exception: " + msg + ", type=" + type + ", cont= " + contents + ", qcont=" + FormulaQualifier.getQualified(contents));
 				}
 			}
 		}
@@ -121,13 +121,13 @@ public class AgentState {
 	}
 
 	public void insertTerm(QueryEngine engine, Struct qualifiedTerm) {
-		if (!Qualifier.isQualified(qualifiedTerm)) {
+		if (!FormulaQualifier.isQualified(qualifiedTerm)) {
 			throw new IllegalArgumentException("Provided term was not qualified: " + qualifiedTerm);
 		}
 
 		try {
-			KBType type = Qualifier.getQualifier(qualifiedTerm);
-			Struct term = (Struct) Qualifier.getQualified(qualifiedTerm);
+			KBType type = FormulaQualifier.getQualifier(qualifiedTerm);
+			Struct term = (Struct) FormulaQualifier.getQualified(qualifiedTerm);
 
 			insertTerm(engine, term, type);
 		} catch (NullPointerException ex) {
@@ -149,7 +149,7 @@ public class AgentState {
 		}
 
 		if (remove) {
-			final Struct qualified = Qualifier.qualifyStruct(term, type);
+			final Struct qualified = FormulaQualifier.qualifyStruct(term, type);
 			removeFromMentalState(engine, qualified);
 
 			logger.log(Level.FINE, "Updating mental state; removing " +qualified);
@@ -157,12 +157,12 @@ public class AgentState {
 	}
 
 	public void removeTerm(QueryEngine engine, Struct qualifiedTerm) {
-		if (!Qualifier.isQualified(qualifiedTerm)) {
+		if (!FormulaQualifier.isQualified(qualifiedTerm)) {
 			throw new IllegalArgumentException("Provided term was not qualified: " + qualifiedTerm);
 		}
 
-		KBType type = Qualifier.getQualifier(qualifiedTerm);
-		Struct term = (Struct) Qualifier.getQualified(qualifiedTerm);
+		KBType type = FormulaQualifier.getQualifier(qualifiedTerm);
+		Struct term = (Struct) FormulaQualifier.getQualified(qualifiedTerm);
 
 		removeTerm(engine, term, type);
 	}

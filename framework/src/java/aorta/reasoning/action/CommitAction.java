@@ -9,7 +9,7 @@ import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import java.util.logging.Level;
@@ -39,8 +39,8 @@ public class CommitAction extends Action {
 		String bef = clonedObjTerm.toString();
 		engine.unify(ms, clonedObjTerm, state.getBindings());
 
-		Term belTerm = Qualifier.qualifyTerm(clonedObjTerm, KBType.BELIEF);
-		Term goalTerm = Qualifier.qualifyTerm(clonedObjTerm, KBType.GOAL);
+		Term belTerm = FormulaQualifier.qualifyTerm(clonedObjTerm, KBType.BELIEF);
+		Term goalTerm = FormulaQualifier.qualifyTerm(clonedObjTerm, KBType.GOAL);
 
 		Term test = Term.createTerm("\\+ " + belTerm + ", \\+ " + goalTerm);
 
@@ -54,9 +54,9 @@ public class CommitAction extends Action {
 
 			engine.unify(ms, clonedObjTerm, state.getBindings());
 
-			if (!clonedObjTerm.isGround()) {
-				throw new AORTAException("Cannot execute action: term '" + clonedObjTerm + "' is not ground.");
-			} else {
+//			if (!clonedObjTerm.isGround()) {
+//				throw new AORTAException("Cannot execute action: term '" + clonedObjTerm + "' is not ground.");
+//			} else {
 				//XXX: newState = state.clone();;
 				Struct asStruct;
 				if (clonedObjTerm instanceof Var) {
@@ -69,9 +69,9 @@ public class CommitAction extends Action {
 
 				logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: commit(" + asStruct + ")");
 				Tracer.queue(state.getAgent().getName(), "commit(" + asStruct + ")");
-			}
+//			}
 		} else {
-			throw new TransitionNotPossibleException();
+			throw new TransitionNotPossibleException("No solution for " + clonedObjTerm);
 		}
 
 		return newState;

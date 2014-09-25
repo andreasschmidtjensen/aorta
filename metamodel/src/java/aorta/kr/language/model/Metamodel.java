@@ -8,6 +8,7 @@ import alice.tuprolog.InvalidTheoryException;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Theory;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -85,24 +86,25 @@ public class Metamodel {
 		for (Role r : roles) {
 			sb.append(r).append("\n");
 		}
-		sb.append("OBJECTIVES:\n");
+		sb.append("\nOBJECTIVES:\n");
 		for (Objective o : objectives) {
 			sb.append(o).append("\n");
 		}
 		if (!dependencies.isEmpty()) {
-			sb.append("DEPENDENCIES:\n");
+			sb.append("\nDEPENDENCIES:\n");
 			for (Dependency d : dependencies) {
 				sb.append(d).append("\n");
 			}
 		}
 		if (!obligations.isEmpty()) {
-			sb.append("OBLIGATIONS:\n");
+			Collections.sort(obligations);
+			sb.append("\nOBLIGATIONS:\n");
 			for (Obligation o : obligations) {
 				sb.append(o).append("\n");
 			}
 		}
 		if (!rules.isEmpty()) {
-			sb.append("RULES:\n");
+			sb.append("\nRULES:\n");
 			for (Rule r : rules) {
 				sb.append(r).append("\n");
 			}

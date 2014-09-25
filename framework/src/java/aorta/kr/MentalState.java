@@ -5,7 +5,7 @@ import alice.tuprolog.Prolog;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Var;
 import aorta.AortaAgent;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 
 public class MentalState {
 
@@ -20,9 +20,9 @@ public class MentalState {
         this.agent = agent;
         
         // removes from the knowledgebase all instances of me/1
-        Struct qualified = Qualifier.qualifyStruct(new Struct("me", new Struct(agent.getName())), KBType.BELIEF.getType());
+        Struct qualified = FormulaQualifier.qualifyStruct(new Struct("me", new Struct(agent.getName())), KBType.BELIEF.getType());
         if (!prolog.solve(qualified).isSuccess()) {
-            qualified = Qualifier.qualifyStruct(new Struct("me", new Var()), KBType.BELIEF.getType());
+            qualified = FormulaQualifier.qualifyStruct(new Struct("me", new Var()), KBType.BELIEF.getType());
             ClauseInfo ci;
 			try {
 				while ((ci = prolog.getTheoryManager().retract(qualified)) != null) {
@@ -31,7 +31,7 @@ public class MentalState {
 			} catch (Exception ex) {}
 
             // adds to the knowledgebase the agents own name
-            qualified = Qualifier.qualifyStruct(new Struct("me", new Struct(agent.getName())), KBType.BELIEF.getType());
+            qualified = FormulaQualifier.qualifyStruct(new Struct("me", new Struct(agent.getName())), KBType.BELIEF.getType());
             prolog.getTheoryManager().assertZ(qualified, true, null, true);
         }
     }

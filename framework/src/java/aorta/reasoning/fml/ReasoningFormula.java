@@ -1,7 +1,7 @@
 package aorta.reasoning.fml;
 
 import alice.tuprolog.Term;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.kr.util.TermFormatter;
 
 public abstract class ReasoningFormula extends Formula {
@@ -33,6 +33,6 @@ public abstract class ReasoningFormula extends Formula {
 
 	@Override
 	public Term getAsTerm() {
-		return Qualifier.qualifyFormula(this);
+		return FormulaQualifier.qualifyFormula(this);
 	}
 }

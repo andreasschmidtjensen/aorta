@@ -14,7 +14,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
@@ -37,9 +37,9 @@ public class Inform extends Transition {
 		Struct dep = language.dependency(new Var("R1"), new Var("R2"), new Var("O"));
 		Struct inf = language.send(new Var("R1"), new Struct("tell"), new Var("O"));
 
-		Struct orgRea = Qualifier.qualifyStruct(rea, KBType.ORGANIZATION);
-		Struct orgDep = Qualifier.qualifyStruct(dep, KBType.ORGANIZATION);
-		Struct optInf = Qualifier.qualifyStruct(inf, KBType.OPTION);
+		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
+		Struct orgDep = FormulaQualifier.qualifyStruct(dep, KBType.ORGANIZATION);
+		Struct optInf = FormulaQualifier.qualifyStruct(inf, KBType.OPTION);
 		
 		
 		// TODO: O in dependency IS NOT QUALIFIED so O does not work!!!w 

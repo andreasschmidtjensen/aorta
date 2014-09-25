@@ -5,7 +5,7 @@ import aorta.kr.KBType;
 import java.util.List;
 
 import aorta.kr.MentalState;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.msg.OutgoingOrganizationalMessage;
 import aorta.reasoning.ActionRule;
 import aorta.ts.strategy.Strategy;
@@ -44,12 +44,12 @@ public class AortaAgent {
 	}
 
 	public void addAgentToBeliefs(AortaAgent agent) {
-		Struct qualified = Qualifier.qualifyStruct(new Struct("agent", new Struct(agent.name)), KBType.BELIEF.getType());
+		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agent.name)), KBType.BELIEF.getType());
 		state.getMentalState().getProlog().getTheoryManager().assertZ(qualified, true, null, true);
 	}
 
 	public void removeAgentFromBeliefs(AortaAgent agent) {
-		Struct qualified = Qualifier.qualifyStruct(new Struct("agent", new Struct(agent.name)), KBType.BELIEF.getType());
+		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agent.name)), KBType.BELIEF.getType());
 		state.getMentalState().getProlog().getTheoryManager().retract(qualified);
 	}
 

@@ -11,7 +11,7 @@ import alice.tuprolog.Var;
 import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.QueryEngine;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.msg.OutgoingOrganizationalMessage;
 import aorta.reasoning.fml.BeliefFormula;
 import aorta.tracer.Tracer;
@@ -48,7 +48,7 @@ public class SendOnceAction extends SendAction {
 			SolveInfo info = engine.solve(state.getMentalState(), new BeliefFormula(sent));
 			if (!info.isSuccess()) {
 				newRecipients.add(recipient);
-				state.insertInMentalState(engine, Qualifier.qualifyStruct(sent, KBType.BELIEF));
+				state.insertInMentalState(engine, FormulaQualifier.qualifyStruct(sent, KBType.BELIEF));
 			}
 		}
 		

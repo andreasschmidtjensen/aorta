@@ -14,7 +14,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
@@ -38,10 +38,10 @@ public class Delegate extends Transition {
 		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
 		Struct del = language.send(new Var("R2"), new Struct("achieve"), new Var("O"));
 
-		Struct orgRea = Qualifier.qualifyStruct(rea, KBType.ORGANIZATION);
-		Struct orgDep = Qualifier.qualifyStruct(dep, KBType.ORGANIZATION);
-		Struct orgObl = Qualifier.qualifyStruct(obl, KBType.ORGANIZATION);
-		Struct optDel = Qualifier.qualifyStruct(del, KBType.OPTION);
+		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
+		Struct orgDep = FormulaQualifier.qualifyStruct(dep, KBType.ORGANIZATION);
+		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
+		Struct optDel = FormulaQualifier.qualifyStruct(del, KBType.OPTION);
 		
 		// org(rea(A,R1)), org(dependency(R1,R2,O)), opt(obligation(A,R1,O,D)), \+ opt(delegate(R2,O))
 		Term test = Term.createTerm(orgRea + ", " + orgDep + ", " + orgObl + ", \\+ " + optDel);

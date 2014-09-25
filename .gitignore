@@ -5,3 +5,9 @@
 /modelchecker/standalone/
 /*/nbproject/private/
 *.stop___MAS
+*.asl~
+*.aorta~
+*.mas2j~
+*.mm~
+*.mm~
+*.class

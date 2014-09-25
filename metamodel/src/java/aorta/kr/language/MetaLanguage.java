@@ -7,8 +7,10 @@ package aorta.kr.language;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
+import aorta.kr.util.TermQualifier;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Iterator;
 
 /**
  *
@@ -53,11 +55,11 @@ public class MetaLanguage {
 	public Struct role(Term role) {
 		return new Struct("role", role);
 	}
-	
+
 	public Struct obj(Term obj) {
 		return new Struct("obj", obj);
 	}
-	
+
 	public Struct send(Term role, Term ilf, Term contents) {
 		return new Struct("send", role, ilf, contents);
 	}
@@ -72,10 +74,10 @@ public class MetaLanguage {
 	}
 
 	public boolean inML(Term term) {
-		if (term instanceof Struct && "~".equals(((Struct)term).getName())) {
-			term = ((Struct)term).getArg(0);
+		if (term instanceof Struct && "~".equals(((Struct) term).getName())) {
+			term = ((Struct) term).getArg(0);
 		}
-		
+
 		// using reflection for convenience
 		for (Method method : getClass().getMethods()) {
 			for (Class c : method.getParameterTypes()) {
@@ -121,13 +123,31 @@ public class MetaLanguage {
 				}
 			}
 
-			// TODO: Consider merging with aorta.kr.util.Qualifier
+			// Similar to TermQualifier, but this one uses inML to determine which KB to add to.
 			if (!matched) {
 				Struct struct = (Struct) term;
-				if (struct.getArity() == 2 && ",".equals(struct.getName()) || ";".equals(struct.getName())) {
+				if (TermQualifier.isReserved(term)) {
+					String functor = struct.getName();
+					Struct queryAsList = TermQualifier.toList(struct);
+					Struct arguments = queryAsList.listTail();
+					Struct qualifiedArguments = (Struct) qualify(arguments);
+					Struct rebuiltList = new Struct();
+					rebuiltList.append(new Struct(functor));
+					Iterator<? extends Term> it = qualifiedArguments.listIterator();
+					while (it.hasNext()) {
+						rebuiltList.append(it.next());
+					}
+					qualified = TermQualifier.fromList(rebuiltList);
+				} else if (struct.isList()) {
+					Struct newList = new Struct();
+					Iterator<? extends Term> it = struct.listIterator();
+					while (it.hasNext()) {
+						newList.append(qualify(it.next()));
+					}
+					qualified = newList;
+			
+				} else if (struct.getArity() == 2 && ",".equals(struct.getName()) || ";".equals(struct.getName())) {
 					qualified = new Struct(struct.getName(), qualify(struct.getArg(0)), qualify(struct.getArg(1)));
-				} else if ("is".equals(struct.getName())) {
-					qualified = term;
 				} else if (inML(term)) {
 					qualified = new Struct("org", term);
 				} else {

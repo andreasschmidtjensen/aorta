@@ -14,7 +14,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
-import aorta.kr.util.Qualifier;
+import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
@@ -38,9 +38,9 @@ public class DeactRule extends Transition {
 		Struct oRole = new Struct("~", language.role(new Var("R")));
 		Struct rea = language.rea(new Var("A"), new Var("R"));
 
-		Struct orgRole = Qualifier.qualifyStruct(role, KBType.ORGANIZATION);
-		Struct orgRea = Qualifier.qualifyStruct(rea, KBType.ORGANIZATION);
-		Struct optRole = Qualifier.qualifyStruct(oRole, KBType.OPTION);
+		Struct orgRole = FormulaQualifier.qualifyStruct(role, KBType.ORGANIZATION);
+		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
+		Struct optRole = FormulaQualifier.qualifyStruct(oRole, KBType.OPTION);
 
 		// role(R,Os), rea(A,R), \+ ~role(R), \+ (member(O,Os), \+ bel(O)).
 		String test = orgRole.toString() + ", " + orgRea.toString() + ", \\+ " + optRole.toString() + ", \\+ (member(O, Os), \\+ bel(O)).";

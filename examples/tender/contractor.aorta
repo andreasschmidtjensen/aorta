@@ -1,0 +1,12 @@
+% role enactment
+role(publicationBody) : bel(me(Me)), ~(org(rea(Me, contractor))) => enact(publicationBody).
+role(contractor) : goal(rft(X)) => enact(contractor).
+
+% commit to objectives not specified to be ignored
+obj(O) : ~bel(ignore(O)) => commit(O).
+
+% tell others about enacting roles
+send(_,tell,org(rea(Me,R))) : bel(me(Me), agent(A), A \= Me), ~bel(sent(A, org(rea(Me,R)))) => send(A, org(rea(Me,R))).
+
+% inform about dependency objectives
+send(Role,tell,bel(X)) : bel(me(Me), agent(A), A \= Me), org(rea(A,Role)), ~bel(sent(A, bel(X))) => send(A, bel(X)).

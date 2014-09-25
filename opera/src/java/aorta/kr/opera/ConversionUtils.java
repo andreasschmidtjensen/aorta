@@ -4,6 +4,7 @@
  */
 package aorta.kr.opera;
 
+import alice.tuprolog.Int;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
@@ -60,9 +61,16 @@ public class ConversionUtils {
 
 	public static Term operaTermToTerm(net.sf.ictalive.operetta.OM.Term operaTerm) throws OperAImportException {
 		Term result;
-		if (operaTerm instanceof Constant) {
+		if (operaTerm instanceof Constant) {			
 			Constant c = (Constant) operaTerm;
-			result = new Struct(c.getName());
+			String constantName = c.getName();
+			if (constantName.matches("\\d+")) {
+				result = new Int(Integer.parseInt(constantName));
+			} else if (constantName.matches("\\d+(.\\d+)?")) {
+				result = new alice.tuprolog.Double(Double.parseDouble(constantName));
+			} else {
+				result = new Struct(c.getName());
+			}
 		} else if (operaTerm instanceof Variable) {
 			Variable v = (Variable) operaTerm;
 			String vName = v.getName().substring(0, 1).toUpperCase() + v.getName().substring(1);

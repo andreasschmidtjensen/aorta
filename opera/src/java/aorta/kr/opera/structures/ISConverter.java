@@ -126,7 +126,6 @@ public class ISConverter {
 		for (Scene scene : is.getScenes()) {
 			ISOrdering ordering = map.get(scene.getSceneID());
 
-			Struct objective;
 			Struct deadline;
 			Struct condition;
 
@@ -134,7 +133,6 @@ public class ISConverter {
 				Map<Landmark, LandmarkOrdering> lmap = landmarkOrderings.get(scene);
 				LandmarkOrdering lordering = lmap.get(landmark);
 
-				objective = ConversionUtils.stateDescriptionToStruct(landmark.getStateDescription());
 
 				if (lordering.nextLandmarks.isEmpty()) {
 					deadline = getDeadlineFromNextScene(ordering, landmarkOrderings);
@@ -149,8 +147,11 @@ public class ISConverter {
 				}
 
 				for (Objective o : landmark.getEntails()) {
+					Struct objective = ConversionUtils.stateDescriptionToStruct(o.getStateDescription());
 					for (Role r : o.getUsedByRole()) {
-						mm.getObligations().add(new Obligation(r.getName(), ml.qualify(objective), ml.qualify(deadline), ml.qualify(condition)));
+						if (r.getObjectives().contains(o)) {
+							mm.getObligations().add(new Obligation(r.getName(), ml.qualify(objective), ml.qualify(deadline), ml.qualify(condition)));
+						}
 					}
 				}
 			}

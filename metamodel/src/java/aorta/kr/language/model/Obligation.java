@@ -7,12 +7,13 @@ package aorta.kr.language.model;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import aorta.kr.language.MetaLanguage;
+import static aorta.kr.util.TermFormatter.toString;
 
 /**
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class Obligation {
+public class Obligation implements Comparable<Obligation> {
 	
 	private MetaLanguage ml = new MetaLanguage();
 	private String role;
@@ -49,7 +50,12 @@ public class Obligation {
 
 	@Override
 	public String toString() {
-		return role + ": " + objective + " < " + deadline + " | " + condition + ".";
+		return role + ": " + toString(objective) + " < " + toString(deadline) + " | " + toString(condition) + ".";
+	}
+
+	@Override
+	public int compareTo(Obligation o) {
+		return role.compareTo(o.role);
 	}
 		
 }

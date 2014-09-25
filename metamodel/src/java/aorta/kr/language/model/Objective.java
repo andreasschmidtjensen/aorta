@@ -9,6 +9,7 @@ import alice.tuprolog.Term;
 import aorta.kr.language.MetaLanguage;
 import java.util.ArrayList;
 import java.util.List;
+import static aorta.kr.util.TermFormatter.toString;
 
 /**
  *
@@ -48,14 +49,14 @@ public class Objective {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(objective);
+		sb.append(toString(objective));
 		if (!subObjectives.isEmpty()) {
-			sb.append(": ");
+			sb.append(":\n");
 			for (int i = 0; i < subObjectives.size(); i++) {
 				if (i > 0) {
-					sb.append(";");
+					sb.append(";\n");
 				}
-				sb.append(subObjectives.get(i));
+				sb.append("\t").append(toString(subObjectives.get(i)));
 			}
 		}
 		sb.append(".");
