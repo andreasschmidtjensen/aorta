@@ -1,5 +1,8 @@
 // Agent carol in project tender.mas2j
 /* Initial beliefs and rules */
+ignore(consortium(_,_)).
+ignore(informationRequested(_,_)).
+ignore(submitted(_,_)).
 
 /* Initial goals */
 !rft("Skyscraper X").
@@ -29,3 +32,7 @@
 
 +!evaluator(RFT, _) : true <- +evaluator(RFT, e).
 
+
++bid(RFT, X)[source(S)] <- .print("Received bid for ", RFT, " for ", X, " from ", S).
+
++!A <- .wait(false).

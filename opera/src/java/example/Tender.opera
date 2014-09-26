@@ -32,7 +32,6 @@
         <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_czHzcEPmEeSYvNt3K3WwYg" ID="D1881" ObjectOfDependency="_xFmXgEPNEeShouDKFqyxZg" Dependant="_AkeyQEPMEeShouDKFqyxZg" Dependee="__7rs4EPLEeShouDKFqyxZg"/>
         <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_fIqHcEPmEeSYvNt3K3WwYg" ID="D1882" ObjectOfDependency="_jWYOcEPNEeShouDKFqyxZg" Dependant="__7rs4EPLEeShouDKFqyxZg" Dependee="_AkeyQEPMEeShouDKFqyxZg"/>
         <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_haUBAEPmEeSYvNt3K3WwYg" ID="D1883" ObjectOfDependency="_0BQ3YEPNEeShouDKFqyxZg" Dependant="__7rs4EPLEeShouDKFqyxZg" Dependee="_FL4bMEPMEeShouDKFqyxZg"/>
-        <dependencies xmi:type="net.sf.ictalive.operetta:HierarchyDependency" xmi:id="_UJ3IcESzEeSYvNt3K3WwYg" ID="D2168" ObjectOfDependency="_sB83cEPNEeShouDKFqyxZg _tK5cgEPNEeShouDKFqyxZg _m4qCYEPNEeShouDKFqyxZg _q7rL4EPNEeShouDKFqyxZg" Dependant="_ELCpQEPMEeShouDKFqyxZg" Dependee="_AkeyQEPMEeShouDKFqyxZg"/>
       </ss>
       <is xmi:type="net.sf.ictalive.operetta:IS" xmi:id="_6EkIgUPLEeShouDKFqyxZg">
         <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_6ElWoEPLEeShouDKFqyxZg" sceneID="start" description="Default start scene of an interaction structure" type="start">
@@ -149,14 +148,20 @@
         <norms xmi:type="net.sf.ictalive.operetta:Norm" xmi:id="_grunQEPnEeSYvNt3K3WwYg" normID="minimum bids" activationCondition="_T7JyYEPUEeSYvNt3K3WwYg" deadline="_TkJ-8EPlEeSYvNt3K3WwYg">
           <deontics xmi:type="net.sf.ictalive.operetta:RoleDeonticStatement" xmi:id="_qFADwEPnEeSYvNt3K3WwYg" what="_6yTukEPnEeSYvNt3K3WwYg" role="_AkeyQEPMEeShouDKFqyxZg"/>
         </norms>
-        <norms xmi:type="net.sf.ictalive.operetta:Norm" xmi:id="_oJakwER_EeSYvNt3K3WwYg" normID="contractor cannot participate in consortium" activationCondition="_Uz3jEEPUEeSYvNt3K3WwYg" deadline="_0Ju8AER_EeSYvNt3K3WwYg">
-          <deontics xmi:type="net.sf.ictalive.operetta:RoleDeonticStatement" xmi:id="_5cCjIER_EeSYvNt3K3WwYg" what="_DlsTsESAEeSYvNt3K3WwYg" role="_AkeyQEPMEeShouDKFqyxZg"/>
-        </norms>
-        <norms xmi:type="net.sf.ictalive.operetta:Norm" xmi:id="_HvVCkESAEeSYvNt3K3WwYg" normID="evaluator cannot participate in consortium" activationCondition="_Uz3jEEPUEeSYvNt3K3WwYg" deadline="_0Ju8AER_EeSYvNt3K3WwYg">
-          <deontics xmi:type="net.sf.ictalive.operetta:RoleDeonticStatement" xmi:id="_HvVCkUSAEeSYvNt3K3WwYg" what="_DlsTsESAEeSYvNt3K3WwYg" role="_C9OyUEPMEeShouDKFqyxZg"/>
+        <norms xmi:type="net.sf.ictalive.operetta:Norm" xmi:id="_HvVCkESAEeSYvNt3K3WwYg" normID="evaluator cannot participate in consortium" activationCondition="_3nOI8EVjEeSYvNt3K3WwYg" deadline="_Dlm0IESAEeSYvNt3K3WwYg">
+          <deontics xmi:type="net.sf.ictalive.operetta:RoleDeonticStatement" xmi:id="_HvVCkUSAEeSYvNt3K3WwYg" what="_DlpQYESAEeSYvNt3K3WwYg" role="_C9OyUEPMEeShouDKFqyxZg"/>
         </norms>
         <norms xmi:type="net.sf.ictalive.operetta:Norm" xmi:id="_il-78ESAEeSYvNt3K3WwYg" normID="evaluate before deadline" activationCondition="_saXnIESAEeSYvNt3K3WwYg" deadline="_nSmcEESAEeSYvNt3K3WwYg">
           <deontics xmi:type="net.sf.ictalive.operetta:RoleDeonticStatement" xmi:id="_il-78USAEeSYvNt3K3WwYg" what="_m1KI0EPVEeSYvNt3K3WwYg" role="_C9OyUEPMEeShouDKFqyxZg"/>
+        </norms>
+        <norms xmi:type="net.sf.ictalive.operetta:Norm" xmi:id="_652-YEVjEeSYvNt3K3WwYg" normID="evaluator cannot be bidder" activationCondition="_3nOI8EVjEeSYvNt3K3WwYg" deadline="_Dlh7oESAEeSYvNt3K3WwYg">
+          <deontics xmi:type="net.sf.ictalive.operetta:RoleDeonticStatement" xmi:id="_652-YUVjEeSYvNt3K3WwYg" what="_Dljw0ESAEeSYvNt3K3WwYg" role="_C9OyUEPMEeShouDKFqyxZg"/>
+        </norms>
+        <norms xmi:type="net.sf.ictalive.operetta:Norm" xmi:id="_9qItoEVjEeSYvNt3K3WwYg" normID="contractor cannot participate in consortium" activationCondition="_3nOI8EVjEeSYvNt3K3WwYg" deadline="_Dlm0IESAEeSYvNt3K3WwYg">
+          <deontics xmi:type="net.sf.ictalive.operetta:RoleDeonticStatement" xmi:id="_9qItoUVjEeSYvNt3K3WwYg" what="_DlpQYESAEeSYvNt3K3WwYg" role="_AkeyQEPMEeShouDKFqyxZg"/>
+        </norms>
+        <norms xmi:type="net.sf.ictalive.operetta:Norm" xmi:id="_9qItokVjEeSYvNt3K3WwYg" normID="contractor cannot be bidder" activationCondition="_3nOI8EVjEeSYvNt3K3WwYg" deadline="_Dlh7oESAEeSYvNt3K3WwYg">
+          <deontics xmi:type="net.sf.ictalive.operetta:RoleDeonticStatement" xmi:id="_9qIto0VjEeSYvNt3K3WwYg" what="_Dljw0ESAEeSYvNt3K3WwYg" role="_AkeyQEPMEeShouDKFqyxZg"/>
         </norms>
       </ns>
       <cs xmi:type="net.sf.ictalive.operetta:CS" xmi:id="_6EmkwEPLEeShouDKFqyxZg">
@@ -243,6 +248,9 @@
         <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_saVx8ESAEeSYvNt3K3WwYg" predicate="bid" concept="_gSbREEPUEeSYvNt3K3WwYg" arguments="_TFhK4EPUEeSYvNt3K3WwYg _TFkOMEPUEeSYvNt3K3WwYg"/>
         <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_saXnIESAEeSYvNt3K3WwYg" leftStateFormula="_g1oYoESAEeSYvNt3K3WwYg" rightStateFormula="_saVx8ESAEeSYvNt3K3WwYg"/>
         <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_Z2iewESwEeSYvNt3K3WwYg" predicate="deadline" concept="_GV6rwEPUEeSYvNt3K3WwYg" arguments="_TFhK4EPUEeSYvNt3K3WwYg _V4c5YESAEeSYvNt3K3WwYg _V4eukESAEeSYvNt3K3WwYg _Z2YtwESwEeSYvNt3K3WwYg"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Implication" xmi:id="_j7h7EEVbEeSYvNt3K3WwYg" antecedentStateFormula="_wZngYER_EeSYvNt3K3WwYg" consequentStateFormula="_DlsTsESAEeSYvNt3K3WwYg"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Disjunction" xmi:id="_hxDOQEVgEeSYvNt3K3WwYg" leftStateFormula="_Dlh7oESAEeSYvNt3K3WwYg" rightStateFormula="_Dlm0IESAEeSYvNt3K3WwYg"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_3nOI8EVjEeSYvNt3K3WwYg" leftStateFormula="_Uz3jEEPUEeSYvNt3K3WwYg" rightStateFormula="_wZgLoER_EeSYvNt3K3WwYg"/>
         <ontology xmi:type="net.sf.ictalive.operetta:Ontology" xmi:id="_6EnL0EPLEeShouDKFqyxZg" ontologyID="Default">
           <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_B3xmIEPMEeShouDKFqyxZg" concept="bidder"/>
           <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_CnYeIEPMEeShouDKFqyxZg" concept="contractor"/>
@@ -395,14 +403,6 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_haUoEUPmEeSYvNt3K3WwYg" fontName="Segoe UI"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_haUoEkPmEeSYvNt3K3WwYg" points="[6, 22, 0, -143]$[4, 158, -2, -7]"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_haXEUEPmEeSYvNt3K3WwYg" id="(0.4785714285714286,0.1590909090909091)"/>
-    </edges>
-    <edges xmi:type="notation:Connector" xmi:id="_UJ49oESzEeSYvNt3K3WwYg" type="4003" element="_UJ3IcESzEeSYvNt3K3WwYg" source="_mD1dwUPOEeShouDKFqyxZg" target="_mD02skPOEeShouDKFqyxZg">
-      <children xmi:type="notation:DecorationNode" xmi:id="_UJ49o0SzEeSYvNt3K3WwYg" type="6003">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_UJ49pESzEeSYvNt3K3WwYg" x="-55" y="-48"/>
-      </children>
-      <styles xmi:type="notation:FontStyle" xmi:id="_UJ49oUSzEeSYvNt3K3WwYg" fontName="Segoe UI"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_UJ49okSzEeSYvNt3K3WwYg" points="[6, -7, -166, 158]$[124, -173, -48, -8]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_UJ6LwESzEeSYvNt3K3WwYg" id="(0.3464566929133858,0.1590909090909091)"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_6FbEIEPLEeShouDKFqyxZg" type="IS" element="_6EkIgUPLEeShouDKFqyxZg" name="IS_Diagram" measurementUnit="Pixel">

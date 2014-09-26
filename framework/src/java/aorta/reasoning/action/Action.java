@@ -16,7 +16,7 @@ public abstract class Action {
     public final AgentState execute(QueryEngine engine, Term option, AgentState state) throws AORTAException {
         final AgentState result = executeAction(engine, option, state);
         if (result != null) {
-            logger.fine("[" + state.getAgent().getName() + "] Executing action: " + this);
+            logger.finest("[" + state.getAgent().getName() + "] Executing action: " + this);
         }
         return result;
     }

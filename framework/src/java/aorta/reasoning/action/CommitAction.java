@@ -48,7 +48,7 @@ public class CommitAction extends Action {
 //		System.out.println("Trying to commit to " + clonedObjTerm + " via test: " + test + ": " + result);
 //		System.out.println("Mental state: " + ms);
 
-		logger.log(Level.FINE, "Attempting to commit: " + result.isSuccess());
+		logger.log(Level.FINEST, "Attempting to commit: " + result.isSuccess());
 		if (result.isSuccess()) {
 			state.addBindings(result);
 
@@ -67,7 +67,7 @@ public class CommitAction extends Action {
 
 				newState.insertTerm(engine, asStruct, KBType.GOAL);
 
-				logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: commit(" + asStruct + ")");
+				logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: commit(" + asStruct + ")");
 				Tracer.queue(state.getAgent().getName(), "commit(" + asStruct + ")");
 //			}
 		} else {

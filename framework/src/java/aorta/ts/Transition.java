@@ -19,7 +19,7 @@ public abstract class Transition {
 	protected abstract AgentState execute(QueryEngine engine, AgentState state);
 	
 	public AgentState executeTransition(QueryEngine engine, AgentState state) {
-		logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing transition: " + getName());
+		logger.finest("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing transition: " + getName());
 		state.prepareForTransition(); // clears bindings
 		return execute(engine, state);
 	}

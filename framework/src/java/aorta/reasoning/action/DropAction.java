@@ -41,7 +41,7 @@ public class DropAction extends Action {
 		MentalState ms = state.getMentalState();
 		SolveInfo result = engine.solve(ms, goalTerm);
 		
-		logger.fine("Attempting to drop: " + result.isSuccess());
+		logger.finest("Attempting to drop: " + result.isSuccess());
 		if (result.isSuccess()) {
 			state.addBindings(result);
 			
@@ -59,7 +59,7 @@ public class DropAction extends Action {
 				
 				//XXX: newState = state.clone();;
 				newState.removeTerm(engine, asStruct, KBType.GOAL);
-				logger.info("[" + state.getAgent().getName() + "] Executing action: drop(" + asStruct + ")");
+				logger.fine("[" + state.getAgent().getName() + "] Executing action: drop(" + asStruct + ")");
 				Tracer.queue(state.getAgent().getName(), "drop(" + asStruct + ")");
 			}
 		} else {

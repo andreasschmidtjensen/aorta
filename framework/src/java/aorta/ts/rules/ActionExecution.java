@@ -45,7 +45,7 @@ public class ActionExecution extends Transition {
 					if (info.isSuccess()) {
 						Formula context = ar.getContext();
 						Term qualified = FormulaQualifier.qualifyGoal(ms, context);
-
+						
 						engine.unify(ms, qualified, info);
 						SolveInfo contextSolution = engine.solve(ms, qualified);
 
@@ -67,7 +67,7 @@ public class ActionExecution extends Transition {
 								break;
 							} catch (TransitionNotPossibleException ex) {
 								Tracer.clearQueue(state.getAgent().getName());
-								logger.log(Level.FINE, "Transition was not possible (" + ex.getMessage() + ")");								
+								logger.log(Level.FINEST, "Transition was not possible (" + ex.getMessage() + ")");								
 							}
 						}
 
@@ -75,7 +75,7 @@ public class ActionExecution extends Transition {
 				}
 			} catch (AORTAException ex) {
 				Tracer.clearQueue(state.getAgent().getName());
-				logger.log(Level.INFO, "Transition was not possible (" + ex.getMessage() + ")");
+				logger.log(Level.FINE, "Transition was not possible (" + ex.getMessage() + ")");
 
 				newState = state;
 			}

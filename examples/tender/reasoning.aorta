@@ -1,6 +1,9 @@
 % role enactment
 role(publicationBody) : bel(me(Me)), ~(org(rea(Me, contractor))) => enact(publicationBody).
 role(contractor) : goal(rft(X)) => enact(contractor).
+% enact role if there is not a conditional obligation to not do so
+role(R1) : bel(me(Me)), ~org(rea(Me,R2),cond(R2,\+(org(rea(Me,R1))),_,_)) => enact(R1).
+role(R1) : bel(me(Me)), ~org(rea(Me,R2),cond(R1,\+(org(rea(Me,R2))),_,_)) => enact(R1).
 
 % commit to objectives not specified to be ignored
 obj(O) : ~bel(ignore(O)) => commit(O).

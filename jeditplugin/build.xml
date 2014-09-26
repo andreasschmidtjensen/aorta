@@ -15,6 +15,17 @@
 		<delete dir="installer" />
 	</target>
 		
+	<target name="-pre-init-installer">
+		<available file="installer.properties" property="props.exists" />
+	</target>
+	
+	<target name="-init-installer" depends="-pre-init-installer" unless="props.exists" >
+		<propertyfile file="installer.properties">
+			<entry key="jason.install.dir" value="[NOT SET]" />
+		</propertyfile>
+		<echo>Creating installer.properties. Set jason.install.dir to Jason install location.</echo>
+	</target>
+		
 	<target name="make-installer" depends="deps-jar,jar">
 		<mkdir dir="installer" />
 		<jar destfile="installer/aorta-standalone.jar" filesetmanifest="skip" basedir="${build.classes.dir}">
@@ -27,6 +38,14 @@
 				<attribute name="Main-Class" value="aorta.Runner" />
 			</manifest>
 		</jar>
+	</target>
+	
+	<target name="install" depends="make-installer,-init-installer">
+		<loadproperties srcFile="installer.properties"/>
+		<echo>Installing in: ${jason.install.dir}</echo>
+		<java jar="installer/aorta-standalone.jar">
+			<arg line="install ${jason.install.dir}" />
+		</java>
 	</target>
     <!--
 

@@ -103,7 +103,7 @@ public class SendAction extends Action {
 		OutgoingOrganizationalMessage msg = new OutgoingOrganizationalMessage(recipientList, message);
 		state.sendMessage(msg);
 		
-		logger.info("[" + state.getAgent().getName() + "] Executing action: send(" + recipientList + "," + message + ")");
+		logger.fine("[" + state.getAgent().getName() + "] Executing action: send(" + recipientList + "," + message + ")");
 		Tracer.queue(state.getAgent().getName(), "send(" + recipientList + "," + message + ")");
 	}
 	

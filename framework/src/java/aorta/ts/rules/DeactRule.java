@@ -54,7 +54,7 @@ public class DeactRule extends Transition {
 					//XXX: newState = state.clone();
 					newState.insertTerm(engine, optRole);
 
-					logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + optRole);
+					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + optRole);
 					Tracer.trace(state.getAgent().getName(), "(" + getName() + ") " + optRole.getArg(0) + "\n");
 				} else {
 					logger.warning("Failed to consider role, not ground: " + optRole);

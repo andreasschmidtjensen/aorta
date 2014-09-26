@@ -34,13 +34,15 @@ public class ObjectiveRule extends Transition {
 		MentalState ms = newState.getMentalState();
 
 		MetaLanguage language = new MetaLanguage();
-		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
+		Struct obl = language.obligation(new Var("A"), new Var("R"), new Struct("bel", new Var("O")), new Var("D"));
+		Struct objective = language.objective(new Var("O"), new Var());
 		Struct rea = language.rea(new Var("A"), new Var("R"));
 
 		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
+		Struct orgObjective = FormulaQualifier.qualifyStruct(objective, KBType.ORGANIZATION);
 		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 
-		Term test = Term.createTerm(orgObl.toString() + ", " + orgRea.toString() + ", bel(me(A))");
+		Term test = Term.createTerm(orgObl + ", " + orgObjective + ", " + orgRea + ", bel(me(A))");
 		List<SolveInfo> conditionals = engine.findAll(ms, test);
 		for (SolveInfo conditional : conditionals) {
 			if (conditional.isSuccess()) {
@@ -64,7 +66,7 @@ public class ObjectiveRule extends Transition {
 				
 					newState.insertTerm(engine, result);
 
-					logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + result);
+					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + result);
 					Tracer.trace(state.getAgent().getName(), "(" + getName() + ") " + result + "\n");
 
 					break;

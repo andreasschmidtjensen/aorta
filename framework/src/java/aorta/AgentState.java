@@ -87,7 +87,7 @@ public class AgentState {
 			final Struct qualified = FormulaQualifier.qualifyStruct(term, type);
 			insertInMentalState(engine, qualified);
 
-			logger.log(Level.FINE, "Updating mental state; inserting " + qualified);
+			logger.log(Level.FINEST, "Updating mental state; inserting " + qualified);
 		}
 	}
 
@@ -152,7 +152,7 @@ public class AgentState {
 			final Struct qualified = FormulaQualifier.qualifyStruct(term, type);
 			removeFromMentalState(engine, qualified);
 
-			logger.log(Level.FINE, "Updating mental state; removing " +qualified);
+			logger.log(Level.FINEST, "Updating mental state; removing " +qualified);
 		}
 	}
 

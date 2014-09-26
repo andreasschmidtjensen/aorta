@@ -50,7 +50,7 @@ public class EnactAction extends Action {
 
 		SolveInfo result = engine.solve(ms, test);
 		
-		logger.fine("Attempting to enact: " + result.isSuccess());
+		logger.finest("Attempting to enact: " + result.isSuccess());
 		if (result.isSuccess()) {
 			state.addBindings(result);
 
@@ -67,7 +67,7 @@ public class EnactAction extends Action {
 				Struct send = ml.send(clonedRoleTerm, new Struct("tell"), qualified);
 				newState.insertTerm(engine, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
 				
-				logger.info("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
+				logger.fine("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
 				Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");
 			} else {
 				throw new AORTAException("X in enact(X) must be a Struct (was " + qualified.getClass() + ")");

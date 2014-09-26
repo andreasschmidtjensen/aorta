@@ -42,7 +42,7 @@ public class EnactRule extends Transition {
 		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 		Struct optRole = FormulaQualifier.qualifyStruct(oRole, KBType.OPTION);
 		
-		String test = orgRole.toString() + ", \\+ " + orgRea.toString() + ", \\+ " + optRole.toString() + ", cl(Os, Out), member(G,Out), goal(G).";
+		String test = orgRole.toString() + ", bel(me(A)), \\+ " + orgRea.toString() + ", \\+ " + optRole.toString() + ", cl(Os, Out), member(G,Out), goal(G).";
 		try {
 			// org(role(R,Os)), \+ org(rea(Ag,R)), \+ opt(role(R,Os)), cl(Os,OsOut), member(G,OsOut), goal(G)
 			List<SolveInfo> results = engine.findAll(ms, test);
@@ -54,7 +54,7 @@ public class EnactRule extends Transition {
 						//XXX: newState = state.clone();;
 						newState.insertTerm(engine, optRole);
 
-						logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + optRole);
+						logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + optRole);
 						Tracer.trace(state.getAgent().getName(), "(" + getName() + ") " + optRole.getArg(0) + "\n");
 					} else {
 						logger.warning("Failed to consider role, not ground: " + optRole);

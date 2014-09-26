@@ -60,7 +60,7 @@ public class Inform extends Transition {
 				//XXX: newState = state.clone();;
 				newState.insertTerm(engine, optInf);
 				
-				logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optInf);
+				logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optInf);
 				Tracer.trace(state.getAgent().getName(), optInf + " => Options\n");
 			}
 		}

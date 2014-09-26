@@ -150,7 +150,7 @@ public class ISConverter {
 					Struct objective = ConversionUtils.stateDescriptionToStruct(o.getStateDescription());
 					for (Role r : o.getUsedByRole()) {
 						if (r.getObjectives().contains(o)) {
-							mm.getObligations().add(new Obligation(r.getName(), ml.qualify(objective), ml.qualify(deadline), ml.qualify(condition)));
+							mm.getObligations().add(new Obligation(r.getName(), ml.qualify(objective, false), ml.qualify(deadline, false), ml.qualify(condition, false)));
 						}
 					}
 				}

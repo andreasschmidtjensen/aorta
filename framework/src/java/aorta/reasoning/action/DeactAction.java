@@ -44,7 +44,7 @@ public class DeactAction extends Action {
 
 		SolveInfo result = engine.solve(ms, term);
 		
-		logger.fine("Attempting to deact: " + result.isSuccess());
+		logger.finest("Attempting to deact: " + result.isSuccess());
 		
 		if (result.isSuccess()) {
 			state.addBindings(result);
@@ -58,7 +58,7 @@ public class DeactAction extends Action {
 				//XXX: newState = state.clone();;
 				newState.removeTerm(engine, (Struct) qualified);
 				
-				logger.info("[" + state.getAgent().getName() + "] Executing action: deact(" + qualified + ")");
+				logger.fine("[" + state.getAgent().getName() + "] Executing action: deact(" + qualified + ")");
 				Tracer.queue(state.getAgent().getName(), "deact(" + qualified + ")");
 			} else {
 				throw new AORTAException("X in deact(X) must be a Struct (was " + qualified.getClass() + ")");

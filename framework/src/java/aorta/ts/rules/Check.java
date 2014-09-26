@@ -33,7 +33,7 @@ public class Check extends Transition {
 				Struct oMsg = (Struct) iom.getMessage();
 				Struct msg = (Struct) oMsg.getArg(0);
 
-				logger.log(Level.INFO, "Handling msg: " + msg + " from " + iom.getSender());
+				logger.log(Level.FINE, "Handling msg: " + msg + " from " + iom.getSender());
 
 				Tracer.trace(state.getAgent().getName(), "(Chk) " + iom + "\n");
 				

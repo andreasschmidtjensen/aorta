@@ -55,14 +55,14 @@ public class ObligationSatisfied extends Transition {
 					}
 				}
 
-				if (engine.exists(ms, optObj)) {
+				if (engine.exists(ms, objectiveArg)) {
 					//XXX: newState = state.clone();
 					engine.unify(ms, orgObl, obligation);
 					engine.unify(ms, optObj, obligation);
 					newState.removeTerm(engine, orgObl);
 					newState.removeTerm(engine, optObj);
 
-					logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Removing obligation: " + orgObl);
+					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Removing obligation: " + orgObl);
 					Tracer.trace(state.getAgent().getName(), "(" + getName() + ") Satisfied " + orgObl.getArg(0) + "\n");
 					break;
 				}

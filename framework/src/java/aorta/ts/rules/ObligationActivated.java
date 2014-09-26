@@ -35,32 +35,35 @@ public class ObligationActivated extends Transition {
 		MetaLanguage language = new MetaLanguage();
 		Struct rea = language.rea(new Var("A"), new Var("R"));
 		Struct cond = language.condition(new Var("R"), new Var("O"), new Var("D"), new Var("C"));
-		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
 
 		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 		Struct orgCond = FormulaQualifier.qualifyStruct(cond, KBType.ORGANIZATION);
-		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 		
 		// org(rea(A,R)), org(cond(R,O,D,C)), C, \+ O, \+ org(obl(A,R,O,D))
-		Term term = Term.createTerm(orgRea + ", " + orgCond + ", C, \\+ O, \\+ " + orgObl);
+		Term term = Term.createTerm(orgRea + ", " + orgCond + ", C");
 		
 		List<SolveInfo> conditionals = engine.findAll(ms, term);
+//		System.out.println(term + ": " + conditionals);
+		
 		for (SolveInfo conditional : conditionals) {
 			if (conditional.isSuccess()) {
 				Var objective = new Var("O");
 				engine.unify(ms, objective, conditional);
-
-				if (!objective.isGround()) {
-					logger.warning("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Objective is not ground");
-				}
+				
+				Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
+				Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 				engine.unify(ms, orgObl, conditional);
-
+				
 				if (!engine.exists(ms, objective.getTerm())
 						&& !engine.exists(ms, orgObl)) {
+
+					if (!objective.isGround()) {
+						logger.warning("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Objective is not ground");
+					}
 					//XXX: newState = newState.clone();
 					newState.insertTerm(engine, orgObl);
 
-					logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding obligation: " + objective.getTerm());
+					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding obligation: " + objective.getTerm());
 					Tracer.trace(state.getAgent().getName(), "(" + getName() + ") " + orgObl.getArg(0) + "\n");
 
 					break;

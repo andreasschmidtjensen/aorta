@@ -12,3 +12,4 @@
 *.mm~
 *.class
 bin/
+jeditplugin/installer.properties

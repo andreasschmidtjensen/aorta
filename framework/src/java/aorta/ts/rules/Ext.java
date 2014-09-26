@@ -67,7 +67,7 @@ public class Ext extends Transition {
 			Tracer.trace(state.getAgent().getName(), "\n");
 			Tracer.trace(state.getAgent().getName());
 		
-			logger.fine(
+			logger.finest(
 				"[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] New beliefs: " + newBeliefs + 
 					", removed beliefs: " + remBeliefs + 
 					", new goals: " + newGoals +

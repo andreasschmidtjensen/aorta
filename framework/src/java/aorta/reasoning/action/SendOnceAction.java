@@ -58,7 +58,7 @@ public class SendOnceAction extends SendAction {
 			OutgoingOrganizationalMessage msg = new OutgoingOrganizationalMessage(recipientList, message);
 			state.sendMessage(msg);
 
-			logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: sendonce(" + recipientList + "," + message + ")");
+			logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: sendonce(" + recipientList + "," + message + ")");
 			Tracer.queue(state.getAgent().getName(), "sendonce(" + recipientList + "," + message + ")");
 		}
 	}

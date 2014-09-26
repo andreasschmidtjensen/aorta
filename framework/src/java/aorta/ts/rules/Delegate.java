@@ -60,7 +60,7 @@ public class Delegate extends Transition {
 				//XXX: newState = state.clone();;
 				newState.insertTerm(engine, optDel);
 				
-				logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optDel);
+				logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optDel);
 				Tracer.trace(state.getAgent().getName(), optDel + " => Options\n");
 			}
 		}

@@ -109,6 +109,10 @@ public class MetaLanguage {
 	}
 
 	public Term qualify(Term term) {
+		return qualify(term, true);
+	}
+	
+	public Term qualify(Term term, boolean qualifyBel) {
 		Term qualified = null;
 
 		if (term.match(Term.FALSE) || term.match(Term.TRUE)) {
@@ -151,7 +155,7 @@ public class MetaLanguage {
 				} else if (inML(term)) {
 					qualified = new Struct("org", term);
 				} else {
-					qualified = new Struct("bel", term);
+					qualified = qualifyBel ? new Struct("bel", term) : term;
 				}
 			}
 		} else {

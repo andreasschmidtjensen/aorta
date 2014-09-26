@@ -19,6 +19,7 @@ import aorta.ts.rules.ObligationActivated;
 import aorta.ts.rules.ObligationSatisfied;
 import aorta.ts.rules.ObligationViolated;
 import aorta.ts.rules.EnactRule;
+import aorta.ts.rules.InformSubObj;
 import aorta.ts.rules.ObjectiveRule;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,7 @@ public class Linear implements Strategy {
 		executors.add(new ExecuteStar(new ObjectiveRule()));
 		executors.add(new ExecuteStar(new Delegate()));
 		executors.add(new ExecuteStar(new Inform()));
+		executors.add(new ExecuteStar(new InformSubObj()));
 		executors.add(new ExecuteOnce(new ActionExecution()));
 	}
 

@@ -4,7 +4,6 @@
  */
 package aorta.ts.rules;
 
-import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
@@ -47,7 +46,7 @@ public class ObligationViolated extends Transition {
 				engine.unify(ms, objective, obligation);
 				engine.unify(ms, deadline, obligation);
 				
-				if (objective.isGround() && deadline.isGround()) {
+//				if (objective.isGround() && deadline.isGround()) {
 					Struct orgViol = FormulaQualifier.qualifyStruct(language.violation(new Var("A"), new Var("R"), new Var("O")), KBType.ORGANIZATION);
 					engine.unify(ms, orgViol, obligation);
 
@@ -58,12 +57,12 @@ public class ObligationViolated extends Transition {
 						//XXX: newState = state.clone();;
 						newState.insertTerm(engine, orgViol);
 
-						logger.info("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Violated obligation: " + orgViol);
+						logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Violated obligation: " + orgViol);
 						Tracer.trace(state.getAgent().getName(), "(" + getName() + ") " + orgViol.getArg(0) + "\n");
 
 						break;
 					}
-				}
+//				}
 			}
 		}
 		

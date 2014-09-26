@@ -72,7 +72,7 @@ public class AortaAgent {
 	public void newCycle() throws StrategyFailedException {
 		cycle++;
 		long start = System.currentTimeMillis();
-		logger.log(Level.FINE, "(" + getName() + ") New AORTA cycle [" + cycle + "]. Strategy: " + strategy.getClass().getName());
+		logger.log(Level.FINEST, "(" + getName() + ") New AORTA cycle [" + cycle + "]. Strategy: " + strategy.getClass().getName());
 		state.newCycle();
 		AgentState newState = strategy.execute(state);
 		
@@ -82,7 +82,7 @@ public class AortaAgent {
 		
 		
 		if (!state.getOut().isEmpty()) {
-			logger.log(Level.FINE, "(" + getName() + ") Sending " + state.getOut().size() + " messages.");
+			logger.log(Level.FINEST, "(" + getName() + ") Sending " + state.getOut().size() + " messages.");
 			Iterator<OutgoingOrganizationalMessage> it = state.getOut().iterator();
 			while (it.hasNext()) {
 				OutgoingOrganizationalMessage msg = it.next();
@@ -93,7 +93,7 @@ public class AortaAgent {
 			}
 		}
 
-		logger.log(Level.FINE, "(" + getName() + ") Cycle done [" + cycle + "] (time: " + (System.currentTimeMillis() - start) + " ms)");
+		logger.log(Level.FINEST, "(" + getName() + ") Cycle done [" + cycle + "] (time: " + (System.currentTimeMillis() - start) + " ms)");
 	}
 	
 	public boolean hasChanged() {
