@@ -1,0 +1,8 @@
+metamodel = model.mm
+agents = bob,alice
+
+alice.capabilities = eat,run
+alice.aorta = reasoning.aorta
+
+bob.capabilities = sleep
+bob.aorta = reasoning.aorta

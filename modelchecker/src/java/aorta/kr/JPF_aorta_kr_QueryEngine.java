@@ -34,30 +34,30 @@ public class JPF_aorta_kr_QueryEngine extends NativePeer {
 	private static Prolog lastProlog = null;
 	private static Struct lastTheory = null;
 	
-	@MJI
-	public int solve__Laorta_kr_MentalState_2Ljava_lang_String_2__Lalice_tuprolog_SolveInfo_2(MJIEnv env, int objRef, int msRef, int queryRef) throws MalformedGoalException {
-		Prolog prolog = getProlog(env, msRef);
-
-		String query = env.getStringObject(queryRef);
-
-		SolveInfo info = prolog.solve(query);
-		int rSolveInfo = createSolveInfo(env, info);
-		
-		return rSolveInfo;
-	}
-	
-	@MJI
-	public int solve__Laorta_kr_MentalState_2Lalice_tuprolog_Term_2__Lalice_tuprolog_SolveInfo_2(MJIEnv env, int objRef, int msRef, int termRef) {
-		Prolog prolog = getProlog(env, msRef);
-
-		ElementInfo ei = env.getElementInfo(termRef);
-		Term term = MJIConverter.getTerm(env, ei);
-
-		SolveInfo info = prolog.solve(term);
-		int rSolveInfo = createSolveInfo(env, info);
-		
-		return rSolveInfo;
-	}
+//	@MJI
+//	public int solve__Laorta_kr_MentalState_2Ljava_lang_String_2__Lalice_tuprolog_SolveInfo_2(MJIEnv env, int objRef, int msRef, int queryRef) throws MalformedGoalException {
+//		Prolog prolog = getProlog(env, msRef);
+//
+//		String query = env.getStringObject(queryRef);
+//
+//		SolveInfo info = prolog.solve(query);
+//		int rSolveInfo = createSolveInfo(env, info);
+//		
+//		return rSolveInfo;
+//	}
+//	
+//	@MJI
+//	public int solve__Laorta_kr_MentalState_2Lalice_tuprolog_Term_2__Lalice_tuprolog_SolveInfo_2(MJIEnv env, int objRef, int msRef, int termRef) {
+//		Prolog prolog = getProlog(env, msRef);
+//
+//		ElementInfo ei = env.getElementInfo(termRef);
+//		Term term = MJIConverter.getTerm(env, ei);
+//
+//		SolveInfo info = prolog.solve(term);
+//		int rSolveInfo = createSolveInfo(env, info);
+//		
+//		return rSolveInfo;
+//	}
 
 	private Prolog getProlog(MJIEnv env, int msRef) {
 		ClassInfo ci = env.getClassInfo(msRef);
@@ -82,12 +82,29 @@ public class JPF_aorta_kr_QueryEngine extends NativePeer {
 				while (nodeRef != MJIEnv.NULL) {
 					int itemRef = env.getReferenceField(nodeRef, "item"); // ClauseInfo
 					int structRef = env.getReferenceField(itemRef, "clause"); // Struct
-					clauses.append(MJIConverter.getTerm(env, env.getElementInfo(structRef)));
+					Term clause = MJIConverter.getTerm(env, env.getElementInfo(structRef));
+					clauses.append(clause);
 					nodeRef = env.getReferenceField(nodeRef, "next"); // Node<ClauseInfo>
 				}
 			}
-			
 		}
+		int agentRef = env.getReferenceField(msRef, "agent");
+		int aortaRef = env.getReferenceField(agentRef, "aorta");
+		int agentsRef = env.getReferenceField(aortaRef, "agents");
+		int dataRef = env.getReferenceField(agentsRef, "elementData");
+		
+		String me = env.getStringField(agentRef, "name");
+		clauses.append(Term.createTerm("bel(me(" + me + "))"));
+		ei = env.getElementInfo(dataRef);
+		tableRefs = ei.asReferenceArray(); // Object[]
+		for (int i = 0; i < tableRefs.length; i++) {
+			int objRef = tableRefs[i];
+			if (objRef != MJIEnv.NULL) {
+				String agName = env.getStringField(objRef, "name");
+				clauses.append(Term.createTerm("bel(agent(" + agName + "))"));
+			}
+		}
+		
 		Prolog prolog;
 		if (clauses.equals(lastTheory)) {
 			prolog = lastProlog;

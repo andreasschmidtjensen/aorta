@@ -1,0 +1,107 @@
+To reproduce:
+ C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\writingpaper> java -Xmx1000m -jar C:\Dropbox\code\phd\jpf-core/build/runJPF.jar +shell.port=4242 C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\writingpaper\modelchecker.jpf
+----------------------------------- search started
+      [skipping static init instructions]
+JavaPathfinder v7.0 (rev ${version}) - (C) RIACS/NASA Ames Research Center
+
+
+====================================================== system under test
+ail.util.AJPF_w_AIL.main("WritingPaper.ail","WritingPaper.psl","rea_a")
+
+====================================================== search started: 30-09-14 10:35
+		 # choice: gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:"<root>" ,1/1,isCascaded:false}
+[INFO] alice: Initial goal: empty
+[INFO] bob: Initial goal: empty
+[INFO] Number: 2
+Incoming: 0,2,
+Old: ~Org(alice,rea(alice(),editor())),~T R ~Org(alice,rea(alice(),editor())),
+Next: ~T R ~Org(alice,rea(alice(),editor())),
+
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 0 to []
+[FINER] Empty Until Array
+[INFO] Current Path: [0]
+----------------------------------- [1] forward: 0 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] alice done send(0:om(org(rea(alice,editor))), bob)
+		 # garbage collection
+[FINE] adding state
+[INFO] Current Path: [0, 1]
+[INFO] Adding 1 to [0, 1]
+[INFO] Always True from Now On
+----------------------------------- [2] forward: 1 visited
+[FINE] pruning 1 state from [0, 1]
+[FINE] index is 1
+----------------------------------- [1] backtrack: 0
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] bob done send(0:om(org(rea(bob,writer))), alice)
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 2 to [0]
+[FINER] Empty Until Array
+[INFO] Current Path: [0, 2]
+----------------------------------- [2] forward: 2 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] alice done send(0:om(org(rea(alice,editor))), bob)
+		 # garbage collection
+[FINE] adding state
+[INFO] Current Path: [0, 2, 3]
+[INFO] Adding 3 to [0, 2, 3]
+[INFO] Always True from Now On
+----------------------------------- [3] forward: 3 visited
+[FINE] pruning 1 state from [0, 2, 3]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 2
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 4 to [0, 2]
+[FINER] Empty Until Array
+[INFO] Current Path: [0, 2, 4]
+----------------------------------- [3] forward: 4 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[INFO] Waking agent bob
+[INFO] alice done send(0:om(org(rea(alice,editor))), bob)
+		 # garbage collection
+[FINE] adding state
+[INFO] Current Path: [0, 2, 4, 5]
+[INFO] Adding 5 to [0, 2, 4, 5]
+[INFO] Always True from Now On
+----------------------------------- [4] forward: 5 visited
+[FINE] pruning 1 state from [0, 2, 4, 5]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 4
+[FINE] setting done: 4
+----------------------------------- [3] done: 4
+[FINE] pruning 1 state from [0, 2, 4]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 2
+[FINE] setting done: 2
+----------------------------------- [2] done: 2
+[FINE] pruning 1 state from [0, 2]
+[FINE] index is 1
+----------------------------------- [1] backtrack: 0
+----------------------------------- [1] done: 0
+[FINE] pruning 1 state from [0]
+[FINE] index is 0
+----------------------------------- [0] backtrack: -1
+[FINE] setting done: 0
+----------------------------------- [0] done: -1
+----------------------------------- search finished
+
+====================================================== results
+no errors detected
+
+====================================================== statistics
+elapsed time:       00:00:25
+states:             new=3, visited=3, backtracked=6, end=0
+search:             maxDepth=3, constraints hit=0
+choice generators:  thread=1 (signal=0, lock=1, shared ref=0), data=3
+heap:               new=861933, released=815219, max live=38999, gc-cycles=6
+instructions:       65853940
+max memory:         482MB
+loaded code:        classes=528, methods=7494
+
+====================================================== search finished: 30-09-14 10:35

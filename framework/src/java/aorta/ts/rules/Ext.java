@@ -26,13 +26,17 @@ public class Ext extends Transition {
 	public AgentState execute(QueryEngine engine, AgentState state) {
 
 		AgentState newState = state;
-		if (state.getExternalAgent().containsBBChanges() || state.getExternalAgent().containsGBChanges()) {
+		if (state.getExternalAgent().containsBBChanges() 
+                || state.getExternalAgent().containsGBChanges() 
+                || state.getExternalAgent().containsCapChanges()) {
 			Tracer.trace(state.getAgent().getName(), "(Ext)");
 			
 			//XXX: newState = state.clone();;
 			ExternalAgent ext = newState.getExternalAgent();
 
-			int newBeliefs = 0, remBeliefs = 0, newGoals = 0, remGoals = 0;
+			int newBeliefs = 0, remBeliefs = 0, 
+					newGoals = 0, remGoals = 0, 
+					newCaps = 0, remCaps = 0;
 			
 			Struct struct;
 			while ((struct = ext.getRemovedBelief()) != null) {
@@ -63,6 +67,20 @@ public class Ext extends Transition {
 				
 				Tracer.trace(state.getAgent().getName(), "+" + qualified + ";");
 			}
+			while ((struct = ext.getRemovedCapability()) != null) {
+				Struct cap = new Struct("cap", struct);
+				newState.removeFromMentalState(engine, cap);
+				remCaps++;
+				
+				Tracer.trace(state.getAgent().getName(), "-" + cap + ";");
+			}
+			while ((struct = ext.getNewCapability()) != null) {
+				Struct cap = new Struct("cap", struct);
+				newState.insertInMentalState(engine, cap);
+				newCaps++;
+				
+				Tracer.trace(state.getAgent().getName(), "+" + cap + ";");
+			}
 			
 			Tracer.trace(state.getAgent().getName(), "\n");
 			Tracer.trace(state.getAgent().getName());
@@ -71,7 +89,9 @@ public class Ext extends Transition {
 				"[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] New beliefs: " + newBeliefs + 
 					", removed beliefs: " + remBeliefs + 
 					", new goals: " + newGoals +
-					", removed goals: " + remGoals);
+					", removed goals: " + remGoals + 
+					", new caps: " + newCaps +
+					", removed caps: " + remCaps);
 		}
 
 		return newState;

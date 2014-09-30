@@ -36,7 +36,7 @@ public class TermConverter {
 	}
 
 	//<editor-fold defaultstate="collapsed" desc="(AIL -> AORTA) Literal -> Struct">
-	private static Term convertToTerm(ail.syntax.Term term) {
+	public static Term convertToTerm(ail.syntax.Term term) {
 		if (term instanceof Rule) {
 			Rule r = (Rule) term;
 			return new Struct(":-", convertToTerm(r.getHead().toTerm()), convertToTerm(r.getBody().toTerm()));

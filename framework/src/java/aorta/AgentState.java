@@ -39,6 +39,8 @@ public class AgentState {
 	private AortaBridge bridge;
 	private List<Var> bindings;
 	
+	private boolean changed;
+	
 	public AgentState(AortaAgent agent, MentalState mentalState, List<ActionRule> actionRules) {
 		this.agent = agent;
 		this.mentalState = mentalState;
@@ -55,9 +57,18 @@ public class AgentState {
 	}
 
 	public final void prepareForTransition() {
+		changed = false;
 		bindings.clear();
 	}
 
+	public boolean hasChanged() {
+		return changed;
+	}
+
+	public void setChanged(boolean changed) {
+		this.changed = changed;
+	}
+	
 	public void setMentalState(MentalState mentalState) {
 		this.mentalState = mentalState;
 	}
@@ -94,7 +105,6 @@ public class AgentState {
 	public void insertMessage(QueryEngine engine, IncomingOrganizationalMessage msg) {
 		Struct om = (Struct) msg.getMessage();
 		Struct contents = (Struct) om.getArg(0);
-
 		boolean insert = true;
 		if (bridge != null) {
 			KBType type = FormulaQualifier.getQualifier(contents);
@@ -117,6 +127,8 @@ public class AgentState {
 
 		if (insert) {
 			engine.insert(mentalState, contents);
+			
+			changed = true;
 		}
 	}
 
@@ -151,7 +163,7 @@ public class AgentState {
 		if (remove) {
 			final Struct qualified = FormulaQualifier.qualifyStruct(term, type);
 			removeFromMentalState(engine, qualified);
-
+						
 			logger.log(Level.FINEST, "Updating mental state; removing " +qualified);
 		}
 	}
@@ -168,11 +180,13 @@ public class AgentState {
 	}
 
 	public void insertInMentalState(QueryEngine engine, Struct contents) {
-		engine.insert(mentalState, contents);
+		engine.insert(mentalState, contents);			
+		changed = true;
 	}
 
 	public void removeFromMentalState(QueryEngine engine, final Struct qualified) {
-		engine.remove(mentalState, qualified);
+		engine.remove(mentalState, qualified);			
+		changed = true;
 	}
 	
 	public List<Var> getBindings() {
@@ -206,7 +220,8 @@ public class AgentState {
 	}
 
 	public void sendMessage(OutgoingOrganizationalMessage msg) {
-		out.add(msg);
+		out.add(msg);			
+		changed = true;
 	}
 	
 	Queue<OutgoingOrganizationalMessage> getOut() {
@@ -240,6 +255,31 @@ public class AgentState {
 			}
 		}
 		return result;
+	}
+
+	public static List<Var> mergeBindings(SolveInfo si1, SolveInfo si2) {
+		if (si1.isSuccess() && si2.isSuccess()) {
+			try {
+				List<Var> result = new ArrayList<>();
+				result.addAll(si1.getBindingVars());
+				for (Var var : si2.getBindingVars()) {
+					boolean exists = false;
+					for (Var currVar : result) {
+						if (var.getOriginalName().equals(currVar.getOriginalName())) {
+							exists = true;
+							break;
+						}
+					}
+					if (!exists) {
+						result.add(var);
+					}
+				}
+				return result;
+			} catch (NoSolutionException ex) {
+				// ignore
+			}
+		}
+		return null;
 	}
 
 }

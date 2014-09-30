@@ -1,0 +1,3 @@
+role(R) : true => enact(R).
+obj(O) : true => commit(O).
+send(_, tell, org(rea(Me,R))) : bel(me(Me), agent(A), A \= Me), ~(bel(sent(A, org(rea(Me,R))))) => send(A, org(rea(Me,R))).

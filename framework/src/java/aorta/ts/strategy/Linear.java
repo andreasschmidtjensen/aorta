@@ -53,19 +53,22 @@ public class Linear implements Strategy {
 	public AgentState execute(AgentState s0) throws StrategyFailedException {
 		AgentState next = s0;
 		
+		boolean changed = false;
 		long total = 0;
 		for (Executor exec : executors) {
 			long ms = System.currentTimeMillis();
 			next = exec.execute(next);
 			long elapsed = System.currentTimeMillis() - ms;
 			total += elapsed;
-//			System.out.println("* " + exec.transition.getName() + ": " + elapsed + "ms");
+			if (next.hasChanged()) {
+				changed = true;
+			}
 		}
-//		System.out.println("Total: " + total + "ms");
 
-		if (next != s0) {
+		if (changed) {
 			Tracer.trace(s0.getAgent().getName(), "--------------------\n");
 		}
+		next.setChanged(changed);
 		return next;
 	}
 	
@@ -97,24 +100,19 @@ public class Linear implements Strategy {
 		
 		@Override
 		AgentState execute(AgentState state) {
-			AgentState newState = null;
-			while (state != newState) {
-				AgentState nextState = executeOnce(transition, state);
-				newState = state;
-				state = nextState;
+			boolean cont = true;
+			while (cont) {
+				state = executeOnce(transition, state);
+				cont = state.hasChanged();
 			}
-			return newState;
+			return state;
 		}
 	}
 	
-	private AgentState executeOnce(Transition transition, AgentState currentState) {
-		AgentState newState = transition.executeTransition(engine, currentState);
-		if (newState != null) {
-			newState.prepareForTransition();
-			return newState;
-		} else {
-			return currentState;
-		}
+	private AgentState executeOnce(Transition transition, AgentState state) {
+		state.prepareForTransition();
+		state = transition.executeTransition(engine, state);
+		return state;
 	}
 		
 }

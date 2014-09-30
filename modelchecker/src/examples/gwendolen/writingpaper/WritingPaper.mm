@@ -1,6 +1,6 @@
 ROLES:
-editor: wtitle; wabs; wsectitle; fdv; wcon; sv; editor.
-writer: wsec; wref; writer.
+editor: wtitle; wabs; wsectitle; fdv; wcon; sv.
+writer: wsec; wref.
 
 OBJECTIVES:
 wtitle.
@@ -11,8 +11,6 @@ wcon.
 sv.
 wsec.
 wref.
-writer.
-editor.
 
 DEPENDENCIES:
 writer > editor: fdv.

@@ -10,6 +10,7 @@ import jason.asSemantics.Agent;
 import jason.asSemantics.Event;
 import jason.asSemantics.Intention;
 import jason.asSyntax.Literal;
+import jason.asSyntax.Plan;
 import jason.asSyntax.Trigger;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +25,14 @@ public class AortaJasonAgent extends Agent {
 	private AortaAgent aortaAgent;
 	
 	private List<Literal> initialGoals;
+	private AortaPlanLibrary aortaPL;
 
 	public AortaJasonAgent() {
 		super();
 		initialGoals = new ArrayList<>();
+		
+		aortaPL = new AortaPlanLibrary();
+		setPL(aortaPL);
 	}
 
 	@Override
@@ -49,6 +54,8 @@ public class AortaJasonAgent extends Agent {
 			agl.goalStarted(new Event(new Trigger(Trigger.TEOperator.add, Trigger.TEType.achieve, initialGoal), Intention.EmptyInt));
 		}
 		
+		aortaPL.addPlanListener(new AortaPlanListener(aortaAgent));
+
 		// listen for goal completion to bridge to AORTA
 		ts.addGoalListener(agl);
 	}

@@ -7,8 +7,8 @@ returned(Book).
 
 OBLIGATIONS:
 borrower: returned(Book) < day(ReturnDate) | borrowed(Book), returnDate(Book, ReturnDate).
-borrower: paidFine(Book) < day(FineDate) | org(violation(Agent, borrower, bel(returned(Book)), FineDate)).
+borrower: paidFine(Book) < day(FineDate) | org(viol(Agent, borrower, bel(returned(Book)), FineDate)).
 
 RULES:
 borrowed(Book, ReturnDate) :- borrowed(Book), returnDate(Book, ReturnDate).
-org(violation(Agent, borrower, bel(returned(Book)), FineDate)) :- org(violation(Agent, borrower, bel(returned(Book)))), borrowed(Book, ReturnDate), FineDate is ReturnDate + 2.
+org(viol(Agent, borrower, bel(returned(Book)), FineDate)) :- org(viol(Agent, borrower, bel(returned(Book)))), borrowed(Book, ReturnDate), FineDate is ReturnDate + 2.

@@ -1,3 +1,3 @@
 role(R) : true => enact(R).
-~role(R) : bel(me(Me)), ~org(viol(Me,R,_)) => deact(R).
-obj(bel(returned(Book))) : ~goal(returned(Book)) => commit(returned(Book)).
+%~role(R) : bel(me(Me)), ~org(viol(Me,R,_)) => deact(R).
+obj(returned(Book)) : ~goal(returned(Book)) => commit(returned(Book)).

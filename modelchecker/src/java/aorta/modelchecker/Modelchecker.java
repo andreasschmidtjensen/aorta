@@ -153,7 +153,7 @@ public class Modelchecker {
 		if (prop == null) {
 			throw new RuntimeException("Property '" + propertyKey + "' not found!");
 		}
-		String jpfFile = createJPFFile(prop);
+		String jpfFile = createJPFFile(propertyKey);
 
 		System.out.println("Saving model to " + modelFile);
 

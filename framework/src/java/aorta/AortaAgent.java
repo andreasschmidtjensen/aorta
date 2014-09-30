@@ -1,6 +1,7 @@
 package aorta;
 
 import alice.tuprolog.Struct;
+import aorta.inspector.Inspector;
 import aorta.kr.KBType;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import aorta.ts.strategy.StrategyFailedException;
 import java.util.Iterator;
 import java.util.logging.Level;
 import aorta.logging.Logger;
+import aorta.tracer.Tracer;
+import java.util.ArrayList;
 
 public class AortaAgent {
 
@@ -23,6 +26,10 @@ public class AortaAgent {
 	private AgentState state;
 	private Aorta aorta;
 	private Strategy strategy;
+    
+    private String lastTrace;
+    
+	private final List<Inspector> inspectors = new ArrayList<>();
 	
 	private boolean lastCycleChangedState = true;
 
@@ -33,6 +40,13 @@ public class AortaAgent {
 		state = new AgentState(this, mentalState, actionRules);
 
 		setup();
+	}
+
+	public void addInspector(Inspector inspector) {
+		inspectors.add(inspector);
+	}
+	
+	public AortaAgent() {
 	}
 
 	private void setup() {
@@ -71,15 +85,14 @@ public class AortaAgent {
 
 	public void newCycle() throws StrategyFailedException {
 		cycle++;
+        Tracer.clearTrace(name);
+        
 		long start = System.currentTimeMillis();
 		logger.log(Level.FINEST, "(" + getName() + ") New AORTA cycle [" + cycle + "]. Strategy: " + strategy.getClass().getName());
 		state.newCycle();
-		AgentState newState = strategy.execute(state);
+		state = strategy.execute(state);
 		
-		lastCycleChangedState = state != newState;
-		
-		state = newState;
-		
+		lastCycleChangedState = state.hasChanged();
 		
 		if (!state.getOut().isEmpty()) {
 			logger.log(Level.FINEST, "(" + getName() + ") Sending " + state.getOut().size() + " messages.");
@@ -93,8 +106,19 @@ public class AortaAgent {
 			}
 		}
 
+        lastTrace = Tracer.printTrace(name);
+        
+		if (lastCycleChangedState) {
+			for (Inspector i : inspectors) {
+				i.addAgentState(this);
+			}
+		}
 		logger.log(Level.FINEST, "(" + getName() + ") Cycle done [" + cycle + "] (time: " + (System.currentTimeMillis() - start) + " ms)");
 	}
+
+    public String getLastTrace() {
+        return lastTrace;
+    }
 	
 	public boolean hasChanged() {
 		return lastCycleChangedState || state.getExternalAgent().containsChanges();

@@ -1,3 +1,0 @@
-role(R) : true => enact(R).
-~role(R) : true => deact(R).
-obj(bel(returned(Book))) : ~goal(returned(Book)) => commit(returned(Book)).

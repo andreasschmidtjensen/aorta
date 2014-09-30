@@ -7,8 +7,6 @@ GWENDOLEN
 
 :Initial Goals:
 
-editor [achieve]
-
 :Plans:
 
 +!wtitle [achieve] : {True} <- +wtitle;
@@ -17,7 +15,6 @@ editor [achieve]
 +!fdv [achieve] : {True} <- +fdv;
 +!wcon [achieve] : {True} <- +wcon;
 +!sv [achieve] : {True} <- +sv;
-+!editor [achieve] : {True} <- +editor;
 
 
 :name: bob
@@ -28,10 +25,7 @@ editor [achieve]
 
 :Initial Goals:
 
-writer [achieve]
-
 :Plans:
 
 +!wsec [achieve] : {True} <- +wsec;
 +!wref [achieve] : {True} <- +wref;
-+!writer [achieve] : {True} <- +writer;

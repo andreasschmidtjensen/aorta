@@ -11,7 +11,7 @@ import ajpf.MCAPLLanguageAgent;
 import ajpf.util.AJPFLogger;
 import aorta.AORTAException;
 import aorta.Aorta;
-import aorta.gui.AortaGui;
+import aorta.inspector.AortaGui;
 import gov.nasa.jpf.vm.Verify;
 
 /**

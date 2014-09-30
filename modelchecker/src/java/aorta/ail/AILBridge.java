@@ -24,9 +24,6 @@ import aorta.msg.OutgoingOrganizationalMessage;
  */
 public class AILBridge implements AortaBridge {
 
-	public static final byte AORTA_ILF_INFORM = 126;
-	public static final byte AORTA_ILF_ACHIEVE = 127;
-	
 	private static final SourceAnnotation SOURCE_AORTA = new SourceAnnotation(new Literal("aorta"));
 	private AILAgent agent;
 
@@ -80,39 +77,10 @@ public class AILBridge implements AortaBridge {
 
 	@Override
 	public void sendMessage(OutgoingOrganizationalMessage msg) {
-//		byte ilf;
-//		KBType qualifier = Qualifier.getQualifier((Struct) msg.getMessage());
-//		switch (qualifier) {
-//			case BELIEF:
-//			case OPTION:
-//			case ORGANIZATION:
-//				ilf = AORTA_ILF_INFORM;
-//				break;
-//			case GOAL:
-//			default:
-//				ilf = AORTA_ILF_ACHIEVE;
-//				break;
-//					
-//		}
 		AJPFLogger.info(AILBridge.class.getName(), "Sending organizational message: " + msg.getMessage() + " to " + msg.getRecipients());
 		for (Term recipient : msg.getRecipients()) {
 			try {
-				// same approach as	ail.semantics.operationalrules.HandleSendAction
-				Message ailMessage = new Message(0, agent.getAgName(), recipient.toString(), TermConverter.toLiteral(msg.getMessage()));
-//				Set<Message> msgs = new HashSet<>();
-//				msgs.add(ailMessage);
 				agent.getEnv().executeAction(agent.getAgName(), new SendAction(TermConverter.toLiteral(recipient), 0, TermConverter.toLiteral(msg.getMessage())));
-//				AortaAILAgent rcp = (AortaAILAgent)agent.getMAS().getAg(recipient.toString());
-//				rcp.newMessages(msgs);
-//				rcp.tellawake();
-//				
-//				Intention i = new Intention(new Event(GBelief.AILAddition, Event.AILSent, 
-//					new Literal(Literal.LPos, new PredicatewAnnotation(ailMessage.toTerm()))),
-//										new Unifier(),
-//										AILAgent.refertoself());
-//				agent.getIntentions().add(i);
-//				agent.tellawake();
-//				agent.newSentMessage(ailMessage);
 			} catch (AILexception ex) {
 				ex.printStackTrace();
 			}

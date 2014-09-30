@@ -7,7 +7,8 @@ package aorta.jason.infra;
 import aorta.AORTAException;
 import aorta.Aorta;
 import aorta.AortaAgent;
-import aorta.gui.AortaGui;
+import aorta.inspector.AgentWebInspector;
+import aorta.inspector.AortaGui;
 import aorta.jason.AortaAgentArch;
 import aorta.jason.AortaJasonBridge;
 import aorta.kr.language.OrganizationImportException;
@@ -49,6 +50,7 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 				
 		if (useGui) {
 			gui = new AortaGui();
+			AgentWebInspector.get();
 		}
 		
 		String location;
@@ -92,6 +94,8 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 
 				if (gui != null) {
 					gui.addAgent(aortaAgent);
+					AgentWebInspector.get().registerAgent(aortaAgent);
+					aortaAgent.addInspector(AgentWebInspector.get());
 				}
 			}
 			

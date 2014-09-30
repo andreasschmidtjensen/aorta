@@ -19,6 +19,8 @@ public class ExternalAgent {
     protected Queue<Struct> removedBeliefs;
     protected Queue<Struct> newGoals;
     protected Queue<Struct> removedGoals;
+    protected Queue<Struct> newCapabilities;
+    protected Queue<Struct> removedCapabilities;
 	
 	protected Queue<IncomingOrganizationalMessage> incomingMessages;
 
@@ -27,6 +29,8 @@ public class ExternalAgent {
         removedBeliefs = new LinkedList<>();
         newGoals = new LinkedList<>();
         removedGoals = new LinkedList<>();
+        newCapabilities = new LinkedList<>();
+        removedCapabilities = new LinkedList<>();
 		
 		incomingMessages = new LinkedList<>();
     }
@@ -39,12 +43,16 @@ public class ExternalAgent {
 		return newGoals.size() + removedGoals.size() > 0;
 	}
 	
+	public synchronized boolean containsCapChanges() {
+		return newCapabilities.size() + removedCapabilities.size() > 0;
+	}
+	
 	public synchronized boolean containsMsgs() {
 		return incomingMessages.size() > 0;
 	}
 	
 	public synchronized boolean containsChanges() {
-		return containsBBChanges() || containsGBChanges() || containsMsgs();
+		return containsBBChanges() || containsGBChanges() || containsCapChanges() || containsMsgs();
 	}
 	
     public synchronized void addBelief(Struct struct) {
@@ -67,6 +75,16 @@ public class ExternalAgent {
 		newGoals.remove(struct);
     }
 	
+	public synchronized void addCapability(Struct struct) {
+		newCapabilities.add(struct);
+		removedCapabilities.remove(struct);
+	}
+	
+	public synchronized void removeCapability(Struct struct) {
+		removedCapabilities.add(struct);
+		newCapabilities.remove(struct);
+	}
+	
 	public synchronized void receiveMessage(IncomingOrganizationalMessage msg) {
 		incomingMessages.add(msg);
 	}
@@ -88,13 +106,21 @@ public class ExternalAgent {
 	public synchronized Struct getRemovedGoal() {
 		return removedGoals.poll();
 	}
+	
+	public synchronized Struct getNewCapability() {
+		return newCapabilities.poll();
+	}
+	
+	public synchronized Struct getRemovedCapability() {
+		return removedCapabilities.poll();
+	}
 
 	public synchronized IncomingOrganizationalMessage getIncomingMessage() {
 		IncomingOrganizationalMessage msg = incomingMessages.poll();
 		return msg;
 	}
 
-	Queue<IncomingOrganizationalMessage> getIncomingMessages() {
+	public Queue<IncomingOrganizationalMessage> getIncomingMessages() {
 		return incomingMessages;
 	}
 		
@@ -105,6 +131,8 @@ public class ExternalAgent {
         clone.removedBeliefs = new LinkedList<>(removedBeliefs);
         clone.newGoals = new LinkedList<>(newGoals);
         clone.removedGoals = new LinkedList<>(removedGoals);
+        clone.newCapabilities = new LinkedList<>(newCapabilities);
+        clone.removedCapabilities = new LinkedList<>(removedCapabilities);
 		clone.incomingMessages = new LinkedList<>(incomingMessages);
         return clone;
     }

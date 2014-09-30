@@ -16,6 +16,7 @@ capable("Skyscraper X").
 +!informationRequested(RFT, _) <- .wait(1000); !informationRequested(RFT, _).
 
 +!submitted(RFT, _) : contractor(RFT, C) & bid(RFT, X) <- +submitted(RFT, X); .send(C, tell, bid(RFT, X)).
-+!submitted(RFT, _) <- .wait(1000); !submitted(RFT, _).
+//+!submitted(RFT, _) <- .wait(1000); !submitted(RFT, _).
 
 +!A <- .wait(false).
+

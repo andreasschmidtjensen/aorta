@@ -43,7 +43,6 @@ public class ObligationActivated extends Transition {
 		Term term = Term.createTerm(orgRea + ", " + orgCond + ", C");
 		
 		List<SolveInfo> conditionals = engine.findAll(ms, term);
-//		System.out.println(term + ": " + conditionals);
 		
 		for (SolveInfo conditional : conditionals) {
 			if (conditional.isSuccess()) {
@@ -60,15 +59,13 @@ public class ObligationActivated extends Transition {
 					if (!objective.isGround()) {
 						logger.warning("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Objective is not ground");
 					}
-					//XXX: newState = newState.clone();
 					newState.insertTerm(engine, orgObl);
 
-					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding obligation: " + objective.getTerm());
+					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding obligation: " + orgObl);
 					Tracer.trace(state.getAgent().getName(), "(" + getName() + ") " + orgObl.getArg(0) + "\n");
 
 					break;
 				}
-//				}
 
 			}
 		}

@@ -105,4 +105,10 @@ public class Tracer {
 	public static String printTrace(String agent) {
 		return tracer.toString(agent);
 	}
+    
+    public static void clearTrace(String agent) {
+        if (tracer.traces.containsKey(agent)) {
+            tracer.traces.get(agent).clear();
+        }
+    }
 }

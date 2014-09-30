@@ -6,6 +6,7 @@ package aorta.ts.rules;
 
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Term;
+import alice.tuprolog.Var;
 import aorta.AORTAException;
 import aorta.AgentState;
 import aorta.kr.KBType;
@@ -33,7 +34,7 @@ public class ActionExecution extends Transition {
 	protected AgentState execute(QueryEngine engine, AgentState state) {
 		AgentState newState = state;
 
-		for (ActionRule ar : state.getActionRules()) {
+		outer: for (ActionRule ar : state.getActionRules()) {
 			try {
 				Term option = Term.createTerm(ar.getOption().toString());
 				Term qualifiedOption = FormulaQualifier.qualifyTerm(option, KBType.OPTION);
@@ -41,33 +42,32 @@ public class ActionExecution extends Transition {
 				MentalState ms = state.getMentalState();
 
 				List<SolveInfo> solutions = engine.findAll(ms, qualifiedOption);
-				for (SolveInfo info : solutions) {
-					if (info.isSuccess()) {
+				for (SolveInfo optionSolution : solutions) {
+					if (optionSolution.isSuccess()) {
+						newState.clearBindings();
 						Formula context = ar.getContext();
 						Term qualified = FormulaQualifier.qualifyGoal(ms, context);
 						
-						engine.unify(ms, qualified, info);
+						engine.unify(ms, qualified, optionSolution);
 						SolveInfo contextSolution = engine.solve(ms, qualified);
 
 						if (contextSolution.isSuccess()) {
-							newState.clearBindings();
-							newState.addBindings(info);
-							newState.addBindings(contextSolution);
-
-							engine.unify(ms, option, newState.getBindings());	
+							List<Var> bindings = AgentState.mergeBindings(optionSolution, contextSolution);
+							engine.unify(ms, option, bindings);	
 							try {
 								Tracer.queue(state.getAgent().getName(), "(" + getName() + ") ");
 								Tracer.queue(state.getAgent().getName(), option + " : " + qualified + " => ");
 								
+								newState.addBindings(bindings);
 								newState = ar.getAction().execute(engine, option, newState);
 								
 								Tracer.queue(state.getAgent().getName(), "\n");
 								Tracer.trace(state.getAgent().getName());
 								
-								break;
+								break outer;
 							} catch (TransitionNotPossibleException ex) {
 								Tracer.clearQueue(state.getAgent().getName());
-								logger.log(Level.FINEST, "Transition was not possible (" + ex.getMessage() + ")");								
+								logger.log(Level.FINE, "Transition was not possible (" + ex.getMessage() + ")");								
 							}
 						}
 

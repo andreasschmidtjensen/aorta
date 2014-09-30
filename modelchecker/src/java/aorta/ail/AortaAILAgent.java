@@ -7,10 +7,13 @@ package aorta.ail;
 import ail.semantics.AILAgent;
 import ail.syntax.AILAnnotation;
 import ail.syntax.Deed;
+import ail.syntax.Event;
 import ail.syntax.Goal;
 import ail.syntax.Intention;
 import ail.syntax.Literal;
 import ail.syntax.Message;
+import ail.syntax.Plan;
+import ail.syntax.Predicate;
 import ail.syntax.PredicatewAnnotation;
 import ail.syntax.StringTerm;
 import ajpf.psl.MCAPLFormula;
@@ -19,6 +22,7 @@ import ajpf.util.AJPFLogger;
 import alice.tuprolog.InvalidLibraryException;
 import alice.tuprolog.InvalidTheoryException;
 import alice.tuprolog.Struct;
+import alice.tuprolog.Term;
 import aorta.AORTAException;
 import aorta.Aorta;
 import aorta.AortaAgent;
@@ -28,12 +32,14 @@ import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.OrganizationImportException;
 import aorta.kr.util.FormulaQualifier;
+import aorta.logging.Logger;
 import aorta.msg.IncomingOrganizationalMessage;
 import aorta.parser.helper.AortaBuilder;
 import aorta.ts.strategy.StrategyFailedException;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
 
 // TODO: Avoid large statespace in beginning when setting up agents
 /**
@@ -78,6 +84,18 @@ public class AortaAILAgent extends AILAgent {
 			Deed deed = initialGoal.deeds().get(0);
 			Goal goal = deed.getGoal();
 			addGoalToAorta(goal);
+		}
+		
+		// capabilities
+		for (Plan plan : getPL().getPlans()) {
+			Event te = plan.getTriggerEvent();
+			if (te.isAddition() && te.referstoGoal()) {
+				Goal goal = te.getGoal();
+				Term capTerm = TermConverter.convertToTerm(goal);
+				if (capTerm instanceof Struct) {
+					aortaAgent.getState().getExternalAgent().addCapability((Struct) capTerm);
+				}
+			}
 		}
 	}
 	
@@ -124,7 +142,7 @@ public class AortaAILAgent extends AILAgent {
 
 	@Override
 	public boolean MCAPLwantstosleep() {
-		return super.MCAPLwantstosleep();
+		return super.MCAPLwantstosleep() && !aortaAgent.hasChanged();
 	}
 
 	@Override
