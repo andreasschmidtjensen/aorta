@@ -39,7 +39,7 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	private Aorta aorta;
 	private AortaGui gui;
 	
-	private List<AortaAgentArch> agents = new ArrayList<AortaAgentArch>();
+	private List<AortaAgentArch> agents = new ArrayList<>();
 	
 	public AortaRuntimeServices(RunCentralisedMAS masRunner) {
 		this(masRunner, true);
@@ -47,7 +47,7 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	
 	public AortaRuntimeServices(RunCentralisedMAS masRunner, boolean useGui) {
 		super(masRunner);
-				
+
 		if (useGui) {
 			gui = new AortaGui();
 			AgentWebInspector.get();
@@ -71,9 +71,31 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 		}
 	}
 
-	public String createAgent(String agName, String numberedAgName, String agSource, String agClass, List<String> archClasses, ClassParameters bbPars, Settings stts) throws Exception {
+	/**
+	 * This flag is used to ensure that the createAgent/6 method is always called from the createAgent/8 method.
+	 * The first creates the agent using the centralised runtime services - the second creates the aorta agent.
+	 * This is useful when external systems uses the runtime services to create agents (e.g. EIS).
+	 */
+	private boolean fromAORTA = false;
+	
+	@Override
+	public String createAgent(String agName, String agSource, String agClass, List<String> archClasses, ClassParameters bbPars, Settings stts) throws Exception {
+		if (fromAORTA) {
+			return super.createAgent(agName, agSource, agClass, archClasses, bbPars, stts);			
+		} else {
+			return createAgent(agName, agName, agSource, agClass, archClasses, bbPars, stts, (AortaEnvironment) masRunner.getEnvironmentInfraTier());
+		}
+	}
+
+	public String createAgent(String agName, String numberedAgName, String agSource, String agClass, List<String> archClasses, ClassParameters bbPars, Settings stts, AortaEnvironment env) throws Exception {
+		System.out.println("creating agent: " + agName);
+		
+		fromAORTA = true;
 		String actualAgName = createAgent(numberedAgName, agSource, agClass, archClasses, bbPars, stts);
+		fromAORTA = false;
+		
 		AortaAgentArch agentArch = (AortaAgentArch) masRunner.getAg(actualAgName);
+		agentArch.setEnvInfraTier(env);
 
 		try {
 			String aortaLocation = stts.getUserParameter("aorta");
