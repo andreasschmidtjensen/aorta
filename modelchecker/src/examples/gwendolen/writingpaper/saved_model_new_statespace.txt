@@ -1,0 +1,55 @@
+C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\writingpaper>java -jar ..\..\..\..\standalone\aorta-modelchecker.jar  WritingPaper.ail WritingPaper.psl m=writingpaper.model
+Properties:
+ > rea_a: <>(Org(alice, rea(alice, editor)))
+ > rea_b: <>(Org(bob, rea(bob, writer)))
+ > rea_tell_ab: <>(Org(alice, rea(bob, writer)))
+ > rea_tell_ba: <>(Org(bob, rea(alice, editor)))
+ > all_rea: <>(Org(alice, rea(alice, editor))) & <>(Org(bob, rea(bob, writer))) & <>(Org(alice, rea(bob, writer))) & <>(Org(bob, rea(alice, editor)))
+ > one_obl: [](Org(alice, obl(alice, editor, wabs, fdv)) -> <>(B(alice, wabs)))
+ > all_obl: [](Org(alice, obl(alice, editor, wtitle, _)) -> <>(B(alice, wtitle)) & Org(alice, obl(alice, editor, wabs, _)) -> <>(B(alice, wabs)) & Org(alice, obl(alice, editor, wsectitle, _))
+alice, wsectitle)) & Org(alice, obl(alice, editor, fdv, _)) -> <>(B(alice, fdv) & B(bob, fdv)) & Org(bob, obl(bob, writer, wsec, _)) -> <>(B(bob, wsec) & B(alice, wsec)) & Org(bob, obl(bob, wr
+ef, _)) -> <>(B(bob, wref) & B(alice, wref)) & Org(alice, obl(alice, editor, wcon, _)) -> <>(B(alice, wcon)) & Org(alice, obl(alice, editor, sv, _)) -> <>(B(alice, sv)))
+ > one_dep: []((Org(alice, dep(writer, editor, fdv)) & B(alice, fdv)) -> <>B(alice, sent(bob,bel(fdv))))
+ > all_dep: []((Org(alice, dep(writer, editor, fdv)) & B(alice, fdv)) -> <>B(alice, sent(bob, bel(fdv))) & (Org(bob, dep(editor, writer, wsec)) & B(bob, wsec)) -> <>B(bob, sent(alice, bel(wsec
+rg(bob, dep(editor, writer, wref)) & B(bob, wref)) -> <>B(bob, sent(alice, bel(wref))))
+ > paper_written: <>B(alice, sv)
+ > all: <>(Org(alice, rea(alice, editor))) & <>(Org(bob, rea(bob, writer))) & <>(Org(alice, rea(bob, writer))) & <>(Org(bob, rea(alice, editor))) & []((Org(alice, dep(writer, editor, fdv)) & B
+fdv)) -> <>Opt(alice, send(writer, tell, bel(fdv))) & (Org(bob, dep(editor, writer, wsec)) & B(bob, wsec)) -> <>Opt(bob, send(editor, tell, bel(wsec))) & (Org(bob, dep(editor, writer, wref)) &
+wref)) -> <>Opt(bob, send(editor, tell, bel(wref))) & Org(alice, obl(alice, editor, wtitle, _)) -> <>(B(alice, wtitle)) & Org(alice, obl(alice, editor, wabs, _)) -> <>(B(alice, wabs)) & Org(al
+(alice, editor, wsectitle, _)) -> <>(B(alice, wsectitle)) & Org(alice, obl(alice, editor, fdv, _)) -> <>(B(alice, fdv) & B(bob, fdv)) & Org(bob, obl(bob, writer, wsec, _)) -> <>(B(bob, wsec) &
+, wsec)) & Org(bob, obl(bob, writer, wref, _)) -> <>(B(bob, wref) & B(alice, wref)) & Org(alice, obl(alice, editor, wcon, _)) -> <>(B(alice, wcon)) & Org(alice, obl(alice, editor, sv, _)) -> <
+e, sv))) & <>B(alice, sv)
+ > error: <>(Org(alice, rea(alice, writer)))
+Verifying <>(Org(alice, rea(alice, editor))): no errors detected!
+*** Time elapsed for rea_a: 32ms
+Verifying <>(Org(bob, rea(bob, writer))): no errors detected!
+*** Time elapsed for rea_b: 4ms
+Verifying <>(Org(alice, rea(bob, writer))): no errors detected!
+*** Time elapsed for rea_tell_ab: 8ms
+Verifying <>(Org(bob, rea(alice, editor))): no errors detected!
+*** Time elapsed for rea_tell_ba: 5ms
+Verifying <>(Org(alice, rea(alice, editor))) & <>(Org(bob, rea(bob, writer))) & <>(Org(alice, rea(bob, writer))) & <>(Org(bob, rea(alice, editor))): no errors detected!
+*** Time elapsed for all_rea: 45ms
+Verifying [](Org(alice, obl(alice, editor, wabs, fdv)) -> <>(B(alice, wabs))): no errors detected!
+*** Time elapsed for one_obl: 417ms
+Verifying [](Org(alice, obl(alice, editor, wtitle, _)) -> <>(B(alice, wtitle)) & Org(alice, obl(alice, editor, wabs, _)) -> <>(B(alice, wabs)) & Org(alice, obl(alice, editor, wsectitle, _)) ->
+ice, wsectitle)) & Org(alice, obl(alice, editor, fdv, _)) -> <>(B(alice, fdv) & B(bob, fdv)) & Org(bob, obl(bob, writer, wsec, _)) -> <>(B(bob, wsec) & B(alice, wsec)) & Org(bob, obl(bob, writ
+, _)) -> <>(B(bob, wref) & B(alice, wref)) & Org(alice, obl(alice, editor, wcon, _)) -> <>(B(alice, wcon)) & Org(alice, obl(alice, editor, sv, _)) -> <>(B(alice, sv))): no errors detected!
+*** Time elapsed for all_obl: 10618ms
+Verifying []((Org(alice, dep(writer, editor, fdv)) & B(alice, fdv)) -> <>B(alice, sent(bob,bel(fdv)))): no errors detected!
+*** Time elapsed for one_dep: 115ms
+Verifying []((Org(alice, dep(writer, editor, fdv)) & B(alice, fdv)) -> <>B(alice, sent(bob, bel(fdv))) & (Org(bob, dep(editor, writer, wsec)) & B(bob, wsec)) -> <>B(bob, sent(alice, bel(wsec))
+(bob, dep(editor, writer, wref)) & B(bob, wref)) -> <>B(bob, sent(alice, bel(wref)))): no errors detected!
+*** Time elapsed for all_dep: 364ms
+Verifying <>B(alice, sv): no errors detected!
+*** Time elapsed for paper_written: 37ms
+Verifying <>(Org(alice, rea(alice, editor))) & <>(Org(bob, rea(bob, writer))) & <>(Org(alice, rea(bob, writer))) & <>(Org(bob, rea(alice, editor))) & []((Org(alice, dep(writer, editor, fdv)) &
+, fdv)) -> <>Opt(alice, send(writer, tell, bel(fdv))) & (Org(bob, dep(editor, writer, wsec)) & B(bob, wsec)) -> <>Opt(bob, send(editor, tell, bel(wsec))) & (Org(bob, dep(editor, writer, wref))
+, wref)) -> <>Opt(bob, send(editor, tell, bel(wref))) & Org(alice, obl(alice, editor, wtitle, _)) -> <>(B(alice, wtitle)) & Org(alice, obl(alice, editor, wabs, _)) -> <>(B(alice, wabs)) & Org(
+bl(alice, editor, wsectitle, _)) -> <>(B(alice, wsectitle)) & Org(alice, obl(alice, editor, fdv, _)) -> <>(B(alice, fdv) & B(bob, fdv)) & Org(bob, obl(bob, writer, wsec, _)) -> <>(B(bob, wsec)
+ce, wsec)) & Org(bob, obl(bob, writer, wref, _)) -> <>(B(bob, wref) & B(alice, wref)) & Org(alice, obl(alice, editor, wcon, _)) -> <>(B(alice, wcon)) & Org(alice, obl(alice, editor, sv, _)) ->
+ice, sv))) & <>B(alice, sv): no errors detected!
+*** Time elapsed for all: 91320ms
+Verifying <>(Org(alice, rea(alice, writer))): accepting path found: [<0, 2, 0>, <1, 2, 0>, <1007, 2, 0>, <1510, 2, 0>, <1008, 2, 0>, <1009, 2, 0>, <1259, 2, 0>, <1260, 2, 0>, <1386, 2, 0>, <12
+>, <1262, 2, 0>, <1325, 2, 0>, <1263, 2, 0>, <1264, 2, 0>, <1295, 2, 0>, <1265, 2, 0>, <1266, 2, 0>, <1281, 2, 0>, <1288, 2, 0>, <1282, 2, 0>, <1283, 2, 0>, <1286, 2, 0>, <1284, 2, 0>, <1287,
+*** Time elapsed for error: 43ms

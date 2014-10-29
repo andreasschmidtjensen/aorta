@@ -1,0 +1,221 @@
+To reproduce:
+ C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\writingpaper> java -Xmx1000m -jar C:\Dropbox\code\phd\jpf-core/build/runJPF.jar +shell.port=4242 C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\writingpaper\modelchecker.jpf
+----------------------------------- search started
+      [skipping static init instructions]
+JavaPathfinder v7.0 (rev ${version}) - (C) RIACS/NASA Ames Research Center
+
+
+====================================================== system under test
+ail.util.AJPF_w_AIL.main("WritingPaper.ail","WritingPaper.psl","rea_tell_ab")
+
+====================================================== search started: 02-10-14 15:23
+		 # choice: gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:"<root>" ,1/1,isCascaded:false}
+[INFO] alice: Initial goal: empty
+[INFO] bob: Initial goal: empty
+[INFO] Number: 2
+Incoming: 0,2,
+Old: ~Org(alice,rea(bob(),writer())),~T R ~Org(alice,rea(bob(),writer())),
+Next: ~T R ~Org(alice,rea(bob(),writer())),
+
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 0 to []
+[FINER] Empty Until Array
+[INFO] Current Path: [0]
+----------------------------------- [1] forward: 0 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] alice done send(0:om(org(rea(alice,editor))), bob)
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 1 to [0]
+[FINER] Empty Until Array
+[INFO] Current Path: [0, 1]
+----------------------------------- [2] forward: 1 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent alice
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 2 to [0, 1]
+[FINER] Empty Until Array
+[INFO] Current Path: [0, 1, 2]
+----------------------------------- [3] forward: 2 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[INFO] Waking agent alice
+[INFO] bob done send(0:om(org(rea(bob,writer))), alice)
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 3 to [0, 1, 2]
+[FINER] Empty Until Array
+[INFO] Current Path: [0, 1, 2, 3]
+----------------------------------- [4] forward: 3 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] alice done send(0:om(bel(fdv)), bob)
+		 # garbage collection
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4]
+[INFO] Adding 4 to [0, 1, 2, 3, 4]
+[INFO] Always True from Now On
+----------------------------------- [5] forward: 4 visited
+[FINE] pruning 1 state from [0, 1, 2, 3, 4]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 3
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 5 to [0, 1, 2, 3]
+[FINER] Empty Until Array
+[INFO] Current Path: [0, 1, 2, 3, 5]
+----------------------------------- [5] forward: 5 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[INFO] Waking agent bob
+[INFO] alice done send(0:om(bel(fdv)), bob)
+		 # garbage collection
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 5, 6]
+[INFO] Adding 6 to [0, 1, 2, 3, 5, 6]
+[INFO] Always True from Now On
+----------------------------------- [6] forward: 6 visited
+[FINE] pruning 1 state from [0, 1, 2, 3, 5, 6]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 5
+[FINE] setting done: 5
+----------------------------------- [5] done: 5
+[FINE] pruning 1 state from [0, 1, 2, 3, 5]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 3
+[FINE] setting done: 3
+----------------------------------- [4] done: 3
+[FINE] pruning 1 state from [0, 1, 2, 3]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 2
+[FINE] setting done: 2
+----------------------------------- [3] done: 2
+[FINE] pruning 1 state from [0, 1, 2]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 1
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] bob done send(0:om(org(rea(bob,writer))), alice)
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 7 to [0, 1]
+[FINER] Empty Until Array
+[INFO] Current Path: [0, 1, 7]
+----------------------------------- [3] forward: 7 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] alice done send(0:om(bel(fdv)), bob)
+		 # garbage collection
+[FINE] adding state
+[INFO] Current Path: [0, 1, 7, 8]
+[INFO] Adding 8 to [0, 1, 7, 8]
+[INFO] Always True from Now On
+----------------------------------- [4] forward: 8 visited
+[FINE] pruning 1 state from [0, 1, 7, 8]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 7
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 9 to [0, 1, 7]
+[FINER] Empty Until Array
+[INFO] Current Path: [0, 1, 7, 9]
+----------------------------------- [4] forward: 9 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[INFO] Waking agent bob
+[INFO] alice done send(0:om(bel(fdv)), bob)
+		 # garbage collection
+[FINE] adding state
+[INFO] Current Path: [0, 1, 7, 9, 10]
+[INFO] Adding 10 to [0, 1, 7, 9, 10]
+[INFO] Always True from Now On
+----------------------------------- [5] forward: 10 visited
+[FINE] pruning 1 state from [0, 1, 7, 9, 10]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 9
+[FINE] setting done: 9
+----------------------------------- [4] done: 9
+[FINE] pruning 1 state from [0, 1, 7, 9]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 7
+[FINE] setting done: 7
+----------------------------------- [3] done: 7
+[FINE] pruning 1 state from [0, 1, 7]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 1
+[FINE] setting done: 1
+----------------------------------- [2] done: 1
+[FINE] pruning 1 state from [0, 1]
+[FINE] index is 1
+----------------------------------- [1] backtrack: 0
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] bob done send(0:om(org(rea(bob,writer))), alice)
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 11 to [0]
+[FINER] Empty Until Array
+[INFO] Current Path: [0, 11]
+----------------------------------- [2] forward: 11 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] alice done send(0:om(org(rea(alice,editor))), bob)
+		 # garbage collection
+[FINE] adding state
+[INFO] Current Path: [0, 11, 12]
+[INFO] Adding 12 to [0, 11, 12]
+[INFO] Always True from Now On
+----------------------------------- [3] forward: 12 visited
+[FINE] pruning 1 state from [0, 11, 12]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 11
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[FINE] adding state
+[INFO] Adding 13 to [0, 11]
+[FINER] Empty Until Array
+[INFO] Current Path: [0, 11, 13]
+----------------------------------- [3] forward: 13 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[INFO] Waking agent bob
+[INFO] alice done send(0:om(org(rea(alice,editor))), bob)
+		 # garbage collection
+[FINE] adding state
+[INFO] Current Path: [0, 11, 13, 14]
+[INFO] Adding 14 to [0, 11, 13, 14]
+[INFO] Always True from Now On
+----------------------------------- [4] forward: 14 visited
+[FINE] pruning 1 state from [0, 11, 13, 14]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 13
+[FINE] setting done: 13
+----------------------------------- [3] done: 13
+[FINE] pruning 1 state from [0, 11, 13]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 11
+[FINE] setting done: 11
+----------------------------------- [2] done: 11
+[FINE] pruning 1 state from [0, 11]
+[FINE] index is 1
+----------------------------------- [1] backtrack: 0
+----------------------------------- [1] done: 0
+[FINE] pruning 1 state from [0]
+[FINE] index is 0
+----------------------------------- [0] backtrack: -1
+[FINE] setting done: 0
+----------------------------------- [0] done: -1
+----------------------------------- search finished
+
+====================================================== results
+no errors detected
+
+====================================================== statistics
+elapsed time:       00:01:14
+states:             new=9, visited=6, backtracked=15, end=0
+search:             maxDepth=5, constraints hit=0
+choice generators:  thread=1 (signal=0, lock=1, shared ref=0), data=9
+heap:               new=3558998, released=3474793, max live=52588, gc-cycles=15
+instructions:       270381177
+max memory:         742MB
+loaded code:        classes=530, methods=7506
+
+====================================================== search finished: 02-10-14 15:24
