@@ -12,6 +12,7 @@ import aorta.tracer.Tracer;
 import aorta.ts.Transition;
 import java.util.logging.Level;
 import aorta.logging.Logger;
+import aorta.reasoning.MessageFunction;
 
 /**
  *
@@ -37,7 +38,7 @@ public class Check extends Transition {
 
 				Tracer.trace(state.getAgent().getName(), "(Chk) " + iom + "\n");
 				
-				newState.insertMessage(engine, iom);
+				newState = new MessageFunction().process(engine, iom, newState);
 			}
 		}
 		
