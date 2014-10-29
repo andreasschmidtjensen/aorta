@@ -14,6 +14,7 @@ import aorta.ts.strategy.StrategyFailedException;
 import java.util.Iterator;
 import java.util.logging.Level;
 import aorta.logging.Logger;
+import aorta.reasoning.MessageFunction;
 import aorta.tracer.Tracer;
 import java.util.ArrayList;
 
@@ -140,6 +141,10 @@ public class AortaAgent {
 
 	public int getCycle() {
 		return cycle;
+	}
+
+	public MessageFunction getMessageFunction() {
+		return new MessageFunction();
 	}
 	
 }

@@ -38,7 +38,7 @@ public class Check extends Transition {
 
 				Tracer.trace(state.getAgent().getName(), "(Chk) " + iom + "\n");
 				
-				newState = new MessageFunction().process(engine, iom, newState);
+				newState = state.getAgent().getMessageFunction().process(engine, iom, newState);
 			}
 		}
 		
