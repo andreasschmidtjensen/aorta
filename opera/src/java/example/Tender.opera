@@ -3,11 +3,11 @@
   <net.sf.ictalive.operetta:OperAModel xmi:id="_6EiTUEPLEeShouDKFqyxZg" Name="New OperA Model">
     <om xmi:type="net.sf.ictalive.operetta:OM" xmi:id="_6EjhcEPLEeShouDKFqyxZg">
       <ss xmi:type="net.sf.ictalive.operetta:SS" xmi:id="_6EkIgEPLEeShouDKFqyxZg">
-        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="__7rs4EPLEeShouDKFqyxZg" Name="bidder" conceptName="_B3xmIEPMEeShouDKFqyxZg" objectives="_yiqLYEPNEeShouDKFqyxZg _0BQ3YEPNEeShouDKFqyxZg _1N8F4EPNEeShouDKFqyxZg _xFmXgEPNEeShouDKFqyxZg _-UmIYEPNEeShouDKFqyxZg _efBd8EPNEeShouDKFqyxZg"/>
-        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_AkeyQEPMEeShouDKFqyxZg" Name="contractor" conceptName="_CnYeIEPMEeShouDKFqyxZg" objectives="_pw6o8EPNEeShouDKFqyxZg _q7rL4EPNEeShouDKFqyxZg _sB83cEPNEeShouDKFqyxZg _tK5cgEPNEeShouDKFqyxZg _5ctMYEPNEeShouDKFqyxZg _35_ccEPNEeShouDKFqyxZg __lE40EPNEeShouDKFqyxZg _AjQYUEPOEeShouDKFqyxZg _-UmIYEPNEeShouDKFqyxZg _fkOLcEPNEeShouDKFqyxZg _efBd8EPNEeShouDKFqyxZg _m4qCYEPNEeShouDKFqyxZg"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="__7rs4EPLEeShouDKFqyxZg" Name="bidder" conceptName="_B3xmIEPMEeShouDKFqyxZg" objectives="_xFmXgEPNEeShouDKFqyxZg _efBd8EPNEeShouDKFqyxZg"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_AkeyQEPMEeShouDKFqyxZg" Name="contractor" conceptName="_CnYeIEPMEeShouDKFqyxZg" objectives="_35_ccEPNEeShouDKFqyxZg _efBd8EPNEeShouDKFqyxZg _m4qCYEPNEeShouDKFqyxZg _jWYOcEPNEeShouDKFqyxZg"/>
         <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_C9OyUEPMEeShouDKFqyxZg" Name="evaluator" conceptName="_D1f3EEPMEeShouDKFqyxZg" objectives="_6upVYEPNEeShouDKFqyxZg _72MzUEPNEeShouDKFqyxZg _35_ccEPNEeShouDKFqyxZg"/>
         <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_ELCpQEPMEeShouDKFqyxZg" Name="publicationBody" conceptName="_E4uOoEPMEeShouDKFqyxZg" objectives="_jWYOcEPNEeShouDKFqyxZg"/>
-        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_FL4bMEPMEeShouDKFqyxZg" Name="consortiumPartner" conceptName="_GB4PEEPMEeShouDKFqyxZg" objectives="_xFmXgEPNEeShouDKFqyxZg"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_FL4bMEPMEeShouDKFqyxZg" Name="consortiumPartner" conceptName="_GB4PEEPMEeShouDKFqyxZg" objectives="_xFmXgEPNEeShouDKFqyxZg _0BQ3YEPNEeShouDKFqyxZg"/>
         <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_jWYOcEPNEeShouDKFqyxZg" Name="rftPublished" conceptName="_khR7UEPNEeShouDKFqyxZg" stateDescription="_T7JyYEPUEeSYvNt3K3WwYg" subObjectives="_m4qCYEPNEeShouDKFqyxZg _pw6o8EPNEeShouDKFqyxZg"/>
         <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_efBd8EPNEeShouDKFqyxZg" Name="contractSigned" conceptName="_fLosUEPNEeShouDKFqyxZg" stateDescription="_b6Xc8EPaEeSYvNt3K3WwYg" subObjectives="_fkOLcEPNEeShouDKFqyxZg _xFmXgEPNEeShouDKFqyxZg _35_ccEPNEeShouDKFqyxZg"/>
         <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_m4qCYEPNEeShouDKFqyxZg" Name="rftCreated" conceptName="_oXLO0EPNEeShouDKFqyxZg" stateDescription="_Uz3jEEPUEeSYvNt3K3WwYg" subObjectives="_q7rL4EPNEeShouDKFqyxZg _sB83cEPNEeShouDKFqyxZg _tK5cgEPNEeShouDKFqyxZg"/>
@@ -251,6 +251,7 @@
         <formulas xmi:type="net.sf.ictalive.operetta:Implication" xmi:id="_j7h7EEVbEeSYvNt3K3WwYg" antecedentStateFormula="_wZngYER_EeSYvNt3K3WwYg" consequentStateFormula="_DlsTsESAEeSYvNt3K3WwYg"/>
         <formulas xmi:type="net.sf.ictalive.operetta:Disjunction" xmi:id="_hxDOQEVgEeSYvNt3K3WwYg" leftStateFormula="_Dlh7oESAEeSYvNt3K3WwYg" rightStateFormula="_Dlm0IESAEeSYvNt3K3WwYg"/>
         <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_3nOI8EVjEeSYvNt3K3WwYg" leftStateFormula="_Uz3jEEPUEeSYvNt3K3WwYg" rightStateFormula="_wZgLoER_EeSYvNt3K3WwYg"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_AJSo4EifEeSYvNt3K3WwYg" predicate="signed" concept="_CtAO4EPVEeSYvNt3K3WwYg" arguments="_7EWbcEPUEeSYvNt3K3WwYg _TFhK4EPUEeSYvNt3K3WwYg _TFkOMEPUEeSYvNt3K3WwYg"/>
         <ontology xmi:type="net.sf.ictalive.operetta:Ontology" xmi:id="_6EnL0EPLEeShouDKFqyxZg" ontologyID="Default">
           <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_B3xmIEPMEeShouDKFqyxZg" concept="bidder"/>
           <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_CnYeIEPMEeShouDKFqyxZg" concept="contractor"/>
