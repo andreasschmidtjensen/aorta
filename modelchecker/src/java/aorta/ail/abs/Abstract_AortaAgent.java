@@ -10,6 +10,7 @@ import alice.tuprolog.Theory;
 import aorta.AortaAgent;
 import aorta.kr.MentalState;
 import aorta.reasoning.ActionRule;
+import aorta.reasoning.ReasoningRule;
 import aorta.ts.strategy.Linear;
 import gov.nasa.jpf.vm.MJIEnv;
 import java.util.ArrayList;
@@ -34,10 +35,13 @@ public class Abstract_AortaAgent {
 	public Abstract_AortaAgent(AortaAgent aortaAgent) {
 		name = aortaAgent.getName();
 		mentalState = aortaAgent.getState().getMentalState().getProlog().getTheory().toString();
-		List<ActionRule> actionRules = aortaAgent.getState().getActionRules();
+		List<ReasoningRule> actionRules = aortaAgent.getState().getRules();
 		rules = new Abstract_ActionRule[actionRules.size()];
 		for (int i = 0; i < actionRules.size(); i++) {
-			rules[i] = new Abstract_ActionRule(actionRules.get(i));
+            if (actionRules.get(i) instanceof ActionRule) { //TODO Include ifRule
+                rules[i] = new Abstract_ActionRule((ActionRule) actionRules.get(i));
+            }
+                
 		}
 	}
 
@@ -56,7 +60,7 @@ public class Abstract_AortaAgent {
 	public AortaAgent toAORTA() throws InvalidTheoryException {
 		Prolog prolog = new Prolog();
 		prolog.addTheory(new Theory(mentalState));
-		List<ActionRule> arList = new ArrayList<>();
+		List<ReasoningRule> arList = new ArrayList<>();
 		for (Abstract_ActionRule ar : rules) {
 			arList.add(ar.toAORTA());
 		}

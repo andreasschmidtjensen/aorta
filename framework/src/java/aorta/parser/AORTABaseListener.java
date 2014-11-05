@@ -61,19 +61,6 @@ public class AORTABaseListener implements AORTAListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterActs(@NotNull AORTAParser.ActsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitActs(@NotNull AORTAParser.ActsContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -146,6 +133,32 @@ public class AORTABaseListener implements AORTAListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitNumber(@NotNull AORTAParser.NumberContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterActRule(@NotNull AORTAParser.ActRuleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitActRule(@NotNull AORTAParser.ActRuleContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterRules(@NotNull AORTAParser.RulesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitRules(@NotNull AORTAParser.RulesContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -243,26 +256,13 @@ public class AORTABaseListener implements AORTAListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterAct(@NotNull AORTAParser.ActContext ctx) { }
+	@Override public void enterIfRule(@NotNull AORTAParser.IfRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitAct(@NotNull AORTAParser.ActContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterActionRules(@NotNull AORTAParser.ActionRulesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitActionRules(@NotNull AORTAParser.ActionRulesContext ctx) { }
+	@Override public void exitIfRule(@NotNull AORTAParser.IfRuleContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

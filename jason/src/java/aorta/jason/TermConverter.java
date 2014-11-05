@@ -114,7 +114,7 @@ public class TermConverter {
 	}
 
 	private static Struct parseString(StringTermImpl st) {
-		return new Struct("\"" + st.getString() + "\"");
+		return new Struct(st.getString());
 	}
 	private static final Map<String, String> functorMap = new HashMap<>();
 

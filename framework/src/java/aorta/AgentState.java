@@ -14,7 +14,6 @@ import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.msg.IncomingOrganizationalMessage;
 import aorta.msg.OutgoingOrganizationalMessage;
-import aorta.reasoning.ActionRule;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -22,6 +21,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.logging.Level;
 import aorta.logging.Logger;
+import aorta.reasoning.ReasoningRule;
 
 /**
  *
@@ -33,7 +33,7 @@ public class AgentState {
 	
 	private AortaAgent agent;
 	private MentalState mentalState;
-	private List<ActionRule> actionRules;
+	private List<ReasoningRule> rules;
 	private Queue<OutgoingOrganizationalMessage> out;
 	private ExternalAgent externalAgent;
 	private AortaBridge bridge;
@@ -41,10 +41,10 @@ public class AgentState {
 	
 	private boolean changed;
 	
-	public AgentState(AortaAgent agent, MentalState mentalState, List<ActionRule> actionRules) {
+	public AgentState(AortaAgent agent, MentalState mentalState, List<ReasoningRule> rules) {
 		this.agent = agent;
 		this.mentalState = mentalState;
-		this.actionRules = actionRules;
+		this.rules = rules;
 
 		out = new LinkedList<>();
 
@@ -228,8 +228,8 @@ public class AgentState {
 		return out;
 	}
 
-	public List<ActionRule> getActionRules() {
-		return Collections.unmodifiableList(actionRules);
+	public List<ReasoningRule> getRules() {
+		return Collections.unmodifiableList(rules);
 	}
 
 	public synchronized ExternalAgent getExternalAgent() {

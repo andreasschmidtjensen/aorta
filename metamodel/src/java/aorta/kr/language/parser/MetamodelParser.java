@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\Metamodel.g4 by ANTLR 4.1
+// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\MetamodelParser.g4 by ANTLR 4.1
 package aorta.kr.language.parser;
 
 	import alice.tuprolog.Number;
@@ -27,33 +27,34 @@ public class MetamodelParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, START_BRACKET=2, END_BRACKET=3, ROLES=4, OBJECTIVES=5, DEPENDENCIES=6, 
-		OBLIGATIONS=7, RULES=8, ENTAILS=9, COLON=10, SEMICOLON=11, FULLSTOP=12, 
-		PIPE=13, START=14, END=15, COMMA=16, LT=17, GT=18, ATOM=19, NUMBER=20, 
-		VAR=21, MATH_OP=22, BINARY_OP=23, UNARY_OP=24, STRING=25, COMMENT=26, 
-		WS=27;
+		END_BRACKET=2, LT=16, CLOSESTRING=29, NUMBER=20, STRLIT=30, SEMICOLON=10, 
+		ATOM=19, MATH_OP=22, COLON=9, START_BRACKET=1, ROLES=3, WS=28, COMMA=15, 
+		OBJECTIVES=4, IS=18, ENTAILS=8, OBLIGATIONS=6, FULLSTOP=11, DEPENDENCIES=5, 
+		START=13, GT=17, PIPE=12, VAR=21, OPENSTRING=25, COMMENT=27, END=14, BINARY_OP=23, 
+		STRING=26, RULES=7, UNARY_OP=24;
 	public static final String[] tokenNames = {
-		"<INVALID>", "' is '", "'['", "']'", "'ROLES'", "'OBJECTIVES'", "'DEPENDENCIES'", 
+		"<INVALID>", "'['", "']'", "'ROLES'", "'OBJECTIVES'", "'DEPENDENCIES'", 
 		"'OBLIGATIONS'", "'RULES'", "':-'", "':'", "';'", "'.'", "'|'", "'('", 
-		"')'", "','", "'<'", "GT", "ATOM", "NUMBER", "VAR", "MATH_OP", "BINARY_OP", 
-		"'\\+'", "STRING", "COMMENT", "WS"
+		"')'", "','", "'<'", "GT", "' is '", "ATOM", "NUMBER", "VAR", "MATH_OP", 
+		"BINARY_OP", "'\\+'", "OPENSTRING", "STRING", "COMMENT", "WS", "CLOSESTRING", 
+		"STRLIT"
 	};
 	public static final int
 		RULE_metamodel = 0, RULE_roles = 1, RULE_role = 2, RULE_objectiveList = 3, 
 		RULE_objectives = 4, RULE_objective = 5, RULE_dependencies = 6, RULE_dependency = 7, 
 		RULE_obligations = 8, RULE_obligation = 9, RULE_rules = 10, RULE_krrule = 11, 
 		RULE_prolog = 12, RULE_prolog2 = 13, RULE_termBuilder = 14, RULE_term = 15, 
-		RULE_atom = 16, RULE_number = 17, RULE_var = 18, RULE_struct = 19, RULE_args = 20, 
-		RULE_list = 21, RULE_listContents = 22, RULE_listItem = 23;
+		RULE_string = 16, RULE_atom = 17, RULE_number = 18, RULE_var = 19, RULE_struct = 20, 
+		RULE_args = 21, RULE_list = 22, RULE_listContents = 23, RULE_listItem = 24;
 	public static final String[] ruleNames = {
 		"metamodel", "roles", "role", "objectiveList", "objectives", "objective", 
 		"dependencies", "dependency", "obligations", "obligation", "rules", "krrule", 
-		"prolog", "prolog2", "termBuilder", "term", "atom", "number", "var", "struct", 
-		"args", "list", "listContents", "listItem"
+		"prolog", "prolog2", "termBuilder", "term", "string", "atom", "number", 
+		"var", "struct", "args", "list", "listContents", "listItem"
 	};
 
 	@Override
-	public String getGrammarFileName() { return "Metamodel.g4"; }
+	public String getGrammarFileName() { return "MetamodelParser.g4"; }
 
 	@Override
 	public String[] getTokenNames() { return tokenNames; }
@@ -97,15 +98,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_metamodel; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterMetamodel(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterMetamodel(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitMetamodel(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitMetamodel(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitMetamodel(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitMetamodel(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -122,36 +123,36 @@ public class MetamodelParser extends Parser {
 				   List<Obligation> obligationList = new ArrayList<>();
 				   List<Rule> ruleList = new ArrayList<>();
 				  
-			setState(49); ((MetamodelContext)_localctx).roles = roles();
-			setState(50); ((MetamodelContext)_localctx).objectives = objectives();
-			setState(54);
+			setState(51); ((MetamodelContext)_localctx).roles = roles();
+			setState(52); ((MetamodelContext)_localctx).objectives = objectives();
+			setState(56);
 			_la = _input.LA(1);
 			if (_la==DEPENDENCIES) {
 				{
-				setState(51); ((MetamodelContext)_localctx).dependencies = dependencies();
+				setState(53); ((MetamodelContext)_localctx).dependencies = dependencies();
 				 dependencyList = ((MetamodelContext)_localctx).dependencies.dependencyList; 
 				}
 			}
 
-			setState(59);
+			setState(61);
 			_la = _input.LA(1);
 			if (_la==OBLIGATIONS) {
 				{
-				setState(56); ((MetamodelContext)_localctx).obligations = obligations();
+				setState(58); ((MetamodelContext)_localctx).obligations = obligations();
 				 obligationList = ((MetamodelContext)_localctx).obligations.obligationList; 
 				}
 			}
 
-			setState(64);
+			setState(66);
 			_la = _input.LA(1);
 			if (_la==RULES) {
 				{
-				setState(61); ((MetamodelContext)_localctx).rules = rules();
+				setState(63); ((MetamodelContext)_localctx).rules = rules();
 				 ruleList = ((MetamodelContext)_localctx).rules.ruleList; 
 				}
 			}
 
-			setState(66); match(EOF);
+			setState(68); match(EOF);
 
 				((MetamodelContext)_localctx).mm =  new Metamodel(((MetamodelContext)_localctx).roles.roleList, ((MetamodelContext)_localctx).objectives.objList, dependencyList, obligationList, ruleList); 
 				
@@ -185,15 +186,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_roles; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterRoles(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterRoles(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitRoles(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitRoles(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitRoles(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitRoles(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -206,19 +207,19 @@ public class MetamodelParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((RolesContext)_localctx).roleList =  new ArrayList<>(); 
-			setState(70); match(ROLES);
-			setState(71); match(COLON);
-			setState(75); 
+			setState(72); match(ROLES);
+			setState(73); match(COLON);
+			setState(77); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(72); ((RolesContext)_localctx).role = role();
+				setState(74); ((RolesContext)_localctx).role = role();
 				 _localctx.roleList.add(((RolesContext)_localctx).role.r); 
 				}
 				}
-				setState(77); 
+				setState(79); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==ATOM );
@@ -251,15 +252,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_role; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterRole(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterRole(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitRole(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitRole(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitRole(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitRole(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -270,10 +271,10 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(79); ((RoleContext)_localctx).name = match(ATOM);
-			setState(80); match(COLON);
-			setState(81); ((RoleContext)_localctx).objectiveList = objectiveList();
-			setState(82); match(FULLSTOP);
+			setState(81); ((RoleContext)_localctx).name = match(ATOM);
+			setState(82); match(COLON);
+			setState(83); ((RoleContext)_localctx).objectiveList = objectiveList();
+			setState(84); match(FULLSTOP);
 			 ((RoleContext)_localctx).r =  new Role((((RoleContext)_localctx).name!=null?((RoleContext)_localctx).name.getText():null), ((RoleContext)_localctx).objectiveList.terms); 
 			}
 		}
@@ -305,15 +306,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_objectiveList; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterObjectiveList(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterObjectiveList(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitObjectiveList(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitObjectiveList(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitObjectiveList(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitObjectiveList(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -325,20 +326,20 @@ public class MetamodelParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((ObjectiveListContext)_localctx).terms =  new ArrayList<>(); 
-			setState(94);
+			setState(96);
 			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				{
-				setState(86); ((ObjectiveListContext)_localctx).term = term();
+				setState(88); ((ObjectiveListContext)_localctx).term = term();
 				 _localctx.terms.add(((ObjectiveListContext)_localctx).term.fml); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(89); ((ObjectiveListContext)_localctx).term = term();
-				setState(90); match(SEMICOLON);
-				setState(91); ((ObjectiveListContext)_localctx).ol = objectiveList();
+				setState(91); ((ObjectiveListContext)_localctx).term = term();
+				setState(92); match(SEMICOLON);
+				setState(93); ((ObjectiveListContext)_localctx).ol = objectiveList();
 				 _localctx.terms.add(((ObjectiveListContext)_localctx).term.fml); _localctx.terms.addAll(((ObjectiveListContext)_localctx).ol.terms); 
 				}
 				break;
@@ -373,15 +374,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_objectives; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterObjectives(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterObjectives(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitObjectives(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitObjectives(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitObjectives(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitObjectives(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -394,22 +395,22 @@ public class MetamodelParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((ObjectivesContext)_localctx).objList =  new ArrayList<>(); 
-			setState(97); match(OBJECTIVES);
-			setState(98); match(COLON);
-			setState(102); 
+			setState(99); match(OBJECTIVES);
+			setState(100); match(COLON);
+			setState(104); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(99); ((ObjectivesContext)_localctx).objective = objective();
+				setState(101); ((ObjectivesContext)_localctx).objective = objective();
 				 _localctx.objList.add(((ObjectivesContext)_localctx).objective.o); 
 				}
 				}
-				setState(104); 
+				setState(106); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << START_BRACKET) | (1L << COLON) | (1L << SEMICOLON) | (1L << FULLSTOP) | (1L << START) | (1L << COMMA) | (1L << ATOM) | (1L << NUMBER) | (1L << VAR) | (1L << UNARY_OP))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << START_BRACKET) | (1L << COLON) | (1L << SEMICOLON) | (1L << FULLSTOP) | (1L << START) | (1L << COMMA) | (1L << ATOM) | (1L << NUMBER) | (1L << VAR) | (1L << UNARY_OP) | (1L << OPENSTRING))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -441,15 +442,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_objective; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterObjective(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterObjective(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitObjective(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitObjective(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitObjective(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitObjective(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -458,13 +459,13 @@ public class MetamodelParser extends Parser {
 		ObjectiveContext _localctx = new ObjectiveContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_objective);
 		try {
-			setState(116);
+			setState(118);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(106); ((ObjectiveContext)_localctx).prolog = prolog();
-				setState(107); match(FULLSTOP);
+				setState(108); ((ObjectiveContext)_localctx).prolog = prolog();
+				setState(109); match(FULLSTOP);
 				 ((ObjectiveContext)_localctx).o =  new Objective(((ObjectiveContext)_localctx).prolog.fml); 
 				}
 				break;
@@ -472,10 +473,10 @@ public class MetamodelParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(110); ((ObjectiveContext)_localctx).prolog = prolog();
-				setState(111); match(COLON);
-				setState(112); ((ObjectiveContext)_localctx).objectiveList = objectiveList();
-				setState(113); match(FULLSTOP);
+				setState(112); ((ObjectiveContext)_localctx).prolog = prolog();
+				setState(113); match(COLON);
+				setState(114); ((ObjectiveContext)_localctx).objectiveList = objectiveList();
+				setState(115); match(FULLSTOP);
 				 ((ObjectiveContext)_localctx).o =  new Objective(((ObjectiveContext)_localctx).prolog.fml, ((ObjectiveContext)_localctx).objectiveList.terms); 
 				}
 				break;
@@ -509,15 +510,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_dependencies; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterDependencies(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterDependencies(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitDependencies(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitDependencies(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitDependencies(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitDependencies(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -530,19 +531,19 @@ public class MetamodelParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((DependenciesContext)_localctx).dependencyList =  new ArrayList<>(); 
-			setState(119); match(DEPENDENCIES);
-			setState(120); match(COLON);
-			setState(124); 
+			setState(121); match(DEPENDENCIES);
+			setState(122); match(COLON);
+			setState(126); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(121); ((DependenciesContext)_localctx).dependency = dependency();
+				setState(123); ((DependenciesContext)_localctx).dependency = dependency();
 				 _localctx.dependencyList.add(((DependenciesContext)_localctx).dependency.d); 
 				}
 				}
-				setState(126); 
+				setState(128); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==ATOM );
@@ -580,15 +581,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_dependency; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterDependency(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterDependency(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitDependency(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitDependency(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitDependency(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitDependency(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -599,12 +600,12 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(128); ((DependencyContext)_localctx).dependee = match(ATOM);
-			setState(129); match(GT);
-			setState(130); ((DependencyContext)_localctx).dependant = match(ATOM);
-			setState(131); match(COLON);
-			setState(132); ((DependencyContext)_localctx).prolog = prolog();
-			setState(133); match(FULLSTOP);
+			setState(130); ((DependencyContext)_localctx).dependee = match(ATOM);
+			setState(131); match(GT);
+			setState(132); ((DependencyContext)_localctx).dependant = match(ATOM);
+			setState(133); match(COLON);
+			setState(134); ((DependencyContext)_localctx).prolog = prolog();
+			setState(135); match(FULLSTOP);
 			 ((DependencyContext)_localctx).d =  new Dependency((((DependencyContext)_localctx).dependee!=null?((DependencyContext)_localctx).dependee.getText():null), (((DependencyContext)_localctx).dependant!=null?((DependencyContext)_localctx).dependant.getText():null), ((DependencyContext)_localctx).prolog.fml); 
 			}
 		}
@@ -636,15 +637,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_obligations; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterObligations(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterObligations(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitObligations(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitObligations(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitObligations(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitObligations(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -657,19 +658,19 @@ public class MetamodelParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((ObligationsContext)_localctx).obligationList =  new ArrayList<>(); 
-			setState(137); match(OBLIGATIONS);
-			setState(138); match(COLON);
-			setState(142); 
+			setState(139); match(OBLIGATIONS);
+			setState(140); match(COLON);
+			setState(144); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(139); ((ObligationsContext)_localctx).obligation = obligation();
+				setState(141); ((ObligationsContext)_localctx).obligation = obligation();
 				 _localctx.obligationList.add(((ObligationsContext)_localctx).obligation.o); 
 				}
 				}
-				setState(144); 
+				setState(146); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==ATOM );
@@ -709,15 +710,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_obligation; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterObligation(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterObligation(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitObligation(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitObligation(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitObligation(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitObligation(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -728,14 +729,14 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(146); ((ObligationContext)_localctx).roleName = match(ATOM);
-			setState(147); match(COLON);
-			setState(148); ((ObligationContext)_localctx).obj = prolog();
-			setState(149); match(LT);
-			setState(150); ((ObligationContext)_localctx).deadline = prolog();
-			setState(151); match(PIPE);
-			setState(152); ((ObligationContext)_localctx).cond = prolog();
-			setState(153); match(FULLSTOP);
+			setState(148); ((ObligationContext)_localctx).roleName = match(ATOM);
+			setState(149); match(COLON);
+			setState(150); ((ObligationContext)_localctx).obj = prolog();
+			setState(151); match(LT);
+			setState(152); ((ObligationContext)_localctx).deadline = prolog();
+			setState(153); match(PIPE);
+			setState(154); ((ObligationContext)_localctx).cond = prolog();
+			setState(155); match(FULLSTOP);
 			 ((ObligationContext)_localctx).o =  new Obligation((((ObligationContext)_localctx).roleName!=null?((ObligationContext)_localctx).roleName.getText():null), ((ObligationContext)_localctx).obj.fml, ((ObligationContext)_localctx).deadline.fml, ((ObligationContext)_localctx).cond.fml); 
 			}
 		}
@@ -767,15 +768,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_rules; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterRules(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterRules(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitRules(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitRules(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitRules(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitRules(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -788,19 +789,19 @@ public class MetamodelParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((RulesContext)_localctx).ruleList =  new ArrayList<>(); 
-			setState(157); match(RULES);
-			setState(158); match(COLON);
-			setState(162); 
+			setState(159); match(RULES);
+			setState(160); match(COLON);
+			setState(164); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(159); ((RulesContext)_localctx).krrule = krrule();
+				setState(161); ((RulesContext)_localctx).krrule = krrule();
 				 _localctx.ruleList.add(((RulesContext)_localctx).krrule.r); 
 				}
 				}
-				setState(164); 
+				setState(166); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==START_BRACKET || _la==ATOM );
@@ -835,15 +836,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_krrule; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterKrrule(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterKrrule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitKrrule(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitKrrule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitKrrule(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitKrrule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -854,10 +855,10 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(166); ((KrruleContext)_localctx).struct = struct();
-			setState(167); match(ENTAILS);
-			setState(168); ((KrruleContext)_localctx).prolog = prolog();
-			setState(169); match(FULLSTOP);
+			setState(168); ((KrruleContext)_localctx).struct = struct();
+			setState(169); match(ENTAILS);
+			setState(170); ((KrruleContext)_localctx).prolog = prolog();
+			setState(171); match(FULLSTOP);
 			 ((KrruleContext)_localctx).r =  new Rule(((KrruleContext)_localctx).struct.fml, ((KrruleContext)_localctx).prolog.fml); 
 			}
 		}
@@ -884,15 +885,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_prolog; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterProlog(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterProlog(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitProlog(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitProlog(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitProlog(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitProlog(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -903,7 +904,7 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(172); ((PrologContext)_localctx).prolog2 = prolog2();
+			setState(174); ((PrologContext)_localctx).prolog2 = prolog2();
 			 ((PrologContext)_localctx).fml =  Term.createTerm((((PrologContext)_localctx).prolog2!=null?_input.getText(((PrologContext)_localctx).prolog2.start,((PrologContext)_localctx).prolog2.stop):null)); 
 			}
 		}
@@ -940,15 +941,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_prolog2; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterProlog2(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterProlog2(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitProlog2(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitProlog2(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitProlog2(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitProlog2(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -959,46 +960,46 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(198);
+			setState(200);
 			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
 				{
-				setState(175); match(COMMA);
-				setState(176); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(177); match(COMMA);
+				setState(178); ((Prolog2Context)_localctx).pl = prolog2();
 				 ((Prolog2Context)_localctx).fml =  new Struct(",", ((Prolog2Context)_localctx).pl.fml); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(179); match(SEMICOLON);
-				setState(180); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(181); match(SEMICOLON);
+				setState(182); ((Prolog2Context)_localctx).pl = prolog2();
 				 ((Prolog2Context)_localctx).fml =  new Struct(";", ((Prolog2Context)_localctx).pl.fml); 
 				}
 				break;
 
 			case 3:
 				{
-				setState(183); match(START);
-				setState(184); ((Prolog2Context)_localctx).pl = prolog2();
-				setState(185); match(END);
-				setState(186); prolog2();
+				setState(185); match(START);
+				setState(186); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(187); match(END);
+				setState(188); prolog2();
 				 ((Prolog2Context)_localctx).fml =  ((Prolog2Context)_localctx).pl.fml; 
 				}
 				break;
 
 			case 4:
 				{
-				setState(189); ((Prolog2Context)_localctx).UNARY_OP = match(UNARY_OP);
-				setState(190); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(191); ((Prolog2Context)_localctx).UNARY_OP = match(UNARY_OP);
+				setState(192); ((Prolog2Context)_localctx).pl = prolog2();
 				 ((Prolog2Context)_localctx).fml =  new Struct((((Prolog2Context)_localctx).UNARY_OP!=null?((Prolog2Context)_localctx).UNARY_OP.getText():null), ((Prolog2Context)_localctx).pl.fml); 
 				}
 				break;
 
 			case 5:
 				{
-				setState(193); ((Prolog2Context)_localctx).termBuilder = termBuilder();
-				setState(194); prolog2();
+				setState(195); ((Prolog2Context)_localctx).termBuilder = termBuilder();
+				setState(196); prolog2();
 				 ((Prolog2Context)_localctx).fml =  ((Prolog2Context)_localctx).termBuilder.fml; 
 				}
 				break;
@@ -1036,6 +1037,7 @@ public class MetamodelParser extends Parser {
 		}
 		public TerminalNode BINARY_OP() { return getToken(MetamodelParser.BINARY_OP, 0); }
 		public TerminalNode MATH_OP() { return getToken(MetamodelParser.MATH_OP, 0); }
+		public TerminalNode IS() { return getToken(MetamodelParser.IS, 0); }
 		public TermContext term(int i) {
 			return getRuleContext(TermContext.class,i);
 		}
@@ -1045,15 +1047,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_termBuilder; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterTermBuilder(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterTermBuilder(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitTermBuilder(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitTermBuilder(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitTermBuilder(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitTermBuilder(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1064,31 +1066,31 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(215);
+			setState(217);
 			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
 			case 1:
 				{
-				setState(200); ((TermBuilderContext)_localctx).t3 = ((TermBuilderContext)_localctx).term = term();
-				setState(201); match(1);
-				setState(202); ((TermBuilderContext)_localctx).t4 = ((TermBuilderContext)_localctx).term = term();
-				setState(203); ((TermBuilderContext)_localctx).MATH_OP = match(MATH_OP);
-				setState(204); ((TermBuilderContext)_localctx).t5 = ((TermBuilderContext)_localctx).term = term();
+				setState(202); ((TermBuilderContext)_localctx).t3 = ((TermBuilderContext)_localctx).term = term();
+				setState(203); match(IS);
+				setState(204); ((TermBuilderContext)_localctx).t4 = ((TermBuilderContext)_localctx).term = term();
+				setState(205); ((TermBuilderContext)_localctx).MATH_OP = match(MATH_OP);
+				setState(206); ((TermBuilderContext)_localctx).t5 = ((TermBuilderContext)_localctx).term = term();
 				 ((TermBuilderContext)_localctx).fml =  new Struct("is", ((TermBuilderContext)_localctx).t3.fml, new Struct((((TermBuilderContext)_localctx).MATH_OP!=null?((TermBuilderContext)_localctx).MATH_OP.getText():null), ((TermBuilderContext)_localctx).t4.fml, ((TermBuilderContext)_localctx).t5.fml)); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(207); ((TermBuilderContext)_localctx).term = term();
+				setState(209); ((TermBuilderContext)_localctx).term = term();
 				 ((TermBuilderContext)_localctx).fml =  ((TermBuilderContext)_localctx).term.fml; 
 				}
 				break;
 
 			case 3:
 				{
-				setState(210); ((TermBuilderContext)_localctx).t1 = ((TermBuilderContext)_localctx).term = term();
-				setState(211); ((TermBuilderContext)_localctx).BINARY_OP = match(BINARY_OP);
-				setState(212); ((TermBuilderContext)_localctx).t2 = ((TermBuilderContext)_localctx).term = term();
+				setState(212); ((TermBuilderContext)_localctx).t1 = ((TermBuilderContext)_localctx).term = term();
+				setState(213); ((TermBuilderContext)_localctx).BINARY_OP = match(BINARY_OP);
+				setState(214); ((TermBuilderContext)_localctx).t2 = ((TermBuilderContext)_localctx).term = term();
 				 ((TermBuilderContext)_localctx).fml =  new Struct((((TermBuilderContext)_localctx).BINARY_OP!=null?((TermBuilderContext)_localctx).BINARY_OP.getText():null), ((TermBuilderContext)_localctx).t1.fml, ((TermBuilderContext)_localctx).t2.fml); 
 				}
 				break;
@@ -1108,6 +1110,7 @@ public class MetamodelParser extends Parser {
 
 	public static class TermContext extends ParserRuleContext {
 		public Term fml;
+		public StringContext string;
 		public StructContext struct;
 		public AtomContext atom;
 		public VarContext var;
@@ -1117,6 +1120,9 @@ public class MetamodelParser extends Parser {
 		}
 		public StructContext struct() {
 			return getRuleContext(StructContext.class,0);
+		}
+		public StringContext string() {
+			return getRuleContext(StringContext.class,0);
 		}
 		public VarContext var() {
 			return getRuleContext(VarContext.class,0);
@@ -1130,15 +1136,15 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_term; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterTerm(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterTerm(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitTerm(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitTerm(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitTerm(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitTerm(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1149,36 +1155,91 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(229);
+			setState(234);
 			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				{
-				setState(217); ((TermContext)_localctx).struct = struct();
-				((TermContext)_localctx).fml =  ((TermContext)_localctx).struct.fml;
+				setState(219); ((TermContext)_localctx).string = string();
+				((TermContext)_localctx).fml =  ((TermContext)_localctx).string.fml; 
 				}
 				break;
 
 			case 2:
 				{
-				setState(220); ((TermContext)_localctx).atom = atom();
-				((TermContext)_localctx).fml =  ((TermContext)_localctx).atom.fml;
+				setState(222); ((TermContext)_localctx).struct = struct();
+				((TermContext)_localctx).fml =  ((TermContext)_localctx).struct.fml;
 				}
 				break;
 
 			case 3:
 				{
-				setState(223); ((TermContext)_localctx).var = var();
-				((TermContext)_localctx).fml =  ((TermContext)_localctx).var.fml;
+				setState(225); ((TermContext)_localctx).atom = atom();
+				((TermContext)_localctx).fml =  ((TermContext)_localctx).atom.fml;
 				}
 				break;
 
 			case 4:
 				{
-				setState(226); ((TermContext)_localctx).number = number();
+				setState(228); ((TermContext)_localctx).var = var();
+				((TermContext)_localctx).fml =  ((TermContext)_localctx).var.fml;
+				}
+				break;
+
+			case 5:
+				{
+				setState(231); ((TermContext)_localctx).number = number();
 				((TermContext)_localctx).fml =  ((TermContext)_localctx).number.fml;
 				}
 				break;
 			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class StringContext extends ParserRuleContext {
+		public Struct fml;
+		public Token STRLIT;
+		public TerminalNode STRLIT() { return getToken(MetamodelParser.STRLIT, 0); }
+		public TerminalNode OPENSTRING() { return getToken(MetamodelParser.OPENSTRING, 0); }
+		public TerminalNode CLOSESTRING() { return getToken(MetamodelParser.CLOSESTRING, 0); }
+		public StringContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_string; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterString(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitString(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitString(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final StringContext string() throws RecognitionException {
+		StringContext _localctx = new StringContext(_ctx, getState());
+		enterRule(_localctx, 32, RULE_string);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(236); match(OPENSTRING);
+			setState(237); ((StringContext)_localctx).STRLIT = match(STRLIT);
+			setState(238); match(CLOSESTRING);
+			 ((StringContext)_localctx).fml =  new Struct((((StringContext)_localctx).STRLIT!=null?((StringContext)_localctx).STRLIT.getText():null)); 
 			}
 		}
 		catch (RecognitionException re) {
@@ -1202,26 +1263,26 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_atom; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterAtom(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterAtom(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitAtom(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitAtom(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitAtom(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitAtom(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final AtomContext atom() throws RecognitionException {
 		AtomContext _localctx = new AtomContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_atom);
+		enterRule(_localctx, 34, RULE_atom);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(231); ((AtomContext)_localctx).ATOM = match(ATOM);
+			setState(241); ((AtomContext)_localctx).ATOM = match(ATOM);
 			 ((AtomContext)_localctx).fml =  new Struct((((AtomContext)_localctx).ATOM!=null?((AtomContext)_localctx).ATOM.getText():null)); 
 			}
 		}
@@ -1246,26 +1307,26 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_number; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterNumber(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterNumber(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitNumber(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitNumber(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitNumber(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitNumber(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final NumberContext number() throws RecognitionException {
 		NumberContext _localctx = new NumberContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_number);
+		enterRule(_localctx, 36, RULE_number);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(234); ((NumberContext)_localctx).NUMBER = match(NUMBER);
+			setState(244); ((NumberContext)_localctx).NUMBER = match(NUMBER);
 			 String numStr = (((NumberContext)_localctx).NUMBER!=null?((NumberContext)_localctx).NUMBER.getText():null); ((NumberContext)_localctx).fml =  new alice.tuprolog.Double(Double.parseDouble(numStr)); 
 			}
 		}
@@ -1290,26 +1351,26 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_var; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterVar(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterVar(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitVar(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitVar(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitVar(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitVar(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final VarContext var() throws RecognitionException {
 		VarContext _localctx = new VarContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_var);
+		enterRule(_localctx, 38, RULE_var);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(237); ((VarContext)_localctx).VAR = match(VAR);
+			setState(247); ((VarContext)_localctx).VAR = match(VAR);
 			 ((VarContext)_localctx).fml =  new Var((((VarContext)_localctx).VAR!=null?((VarContext)_localctx).VAR.getText():null)); 
 			}
 		}
@@ -1344,39 +1405,39 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_struct; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterStruct(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterStruct(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitStruct(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitStruct(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitStruct(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitStruct(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final StructContext struct() throws RecognitionException {
 		StructContext _localctx = new StructContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_struct);
+		enterRule(_localctx, 40, RULE_struct);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(249);
+			setState(259);
 			switch (_input.LA(1)) {
 			case ATOM:
 				{
-				setState(240); ((StructContext)_localctx).ATOM = match(ATOM);
-				setState(241); match(START);
-				setState(242); ((StructContext)_localctx).args = args();
-				setState(243); match(END);
+				setState(250); ((StructContext)_localctx).ATOM = match(ATOM);
+				setState(251); match(START);
+				setState(252); ((StructContext)_localctx).args = args();
+				setState(253); match(END);
 				 ((StructContext)_localctx).fml =  new Struct((((StructContext)_localctx).ATOM!=null?((StructContext)_localctx).ATOM.getText():null), ((StructContext)_localctx).args.fml.toArray(new Term[0])); 
 				}
 				break;
 			case START_BRACKET:
 				{
-				setState(246); ((StructContext)_localctx).list = list();
+				setState(256); ((StructContext)_localctx).list = list();
 				 ((StructContext)_localctx).fml =  ((StructContext)_localctx).list.fml; 
 				}
 				break;
@@ -1413,40 +1474,40 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_args; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterArgs(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterArgs(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitArgs(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitArgs(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitArgs(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitArgs(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final ArgsContext args() throws RecognitionException {
 		ArgsContext _localctx = new ArgsContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_args);
+		enterRule(_localctx, 42, RULE_args);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((ArgsContext)_localctx).fml =  new ArrayList<>(); 
-			setState(260);
+			setState(270);
 			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
 			case 1:
 				{
-				setState(252); ((ArgsContext)_localctx).term = term();
+				setState(262); ((ArgsContext)_localctx).term = term();
 				 _localctx.fml.add(((ArgsContext)_localctx).term.fml); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(255); ((ArgsContext)_localctx).term = term();
-				setState(256); match(COMMA);
-				setState(257); ((ArgsContext)_localctx).a = args();
+				setState(265); ((ArgsContext)_localctx).term = term();
+				setState(266); match(COMMA);
+				setState(267); ((ArgsContext)_localctx).a = args();
 				 _localctx.fml.add(((ArgsContext)_localctx).term.fml); _localctx.fml.addAll(((ArgsContext)_localctx).a.fml); 
 				}
 				break;
@@ -1487,31 +1548,31 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_list; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterList(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterList(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitList(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitList(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitList(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitList(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final ListContext list() throws RecognitionException {
 		ListContext _localctx = new ListContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_list);
+		enterRule(_localctx, 44, RULE_list);
 		try {
-			setState(274);
+			setState(284);
 			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(262); match(START_BRACKET);
-				setState(263); ((ListContext)_localctx).listContents = listContents();
-				setState(264); match(END_BRACKET);
+				setState(272); match(START_BRACKET);
+				setState(273); ((ListContext)_localctx).listContents = listContents();
+				setState(274); match(END_BRACKET);
 				 ((ListContext)_localctx).fml =  ((ListContext)_localctx).listContents.fml; 
 				}
 				break;
@@ -1519,11 +1580,11 @@ public class MetamodelParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(267); match(START_BRACKET);
-				setState(268); ((ListContext)_localctx).t1 = term();
-				setState(269); match(PIPE);
-				setState(270); ((ListContext)_localctx).t2 = term();
-				setState(271); match(END_BRACKET);
+				setState(277); match(START_BRACKET);
+				setState(278); ((ListContext)_localctx).t1 = term();
+				setState(279); match(PIPE);
+				setState(280); ((ListContext)_localctx).t2 = term();
+				setState(281); match(END_BRACKET);
 				 ((ListContext)_localctx).fml =  new Struct(((ListContext)_localctx).t1.fml, ((ListContext)_localctx).t2.fml); 
 				}
 				break;
@@ -1557,40 +1618,40 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_listContents; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterListContents(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterListContents(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitListContents(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitListContents(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitListContents(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitListContents(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final ListContentsContext listContents() throws RecognitionException {
 		ListContentsContext _localctx = new ListContentsContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_listContents);
+		enterRule(_localctx, 46, RULE_listContents);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((ListContentsContext)_localctx).fml =  new Struct(); 
-			setState(285);
+			setState(295);
 			switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
 			case 1:
 				{
-				setState(277); ((ListContentsContext)_localctx).listItem = listItem();
+				setState(287); ((ListContentsContext)_localctx).listItem = listItem();
 				 _localctx.fml.append(((ListContentsContext)_localctx).listItem.fml); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(280); ((ListContentsContext)_localctx).listItem = listItem();
-				setState(281); match(COMMA);
-				setState(282); ((ListContentsContext)_localctx).lc = listContents();
+				setState(290); ((ListContentsContext)_localctx).listItem = listItem();
+				setState(291); match(COMMA);
+				setState(292); ((ListContentsContext)_localctx).lc = listContents();
 				 _localctx.fml.append(((ListContentsContext)_localctx).listItem.fml); _localctx.fml.append(((ListContentsContext)_localctx).lc.fml); 
 				}
 				break;
@@ -1620,26 +1681,26 @@ public class MetamodelParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_listItem; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).enterListItem(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).enterListItem(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof MetamodelListener ) ((MetamodelListener)listener).exitListItem(this);
+			if ( listener instanceof MetamodelParserListener ) ((MetamodelParserListener)listener).exitListItem(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof MetamodelVisitor ) return ((MetamodelVisitor<? extends T>)visitor).visitListItem(this);
+			if ( visitor instanceof MetamodelParserVisitor ) return ((MetamodelParserVisitor<? extends T>)visitor).visitListItem(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
 	public final ListItemContext listItem() throws RecognitionException {
 		ListItemContext _localctx = new ListItemContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_listItem);
+		enterRule(_localctx, 48, RULE_listItem);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(287); ((ListItemContext)_localctx).prolog2 = prolog2();
+			setState(297); ((ListItemContext)_localctx).prolog2 = prolog2();
 			 ((ListItemContext)_localctx).fml =  ((ListItemContext)_localctx).prolog2.fml; 
 			}
 		}
@@ -1655,99 +1716,103 @@ public class MetamodelParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\35\u0125\4\2\t\2"+
-		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
-		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
+		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3 \u012f\4\2\t\2\4"+
+		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
-		"\3\2\3\2\3\2\3\2\3\2\3\2\5\29\n\2\3\2\3\2\3\2\5\2>\n\2\3\2\3\2\3\2\5\2"+
-		"C\n\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\6\3N\n\3\r\3\16\3O\3\4\3\4\3"+
-		"\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5a\n\5\3\6\3\6\3"+
-		"\6\3\6\3\6\3\6\6\6i\n\6\r\6\16\6j\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7\3\7"+
-		"\3\7\5\7w\n\7\3\b\3\b\3\b\3\b\3\b\3\b\6\b\177\n\b\r\b\16\b\u0080\3\t\3"+
-		"\t\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\6\n\u0091\n\n\r\n\16"+
-		"\n\u0092\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3\f"+
-		"\3\f\3\f\3\f\6\f\u00a5\n\f\r\f\16\f\u00a6\3\r\3\r\3\r\3\r\3\r\3\r\3\16"+
-		"\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17"+
-		"\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5\17\u00c9\n\17"+
-		"\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20"+
-		"\3\20\5\20\u00da\n\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21"+
-		"\3\21\3\21\5\21\u00e8\n\21\3\22\3\22\3\22\3\23\3\23\3\23\3\24\3\24\3\24"+
-		"\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\5\25\u00fc\n\25\3\26\3\26"+
-		"\3\26\3\26\3\26\3\26\3\26\3\26\3\26\5\26\u0107\n\26\3\27\3\27\3\27\3\27"+
-		"\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\5\27\u0115\n\27\3\30\3\30\3\30"+
-		"\3\30\3\30\3\30\3\30\3\30\3\30\5\30\u0120\n\30\3\31\3\31\3\31\3\31\2\32"+
-		"\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\2\2\u0124\2\62\3\2"+
-		"\2\2\4G\3\2\2\2\6Q\3\2\2\2\bW\3\2\2\2\nb\3\2\2\2\fv\3\2\2\2\16x\3\2\2"+
-		"\2\20\u0082\3\2\2\2\22\u008a\3\2\2\2\24\u0094\3\2\2\2\26\u009e\3\2\2\2"+
-		"\30\u00a8\3\2\2\2\32\u00ae\3\2\2\2\34\u00c8\3\2\2\2\36\u00d9\3\2\2\2 "+
-		"\u00e7\3\2\2\2\"\u00e9\3\2\2\2$\u00ec\3\2\2\2&\u00ef\3\2\2\2(\u00fb\3"+
-		"\2\2\2*\u00fd\3\2\2\2,\u0114\3\2\2\2.\u0116\3\2\2\2\60\u0121\3\2\2\2\62"+
-		"\63\b\2\1\2\63\64\5\4\3\2\648\5\n\6\2\65\66\5\16\b\2\66\67\b\2\1\2\67"+
-		"9\3\2\2\28\65\3\2\2\289\3\2\2\29=\3\2\2\2:;\5\22\n\2;<\b\2\1\2<>\3\2\2"+
-		"\2=:\3\2\2\2=>\3\2\2\2>B\3\2\2\2?@\5\26\f\2@A\b\2\1\2AC\3\2\2\2B?\3\2"+
-		"\2\2BC\3\2\2\2CD\3\2\2\2DE\7\2\2\3EF\b\2\1\2F\3\3\2\2\2GH\b\3\1\2HI\7"+
-		"\6\2\2IM\7\f\2\2JK\5\6\4\2KL\b\3\1\2LN\3\2\2\2MJ\3\2\2\2NO\3\2\2\2OM\3"+
-		"\2\2\2OP\3\2\2\2P\5\3\2\2\2QR\7\25\2\2RS\7\f\2\2ST\5\b\5\2TU\7\16\2\2"+
-		"UV\b\4\1\2V\7\3\2\2\2W`\b\5\1\2XY\5 \21\2YZ\b\5\1\2Za\3\2\2\2[\\\5 \21"+
-		"\2\\]\7\r\2\2]^\5\b\5\2^_\b\5\1\2_a\3\2\2\2`X\3\2\2\2`[\3\2\2\2a\t\3\2"+
-		"\2\2bc\b\6\1\2cd\7\7\2\2dh\7\f\2\2ef\5\f\7\2fg\b\6\1\2gi\3\2\2\2he\3\2"+
-		"\2\2ij\3\2\2\2jh\3\2\2\2jk\3\2\2\2k\13\3\2\2\2lm\5\32\16\2mn\7\16\2\2"+
-		"no\b\7\1\2ow\3\2\2\2pq\5\32\16\2qr\7\f\2\2rs\5\b\5\2st\7\16\2\2tu\b\7"+
-		"\1\2uw\3\2\2\2vl\3\2\2\2vp\3\2\2\2w\r\3\2\2\2xy\b\b\1\2yz\7\b\2\2z~\7"+
-		"\f\2\2{|\5\20\t\2|}\b\b\1\2}\177\3\2\2\2~{\3\2\2\2\177\u0080\3\2\2\2\u0080"+
-		"~\3\2\2\2\u0080\u0081\3\2\2\2\u0081\17\3\2\2\2\u0082\u0083\7\25\2\2\u0083"+
-		"\u0084\7\24\2\2\u0084\u0085\7\25\2\2\u0085\u0086\7\f\2\2\u0086\u0087\5"+
-		"\32\16\2\u0087\u0088\7\16\2\2\u0088\u0089\b\t\1\2\u0089\21\3\2\2\2\u008a"+
-		"\u008b\b\n\1\2\u008b\u008c\7\t\2\2\u008c\u0090\7\f\2\2\u008d\u008e\5\24"+
-		"\13\2\u008e\u008f\b\n\1\2\u008f\u0091\3\2\2\2\u0090\u008d\3\2\2\2\u0091"+
-		"\u0092\3\2\2\2\u0092\u0090\3\2\2\2\u0092\u0093\3\2\2\2\u0093\23\3\2\2"+
-		"\2\u0094\u0095\7\25\2\2\u0095\u0096\7\f\2\2\u0096\u0097\5\32\16\2\u0097"+
-		"\u0098\7\23\2\2\u0098\u0099\5\32\16\2\u0099\u009a\7\17\2\2\u009a\u009b"+
-		"\5\32\16\2\u009b\u009c\7\16\2\2\u009c\u009d\b\13\1\2\u009d\25\3\2\2\2"+
-		"\u009e\u009f\b\f\1\2\u009f\u00a0\7\n\2\2\u00a0\u00a4\7\f\2\2\u00a1\u00a2"+
-		"\5\30\r\2\u00a2\u00a3\b\f\1\2\u00a3\u00a5\3\2\2\2\u00a4\u00a1\3\2\2\2"+
-		"\u00a5\u00a6\3\2\2\2\u00a6\u00a4\3\2\2\2\u00a6\u00a7\3\2\2\2\u00a7\27"+
-		"\3\2\2\2\u00a8\u00a9\5(\25\2\u00a9\u00aa\7\13\2\2\u00aa\u00ab\5\32\16"+
-		"\2\u00ab\u00ac\7\16\2\2\u00ac\u00ad\b\r\1\2\u00ad\31\3\2\2\2\u00ae\u00af"+
-		"\5\34\17\2\u00af\u00b0\b\16\1\2\u00b0\33\3\2\2\2\u00b1\u00b2\7\22\2\2"+
-		"\u00b2\u00b3\5\34\17\2\u00b3\u00b4\b\17\1\2\u00b4\u00c9\3\2\2\2\u00b5"+
-		"\u00b6\7\r\2\2\u00b6\u00b7\5\34\17\2\u00b7\u00b8\b\17\1\2\u00b8\u00c9"+
-		"\3\2\2\2\u00b9\u00ba\7\20\2\2\u00ba\u00bb\5\34\17\2\u00bb\u00bc\7\21\2"+
-		"\2\u00bc\u00bd\5\34\17\2\u00bd\u00be\b\17\1\2\u00be\u00c9\3\2\2\2\u00bf"+
-		"\u00c0\7\32\2\2\u00c0\u00c1\5\34\17\2\u00c1\u00c2\b\17\1\2\u00c2\u00c9"+
-		"\3\2\2\2\u00c3\u00c4\5\36\20\2\u00c4\u00c5\5\34\17\2\u00c5\u00c6\b\17"+
-		"\1\2\u00c6\u00c9\3\2\2\2\u00c7\u00c9\3\2\2\2\u00c8\u00b1\3\2\2\2\u00c8"+
-		"\u00b5\3\2\2\2\u00c8\u00b9\3\2\2\2\u00c8\u00bf\3\2\2\2\u00c8\u00c3\3\2"+
-		"\2\2\u00c8\u00c7\3\2\2\2\u00c9\35\3\2\2\2\u00ca\u00cb\5 \21\2\u00cb\u00cc"+
-		"\7\3\2\2\u00cc\u00cd\5 \21\2\u00cd\u00ce\7\30\2\2\u00ce\u00cf\5 \21\2"+
-		"\u00cf\u00d0\b\20\1\2\u00d0\u00da\3\2\2\2\u00d1\u00d2\5 \21\2\u00d2\u00d3"+
-		"\b\20\1\2\u00d3\u00da\3\2\2\2\u00d4\u00d5\5 \21\2\u00d5\u00d6\7\31\2\2"+
-		"\u00d6\u00d7\5 \21\2\u00d7\u00d8\b\20\1\2\u00d8\u00da\3\2\2\2\u00d9\u00ca"+
-		"\3\2\2\2\u00d9\u00d1\3\2\2\2\u00d9\u00d4\3\2\2\2\u00da\37\3\2\2\2\u00db"+
-		"\u00dc\5(\25\2\u00dc\u00dd\b\21\1\2\u00dd\u00e8\3\2\2\2\u00de\u00df\5"+
-		"\"\22\2\u00df\u00e0\b\21\1\2\u00e0\u00e8\3\2\2\2\u00e1\u00e2\5&\24\2\u00e2"+
-		"\u00e3\b\21\1\2\u00e3\u00e8\3\2\2\2\u00e4\u00e5\5$\23\2\u00e5\u00e6\b"+
-		"\21\1\2\u00e6\u00e8\3\2\2\2\u00e7\u00db\3\2\2\2\u00e7\u00de\3\2\2\2\u00e7"+
-		"\u00e1\3\2\2\2\u00e7\u00e4\3\2\2\2\u00e8!\3\2\2\2\u00e9\u00ea\7\25\2\2"+
-		"\u00ea\u00eb\b\22\1\2\u00eb#\3\2\2\2\u00ec\u00ed\7\26\2\2\u00ed\u00ee"+
-		"\b\23\1\2\u00ee%\3\2\2\2\u00ef\u00f0\7\27\2\2\u00f0\u00f1\b\24\1\2\u00f1"+
-		"\'\3\2\2\2\u00f2\u00f3\7\25\2\2\u00f3\u00f4\7\20\2\2\u00f4\u00f5\5*\26"+
-		"\2\u00f5\u00f6\7\21\2\2\u00f6\u00f7\b\25\1\2\u00f7\u00fc\3\2\2\2\u00f8"+
-		"\u00f9\5,\27\2\u00f9\u00fa\b\25\1\2\u00fa\u00fc\3\2\2\2\u00fb\u00f2\3"+
-		"\2\2\2\u00fb\u00f8\3\2\2\2\u00fc)\3\2\2\2\u00fd\u0106\b\26\1\2\u00fe\u00ff"+
-		"\5 \21\2\u00ff\u0100\b\26\1\2\u0100\u0107\3\2\2\2\u0101\u0102\5 \21\2"+
-		"\u0102\u0103\7\22\2\2\u0103\u0104\5*\26\2\u0104\u0105\b\26\1\2\u0105\u0107"+
-		"\3\2\2\2\u0106\u00fe\3\2\2\2\u0106\u0101\3\2\2\2\u0107+\3\2\2\2\u0108"+
-		"\u0109\7\4\2\2\u0109\u010a\5.\30\2\u010a\u010b\7\5\2\2\u010b\u010c\b\27"+
-		"\1\2\u010c\u0115\3\2\2\2\u010d\u010e\7\4\2\2\u010e\u010f\5 \21\2\u010f"+
-		"\u0110\7\17\2\2\u0110\u0111\5 \21\2\u0111\u0112\7\5\2\2\u0112\u0113\b"+
-		"\27\1\2\u0113\u0115\3\2\2\2\u0114\u0108\3\2\2\2\u0114\u010d\3\2\2\2\u0115"+
-		"-\3\2\2\2\u0116\u011f\b\30\1\2\u0117\u0118\5\60\31\2\u0118\u0119\b\30"+
-		"\1\2\u0119\u0120\3\2\2\2\u011a\u011b\5\60\31\2\u011b\u011c\7\22\2\2\u011c"+
-		"\u011d\5.\30\2\u011d\u011e\b\30\1\2\u011e\u0120\3\2\2\2\u011f\u0117\3"+
-		"\2\2\2\u011f\u011a\3\2\2\2\u0120/\3\2\2\2\u0121\u0122\5\34\17\2\u0122"+
-		"\u0123\b\31\1\2\u0123\61\3\2\2\2\238=BO`jv\u0080\u0092\u00a6\u00c8\u00d9"+
-		"\u00e7\u00fb\u0106\u0114\u011f";
+		"\4\32\t\32\3\2\3\2\3\2\3\2\3\2\3\2\5\2;\n\2\3\2\3\2\3\2\5\2@\n\2\3\2\3"+
+		"\2\3\2\5\2E\n\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\6\3P\n\3\r\3\16\3"+
+		"Q\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5c\n\5"+
+		"\3\6\3\6\3\6\3\6\3\6\3\6\6\6k\n\6\r\6\16\6l\3\7\3\7\3\7\3\7\3\7\3\7\3"+
+		"\7\3\7\3\7\3\7\5\7y\n\7\3\b\3\b\3\b\3\b\3\b\3\b\6\b\u0081\n\b\r\b\16\b"+
+		"\u0082\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\6\n\u0093"+
+		"\n\n\r\n\16\n\u0094\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13"+
+		"\3\f\3\f\3\f\3\f\3\f\3\f\6\f\u00a7\n\f\r\f\16\f\u00a8\3\r\3\r\3\r\3\r"+
+		"\3\r\3\r\3\16\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3"+
+		"\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5"+
+		"\17\u00cb\n\17\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20"+
+		"\3\20\3\20\3\20\3\20\5\20\u00dc\n\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21"+
+		"\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\5\21\u00ed\n\21\3\22\3\22\3\22"+
+		"\3\22\3\22\3\23\3\23\3\23\3\24\3\24\3\24\3\25\3\25\3\25\3\26\3\26\3\26"+
+		"\3\26\3\26\3\26\3\26\3\26\3\26\5\26\u0106\n\26\3\27\3\27\3\27\3\27\3\27"+
+		"\3\27\3\27\3\27\3\27\5\27\u0111\n\27\3\30\3\30\3\30\3\30\3\30\3\30\3\30"+
+		"\3\30\3\30\3\30\3\30\3\30\5\30\u011f\n\30\3\31\3\31\3\31\3\31\3\31\3\31"+
+		"\3\31\3\31\3\31\5\31\u012a\n\31\3\32\3\32\3\32\3\32\2\33\2\4\6\b\n\f\16"+
+		"\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\2\2\u012e\2\64\3\2\2\2\4I\3\2"+
+		"\2\2\6S\3\2\2\2\bY\3\2\2\2\nd\3\2\2\2\fx\3\2\2\2\16z\3\2\2\2\20\u0084"+
+		"\3\2\2\2\22\u008c\3\2\2\2\24\u0096\3\2\2\2\26\u00a0\3\2\2\2\30\u00aa\3"+
+		"\2\2\2\32\u00b0\3\2\2\2\34\u00ca\3\2\2\2\36\u00db\3\2\2\2 \u00ec\3\2\2"+
+		"\2\"\u00ee\3\2\2\2$\u00f3\3\2\2\2&\u00f6\3\2\2\2(\u00f9\3\2\2\2*\u0105"+
+		"\3\2\2\2,\u0107\3\2\2\2.\u011e\3\2\2\2\60\u0120\3\2\2\2\62\u012b\3\2\2"+
+		"\2\64\65\b\2\1\2\65\66\5\4\3\2\66:\5\n\6\2\678\5\16\b\289\b\2\1\29;\3"+
+		"\2\2\2:\67\3\2\2\2:;\3\2\2\2;?\3\2\2\2<=\5\22\n\2=>\b\2\1\2>@\3\2\2\2"+
+		"?<\3\2\2\2?@\3\2\2\2@D\3\2\2\2AB\5\26\f\2BC\b\2\1\2CE\3\2\2\2DA\3\2\2"+
+		"\2DE\3\2\2\2EF\3\2\2\2FG\7\2\2\3GH\b\2\1\2H\3\3\2\2\2IJ\b\3\1\2JK\7\5"+
+		"\2\2KO\7\13\2\2LM\5\6\4\2MN\b\3\1\2NP\3\2\2\2OL\3\2\2\2PQ\3\2\2\2QO\3"+
+		"\2\2\2QR\3\2\2\2R\5\3\2\2\2ST\7\25\2\2TU\7\13\2\2UV\5\b\5\2VW\7\r\2\2"+
+		"WX\b\4\1\2X\7\3\2\2\2Yb\b\5\1\2Z[\5 \21\2[\\\b\5\1\2\\c\3\2\2\2]^\5 \21"+
+		"\2^_\7\f\2\2_`\5\b\5\2`a\b\5\1\2ac\3\2\2\2bZ\3\2\2\2b]\3\2\2\2c\t\3\2"+
+		"\2\2de\b\6\1\2ef\7\6\2\2fj\7\13\2\2gh\5\f\7\2hi\b\6\1\2ik\3\2\2\2jg\3"+
+		"\2\2\2kl\3\2\2\2lj\3\2\2\2lm\3\2\2\2m\13\3\2\2\2no\5\32\16\2op\7\r\2\2"+
+		"pq\b\7\1\2qy\3\2\2\2rs\5\32\16\2st\7\13\2\2tu\5\b\5\2uv\7\r\2\2vw\b\7"+
+		"\1\2wy\3\2\2\2xn\3\2\2\2xr\3\2\2\2y\r\3\2\2\2z{\b\b\1\2{|\7\7\2\2|\u0080"+
+		"\7\13\2\2}~\5\20\t\2~\177\b\b\1\2\177\u0081\3\2\2\2\u0080}\3\2\2\2\u0081"+
+		"\u0082\3\2\2\2\u0082\u0080\3\2\2\2\u0082\u0083\3\2\2\2\u0083\17\3\2\2"+
+		"\2\u0084\u0085\7\25\2\2\u0085\u0086\7\23\2\2\u0086\u0087\7\25\2\2\u0087"+
+		"\u0088\7\13\2\2\u0088\u0089\5\32\16\2\u0089\u008a\7\r\2\2\u008a\u008b"+
+		"\b\t\1\2\u008b\21\3\2\2\2\u008c\u008d\b\n\1\2\u008d\u008e\7\b\2\2\u008e"+
+		"\u0092\7\13\2\2\u008f\u0090\5\24\13\2\u0090\u0091\b\n\1\2\u0091\u0093"+
+		"\3\2\2\2\u0092\u008f\3\2\2\2\u0093\u0094\3\2\2\2\u0094\u0092\3\2\2\2\u0094"+
+		"\u0095\3\2\2\2\u0095\23\3\2\2\2\u0096\u0097\7\25\2\2\u0097\u0098\7\13"+
+		"\2\2\u0098\u0099\5\32\16\2\u0099\u009a\7\22\2\2\u009a\u009b\5\32\16\2"+
+		"\u009b\u009c\7\16\2\2\u009c\u009d\5\32\16\2\u009d\u009e\7\r\2\2\u009e"+
+		"\u009f\b\13\1\2\u009f\25\3\2\2\2\u00a0\u00a1\b\f\1\2\u00a1\u00a2\7\t\2"+
+		"\2\u00a2\u00a6\7\13\2\2\u00a3\u00a4\5\30\r\2\u00a4\u00a5\b\f\1\2\u00a5"+
+		"\u00a7\3\2\2\2\u00a6\u00a3\3\2\2\2\u00a7\u00a8\3\2\2\2\u00a8\u00a6\3\2"+
+		"\2\2\u00a8\u00a9\3\2\2\2\u00a9\27\3\2\2\2\u00aa\u00ab\5*\26\2\u00ab\u00ac"+
+		"\7\n\2\2\u00ac\u00ad\5\32\16\2\u00ad\u00ae\7\r\2\2\u00ae\u00af\b\r\1\2"+
+		"\u00af\31\3\2\2\2\u00b0\u00b1\5\34\17\2\u00b1\u00b2\b\16\1\2\u00b2\33"+
+		"\3\2\2\2\u00b3\u00b4\7\21\2\2\u00b4\u00b5\5\34\17\2\u00b5\u00b6\b\17\1"+
+		"\2\u00b6\u00cb\3\2\2\2\u00b7\u00b8\7\f\2\2\u00b8\u00b9\5\34\17\2\u00b9"+
+		"\u00ba\b\17\1\2\u00ba\u00cb\3\2\2\2\u00bb\u00bc\7\17\2\2\u00bc\u00bd\5"+
+		"\34\17\2\u00bd\u00be\7\20\2\2\u00be\u00bf\5\34\17\2\u00bf\u00c0\b\17\1"+
+		"\2\u00c0\u00cb\3\2\2\2\u00c1\u00c2\7\32\2\2\u00c2\u00c3\5\34\17\2\u00c3"+
+		"\u00c4\b\17\1\2\u00c4\u00cb\3\2\2\2\u00c5\u00c6\5\36\20\2\u00c6\u00c7"+
+		"\5\34\17\2\u00c7\u00c8\b\17\1\2\u00c8\u00cb\3\2\2\2\u00c9\u00cb\3\2\2"+
+		"\2\u00ca\u00b3\3\2\2\2\u00ca\u00b7\3\2\2\2\u00ca\u00bb\3\2\2\2\u00ca\u00c1"+
+		"\3\2\2\2\u00ca\u00c5\3\2\2\2\u00ca\u00c9\3\2\2\2\u00cb\35\3\2\2\2\u00cc"+
+		"\u00cd\5 \21\2\u00cd\u00ce\7\24\2\2\u00ce\u00cf\5 \21\2\u00cf\u00d0\7"+
+		"\30\2\2\u00d0\u00d1\5 \21\2\u00d1\u00d2\b\20\1\2\u00d2\u00dc\3\2\2\2\u00d3"+
+		"\u00d4\5 \21\2\u00d4\u00d5\b\20\1\2\u00d5\u00dc\3\2\2\2\u00d6\u00d7\5"+
+		" \21\2\u00d7\u00d8\7\31\2\2\u00d8\u00d9\5 \21\2\u00d9\u00da\b\20\1\2\u00da"+
+		"\u00dc\3\2\2\2\u00db\u00cc\3\2\2\2\u00db\u00d3\3\2\2\2\u00db\u00d6\3\2"+
+		"\2\2\u00dc\37\3\2\2\2\u00dd\u00de\5\"\22\2\u00de\u00df\b\21\1\2\u00df"+
+		"\u00ed\3\2\2\2\u00e0\u00e1\5*\26\2\u00e1\u00e2\b\21\1\2\u00e2\u00ed\3"+
+		"\2\2\2\u00e3\u00e4\5$\23\2\u00e4\u00e5\b\21\1\2\u00e5\u00ed\3\2\2\2\u00e6"+
+		"\u00e7\5(\25\2\u00e7\u00e8\b\21\1\2\u00e8\u00ed\3\2\2\2\u00e9\u00ea\5"+
+		"&\24\2\u00ea\u00eb\b\21\1\2\u00eb\u00ed\3\2\2\2\u00ec\u00dd\3\2\2\2\u00ec"+
+		"\u00e0\3\2\2\2\u00ec\u00e3\3\2\2\2\u00ec\u00e6\3\2\2\2\u00ec\u00e9\3\2"+
+		"\2\2\u00ed!\3\2\2\2\u00ee\u00ef\7\33\2\2\u00ef\u00f0\7 \2\2\u00f0\u00f1"+
+		"\7\37\2\2\u00f1\u00f2\b\22\1\2\u00f2#\3\2\2\2\u00f3\u00f4\7\25\2\2\u00f4"+
+		"\u00f5\b\23\1\2\u00f5%\3\2\2\2\u00f6\u00f7\7\26\2\2\u00f7\u00f8\b\24\1"+
+		"\2\u00f8\'\3\2\2\2\u00f9\u00fa\7\27\2\2\u00fa\u00fb\b\25\1\2\u00fb)\3"+
+		"\2\2\2\u00fc\u00fd\7\25\2\2\u00fd\u00fe\7\17\2\2\u00fe\u00ff\5,\27\2\u00ff"+
+		"\u0100\7\20\2\2\u0100\u0101\b\26\1\2\u0101\u0106\3\2\2\2\u0102\u0103\5"+
+		".\30\2\u0103\u0104\b\26\1\2\u0104\u0106\3\2\2\2\u0105\u00fc\3\2\2\2\u0105"+
+		"\u0102\3\2\2\2\u0106+\3\2\2\2\u0107\u0110\b\27\1\2\u0108\u0109\5 \21\2"+
+		"\u0109\u010a\b\27\1\2\u010a\u0111\3\2\2\2\u010b\u010c\5 \21\2\u010c\u010d"+
+		"\7\21\2\2\u010d\u010e\5,\27\2\u010e\u010f\b\27\1\2\u010f\u0111\3\2\2\2"+
+		"\u0110\u0108\3\2\2\2\u0110\u010b\3\2\2\2\u0111-\3\2\2\2\u0112\u0113\7"+
+		"\3\2\2\u0113\u0114\5\60\31\2\u0114\u0115\7\4\2\2\u0115\u0116\b\30\1\2"+
+		"\u0116\u011f\3\2\2\2\u0117\u0118\7\3\2\2\u0118\u0119\5 \21\2\u0119\u011a"+
+		"\7\16\2\2\u011a\u011b\5 \21\2\u011b\u011c\7\4\2\2\u011c\u011d\b\30\1\2"+
+		"\u011d\u011f\3\2\2\2\u011e\u0112\3\2\2\2\u011e\u0117\3\2\2\2\u011f/\3"+
+		"\2\2\2\u0120\u0129\b\31\1\2\u0121\u0122\5\62\32\2\u0122\u0123\b\31\1\2"+
+		"\u0123\u012a\3\2\2\2\u0124\u0125\5\62\32\2\u0125\u0126\7\21\2\2\u0126"+
+		"\u0127\5\60\31\2\u0127\u0128\b\31\1\2\u0128\u012a\3\2\2\2\u0129\u0121"+
+		"\3\2\2\2\u0129\u0124\3\2\2\2\u012a\61\3\2\2\2\u012b\u012c\5\34\17\2\u012c"+
+		"\u012d\b\32\1\2\u012d\63\3\2\2\2\23:?DQblx\u0082\u0094\u00a8\u00ca\u00db"+
+		"\u00ec\u0105\u0110\u011e\u0129";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {

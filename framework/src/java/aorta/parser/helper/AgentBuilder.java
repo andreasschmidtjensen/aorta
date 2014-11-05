@@ -18,7 +18,6 @@ import aorta.kr.language.OrganizationLoader;
 import aorta.kr.language.model.Metamodel;
 import aorta.parser.AORTALexer;
 import aorta.parser.AORTAParser;
-import aorta.reasoning.ActionRule;
 import aorta.ts.strategy.Linear;
 import aorta.ts.strategy.Strategy;
 import java.io.File;
@@ -28,6 +27,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.logging.Level;
 import aorta.logging.Logger;
+import aorta.reasoning.ReasoningRule;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
@@ -41,13 +41,13 @@ public class AgentBuilder {
 	
 	private String name;
 	private Initialization init;
-	private List<ActionRule> actionRules;
+	private List<ReasoningRule> rules;
 	private AortaBridge bridge;
 
-	public AgentBuilder(String name, Initialization init, List<ActionRule> actionRules) {
+	public AgentBuilder(String name, Initialization init, List<ReasoningRule> rules) {
 		this.name = name;
 		this.init = init;
-		this.actionRules = actionRules;
+		this.rules = rules;
 	}
 	
 	public void setOrganizationPath(String location) {
@@ -84,7 +84,7 @@ public class AgentBuilder {
 
 		Strategy strategy = new Linear();
 		
-		AortaAgent agent = new AortaAgent(name, ms, actionRules, strategy);
+		AortaAgent agent = new AortaAgent(name, ms, rules, strategy);
 		agent.getState().setBridge(bridge);
 		return agent;
 	}

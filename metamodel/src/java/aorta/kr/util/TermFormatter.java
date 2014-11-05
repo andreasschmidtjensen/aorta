@@ -49,8 +49,13 @@ public class TermFormatter {
 				if (struct.getName().equals(":-") && struct.getArg(1).match(new Struct("true"))) {
 					return toString(conj1);
 				} else {
-					return toString(conj1) + struct.getName() + toString(conj2);
+					return toString(conj1) + struct.getName() +  " " + toString(conj2);
 				}
+			} else if (binaryOperator(struct.getName())) {
+				Term s1 = struct.getArg(0);
+				Term s2 = struct.getArg(1);
+				
+				return toString(s1) + " " + struct.getName() + " " + toString(s2);
 			} else {
 				String result = struct.getName();
 				if (struct.getArity() > 0) {
@@ -58,7 +63,7 @@ public class TermFormatter {
 					for (int i = 0; i < struct.getArity(); i++) {
 						result += toString(struct.getArg(i));
 						if (i < struct.getArity() - 1) {
-							result += ",";
+							result += ", ";
 						}
 					}
 					result += ")";
@@ -67,6 +72,17 @@ public class TermFormatter {
 			}
 		} else {
 			return term.toString();
+		}
+	}
+
+	private static boolean binaryOperator(String name) {
+		switch (name) {
+			case "=": 
+			case ">": 
+			case "<": 
+				return true;
+			default: 
+				return false;
 		}
 	}
 

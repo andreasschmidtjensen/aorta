@@ -1,6 +1,16 @@
 // Generated from C:\Dropbox\code\phd\aorta\framework\src\java\aorta\parser\AORTA.g4 by ANTLR 4.1
 package aorta.parser;
 
+import aorta.reasoning.fml.OrganizationalFormula;
+import aorta.reasoning.fml.TrueFormula;
+import aorta.reasoning.fml.ReasoningFormula;
+import aorta.reasoning.fml.BeliefFormula;
+import aorta.reasoning.fml.ConjunctFormula;
+import aorta.reasoning.fml.GoalFormula;
+import aorta.reasoning.fml.CapabilityFormula;
+import aorta.reasoning.fml.OptionFormula;
+import aorta.reasoning.fml.Formula;
+import aorta.reasoning.fml.NegatedFormula;
 import alice.tuprolog.Number;
 import alice.tuprolog.Int;
 import alice.tuprolog.Struct;
@@ -33,31 +43,30 @@ public class AORTAParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, START_BLOCK=2, END_BLOCK=3, START_BRACKET=4, END_BRACKET=5, EXECUTE=6, 
-		INIT_BLOCK=7, ORGANIZATION=8, PATH=9, TYPE=10, ORGANIZATION_TYPE=11, STRATEGY=12, 
-		OPT_BLOCK=13, ACT_BLOCK=14, COORDINATION_BLOCK=15, EQUALS=16, START=17, 
-		END=18, COMMA=19, COLON=20, SEMICOLON=21, NOT=22, FULLSTOP=23, PIPE=24, 
-		ROLE=25, OBJ=26, TELL=27, ACHIEVE=28, OPT=29, BEL=30, GOAL=31, ORG=32, 
-		CONSIDER=33, DISREGARD=34, ENACT=35, DEACT=36, COMMIT=37, SEND=38, DROP=39, 
-		TRUE=40, ATOM=41, NUMBER=42, VAR=43, MATH_OP=44, BINARY_OP=45, UNARY_OP=46, 
-		CLASSNAME=47, FILEPATH=48, COMMENT=49, WS=50;
+		T__0=1, START_BLOCK=2, END_BLOCK=3, START_BRACKET=4, END_BRACKET=5, IF=6, 
+		EXECUTE=7, ORGANIZATION=8, PATH=9, TYPE=10, ACT_BLOCK=11, EQUALS=12, START=13, 
+		END=14, COMMA=15, COLON=16, SEMICOLON=17, NOT=18, FULLSTOP=19, PIPE=20, 
+		ROLE=21, OBJ=22, TELL=23, ACHIEVE=24, OPT=25, BEL=26, GOAL=27, ORG=28, 
+		CAP=29, CONSIDER=30, DISREGARD=31, ENACT=32, DEACT=33, COMMIT=34, SEND=35, 
+		DROP=36, TRUE=37, ATOM=38, NUMBER=39, VAR=40, MATH_OP=41, BINARY_OP=42, 
+		UNARY_OP=43, CLASSNAME=44, FILEPATH=45, COMMENT=46, WS=47;
 	public static final String[] tokenNames = {
-		"<INVALID>", "' is '", "'{'", "'}'", "'['", "']'", "'=>'", "'init'", "'organization'", 
-		"'path'", "'type'", "ORGANIZATION_TYPE", "'strategy'", "'options'", "'actions'", 
-		"'coordination'", "'='", "'('", "')'", "','", "':'", "';'", "'~'", "'.'", 
-		"'|'", "'role'", "'obj'", "'tell'", "'achieve'", "'opt'", "'bel'", "'goal'", 
-		"'org'", "'consider'", "'disregard'", "'enact'", "'deact'", "'commit'", 
-		"'send'", "'drop'", "'true'", "ATOM", "NUMBER", "VAR", "MATH_OP", "BINARY_OP", 
-		"'\\+'", "CLASSNAME", "FILEPATH", "COMMENT", "WS"
+		"<INVALID>", "' is '", "'{'", "'}'", "'['", "']'", "'if'", "'=>'", "'organization'", 
+		"'path'", "'type'", "'actions'", "'='", "'('", "')'", "','", "':'", "';'", 
+		"'~'", "'.'", "'|'", "'role'", "'obj'", "'tell'", "'achieve'", "'opt'", 
+		"'bel'", "'goal'", "'org'", "'cap'", "'consider'", "'disregard'", "'enact'", 
+		"'deact'", "'commit'", "'send'", "'drop'", "'true'", "ATOM", "NUMBER", 
+		"VAR", "MATH_OP", "BINARY_OP", "'\\+'", "CLASSNAME", "FILEPATH", "COMMENT", 
+		"WS"
 	};
 	public static final int
-		RULE_aortaAgent = 0, RULE_actionRules = 1, RULE_acts = 2, RULE_act = 3, 
+		RULE_aortaAgent = 0, RULE_rules = 1, RULE_ifRule = 2, RULE_actRule = 3, 
 		RULE_option = 4, RULE_illForce = 5, RULE_formulas = 6, RULE_formula = 7, 
 		RULE_action = 8, RULE_prolog = 9, RULE_prolog2 = 10, RULE_termBuilder = 11, 
 		RULE_term = 12, RULE_atom = 13, RULE_number = 14, RULE_var = 15, RULE_struct = 16, 
 		RULE_args = 17, RULE_list = 18, RULE_listContents = 19, RULE_listItem = 20;
 	public static final String[] ruleNames = {
-		"aortaAgent", "actionRules", "acts", "act", "option", "illForce", "formulas", 
+		"aortaAgent", "rules", "ifRule", "actRule", "option", "illForce", "formulas", 
 		"formula", "action", "prolog", "prolog2", "termBuilder", "term", "atom", 
 		"number", "var", "struct", "args", "list", "listContents", "listItem"
 	};
@@ -81,10 +90,10 @@ public class AORTAParser extends Parser {
 	public static class AortaAgentContext extends ParserRuleContext {
 		public String name;
 		public AgentBuilder agent;
-		public ActionRulesContext actionRules;
+		public RulesContext r;
 		public TerminalNode EOF() { return getToken(AORTAParser.EOF, 0); }
-		public ActionRulesContext actionRules() {
-			return getRuleContext(ActionRulesContext.class,0);
+		public RulesContext rules() {
+			return getRuleContext(RulesContext.class,0);
 		}
 		public AortaAgentContext(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
 		public AortaAgentContext(ParserRuleContext parent, int invokingState, String name) {
@@ -115,16 +124,15 @@ public class AORTAParser extends Parser {
 			{
 
 				   Initialization init = new Initialization();
-				   List<ActionRule> actRules = new ArrayList<>();
+				   List<ReasoningRule> rules = new ArrayList<>();
 				   
 			{
-			setState(43); ((AortaAgentContext)_localctx).actionRules = actionRules();
-			actRules = ((AortaAgentContext)_localctx).actionRules.rules;
+			setState(43); ((AortaAgentContext)_localctx).r = rules();
+			rules = ((AortaAgentContext)_localctx).r.r;
 			}
 			setState(46); match(EOF);
 
-				 
-				 ((AortaAgentContext)_localctx).agent =  new AgentBuilder(name, init, actRules);  
+				 ((AortaAgentContext)_localctx).agent =  new AgentBuilder(name, init, rules);  
 				 
 			}
 		}
@@ -139,39 +147,79 @@ public class AORTAParser extends Parser {
 		return _localctx;
 	}
 
-	public static class ActionRulesContext extends ParserRuleContext {
-		public List<ActionRule> rules;
-		public ActsContext acts;
-		public ActsContext acts() {
-			return getRuleContext(ActsContext.class,0);
+	public static class RulesContext extends ParserRuleContext {
+		public List<ReasoningRule> r;
+		public IfRuleContext ifRule;
+		public ActRuleContext actRule;
+		public List<ActRuleContext> actRule() {
+			return getRuleContexts(ActRuleContext.class);
 		}
-		public ActionRulesContext(ParserRuleContext parent, int invokingState) {
+		public List<IfRuleContext> ifRule() {
+			return getRuleContexts(IfRuleContext.class);
+		}
+		public IfRuleContext ifRule(int i) {
+			return getRuleContext(IfRuleContext.class,i);
+		}
+		public ActRuleContext actRule(int i) {
+			return getRuleContext(ActRuleContext.class,i);
+		}
+		public RulesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_actionRules; }
+		@Override public int getRuleIndex() { return RULE_rules; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).enterActionRules(this);
+			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).enterRules(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).exitActionRules(this);
+			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).exitRules(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AORTAVisitor ) return ((AORTAVisitor<? extends T>)visitor).visitActionRules(this);
+			if ( visitor instanceof AORTAVisitor ) return ((AORTAVisitor<? extends T>)visitor).visitRules(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final ActionRulesContext actionRules() throws RecognitionException {
-		ActionRulesContext _localctx = new ActionRulesContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_actionRules);
+	public final RulesContext rules() throws RecognitionException {
+		RulesContext _localctx = new RulesContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_rules);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(49); ((ActionRulesContext)_localctx).acts = acts();
-			 ((ActionRulesContext)_localctx).rules =  ((ActionRulesContext)_localctx).acts.rules; 
+			 ((RulesContext)_localctx).r =  new ArrayList<>(); 
+			setState(56); 
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			do {
+				{
+				setState(56);
+				switch (_input.LA(1)) {
+				case IF:
+					{
+					setState(50); ((RulesContext)_localctx).ifRule = ifRule();
+					 _localctx.r.add(((RulesContext)_localctx).ifRule.rule); 
+					}
+					break;
+				case NOT:
+				case ROLE:
+				case OBJ:
+				case SEND:
+					{
+					setState(53); ((RulesContext)_localctx).actRule = actRule();
+					 _localctx.r.add(((RulesContext)_localctx).actRule.rule); 
+					}
+					break;
+				default:
+					throw new NoViableAltException(this);
+				}
+				}
+				setState(58); 
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << IF) | (1L << NOT) | (1L << ROLE) | (1L << OBJ) | (1L << SEND))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -185,59 +233,50 @@ public class AORTAParser extends Parser {
 		return _localctx;
 	}
 
-	public static class ActsContext extends ParserRuleContext {
-		public List<ActionRule> rules;
-		public ActContext act;
-		public ActsContext a;
-		public ActsContext acts() {
-			return getRuleContext(ActsContext.class,0);
+	public static class IfRuleContext extends ParserRuleContext {
+		public IfRule rule;
+		public FormulasContext formulas;
+		public RulesContext rules;
+		public TerminalNode IF() { return getToken(AORTAParser.IF, 0); }
+		public TerminalNode END_BLOCK() { return getToken(AORTAParser.END_BLOCK, 0); }
+		public RulesContext rules() {
+			return getRuleContext(RulesContext.class,0);
 		}
-		public ActContext act() {
-			return getRuleContext(ActContext.class,0);
+		public TerminalNode START_BLOCK() { return getToken(AORTAParser.START_BLOCK, 0); }
+		public FormulasContext formulas() {
+			return getRuleContext(FormulasContext.class,0);
 		}
-		public ActsContext(ParserRuleContext parent, int invokingState) {
+		public IfRuleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_acts; }
+		@Override public int getRuleIndex() { return RULE_ifRule; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).enterActs(this);
+			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).enterIfRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).exitActs(this);
+			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).exitIfRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AORTAVisitor ) return ((AORTAVisitor<? extends T>)visitor).visitActs(this);
+			if ( visitor instanceof AORTAVisitor ) return ((AORTAVisitor<? extends T>)visitor).visitIfRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final ActsContext acts() throws RecognitionException {
-		ActsContext _localctx = new ActsContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_acts);
+	public final IfRuleContext ifRule() throws RecognitionException {
+		IfRuleContext _localctx = new IfRuleContext(_ctx, getState());
+		enterRule(_localctx, 4, RULE_ifRule);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			 ((ActsContext)_localctx).rules =  new ArrayList<>(); 
-			setState(60);
-			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
-			case 1:
-				{
-				setState(53); ((ActsContext)_localctx).act = act();
-				 _localctx.rules.add(((ActsContext)_localctx).act.rule); 
-				}
-				break;
-
-			case 2:
-				{
-				setState(56); ((ActsContext)_localctx).act = act();
-				setState(57); ((ActsContext)_localctx).a = acts();
-				 _localctx.rules.add(((ActsContext)_localctx).act.rule); _localctx.rules.addAll(((ActsContext)_localctx).a.rules); 
-				}
-				break;
-			}
+			setState(60); match(IF);
+			setState(61); ((IfRuleContext)_localctx).formulas = formulas();
+			setState(62); match(START_BLOCK);
+			setState(63); ((IfRuleContext)_localctx).rules = rules();
+			setState(64); match(END_BLOCK);
+			 ((IfRuleContext)_localctx).rule =  new IfRule(((IfRuleContext)_localctx).formulas.fml, ((IfRuleContext)_localctx).rules.r); 
 			}
 		}
 		catch (RecognitionException re) {
@@ -251,7 +290,7 @@ public class AORTAParser extends Parser {
 		return _localctx;
 	}
 
-	public static class ActContext extends ParserRuleContext {
+	public static class ActRuleContext extends ParserRuleContext {
 		public ActionRule rule;
 		public OptionContext option;
 		public FormulasContext formulas;
@@ -268,38 +307,38 @@ public class AORTAParser extends Parser {
 			return getRuleContext(FormulasContext.class,0);
 		}
 		public TerminalNode COLON() { return getToken(AORTAParser.COLON, 0); }
-		public ActContext(ParserRuleContext parent, int invokingState) {
+		public ActRuleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_act; }
+		@Override public int getRuleIndex() { return RULE_actRule; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).enterAct(this);
+			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).enterActRule(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).exitAct(this);
+			if ( listener instanceof AORTAListener ) ((AORTAListener)listener).exitActRule(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AORTAVisitor ) return ((AORTAVisitor<? extends T>)visitor).visitAct(this);
+			if ( visitor instanceof AORTAVisitor ) return ((AORTAVisitor<? extends T>)visitor).visitActRule(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final ActContext act() throws RecognitionException {
-		ActContext _localctx = new ActContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_act);
+	public final ActRuleContext actRule() throws RecognitionException {
+		ActRuleContext _localctx = new ActRuleContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_actRule);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(62); ((ActContext)_localctx).option = option();
-			setState(63); match(COLON);
-			setState(64); ((ActContext)_localctx).formulas = formulas();
-			setState(65); match(EXECUTE);
-			setState(66); ((ActContext)_localctx).action = action();
-			setState(67); match(FULLSTOP);
-			 ((ActContext)_localctx).rule =  new ActionRule(((ActContext)_localctx).option.fml, ((ActContext)_localctx).formulas.fml, ((ActContext)_localctx).action.aa); 
+			setState(67); ((ActRuleContext)_localctx).option = option();
+			setState(68); match(COLON);
+			setState(69); ((ActRuleContext)_localctx).formulas = formulas();
+			setState(70); match(EXECUTE);
+			setState(71); ((ActRuleContext)_localctx).action = action();
+			setState(72); match(FULLSTOP);
+			 ((ActRuleContext)_localctx).rule =  new ActionRule(((ActRuleContext)_localctx).option.fml, ((ActRuleContext)_localctx).formulas.fml, ((ActRuleContext)_localctx).action.aa); 
 			}
 		}
 		catch (RecognitionException re) {
@@ -365,56 +404,56 @@ public class AORTAParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			boolean pos = true;
-			setState(101);
-			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+			setState(106);
+			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				{
-				setState(73);
+				setState(78);
 				_la = _input.LA(1);
 				if (_la==NOT) {
 					{
-					setState(71); match(NOT);
+					setState(76); match(NOT);
 					pos=false;
 					}
 				}
 
-				setState(75); match(ROLE);
-				setState(76); match(START);
-				setState(77); ((OptionContext)_localctx).term = term();
-				setState(78); match(END);
+				setState(80); match(ROLE);
+				setState(81); match(START);
+				setState(82); ((OptionContext)_localctx).term = term();
+				setState(83); match(END);
 				 ((OptionContext)_localctx).fml =  new Struct("role", ((OptionContext)_localctx).term.fml); if (!pos) { ((OptionContext)_localctx).fml =  new Struct("~", _localctx.fml); } 
 				}
 				break;
 
 			case 2:
 				{
-				setState(83);
+				setState(88);
 				_la = _input.LA(1);
 				if (_la==NOT) {
 					{
-					setState(81); match(NOT);
+					setState(86); match(NOT);
 					pos=false;
 					}
 				}
 
-				setState(85); match(OBJ);
-				setState(86); match(START);
-				setState(87); ((OptionContext)_localctx).term = term();
-				setState(88); match(END);
+				setState(90); match(OBJ);
+				setState(91); match(START);
+				setState(92); ((OptionContext)_localctx).term = term();
+				setState(93); match(END);
 				 ((OptionContext)_localctx).fml =  new Struct("obj", ((OptionContext)_localctx).term.fml); if (!pos) { ((OptionContext)_localctx).fml =  new Struct("~", _localctx.fml); } 
 				}
 				break;
 
 			case 3:
 				{
-				setState(91); match(SEND);
-				setState(92); match(START);
-				setState(93); ((OptionContext)_localctx).t1 = ((OptionContext)_localctx).term = term();
-				setState(94); match(COMMA);
-				setState(95); ((OptionContext)_localctx).illForce = illForce();
-				setState(96); match(COMMA);
-				setState(97); ((OptionContext)_localctx).t2 = ((OptionContext)_localctx).term = term();
-				setState(98); match(END);
+				setState(96); match(SEND);
+				setState(97); match(START);
+				setState(98); ((OptionContext)_localctx).t1 = ((OptionContext)_localctx).term = term();
+				setState(99); match(COMMA);
+				setState(100); ((OptionContext)_localctx).illForce = illForce();
+				setState(101); match(COMMA);
+				setState(102); ((OptionContext)_localctx).t2 = ((OptionContext)_localctx).term = term();
+				setState(103); match(END);
 				 ((OptionContext)_localctx).fml =  new Struct("send", ((OptionContext)_localctx).t1.fml, ((OptionContext)_localctx).illForce.fml, ((OptionContext)_localctx).t2.fml); 
 				}
 				break;
@@ -459,19 +498,19 @@ public class AORTAParser extends Parser {
 		IllForceContext _localctx = new IllForceContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_illForce);
 		try {
-			setState(107);
+			setState(112);
 			switch (_input.LA(1)) {
 			case TELL:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(103); match(TELL);
+				setState(108); match(TELL);
 				 ((IllForceContext)_localctx).fml =  new Struct("tell"); 
 				}
 				break;
 			case ACHIEVE:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(105); match(ACHIEVE);
+				setState(110); match(ACHIEVE);
 				 ((IllForceContext)_localctx).fml =  new Struct("achieve"); 
 				}
 				break;
@@ -530,55 +569,55 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(135);
-			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+			setState(140);
+			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				{
-				setState(109); ((FormulasContext)_localctx).formula = formula();
+				setState(114); ((FormulasContext)_localctx).formula = formula();
 				 ((FormulasContext)_localctx).fml =  ((FormulasContext)_localctx).formula.fml; 
 				}
 				break;
 
 			case 2:
 				{
-				setState(112); match(TRUE);
+				setState(117); match(TRUE);
 				 ((FormulasContext)_localctx).fml =  new TrueFormula(); 
 				}
 				break;
 
 			case 3:
 				{
-				setState(114); ((FormulasContext)_localctx).formula = formula();
-				setState(115); match(COMMA);
-				setState(116); ((FormulasContext)_localctx).fmls = formulas();
+				setState(119); ((FormulasContext)_localctx).formula = formula();
+				setState(120); match(COMMA);
+				setState(121); ((FormulasContext)_localctx).fmls = formulas();
 				 ((FormulasContext)_localctx).fml =  new ConjunctFormula(((FormulasContext)_localctx).formula.fml, ((FormulasContext)_localctx).fmls.fml); 
 				}
 				break;
 
 			case 4:
 				{
-				setState(119); match(NOT);
-				setState(120); ((FormulasContext)_localctx).formula = formula();
+				setState(124); match(NOT);
+				setState(125); ((FormulasContext)_localctx).formula = formula();
 				 ((FormulasContext)_localctx).fml =  new NegatedFormula(((FormulasContext)_localctx).formula.fml); 
 				}
 				break;
 
 			case 5:
 				{
-				setState(123); match(NOT);
-				setState(124); ((FormulasContext)_localctx).formula = formula();
-				setState(125); match(COMMA);
-				setState(126); ((FormulasContext)_localctx).fmls = formulas();
+				setState(128); match(NOT);
+				setState(129); ((FormulasContext)_localctx).formula = formula();
+				setState(130); match(COMMA);
+				setState(131); ((FormulasContext)_localctx).fmls = formulas();
 				 ((FormulasContext)_localctx).fml =  new ConjunctFormula(new NegatedFormula(((FormulasContext)_localctx).formula.fml), ((FormulasContext)_localctx).fmls.fml); 
 				}
 				break;
 
 			case 6:
 				{
-				setState(129); match(NOT);
-				setState(130); match(START);
-				setState(131); ((FormulasContext)_localctx).fmls = formulas();
-				setState(132); match(END);
+				setState(134); match(NOT);
+				setState(135); match(START);
+				setState(136); ((FormulasContext)_localctx).fmls = formulas();
+				setState(137); match(END);
 				 ((FormulasContext)_localctx).fml =  new NegatedFormula(((FormulasContext)_localctx).fmls.fml); 
 				}
 				break;
@@ -597,11 +636,16 @@ public class AORTAParser extends Parser {
 	}
 
 	public static class FormulaContext extends ParserRuleContext {
-		public ReasoningFormula fml;
+		public Formula fml;
 		public PrologContext prolog;
+		public TermContext term;
+		public TermContext term() {
+			return getRuleContext(TermContext.class,0);
+		}
 		public TerminalNode GOAL() { return getToken(AORTAParser.GOAL, 0); }
 		public TerminalNode OPT() { return getToken(AORTAParser.OPT, 0); }
 		public TerminalNode START() { return getToken(AORTAParser.START, 0); }
+		public TerminalNode CAP() { return getToken(AORTAParser.CAP, 0); }
 		public TerminalNode BEL() { return getToken(AORTAParser.BEL, 0); }
 		public PrologContext prolog() {
 			return getRuleContext(PrologContext.class,0);
@@ -633,42 +677,51 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(161);
+			setState(172);
 			switch (_input.LA(1)) {
 			case OPT:
 				{
-				setState(137); match(OPT);
-				setState(138); match(START);
-				setState(139); ((FormulaContext)_localctx).prolog = prolog();
-				setState(140); match(END);
+				setState(142); match(OPT);
+				setState(143); match(START);
+				setState(144); ((FormulaContext)_localctx).prolog = prolog();
+				setState(145); match(END);
 				 ((FormulaContext)_localctx).fml =  new OptionFormula(((FormulaContext)_localctx).prolog.fml); 
 				}
 				break;
 			case BEL:
 				{
-				setState(143); match(BEL);
-				setState(144); match(START);
-				setState(145); ((FormulaContext)_localctx).prolog = prolog();
-				setState(146); match(END);
+				setState(148); match(BEL);
+				setState(149); match(START);
+				setState(150); ((FormulaContext)_localctx).prolog = prolog();
+				setState(151); match(END);
 				 ((FormulaContext)_localctx).fml =  new BeliefFormula(((FormulaContext)_localctx).prolog.fml); 
 				}
 				break;
 			case GOAL:
 				{
-				setState(149); match(GOAL);
-				setState(150); match(START);
-				setState(151); ((FormulaContext)_localctx).prolog = prolog();
-				setState(152); match(END);
+				setState(154); match(GOAL);
+				setState(155); match(START);
+				setState(156); ((FormulaContext)_localctx).prolog = prolog();
+				setState(157); match(END);
 				 ((FormulaContext)_localctx).fml =  new GoalFormula(((FormulaContext)_localctx).prolog.fml); 
 				}
 				break;
 			case ORG:
 				{
-				setState(155); match(ORG);
-				setState(156); match(START);
-				setState(157); ((FormulaContext)_localctx).prolog = prolog();
-				setState(158); match(END);
+				setState(160); match(ORG);
+				setState(161); match(START);
+				setState(162); ((FormulaContext)_localctx).prolog = prolog();
+				setState(163); match(END);
 				 ((FormulaContext)_localctx).fml =  new OrganizationalFormula(((FormulaContext)_localctx).prolog.fml); 
+				}
+				break;
+			case CAP:
+				{
+				setState(166); match(CAP);
+				setState(167); match(START);
+				setState(168); ((FormulaContext)_localctx).term = term();
+				setState(169); match(END);
+				 ((FormulaContext)_localctx).fml =  new CapabilityFormula(((FormulaContext)_localctx).term.fml); 
 				}
 				break;
 			default:
@@ -731,52 +784,52 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(195);
+			setState(206);
 			switch (_input.LA(1)) {
 			case ENACT:
 				{
-				setState(163); match(ENACT);
-				setState(164); match(START);
-				setState(165); ((ActionContext)_localctx).pl = term();
-				setState(166); match(END);
+				setState(174); match(ENACT);
+				setState(175); match(START);
+				setState(176); ((ActionContext)_localctx).pl = term();
+				setState(177); match(END);
 				 ((ActionContext)_localctx).aa =  new EnactAction(((ActionContext)_localctx).pl.fml); 
 				}
 				break;
 			case DEACT:
 				{
-				setState(169); match(DEACT);
-				setState(170); match(START);
-				setState(171); ((ActionContext)_localctx).pl = term();
-				setState(172); match(END);
+				setState(180); match(DEACT);
+				setState(181); match(START);
+				setState(182); ((ActionContext)_localctx).pl = term();
+				setState(183); match(END);
 				 ((ActionContext)_localctx).aa =  new DeactAction(((ActionContext)_localctx).pl.fml); 
 				}
 				break;
 			case COMMIT:
 				{
-				setState(175); match(COMMIT);
-				setState(176); match(START);
-				setState(177); ((ActionContext)_localctx).pl = term();
-				setState(178); match(END);
+				setState(186); match(COMMIT);
+				setState(187); match(START);
+				setState(188); ((ActionContext)_localctx).pl = term();
+				setState(189); match(END);
 				 ((ActionContext)_localctx).aa =  new CommitAction(((ActionContext)_localctx).pl.fml); 
 				}
 				break;
 			case DROP:
 				{
-				setState(181); match(DROP);
-				setState(182); match(START);
-				setState(183); ((ActionContext)_localctx).pl = term();
-				setState(184); match(END);
+				setState(192); match(DROP);
+				setState(193); match(START);
+				setState(194); ((ActionContext)_localctx).pl = term();
+				setState(195); match(END);
 				 ((ActionContext)_localctx).aa =  new DropAction(((ActionContext)_localctx).pl.fml); 
 				}
 				break;
 			case SEND:
 				{
-				setState(187); match(SEND);
-				setState(188); match(START);
-				setState(189); ((ActionContext)_localctx).ag = term();
-				setState(190); match(COMMA);
-				setState(191); ((ActionContext)_localctx).fml = formula();
-				setState(192); match(END);
+				setState(198); match(SEND);
+				setState(199); match(START);
+				setState(200); ((ActionContext)_localctx).ag = term();
+				setState(201); match(COMMA);
+				setState(202); ((ActionContext)_localctx).fml = formula();
+				setState(203); match(END);
 				 ((ActionContext)_localctx).aa =  new SendAction(((ActionContext)_localctx).ag.fml, ((ActionContext)_localctx).fml.fml); 
 				}
 				break;
@@ -827,7 +880,7 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(197); ((PrologContext)_localctx).prolog2 = prolog2();
+			setState(208); ((PrologContext)_localctx).prolog2 = prolog2();
 			 ((PrologContext)_localctx).fml =  Term.createTerm((((PrologContext)_localctx).prolog2!=null?_input.getText(((PrologContext)_localctx).prolog2.start,((PrologContext)_localctx).prolog2.stop):null)); 
 			}
 		}
@@ -883,46 +936,46 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(223);
-			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
+			setState(234);
+			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
 			case 1:
 				{
-				setState(200); match(COMMA);
-				setState(201); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(211); match(COMMA);
+				setState(212); ((Prolog2Context)_localctx).pl = prolog2();
 				 ((Prolog2Context)_localctx).fml =  new Struct(",", ((Prolog2Context)_localctx).pl.fml); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(204); match(SEMICOLON);
-				setState(205); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(215); match(SEMICOLON);
+				setState(216); ((Prolog2Context)_localctx).pl = prolog2();
 				 ((Prolog2Context)_localctx).fml =  new Struct(";", ((Prolog2Context)_localctx).pl.fml); 
 				}
 				break;
 
 			case 3:
 				{
-				setState(208); match(START);
-				setState(209); ((Prolog2Context)_localctx).pl = prolog2();
-				setState(210); match(END);
-				setState(211); prolog2();
+				setState(219); match(START);
+				setState(220); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(221); match(END);
+				setState(222); prolog2();
 				 ((Prolog2Context)_localctx).fml =  ((Prolog2Context)_localctx).pl.fml; 
 				}
 				break;
 
 			case 4:
 				{
-				setState(214); ((Prolog2Context)_localctx).UNARY_OP = match(UNARY_OP);
-				setState(215); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(225); ((Prolog2Context)_localctx).UNARY_OP = match(UNARY_OP);
+				setState(226); ((Prolog2Context)_localctx).pl = prolog2();
 				 ((Prolog2Context)_localctx).fml =  new Struct((((Prolog2Context)_localctx).UNARY_OP!=null?((Prolog2Context)_localctx).UNARY_OP.getText():null), ((Prolog2Context)_localctx).pl.fml); 
 				}
 				break;
 
 			case 5:
 				{
-				setState(218); ((Prolog2Context)_localctx).termBuilder = termBuilder();
-				setState(219); prolog2();
+				setState(229); ((Prolog2Context)_localctx).termBuilder = termBuilder();
+				setState(230); prolog2();
 				 ((Prolog2Context)_localctx).fml =  ((Prolog2Context)_localctx).termBuilder.fml; 
 				}
 				break;
@@ -988,31 +1041,31 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(240);
-			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
+			setState(251);
+			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
 				{
-				setState(225); ((TermBuilderContext)_localctx).t3 = ((TermBuilderContext)_localctx).term = term();
-				setState(226); match(1);
-				setState(227); ((TermBuilderContext)_localctx).t4 = ((TermBuilderContext)_localctx).term = term();
-				setState(228); ((TermBuilderContext)_localctx).MATH_OP = match(MATH_OP);
-				setState(229); ((TermBuilderContext)_localctx).t5 = ((TermBuilderContext)_localctx).term = term();
+				setState(236); ((TermBuilderContext)_localctx).t3 = ((TermBuilderContext)_localctx).term = term();
+				setState(237); match(1);
+				setState(238); ((TermBuilderContext)_localctx).t4 = ((TermBuilderContext)_localctx).term = term();
+				setState(239); ((TermBuilderContext)_localctx).MATH_OP = match(MATH_OP);
+				setState(240); ((TermBuilderContext)_localctx).t5 = ((TermBuilderContext)_localctx).term = term();
 				 ((TermBuilderContext)_localctx).fml =  new Struct("is", ((TermBuilderContext)_localctx).t3.fml, new Struct((((TermBuilderContext)_localctx).MATH_OP!=null?((TermBuilderContext)_localctx).MATH_OP.getText():null), ((TermBuilderContext)_localctx).t4.fml, ((TermBuilderContext)_localctx).t5.fml)); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(232); ((TermBuilderContext)_localctx).term = term();
+				setState(243); ((TermBuilderContext)_localctx).term = term();
 				 ((TermBuilderContext)_localctx).fml =  ((TermBuilderContext)_localctx).term.fml; 
 				}
 				break;
 
 			case 3:
 				{
-				setState(235); ((TermBuilderContext)_localctx).t1 = ((TermBuilderContext)_localctx).term = term();
-				setState(236); ((TermBuilderContext)_localctx).BINARY_OP = match(BINARY_OP);
-				setState(237); ((TermBuilderContext)_localctx).t2 = ((TermBuilderContext)_localctx).term = term();
+				setState(246); ((TermBuilderContext)_localctx).t1 = ((TermBuilderContext)_localctx).term = term();
+				setState(247); ((TermBuilderContext)_localctx).BINARY_OP = match(BINARY_OP);
+				setState(248); ((TermBuilderContext)_localctx).t2 = ((TermBuilderContext)_localctx).term = term();
 				 ((TermBuilderContext)_localctx).fml =  new Struct((((TermBuilderContext)_localctx).BINARY_OP!=null?((TermBuilderContext)_localctx).BINARY_OP.getText():null), ((TermBuilderContext)_localctx).t1.fml, ((TermBuilderContext)_localctx).t2.fml); 
 				}
 				break;
@@ -1077,39 +1130,39 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(257);
-			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
+			setState(268);
+			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
 			case 1:
 				{
-				setState(242); ((TermContext)_localctx).formula = formula();
-				((TermContext)_localctx).fml =  new Struct(((TermContext)_localctx).formula.fml.getType(), ((TermContext)_localctx).formula.fml.getFormula());
+				setState(253); ((TermContext)_localctx).formula = formula();
+				((TermContext)_localctx).fml =  new Struct(((ReasoningFormula)((TermContext)_localctx).formula.fml).getType(), ((ReasoningFormula)((TermContext)_localctx).formula.fml).getFormula());
 				}
 				break;
 
 			case 2:
 				{
-				setState(245); ((TermContext)_localctx).struct = struct();
+				setState(256); ((TermContext)_localctx).struct = struct();
 				((TermContext)_localctx).fml =  ((TermContext)_localctx).struct.fml;
 				}
 				break;
 
 			case 3:
 				{
-				setState(248); ((TermContext)_localctx).atom = atom();
+				setState(259); ((TermContext)_localctx).atom = atom();
 				((TermContext)_localctx).fml =  ((TermContext)_localctx).atom.fml;
 				}
 				break;
 
 			case 4:
 				{
-				setState(251); ((TermContext)_localctx).var = var();
+				setState(262); ((TermContext)_localctx).var = var();
 				((TermContext)_localctx).fml =  ((TermContext)_localctx).var.fml;
 				}
 				break;
 
 			case 5:
 				{
-				setState(254); ((TermContext)_localctx).number = number();
+				setState(265); ((TermContext)_localctx).number = number();
 				((TermContext)_localctx).fml =  ((TermContext)_localctx).number.fml;
 				}
 				break;
@@ -1156,7 +1209,7 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(259); ((AtomContext)_localctx).ATOM = match(ATOM);
+			setState(270); ((AtomContext)_localctx).ATOM = match(ATOM);
 			 ((AtomContext)_localctx).fml =  new Struct((((AtomContext)_localctx).ATOM!=null?((AtomContext)_localctx).ATOM.getText():null)); 
 			}
 		}
@@ -1200,7 +1253,7 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(262); ((NumberContext)_localctx).NUMBER = match(NUMBER);
+			setState(273); ((NumberContext)_localctx).NUMBER = match(NUMBER);
 			 String numStr = (((NumberContext)_localctx).NUMBER!=null?((NumberContext)_localctx).NUMBER.getText():null); ((NumberContext)_localctx).fml =  new Int(Integer.parseInt(numStr)); 
 			}
 		}
@@ -1244,7 +1297,7 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(265); ((VarContext)_localctx).VAR = match(VAR);
+			setState(276); ((VarContext)_localctx).VAR = match(VAR);
 			 ((VarContext)_localctx).fml =  new Var((((VarContext)_localctx).VAR!=null?((VarContext)_localctx).VAR.getText():null)); 
 			}
 		}
@@ -1298,20 +1351,20 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(277);
+			setState(288);
 			switch (_input.LA(1)) {
 			case ATOM:
 				{
-				setState(268); ((StructContext)_localctx).ATOM = match(ATOM);
-				setState(269); match(START);
-				setState(270); ((StructContext)_localctx).args = args();
-				setState(271); match(END);
+				setState(279); ((StructContext)_localctx).ATOM = match(ATOM);
+				setState(280); match(START);
+				setState(281); ((StructContext)_localctx).args = args();
+				setState(282); match(END);
 				 ((StructContext)_localctx).fml =  new Struct((((StructContext)_localctx).ATOM!=null?((StructContext)_localctx).ATOM.getText():null), ((StructContext)_localctx).args.fml.toArray(new Term[0])); 
 				}
 				break;
 			case START_BRACKET:
 				{
-				setState(274); ((StructContext)_localctx).list = list();
+				setState(285); ((StructContext)_localctx).list = list();
 				 ((StructContext)_localctx).fml =  ((StructContext)_localctx).list.fml; 
 				}
 				break;
@@ -1368,20 +1421,20 @@ public class AORTAParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((ArgsContext)_localctx).fml =  new ArrayList<>(); 
-			setState(288);
-			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+			setState(299);
+			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
 			case 1:
 				{
-				setState(280); ((ArgsContext)_localctx).term = term();
+				setState(291); ((ArgsContext)_localctx).term = term();
 				 _localctx.fml.add(((ArgsContext)_localctx).term.fml); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(283); ((ArgsContext)_localctx).term = term();
-				setState(284); match(COMMA);
-				setState(285); ((ArgsContext)_localctx).a = args();
+				setState(294); ((ArgsContext)_localctx).term = term();
+				setState(295); match(COMMA);
+				setState(296); ((ArgsContext)_localctx).a = args();
 				 _localctx.fml.add(((ArgsContext)_localctx).term.fml); _localctx.fml.addAll(((ArgsContext)_localctx).a.fml); 
 				}
 				break;
@@ -1439,14 +1492,14 @@ public class AORTAParser extends Parser {
 		ListContext _localctx = new ListContext(_ctx, getState());
 		enterRule(_localctx, 36, RULE_list);
 		try {
-			setState(302);
-			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
+			setState(313);
+			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(290); match(START_BRACKET);
-				setState(291); ((ListContext)_localctx).listContents = listContents();
-				setState(292); match(END_BRACKET);
+				setState(301); match(START_BRACKET);
+				setState(302); ((ListContext)_localctx).listContents = listContents();
+				setState(303); match(END_BRACKET);
 				 ((ListContext)_localctx).fml =  ((ListContext)_localctx).listContents.fml; 
 				}
 				break;
@@ -1454,11 +1507,11 @@ public class AORTAParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(295); match(START_BRACKET);
-				setState(296); ((ListContext)_localctx).t1 = term();
-				setState(297); match(PIPE);
-				setState(298); ((ListContext)_localctx).t2 = term();
-				setState(299); match(END_BRACKET);
+				setState(306); match(START_BRACKET);
+				setState(307); ((ListContext)_localctx).t1 = term();
+				setState(308); match(PIPE);
+				setState(309); ((ListContext)_localctx).t2 = term();
+				setState(310); match(END_BRACKET);
 				 ((ListContext)_localctx).fml =  new Struct(((ListContext)_localctx).t1.fml, ((ListContext)_localctx).t2.fml); 
 				}
 				break;
@@ -1512,20 +1565,20 @@ public class AORTAParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((ListContentsContext)_localctx).fml =  new Struct(); 
-			setState(313);
-			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
+			setState(324);
+			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				{
-				setState(305); ((ListContentsContext)_localctx).listItem = listItem();
+				setState(316); ((ListContentsContext)_localctx).listItem = listItem();
 				 _localctx.fml.append(((ListContentsContext)_localctx).listItem.fml); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(308); ((ListContentsContext)_localctx).listItem = listItem();
-				setState(309); match(COMMA);
-				setState(310); ((ListContentsContext)_localctx).lc = listContents();
+				setState(319); ((ListContentsContext)_localctx).listItem = listItem();
+				setState(320); match(COMMA);
+				setState(321); ((ListContentsContext)_localctx).lc = listContents();
 				 _localctx.fml.append(((ListContentsContext)_localctx).listItem.fml); _localctx.fml.append(((ListContentsContext)_localctx).lc.fml); 
 				}
 				break;
@@ -1574,7 +1627,7 @@ public class AORTAParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(315); ((ListItemContext)_localctx).prolog2 = prolog2();
+			setState(326); ((ListItemContext)_localctx).prolog2 = prolog2();
 			 ((ListItemContext)_localctx).fml =  ((ListItemContext)_localctx).prolog2.fml; 
 			}
 		}
@@ -1590,111 +1643,115 @@ public class AORTAParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\64\u0141\4\2\t\2"+
+		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3\61\u014c\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3"+
-		"\3\3\3\3\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4?\n\4\3\5\3\5\3\5\3\5\3"+
-		"\5\3\5\3\5\3\5\3\6\3\6\3\6\5\6L\n\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5"+
-		"\6V\n\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3"+
-		"\6\5\6h\n\6\3\7\3\7\3\7\3\7\5\7n\n\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3"+
-		"\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b"+
-		"\5\b\u008a\n\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t"+
-		"\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\5\t\u00a4\n\t\3\n\3\n\3\n\3\n"+
+		"\3\3\3\3\3\3\3\3\3\3\3\3\3\6\3;\n\3\r\3\16\3<\3\4\3\4\3\4\3\4\3\4\3\4"+
+		"\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\5\6Q\n\6\3\6\3\6\3\6"+
+		"\3\6\3\6\3\6\3\6\3\6\5\6[\n\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6"+
+		"\3\6\3\6\3\6\3\6\3\6\3\6\5\6m\n\6\3\7\3\7\3\7\3\7\5\7s\n\7\3\b\3\b\3\b"+
+		"\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3"+
+		"\b\3\b\3\b\3\b\3\b\3\b\5\b\u008f\n\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3"+
+		"\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t"+
+		"\3\t\3\t\3\t\3\t\5\t\u00af\n\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n"+
 		"\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3"+
-		"\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\5\n\u00c6\n\n\3\13\3\13\3\13"+
-		"\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3"+
-		"\f\3\f\3\f\3\f\3\f\3\f\5\f\u00e2\n\f\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3"+
-		"\r\3\r\3\r\3\r\3\r\3\r\3\r\5\r\u00f3\n\r\3\16\3\16\3\16\3\16\3\16\3\16"+
-		"\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16\u0104\n\16\3\17\3\17"+
-		"\3\17\3\20\3\20\3\20\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22\3\22\3\22"+
-		"\3\22\3\22\5\22\u0118\n\22\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23"+
-		"\5\23\u0123\n\23\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24"+
-		"\3\24\5\24\u0131\n\24\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\5\25"+
-		"\u013c\n\25\3\26\3\26\3\26\3\26\2\27\2\4\6\b\n\f\16\20\22\24\26\30\32"+
-		"\34\36 \"$&(*\2\2\u014c\2,\3\2\2\2\4\63\3\2\2\2\6\66\3\2\2\2\b@\3\2\2"+
-		"\2\nH\3\2\2\2\fm\3\2\2\2\16\u0089\3\2\2\2\20\u00a3\3\2\2\2\22\u00c5\3"+
-		"\2\2\2\24\u00c7\3\2\2\2\26\u00e1\3\2\2\2\30\u00f2\3\2\2\2\32\u0103\3\2"+
-		"\2\2\34\u0105\3\2\2\2\36\u0108\3\2\2\2 \u010b\3\2\2\2\"\u0117\3\2\2\2"+
-		"$\u0119\3\2\2\2&\u0130\3\2\2\2(\u0132\3\2\2\2*\u013d\3\2\2\2,-\b\2\1\2"+
-		"-.\5\4\3\2./\b\2\1\2/\60\3\2\2\2\60\61\7\2\2\3\61\62\b\2\1\2\62\3\3\2"+
-		"\2\2\63\64\5\6\4\2\64\65\b\3\1\2\65\5\3\2\2\2\66>\b\4\1\2\678\5\b\5\2"+
-		"89\b\4\1\29?\3\2\2\2:;\5\b\5\2;<\5\6\4\2<=\b\4\1\2=?\3\2\2\2>\67\3\2\2"+
-		"\2>:\3\2\2\2?\7\3\2\2\2@A\5\n\6\2AB\7\26\2\2BC\5\16\b\2CD\7\b\2\2DE\5"+
-		"\22\n\2EF\7\31\2\2FG\b\5\1\2G\t\3\2\2\2Hg\b\6\1\2IJ\7\30\2\2JL\b\6\1\2"+
-		"KI\3\2\2\2KL\3\2\2\2LM\3\2\2\2MN\7\33\2\2NO\7\23\2\2OP\5\32\16\2PQ\7\24"+
-		"\2\2QR\b\6\1\2Rh\3\2\2\2ST\7\30\2\2TV\b\6\1\2US\3\2\2\2UV\3\2\2\2VW\3"+
-		"\2\2\2WX\7\34\2\2XY\7\23\2\2YZ\5\32\16\2Z[\7\24\2\2[\\\b\6\1\2\\h\3\2"+
-		"\2\2]^\7(\2\2^_\7\23\2\2_`\5\32\16\2`a\7\25\2\2ab\5\f\7\2bc\7\25\2\2c"+
-		"d\5\32\16\2de\7\24\2\2ef\b\6\1\2fh\3\2\2\2gK\3\2\2\2gU\3\2\2\2g]\3\2\2"+
-		"\2h\13\3\2\2\2ij\7\35\2\2jn\b\7\1\2kl\7\36\2\2ln\b\7\1\2mi\3\2\2\2mk\3"+
-		"\2\2\2n\r\3\2\2\2op\5\20\t\2pq\b\b\1\2q\u008a\3\2\2\2rs\7*\2\2s\u008a"+
-		"\b\b\1\2tu\5\20\t\2uv\7\25\2\2vw\5\16\b\2wx\b\b\1\2x\u008a\3\2\2\2yz\7"+
-		"\30\2\2z{\5\20\t\2{|\b\b\1\2|\u008a\3\2\2\2}~\7\30\2\2~\177\5\20\t\2\177"+
-		"\u0080\7\25\2\2\u0080\u0081\5\16\b\2\u0081\u0082\b\b\1\2\u0082\u008a\3"+
-		"\2\2\2\u0083\u0084\7\30\2\2\u0084\u0085\7\23\2\2\u0085\u0086\5\16\b\2"+
-		"\u0086\u0087\7\24\2\2\u0087\u0088\b\b\1\2\u0088\u008a\3\2\2\2\u0089o\3"+
-		"\2\2\2\u0089r\3\2\2\2\u0089t\3\2\2\2\u0089y\3\2\2\2\u0089}\3\2\2\2\u0089"+
-		"\u0083\3\2\2\2\u008a\17\3\2\2\2\u008b\u008c\7\37\2\2\u008c\u008d\7\23"+
-		"\2\2\u008d\u008e\5\24\13\2\u008e\u008f\7\24\2\2\u008f\u0090\b\t\1\2\u0090"+
-		"\u00a4\3\2\2\2\u0091\u0092\7 \2\2\u0092\u0093\7\23\2\2\u0093\u0094\5\24"+
-		"\13\2\u0094\u0095\7\24\2\2\u0095\u0096\b\t\1\2\u0096\u00a4\3\2\2\2\u0097"+
-		"\u0098\7!\2\2\u0098\u0099\7\23\2\2\u0099\u009a\5\24\13\2\u009a\u009b\7"+
-		"\24\2\2\u009b\u009c\b\t\1\2\u009c\u00a4\3\2\2\2\u009d\u009e\7\"\2\2\u009e"+
-		"\u009f\7\23\2\2\u009f\u00a0\5\24\13\2\u00a0\u00a1\7\24\2\2\u00a1\u00a2"+
-		"\b\t\1\2\u00a2\u00a4\3\2\2\2\u00a3\u008b\3\2\2\2\u00a3\u0091\3\2\2\2\u00a3"+
-		"\u0097\3\2\2\2\u00a3\u009d\3\2\2\2\u00a4\21\3\2\2\2\u00a5\u00a6\7%\2\2"+
-		"\u00a6\u00a7\7\23\2\2\u00a7\u00a8\5\32\16\2\u00a8\u00a9\7\24\2\2\u00a9"+
-		"\u00aa\b\n\1\2\u00aa\u00c6\3\2\2\2\u00ab\u00ac\7&\2\2\u00ac\u00ad\7\23"+
-		"\2\2\u00ad\u00ae\5\32\16\2\u00ae\u00af\7\24\2\2\u00af\u00b0\b\n\1\2\u00b0"+
-		"\u00c6\3\2\2\2\u00b1\u00b2\7\'\2\2\u00b2\u00b3\7\23\2\2\u00b3\u00b4\5"+
-		"\32\16\2\u00b4\u00b5\7\24\2\2\u00b5\u00b6\b\n\1\2\u00b6\u00c6\3\2\2\2"+
-		"\u00b7\u00b8\7)\2\2\u00b8\u00b9\7\23\2\2\u00b9\u00ba\5\32\16\2\u00ba\u00bb"+
-		"\7\24\2\2\u00bb\u00bc\b\n\1\2\u00bc\u00c6\3\2\2\2\u00bd\u00be\7(\2\2\u00be"+
-		"\u00bf\7\23\2\2\u00bf\u00c0\5\32\16\2\u00c0\u00c1\7\25\2\2\u00c1\u00c2"+
-		"\5\20\t\2\u00c2\u00c3\7\24\2\2\u00c3\u00c4\b\n\1\2\u00c4\u00c6\3\2\2\2"+
-		"\u00c5\u00a5\3\2\2\2\u00c5\u00ab\3\2\2\2\u00c5\u00b1\3\2\2\2\u00c5\u00b7"+
-		"\3\2\2\2\u00c5\u00bd\3\2\2\2\u00c6\23\3\2\2\2\u00c7\u00c8\5\26\f\2\u00c8"+
-		"\u00c9\b\13\1\2\u00c9\25\3\2\2\2\u00ca\u00cb\7\25\2\2\u00cb\u00cc\5\26"+
-		"\f\2\u00cc\u00cd\b\f\1\2\u00cd\u00e2\3\2\2\2\u00ce\u00cf\7\27\2\2\u00cf"+
-		"\u00d0\5\26\f\2\u00d0\u00d1\b\f\1\2\u00d1\u00e2\3\2\2\2\u00d2\u00d3\7"+
-		"\23\2\2\u00d3\u00d4\5\26\f\2\u00d4\u00d5\7\24\2\2\u00d5\u00d6\5\26\f\2"+
-		"\u00d6\u00d7\b\f\1\2\u00d7\u00e2\3\2\2\2\u00d8\u00d9\7\60\2\2\u00d9\u00da"+
-		"\5\26\f\2\u00da\u00db\b\f\1\2\u00db\u00e2\3\2\2\2\u00dc\u00dd\5\30\r\2"+
-		"\u00dd\u00de\5\26\f\2\u00de\u00df\b\f\1\2\u00df\u00e2\3\2\2\2\u00e0\u00e2"+
-		"\3\2\2\2\u00e1\u00ca\3\2\2\2\u00e1\u00ce\3\2\2\2\u00e1\u00d2\3\2\2\2\u00e1"+
-		"\u00d8\3\2\2\2\u00e1\u00dc\3\2\2\2\u00e1\u00e0\3\2\2\2\u00e2\27\3\2\2"+
-		"\2\u00e3\u00e4\5\32\16\2\u00e4\u00e5\7\3\2\2\u00e5\u00e6\5\32\16\2\u00e6"+
-		"\u00e7\7.\2\2\u00e7\u00e8\5\32\16\2\u00e8\u00e9\b\r\1\2\u00e9\u00f3\3"+
-		"\2\2\2\u00ea\u00eb\5\32\16\2\u00eb\u00ec\b\r\1\2\u00ec\u00f3\3\2\2\2\u00ed"+
-		"\u00ee\5\32\16\2\u00ee\u00ef\7/\2\2\u00ef\u00f0\5\32\16\2\u00f0\u00f1"+
-		"\b\r\1\2\u00f1\u00f3\3\2\2\2\u00f2\u00e3\3\2\2\2\u00f2\u00ea\3\2\2\2\u00f2"+
-		"\u00ed\3\2\2\2\u00f3\31\3\2\2\2\u00f4\u00f5\5\20\t\2\u00f5\u00f6\b\16"+
-		"\1\2\u00f6\u0104\3\2\2\2\u00f7\u00f8\5\"\22\2\u00f8\u00f9\b\16\1\2\u00f9"+
-		"\u0104\3\2\2\2\u00fa\u00fb\5\34\17\2\u00fb\u00fc\b\16\1\2\u00fc\u0104"+
-		"\3\2\2\2\u00fd\u00fe\5 \21\2\u00fe\u00ff\b\16\1\2\u00ff\u0104\3\2\2\2"+
-		"\u0100\u0101\5\36\20\2\u0101\u0102\b\16\1\2\u0102\u0104\3\2\2\2\u0103"+
-		"\u00f4\3\2\2\2\u0103\u00f7\3\2\2\2\u0103\u00fa\3\2\2\2\u0103\u00fd\3\2"+
-		"\2\2\u0103\u0100\3\2\2\2\u0104\33\3\2\2\2\u0105\u0106\7+\2\2\u0106\u0107"+
-		"\b\17\1\2\u0107\35\3\2\2\2\u0108\u0109\7,\2\2\u0109\u010a\b\20\1\2\u010a"+
-		"\37\3\2\2\2\u010b\u010c\7-\2\2\u010c\u010d\b\21\1\2\u010d!\3\2\2\2\u010e"+
-		"\u010f\7+\2\2\u010f\u0110\7\23\2\2\u0110\u0111\5$\23\2\u0111\u0112\7\24"+
-		"\2\2\u0112\u0113\b\22\1\2\u0113\u0118\3\2\2\2\u0114\u0115\5&\24\2\u0115"+
-		"\u0116\b\22\1\2\u0116\u0118\3\2\2\2\u0117\u010e\3\2\2\2\u0117\u0114\3"+
-		"\2\2\2\u0118#\3\2\2\2\u0119\u0122\b\23\1\2\u011a\u011b\5\32\16\2\u011b"+
-		"\u011c\b\23\1\2\u011c\u0123\3\2\2\2\u011d\u011e\5\32\16\2\u011e\u011f"+
-		"\7\25\2\2\u011f\u0120\5$\23\2\u0120\u0121\b\23\1\2\u0121\u0123\3\2\2\2"+
-		"\u0122\u011a\3\2\2\2\u0122\u011d\3\2\2\2\u0123%\3\2\2\2\u0124\u0125\7"+
-		"\6\2\2\u0125\u0126\5(\25\2\u0126\u0127\7\7\2\2\u0127\u0128\b\24\1\2\u0128"+
-		"\u0131\3\2\2\2\u0129\u012a\7\6\2\2\u012a\u012b\5\32\16\2\u012b\u012c\7"+
-		"\32\2\2\u012c\u012d\5\32\16\2\u012d\u012e\7\7\2\2\u012e\u012f\b\24\1\2"+
-		"\u012f\u0131\3\2\2\2\u0130\u0124\3\2\2\2\u0130\u0129\3\2\2\2\u0131\'\3"+
-		"\2\2\2\u0132\u013b\b\25\1\2\u0133\u0134\5*\26\2\u0134\u0135\b\25\1\2\u0135"+
-		"\u013c\3\2\2\2\u0136\u0137\5*\26\2\u0137\u0138\7\25\2\2\u0138\u0139\5"+
-		"(\25\2\u0139\u013a\b\25\1\2\u013a\u013c\3\2\2\2\u013b\u0133\3\2\2\2\u013b"+
-		"\u0136\3\2\2\2\u013c)\3\2\2\2\u013d\u013e\5\26\f\2\u013e\u013f\b\26\1"+
-		"\2\u013f+\3\2\2\2\21>KUgm\u0089\u00a3\u00c5\u00e1\u00f2\u0103\u0117\u0122"+
-		"\u0130\u013b";
+		"\n\3\n\3\n\3\n\3\n\5\n\u00d1\n\n\3\13\3\13\3\13\3\f\3\f\3\f\3\f\3\f\3"+
+		"\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\f"+
+		"\5\f\u00ed\n\f\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r"+
+		"\3\r\5\r\u00fe\n\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3"+
+		"\16\3\16\3\16\3\16\3\16\5\16\u010f\n\16\3\17\3\17\3\17\3\20\3\20\3\20"+
+		"\3\21\3\21\3\21\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\5\22\u0123"+
+		"\n\22\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\3\23\5\23\u012e\n\23\3\24"+
+		"\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\3\24\5\24\u013c\n\24"+
+		"\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\3\25\5\25\u0147\n\25\3\26\3\26"+
+		"\3\26\3\26\2\27\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*\2\2\u0159"+
+		"\2,\3\2\2\2\4\63\3\2\2\2\6>\3\2\2\2\bE\3\2\2\2\nM\3\2\2\2\fr\3\2\2\2\16"+
+		"\u008e\3\2\2\2\20\u00ae\3\2\2\2\22\u00d0\3\2\2\2\24\u00d2\3\2\2\2\26\u00ec"+
+		"\3\2\2\2\30\u00fd\3\2\2\2\32\u010e\3\2\2\2\34\u0110\3\2\2\2\36\u0113\3"+
+		"\2\2\2 \u0116\3\2\2\2\"\u0122\3\2\2\2$\u0124\3\2\2\2&\u013b\3\2\2\2(\u013d"+
+		"\3\2\2\2*\u0148\3\2\2\2,-\b\2\1\2-.\5\4\3\2./\b\2\1\2/\60\3\2\2\2\60\61"+
+		"\7\2\2\3\61\62\b\2\1\2\62\3\3\2\2\2\63:\b\3\1\2\64\65\5\6\4\2\65\66\b"+
+		"\3\1\2\66;\3\2\2\2\678\5\b\5\289\b\3\1\29;\3\2\2\2:\64\3\2\2\2:\67\3\2"+
+		"\2\2;<\3\2\2\2<:\3\2\2\2<=\3\2\2\2=\5\3\2\2\2>?\7\b\2\2?@\5\16\b\2@A\7"+
+		"\4\2\2AB\5\4\3\2BC\7\5\2\2CD\b\4\1\2D\7\3\2\2\2EF\5\n\6\2FG\7\22\2\2G"+
+		"H\5\16\b\2HI\7\t\2\2IJ\5\22\n\2JK\7\25\2\2KL\b\5\1\2L\t\3\2\2\2Ml\b\6"+
+		"\1\2NO\7\24\2\2OQ\b\6\1\2PN\3\2\2\2PQ\3\2\2\2QR\3\2\2\2RS\7\27\2\2ST\7"+
+		"\17\2\2TU\5\32\16\2UV\7\20\2\2VW\b\6\1\2Wm\3\2\2\2XY\7\24\2\2Y[\b\6\1"+
+		"\2ZX\3\2\2\2Z[\3\2\2\2[\\\3\2\2\2\\]\7\30\2\2]^\7\17\2\2^_\5\32\16\2_"+
+		"`\7\20\2\2`a\b\6\1\2am\3\2\2\2bc\7%\2\2cd\7\17\2\2de\5\32\16\2ef\7\21"+
+		"\2\2fg\5\f\7\2gh\7\21\2\2hi\5\32\16\2ij\7\20\2\2jk\b\6\1\2km\3\2\2\2l"+
+		"P\3\2\2\2lZ\3\2\2\2lb\3\2\2\2m\13\3\2\2\2no\7\31\2\2os\b\7\1\2pq\7\32"+
+		"\2\2qs\b\7\1\2rn\3\2\2\2rp\3\2\2\2s\r\3\2\2\2tu\5\20\t\2uv\b\b\1\2v\u008f"+
+		"\3\2\2\2wx\7\'\2\2x\u008f\b\b\1\2yz\5\20\t\2z{\7\21\2\2{|\5\16\b\2|}\b"+
+		"\b\1\2}\u008f\3\2\2\2~\177\7\24\2\2\177\u0080\5\20\t\2\u0080\u0081\b\b"+
+		"\1\2\u0081\u008f\3\2\2\2\u0082\u0083\7\24\2\2\u0083\u0084\5\20\t\2\u0084"+
+		"\u0085\7\21\2\2\u0085\u0086\5\16\b\2\u0086\u0087\b\b\1\2\u0087\u008f\3"+
+		"\2\2\2\u0088\u0089\7\24\2\2\u0089\u008a\7\17\2\2\u008a\u008b\5\16\b\2"+
+		"\u008b\u008c\7\20\2\2\u008c\u008d\b\b\1\2\u008d\u008f\3\2\2\2\u008et\3"+
+		"\2\2\2\u008ew\3\2\2\2\u008ey\3\2\2\2\u008e~\3\2\2\2\u008e\u0082\3\2\2"+
+		"\2\u008e\u0088\3\2\2\2\u008f\17\3\2\2\2\u0090\u0091\7\33\2\2\u0091\u0092"+
+		"\7\17\2\2\u0092\u0093\5\24\13\2\u0093\u0094\7\20\2\2\u0094\u0095\b\t\1"+
+		"\2\u0095\u00af\3\2\2\2\u0096\u0097\7\34\2\2\u0097\u0098\7\17\2\2\u0098"+
+		"\u0099\5\24\13\2\u0099\u009a\7\20\2\2\u009a\u009b\b\t\1\2\u009b\u00af"+
+		"\3\2\2\2\u009c\u009d\7\35\2\2\u009d\u009e\7\17\2\2\u009e\u009f\5\24\13"+
+		"\2\u009f\u00a0\7\20\2\2\u00a0\u00a1\b\t\1\2\u00a1\u00af\3\2\2\2\u00a2"+
+		"\u00a3\7\36\2\2\u00a3\u00a4\7\17\2\2\u00a4\u00a5\5\24\13\2\u00a5\u00a6"+
+		"\7\20\2\2\u00a6\u00a7\b\t\1\2\u00a7\u00af\3\2\2\2\u00a8\u00a9\7\37\2\2"+
+		"\u00a9\u00aa\7\17\2\2\u00aa\u00ab\5\32\16\2\u00ab\u00ac\7\20\2\2\u00ac"+
+		"\u00ad\b\t\1\2\u00ad\u00af\3\2\2\2\u00ae\u0090\3\2\2\2\u00ae\u0096\3\2"+
+		"\2\2\u00ae\u009c\3\2\2\2\u00ae\u00a2\3\2\2\2\u00ae\u00a8\3\2\2\2\u00af"+
+		"\21\3\2\2\2\u00b0\u00b1\7\"\2\2\u00b1\u00b2\7\17\2\2\u00b2\u00b3\5\32"+
+		"\16\2\u00b3\u00b4\7\20\2\2\u00b4\u00b5\b\n\1\2\u00b5\u00d1\3\2\2\2\u00b6"+
+		"\u00b7\7#\2\2\u00b7\u00b8\7\17\2\2\u00b8\u00b9\5\32\16\2\u00b9\u00ba\7"+
+		"\20\2\2\u00ba\u00bb\b\n\1\2\u00bb\u00d1\3\2\2\2\u00bc\u00bd\7$\2\2\u00bd"+
+		"\u00be\7\17\2\2\u00be\u00bf\5\32\16\2\u00bf\u00c0\7\20\2\2\u00c0\u00c1"+
+		"\b\n\1\2\u00c1\u00d1\3\2\2\2\u00c2\u00c3\7&\2\2\u00c3\u00c4\7\17\2\2\u00c4"+
+		"\u00c5\5\32\16\2\u00c5\u00c6\7\20\2\2\u00c6\u00c7\b\n\1\2\u00c7\u00d1"+
+		"\3\2\2\2\u00c8\u00c9\7%\2\2\u00c9\u00ca\7\17\2\2\u00ca\u00cb\5\32\16\2"+
+		"\u00cb\u00cc\7\21\2\2\u00cc\u00cd\5\20\t\2\u00cd\u00ce\7\20\2\2\u00ce"+
+		"\u00cf\b\n\1\2\u00cf\u00d1\3\2\2\2\u00d0\u00b0\3\2\2\2\u00d0\u00b6\3\2"+
+		"\2\2\u00d0\u00bc\3\2\2\2\u00d0\u00c2\3\2\2\2\u00d0\u00c8\3\2\2\2\u00d1"+
+		"\23\3\2\2\2\u00d2\u00d3\5\26\f\2\u00d3\u00d4\b\13\1\2\u00d4\25\3\2\2\2"+
+		"\u00d5\u00d6\7\21\2\2\u00d6\u00d7\5\26\f\2\u00d7\u00d8\b\f\1\2\u00d8\u00ed"+
+		"\3\2\2\2\u00d9\u00da\7\23\2\2\u00da\u00db\5\26\f\2\u00db\u00dc\b\f\1\2"+
+		"\u00dc\u00ed\3\2\2\2\u00dd\u00de\7\17\2\2\u00de\u00df\5\26\f\2\u00df\u00e0"+
+		"\7\20\2\2\u00e0\u00e1\5\26\f\2\u00e1\u00e2\b\f\1\2\u00e2\u00ed\3\2\2\2"+
+		"\u00e3\u00e4\7-\2\2\u00e4\u00e5\5\26\f\2\u00e5\u00e6\b\f\1\2\u00e6\u00ed"+
+		"\3\2\2\2\u00e7\u00e8\5\30\r\2\u00e8\u00e9\5\26\f\2\u00e9\u00ea\b\f\1\2"+
+		"\u00ea\u00ed\3\2\2\2\u00eb\u00ed\3\2\2\2\u00ec\u00d5\3\2\2\2\u00ec\u00d9"+
+		"\3\2\2\2\u00ec\u00dd\3\2\2\2\u00ec\u00e3\3\2\2\2\u00ec\u00e7\3\2\2\2\u00ec"+
+		"\u00eb\3\2\2\2\u00ed\27\3\2\2\2\u00ee\u00ef\5\32\16\2\u00ef\u00f0\7\3"+
+		"\2\2\u00f0\u00f1\5\32\16\2\u00f1\u00f2\7+\2\2\u00f2\u00f3\5\32\16\2\u00f3"+
+		"\u00f4\b\r\1\2\u00f4\u00fe\3\2\2\2\u00f5\u00f6\5\32\16\2\u00f6\u00f7\b"+
+		"\r\1\2\u00f7\u00fe\3\2\2\2\u00f8\u00f9\5\32\16\2\u00f9\u00fa\7,\2\2\u00fa"+
+		"\u00fb\5\32\16\2\u00fb\u00fc\b\r\1\2\u00fc\u00fe\3\2\2\2\u00fd\u00ee\3"+
+		"\2\2\2\u00fd\u00f5\3\2\2\2\u00fd\u00f8\3\2\2\2\u00fe\31\3\2\2\2\u00ff"+
+		"\u0100\5\20\t\2\u0100\u0101\b\16\1\2\u0101\u010f\3\2\2\2\u0102\u0103\5"+
+		"\"\22\2\u0103\u0104\b\16\1\2\u0104\u010f\3\2\2\2\u0105\u0106\5\34\17\2"+
+		"\u0106\u0107\b\16\1\2\u0107\u010f\3\2\2\2\u0108\u0109\5 \21\2\u0109\u010a"+
+		"\b\16\1\2\u010a\u010f\3\2\2\2\u010b\u010c\5\36\20\2\u010c\u010d\b\16\1"+
+		"\2\u010d\u010f\3\2\2\2\u010e\u00ff\3\2\2\2\u010e\u0102\3\2\2\2\u010e\u0105"+
+		"\3\2\2\2\u010e\u0108\3\2\2\2\u010e\u010b\3\2\2\2\u010f\33\3\2\2\2\u0110"+
+		"\u0111\7(\2\2\u0111\u0112\b\17\1\2\u0112\35\3\2\2\2\u0113\u0114\7)\2\2"+
+		"\u0114\u0115\b\20\1\2\u0115\37\3\2\2\2\u0116\u0117\7*\2\2\u0117\u0118"+
+		"\b\21\1\2\u0118!\3\2\2\2\u0119\u011a\7(\2\2\u011a\u011b\7\17\2\2\u011b"+
+		"\u011c\5$\23\2\u011c\u011d\7\20\2\2\u011d\u011e\b\22\1\2\u011e\u0123\3"+
+		"\2\2\2\u011f\u0120\5&\24\2\u0120\u0121\b\22\1\2\u0121\u0123\3\2\2\2\u0122"+
+		"\u0119\3\2\2\2\u0122\u011f\3\2\2\2\u0123#\3\2\2\2\u0124\u012d\b\23\1\2"+
+		"\u0125\u0126\5\32\16\2\u0126\u0127\b\23\1\2\u0127\u012e\3\2\2\2\u0128"+
+		"\u0129\5\32\16\2\u0129\u012a\7\21\2\2\u012a\u012b\5$\23\2\u012b\u012c"+
+		"\b\23\1\2\u012c\u012e\3\2\2\2\u012d\u0125\3\2\2\2\u012d\u0128\3\2\2\2"+
+		"\u012e%\3\2\2\2\u012f\u0130\7\6\2\2\u0130\u0131\5(\25\2\u0131\u0132\7"+
+		"\7\2\2\u0132\u0133\b\24\1\2\u0133\u013c\3\2\2\2\u0134\u0135\7\6\2\2\u0135"+
+		"\u0136\5\32\16\2\u0136\u0137\7\26\2\2\u0137\u0138\5\32\16\2\u0138\u0139"+
+		"\7\7\2\2\u0139\u013a\b\24\1\2\u013a\u013c\3\2\2\2\u013b\u012f\3\2\2\2"+
+		"\u013b\u0134\3\2\2\2\u013c\'\3\2\2\2\u013d\u0146\b\25\1\2\u013e\u013f"+
+		"\5*\26\2\u013f\u0140\b\25\1\2\u0140\u0147\3\2\2\2\u0141\u0142\5*\26\2"+
+		"\u0142\u0143\7\21\2\2\u0143\u0144\5(\25\2\u0144\u0145\b\25\1\2\u0145\u0147"+
+		"\3\2\2\2\u0146\u013e\3\2\2\2\u0146\u0141\3\2\2\2\u0147)\3\2\2\2\u0148"+
+		"\u0149\5\26\f\2\u0149\u014a\b\26\1\2\u014a+\3\2\2\2\22:<PZlr\u008e\u00ae"+
+		"\u00d0\u00ec\u00fd\u010e\u0122\u012d\u013b\u0146";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {

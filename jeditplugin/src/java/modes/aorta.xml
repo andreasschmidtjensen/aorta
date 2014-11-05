@@ -35,6 +35,7 @@
         <!-- special reserved words and operators -->
         <SEQ TYPE="LITERAL2">true</SEQ>
 		
+		<SEQ TYPE="KEYWORD4" AT_WORD_START="TRUE">cap</SEQ>
 		<SEQ TYPE="KEYWORD4" AT_WORD_START="TRUE">bel</SEQ>
 		<SEQ TYPE="KEYWORD4" AT_WORD_START="TRUE">opt</SEQ>
 		<SEQ TYPE="KEYWORD4" AT_WORD_START="TRUE">org</SEQ>

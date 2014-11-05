@@ -7,7 +7,7 @@ package aorta.kr.language.model;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import aorta.kr.language.MetaLanguage;
-import static aorta.kr.util.TermFormatter.toString;
+import aorta.kr.util.TermFormatter;
 
 /**
  *
@@ -50,7 +50,7 @@ public class Obligation implements Comparable<Obligation> {
 
 	@Override
 	public String toString() {
-		return role + ": " + toString(objective) + " < " + toString(deadline) + " | " + toString(condition) + ".";
+		return role + ": " + TermFormatter.toString(objective) + " < " + TermFormatter.toString(deadline) + " | " + TermFormatter.toString(condition) + ".";
 	}
 
 	@Override

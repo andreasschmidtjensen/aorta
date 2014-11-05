@@ -52,14 +52,6 @@ public class AORTABaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitActs(@NotNull AORTAParser.ActsContext ctx) { return visitChildren(ctx); }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.
-	 */
 	@Override public T visitTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx) { return visitChildren(ctx); }
 
 	/**
@@ -101,6 +93,22 @@ public class AORTABaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitNumber(@NotNull AORTAParser.NumberContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitActRule(@NotNull AORTAParser.ActRuleContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitRules(@NotNull AORTAParser.RulesContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}
@@ -164,15 +172,7 @@ public class AORTABaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
-	@Override public T visitAct(@NotNull AORTAParser.ActContext ctx) { return visitChildren(ctx); }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.
-	 */
-	@Override public T visitActionRules(@NotNull AORTAParser.ActionRulesContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIfRule(@NotNull AORTAParser.IfRuleContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}

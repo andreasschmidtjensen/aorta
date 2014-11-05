@@ -44,13 +44,6 @@ public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
 	T visitAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#acts}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitActs(@NotNull AORTAParser.ActsContext ctx);
-
-	/**
 	 * Visit a parse tree produced by {@link AORTAParser#termBuilder}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -91,6 +84,20 @@ public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNumber(@NotNull AORTAParser.NumberContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AORTAParser#actRule}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitActRule(@NotNull AORTAParser.ActRuleContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AORTAParser#rules}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRules(@NotNull AORTAParser.RulesContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link AORTAParser#prolog2}.
@@ -142,18 +149,11 @@ public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
 	T visitAction(@NotNull AORTAParser.ActionContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#act}.
+	 * Visit a parse tree produced by {@link AORTAParser#ifRule}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAct(@NotNull AORTAParser.ActContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link AORTAParser#actionRules}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitActionRules(@NotNull AORTAParser.ActionRulesContext ctx);
+	T visitIfRule(@NotNull AORTAParser.IfRuleContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link AORTAParser#illForce}.

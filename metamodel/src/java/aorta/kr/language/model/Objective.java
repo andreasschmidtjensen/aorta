@@ -7,9 +7,9 @@ package aorta.kr.language.model;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import aorta.kr.language.MetaLanguage;
+import aorta.kr.util.TermFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import static aorta.kr.util.TermFormatter.toString;
 
 /**
  *
@@ -49,14 +49,14 @@ public class Objective {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(toString(objective));
+		sb.append(TermFormatter.toString(objective));
 		if (!subObjectives.isEmpty()) {
 			sb.append(":\n");
 			for (int i = 0; i < subObjectives.size(); i++) {
 				if (i > 0) {
 					sb.append(";\n");
 				}
-				sb.append("\t").append(toString(subObjectives.get(i)));
+				sb.append("\t").append(TermFormatter.toString(subObjectives.get(i)));
 			}
 		}
 		sb.append(".");

@@ -49,17 +49,6 @@ public interface AORTAListener extends ParseTreeListener {
 	void exitAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#acts}.
-	 * @param ctx the parse tree
-	 */
-	void enterActs(@NotNull AORTAParser.ActsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link AORTAParser#acts}.
-	 * @param ctx the parse tree
-	 */
-	void exitActs(@NotNull AORTAParser.ActsContext ctx);
-
-	/**
 	 * Enter a parse tree produced by {@link AORTAParser#termBuilder}.
 	 * @param ctx the parse tree
 	 */
@@ -124,6 +113,28 @@ public interface AORTAListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitNumber(@NotNull AORTAParser.NumberContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link AORTAParser#actRule}.
+	 * @param ctx the parse tree
+	 */
+	void enterActRule(@NotNull AORTAParser.ActRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AORTAParser#actRule}.
+	 * @param ctx the parse tree
+	 */
+	void exitActRule(@NotNull AORTAParser.ActRuleContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link AORTAParser#rules}.
+	 * @param ctx the parse tree
+	 */
+	void enterRules(@NotNull AORTAParser.RulesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AORTAParser#rules}.
+	 * @param ctx the parse tree
+	 */
+	void exitRules(@NotNull AORTAParser.RulesContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link AORTAParser#prolog2}.
@@ -203,26 +214,15 @@ public interface AORTAListener extends ParseTreeListener {
 	void exitAction(@NotNull AORTAParser.ActionContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#act}.
+	 * Enter a parse tree produced by {@link AORTAParser#ifRule}.
 	 * @param ctx the parse tree
 	 */
-	void enterAct(@NotNull AORTAParser.ActContext ctx);
+	void enterIfRule(@NotNull AORTAParser.IfRuleContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AORTAParser#act}.
+	 * Exit a parse tree produced by {@link AORTAParser#ifRule}.
 	 * @param ctx the parse tree
 	 */
-	void exitAct(@NotNull AORTAParser.ActContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link AORTAParser#actionRules}.
-	 * @param ctx the parse tree
-	 */
-	void enterActionRules(@NotNull AORTAParser.ActionRulesContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link AORTAParser#actionRules}.
-	 * @param ctx the parse tree
-	 */
-	void exitActionRules(@NotNull AORTAParser.ActionRulesContext ctx);
+	void exitIfRule(@NotNull AORTAParser.IfRuleContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link AORTAParser#illForce}.

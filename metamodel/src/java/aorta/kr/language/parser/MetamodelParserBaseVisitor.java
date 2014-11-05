@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\Metamodel.g4 by ANTLR 4.1
+// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\MetamodelParser.g4 by ANTLR 4.1
 package aorta.kr.language.parser;
 
 	import alice.tuprolog.Number;
@@ -16,14 +16,14 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
- * This class provides an empty implementation of {@link MetamodelVisitor},
+ * This class provides an empty implementation of {@link MetamodelParserVisitor},
  * which can be extended to create a visitor which only needs to handle a subset
  * of the available methods.
  *
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
-public class MetamodelBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements MetamodelVisitor<T> {
+public class MetamodelParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements MetamodelParserVisitor<T> {
 	/**
 	 * {@inheritDoc}
 	 * <p/>

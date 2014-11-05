@@ -7,7 +7,7 @@ package aorta.kr.language.model;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import aorta.kr.language.MetaLanguage;
-import static aorta.kr.util.TermFormatter.toString;
+import aorta.kr.util.TermFormatter;
 
 /**
  *
@@ -44,7 +44,7 @@ public class Dependency {
 
 	@Override
 	public String toString() {
-		return dependant + " > " + dependee + ": " + toString(objective) + ".";
+		return dependant + " > " + dependee + ": " + TermFormatter.toString(objective) + ".";
 	}
 	
 }

@@ -134,7 +134,7 @@ public class MetaLanguage {
 					String functor = struct.getName();
 					Struct queryAsList = TermQualifier.toList(struct);
 					Struct arguments = queryAsList.listTail();
-					Struct qualifiedArguments = (Struct) qualify(arguments);
+					Struct qualifiedArguments = (Struct) qualify(arguments, qualifyBel);
 					Struct rebuiltList = new Struct();
 					rebuiltList.append(new Struct(functor));
 					Iterator<? extends Term> it = qualifiedArguments.listIterator();
@@ -146,12 +146,12 @@ public class MetaLanguage {
 					Struct newList = new Struct();
 					Iterator<? extends Term> it = struct.listIterator();
 					while (it.hasNext()) {
-						newList.append(qualify(it.next()));
+						newList.append(qualify(it.next(), qualifyBel));
 					}
 					qualified = newList;
 			
 				} else if (struct.getArity() == 2 && ",".equals(struct.getName()) || ";".equals(struct.getName())) {
-					qualified = new Struct(struct.getName(), qualify(struct.getArg(0)), qualify(struct.getArg(1)));
+					qualified = new Struct(struct.getName(), qualify(struct.getArg(0), qualifyBel), qualify(struct.getArg(1), qualifyBel));
 				} else if (inML(term)) {
 					qualified = new Struct("org", term);
 				} else {

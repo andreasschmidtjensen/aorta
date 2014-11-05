@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\Metamodel.g4 by ANTLR 4.1
+// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\MetamodelParser.g4 by ANTLR 4.1
 package aorta.kr.language.parser;
 
 	import alice.tuprolog.Number;
@@ -19,7 +19,7 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  * This interface defines a complete listener for a parse tree produced by
  * {@link MetamodelParser}.
  */
-public interface MetamodelListener extends ParseTreeListener {
+public interface MetamodelParserListener extends ParseTreeListener {
 	/**
 	 * Enter a parse tree produced by {@link MetamodelParser#metamodel}.
 	 * @param ctx the parse tree

@@ -27,16 +27,28 @@ import java.io.IOException;
 aortaAgent[String name] returns [AgentBuilder agent] 
 	: {
 	   Initialization init = new Initialization();
-	   List<ActionRule> actRules = new ArrayList<>();
+	   List<ReasoningRule> rules = new ArrayList<>();
 	   } 
-	(actionRules {actRules = $actionRules.rules;})
+	(r=rules {rules = $r.r;})
 	EOF
 	{
-	 
-	 $agent = new AgentBuilder(name, init, actRules);  
+	 $agent = new AgentBuilder(name, init, rules);  
 	 }
 ;
-actionRules returns [List<ActionRule> rules] 
+rules returns [List<ReasoningRule> r]
+    :  { $r = new ArrayList<>(); }
+    ( ifRule { $r.add($ifRule.rule); }
+    | actRule { $r.add($actRule.rule); } )+;
+
+ifRule returns [IfRule rule]
+    : IF formulas START_BLOCK rules END_BLOCK
+      { $rule = new IfRule($formulas.fml, $rules.r); }
+;
+actRule returns [ActionRule rule]
+    : option COLON formulas EXECUTE action FULLSTOP
+	  { $rule = new ActionRule($option.fml, $formulas.fml, $action.aa); }
+;
+/*actionRules returns [List<ActionRule> rules] 
 	: acts
 	  { $rules = $acts.rules; }
 ;
@@ -48,6 +60,7 @@ act returns [ActionRule rule]
 	: option COLON formulas EXECUTE action FULLSTOP
 	  { $rule = new ActionRule($option.fml, $formulas.fml, $action.aa); }
 ;
+*/
 
 option returns [Term fml] 
 	: {boolean pos = true;}
@@ -69,11 +82,12 @@ formulas returns [Formula fml]
 	| NOT formula COMMA fmls=formulas { $fml = new ConjunctFormula(new NegatedFormula($formula.fml), $fmls.fml); }	  
 	| NOT START fmls=formulas END { $fml = new NegatedFormula($fmls.fml); }
 	);
-formula returns [ReasoningFormula fml]
+formula returns [Formula fml]
 	: (OPT START prolog END { $fml = new OptionFormula($prolog.fml); }
 	  | BEL START prolog END { $fml = new BeliefFormula($prolog.fml); }
 	  | GOAL START prolog END { $fml = new GoalFormula($prolog.fml); }
-	  | ORG START prolog END  { $fml = new OrganizationalFormula($prolog.fml); });
+	  | ORG START prolog END  { $fml = new OrganizationalFormula($prolog.fml); }
+	  | CAP START term END { $fml = new CapabilityFormula($term.fml); } );
 action returns [Action aa]
 	: ( ENACT START pl=term END { $aa = new EnactAction($pl.fml); }
       | DEACT START pl=term END { $aa = new DeactAction($pl.fml); }
@@ -95,7 +109,7 @@ termBuilder returns [Term fml]
 	| term { $fml = $term.fml; }
 	| t1=term BINARY_OP t2=term { $fml = new Struct($BINARY_OP.text, $t1.fml, $t2.fml); } );
 term returns [Term fml]
-	: (formula {$fml = new Struct($formula.fml.getType(), $formula.fml.getFormula());}
+	: (formula {$fml = new Struct(((ReasoningFormula)$formula.fml).getType(), ((ReasoningFormula)$formula.fml).getFormula());}
 	  | struct {$fml = $struct.fml;}
 	  | atom {$fml = $atom.fml;}
 	  | var {$fml = $var.fml;}
@@ -125,16 +139,12 @@ START_BLOCK: '{';
 END_BLOCK: '}';
 START_BRACKET: '[';
 END_BRACKET: ']';
+IF: 'if';
 EXECUTE: '=>' {action = true;};
-INIT_BLOCK: 'init' {init = true;}; 
 ORGANIZATION : 'organization';
 PATH: 'path';
 TYPE: 'type';
-ORGANIZATION_TYPE: ('generic'|'opera');
-STRATEGY: 'strategy';
-OPT_BLOCK: 'options';
 ACT_BLOCK: 'actions';
-COORDINATION_BLOCK: 'coordination';
 EQUALS: '=';
 START : '(';
 END : ')';
@@ -152,6 +162,7 @@ OPT : 'opt';
 BEL : 'bel';
 GOAL : 'goal';
 ORG : 'org';
+CAP : 'cap';
 CONSIDER: 'consider';
 DISREGARD: 'disregard';
 ENACT: 'enact';

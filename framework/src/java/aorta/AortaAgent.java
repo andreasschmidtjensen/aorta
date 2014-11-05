@@ -8,13 +8,13 @@ import java.util.List;
 import aorta.kr.MentalState;
 import aorta.kr.util.FormulaQualifier;
 import aorta.msg.OutgoingOrganizationalMessage;
-import aorta.reasoning.ActionRule;
 import aorta.ts.strategy.Strategy;
 import aorta.ts.strategy.StrategyFailedException;
 import java.util.Iterator;
 import java.util.logging.Level;
 import aorta.logging.Logger;
 import aorta.reasoning.MessageFunction;
+import aorta.reasoning.ReasoningRule;
 import aorta.tracer.Tracer;
 import java.util.ArrayList;
 
@@ -34,11 +34,11 @@ public class AortaAgent {
 	
 	private boolean lastCycleChangedState = true;
 
-	public AortaAgent(String name, MentalState mentalState, List<ActionRule> actionRules, Strategy strategy) {
+	public AortaAgent(String name, MentalState mentalState, List<ReasoningRule> rules, Strategy strategy) {
 		this.name = name;
 		this.strategy = strategy;
 
-		state = new AgentState(this, mentalState, actionRules);
+		state = new AgentState(this, mentalState, rules);
 
 		setup();
 	}
@@ -51,7 +51,7 @@ public class AortaAgent {
 	}
 
 	private void setup() {
-		state.getMentalState().setAgent(this);
+		state.getMentalState().addAgentOwnName(name);
 	}
 
 	public AgentState getState() {
@@ -128,7 +128,7 @@ public class AortaAgent {
 	@Override
 	public String toString() {
 		String actRules = "";
-		for (ActionRule r : state.getActionRules()) {
+		for (ReasoningRule r : state.getRules()) {
 			actRules += " > " + r.toString() + "\n";
 		}
 		return "Agent: " + name + "\n"

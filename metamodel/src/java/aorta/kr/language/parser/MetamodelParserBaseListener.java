@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\Metamodel.g4 by ANTLR 4.1
+// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\MetamodelParser.g4 by ANTLR 4.1
 package aorta.kr.language.parser;
 
 	import alice.tuprolog.Number;
@@ -19,11 +19,11 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link MetamodelListener},
+ * This class provides an empty implementation of {@link MetamodelParserListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class MetamodelBaseListener implements MetamodelListener {
+public class MetamodelParserBaseListener implements MetamodelParserListener {
 	/**
 	 * {@inheritDoc}
 	 * <p/>

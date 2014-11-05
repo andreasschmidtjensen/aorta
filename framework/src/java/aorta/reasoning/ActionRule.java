@@ -4,7 +4,7 @@ import alice.tuprolog.Term;
 import aorta.reasoning.action.Action;
 import aorta.reasoning.fml.Formula;
 
-public class ActionRule  {
+public class ActionRule implements ReasoningRule {
 	
 	protected Term option;
 	protected Formula context;

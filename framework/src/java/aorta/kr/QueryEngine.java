@@ -1,6 +1,5 @@
 package aorta.kr;
 
-import alice.tuprolog.ClauseInfo;
 import aorta.kr.util.FormulaQualifier;
 import java.util.ArrayList;
 import java.util.List;

@@ -16,16 +16,18 @@
 		<!-- Full path to Antlr jar -->
 		<property name="antlr-4.1-complete.jar" location="../lib/framework/antlr-4.1-complete.jar"/>
 		<!-- Grammar path -->
-		<property name="antlr.grammar" location="src/java/aorta/kr/language/parser/Metamodel.g4"/>
-		<!--<property name="antlr.lexer" location="src/trouble/lang/TroublesL.g4"/>-->
+		<property name="antlr.grammar" location="src/java/aorta/kr/language/parser/MetamodelParser.g4"/>
+		<property name="antlr.lexer" location="src/java/aorta/kr/language/parser/MetamodelLexer.g4"/>
 	</target>
 
 	<target name="antlr" depends="init-antlr" unless="up-to-date">
 		<!-- Compiling grammar -->
 		<java classname="org.antlr.v4.Tool"  fork="true">
+			<arg value="${antlr.lexer}"/>
 			<arg value="${antlr.grammar}"/>
-			<!--<arg value="${antlr.lexer}"/>-->
 			<arg value="-visitor"/>
+			<arg value="-lib"/>
+			<arg value="src/java/aorta/kr/language/parser/"/>
 			<arg value="-package"/>
 			<arg value="aorta.kr.language.parser"/>
 			<classpath path="${antlr-4.1-complete.jar}"/>
