@@ -3,22 +3,23 @@
   <net.sf.ictalive.operetta:OperAModel xmi:id="_audLMFoaEeSE5p3c6u1O_A" Name="New OperA Model">
     <om xmi:type="net.sf.ictalive.operetta:OM" xmi:id="_audyQFoaEeSE5p3c6u1O_A">
       <ss xmi:type="net.sf.ictalive.operetta:SS" xmi:id="_audyQVoaEeSE5p3c6u1O_A">
-        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_kGAwcFoaEeSE5p3c6u1O_A" Name="Commander" conceptName="_wBZDoFrmEeSE5p3c6u1O_A" objectives="_umMxsFoaEeSE5p3c6u1O_A _-R6coFoaEeSE5p3c6u1O_A"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_kGAwcFoaEeSE5p3c6u1O_A" Name="Commander" conceptName="_wBZDoFrmEeSE5p3c6u1O_A" objectives="_umMxsFoaEeSE5p3c6u1O_A _-R6coFoaEeSE5p3c6u1O_A _KyBuQFobEeSE5p3c6u1O_A _GKDdkFobEeSE5p3c6u1O_A"/>
         <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_l3WyQFoaEeSE5p3c6u1O_A" Name="Gatherer" conceptName="_mqXjkFoaEeSE5p3c6u1O_A" objectives="_5wguAFoaEeSE5p3c6u1O_A"/>
         <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_oHFZMFoaEeSE5p3c6u1O_A" Name="Repairer" conceptName="_olsAwFoaEeSE5p3c6u1O_A" objectives="_8MY6kFoaEeSE5p3c6u1O_A"/>
         <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_pFErcFoaEeSE5p3c6u1O_A" Name="Defender" conceptName="_pyFicFoaEeSE5p3c6u1O_A" objectives="_-R6coFoaEeSE5p3c6u1O_A"/>
         <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_qaVOMFoaEeSE5p3c6u1O_A" Name="Attacker" conceptName="_q05qUFoaEeSE5p3c6u1O_A" objectives="_umMxsFoaEeSE5p3c6u1O_A _XhayAFobEeSE5p3c6u1O_A"/>
         <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_Yl3tAFrpEeSE5p3c6u1O_A" Name="Explorer" conceptName="_ZLNOsFrpEeSE5p3c6u1O_A" objectives="_XhayAFobEeSE5p3c6u1O_A"/>
-        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_umMxsFoaEeSE5p3c6u1O_A" Name="Eliminate_enemy" conceptName="_vtUKwFoaEeSE5p3c6u1O_A" subObjectives="_zmFMEFoaEeSE5p3c6u1O_A _XhayAFobEeSE5p3c6u1O_A _8MY6kFoaEeSE5p3c6u1O_A"/>
-        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_rBRc8FobEeSE5p3c6u1O_A" Name="Build_offensive_unit" conceptName="_rulO4FobEeSE5p3c6u1O_A"/>
-        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_KyBuQFobEeSE5p3c6u1O_A" Name="Build_repairer" conceptName="_Mk6oMFobEeSE5p3c6u1O_A"/>
-        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_XhayAFobEeSE5p3c6u1O_A" Name="Find_enemy" conceptName="_yifBEFoaEeSE5p3c6u1O_A"/>
-        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_GKDdkFobEeSE5p3c6u1O_A" Name="Build_gatherer" conceptName="_Jzj64FobEeSE5p3c6u1O_A"/>
-        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_5wguAFoaEeSE5p3c6u1O_A" Name="Gather_resources" conceptName="_64CWwFoaEeSE5p3c6u1O_A" subObjectives="_GKDdkFobEeSE5p3c6u1O_A"/>
-        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_zmFMEFoaEeSE5p3c6u1O_A" Name="Build_army" conceptName="_40o7oFoaEeSE5p3c6u1O_A" subObjectives="_5wguAFoaEeSE5p3c6u1O_A _rBRc8FobEeSE5p3c6u1O_A"/>
-        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_8MY6kFoaEeSE5p3c6u1O_A" Name="Repair_unit" conceptName="_9e_x8FoaEeSE5p3c6u1O_A" subObjectives="_KyBuQFobEeSE5p3c6u1O_A _5wguAFoaEeSE5p3c6u1O_A"/>
-        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_-R6coFoaEeSE5p3c6u1O_A" Name="Defend_base" conceptName="__akGwFoaEeSE5p3c6u1O_A" subObjectives="_Bmqx8FobEeSE5p3c6u1O_A _8MY6kFoaEeSE5p3c6u1O_A"/>
-        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_Bmqx8FobEeSE5p3c6u1O_A" Name="Build_defensive_unit" conceptName="_D6-98FobEeSE5p3c6u1O_A"/>
+        <roles xmi:type="net.sf.ictalive.operetta:Role" xmi:id="_NZGmEGAtEeSt4ojym2pfIw" Name="Builder" conceptName="_Nwub4GAtEeSt4ojym2pfIw" objectives="_-R6coFoaEeSE5p3c6u1O_A"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_umMxsFoaEeSE5p3c6u1O_A" Name="Eliminate_enemy" conceptName="_vtUKwFoaEeSE5p3c6u1O_A" stateDescription="_YDRa4F9KEeSKqPICKDDrlA" subObjectives="_zmFMEFoaEeSE5p3c6u1O_A _XhayAFobEeSE5p3c6u1O_A _8MY6kFoaEeSE5p3c6u1O_A"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_rBRc8FobEeSE5p3c6u1O_A" Name="Build_offensive_unit" conceptName="_rulO4FobEeSE5p3c6u1O_A" stateDescription="_o28MYF9KEeSKqPICKDDrlA"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_KyBuQFobEeSE5p3c6u1O_A" Name="Build_repairer" conceptName="_Mk6oMFobEeSE5p3c6u1O_A" stateDescription="_tkaoIF9KEeSKqPICKDDrlA"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_XhayAFobEeSE5p3c6u1O_A" Name="Find_enemy" conceptName="_yifBEFoaEeSE5p3c6u1O_A" stateDescription="_qL3_AF9KEeSKqPICKDDrlA"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_GKDdkFobEeSE5p3c6u1O_A" Name="Build_gatherer" conceptName="_Jzj64FobEeSE5p3c6u1O_A" stateDescription="_mNUewF9KEeSKqPICKDDrlA"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_5wguAFoaEeSE5p3c6u1O_A" Name="Gather_resources" conceptName="_64CWwFoaEeSE5p3c6u1O_A" stateDescription="_kaQlsF9KEeSKqPICKDDrlA" subObjectives="_GKDdkFobEeSE5p3c6u1O_A"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_zmFMEFoaEeSE5p3c6u1O_A" Name="Build_army" conceptName="_40o7oFoaEeSE5p3c6u1O_A" stateDescription="_eywKoF9KEeSKqPICKDDrlA" subObjectives="_5wguAFoaEeSE5p3c6u1O_A _rBRc8FobEeSE5p3c6u1O_A"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_8MY6kFoaEeSE5p3c6u1O_A" Name="Repair_unit" conceptName="_9e_x8FoaEeSE5p3c6u1O_A" stateDescription="_sYyigF9KEeSKqPICKDDrlA" subObjectives="_KyBuQFobEeSE5p3c6u1O_A _5wguAFoaEeSE5p3c6u1O_A"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_-R6coFoaEeSE5p3c6u1O_A" Name="Defend_base" conceptName="__akGwFoaEeSE5p3c6u1O_A" stateDescription="_wSafcF9KEeSKqPICKDDrlA" subObjectives="_Bmqx8FobEeSE5p3c6u1O_A _8MY6kFoaEeSE5p3c6u1O_A"/>
+        <objectives xmi:type="net.sf.ictalive.operetta:Objective" xmi:id="_Bmqx8FobEeSE5p3c6u1O_A" Name="Build_defensive_unit" conceptName="_D6-98FobEeSE5p3c6u1O_A" stateDescription="_xuO9MF9KEeSKqPICKDDrlA"/>
         <dependencies xmi:type="net.sf.ictalive.operetta:MarketDependency" xmi:id="_97oJ4FrmEeSE5p3c6u1O_A" ID="D821" ObjectOfDependency="_5wguAFoaEeSE5p3c6u1O_A" Dependant="_kGAwcFoaEeSE5p3c6u1O_A" Dependee="_l3WyQFoaEeSE5p3c6u1O_A"/>
         <dependencies xmi:type="net.sf.ictalive.operetta:MarketDependency" xmi:id="_INNucFrnEeSE5p3c6u1O_A" ID="D824" ObjectOfDependency="_8MY6kFoaEeSE5p3c6u1O_A" Dependant="_pFErcFoaEeSE5p3c6u1O_A" Dependee="_oHFZMFoaEeSE5p3c6u1O_A"/>
         <dependencies xmi:type="net.sf.ictalive.operetta:MarketDependency" xmi:id="_LMsXUFrnEeSE5p3c6u1O_A" ID="D826" ObjectOfDependency="_8MY6kFoaEeSE5p3c6u1O_A" Dependant="_qaVOMFoaEeSE5p3c6u1O_A" Dependee="_oHFZMFoaEeSE5p3c6u1O_A"/>
@@ -27,6 +28,8 @@
         <dependencies xmi:type="net.sf.ictalive.operetta:MarketDependency" xmi:id="_C03UQFroEeSE5p3c6u1O_A" ID="D1092" ObjectOfDependency="_umMxsFoaEeSE5p3c6u1O_A" Dependant="_kGAwcFoaEeSE5p3c6u1O_A" Dependee="_qaVOMFoaEeSE5p3c6u1O_A"/>
         <dependencies xmi:type="net.sf.ictalive.operetta:MarketDependency" xmi:id="_lW2sMFrpEeSE5p3c6u1O_A" ID="D1153" ObjectOfDependency="_XhayAFobEeSE5p3c6u1O_A" Dependant="_kGAwcFoaEeSE5p3c6u1O_A" Dependee="_Yl3tAFrpEeSE5p3c6u1O_A"/>
         <dependencies xmi:type="net.sf.ictalive.operetta:MarketDependency" xmi:id="_nxuzMFrpEeSE5p3c6u1O_A" ID="D1154" ObjectOfDependency="_XhayAFobEeSE5p3c6u1O_A" Dependant="_qaVOMFoaEeSE5p3c6u1O_A" Dependee="_Yl3tAFrpEeSE5p3c6u1O_A"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:MarketDependency" xmi:id="_O1GC8GAtEeSt4ojym2pfIw" ID="D60" ObjectOfDependency="_-R6coFoaEeSE5p3c6u1O_A" Dependant="_pFErcFoaEeSE5p3c6u1O_A" Dependee="_NZGmEGAtEeSt4ojym2pfIw"/>
+        <dependencies xmi:type="net.sf.ictalive.operetta:MarketDependency" xmi:id="_TzmkUGAtEeSt4ojym2pfIw" ID="D79" ObjectOfDependency="_5wguAFoaEeSE5p3c6u1O_A" Dependant="_NZGmEGAtEeSt4ojym2pfIw" Dependee="_kGAwcFoaEeSE5p3c6u1O_A"/>
       </ss>
       <is xmi:type="net.sf.ictalive.operetta:IS" xmi:id="_audyQloaEeSE5p3c6u1O_A">
         <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_audyQ1oaEeSE5p3c6u1O_A" sceneID="start" description="Default start scene of an interaction structure" type="start">
@@ -35,20 +38,36 @@
         <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_audyRVoaEeSE5p3c6u1O_A" sceneID="end" description="Default end scene of an interaction structure" type="end">
           <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_audyRloaEeSE5p3c6u1O_A"/>
         </scenes>
-        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_UoNkoFrpEeSE5p3c6u1O_A" sceneID="Build_base">
-          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_UoNkoVrpEeSE5p3c6u1O_A"/>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_UoNkoFrpEeSE5p3c6u1O_A" sceneID="Build_base" results="_aQ5fEGAFEeShkJhlxUUTmw">
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_UoNkoVrpEeSE5p3c6u1O_A">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_79oU4GAEEeShkJhlxUUTmw" name="build workers" stateDescription="_bib-wGOPEeSt4ojym2pfIw" entails="_GKDdkFobEeSE5p3c6u1O_A _KyBuQFobEeSE5p3c6u1O_A"/>
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_aQ5fEGAFEeShkJhlxUUTmw" name="bunkers" stateDescription="_1TTbA2A9EeSt4ojym2pfIw" entails="_Bmqx8FobEeSE5p3c6u1O_A"/>
+            <landmarkOrder xmi:type="net.sf.ictalive.operetta:PartialOrder" xmi:id="_-sPQMGAEEeShkJhlxUUTmw" from="_79oU4GAEEeShkJhlxUUTmw" to="_aQ5fEGAFEeShkJhlxUUTmw"/>
+          </interactionPattern>
         </scenes>
-        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_WfsDoFrpEeSE5p3c6u1O_A" sceneID="Explore">
-          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_WfsDoVrpEeSE5p3c6u1O_A"/>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_WfsDoFrpEeSE5p3c6u1O_A" sceneID="Explore" results="_JrqLIGAFEeShkJhlxUUTmw">
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_WfsDoVrpEeSE5p3c6u1O_A">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_JrqLIGAFEeShkJhlxUUTmw" name="enemy found" stateDescription="_nZz7oWA9EeSt4ojym2pfIw" entails="_XhayAFobEeSE5p3c6u1O_A"/>
+          </interactionPattern>
         </scenes>
-        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_pIKcoF1EEeSE5p3c6u1O_A" sceneID="Game_ended">
-          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_pIKcoV1EEeSE5p3c6u1O_A"/>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_pIKcoF1EEeSE5p3c6u1O_A" sceneID="Game_ended" results="_iOJpgGAFEeShkJhlxUUTmw">
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_pIKcoV1EEeSE5p3c6u1O_A">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_iOJpgGAFEeShkJhlxUUTmw" name="enemy defeated" stateDescription="_3JgysmAREeShkJhlxUUTmw" entails="_umMxsFoaEeSE5p3c6u1O_A"/>
+          </interactionPattern>
         </scenes>
-        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_HwjiQF1FEeSE5p3c6u1O_A" sceneID="Attack_enemy">
-          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_HwjiQV1FEeSE5p3c6u1O_A"/>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_HwjiQF1FEeSE5p3c6u1O_A" sceneID="Attack_enemy" results="_Uu2y0GAFEeShkJhlxUUTmw" description="">
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_HwjiQV1FEeSE5p3c6u1O_A">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_TsbFcGAFEeShkJhlxUUTmw" name="offensive units" stateDescription="_wwqWQ2A9EeSt4ojym2pfIw" entails="_rBRc8FobEeSE5p3c6u1O_A"/>
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_Uu2y0GAFEeShkJhlxUUTmw" name="attacked enemy" stateDescription="_rqJzcmAREeShkJhlxUUTmw" entails="_zmFMEFoaEeSE5p3c6u1O_A"/>
+            <landmarkOrder xmi:type="net.sf.ictalive.operetta:PartialOrder" xmi:id="_WacK4GAFEeShkJhlxUUTmw" from="_TsbFcGAFEeShkJhlxUUTmw" to="_Uu2y0GAFEeShkJhlxUUTmw"/>
+          </interactionPattern>
         </scenes>
-        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_I-ZOYF1FEeSE5p3c6u1O_A" sceneID="Defend_base">
-          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_I-ZOYV1FEeSE5p3c6u1O_A"/>
+        <scenes xmi:type="net.sf.ictalive.operetta:Scene" xmi:id="_I-ZOYF1FEeSE5p3c6u1O_A" sceneID="Defend_base" results="_b3SOEGAFEeShkJhlxUUTmw">
+          <interactionPattern xmi:type="net.sf.ictalive.operetta:LandmarkPattern" xmi:id="_I-ZOYV1FEeSE5p3c6u1O_A">
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_ZNm2EGAFEeShkJhlxUUTmw" name="defensive units" stateDescription="_4PccAGA9EeSt4ojym2pfIw" entails="_Bmqx8FobEeSE5p3c6u1O_A"/>
+            <landmarks xmi:type="net.sf.ictalive.operetta:Landmark" xmi:id="_b3SOEGAFEeShkJhlxUUTmw" name="bunkers filled" stateDescription="_xxTsAGAeEeSt4ojym2pfIw" entails="_-R6coFoaEeSE5p3c6u1O_A"/>
+            <landmarkOrder xmi:type="net.sf.ictalive.operetta:PartialOrder" xmi:id="_6KcY0GAsEeSt4ojym2pfIw" from="_ZNm2EGAFEeShkJhlxUUTmw" to="_b3SOEGAFEeShkJhlxUUTmw"/>
+          </interactionPattern>
         </scenes>
         <transitions xmi:type="net.sf.ictalive.operetta:Transition" xmi:id="_LruXUF1FEeSE5p3c6u1O_A" transitionID="T14"/>
         <transitions xmi:type="net.sf.ictalive.operetta:Transition" xmi:id="_RF3r0F1FEeSE5p3c6u1O_A" transitionID="T16" transitionType="OR"/>
@@ -67,8 +86,75 @@
         <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_S9nbIF1GEeSE5p3c6u1O_A" arcID="A60" from="_RF3r0F1FEeSE5p3c6u1O_A" to="_HwjiQF1FEeSE5p3c6u1O_A"/>
         <arcs xmi:type="net.sf.ictalive.operetta:TransitionToSceneArc" xmi:id="_TX8msF1GEeSE5p3c6u1O_A" arcID="A61" from="_RF3r0F1FEeSE5p3c6u1O_A" to="_I-ZOYF1FEeSE5p3c6u1O_A"/>
       </is>
-      <ns xmi:type="net.sf.ictalive.operetta:NS" xmi:id="_audyR1oaEeSE5p3c6u1O_A"/>
+      <ns xmi:type="net.sf.ictalive.operetta:NS" xmi:id="_audyR1oaEeSE5p3c6u1O_A">
+        <norms xmi:type="net.sf.ictalive.operetta:Norm" xmi:id="_e6_dkGAvEeSt4ojym2pfIw" normID="repair" activationCondition="_imGdYmAvEeSt4ojym2pfIw" deadline="_o2NwlWAvEeSt4ojym2pfIw">
+          <deontics xmi:type="net.sf.ictalive.operetta:RoleDeonticStatement" xmi:id="_prfLsGAvEeSt4ojym2pfIw" what="_rxOJIGAvEeSt4ojym2pfIw" role="_oHFZMFoaEeSE5p3c6u1O_A"/>
+        </norms>
+      </ns>
       <cs xmi:type="net.sf.ictalive.operetta:CS" xmi:id="_audySFoaEeSE5p3c6u1O_A">
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_YDRa4F9KEeSKqPICKDDrlA" predicate="enemyEliminated" concept="_YEKywF9KEeSKqPICKDDrlA"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_eywKoF9KEeSKqPICKDDrlA" predicate="armyBuilt" concept="_eywKoV9KEeSKqPICKDDrlA"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_kaQlsF9KEeSKqPICKDDrlA" predicate="resourcesGathered" concept="_kaQlsV9KEeSKqPICKDDrlA"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_mNUewF9KEeSKqPICKDDrlA" predicate="gathererTrained" concept="_mNUewV9KEeSKqPICKDDrlA"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_o28MYF9KEeSKqPICKDDrlA" predicate="offensiveUnitTrained" concept="_o28MYV9KEeSKqPICKDDrlA"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_qL3_AF9KEeSKqPICKDDrlA" predicate="enemyLocated" concept="_qL3_AV9KEeSKqPICKDDrlA"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_sYyigF9KEeSKqPICKDDrlA" predicate="unitRepaired" concept="_sYyigV9KEeSKqPICKDDrlA" arguments="_sYpYkF9KEeSKqPICKDDrlA"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_tkaoIF9KEeSKqPICKDDrlA" predicate="repairerTrained" concept="_tkkZIF9KEeSKqPICKDDrlA"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_wSafcF9KEeSKqPICKDDrlA" predicate="defensesBuilt" concept="_wSafcV9KEeSKqPICKDDrlA"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_xuO9MF9KEeSKqPICKDDrlA" predicate="defensiveUnitTrained" concept="_xuO9MV9KEeSKqPICKDDrlA"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_J6_8wGAHEeShkJhlxUUTmw" predicate="friendly" concept="_J6_8wWAHEeShkJhlxUUTmw" arguments="_J62y0GAHEeShkJhlxUUTmw _J62y0WAHEeShkJhlxUUTmw _J62y02AHEeShkJhlxUUTmw _J62y1GAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_SfDogGAHEeShkJhlxUUTmw" predicate="unit" concept="_SfDogWAHEeShkJhlxUUTmw" arguments="_J62y0WAHEeShkJhlxUUTmw _Se6ekGAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_SfDohGAHEeShkJhlxUUTmw" predicate=">" concept="_SfDohWAHEeShkJhlxUUTmw" arguments="_Se6ekGAHEeShkJhlxUUTmw _SfDogmAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_SfDohmAHEeShkJhlxUUTmw" leftStateFormula="_SfDogGAHEeShkJhlxUUTmw" rightStateFormula="_SfDohGAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_WHP3MWAHEeShkJhlxUUTmw" predicate="resources" concept="_WHP3MmAHEeShkJhlxUUTmw" arguments="_WHP3MGAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_WHP3NWAHEeShkJhlxUUTmw" predicate=">" concept="_SfDohWAHEeShkJhlxUUTmw" arguments="_WHP3MGAHEeShkJhlxUUTmw _WHP3M2AHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_WHP3NmAHEeShkJhlxUUTmw" leftStateFormula="_WHP3MWAHEeShkJhlxUUTmw" rightStateFormula="_WHP3NWAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_amiF8mAHEeShkJhlxUUTmw" predicate="enemy" concept="_amiF82AHEeShkJhlxUUTmw" arguments="_J62y0GAHEeShkJhlxUUTmw _amiF8GAHEeShkJhlxUUTmw _J62y02AHEeShkJhlxUUTmw _J62y1GAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_bHNNQWALEeShkJhlxUUTmw" predicate="unit" concept="_SfDogWAHEeShkJhlxUUTmw" arguments="_bHEDUGALEeShkJhlxUUTmw _Se6ekGAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_bHNNRGALEeShkJhlxUUTmw" predicate=">" concept="_SfDohWAHEeShkJhlxUUTmw" arguments="_Se6ekGAHEeShkJhlxUUTmw _bHNNQmALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_bHNNRWALEeShkJhlxUUTmw" leftStateFormula="_bHNNQWALEeShkJhlxUUTmw" rightStateFormula="_bHNNRGALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_vll9A2ALEeShkJhlxUUTmw" predicate="unit" concept="_SfDogWAHEeShkJhlxUUTmw" arguments="_vll9AGALEeShkJhlxUUTmw _vll9AmALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_vll9B2ALEeShkJhlxUUTmw" predicate="unit" concept="_SfDogWAHEeShkJhlxUUTmw" arguments="_vll9BGALEeShkJhlxUUTmw _vll9BmALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_vlvG82ALEeShkJhlxUUTmw" predicate="unit" concept="_SfDogWAHEeShkJhlxUUTmw" arguments="_vlvG8GALEeShkJhlxUUTmw _vlvG8mALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_vlvG9mALEeShkJhlxUUTmw" predicate=">" concept="_SfDohWAHEeShkJhlxUUTmw" arguments="_vll9AmALEeShkJhlxUUTmw _vlvG9GALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_vlvG92ALEeShkJhlxUUTmw" predicate=">" concept="_SfDohWAHEeShkJhlxUUTmw" arguments="_vll9BmALEeShkJhlxUUTmw _vlvG9GALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_vlvG-GALEeShkJhlxUUTmw" predicate=">" concept="_SfDohWAHEeShkJhlxUUTmw" arguments="_vlvG8mALEeShkJhlxUUTmw _vlvG9GALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_vl438GALEeShkJhlxUUTmw" leftStateFormula="_vll9A2ALEeShkJhlxUUTmw" rightStateFormula="_vll9B2ALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_vl438WALEeShkJhlxUUTmw" leftStateFormula="_vl438GALEeShkJhlxUUTmw" rightStateFormula="_vlvG82ALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_vl438mALEeShkJhlxUUTmw" leftStateFormula="_vl438WALEeShkJhlxUUTmw" rightStateFormula="_vlvG9mALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_vl4382ALEeShkJhlxUUTmw" leftStateFormula="_vl438mALEeShkJhlxUUTmw" rightStateFormula="_vlvG92ALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_vl439GALEeShkJhlxUUTmw" leftStateFormula="_vl4382ALEeShkJhlxUUTmw" rightStateFormula="_vlvG-GALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_rqJzcmAREeShkJhlxUUTmw" predicate="attacking" concept="_rqJzc2AREeShkJhlxUUTmw" arguments="_rqJzcGAREeShkJhlxUUTmw _rqJzcWAREeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_3JgysWAREeShkJhlxUUTmw" predicate="enemy" concept="_amiF82AHEeShkJhlxUUTmw" arguments="_J62y0GAHEeShkJhlxUUTmw _3JgysGAREeShkJhlxUUTmw _J62y02AHEeShkJhlxUUTmw _J62y1GAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Negation" xmi:id="_3JgysmAREeShkJhlxUUTmw" stateFormula="_3JgysWAREeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_sAuNcGAeEeSt4ojym2pfIw" predicate="spaceProvided" concept="_sA3XYGAeEeSt4ojym2pfIw" arguments="_sAF7UGAeEeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_un9VcGAeEeSt4ojym2pfIw" predicate="spaceProvided" concept="_sA3XYGAeEeSt4ojym2pfIw" arguments="_sAF7UGAeEeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_xxJ7AGAeEeSt4ojym2pfIw" predicate="spaceProvided" concept="_sA3XYGAeEeSt4ojym2pfIw" arguments="_sAF7UGAeEeSt4ojym2pfIw _xxAxEGAeEeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_xxJ7AWAeEeSt4ojym2pfIw" predicate="=" concept="_xxJ7AmAeEeSt4ojym2pfIw" arguments="_sAF7UGAeEeSt4ojym2pfIw _xxAxEGAeEeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_xxTsAGAeEeSt4ojym2pfIw" leftStateFormula="_xxJ7AGAeEeSt4ojym2pfIw" rightStateFormula="_xxJ7AWAeEeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_9uEQkGAsEeSt4ojym2pfIw" leftStateFormula="_vl438GALEeShkJhlxUUTmw" rightStateFormula="_vlvG9mALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_9uEQkWAsEeSt4ojym2pfIw" leftStateFormula="_9uEQkGAsEeSt4ojym2pfIw" rightStateFormula="_vlvG92ALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_imGdYmAvEeSt4ojym2pfIw" predicate="repairRequired" concept="_imQOYGAvEeSt4ojym2pfIw" arguments="_J62y0GAHEeShkJhlxUUTmw _3JgysGAREeShkJhlxUUTmw _imGdYGAvEeSt4ojym2pfIw _imGdYWAvEeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_o2NwlGAvEeSt4ojym2pfIw" predicate="friendly" concept="_J6_8wWAHEeShkJhlxUUTmw" arguments="_o2D_kGAvEeSt4ojym2pfIw _3JgysGAREeShkJhlxUUTmw _J62y0GAHEeShkJhlxUUTmw _o2NwkGAvEeSt4ojym2pfIw _o2NwkWAvEeSt4ojym2pfIw _o2NwkmAvEeSt4ojym2pfIw _o2Nwk2AvEeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Negation" xmi:id="_o2NwlWAvEeSt4ojym2pfIw" stateFormula="_o2NwlGAvEeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_rxOJIGAvEeSt4ojym2pfIw" predicate="repaired" concept="_rxX6IGAvEeSt4ojym2pfIw" arguments="_J62y0GAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_l3l68mA9EeSt4ojym2pfIw" predicate="unit" concept="_SfDogWAHEeShkJhlxUUTmw" arguments="_l3l68GA9EeSt4ojym2pfIw _Se6ekGAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_l3l682A9EeSt4ojym2pfIw" leftStateFormula="_l3l68mA9EeSt4ojym2pfIw" rightStateFormula="_SfDohGAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_nZz7oWA9EeSt4ojym2pfIw" predicate="enemy" concept="_amiF82AHEeShkJhlxUUTmw" arguments="_J62y0GAHEeShkJhlxUUTmw _nZzUkGA9EeSt4ojym2pfIw _J62y02AHEeShkJhlxUUTmw _J62y1GAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_wwW0QmA9EeSt4ojym2pfIw" predicate="unit" concept="_SfDogWAHEeShkJhlxUUTmw" arguments="_wwW0QGA9EeSt4ojym2pfIw _vll9AmALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_wwW0RWA9EeSt4ojym2pfIw" predicate="unit" concept="_SfDogWAHEeShkJhlxUUTmw" arguments="_wwW0Q2A9EeSt4ojym2pfIw _vll9BmALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_wwglQmA9EeSt4ojym2pfIw" predicate="unit" concept="_SfDogWAHEeShkJhlxUUTmw" arguments="_wwglQGA9EeSt4ojym2pfIw _vlvG8mALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_wwglQ2A9EeSt4ojym2pfIw" leftStateFormula="_wwW0QmA9EeSt4ojym2pfIw" rightStateFormula="_wwW0RWA9EeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_wwqWQGA9EeSt4ojym2pfIw" leftStateFormula="_wwglQ2A9EeSt4ojym2pfIw" rightStateFormula="_wwglQmA9EeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_wwqWQWA9EeSt4ojym2pfIw" leftStateFormula="_wwqWQGA9EeSt4ojym2pfIw" rightStateFormula="_vlvG9mALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_wwqWQmA9EeSt4ojym2pfIw" leftStateFormula="_wwqWQWA9EeSt4ojym2pfIw" rightStateFormula="_vlvG92ALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_wwqWQ2A9EeSt4ojym2pfIw" leftStateFormula="_wwqWQmA9EeSt4ojym2pfIw" rightStateFormula="_vlvG-GALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_1TTbAmA9EeSt4ojym2pfIw" predicate="unit" concept="_SfDogWAHEeShkJhlxUUTmw" arguments="_1TTbAGA9EeSt4ojym2pfIw _Se6ekGAHEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_1TTbA2A9EeSt4ojym2pfIw" leftStateFormula="_1TTbAmA9EeSt4ojym2pfIw" rightStateFormula="_bHNNRGALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_4PTSEGA9EeSt4ojym2pfIw" leftStateFormula="_wwglQ2A9EeSt4ojym2pfIw" rightStateFormula="_vlvG9mALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_4PccAGA9EeSt4ojym2pfIw" leftStateFormula="_4PTSEGA9EeSt4ojym2pfIw" rightStateFormula="_vlvG92ALEeShkJhlxUUTmw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Atom" xmi:id="_biawoGOPEeSt4ojym2pfIw" predicate=">" concept="_SfDohWAHEeShkJhlxUUTmw" arguments="_Se6ekGAHEeShkJhlxUUTmw _biY7cGOPEeSt4ojym2pfIw"/>
+        <formulas xmi:type="net.sf.ictalive.operetta:Conjunction" xmi:id="_bib-wGOPEeSt4ojym2pfIw" leftStateFormula="_l3l68mA9EeSt4ojym2pfIw" rightStateFormula="_biawoGOPEeSt4ojym2pfIw"/>
         <ontology xmi:type="net.sf.ictalive.operetta:Ontology" xmi:id="_audySVoaEeSE5p3c6u1O_A" ontologyID="Default">
           <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_lQY44FoaEeSE5p3c6u1O_A" concept="Base"/>
           <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_mUO7gFoaEeSE5p3c6u1O_A" concept="Gathere"/>
@@ -91,7 +177,83 @@
           <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_rulO4FobEeSE5p3c6u1O_A" concept="Build_offensive_unit"/>
           <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_wBZDoFrmEeSE5p3c6u1O_A" concept="Commander"/>
           <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_ZLNOsFrpEeSE5p3c6u1O_A" concept="Explorer"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_YEKywF9KEeSKqPICKDDrlA" concept="enemyEliminated"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_eywKoV9KEeSKqPICKDDrlA" concept="armyBuilt"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_kaQlsV9KEeSKqPICKDDrlA" concept="resourcesGathered"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_mNUewV9KEeSKqPICKDDrlA" concept="gathererTrained"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_o28MYV9KEeSKqPICKDDrlA" concept="offensiveUnitTrained"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_qL3_AV9KEeSKqPICKDDrlA" concept="enemyLocated"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_sYyigV9KEeSKqPICKDDrlA" concept="unitRepaired"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_tkkZIF9KEeSKqPICKDDrlA" concept="repairerTrained"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_wSafcV9KEeSKqPICKDDrlA" concept="defensesBuilt"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_xuO9MV9KEeSKqPICKDDrlA" concept="defensiveUnitTrained"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_J62y0mAHEeShkJhlxUUTmw" concept="Worker"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_J6_8wWAHEeShkJhlxUUTmw" concept="friendly"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_SfDogWAHEeShkJhlxUUTmw" concept="unit"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_SfDog2AHEeShkJhlxUUTmw" concept="6"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_SfDohWAHEeShkJhlxUUTmw" concept=">"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_WHP3MmAHEeShkJhlxUUTmw" concept="resources"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_WHP3NGAHEeShkJhlxUUTmw" concept="200"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_amiF8WAHEeShkJhlxUUTmw" concept="CommandCenter"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_amiF82AHEeShkJhlxUUTmw" concept="enemy"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_bHNNQGALEeShkJhlxUUTmw" concept="Bunker"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_bHNNQ2ALEeShkJhlxUUTmw" concept="2"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_vll9AWALEeShkJhlxUUTmw" concept="Soldier"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_vll9BWALEeShkJhlxUUTmw" concept="Tank"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_vlvG8WALEeShkJhlxUUTmw" concept="Aircraft"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_vlvG9WALEeShkJhlxUUTmw" concept="0"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_rqJzc2AREeShkJhlxUUTmw" concept="attacking"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_sA3XYGAeEeSt4ojym2pfIw" concept="spaceProvided"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_xxJ7AmAeEeSt4ojym2pfIw" concept="="/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_Nwub4GAtEeSt4ojym2pfIw" concept="Builder"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_imQOYGAvEeSt4ojym2pfIw" concept="repairRequired"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_rxX6IGAvEeSt4ojym2pfIw" concept="repaired"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_l3l68WA9EeSt4ojym2pfIw" concept="worker"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_nZz7oGA9EeSt4ojym2pfIw" concept="commandCenter"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_wwW0QWA9EeSt4ojym2pfIw" concept="soldier"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_wwW0RGA9EeSt4ojym2pfIw" concept="tank"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_wwglQWA9EeSt4ojym2pfIw" concept="aircraft"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_1TTbAWA9EeSt4ojym2pfIw" concept="bunker"/>
+          <classes xmi:type="net.sf.ictalive.operetta:Concept" xmi:id="_biZigGOPEeSt4ojym2pfIw" concept="5"/>
         </ontology>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_sYpYkF9KEeSKqPICKDDrlA" name="Unit"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_J62y0GAHEeShkJhlxUUTmw" name="Id"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_J62y0WAHEeShkJhlxUUTmw" name="Worker" concept="_J62y0mAHEeShkJhlxUUTmw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_J62y02AHEeShkJhlxUUTmw" name="x"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_J62y1GAHEeShkJhlxUUTmw" name="y"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_Se6ekGAHEeShkJhlxUUTmw" name="Count"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_SfDogmAHEeShkJhlxUUTmw" name="6" concept="_SfDog2AHEeShkJhlxUUTmw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_WHP3MGAHEeShkJhlxUUTmw" name="Amount"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_WHP3M2AHEeShkJhlxUUTmw" name="200" concept="_WHP3NGAHEeShkJhlxUUTmw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_amiF8GAHEeShkJhlxUUTmw" name="CommandCenter" concept="_amiF8WAHEeShkJhlxUUTmw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_bHEDUGALEeShkJhlxUUTmw" name="Bunker" concept="_bHNNQGALEeShkJhlxUUTmw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_bHNNQmALEeShkJhlxUUTmw" name="2" concept="_bHNNQ2ALEeShkJhlxUUTmw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_vll9AGALEeShkJhlxUUTmw" name="Soldier" concept="_vll9AWALEeShkJhlxUUTmw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_vll9AmALEeShkJhlxUUTmw" name="Soldiers"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_vll9BGALEeShkJhlxUUTmw" name="Tank" concept="_vll9BWALEeShkJhlxUUTmw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_vll9BmALEeShkJhlxUUTmw" name="Tanks"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_vlvG8GALEeShkJhlxUUTmw" name="Aircraft" concept="_vlvG8WALEeShkJhlxUUTmw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_vlvG8mALEeShkJhlxUUTmw" name="Aircrafts"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_vlvG9GALEeShkJhlxUUTmw" name="0" concept="_vlvG9WALEeShkJhlxUUTmw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_rqJzcGAREeShkJhlxUUTmw" name="Attacker"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_rqJzcWAREeShkJhlxUUTmw" name="Target"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_3JgysGAREeShkJhlxUUTmw" name="Type"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_sAF7UGAeEeSt4ojym2pfIw" name="N"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_xxAxEGAeEeSt4ojym2pfIw" name="M"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_imGdYGAvEeSt4ojym2pfIw" name="HP"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_imGdYWAvEeSt4ojym2pfIw" name="MaxHP"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_o2D_kGAvEeSt4ojym2pfIw" name="Name"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_o2NwkGAvEeSt4ojym2pfIw" name="WX"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_o2NwkWAvEeSt4ojym2pfIw" name="WY"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_o2NwkmAvEeSt4ojym2pfIw" name="BX"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Variable" xmi:id="_o2Nwk2AvEeSt4ojym2pfIw" name="BY"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_l3l68GA9EeSt4ojym2pfIw" name="worker" concept="_l3l68WA9EeSt4ojym2pfIw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_nZzUkGA9EeSt4ojym2pfIw" name="commandCenter" concept="_nZz7oGA9EeSt4ojym2pfIw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_wwW0QGA9EeSt4ojym2pfIw" name="soldier" concept="_wwW0QWA9EeSt4ojym2pfIw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_wwW0Q2A9EeSt4ojym2pfIw" name="tank" concept="_wwW0RGA9EeSt4ojym2pfIw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_wwglQGA9EeSt4ojym2pfIw" name="aircraft" concept="_wwglQWA9EeSt4ojym2pfIw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_1TTbAGA9EeSt4ojym2pfIw" name="bunker" concept="_1TTbAWA9EeSt4ojym2pfIw"/>
+        <terms xmi:type="net.sf.ictalive.operetta:Constant" xmi:id="_biY7cGOPEeSt4ojym2pfIw" name="5" concept="_biZigGOPEeSt4ojym2pfIw"/>
       </cs>
     </om>
   </net.sf.ictalive.operetta:OperAModel>
@@ -126,10 +288,15 @@
       <children xmi:type="notation:DecorationNode" xmi:id="_iuNO8VrpEeSE5p3c6u1O_A" type="5002"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iuMn4VrpEeSE5p3c6u1O_A" x="540" y="72"/>
     </children>
+    <children xmi:type="notation:Shape" xmi:id="_NZGmEWAtEeSt4ojym2pfIw" type="2001" element="_NZGmEGAtEeSt4ojym2pfIw" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_NZGmE2AtEeSt4ojym2pfIw" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_NZGmFGAtEeSt4ojym2pfIw" type="5002"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NZGmEmAtEeSt4ojym2pfIw" x="348" y="312"/>
+    </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_aulHAVoaEeSE5p3c6u1O_A"/>
     <edges xmi:type="notation:Connector" xmi:id="_97qmIFrmEeSE5p3c6u1O_A" type="4002" element="_97oJ4FrmEeSE5p3c6u1O_A" source="_uDiUEFobEeSE5p3c6u1O_A" target="_uDi7I1obEeSE5p3c6u1O_A">
       <children xmi:type="notation:DecorationNode" xmi:id="_97rNMFrmEeSE5p3c6u1O_A" type="6002">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_97rNMVrmEeSE5p3c6u1O_A" x="-6" y="46"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_97rNMVrmEeSE5p3c6u1O_A" x="7" y="16"/>
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_97qmIVrmEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_97qmIlrmEeSE5p3c6u1O_A" points="[13, -3, -226, 32]$[237, -53, -2, -18]"/>
@@ -189,6 +356,21 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nxwBUlrpEeSE5p3c6u1O_A" points="[15, 9, -169, -113]$[187, 104, 3, -18]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nxzrsFrpEeSE5p3c6u1O_A" id="(0.7972972972972973,0.3611111111111111)"/>
     </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_O1PM4GAtEeSt4ojym2pfIw" type="4002" element="_O1GC8GAtEeSt4ojym2pfIw" source="_uDjiNFobEeSE5p3c6u1O_A" target="_NZGmEWAtEeSt4ojym2pfIw">
+      <children xmi:type="notation:DecorationNode" xmi:id="_O1PM42AtEeSt4ojym2pfIw" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_O1PM5GAtEeSt4ojym2pfIw" y="40"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_O1PM4WAtEeSt4ojym2pfIw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_O1PM4mAtEeSt4ojym2pfIw" points="[46, 22, -233, -101]$[240, 129, -39, 6]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_TzmkUWAtEeSt4ojym2pfIw" type="4002" element="_TzmkUGAtEeSt4ojym2pfIw" source="_NZGmEWAtEeSt4ojym2pfIw" target="_uDiUEFobEeSE5p3c6u1O_A">
+      <children xmi:type="notation:DecorationNode" xmi:id="_TzmkVGAtEeSt4ojym2pfIw" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_TzmkVWAtEeSt4ojym2pfIw" y="40"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_TzmkUmAtEeSt4ojym2pfIw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TzmkU2AtEeSt4ojym2pfIw" points="[0, -22, 0, 89]$[-9, -101, -9, 10]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TzvuQGAtEeSt4ojym2pfIw" id="(0.4090909090909091,0.7727272727272727)"/>
+    </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_aunjQFoaEeSE5p3c6u1O_A" type="IS" element="_audyQloaEeSE5p3c6u1O_A" name="IS_Diagram" measurementUnit="Pixel">
     <children xmi:type="notation:Node" xmi:id="_SFlP0FrpEeSE5p3c6u1O_A" type="2102" element="_audyQ1oaEeSE5p3c6u1O_A">
@@ -206,28 +388,51 @@
     <children xmi:type="notation:Shape" xmi:id="_UoQA4FrpEeSE5p3c6u1O_A" type="2101" element="_UoNkoFrpEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface">
       <children xmi:type="notation:DecorationNode" xmi:id="_UoQA4lrpEeSE5p3c6u1O_A" type="5101"/>
       <children xmi:type="notation:BasicCompartment" xmi:id="_UoQn8FrpEeSE5p3c6u1O_A" type="7101" collapsed="true">
+        <children xmi:type="notation:Shape" xmi:id="_5kuj0GAEEeShkJhlxUUTmw" type="3101" element="_UoNkoVrpEeSE5p3c6u1O_A" fontName="Segoe UI">
+          <children xmi:type="notation:BasicCompartment" xmi:id="_5kuj0mAEEeShkJhlxUUTmw" type="7102" collapsed="true">
+            <children xmi:type="notation:Shape" xmi:id="_79oU4WAEEeShkJhlxUUTmw" type="3102" element="_79oU4GAEEeShkJhlxUUTmw" fontName="Segoe UI">
+              <children xmi:type="notation:DecorationNode" xmi:id="_79oU42AEEeShkJhlxUUTmw" type="5104"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_79oU4mAEEeShkJhlxUUTmw" x="19" y="31"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_aQ6GIGAFEeShkJhlxUUTmw" type="3102" element="_aQ5fEGAFEeShkJhlxUUTmw" fontName="Segoe UI">
+              <children xmi:type="notation:DecorationNode" xmi:id="_aQ6tMGAFEeShkJhlxUUTmw" type="5104"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aQ6GIWAFEeShkJhlxUUTmw" x="86" y="122"/>
+            </children>
+          </children>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5kuj0WAEEeShkJhlxUUTmw"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_UoQn8VrpEeSE5p3c6u1O_A"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_UoQn8lrpEeSE5p3c6u1O_A"/>
       </children>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UoQA4VrpEeSE5p3c6u1O_A" x="179" y="126"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UoQA4VrpEeSE5p3c6u1O_A" x="168" y="84"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_WftRwFrpEeSE5p3c6u1O_A" type="2101" element="_WfsDoFrpEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface">
       <children xmi:type="notation:DecorationNode" xmi:id="_Wft40FrpEeSE5p3c6u1O_A" type="5101"/>
       <children xmi:type="notation:BasicCompartment" xmi:id="_Wft40VrpEeSE5p3c6u1O_A" type="7101" collapsed="true">
         <children xmi:type="notation:Shape" xmi:id="_WwFQEFrpEeSE5p3c6u1O_A" type="3101" element="_WfsDoVrpEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface">
-          <children xmi:type="notation:BasicCompartment" xmi:id="_WwF3IVrpEeSE5p3c6u1O_A" type="7102" collapsed="true"/>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_WwF3IVrpEeSE5p3c6u1O_A" type="7102" collapsed="true">
+            <children xmi:type="notation:Shape" xmi:id="_JrqyMGAFEeShkJhlxUUTmw" type="3102" element="_JrqLIGAFEeShkJhlxUUTmw" fontName="Segoe UI">
+              <children xmi:type="notation:DecorationNode" xmi:id="_JrrZQGAFEeShkJhlxUUTmw" type="5104"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JrqyMWAFEeShkJhlxUUTmw" x="33" y="32"/>
+            </children>
+          </children>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WwF3IFrpEeSE5p3c6u1O_A"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_Wft40lrpEeSE5p3c6u1O_A"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_Wft401rpEeSE5p3c6u1O_A"/>
       </children>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WftRwVrpEeSE5p3c6u1O_A" x="189" y="288"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WftRwVrpEeSE5p3c6u1O_A" x="192" y="300"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_pILqwF1EEeSE5p3c6u1O_A" type="2101" element="_pIKcoF1EEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface">
       <children xmi:type="notation:DecorationNode" xmi:id="_pIMR0F1EEeSE5p3c6u1O_A" type="5101"/>
       <children xmi:type="notation:BasicCompartment" xmi:id="_pIMR0V1EEeSE5p3c6u1O_A" type="7101" collapsed="true">
         <children xmi:type="notation:Shape" xmi:id="_tpYlEF1EEeSE5p3c6u1O_A" type="3101" element="_pIKcoV1EEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface">
-          <children xmi:type="notation:BasicCompartment" xmi:id="_tpYlEl1EEeSE5p3c6u1O_A" type="7102" collapsed="true"/>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_tpYlEl1EEeSE5p3c6u1O_A" type="7102" collapsed="true">
+            <children xmi:type="notation:Shape" xmi:id="_iOJpgWAFEeShkJhlxUUTmw" type="3102" element="_iOJpgGAFEeShkJhlxUUTmw" fontName="Segoe UI">
+              <children xmi:type="notation:DecorationNode" xmi:id="_iOJpg2AFEeShkJhlxUUTmw" type="5104"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iOJpgmAFEeShkJhlxUUTmw" x="26" y="14"/>
+            </children>
+          </children>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tpYlEV1EEeSE5p3c6u1O_A"/>
         </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_pIM44F1EEeSE5p3c6u1O_A"/>
@@ -238,14 +443,40 @@
     <children xmi:type="notation:Shape" xmi:id="_HwkJUF1FEeSE5p3c6u1O_A" type="2101" element="_HwjiQF1FEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface">
       <children xmi:type="notation:DecorationNode" xmi:id="_HwkwYF1FEeSE5p3c6u1O_A" type="5101"/>
       <children xmi:type="notation:BasicCompartment" xmi:id="_HwkwYV1FEeSE5p3c6u1O_A" type="7101" collapsed="true">
+        <children xmi:type="notation:Shape" xmi:id="_QWPMwGAFEeShkJhlxUUTmw" type="3101" element="_HwjiQV1FEeSE5p3c6u1O_A" fontName="Segoe UI">
+          <children xmi:type="notation:BasicCompartment" xmi:id="_QWPMwmAFEeShkJhlxUUTmw" type="7102" collapsed="true">
+            <children xmi:type="notation:Shape" xmi:id="_TsbFcWAFEeShkJhlxUUTmw" type="3102" element="_TsbFcGAFEeShkJhlxUUTmw" fontName="Segoe UI">
+              <children xmi:type="notation:DecorationNode" xmi:id="_TsbFc2AFEeShkJhlxUUTmw" type="5104"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TsbFcmAFEeShkJhlxUUTmw" x="14" y="14"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_Uu2y0WAFEeShkJhlxUUTmw" type="3102" element="_Uu2y0GAFEeShkJhlxUUTmw" fontName="Segoe UI">
+              <children xmi:type="notation:DecorationNode" xmi:id="_Uu2y02AFEeShkJhlxUUTmw" type="5104"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Uu2y0mAFEeShkJhlxUUTmw" x="122" y="125"/>
+            </children>
+          </children>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QWPMwWAFEeShkJhlxUUTmw"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_HwkwYl1FEeSE5p3c6u1O_A"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_HwkwY11FEeSE5p3c6u1O_A"/>
       </children>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HwkJUV1FEeSE5p3c6u1O_A" x="387" y="135"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HwkJUV1FEeSE5p3c6u1O_A" x="384" y="36"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_I-acgF1FEeSE5p3c6u1O_A" type="2101" element="_I-ZOYF1FEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface">
       <children xmi:type="notation:DecorationNode" xmi:id="_I-bDkF1FEeSE5p3c6u1O_A" type="5101"/>
       <children xmi:type="notation:BasicCompartment" xmi:id="_I-bDkV1FEeSE5p3c6u1O_A" type="7101" collapsed="true">
+        <children xmi:type="notation:Shape" xmi:id="_Y1NkMGAFEeShkJhlxUUTmw" type="3101" element="_I-ZOYV1FEeSE5p3c6u1O_A" fontName="Segoe UI">
+          <children xmi:type="notation:BasicCompartment" xmi:id="_Y1NkMmAFEeShkJhlxUUTmw" type="7102" collapsed="true">
+            <children xmi:type="notation:Shape" xmi:id="_ZNndIGAFEeShkJhlxUUTmw" type="3102" element="_ZNm2EGAFEeShkJhlxUUTmw" fontName="Segoe UI">
+              <children xmi:type="notation:DecorationNode" xmi:id="_ZNoEMGAFEeShkJhlxUUTmw" type="5104"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZNndIWAFEeShkJhlxUUTmw" x="8" y="46"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_b3S1IGAFEeShkJhlxUUTmw" type="3102" element="_b3SOEGAFEeShkJhlxUUTmw" fontName="Segoe UI">
+              <children xmi:type="notation:DecorationNode" xmi:id="_b3S1ImAFEeShkJhlxUUTmw" type="5104"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_b3S1IWAFEeShkJhlxUUTmw" x="116" y="94"/>
+            </children>
+          </children>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Y1NkMWAFEeShkJhlxUUTmw"/>
+        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_I-bDkl1FEeSE5p3c6u1O_A"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_I-bDk11FEeSE5p3c6u1O_A"/>
       </children>
@@ -282,6 +513,7 @@
     <edges xmi:type="notation:Connector" xmi:id="_R2nzUF1FEeSE5p3c6u1O_A" type="4102" element="_R2mlMF1FEeSE5p3c6u1O_A" source="_UoQA4FrpEeSE5p3c6u1O_A" target="_RF7WMF1FEeSE5p3c6u1O_A">
       <styles xmi:type="notation:FontStyle" xmi:id="_R2nzUV1FEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_R2nzUl1FEeSE5p3c6u1O_A" points="[13, 17, -58, -71]$[70, 103, -1, 15]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_G9nQgGAFEeShkJhlxUUTmw" id="(0.9315068493150684,0.5)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_SP4n4F1FEeSE5p3c6u1O_A" type="4102" element="_SP3ZwF1FEeSE5p3c6u1O_A" source="_WftRwFrpEeSE5p3c6u1O_A" target="_RF7WMF1FEeSE5p3c6u1O_A">
       <styles xmi:type="notation:FontStyle" xmi:id="_SP4n4V1FEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface"/>
@@ -306,6 +538,36 @@
       <styles xmi:type="notation:FontStyle" xmi:id="_TX900V1GEeSE5p3c6u1O_A" fontName=".Helvetica Neue DeskInterface"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TX900l1GEeSE5p3c6u1O_A" points="[8, 3, -199, -83]$[203, 87, -4, 1]"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TYA4IF1GEeSE5p3c6u1O_A" id="(0.06349206349206349,0.7352941176470589)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_gnecEGAEEeShkJhlxUUTmw" type="4101" element="_XlrA0F1FEeSE5p3c6u1O_A" source="_7YknAF1GEeSE5p3c6u1O_A" target="_pILqwF1EEeSE5p3c6u1O_A">
+      <styles xmi:type="notation:FontStyle" xmi:id="_gnecEWAEEeShkJhlxUUTmw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gnecEmAEEeShkJhlxUUTmw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_gnitgGAEEeShkJhlxUUTmw" type="4102" element="_W8TTsF1FEeSE5p3c6u1O_A" source="_I-acgF1FEeSE5p3c6u1O_A" target="_7YknAF1GEeSE5p3c6u1O_A">
+      <styles xmi:type="notation:FontStyle" xmi:id="_gnitgWAEEeShkJhlxUUTmw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gnitgmAEEeShkJhlxUUTmw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_gnkisGAEEeShkJhlxUUTmw" type="4102" element="_XRWWoF1FEeSE5p3c6u1O_A" source="_HwkJUF1FEeSE5p3c6u1O_A" target="_7YknAF1GEeSE5p3c6u1O_A">
+      <styles xmi:type="notation:FontStyle" xmi:id="_gnkisWAEEeShkJhlxUUTmw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gnkismAEEeShkJhlxUUTmw" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_-sXzEGAEEeShkJhlxUUTmw" type="4103" element="_-sPQMGAEEeShkJhlxUUTmw" source="_79oU4WAEEeShkJhlxUUTmw" target="_aQ6GIGAFEeShkJhlxUUTmw">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_-sXzEWAEEeShkJhlxUUTmw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_-sXzEmAEEeShkJhlxUUTmw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-sXzE2AEEeShkJhlxUUTmw" points="[30, 27, -75, -67]$[98, 78, -7, -16]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-saPUGAEEeShkJhlxUUTmw" id="(0.4583333333333333,0.15625)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_WacK4WAFEeShkJhlxUUTmw" type="4103" element="_WacK4GAFEeShkJhlxUUTmw" source="_TsbFcWAFEeShkJhlxUUTmw" target="_Uu2y0WAFEeShkJhlxUUTmw">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_WacK4mAFEeShkJhlxUUTmw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_WacK42AFEeShkJhlxUUTmw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WacK5GAFEeShkJhlxUUTmw" points="[13, 16, -68, -83]$[79, 95, -2, -4]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WacK5WAFEeShkJhlxUUTmw" id="(0.375,0.125)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_6KliwGAsEeSt4ojym2pfIw" type="4103" element="_6KcY0GAsEeSt4ojym2pfIw" source="_ZNndIGAFEeShkJhlxUUTmw" target="_b3S1IGAFEeShkJhlxUUTmw">
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_6KliwWAsEeSt4ojym2pfIw"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_6KliwmAsEeSt4ojym2pfIw" fontName="Segoe UI"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6Kliw2AsEeSt4ojym2pfIw" points="[28, -16, -70, 40]$[104, -64, 6, -8]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_6KlixGAsEeSt4ojym2pfIw" id="(0.5844155844155844,0.24242424242424243)"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>

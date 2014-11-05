@@ -17,7 +17,7 @@ public class ConversionExample {
 	
 	public static void main(String[] args) throws Exception {
 		OperAConverter converter = new OperAConverter();
-		Metamodel mm = converter.getAortaMetamodel(ConversionExample.class.getResourceAsStream("Tender.opera"));
+		Metamodel mm = converter.getAortaMetamodel(ConversionExample.class.getResourceAsStream("RTS.opera"));
 		Theory theory = mm.createTheory();
 		
 		Prolog prolog = new Prolog();

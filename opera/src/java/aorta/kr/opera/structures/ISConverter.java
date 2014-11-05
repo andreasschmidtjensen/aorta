@@ -104,11 +104,11 @@ public class ISConverter {
 		for (Scene scene : is.getScenes()) {
 			Map<Landmark, LandmarkOrdering> lmap = new HashMap<>();
 
-			if (scene.getInteractionPattern().getLandmarkOrder().isEmpty()) {
-				for (Landmark l : scene.getInteractionPattern().getLandmarks()) {
-					lmap.put(l, new LandmarkOrdering(l));
-				}
-			} else {
+			for (Landmark l : scene.getInteractionPattern().getLandmarks()) {
+				lmap.put(l, new LandmarkOrdering(l));
+			}
+			
+			if (!scene.getInteractionPattern().getLandmarkOrder().isEmpty()) {
 				for (PartialOrder po : scene.getInteractionPattern().getLandmarkOrder()) {
 					if (!lmap.containsKey(po.getFrom())) {
 						lmap.put(po.getFrom(), new LandmarkOrdering(po.getFrom()));
@@ -133,7 +133,6 @@ public class ISConverter {
 				Map<Landmark, LandmarkOrdering> lmap = landmarkOrderings.get(scene);
 				LandmarkOrdering lordering = lmap.get(landmark);
 
-
 				if (lordering.nextLandmarks.isEmpty()) {
 					deadline = getDeadlineFromNextScene(ordering, landmarkOrderings);
 				} else {
@@ -149,8 +148,10 @@ public class ISConverter {
 				for (Objective o : landmark.getEntails()) {
 					Struct objective = ConversionUtils.stateDescriptionToStruct(o.getStateDescription());
 					for (Role r : o.getUsedByRole()) {
+						String name = r.getName();
+						name = name.substring(0, 1).toLowerCase() + name.substring(1);
 						if (r.getObjectives().contains(o)) {
-							mm.getObligations().add(new Obligation(r.getName(), ml.qualify(objective, false), ml.qualify(deadline, false), ml.qualify(condition, false)));
+							mm.getObligations().add(new Obligation(name, ml.qualify(objective, false), ml.qualify(deadline, false), ml.qualify(condition, false)));
 						}
 					}
 				}

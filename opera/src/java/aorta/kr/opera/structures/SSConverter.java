@@ -10,7 +10,6 @@ import aorta.kr.language.MetaLanguage;
 import aorta.kr.language.model.Metamodel;
 import aorta.kr.opera.ConversionUtils;
 import aorta.kr.opera.OperAImportException;
-import java.util.ArrayList;
 import java.util.List;
 import net.sf.ictalive.operetta.OM.Dependency;
 import net.sf.ictalive.operetta.OM.HierarchyDependency;
@@ -31,8 +30,11 @@ public class SSConverter {
 	public static void convert(SS ss, Metamodel mm) throws OperAImportException {
 		for (Role role : ss.getRoles()) {
 			List<Term> roleObjectives = ConversionUtils.convertObjectivesList(role.getObjectives());
+			
+			String name = role.getName();
+			name = name.substring(0, 1).toLowerCase() + name.substring(1);
 
-			mm.getRoles().add(new aorta.kr.language.model.Role(role.getName(), roleObjectives));
+			mm.getRoles().add(new aorta.kr.language.model.Role(name, roleObjectives));
 		}
 
 		for (Objective obj : ss.getObjectives()) {
@@ -60,7 +62,13 @@ public class SSConverter {
 
 			for (Objective o : dep.getObjectOfDependency()) {
 				Struct objective = ConversionUtils.stateDescriptionToStruct(o.getStateDescription());
-				mm.getDependencies().add(new aorta.kr.language.model.Dependency(r1.getName(), r2.getName(), ml.qualify(objective, false)));
+				
+				String n1 = r1.getName();
+				n1 = n1.substring(0, 1).toLowerCase() + n1.substring(1);
+				String n2 = r2.getName();
+				n2 = n2.substring(0, 1).toLowerCase() + n2.substring(1);
+				
+				mm.getDependencies().add(new aorta.kr.language.model.Dependency(n1, n2, ml.qualify(objective, false)));
 			}
 		}
 	}

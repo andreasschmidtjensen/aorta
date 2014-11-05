@@ -12,8 +12,6 @@ import aorta.kr.language.model.Metamodel;
 import aorta.kr.language.model.Obligation;
 import aorta.kr.opera.ConversionUtils;
 import aorta.kr.opera.OperAImportException;
-import java.util.ArrayList;
-import java.util.List;
 import net.sf.ictalive.operetta.OM.Atom;
 import net.sf.ictalive.operetta.OM.Conjunction;
 import net.sf.ictalive.operetta.OM.DeonticModality;
@@ -49,7 +47,9 @@ public class NSConverter {
 					
 					Struct activation = getViolation(norm.getActivationCondition(), ss);
 					
-					mm.getObligations().add(new Obligation(rdStmt.getRole().getName(), ml.qualify(objective), ml.qualify(deadline), ml.qualify(activation)));
+					String name = rdStmt.getRole().getName();
+					name = name.substring(0, 1).toLowerCase() + name.substring(1);
+					mm.getObligations().add(new Obligation(name, ml.qualify(objective, false), ml.qualify(deadline, false), ml.qualify(activation, false)));
 				} else {
 					throw new OperAImportException("Modality " + modality + " not supported!");
 				}
