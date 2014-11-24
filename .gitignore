@@ -13,3 +13,8 @@
 *.class
 bin/
 jeditplugin/installer.properties
+/examples/scbw/nbproject/private/
+/examples/scbw/build/
+/examples/scbw/dist/
+/examples/SettlersInSpace/nbproject/private/
+/examples/SettlersInSpace/build/

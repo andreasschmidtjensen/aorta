@@ -13,6 +13,7 @@ import jason.JasonException;
 import jason.asSemantics.ActionExec;
 import jason.asSemantics.Agent;
 import jason.asSemantics.Message;
+import jason.asSemantics.TransitionSystem;
 import jason.asSyntax.Literal;
 import jason.asSyntax.Structure;
 import jason.bb.DefaultBeliefBase;
@@ -32,42 +33,50 @@ import java.util.logging.Logger;
  * @author asj
  */
 public class AortaAgentArch extends CentralisedAgArch {
-	
+
 	private static final Logger logger = Logger.getLogger(AortaAgentArch.class.getName());
-	
+
 	private Aorta aorta;
 	private AortaAgent aortaAgent;
 	private AortaJasonAgent aortaJasonAgent;
 	private AortaBB aortaBB;
-	
+
 	private ActionExec lastActionExecuted;
-	
+
 	@Override
 	public void createArchs(List<String> agArchClasses, String agClass, ClassParameters bbPars, String asSrc, Settings stts, RunCentralisedMAS masRunner) throws JasonException {
-		if (agClass.equals(Agent.class.getName())) {
-			agClass = AortaJasonAgent.class.getName();
-		} else {
-			try {
-				if (!AortaJasonAgent.class.isAssignableFrom(Class.forName(agClass))) {
-					logger.log(Level.SEVERE, "WARNING: " + agClass + " does not extend " + AortaJasonAgent.class.getName() + "!");
+		try {
+			this.masRunner = masRunner;
+			if (agClass.equals(Agent.class.getName())) {
+				agClass = AortaJasonAgent.class.getName();
+			} else {
+				try {
+					if (!AortaJasonAgent.class.isAssignableFrom(Class.forName(agClass))) {
+						logger.log(Level.SEVERE, "WARNING: " + agClass + " does not extend " + AortaJasonAgent.class.getName() + "!");
+					}
+				} catch (ClassNotFoundException ex) {
 				}
-			} catch (ClassNotFoundException ex) {}
-		}
-		
-		if (bbPars.getClassName().equals(DefaultBeliefBase.class.getName())) {
-			bbPars = new ClassParameters(AortaBB.class.getName());
-		} else {
-			try {
-				if (!AortaBB.class.isAssignableFrom(Class.forName(bbPars.getClassName()))) {
-					logger.log(Level.SEVERE, "WARNING: " + bbPars.getClass() + " does not extend " + AortaBB.class.getName() + "!");
+			}
+
+			if (bbPars.getClassName().equals(DefaultBeliefBase.class.getName())) {
+				bbPars = new ClassParameters(AortaBB.class.getName());
+			} else {
+				try {
+					if (!AortaBB.class.isAssignableFrom(Class.forName(bbPars.getClassName()))) {
+						logger.log(Level.SEVERE, "WARNING: " + bbPars.getClass() + " does not extend " + AortaBB.class.getName() + "!");
+					}
+				} catch (ClassNotFoundException ex) {
 				}
-			} catch (ClassNotFoundException ex) {}
+			}
+
+			super.createArchs(agArchClasses, agClass, bbPars, asSrc, stts, masRunner);
+
+			aortaJasonAgent = (AortaJasonAgent) getTS().getAg();
+			aortaBB = (AortaBB) aortaJasonAgent.getBB();
+		} catch (JasonException e) {
+			running = false;
+			throw e;
 		}
-		
-		super.createArchs(agArchClasses, agClass, bbPars, asSrc, stts, masRunner);
-		
-		aortaJasonAgent = (AortaJasonAgent) getTS().getAg();
-		aortaBB = (AortaBB) aortaJasonAgent.getBB();
 	}
 
 	@Override
@@ -89,7 +98,7 @@ public class AortaAgentArch extends CentralisedAgArch {
 	@Override
 	public void actionExecuted(ActionExec action) {
 		super.actionExecuted(action);
-		
+
 		lastActionExecuted = action;
 	}
 
@@ -117,10 +126,10 @@ public class AortaAgentArch extends CentralisedAgArch {
 				aortaAgent.getState().getExternalAgent().receiveMessage(new IncomingOrganizationalMessage(msg.getSender(), contents));
 			}
 		}
-		
-		super.checkMail(); 
+
+		super.checkMail();
 	}
-	
+
 	public AortaAgent getAortaAgent() {
 		return aortaAgent;
 	}
@@ -137,6 +146,62 @@ public class AortaAgentArch extends CentralisedAgArch {
 
 	public void setAorta(Aorta aorta) {
 		this.aorta = aorta;
+	}
+
+	/**
+	 * RUN SPECIFICS
+	 */
+	private RunCentralisedMAS masRunner = RunCentralisedMAS.getRunner();
+	private volatile boolean running = true;
+	private final Object syncStopRun = new Object();
+	private Thread myThread = null;
+	private int sleepTime;
+
+	public void setSleepTime(int sleepTime) {
+		this.sleepTime = sleepTime;
+	}
+	
+	@Override
+	public void setThread(Thread t) {
+		myThread = t;
+		myThread.setName(getAgName());
+	}
+
+	@Override
+	public boolean isRunning() {
+		return running;
+	}
+
+	@Override
+	public void stopAg() {
+		running = false;
+		if (myThread != null) {
+			myThread.interrupt();
+		}
+		synchronized (syncStopRun) {
+			masRunner.delAg(getAgName());
+		}
+		getTS().getAg().stopAg();
+		getUserAgArch().stop(); // stops all archs
+	}
+
+	@Override
+	public void run() {
+		synchronized (syncStopRun) {
+			TransitionSystem ts = getTS();
+			while (running) {
+				incCycleNumber();
+				ts.reasoningCycle();
+				if (sleepTime > 0) {
+					try {
+						Thread.sleep(sleepTime);
+					} catch (InterruptedException ex) {
+						stopAg();
+					}
+				}
+			}
+		}
+		logger.fine("I finished!");
 	}
 
 }

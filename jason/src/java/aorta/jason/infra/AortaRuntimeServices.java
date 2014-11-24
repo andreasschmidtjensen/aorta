@@ -13,8 +13,10 @@ import aorta.jason.AortaAgentArch;
 import aorta.jason.AortaJasonBridge;
 import aorta.kr.language.OrganizationImportException;
 import aorta.parser.helper.AortaBuilder;
+import jason.NoValueForVarException;
 import jason.asSyntax.ASSyntax;
 import jason.asSyntax.Literal;
+import jason.asSyntax.NumberTerm;
 import jason.asSyntax.StringTerm;
 import jason.asSyntax.parser.ParseException;
 import jason.infra.centralised.CentralisedAgArch;
@@ -39,6 +41,9 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	private Aorta aorta;
 	private AortaGui gui;
 	
+	private boolean useWebInspector = false;
+	private int agSleepTime = 0;
+	
 	private List<AortaAgentArch> agents = new ArrayList<>();
 	
 	public AortaRuntimeServices(RunCentralisedMAS masRunner) {
@@ -50,7 +55,6 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 
 		if (useGui) {
 			gui = new AortaGui();
-			AgentWebInspector.get();
 		}
 		
 		String location;
@@ -61,6 +65,22 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 			location = ((StringTerm) orgLiteral.getTerm(0)).getString();
 		} catch (ParseException ex) {
 			throw new RuntimeException(ex);
+		}
+		
+		useWebInspector = masRunner.getProject().getInfrastructure().getParameter("inspector") != null;
+		
+		String sleep = masRunner.getProject().getInfrastructure().getParameter("sleep");
+		if (sleep != null) {
+			try {
+				Literal sleepLit = ASSyntax.parseLiteral(sleep);
+				agSleepTime = (int) ((NumberTerm) sleepLit.getTerm(0)).solve();
+			} catch (ParseException | NoValueForVarException ex) {
+				throw new RuntimeException(ex);
+			}
+		}
+		
+		if (useWebInspector) {
+			AgentWebInspector.get();
 		}
 		
 		try {
@@ -116,8 +136,13 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 
 				if (gui != null) {
 					gui.addAgent(aortaAgent);
+				}
+				if (useWebInspector) {
 					AgentWebInspector.get().registerAgent(aortaAgent);
 					aortaAgent.addInspector(AgentWebInspector.get());
+				}
+				if (agSleepTime > 0) {
+					agentArch.setSleepTime(agSleepTime);
 				}
 			}
 			

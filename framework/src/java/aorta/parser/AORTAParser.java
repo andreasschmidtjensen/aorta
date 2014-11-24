@@ -1,16 +1,6 @@
 // Generated from C:\Dropbox\code\phd\aorta\framework\src\java\aorta\parser\AORTA.g4 by ANTLR 4.1
 package aorta.parser;
 
-import aorta.reasoning.fml.OrganizationalFormula;
-import aorta.reasoning.fml.TrueFormula;
-import aorta.reasoning.fml.ReasoningFormula;
-import aorta.reasoning.fml.BeliefFormula;
-import aorta.reasoning.fml.ConjunctFormula;
-import aorta.reasoning.fml.GoalFormula;
-import aorta.reasoning.fml.CapabilityFormula;
-import aorta.reasoning.fml.OptionFormula;
-import aorta.reasoning.fml.Formula;
-import aorta.reasoning.fml.NegatedFormula;
 import alice.tuprolog.Number;
 import alice.tuprolog.Int;
 import alice.tuprolog.Struct;

@@ -57,16 +57,10 @@ public class AgentBuilder {
 	public AortaAgent build(String file) throws InvalidTheoryException, IOException, InvalidLibraryException, OrganizationImportException, AORTAException {
 		PrologLoader loader = new PrologLoader();
 		if (init.orgPath.length() > 0) {
-			InputStream is;
-			if (new File(init.orgPath).exists()) {
-				is = new FileInputStream(init.orgPath);
+			Metamodel model = Metamodel.load(init.orgPath);
+			if (model == null) {
+				logger.log(Level.WARNING, "No metamodel exists at location: " + init.orgPath);				
 			} else {
-				is = getClass().getResourceAsStream("/" + init.orgPath);
-			}
-			if (is == null) {
-				logger.log(Level.WARNING, "No metamodel exists at location: " + init.orgPath);
-			} else {
-				Metamodel model = new OrganizationLoader().loadMetamodel(is);
 				Theory th = model.createTheory();
 				loader.addTheory(th, KBType.ORGANIZATION);
 			}

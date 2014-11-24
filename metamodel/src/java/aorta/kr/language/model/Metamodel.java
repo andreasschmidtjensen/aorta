@@ -7,6 +7,12 @@ package aorta.kr.language.model;
 import alice.tuprolog.InvalidTheoryException;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Theory;
+import aorta.kr.language.OrganizationImportException;
+import aorta.kr.language.OrganizationLoader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,6 +29,20 @@ public class Metamodel {
 	private List<Obligation> obligations;
 	private List<Rule> rules;
 
+	public static Metamodel load(String location) throws IOException, OrganizationImportException {
+		InputStream is;
+		if (new File(location).exists()) {
+			is = new FileInputStream(location);
+		} else {
+			is = Metamodel.class.getResourceAsStream("/" + location);
+		}
+		if (is == null) {
+			return null;
+		} else {
+			return new OrganizationLoader().loadMetamodel(is);
+		}
+	}
+	
 	public Metamodel() {
 		this.roles = new ArrayList<>();
 		this.objectives = new ArrayList<>();
