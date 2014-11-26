@@ -13,7 +13,6 @@ import aorta.kr.PrologLoader;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.ts.TransitionNotPossibleException;
-import aorta.ts.strategy.Linear;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -32,7 +31,7 @@ public class EnactActionTest {
 		
 		PrologLoader prologLoader = new PrologLoader();		
 		MentalState ms = new MentalState(prologLoader.load());
-		AgentState state = new AgentState(new AortaAgent("agent", ms, null, new Linear()), ms, null);
+		AgentState state = new AgentState(new AortaAgent("agent", ms, null), ms, null);
 		
 		try {
 			action.execute(engine, null, state);

@@ -14,6 +14,7 @@ import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
+import cartago.CartagoException;
 
 public class EnactAction extends Action {
 	
@@ -60,15 +61,31 @@ public class EnactAction extends Action {
 			if (!qualified.isGround()) {
 				throw new AORTAException("Cannot execute action: term '" + qualified + "' is not ground.");
 			} else if (qualified instanceof Struct) {
-				//XXX: newState = state.clone();
-				newState.insertTerm(engine, (Struct) qualified);
-				newState.removeTerm(engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
-				
-				Struct send = ml.send(clonedRoleTerm, new Struct("tell"), qualified);
-				newState.insertTerm(engine, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
-				
-				logger.fine("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
-				Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");
+				if (state.getAgent().getArtifactAgent() != null) {
+					try {
+						String roleName;
+						if (clonedRoleTerm instanceof Var) {
+							roleName = ((Var) clonedRoleTerm).getTerm().toString();
+						} else {
+							roleName = clonedRoleTerm.toString();
+						}
+						state.getAgent().getArtifactAgent().enact(roleName);
+						newState.removeTerm(engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
+						
+						Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");
+					} catch (CartagoException ex) {
+						throw new AORTAException("The artifact could not enact", ex);
+					}
+				} else {
+					newState.insertTerm(engine, (Struct) qualified);
+					newState.removeTerm(engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
+
+					Struct send = ml.send(clonedRoleTerm, new Struct("tell"), qualified);
+					newState.insertTerm(engine, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
+
+					logger.fine("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
+					Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");
+				}
 			} else {
 				throw new AORTAException("X in enact(X) must be a Struct (was " + qualified.getClass() + ")");
 			}

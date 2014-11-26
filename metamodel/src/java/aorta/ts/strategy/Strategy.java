@@ -4,14 +4,15 @@
  */
 package aorta.ts.strategy;
 
-import aorta.AgentState;
+import aorta.State;
 
 /**
  *
  * @author asj
+ * @param <T>
  */
-public interface Strategy {
+public interface Strategy<T extends State> {
 	
-	public AgentState execute(AgentState state) throws StrategyFailedException;
+	public T execute(T state) throws StrategyFailedException;
 	
 }

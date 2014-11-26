@@ -23,7 +23,7 @@ import aorta.ts.Transition;
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class Inform extends Transition {
+public class Inform extends Transition<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(Inform.class.getName());
 	

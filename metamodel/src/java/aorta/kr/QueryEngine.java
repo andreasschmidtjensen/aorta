@@ -1,5 +1,6 @@
 package aorta.kr;
 
+import alice.tuprolog.Int;
 import aorta.kr.util.FormulaQualifier;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +13,9 @@ import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
-import aorta.kr.MentalState;
 import aorta.kr.util.TermVisitor;
 import aorta.reasoning.fml.Formula;
+import java.util.Iterator;
 
 public class QueryEngine {
     
@@ -37,6 +38,58 @@ public class QueryEngine {
 		} else {
 			return false;
 		}
+	}
+	
+	public List<Struct> toStructs(Prolog prolog, KBType type) {
+		Struct org = new Struct(type.getType(), new Var());
+		List<Struct> result = new ArrayList<>();
+		Iterator<? extends Term> it = prolog.getTheory().iterator(prolog);
+		while (it.hasNext()) {
+			Term t = it.next();
+			if (t instanceof Struct) {
+				if (t.match(org)) {
+					result.add((Struct) t);
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	public List<Struct>[] mergeKBs(MentalState ms, KBType type, List<Struct> newStructs) {
+		List<Struct> added = new ArrayList<>();
+		List<Struct> removed = new ArrayList<>();
+		
+		List<Struct> currStructs = new QueryEngine().toStructs(ms.getProlog(), type);
+		for (Struct c : currStructs) {
+			boolean found = false;
+			for (Struct n : newStructs) {
+				if (n.match(c)) {
+					found = true;
+					break;
+				}
+			}
+			if (!found) {
+				removed.add(c);
+				remove(ms, c);
+			}
+		}		
+		
+		for (Struct n : newStructs) {
+			boolean found = false;
+			for (Struct c : currStructs) {
+				if (c.match(n)) {
+					found = true;
+					break;
+				}
+			}
+			if (!found) {
+				added.add(n);
+				insert(ms, n);
+			}
+		}
+		
+		return new List[]{ added, removed };
 	}
 	
 	public SolveInfo solve(MentalState ms, Formula fml) {

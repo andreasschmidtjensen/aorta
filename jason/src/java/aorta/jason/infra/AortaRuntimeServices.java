@@ -12,7 +12,11 @@ import aorta.inspector.AortaGui;
 import aorta.jason.AortaAgentArch;
 import aorta.jason.AortaJasonBridge;
 import aorta.kr.language.OrganizationImportException;
+import aorta.organization.AortaArtifact;
+import aorta.organization.EnvironmentSensor;
 import aorta.parser.helper.AortaBuilder;
+import cartago.CartagoService;
+import cartago.CartagoSession;
 import jason.NoValueForVarException;
 import jason.asSyntax.ASSyntax;
 import jason.asSyntax.Literal;
@@ -46,6 +50,8 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	
 	private List<AortaAgentArch> agents = new ArrayList<>();
 	
+	private boolean useArtifact;
+	
 	public AortaRuntimeServices(RunCentralisedMAS masRunner) {
 		this(masRunner, true);
 	}
@@ -68,6 +74,7 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 		}
 		
 		useWebInspector = masRunner.getProject().getInfrastructure().getParameter("inspector") != null;
+		useArtifact = masRunner.getProject().getInfrastructure().getParameter("artifact") != null;
 		
 		String sleep = masRunner.getProject().getInfrastructure().getParameter("sleep");
 		if (sleep != null) {
@@ -100,6 +107,23 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	
 	@Override
 	public String createAgent(String agName, String agSource, String agClass, List<String> archClasses, ClassParameters bbPars, Settings stts) throws Exception {
+		if (useArtifact && !aorta.artifactInitialized()) {
+			EnvironmentSensor sensor = ((AortaEnvironment) masRunner.getEnvironmentInfraTier()).getSensor();
+			if (sensor != null) {
+				try {
+					aorta.setupArtifact(sensor);
+					
+					if (gui != null) {
+						gui.addArtifact(AortaArtifact.get());
+					}
+				} catch (AORTAException ex) {
+					throw new RuntimeException("Could not setup artifact", ex);
+				}
+			} else {
+				logger.warning("useArtifact was specified, but environment does not support it");
+			}
+		}
+		
 		if (fromAORTA) {
 			return super.createAgent(agName, agSource, agClass, archClasses, bbPars, stts);			
 		} else {

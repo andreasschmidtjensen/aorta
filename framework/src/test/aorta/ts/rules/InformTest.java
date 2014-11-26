@@ -15,7 +15,7 @@ import aorta.kr.PrologLoader;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.ts.Transition;
-import aorta.ts.strategy.Linear;
+import aorta.ts.strategy.AgentStrategy;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
@@ -27,7 +27,7 @@ public class InformTest {
 	
 	@Test
 	public void testTransition() throws Exception {
-		Transition t = new Inform();
+		Transition<AgentState> t = new Inform();
 		
 		QueryEngine engine = new QueryEngine();
 		
@@ -43,7 +43,7 @@ public class InformTest {
 		prologLoader.addTheory(new Theory(theory), KBType.ORGANIZATION);
 		
 		MentalState ms = new MentalState(prologLoader.load());
-		AgentState state = new AgentState(new AortaAgent("agent", ms, null, new Linear()), ms, null);
+		AgentState state = new AgentState(new AortaAgent("agent", ms, null), ms, null);
 		ms = null;
 		
 		state = t.executeTransition(engine, state);

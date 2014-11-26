@@ -3,6 +3,7 @@ package aorta.reasoning.action;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
+import alice.tuprolog.Var;
 import aorta.AORTAException;
 import aorta.AgentState;
 import aorta.kr.KBType;
@@ -13,6 +14,7 @@ import aorta.kr.language.MetaLanguage;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
+import cartago.CartagoException;
 
 public class DeactAction extends Action {
 	public static final Logger logger = Logger.getLogger(DeactAction.class.getName());
@@ -55,11 +57,27 @@ public class DeactAction extends Action {
 			if (!qualified.isGround()) {
 				throw new AORTAException("Cannot execute action: term '" + qualified + "' is not ground.");
 			} else if (qualified instanceof Struct) {
-				//XXX: newState = state.clone();;
-				newState.removeTerm(engine, (Struct) qualified);
-				
-				logger.fine("[" + state.getAgent().getName() + "] Executing action: deact(" + qualified + ")");
-				Tracer.queue(state.getAgent().getName(), "deact(" + qualified + ")");
+				if (state.getAgent().getArtifactAgent() != null) {
+					try {
+						String roleName;
+						if (clonedRoleTerm instanceof Var) {
+							roleName = ((Var) clonedRoleTerm).getTerm().toString();
+						} else {
+							roleName = clonedRoleTerm.toString();
+						}
+						state.getAgent().getArtifactAgent().deact(roleName);
+						
+						Tracer.queue(state.getAgent().getName(), "deact(" + qualified + ")");
+					} catch (CartagoException ex) {
+						throw new AORTAException("The artifact could not deact", ex);
+					}
+				} else {
+					//XXX: newState = state.clone();;
+					newState.removeTerm(engine, (Struct) qualified);
+
+					logger.fine("[" + state.getAgent().getName() + "] Executing action: deact(" + qualified + ")");
+					Tracer.queue(state.getAgent().getName(), "deact(" + qualified + ")");
+				}
 			} else {
 				throw new AORTAException("X in deact(X) must be a Struct (was " + qualified.getClass() + ")");
 			}

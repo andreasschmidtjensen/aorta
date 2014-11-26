@@ -1,0 +1,7 @@
+if bel(me(Me), gameStart) { 
+	role(R) : true => enact(R).
+	
+	if org(rea(Me, gatherer)) { 
+		obj(O) : true => commit(doing(Me)).
+	}
+}

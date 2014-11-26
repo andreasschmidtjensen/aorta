@@ -4,11 +4,13 @@
  */
 package aorta.ts.strategy;
 
+import aorta.AORTAException;
+
 /**
  *
  * @author asj
  */
-public class StrategyFailedException extends Exception {
+public class StrategyFailedException extends AORTAException {
 
 	public StrategyFailedException() {
 	}

@@ -5,14 +5,8 @@
 package aorta.inspector;
 
 import alice.tuprolog.MalformedGoalException;
-import alice.tuprolog.NoSolutionException;
-import alice.tuprolog.SolveInfo;
-import alice.tuprolog.Struct;
-import alice.tuprolog.Var;
-import aorta.AortaAgent;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
-import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.TermFormatter;
 import aorta.parser.AORTALexer;
 import aorta.parser.AORTAParser;
@@ -25,14 +19,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import aorta.logging.Logger;
-import aorta.reasoning.ActionRule;
-import java.util.List;
+import aorta.organization.AortaArtifact;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
@@ -40,20 +32,20 @@ import org.antlr.v4.runtime.CommonTokenStream;
  *
  * @author asj
  */
-public class AgentInspector extends JPanel {
+public class ArtifactInspector extends JPanel {
 
-	private static final Logger logger = Logger.getLogger(AgentInspector.class.getName());
+	private static final Logger logger = Logger.getLogger(ArtifactInspector.class.getName());
 	public static final String SOLVE = "Solve";
 	public static final String SOLVE_AGAIN = "Solve again";
-	private AortaAgent agent;
+	private AortaArtifact artifact;
 	private String formula;
 	private MentalState currentMs;
 	private JTextArea solveResult;
 	private JTextField solveFml;
 	private JButton solveButton;
 
-	public AgentInspector(final AortaAgent agent) {
-		this.agent = agent;
+	public ArtifactInspector(final AortaArtifact artifact) {
+		this.artifact = artifact;
 
 		setLayout(new BorderLayout());
 
@@ -114,11 +106,11 @@ public class AgentInspector extends JPanel {
 			public void run() {
 				while (!interrupted()) {
 					try {
-						String agentText = agent.toString();
-						if (agentText != null) {
-							mentalStateArea.setText(agentText);
+						String text = artifact.toString();
+						if (text != null) {
+							mentalStateArea.setText(text);
 						}
-						String traceText = Tracer.printTrace(agent.getName());
+						String traceText = Tracer.printTrace("ARTIFACT");
 						if (traceText != null) {
 							traceArea.setText(traceText);
 						}
@@ -127,7 +119,7 @@ public class AgentInspector extends JPanel {
 						break;
 					}
 				}
-				logger.finest("stopped gui loop for " + AgentInspector.this.agent.getName());
+				logger.finest("stopped gui loop for " + ArtifactInspector.this.artifact);
 			}
 		}.start();
 	}
@@ -140,7 +132,7 @@ public class AgentInspector extends JPanel {
 				if (solveFml.getText().equals(formula)) {
 					solveResult.append("\n" + engine.solveNext(currentMs).toString());
 				} else {
-					currentMs = agent.getState().getMentalState();
+					currentMs = artifact.getState().getMentalState();
 					formula = solveFml.getText();
 
 					AORTAParser parser = new AORTAParser(null);

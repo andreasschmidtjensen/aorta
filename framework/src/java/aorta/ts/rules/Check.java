@@ -18,7 +18,7 @@ import aorta.reasoning.MessageFunction;
  *
  * @author ascje
  */
-public class Check extends Transition {
+public class Check extends Transition<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(Check.class.getName());
 	

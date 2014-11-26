@@ -1,5 +1,13 @@
 package aorta;
 
+import aorta.kr.language.OrganizationImportException;
+import aorta.kr.language.model.Metamodel;
+import aorta.organization.EnvironmentSensor;
+import aorta.organization.InitializingAgent;
+import cartago.ArtifactId;
+import cartago.CartagoException;
+import cartago.CartagoService;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,12 +16,32 @@ public class Aorta {
 	public static final String ORG_MESSAGE_FUNCTOR = "om";
 	
 	private List<AortaAgent> agents;
-	private String organizationLocation;
+	private final String organizationLocation;
+	
+	private static ArtifactId artifact;
 	
 	public Aorta(String organizationLocation) throws AORTAException {
 		agents = new ArrayList<>();
-        
 		this.organizationLocation = organizationLocation;
+	}
+
+	public boolean artifactInitialized() {
+		return artifact != null;
+	}
+	
+	public void setupArtifact(EnvironmentSensor sensor) throws AORTAException {
+		if (sensor != null) {
+			try {
+				if (artifact == null) {
+					CartagoService.startNode();
+					CartagoService.installInfrastructureLayer("default");
+					Metamodel mm = Metamodel.load(organizationLocation);
+					artifact = new InitializingAgent("aorta_initializer").makeArtifact(mm, sensor);
+				}
+			} catch (IOException | OrganizationImportException | CartagoException ex) {
+				throw new AORTAException("Could not initialize CArtAgO artifact", ex);
+			}
+		}
 	}
 
 	public String getOrganizationLocation() {
@@ -41,6 +69,10 @@ public class Aorta {
         
         newAgent.setAorta(this);
 		agents.add(newAgent);
+
+		if (artifact != null) {
+			newAgent.setArtifact(artifact);
+		}
 	}
     
     public void removeAgent(AortaAgent removedAgent) {

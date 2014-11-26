@@ -5,6 +5,7 @@
 package aorta.inspector;
 
 import aorta.AortaAgent;
+import aorta.organization.AortaArtifact;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
@@ -26,6 +27,14 @@ public class AortaGui extends JFrame {
 	public void addAgent(AortaAgent agent) {
 		tabs.addTab(agent.getName(), new AgentInspector(agent));
 		System.out.println("Adding tab for " + agent.getName());
+		if (!isVisible()) {
+			setVisible(true);
+		}
+	}
+	
+	public void addArtifact(AortaArtifact artifact) {
+		tabs.addTab("ARTIFACT", new ArtifactInspector(artifact));
+		System.out.println("Adding tab for artifact");
 		if (!isVisible()) {
 			setVisible(true);
 		}

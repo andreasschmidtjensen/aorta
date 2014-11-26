@@ -24,7 +24,7 @@ import java.util.logging.Level;
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class EnactRule extends Transition {
+public class EnactRule extends Transition<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(EnactRule.class.getName());
 

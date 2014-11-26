@@ -4,11 +4,12 @@
  */
 package aorta.ts.rules;
 
+import alice.tuprolog.InvalidTermException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
-import aorta.AgentState;
+import aorta.State;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
@@ -29,8 +30,8 @@ public class ObligationSatisfied extends Transition {
 	private static final Logger logger = Logger.getLogger(ObligationSatisfied.class.getName());
 
 	@Override
-	protected AgentState execute(QueryEngine engine, AgentState state) {
-		AgentState newState = state;
+	protected State execute(QueryEngine engine, State state) {
+		State newState = state;
 		MentalState ms = newState.getMentalState();
 
 		MetaLanguage language = new MetaLanguage();
@@ -51,7 +52,20 @@ public class ObligationSatisfied extends Transition {
 				}
 				if (objectiveArg instanceof Struct) {
 					if (TermQualifier.isQualified((Struct)objectiveArg)) {
-						optObj = (Struct) TermQualifier.qualifyTerm(language.obj(FormulaQualifier.getQualified((Struct)objectiveArg)), KBType.OPTION.getType());
+						try {
+							Term qualifiedArg = FormulaQualifier.getQualified((Struct)objectiveArg);
+							if (qualifiedArg == null) {
+								// ugly fix
+								int tries = 5;
+								while (tries > 0 && qualifiedArg == null)  {
+									qualifiedArg = FormulaQualifier.getQualified((Struct)objectiveArg);
+									tries--;
+								}
+							}
+							optObj = (Struct) TermQualifier.qualifyTerm(language.obj(qualifiedArg), KBType.OPTION.getType());							
+						} catch (InvalidTermException ex) {
+							System.out.println("InvalidTermException for " + obj);
+						}
 					}
 				}
 
@@ -62,8 +76,8 @@ public class ObligationSatisfied extends Transition {
 					newState.removeTerm(engine, orgObl);
 					newState.removeTerm(engine, optObj);
 
-					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Removing obligation: " + orgObl);
-					Tracer.trace(state.getAgent().getName(), "(" + getName() + ") Satisfied " + orgObl.getArg(0) + "\n");
+					logger.fine("[" + state.getDescription() + "] Removing obligation: " + orgObl);
+					Tracer.trace(state.getIdentifier(), "(" + getName() + ") Satisfied " + orgObl.getArg(0) + "\n");
 					break;
 				}
 			}

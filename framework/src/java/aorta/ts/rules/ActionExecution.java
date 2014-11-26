@@ -30,7 +30,7 @@ import java.util.logging.Level;
  *
  * @author asj
  */
-public class ActionExecution extends Transition {
+public class ActionExecution extends Transition<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(ActionExecution.class.getName());
 

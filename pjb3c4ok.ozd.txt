@@ -1,0 +1,81 @@
+﻿Organizational artifact
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch org_artifact
+# Changes to be committed:
+#	new file:   framework/src/java/aorta/inspector/ArtifactInspector.java
+#	renamed:    framework/src/java/aorta/ts/strategy/Linear.java -> framework/src/java/aorta/ts/strategy/AgentStrategy.java
+#	renamed:    framework/src/java/aorta/AORTAException.java -> metamodel/src/java/aorta/AORTAException.java
+#	renamed:    framework/src/java/aorta/logging/Logger.java -> metamodel/src/java/aorta/logging/Logger.java
+#	renamed:    framework/src/java/aorta/tracer/Tracer.java -> metamodel/src/java/aorta/tracer/Tracer.java
+#	renamed:    framework/src/java/aorta/ts/Transition.java -> metamodel/src/java/aorta/ts/Transition.java
+#	renamed:    framework/src/java/aorta/ts/TransitionNotPossibleException.java -> metamodel/src/java/aorta/ts/TransitionNotPossibleException.java
+#	renamed:    framework/src/java/aorta/ts/rules/ObligationActivated.java -> metamodel/src/java/aorta/ts/rules/ObligationActivated.java
+#	renamed:    framework/src/java/aorta/ts/rules/ObligationSatisfied.java -> metamodel/src/java/aorta/ts/rules/ObligationSatisfied.java
+#	renamed:    framework/src/java/aorta/ts/rules/ObligationViolated.java -> metamodel/src/java/aorta/ts/rules/ObligationViolated.java
+#	renamed:    framework/src/java/aorta/ts/strategy/Strategy.java -> metamodel/src/java/aorta/ts/strategy/Strategy.java
+#	renamed:    framework/src/java/aorta/ts/strategy/StrategyFailedException.java -> metamodel/src/java/aorta/ts/strategy/StrategyFailedException.java
+#
+# Changes not staged for commit:
+#	modified:   examples/library/Library.java
+#	modified:   examples/library/library.mas2j
+#	modified:   examples/library/library.mas2j~
+#	modified:   framework/src/java/aorta/AgentState.java
+#	modified:   framework/src/java/aorta/Aorta.java
+#	modified:   framework/src/java/aorta/AortaAgent.java
+#	modified:   framework/src/java/aorta/inspector/AortaGui.java
+#	modified:   framework/src/java/aorta/inspector/ArtifactInspector.java
+#	modified:   framework/src/java/aorta/parser/helper/AgentBuilder.java
+#	modified:   framework/src/java/aorta/parser/helper/Initialization.java
+#	modified:   framework/src/java/aorta/reasoning/action/DeactAction.java
+#	modified:   framework/src/java/aorta/reasoning/action/EnactAction.java
+#	modified:   framework/src/java/aorta/ts/rules/ActionExecution.java
+#	modified:   framework/src/java/aorta/ts/rules/Check.java
+#	modified:   framework/src/java/aorta/ts/rules/DeactRule.java
+#	modified:   framework/src/java/aorta/ts/rules/Delegate.java
+#	modified:   framework/src/java/aorta/ts/rules/EnactRule.java
+#	modified:   framework/src/java/aorta/ts/rules/Ext.java
+#	modified:   framework/src/java/aorta/ts/rules/Inform.java
+#	modified:   framework/src/java/aorta/ts/rules/InformSubObj.java
+#	modified:   framework/src/java/aorta/ts/rules/ObjectiveRule.java
+#	modified:   framework/src/java/aorta/ts/strategy/AgentStrategy.java
+#	modified:   framework/src/test/aorta/reasoning/action/EnactActionTest.java
+#	modified:   framework/src/test/aorta/ts/rules/CheckTest.java
+#	modified:   framework/src/test/aorta/ts/rules/DelegateTest.java
+#	modified:   framework/src/test/aorta/ts/rules/EnactTest.java
+#	modified:   framework/src/test/aorta/ts/rules/ExtTest.java
+#	modified:   framework/src/test/aorta/ts/rules/InformTest.java
+#	modified:   framework/src/test/aorta/ts/rules/ObligationActivatedTest.java
+#	modified:   framework/src/test/aorta/ts/rules/ObligationSatisfiedTest.java
+#	modified:   framework/src/test/aorta/ts/rules/ObligationViolatedTest.java
+#	modified:   jason/nbproject/project.properties
+#	modified:   jason/src/java/aorta/jason/infra/AortaEnvironment.java
+#	modified:   jason/src/java/aorta/jason/infra/AortaRuntimeServices.java
+#	modified:   jeditplugin/build.xml
+#	modified:   jeditplugin/src/java/aorta/jeditplugin/AortaIDE.java
+#	modified:   metamodel/src/java/aorta/kr/MentalState.java
+#	modified:   metamodel/src/java/aorta/kr/PrologLoader.java
+#	modified:   metamodel/src/java/aorta/kr/QueryEngine.java
+#	modified:   metamodel/src/java/aorta/kr/language/MetaLanguage.java
+#	modified:   metamodel/src/java/aorta/kr/util/TermFormatter.java
+#	modified:   metamodel/src/java/aorta/ts/Transition.java
+#	modified:   metamodel/src/java/aorta/ts/rules/ObligationActivated.java
+#	modified:   metamodel/src/java/aorta/ts/rules/ObligationSatisfied.java
+#	modified:   metamodel/src/java/aorta/ts/rules/ObligationViolated.java
+#	modified:   metamodel/src/java/aorta/ts/strategy/Strategy.java
+#	modified:   metamodel/src/java/aorta/ts/strategy/StrategyFailedException.java
+#	modified:   modelchecker/src/java/aorta/ail/abs/Abstract_AortaAgent.java
+#
+# Untracked files:
+#	examples/SettlersInSpace/
+#	examples/scbw/
+#	framework/nbproject/build-impl.xml~
+#	framework/src/java/aorta/ts/rules/Sense.java
+#	metamodel/src/java/aorta/State.java
+#	metamodel/src/java/aorta/ts/strategy/ExecuteOnce.java
+#	metamodel/src/java/aorta/ts/strategy/ExecuteStar.java
+#	metamodel/src/java/aorta/ts/strategy/Executor.java
+#	metamodel/src/java/aorta/ts/strategy/Linear.java
+#	organization/
+#
+

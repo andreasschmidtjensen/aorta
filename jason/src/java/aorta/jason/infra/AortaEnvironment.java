@@ -4,7 +4,11 @@
  */
 package aorta.jason.infra;
 
+import aorta.organization.EnvironmentSensor;
+import eis.EnvironmentInterfaceStandard;
 import jason.JasonException;
+import jason.eis.EISAdapter;
+import jason.environment.Environment;
 import jason.infra.centralised.CentralisedEnvironment;
 import jason.infra.centralised.CentralisedRuntimeServices;
 import jason.infra.centralised.RunCentralisedMAS;
@@ -20,9 +24,35 @@ public class AortaEnvironment extends CentralisedEnvironment {
 
 	private AortaLauncher masRunner;
 	
+	private EnvironmentSensor sensor;
+	
 	public AortaEnvironment(ClassParameters userEnvArgs, AortaLauncher masRunner) throws JasonException {
 		super(userEnvArgs, masRunner);
 		this.masRunner = masRunner;
+		
+		Environment env = getUserEnvironment();
+		if (env != null) {
+			if (env instanceof EnvironmentSensor) {
+				sensor = (EnvironmentSensor) env;
+			} else if (env instanceof EISAdapter) {
+				try {
+					EISAdapter eisAdapter = (EISAdapter) env;
+					Field privateStringField = EISAdapter.class.getDeclaredField("ei");
+					privateStringField.setAccessible(true);
+					EnvironmentInterfaceStandard eis = (EnvironmentInterfaceStandard) privateStringField.get(eisAdapter);
+
+					if (eis instanceof EnvironmentSensor) {
+						sensor = (EnvironmentSensor) eis;
+					}
+				} catch (IllegalArgumentException | IllegalAccessException | NoSuchFieldException ex) {
+					throw new JasonException("Could not check EIS environment", ex);
+				}
+			}
+		}
+	}
+
+	public EnvironmentSensor getSensor() {
+		return sensor;
 	}
 
 	@Override

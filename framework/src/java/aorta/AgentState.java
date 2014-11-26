@@ -27,23 +27,20 @@ import aorta.reasoning.ReasoningRule;
  *
  * @author ascje
  */
-public class AgentState {
+public class AgentState extends State {
 
 	private static final Logger logger = Logger.getLogger(AgentState.class.getName());
 	
 	private AortaAgent agent;
-	private MentalState mentalState;
 	private List<ReasoningRule> rules;
 	private Queue<OutgoingOrganizationalMessage> out;
 	private ExternalAgent externalAgent;
 	private AortaBridge bridge;
 	private List<Var> bindings;
 	
-	private boolean changed;
-	
 	public AgentState(AortaAgent agent, MentalState mentalState, List<ReasoningRule> rules) {
+		super(mentalState);
 		this.agent = agent;
-		this.mentalState = mentalState;
 		this.rules = rules;
 
 		out = new LinkedList<>();
@@ -51,26 +48,6 @@ public class AgentState {
 		externalAgent = new ExternalAgent();
 
 		bindings = new ArrayList<>();
-	}
-
-	public void newCycle() {
-	}
-
-	public final void prepareForTransition() {
-		changed = false;
-		bindings.clear();
-	}
-
-	public boolean hasChanged() {
-		return changed;
-	}
-
-	public void setChanged(boolean changed) {
-		this.changed = changed;
-	}
-	
-	public void setMentalState(MentalState mentalState) {
-		this.mentalState = mentalState;
 	}
 
 	public void setBridge(AortaBridge bridge) {
@@ -81,6 +58,7 @@ public class AgentState {
 		return bridge;
 	}
 
+	@Override
 	public void insertTerm(QueryEngine engine, Struct term, KBType type) {
 		boolean insert = true;
 		if (bridge != null) {
@@ -95,10 +73,7 @@ public class AgentState {
 		}
 
 		if (insert) {
-			final Struct qualified = FormulaQualifier.qualifyStruct(term, type);
-			insertInMentalState(engine, qualified);
-
-			logger.log(Level.FINEST, "Updating mental state; inserting " + qualified);
+			super.insertTerm(engine, term, type);
 		}
 	}
 
@@ -126,27 +101,12 @@ public class AgentState {
 		}
 
 		if (insert) {
-			engine.insert(mentalState, contents);
-			
-			changed = true;
+			engine.insert(getMentalState(), contents);
+			setChanged(true);
 		}
 	}
 
-	public void insertTerm(QueryEngine engine, Struct qualifiedTerm) {
-		if (!FormulaQualifier.isQualified(qualifiedTerm)) {
-			throw new IllegalArgumentException("Provided term was not qualified: " + qualifiedTerm);
-		}
-
-		try {
-			KBType type = FormulaQualifier.getQualifier(qualifiedTerm);
-			Struct term = (Struct) FormulaQualifier.getQualified(qualifiedTerm);
-
-			insertTerm(engine, term, type);
-		} catch (NullPointerException ex) {
-			logger.log(Level.SEVERE, qualifiedTerm + " threw NPE for insertTerm(" + qualifiedTerm + ")", ex);
-		}
-	}
-
+	@Override
 	public void removeTerm(QueryEngine engine, Struct term, KBType type) {
 		boolean remove = true;
 		if (bridge != null) {
@@ -161,67 +121,13 @@ public class AgentState {
 		}
 
 		if (remove) {
-			final Struct qualified = FormulaQualifier.qualifyStruct(term, type);
-			removeFromMentalState(engine, qualified);
-						
-			logger.log(Level.FINEST, "Updating mental state; removing " +qualified);
+			super.removeTerm(engine, term, type);
 		}
-	}
-
-	public void removeTerm(QueryEngine engine, Struct qualifiedTerm) {
-		if (!FormulaQualifier.isQualified(qualifiedTerm)) {
-			throw new IllegalArgumentException("Provided term was not qualified: " + qualifiedTerm);
-		}
-
-		KBType type = FormulaQualifier.getQualifier(qualifiedTerm);
-		Struct term = (Struct) FormulaQualifier.getQualified(qualifiedTerm);
-
-		removeTerm(engine, term, type);
-	}
-
-	public void insertInMentalState(QueryEngine engine, Struct contents) {
-		engine.insert(mentalState, contents);			
-		changed = true;
-	}
-
-	public void removeFromMentalState(QueryEngine engine, final Struct qualified) {
-		engine.remove(mentalState, qualified);			
-		changed = true;
-	}
-	
-	public List<Var> getBindings() {
-		return bindings;
-	}
-
-	public void setBindings(List<Var> bindings) {
-		this.bindings = bindings;
-	}
-
-	public void clearBindings() {
-		bindings.clear();
-	}
-	
-	public void addBindings(List<Var> bindings) {
-		this.bindings = mergeBindings(this.bindings, bindings);
-	}
-	
-	public void addBindings(SolveInfo info) {
-		if (info.isSuccess()) {
-			try {
-				bindings = mergeBindings(bindings, info.getBindingVars());
-			} catch (NoSolutionException ex) {
-				// ignore because of isSuccess
-			}
-		}
-	}
-
-	public MentalState getMentalState() {
-		return mentalState;
 	}
 
 	public void sendMessage(OutgoingOrganizationalMessage msg) {
 		out.add(msg);			
-		changed = true;
+		setChanged(true);
 	}
 	
 	Queue<OutgoingOrganizationalMessage> getOut() {
@@ -240,46 +146,14 @@ public class AgentState {
 		return agent;
 	}
 
-	public static List<Var> mergeBindings(List<Var> currentBindings, List<Var> newBindings) {
-		List<Var> result = new ArrayList<>(currentBindings);
-		for (Var var : newBindings) {
-			boolean exists = false;
-			for (Var currVar : result) {
-				if (var.getOriginalName().equals(currVar.getOriginalName())) {
-					exists = true;
-					break;
-				}
-			}
-			if (!exists) {
-				result.add(var);
-			}
-		}
-		return result;
+	@Override
+	public String getIdentifier() {
+		return getAgent().getName();
 	}
 
-	public static List<Var> mergeBindings(SolveInfo si1, SolveInfo si2) {
-		if (si1.isSuccess() && si2.isSuccess()) {
-			try {
-				List<Var> result = new ArrayList<>();
-				result.addAll(si1.getBindingVars());
-				for (Var var : si2.getBindingVars()) {
-					boolean exists = false;
-					for (Var currVar : result) {
-						if (var.getOriginalName().equals(currVar.getOriginalName())) {
-							exists = true;
-							break;
-						}
-					}
-					if (!exists) {
-						result.add(var);
-					}
-				}
-				return result;
-			} catch (NoSolutionException ex) {
-				// ignore
-			}
-		}
-		return null;
+	@Override
+	public String getDescription() {
+		return getAgent().getName() + "/" + getAgent().getCycle();
 	}
 
 }

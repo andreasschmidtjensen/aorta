@@ -24,7 +24,7 @@ import java.util.List;
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class ObjectiveRule extends Transition {
+public class ObjectiveRule extends Transition<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(ObjectiveRule.class.getName());
 

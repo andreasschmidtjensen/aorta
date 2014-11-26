@@ -4,6 +4,7 @@
  */
 package aorta.kr.language;
 
+import alice.tuprolog.InvalidTermException;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;

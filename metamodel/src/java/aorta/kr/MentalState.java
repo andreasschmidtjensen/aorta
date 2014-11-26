@@ -5,6 +5,7 @@ import alice.tuprolog.Prolog;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Var;
 import aorta.kr.util.FormulaQualifier;
+import aorta.kr.util.TermFormatter;
 
 public class MentalState {
 

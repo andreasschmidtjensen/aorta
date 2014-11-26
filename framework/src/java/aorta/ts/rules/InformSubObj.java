@@ -24,7 +24,7 @@ import java.util.List;
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class InformSubObj extends Transition {
+public class InformSubObj extends Transition<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(InformSubObj.class.getName());
 	

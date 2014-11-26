@@ -6,9 +6,8 @@ package aorta.ts.rules;
 
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
-import alice.tuprolog.Term;
 import alice.tuprolog.Var;
-import aorta.AgentState;
+import aorta.State;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
@@ -28,8 +27,8 @@ public class ObligationViolated extends Transition {
 	private static final Logger logger = Logger.getLogger(ObligationViolated.class.getName());
 	
 	@Override
-	protected AgentState execute(QueryEngine engine, AgentState state) {
-		AgentState newState = state;
+	protected State execute(QueryEngine engine, State state) {
+		State newState = state;
 		MentalState ms = newState.getMentalState();
 		
 		MetaLanguage language = new MetaLanguage();
@@ -57,8 +56,8 @@ public class ObligationViolated extends Transition {
 						//XXX: newState = state.clone();;
 						newState.insertTerm(engine, orgViol);
 
-						logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Violated obligation: " + orgViol);
-						Tracer.trace(state.getAgent().getName(), "(" + getName() + ") " + orgViol.getArg(0) + "\n");
+						logger.fine("[" + state.getDescription() + "] Violated obligation: " + orgViol);
+						Tracer.trace(state.getIdentifier(), "(" + getName() + ") " + orgViol.getArg(0) + "\n");
 
 						break;
 					}

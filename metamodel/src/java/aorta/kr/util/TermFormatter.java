@@ -20,6 +20,9 @@ public class TermFormatter {
 		}
 		return result;
 	}
+	public static String toString(Prolog prolog) {
+		return toString(prolog, prolog.getTheory());
+	}
 
 	public static String sortedToString(Prolog prolog, Theory theory) {
 		if (theory == null) {
@@ -36,6 +39,10 @@ public class TermFormatter {
 			result += line + "\n";
 		}
 		return result;
+	}
+	
+	public static String sortedToString(Prolog prolog) {
+		return sortedToString(prolog, prolog.getTheory());
 	}
 	
 	public static String toString(Term term) {

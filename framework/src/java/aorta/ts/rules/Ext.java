@@ -18,7 +18,7 @@ import aorta.logging.Logger;
  *
  * @author asj
  */
-public class Ext extends Transition {
+public class Ext extends Transition<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(Ext.class.getName());
 

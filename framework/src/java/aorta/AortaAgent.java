@@ -1,11 +1,13 @@
 package aorta;
 
 import alice.tuprolog.Struct;
+import aorta.inspector.AgentWebInspector;
 import aorta.inspector.Inspector;
 import aorta.kr.KBType;
 import java.util.List;
 
 import aorta.kr.MentalState;
+import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.msg.OutgoingOrganizationalMessage;
 import aorta.ts.strategy.Strategy;
@@ -13,9 +15,15 @@ import aorta.ts.strategy.StrategyFailedException;
 import java.util.Iterator;
 import java.util.logging.Level;
 import aorta.logging.Logger;
+import aorta.organization.AortaArtifactAgent;
 import aorta.reasoning.MessageFunction;
 import aorta.reasoning.ReasoningRule;
 import aorta.tracer.Tracer;
+import aorta.ts.strategy.AgentStrategy;
+import cartago.ArtifactId;
+import cartago.ArtifactObsProperty;
+import cartago.CartagoException;
+import cartago.util.agent.Percept;
 import java.util.ArrayList;
 
 public class AortaAgent {
@@ -26,7 +34,9 @@ public class AortaAgent {
 	private String name;
 	private AgentState state;
 	private Aorta aorta;
-	private Strategy strategy;
+	private Strategy<AgentState> strategy;
+	
+	private AortaArtifactAgent artifactAgent;
     
     private String lastTrace;
     
@@ -34,9 +44,9 @@ public class AortaAgent {
 	
 	private boolean lastCycleChangedState = true;
 
-	public AortaAgent(String name, MentalState mentalState, List<ReasoningRule> rules, Strategy strategy) {
+	public AortaAgent(String name, MentalState mentalState, List<ReasoningRule> rules) {
 		this.name = name;
-		this.strategy = strategy;
+		this.strategy = new AgentStrategy(false);
 
 		state = new AgentState(this, mentalState, rules);
 
@@ -76,6 +86,36 @@ public class AortaAgent {
 		return name;
 	}
 
+	public AortaArtifactAgent getArtifactAgent() {
+		return artifactAgent;
+	}
+
+	public void setArtifact(ArtifactId artifact) {
+		this.strategy = new AgentStrategy(true);
+		
+		try {
+			System.out.println("setting up artifact agent");
+			artifactAgent = new AortaArtifactAgent(name, artifact) {
+				@Override
+				public List<Struct>[] handlePercept(Percept p) {
+					try {
+						if (p.obsPropChanges()) {
+							ArtifactObsProperty prop = (ArtifactObsProperty) p.getPropChanged()[0];
+							List<Struct> orgStructs = (List<Struct>) prop.getValue();
+							QueryEngine engine = new QueryEngine();
+							return engine.mergeKBs(state.getMentalState(), KBType.ORGANIZATION, orgStructs);
+						}
+					} catch (NullPointerException ex) {
+						// event in percept is null if no percept... no way to check it
+					}
+					return new List[] { new ArrayList(), new ArrayList() };
+				}				
+			};
+		} catch (CartagoException ex) {
+			throw new RuntimeException("Could not set artifact", ex);
+		}
+	}
+	
 	public void setAorta(Aorta aorta) {
 		this.aorta = aorta;
 	}
@@ -86,7 +126,10 @@ public class AortaAgent {
 
 	public void newCycle() throws StrategyFailedException {
 		cycle++;
-        Tracer.clearTrace(name);
+		
+		if (AgentWebInspector.isRunning()) {
+			Tracer.clearTrace(name);
+		}
         
 		long start = System.currentTimeMillis();
 		logger.log(Level.FINEST, "(" + getName() + ") New AORTA cycle [" + cycle + "]. Strategy: " + strategy.getClass().getName());
