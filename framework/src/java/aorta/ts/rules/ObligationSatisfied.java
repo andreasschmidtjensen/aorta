@@ -4,6 +4,7 @@
  */
 package aorta.ts.rules;
 
+import alice.tuprolog.InvalidTermException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
@@ -51,7 +52,20 @@ public class ObligationSatisfied extends Transition {
 				}
 				if (objectiveArg instanceof Struct) {
 					if (TermQualifier.isQualified((Struct)objectiveArg)) {
-						optObj = (Struct) TermQualifier.qualifyTerm(language.obj(FormulaQualifier.getQualified((Struct)objectiveArg)), KBType.OPTION.getType());
+						try {
+							Term qualifiedArg = FormulaQualifier.getQualified((Struct)objectiveArg);
+							if (qualifiedArg == null) {
+								// ugly fix
+								int tries = 5;
+								while (tries > 0 && qualifiedArg == null)  {
+									qualifiedArg = FormulaQualifier.getQualified((Struct)objectiveArg);
+									tries--;
+								}
+							}
+							optObj = (Struct) TermQualifier.qualifyTerm(language.obj(qualifiedArg), KBType.OPTION.getType());							
+						} catch (InvalidTermException ex) {
+							System.out.println("InvalidTermException for " + obj);
+						}
 					}
 				}
 
