@@ -42,9 +42,9 @@ public class EnactRule extends Transition {
 		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 		Struct optRole = FormulaQualifier.qualifyStruct(oRole, KBType.OPTION);
 		
-		String test = orgRole.toString() + ", bel(me(A)), \\+ " + orgRea.toString() + ", \\+ " + optRole.toString() + ", cl(Os, Out), member(G,Os), cap(G).";
+		String test = orgRole.toString() + ", bel(me(A)), \\+ " + orgRea.toString() + ", \\+ " + optRole.toString() + ", member(G,Os), cap(G).";
 		try {
-			// org(role(R,Os)), \+ org(rea(Ag,R)), \+ opt(role(R,Os)), cl(Os,OsOut), member(G,OsOut), goal(G)
+			// org(role(R,Os)), \+ org(rea(Ag,R)), \+ opt(role(R,Os)), member(G,Os), cap(G)
 			List<SolveInfo> results = engine.findAll(ms, test);
 			for (SolveInfo result : results) {
 				if (result.isSuccess()) {
