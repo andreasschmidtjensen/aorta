@@ -138,6 +138,8 @@ public class TermConverter {
 				VarTerm var = new VarTerm(((Var) term).getName());
 				return var;
 			}
+		} else if (term instanceof Number) {
+			return new NumberTermImpl(((Number)term).doubleValue());
 		}
 		throw new IllegalArgumentException("term of wrong type: " + term);
 	}
