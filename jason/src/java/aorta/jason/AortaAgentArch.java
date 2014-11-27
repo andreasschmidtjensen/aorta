@@ -8,6 +8,7 @@ import alice.tuprolog.Term;
 import aorta.Aorta;
 import aorta.AortaAgent;
 import aorta.msg.IncomingOrganizationalMessage;
+import aorta.tracer.Tracer;
 import aorta.ts.strategy.StrategyFailedException;
 import jason.JasonException;
 import jason.asSemantics.ActionExec;
@@ -21,6 +22,10 @@ import jason.infra.centralised.CentralisedAgArch;
 import jason.infra.centralised.RunCentralisedMAS;
 import jason.mas2j.ClassParameters;
 import jason.runtime.Settings;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -42,6 +47,8 @@ public class AortaAgentArch extends CentralisedAgArch {
 	private AortaBB aortaBB;
 
 	private ActionExec lastActionExecuted;
+	
+	private boolean saveToFile;
 
 	@Override
 	public void createArchs(List<String> agArchClasses, String agClass, ClassParameters bbPars, String asSrc, Settings stts, RunCentralisedMAS masRunner) throws JasonException {
@@ -174,6 +181,17 @@ public class AortaAgentArch extends CentralisedAgArch {
 
 	@Override
 	public void stopAg() {
+		if (saveToFile) {
+			// write me to file
+			new File("logs/").mkdir();
+			try (BufferedWriter writer = new BufferedWriter(new FileWriter("logs/" + getAgName() + ".txt"))) {
+				writer.write(getAortaAgent().toString() + "\n");
+				writer.write(Tracer.printTrace(getAgName()));
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+			
 		running = false;
 		if (myThread != null) {
 			myThread.interrupt();
@@ -202,6 +220,10 @@ public class AortaAgentArch extends CentralisedAgArch {
 			}
 		}
 		logger.fine("I finished!");
+	}
+
+	public void setSaveToFile(boolean saveToFile) {
+		this.saveToFile = saveToFile;
 	}
 
 }
