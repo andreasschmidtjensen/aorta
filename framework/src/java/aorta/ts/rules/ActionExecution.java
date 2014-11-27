@@ -57,7 +57,6 @@ public class ActionExecution extends Transition<AgentState> {
 					}
 				}
 			} else if (rule instanceof ActionRule) {
-				// TODO: use vars
 				ActionRule ar = (ActionRule) rule;
 				AgentState newState = actionExecuted(engine, ar, state, vars);
 
@@ -73,6 +72,7 @@ public class ActionExecution extends Transition<AgentState> {
 	private List<Var> checkCondition(QueryEngine engine, AgentState state, Formula condition, List<Var> vars) {
 		MentalState ms = state.getMentalState();
 		Term qualified = FormulaQualifier.qualifyGoal(ms, condition);
+		engine.unify(ms, qualified, vars);
 		
 		SolveInfo info = engine.solve(ms, qualified);
 		
