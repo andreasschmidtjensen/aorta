@@ -176,6 +176,9 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 		
 		agents.add(agentArch);
 		
+		String logEndState = stts.getUserParameter("logEndState");
+		agentArch.setSaveToFile("true".equals(logEndState));
+		
 		return actualAgName;
 	}
 
