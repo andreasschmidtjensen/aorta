@@ -65,7 +65,9 @@ rules returns [List<Rule> ruleList]
 	RULES COLON (krrule { $ruleList.add($krrule.r); })+;
 krrule returns [Rule r] 
 	: struct ENTAILS prolog FULLSTOP
-	  { $r = new Rule($struct.fml, $prolog.fml); };
+	  { $r = new Rule($struct.fml, $prolog.fml); }
+	| atom ENTAILS prolog FULLSTOP
+	  { $r = new Rule($atom.fml, $prolog.fml); };
 
 prolog returns [Term fml]: prolog2 { $fml = Term.createTerm($prolog2.text); };
 prolog2 returns [Term fml]

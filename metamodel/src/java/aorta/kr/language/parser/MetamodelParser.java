@@ -822,6 +822,7 @@ public class MetamodelParser extends Parser {
 		public Rule r;
 		public StructContext struct;
 		public PrologContext prolog;
+		public AtomContext atom;
 		public TerminalNode ENTAILS() { return getToken(MetamodelParser.ENTAILS, 0); }
 		public StructContext struct() {
 			return getRuleContext(StructContext.class,0);
@@ -830,6 +831,9 @@ public class MetamodelParser extends Parser {
 			return getRuleContext(PrologContext.class,0);
 		}
 		public TerminalNode FULLSTOP() { return getToken(MetamodelParser.FULLSTOP, 0); }
+		public AtomContext atom() {
+			return getRuleContext(AtomContext.class,0);
+		}
 		public KrruleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -853,13 +857,29 @@ public class MetamodelParser extends Parser {
 		KrruleContext _localctx = new KrruleContext(_ctx, getState());
 		enterRule(_localctx, 22, RULE_krrule);
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(168); ((KrruleContext)_localctx).struct = struct();
-			setState(169); match(ENTAILS);
-			setState(170); ((KrruleContext)_localctx).prolog = prolog();
-			setState(171); match(FULLSTOP);
-			 ((KrruleContext)_localctx).r =  new Rule(((KrruleContext)_localctx).struct.fml, ((KrruleContext)_localctx).prolog.fml); 
+			setState(180);
+			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(168); ((KrruleContext)_localctx).struct = struct();
+				setState(169); match(ENTAILS);
+				setState(170); ((KrruleContext)_localctx).prolog = prolog();
+				setState(171); match(FULLSTOP);
+				 ((KrruleContext)_localctx).r =  new Rule(((KrruleContext)_localctx).struct.fml, ((KrruleContext)_localctx).prolog.fml); 
+				}
+				break;
+
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(174); ((KrruleContext)_localctx).atom = atom();
+				setState(175); match(ENTAILS);
+				setState(176); ((KrruleContext)_localctx).prolog = prolog();
+				setState(177); match(FULLSTOP);
+				 ((KrruleContext)_localctx).r =  new Rule(((KrruleContext)_localctx).atom.fml, ((KrruleContext)_localctx).prolog.fml); 
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -904,7 +924,7 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(174); ((PrologContext)_localctx).prolog2 = prolog2();
+			setState(182); ((PrologContext)_localctx).prolog2 = prolog2();
 			 ((PrologContext)_localctx).fml =  Term.createTerm((((PrologContext)_localctx).prolog2!=null?_input.getText(((PrologContext)_localctx).prolog2.start,((PrologContext)_localctx).prolog2.stop):null)); 
 			}
 		}
@@ -960,46 +980,46 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(200);
-			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
+			setState(208);
+			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
 			case 1:
 				{
-				setState(177); match(COMMA);
-				setState(178); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(185); match(COMMA);
+				setState(186); ((Prolog2Context)_localctx).pl = prolog2();
 				 ((Prolog2Context)_localctx).fml =  new Struct(",", ((Prolog2Context)_localctx).pl.fml); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(181); match(SEMICOLON);
-				setState(182); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(189); match(SEMICOLON);
+				setState(190); ((Prolog2Context)_localctx).pl = prolog2();
 				 ((Prolog2Context)_localctx).fml =  new Struct(";", ((Prolog2Context)_localctx).pl.fml); 
 				}
 				break;
 
 			case 3:
 				{
-				setState(185); match(START);
-				setState(186); ((Prolog2Context)_localctx).pl = prolog2();
-				setState(187); match(END);
-				setState(188); prolog2();
+				setState(193); match(START);
+				setState(194); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(195); match(END);
+				setState(196); prolog2();
 				 ((Prolog2Context)_localctx).fml =  ((Prolog2Context)_localctx).pl.fml; 
 				}
 				break;
 
 			case 4:
 				{
-				setState(191); ((Prolog2Context)_localctx).UNARY_OP = match(UNARY_OP);
-				setState(192); ((Prolog2Context)_localctx).pl = prolog2();
+				setState(199); ((Prolog2Context)_localctx).UNARY_OP = match(UNARY_OP);
+				setState(200); ((Prolog2Context)_localctx).pl = prolog2();
 				 ((Prolog2Context)_localctx).fml =  new Struct((((Prolog2Context)_localctx).UNARY_OP!=null?((Prolog2Context)_localctx).UNARY_OP.getText():null), ((Prolog2Context)_localctx).pl.fml); 
 				}
 				break;
 
 			case 5:
 				{
-				setState(195); ((Prolog2Context)_localctx).termBuilder = termBuilder();
-				setState(196); prolog2();
+				setState(203); ((Prolog2Context)_localctx).termBuilder = termBuilder();
+				setState(204); prolog2();
 				 ((Prolog2Context)_localctx).fml =  ((Prolog2Context)_localctx).termBuilder.fml; 
 				}
 				break;
@@ -1066,31 +1086,31 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(217);
-			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {
+			setState(225);
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				{
-				setState(202); ((TermBuilderContext)_localctx).t3 = ((TermBuilderContext)_localctx).term = term();
-				setState(203); match(IS);
-				setState(204); ((TermBuilderContext)_localctx).t4 = ((TermBuilderContext)_localctx).term = term();
-				setState(205); ((TermBuilderContext)_localctx).MATH_OP = match(MATH_OP);
-				setState(206); ((TermBuilderContext)_localctx).t5 = ((TermBuilderContext)_localctx).term = term();
+				setState(210); ((TermBuilderContext)_localctx).t3 = ((TermBuilderContext)_localctx).term = term();
+				setState(211); match(IS);
+				setState(212); ((TermBuilderContext)_localctx).t4 = ((TermBuilderContext)_localctx).term = term();
+				setState(213); ((TermBuilderContext)_localctx).MATH_OP = match(MATH_OP);
+				setState(214); ((TermBuilderContext)_localctx).t5 = ((TermBuilderContext)_localctx).term = term();
 				 ((TermBuilderContext)_localctx).fml =  new Struct("is", ((TermBuilderContext)_localctx).t3.fml, new Struct((((TermBuilderContext)_localctx).MATH_OP!=null?((TermBuilderContext)_localctx).MATH_OP.getText():null), ((TermBuilderContext)_localctx).t4.fml, ((TermBuilderContext)_localctx).t5.fml)); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(209); ((TermBuilderContext)_localctx).term = term();
+				setState(217); ((TermBuilderContext)_localctx).term = term();
 				 ((TermBuilderContext)_localctx).fml =  ((TermBuilderContext)_localctx).term.fml; 
 				}
 				break;
 
 			case 3:
 				{
-				setState(212); ((TermBuilderContext)_localctx).t1 = ((TermBuilderContext)_localctx).term = term();
-				setState(213); ((TermBuilderContext)_localctx).BINARY_OP = match(BINARY_OP);
-				setState(214); ((TermBuilderContext)_localctx).t2 = ((TermBuilderContext)_localctx).term = term();
+				setState(220); ((TermBuilderContext)_localctx).t1 = ((TermBuilderContext)_localctx).term = term();
+				setState(221); ((TermBuilderContext)_localctx).BINARY_OP = match(BINARY_OP);
+				setState(222); ((TermBuilderContext)_localctx).t2 = ((TermBuilderContext)_localctx).term = term();
 				 ((TermBuilderContext)_localctx).fml =  new Struct((((TermBuilderContext)_localctx).BINARY_OP!=null?((TermBuilderContext)_localctx).BINARY_OP.getText():null), ((TermBuilderContext)_localctx).t1.fml, ((TermBuilderContext)_localctx).t2.fml); 
 				}
 				break;
@@ -1155,39 +1175,39 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(234);
-			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+			setState(242);
+			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
 			case 1:
 				{
-				setState(219); ((TermContext)_localctx).string = string();
+				setState(227); ((TermContext)_localctx).string = string();
 				((TermContext)_localctx).fml =  ((TermContext)_localctx).string.fml; 
 				}
 				break;
 
 			case 2:
 				{
-				setState(222); ((TermContext)_localctx).struct = struct();
+				setState(230); ((TermContext)_localctx).struct = struct();
 				((TermContext)_localctx).fml =  ((TermContext)_localctx).struct.fml;
 				}
 				break;
 
 			case 3:
 				{
-				setState(225); ((TermContext)_localctx).atom = atom();
+				setState(233); ((TermContext)_localctx).atom = atom();
 				((TermContext)_localctx).fml =  ((TermContext)_localctx).atom.fml;
 				}
 				break;
 
 			case 4:
 				{
-				setState(228); ((TermContext)_localctx).var = var();
+				setState(236); ((TermContext)_localctx).var = var();
 				((TermContext)_localctx).fml =  ((TermContext)_localctx).var.fml;
 				}
 				break;
 
 			case 5:
 				{
-				setState(231); ((TermContext)_localctx).number = number();
+				setState(239); ((TermContext)_localctx).number = number();
 				((TermContext)_localctx).fml =  ((TermContext)_localctx).number.fml;
 				}
 				break;
@@ -1236,9 +1256,9 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(236); match(OPENSTRING);
-			setState(237); ((StringContext)_localctx).STRLIT = match(STRLIT);
-			setState(238); match(CLOSESTRING);
+			setState(244); match(OPENSTRING);
+			setState(245); ((StringContext)_localctx).STRLIT = match(STRLIT);
+			setState(246); match(CLOSESTRING);
 			 ((StringContext)_localctx).fml =  new Struct((((StringContext)_localctx).STRLIT!=null?((StringContext)_localctx).STRLIT.getText():null)); 
 			}
 		}
@@ -1282,7 +1302,7 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(241); ((AtomContext)_localctx).ATOM = match(ATOM);
+			setState(249); ((AtomContext)_localctx).ATOM = match(ATOM);
 			 ((AtomContext)_localctx).fml =  new Struct((((AtomContext)_localctx).ATOM!=null?((AtomContext)_localctx).ATOM.getText():null)); 
 			}
 		}
@@ -1326,7 +1346,7 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(244); ((NumberContext)_localctx).NUMBER = match(NUMBER);
+			setState(252); ((NumberContext)_localctx).NUMBER = match(NUMBER);
 			 String numStr = (((NumberContext)_localctx).NUMBER!=null?((NumberContext)_localctx).NUMBER.getText():null); ((NumberContext)_localctx).fml =  new alice.tuprolog.Double(Double.parseDouble(numStr)); 
 			}
 		}
@@ -1370,7 +1390,7 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(247); ((VarContext)_localctx).VAR = match(VAR);
+			setState(255); ((VarContext)_localctx).VAR = match(VAR);
 			 ((VarContext)_localctx).fml =  new Var((((VarContext)_localctx).VAR!=null?((VarContext)_localctx).VAR.getText():null)); 
 			}
 		}
@@ -1424,20 +1444,20 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(259);
+			setState(267);
 			switch (_input.LA(1)) {
 			case ATOM:
 				{
-				setState(250); ((StructContext)_localctx).ATOM = match(ATOM);
-				setState(251); match(START);
-				setState(252); ((StructContext)_localctx).args = args();
-				setState(253); match(END);
+				setState(258); ((StructContext)_localctx).ATOM = match(ATOM);
+				setState(259); match(START);
+				setState(260); ((StructContext)_localctx).args = args();
+				setState(261); match(END);
 				 ((StructContext)_localctx).fml =  new Struct((((StructContext)_localctx).ATOM!=null?((StructContext)_localctx).ATOM.getText():null), ((StructContext)_localctx).args.fml.toArray(new Term[0])); 
 				}
 				break;
 			case START_BRACKET:
 				{
-				setState(256); ((StructContext)_localctx).list = list();
+				setState(264); ((StructContext)_localctx).list = list();
 				 ((StructContext)_localctx).fml =  ((StructContext)_localctx).list.fml; 
 				}
 				break;
@@ -1494,20 +1514,20 @@ public class MetamodelParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((ArgsContext)_localctx).fml =  new ArrayList<>(); 
-			setState(270);
-			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
+			setState(278);
+			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				{
-				setState(262); ((ArgsContext)_localctx).term = term();
+				setState(270); ((ArgsContext)_localctx).term = term();
 				 _localctx.fml.add(((ArgsContext)_localctx).term.fml); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(265); ((ArgsContext)_localctx).term = term();
-				setState(266); match(COMMA);
-				setState(267); ((ArgsContext)_localctx).a = args();
+				setState(273); ((ArgsContext)_localctx).term = term();
+				setState(274); match(COMMA);
+				setState(275); ((ArgsContext)_localctx).a = args();
 				 _localctx.fml.add(((ArgsContext)_localctx).term.fml); _localctx.fml.addAll(((ArgsContext)_localctx).a.fml); 
 				}
 				break;
@@ -1565,14 +1585,14 @@ public class MetamodelParser extends Parser {
 		ListContext _localctx = new ListContext(_ctx, getState());
 		enterRule(_localctx, 44, RULE_list);
 		try {
-			setState(284);
-			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
+			setState(292);
+			switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(272); match(START_BRACKET);
-				setState(273); ((ListContext)_localctx).listContents = listContents();
-				setState(274); match(END_BRACKET);
+				setState(280); match(START_BRACKET);
+				setState(281); ((ListContext)_localctx).listContents = listContents();
+				setState(282); match(END_BRACKET);
 				 ((ListContext)_localctx).fml =  ((ListContext)_localctx).listContents.fml; 
 				}
 				break;
@@ -1580,11 +1600,11 @@ public class MetamodelParser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(277); match(START_BRACKET);
-				setState(278); ((ListContext)_localctx).t1 = term();
-				setState(279); match(PIPE);
-				setState(280); ((ListContext)_localctx).t2 = term();
-				setState(281); match(END_BRACKET);
+				setState(285); match(START_BRACKET);
+				setState(286); ((ListContext)_localctx).t1 = term();
+				setState(287); match(PIPE);
+				setState(288); ((ListContext)_localctx).t2 = term();
+				setState(289); match(END_BRACKET);
 				 ((ListContext)_localctx).fml =  new Struct(((ListContext)_localctx).t1.fml, ((ListContext)_localctx).t2.fml); 
 				}
 				break;
@@ -1638,20 +1658,20 @@ public class MetamodelParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			 ((ListContentsContext)_localctx).fml =  new Struct(); 
-			setState(295);
-			switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
+			setState(303);
+			switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
 			case 1:
 				{
-				setState(287); ((ListContentsContext)_localctx).listItem = listItem();
+				setState(295); ((ListContentsContext)_localctx).listItem = listItem();
 				 _localctx.fml.append(((ListContentsContext)_localctx).listItem.fml); 
 				}
 				break;
 
 			case 2:
 				{
-				setState(290); ((ListContentsContext)_localctx).listItem = listItem();
-				setState(291); match(COMMA);
-				setState(292); ((ListContentsContext)_localctx).lc = listContents();
+				setState(298); ((ListContentsContext)_localctx).listItem = listItem();
+				setState(299); match(COMMA);
+				setState(300); ((ListContentsContext)_localctx).lc = listContents();
 				 _localctx.fml.append(((ListContentsContext)_localctx).listItem.fml); _localctx.fml.append(((ListContentsContext)_localctx).lc.fml); 
 				}
 				break;
@@ -1700,7 +1720,7 @@ public class MetamodelParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(297); ((ListItemContext)_localctx).prolog2 = prolog2();
+			setState(305); ((ListItemContext)_localctx).prolog2 = prolog2();
 			 ((ListItemContext)_localctx).fml =  ((ListItemContext)_localctx).prolog2.fml; 
 			}
 		}
@@ -1716,7 +1736,7 @@ public class MetamodelParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3 \u012f\4\2\t\2\4"+
+		"\3\uacf5\uee8c\u4f5d\u8b0d\u4a45\u78bd\u1b2f\u3378\3 \u0137\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
@@ -1728,91 +1748,94 @@ public class MetamodelParser extends Parser {
 		"\u0082\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\6\n\u0093"+
 		"\n\n\r\n\16\n\u0094\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13\3\13"+
 		"\3\f\3\f\3\f\3\f\3\f\3\f\6\f\u00a7\n\f\r\f\16\f\u00a8\3\r\3\r\3\r\3\r"+
-		"\3\r\3\r\3\16\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3"+
-		"\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5"+
-		"\17\u00cb\n\17\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20"+
-		"\3\20\3\20\3\20\3\20\5\20\u00dc\n\20\3\21\3\21\3\21\3\21\3\21\3\21\3\21"+
-		"\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\5\21\u00ed\n\21\3\22\3\22\3\22"+
-		"\3\22\3\22\3\23\3\23\3\23\3\24\3\24\3\24\3\25\3\25\3\25\3\26\3\26\3\26"+
-		"\3\26\3\26\3\26\3\26\3\26\3\26\5\26\u0106\n\26\3\27\3\27\3\27\3\27\3\27"+
-		"\3\27\3\27\3\27\3\27\5\27\u0111\n\27\3\30\3\30\3\30\3\30\3\30\3\30\3\30"+
-		"\3\30\3\30\3\30\3\30\3\30\5\30\u011f\n\30\3\31\3\31\3\31\3\31\3\31\3\31"+
-		"\3\31\3\31\3\31\5\31\u012a\n\31\3\32\3\32\3\32\3\32\2\33\2\4\6\b\n\f\16"+
-		"\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\2\2\u012e\2\64\3\2\2\2\4I\3\2"+
-		"\2\2\6S\3\2\2\2\bY\3\2\2\2\nd\3\2\2\2\fx\3\2\2\2\16z\3\2\2\2\20\u0084"+
-		"\3\2\2\2\22\u008c\3\2\2\2\24\u0096\3\2\2\2\26\u00a0\3\2\2\2\30\u00aa\3"+
-		"\2\2\2\32\u00b0\3\2\2\2\34\u00ca\3\2\2\2\36\u00db\3\2\2\2 \u00ec\3\2\2"+
-		"\2\"\u00ee\3\2\2\2$\u00f3\3\2\2\2&\u00f6\3\2\2\2(\u00f9\3\2\2\2*\u0105"+
-		"\3\2\2\2,\u0107\3\2\2\2.\u011e\3\2\2\2\60\u0120\3\2\2\2\62\u012b\3\2\2"+
-		"\2\64\65\b\2\1\2\65\66\5\4\3\2\66:\5\n\6\2\678\5\16\b\289\b\2\1\29;\3"+
-		"\2\2\2:\67\3\2\2\2:;\3\2\2\2;?\3\2\2\2<=\5\22\n\2=>\b\2\1\2>@\3\2\2\2"+
-		"?<\3\2\2\2?@\3\2\2\2@D\3\2\2\2AB\5\26\f\2BC\b\2\1\2CE\3\2\2\2DA\3\2\2"+
-		"\2DE\3\2\2\2EF\3\2\2\2FG\7\2\2\3GH\b\2\1\2H\3\3\2\2\2IJ\b\3\1\2JK\7\5"+
-		"\2\2KO\7\13\2\2LM\5\6\4\2MN\b\3\1\2NP\3\2\2\2OL\3\2\2\2PQ\3\2\2\2QO\3"+
-		"\2\2\2QR\3\2\2\2R\5\3\2\2\2ST\7\25\2\2TU\7\13\2\2UV\5\b\5\2VW\7\r\2\2"+
-		"WX\b\4\1\2X\7\3\2\2\2Yb\b\5\1\2Z[\5 \21\2[\\\b\5\1\2\\c\3\2\2\2]^\5 \21"+
-		"\2^_\7\f\2\2_`\5\b\5\2`a\b\5\1\2ac\3\2\2\2bZ\3\2\2\2b]\3\2\2\2c\t\3\2"+
-		"\2\2de\b\6\1\2ef\7\6\2\2fj\7\13\2\2gh\5\f\7\2hi\b\6\1\2ik\3\2\2\2jg\3"+
-		"\2\2\2kl\3\2\2\2lj\3\2\2\2lm\3\2\2\2m\13\3\2\2\2no\5\32\16\2op\7\r\2\2"+
-		"pq\b\7\1\2qy\3\2\2\2rs\5\32\16\2st\7\13\2\2tu\5\b\5\2uv\7\r\2\2vw\b\7"+
-		"\1\2wy\3\2\2\2xn\3\2\2\2xr\3\2\2\2y\r\3\2\2\2z{\b\b\1\2{|\7\7\2\2|\u0080"+
-		"\7\13\2\2}~\5\20\t\2~\177\b\b\1\2\177\u0081\3\2\2\2\u0080}\3\2\2\2\u0081"+
-		"\u0082\3\2\2\2\u0082\u0080\3\2\2\2\u0082\u0083\3\2\2\2\u0083\17\3\2\2"+
-		"\2\u0084\u0085\7\25\2\2\u0085\u0086\7\23\2\2\u0086\u0087\7\25\2\2\u0087"+
-		"\u0088\7\13\2\2\u0088\u0089\5\32\16\2\u0089\u008a\7\r\2\2\u008a\u008b"+
-		"\b\t\1\2\u008b\21\3\2\2\2\u008c\u008d\b\n\1\2\u008d\u008e\7\b\2\2\u008e"+
-		"\u0092\7\13\2\2\u008f\u0090\5\24\13\2\u0090\u0091\b\n\1\2\u0091\u0093"+
-		"\3\2\2\2\u0092\u008f\3\2\2\2\u0093\u0094\3\2\2\2\u0094\u0092\3\2\2\2\u0094"+
-		"\u0095\3\2\2\2\u0095\23\3\2\2\2\u0096\u0097\7\25\2\2\u0097\u0098\7\13"+
-		"\2\2\u0098\u0099\5\32\16\2\u0099\u009a\7\22\2\2\u009a\u009b\5\32\16\2"+
-		"\u009b\u009c\7\16\2\2\u009c\u009d\5\32\16\2\u009d\u009e\7\r\2\2\u009e"+
-		"\u009f\b\13\1\2\u009f\25\3\2\2\2\u00a0\u00a1\b\f\1\2\u00a1\u00a2\7\t\2"+
-		"\2\u00a2\u00a6\7\13\2\2\u00a3\u00a4\5\30\r\2\u00a4\u00a5\b\f\1\2\u00a5"+
-		"\u00a7\3\2\2\2\u00a6\u00a3\3\2\2\2\u00a7\u00a8\3\2\2\2\u00a8\u00a6\3\2"+
-		"\2\2\u00a8\u00a9\3\2\2\2\u00a9\27\3\2\2\2\u00aa\u00ab\5*\26\2\u00ab\u00ac"+
-		"\7\n\2\2\u00ac\u00ad\5\32\16\2\u00ad\u00ae\7\r\2\2\u00ae\u00af\b\r\1\2"+
-		"\u00af\31\3\2\2\2\u00b0\u00b1\5\34\17\2\u00b1\u00b2\b\16\1\2\u00b2\33"+
-		"\3\2\2\2\u00b3\u00b4\7\21\2\2\u00b4\u00b5\5\34\17\2\u00b5\u00b6\b\17\1"+
-		"\2\u00b6\u00cb\3\2\2\2\u00b7\u00b8\7\f\2\2\u00b8\u00b9\5\34\17\2\u00b9"+
-		"\u00ba\b\17\1\2\u00ba\u00cb\3\2\2\2\u00bb\u00bc\7\17\2\2\u00bc\u00bd\5"+
-		"\34\17\2\u00bd\u00be\7\20\2\2\u00be\u00bf\5\34\17\2\u00bf\u00c0\b\17\1"+
-		"\2\u00c0\u00cb\3\2\2\2\u00c1\u00c2\7\32\2\2\u00c2\u00c3\5\34\17\2\u00c3"+
-		"\u00c4\b\17\1\2\u00c4\u00cb\3\2\2\2\u00c5\u00c6\5\36\20\2\u00c6\u00c7"+
-		"\5\34\17\2\u00c7\u00c8\b\17\1\2\u00c8\u00cb\3\2\2\2\u00c9\u00cb\3\2\2"+
-		"\2\u00ca\u00b3\3\2\2\2\u00ca\u00b7\3\2\2\2\u00ca\u00bb\3\2\2\2\u00ca\u00c1"+
-		"\3\2\2\2\u00ca\u00c5\3\2\2\2\u00ca\u00c9\3\2\2\2\u00cb\35\3\2\2\2\u00cc"+
-		"\u00cd\5 \21\2\u00cd\u00ce\7\24\2\2\u00ce\u00cf\5 \21\2\u00cf\u00d0\7"+
-		"\30\2\2\u00d0\u00d1\5 \21\2\u00d1\u00d2\b\20\1\2\u00d2\u00dc\3\2\2\2\u00d3"+
-		"\u00d4\5 \21\2\u00d4\u00d5\b\20\1\2\u00d5\u00dc\3\2\2\2\u00d6\u00d7\5"+
-		" \21\2\u00d7\u00d8\7\31\2\2\u00d8\u00d9\5 \21\2\u00d9\u00da\b\20\1\2\u00da"+
-		"\u00dc\3\2\2\2\u00db\u00cc\3\2\2\2\u00db\u00d3\3\2\2\2\u00db\u00d6\3\2"+
-		"\2\2\u00dc\37\3\2\2\2\u00dd\u00de\5\"\22\2\u00de\u00df\b\21\1\2\u00df"+
-		"\u00ed\3\2\2\2\u00e0\u00e1\5*\26\2\u00e1\u00e2\b\21\1\2\u00e2\u00ed\3"+
-		"\2\2\2\u00e3\u00e4\5$\23\2\u00e4\u00e5\b\21\1\2\u00e5\u00ed\3\2\2\2\u00e6"+
-		"\u00e7\5(\25\2\u00e7\u00e8\b\21\1\2\u00e8\u00ed\3\2\2\2\u00e9\u00ea\5"+
-		"&\24\2\u00ea\u00eb\b\21\1\2\u00eb\u00ed\3\2\2\2\u00ec\u00dd\3\2\2\2\u00ec"+
-		"\u00e0\3\2\2\2\u00ec\u00e3\3\2\2\2\u00ec\u00e6\3\2\2\2\u00ec\u00e9\3\2"+
-		"\2\2\u00ed!\3\2\2\2\u00ee\u00ef\7\33\2\2\u00ef\u00f0\7 \2\2\u00f0\u00f1"+
-		"\7\37\2\2\u00f1\u00f2\b\22\1\2\u00f2#\3\2\2\2\u00f3\u00f4\7\25\2\2\u00f4"+
-		"\u00f5\b\23\1\2\u00f5%\3\2\2\2\u00f6\u00f7\7\26\2\2\u00f7\u00f8\b\24\1"+
-		"\2\u00f8\'\3\2\2\2\u00f9\u00fa\7\27\2\2\u00fa\u00fb\b\25\1\2\u00fb)\3"+
-		"\2\2\2\u00fc\u00fd\7\25\2\2\u00fd\u00fe\7\17\2\2\u00fe\u00ff\5,\27\2\u00ff"+
-		"\u0100\7\20\2\2\u0100\u0101\b\26\1\2\u0101\u0106\3\2\2\2\u0102\u0103\5"+
-		".\30\2\u0103\u0104\b\26\1\2\u0104\u0106\3\2\2\2\u0105\u00fc\3\2\2\2\u0105"+
-		"\u0102\3\2\2\2\u0106+\3\2\2\2\u0107\u0110\b\27\1\2\u0108\u0109\5 \21\2"+
-		"\u0109\u010a\b\27\1\2\u010a\u0111\3\2\2\2\u010b\u010c\5 \21\2\u010c\u010d"+
-		"\7\21\2\2\u010d\u010e\5,\27\2\u010e\u010f\b\27\1\2\u010f\u0111\3\2\2\2"+
-		"\u0110\u0108\3\2\2\2\u0110\u010b\3\2\2\2\u0111-\3\2\2\2\u0112\u0113\7"+
-		"\3\2\2\u0113\u0114\5\60\31\2\u0114\u0115\7\4\2\2\u0115\u0116\b\30\1\2"+
-		"\u0116\u011f\3\2\2\2\u0117\u0118\7\3\2\2\u0118\u0119\5 \21\2\u0119\u011a"+
-		"\7\16\2\2\u011a\u011b\5 \21\2\u011b\u011c\7\4\2\2\u011c\u011d\b\30\1\2"+
-		"\u011d\u011f\3\2\2\2\u011e\u0112\3\2\2\2\u011e\u0117\3\2\2\2\u011f/\3"+
-		"\2\2\2\u0120\u0129\b\31\1\2\u0121\u0122\5\62\32\2\u0122\u0123\b\31\1\2"+
-		"\u0123\u012a\3\2\2\2\u0124\u0125\5\62\32\2\u0125\u0126\7\21\2\2\u0126"+
-		"\u0127\5\60\31\2\u0127\u0128\b\31\1\2\u0128\u012a\3\2\2\2\u0129\u0121"+
-		"\3\2\2\2\u0129\u0124\3\2\2\2\u012a\61\3\2\2\2\u012b\u012c\5\34\17\2\u012c"+
-		"\u012d\b\32\1\2\u012d\63\3\2\2\2\23:?DQblx\u0082\u0094\u00a8\u00ca\u00db"+
-		"\u00ec\u0105\u0110\u011e\u0129";
+		"\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\5\r\u00b7\n\r\3\16\3\16\3\16\3\17\3\17"+
+		"\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17"+
+		"\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5\17\u00d3\n\17\3\20\3\20\3\20\3\20"+
+		"\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\5\20\u00e4\n\20"+
+		"\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21\3\21"+
+		"\3\21\5\21\u00f5\n\21\3\22\3\22\3\22\3\22\3\22\3\23\3\23\3\23\3\24\3\24"+
+		"\3\24\3\25\3\25\3\25\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\3\26\5\26"+
+		"\u010e\n\26\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\3\27\5\27\u0119\n"+
+		"\27\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\3\30\5\30\u0127"+
+		"\n\30\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\3\31\5\31\u0132\n\31\3\32"+
+		"\3\32\3\32\3\32\2\33\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60"+
+		"\62\2\2\u0137\2\64\3\2\2\2\4I\3\2\2\2\6S\3\2\2\2\bY\3\2\2\2\nd\3\2\2\2"+
+		"\fx\3\2\2\2\16z\3\2\2\2\20\u0084\3\2\2\2\22\u008c\3\2\2\2\24\u0096\3\2"+
+		"\2\2\26\u00a0\3\2\2\2\30\u00b6\3\2\2\2\32\u00b8\3\2\2\2\34\u00d2\3\2\2"+
+		"\2\36\u00e3\3\2\2\2 \u00f4\3\2\2\2\"\u00f6\3\2\2\2$\u00fb\3\2\2\2&\u00fe"+
+		"\3\2\2\2(\u0101\3\2\2\2*\u010d\3\2\2\2,\u010f\3\2\2\2.\u0126\3\2\2\2\60"+
+		"\u0128\3\2\2\2\62\u0133\3\2\2\2\64\65\b\2\1\2\65\66\5\4\3\2\66:\5\n\6"+
+		"\2\678\5\16\b\289\b\2\1\29;\3\2\2\2:\67\3\2\2\2:;\3\2\2\2;?\3\2\2\2<="+
+		"\5\22\n\2=>\b\2\1\2>@\3\2\2\2?<\3\2\2\2?@\3\2\2\2@D\3\2\2\2AB\5\26\f\2"+
+		"BC\b\2\1\2CE\3\2\2\2DA\3\2\2\2DE\3\2\2\2EF\3\2\2\2FG\7\2\2\3GH\b\2\1\2"+
+		"H\3\3\2\2\2IJ\b\3\1\2JK\7\5\2\2KO\7\13\2\2LM\5\6\4\2MN\b\3\1\2NP\3\2\2"+
+		"\2OL\3\2\2\2PQ\3\2\2\2QO\3\2\2\2QR\3\2\2\2R\5\3\2\2\2ST\7\25\2\2TU\7\13"+
+		"\2\2UV\5\b\5\2VW\7\r\2\2WX\b\4\1\2X\7\3\2\2\2Yb\b\5\1\2Z[\5 \21\2[\\\b"+
+		"\5\1\2\\c\3\2\2\2]^\5 \21\2^_\7\f\2\2_`\5\b\5\2`a\b\5\1\2ac\3\2\2\2bZ"+
+		"\3\2\2\2b]\3\2\2\2c\t\3\2\2\2de\b\6\1\2ef\7\6\2\2fj\7\13\2\2gh\5\f\7\2"+
+		"hi\b\6\1\2ik\3\2\2\2jg\3\2\2\2kl\3\2\2\2lj\3\2\2\2lm\3\2\2\2m\13\3\2\2"+
+		"\2no\5\32\16\2op\7\r\2\2pq\b\7\1\2qy\3\2\2\2rs\5\32\16\2st\7\13\2\2tu"+
+		"\5\b\5\2uv\7\r\2\2vw\b\7\1\2wy\3\2\2\2xn\3\2\2\2xr\3\2\2\2y\r\3\2\2\2"+
+		"z{\b\b\1\2{|\7\7\2\2|\u0080\7\13\2\2}~\5\20\t\2~\177\b\b\1\2\177\u0081"+
+		"\3\2\2\2\u0080}\3\2\2\2\u0081\u0082\3\2\2\2\u0082\u0080\3\2\2\2\u0082"+
+		"\u0083\3\2\2\2\u0083\17\3\2\2\2\u0084\u0085\7\25\2\2\u0085\u0086\7\23"+
+		"\2\2\u0086\u0087\7\25\2\2\u0087\u0088\7\13\2\2\u0088\u0089\5\32\16\2\u0089"+
+		"\u008a\7\r\2\2\u008a\u008b\b\t\1\2\u008b\21\3\2\2\2\u008c\u008d\b\n\1"+
+		"\2\u008d\u008e\7\b\2\2\u008e\u0092\7\13\2\2\u008f\u0090\5\24\13\2\u0090"+
+		"\u0091\b\n\1\2\u0091\u0093\3\2\2\2\u0092\u008f\3\2\2\2\u0093\u0094\3\2"+
+		"\2\2\u0094\u0092\3\2\2\2\u0094\u0095\3\2\2\2\u0095\23\3\2\2\2\u0096\u0097"+
+		"\7\25\2\2\u0097\u0098\7\13\2\2\u0098\u0099\5\32\16\2\u0099\u009a\7\22"+
+		"\2\2\u009a\u009b\5\32\16\2\u009b\u009c\7\16\2\2\u009c\u009d\5\32\16\2"+
+		"\u009d\u009e\7\r\2\2\u009e\u009f\b\13\1\2\u009f\25\3\2\2\2\u00a0\u00a1"+
+		"\b\f\1\2\u00a1\u00a2\7\t\2\2\u00a2\u00a6\7\13\2\2\u00a3\u00a4\5\30\r\2"+
+		"\u00a4\u00a5\b\f\1\2\u00a5\u00a7\3\2\2\2\u00a6\u00a3\3\2\2\2\u00a7\u00a8"+
+		"\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a8\u00a9\3\2\2\2\u00a9\27\3\2\2\2\u00aa"+
+		"\u00ab\5*\26\2\u00ab\u00ac\7\n\2\2\u00ac\u00ad\5\32\16\2\u00ad\u00ae\7"+
+		"\r\2\2\u00ae\u00af\b\r\1\2\u00af\u00b7\3\2\2\2\u00b0\u00b1\5$\23\2\u00b1"+
+		"\u00b2\7\n\2\2\u00b2\u00b3\5\32\16\2\u00b3\u00b4\7\r\2\2\u00b4\u00b5\b"+
+		"\r\1\2\u00b5\u00b7\3\2\2\2\u00b6\u00aa\3\2\2\2\u00b6\u00b0\3\2\2\2\u00b7"+
+		"\31\3\2\2\2\u00b8\u00b9\5\34\17\2\u00b9\u00ba\b\16\1\2\u00ba\33\3\2\2"+
+		"\2\u00bb\u00bc\7\21\2\2\u00bc\u00bd\5\34\17\2\u00bd\u00be\b\17\1\2\u00be"+
+		"\u00d3\3\2\2\2\u00bf\u00c0\7\f\2\2\u00c0\u00c1\5\34\17\2\u00c1\u00c2\b"+
+		"\17\1\2\u00c2\u00d3\3\2\2\2\u00c3\u00c4\7\17\2\2\u00c4\u00c5\5\34\17\2"+
+		"\u00c5\u00c6\7\20\2\2\u00c6\u00c7\5\34\17\2\u00c7\u00c8\b\17\1\2\u00c8"+
+		"\u00d3\3\2\2\2\u00c9\u00ca\7\32\2\2\u00ca\u00cb\5\34\17\2\u00cb\u00cc"+
+		"\b\17\1\2\u00cc\u00d3\3\2\2\2\u00cd\u00ce\5\36\20\2\u00ce\u00cf\5\34\17"+
+		"\2\u00cf\u00d0\b\17\1\2\u00d0\u00d3\3\2\2\2\u00d1\u00d3\3\2\2\2\u00d2"+
+		"\u00bb\3\2\2\2\u00d2\u00bf\3\2\2\2\u00d2\u00c3\3\2\2\2\u00d2\u00c9\3\2"+
+		"\2\2\u00d2\u00cd\3\2\2\2\u00d2\u00d1\3\2\2\2\u00d3\35\3\2\2\2\u00d4\u00d5"+
+		"\5 \21\2\u00d5\u00d6\7\24\2\2\u00d6\u00d7\5 \21\2\u00d7\u00d8\7\30\2\2"+
+		"\u00d8\u00d9\5 \21\2\u00d9\u00da\b\20\1\2\u00da\u00e4\3\2\2\2\u00db\u00dc"+
+		"\5 \21\2\u00dc\u00dd\b\20\1\2\u00dd\u00e4\3\2\2\2\u00de\u00df\5 \21\2"+
+		"\u00df\u00e0\7\31\2\2\u00e0\u00e1\5 \21\2\u00e1\u00e2\b\20\1\2\u00e2\u00e4"+
+		"\3\2\2\2\u00e3\u00d4\3\2\2\2\u00e3\u00db\3\2\2\2\u00e3\u00de\3\2\2\2\u00e4"+
+		"\37\3\2\2\2\u00e5\u00e6\5\"\22\2\u00e6\u00e7\b\21\1\2\u00e7\u00f5\3\2"+
+		"\2\2\u00e8\u00e9\5*\26\2\u00e9\u00ea\b\21\1\2\u00ea\u00f5\3\2\2\2\u00eb"+
+		"\u00ec\5$\23\2\u00ec\u00ed\b\21\1\2\u00ed\u00f5\3\2\2\2\u00ee\u00ef\5"+
+		"(\25\2\u00ef\u00f0\b\21\1\2\u00f0\u00f5\3\2\2\2\u00f1\u00f2\5&\24\2\u00f2"+
+		"\u00f3\b\21\1\2\u00f3\u00f5\3\2\2\2\u00f4\u00e5\3\2\2\2\u00f4\u00e8\3"+
+		"\2\2\2\u00f4\u00eb\3\2\2\2\u00f4\u00ee\3\2\2\2\u00f4\u00f1\3\2\2\2\u00f5"+
+		"!\3\2\2\2\u00f6\u00f7\7\33\2\2\u00f7\u00f8\7 \2\2\u00f8\u00f9\7\37\2\2"+
+		"\u00f9\u00fa\b\22\1\2\u00fa#\3\2\2\2\u00fb\u00fc\7\25\2\2\u00fc\u00fd"+
+		"\b\23\1\2\u00fd%\3\2\2\2\u00fe\u00ff\7\26\2\2\u00ff\u0100\b\24\1\2\u0100"+
+		"\'\3\2\2\2\u0101\u0102\7\27\2\2\u0102\u0103\b\25\1\2\u0103)\3\2\2\2\u0104"+
+		"\u0105\7\25\2\2\u0105\u0106\7\17\2\2\u0106\u0107\5,\27\2\u0107\u0108\7"+
+		"\20\2\2\u0108\u0109\b\26\1\2\u0109\u010e\3\2\2\2\u010a\u010b\5.\30\2\u010b"+
+		"\u010c\b\26\1\2\u010c\u010e\3\2\2\2\u010d\u0104\3\2\2\2\u010d\u010a\3"+
+		"\2\2\2\u010e+\3\2\2\2\u010f\u0118\b\27\1\2\u0110\u0111\5 \21\2\u0111\u0112"+
+		"\b\27\1\2\u0112\u0119\3\2\2\2\u0113\u0114\5 \21\2\u0114\u0115\7\21\2\2"+
+		"\u0115\u0116\5,\27\2\u0116\u0117\b\27\1\2\u0117\u0119\3\2\2\2\u0118\u0110"+
+		"\3\2\2\2\u0118\u0113\3\2\2\2\u0119-\3\2\2\2\u011a\u011b\7\3\2\2\u011b"+
+		"\u011c\5\60\31\2\u011c\u011d\7\4\2\2\u011d\u011e\b\30\1\2\u011e\u0127"+
+		"\3\2\2\2\u011f\u0120\7\3\2\2\u0120\u0121\5 \21\2\u0121\u0122\7\16\2\2"+
+		"\u0122\u0123\5 \21\2\u0123\u0124\7\4\2\2\u0124\u0125\b\30\1\2\u0125\u0127"+
+		"\3\2\2\2\u0126\u011a\3\2\2\2\u0126\u011f\3\2\2\2\u0127/\3\2\2\2\u0128"+
+		"\u0131\b\31\1\2\u0129\u012a\5\62\32\2\u012a\u012b\b\31\1\2\u012b\u0132"+
+		"\3\2\2\2\u012c\u012d\5\62\32\2\u012d\u012e\7\21\2\2\u012e\u012f\5\60\31"+
+		"\2\u012f\u0130\b\31\1\2\u0130\u0132\3\2\2\2\u0131\u0129\3\2\2\2\u0131"+
+		"\u012c\3\2\2\2\u0132\61\3\2\2\2\u0133\u0134\5\34\17\2\u0134\u0135\b\32"+
+		"\1\2\u0135\63\3\2\2\2\24:?DQblx\u0082\u0094\u00a8\u00b6\u00d2\u00e3\u00f4"+
+		"\u010d\u0118\u0126\u0131";
 	public static final ATN _ATN =
 		ATNSimulator.deserialize(_serializedATN.toCharArray());
 	static {
