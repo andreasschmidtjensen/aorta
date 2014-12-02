@@ -36,7 +36,7 @@ public class Check extends Transition<AgentState> {
 
 				logger.log(Level.FINE, "Handling msg: " + msg + " from " + iom.getSender());
 
-				Tracer.trace(state.getAgent().getName(), "(Chk) " + iom + "\n");
+				Tracer.trace(state.getAgent().getName(), getName(), iom.toString());
 				
 				newState = state.getAgent().getMessageFunction().process(engine, iom, newState);
 			}

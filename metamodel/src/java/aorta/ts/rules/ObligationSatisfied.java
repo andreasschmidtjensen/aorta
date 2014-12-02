@@ -77,7 +77,7 @@ public class ObligationSatisfied extends Transition {
 					newState.removeTerm(engine, optObj);
 
 					logger.fine("[" + state.getDescription() + "] Removing obligation: " + orgObl);
-					Tracer.trace(state.getIdentifier(), "(" + getName() + ") Satisfied " + orgObl.getArg(0) + "\n");
+					Tracer.trace(state.getIdentifier(), getName(), "Satisfied " + orgObl.getArg(0));
 					break;
 				}
 			}

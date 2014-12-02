@@ -38,7 +38,7 @@ public class Sense extends Transition<AgentState> {
 				for (Struct s : removed) {
 					sb.append("-").append(s).append("; ");
 				}
-				Tracer.trace(state.getIdentifier(), "(" + getName() + ") " + sb + "\n");
+				Tracer.trace(state.getIdentifier(), getName(), sb.toString());
 			}	
 		} catch (Exception ex) {
 			logger.log(Level.SEVERE, "Could not perceive artifact", ex);

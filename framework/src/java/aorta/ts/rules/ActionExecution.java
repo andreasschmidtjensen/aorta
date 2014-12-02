@@ -4,9 +4,7 @@
  */
 package aorta.ts.rules;
 
-import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
-import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.AORTAException;
@@ -103,14 +101,13 @@ public class ActionExecution extends Transition<AgentState> {
 						
 						List<Var> prevBindings = newState.getBindings();
 						try {
-							Tracer.queue(state.getAgent().getName(), "(" + getName() + ") ");
+							Tracer.beginTrace(state.getAgent().getName(), getName());
 							Tracer.queue(state.getAgent().getName(), option + " : " + qualified + " => ");
 
 							newState.addBindings(bindings);
 							newState = ar.getAction().execute(engine, option, newState);
-							
-							Tracer.queue(state.getAgent().getName(), "\n");
-							Tracer.trace(state.getAgent().getName());
+
+							Tracer.commitTrace(state.getAgent().getName());
 
 							return newState;
 						} catch (TransitionNotPossibleException ex) {

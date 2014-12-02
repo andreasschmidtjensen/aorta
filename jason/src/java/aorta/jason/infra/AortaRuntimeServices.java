@@ -15,13 +15,13 @@ import aorta.kr.language.OrganizationImportException;
 import aorta.organization.AortaArtifact;
 import aorta.organization.EnvironmentSensor;
 import aorta.parser.helper.AortaBuilder;
-import cartago.CartagoService;
-import cartago.CartagoSession;
+import aorta.tracer.Tracer;
 import jason.NoValueForVarException;
 import jason.asSyntax.ASSyntax;
 import jason.asSyntax.Literal;
 import jason.asSyntax.NumberTerm;
 import jason.asSyntax.StringTerm;
+import jason.asSyntax.Term;
 import jason.asSyntax.parser.ParseException;
 import jason.infra.centralised.CentralisedAgArch;
 import jason.infra.centralised.CentralisedRuntimeServices;
@@ -65,23 +65,39 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 		
 		String location;
 		
+		ClassParameters infrastructure = masRunner.getProject().getInfrastructure();
+		
 		try {
-			String org = masRunner.getProject().getInfrastructure().getParameter("organization");
+			String org = infrastructure.getParameter("organization");
 			Literal orgLiteral = ASSyntax.parseLiteral(org);
 			location = ((StringTerm) orgLiteral.getTerm(0)).getString();
 		} catch (ParseException ex) {
 			throw new RuntimeException(ex);
 		}
 		
-		useWebInspector = masRunner.getProject().getInfrastructure().getParameter("inspector") != null;
-		useArtifact = masRunner.getProject().getInfrastructure().getParameter("artifact") != null;
+		useWebInspector = infrastructure.getParameter("inspector") != null;
+		useArtifact = infrastructure.getParameter("artifact") != null;
 		
-		String sleep = masRunner.getProject().getInfrastructure().getParameter("sleep");
+		String sleep = infrastructure.getParameter("sleep");
 		if (sleep != null) {
 			try {
 				Literal sleepLit = ASSyntax.parseLiteral(sleep);
 				agSleepTime = (int) ((NumberTerm) sleepLit.getTerm(0)).solve();
 			} catch (ParseException | NoValueForVarException ex) {
+				throw new RuntimeException(ex);
+			}
+		}
+		
+		String ignore = infrastructure.getParameter("notrace");
+		if (ignore != null) {
+			try {
+				Literal ignoreLit = ASSyntax.parseLiteral(ignore);
+				for (Term t : ignoreLit.getTermsArray()) {
+					if (t.isString()) {
+						Tracer.ignore(((StringTerm) t).getString());
+					}
+				}
+			} catch (ParseException ex) {
 				throw new RuntimeException(ex);
 			}
 		}

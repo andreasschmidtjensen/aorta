@@ -42,7 +42,7 @@ public class Sense extends Transition<ArtifactState> {
 				for (Struct s : removed) {
 					sb.append("-").append(s).append("; ");
 				}
-				Tracer.trace(state.getIdentifier(), "(" + getName() + ") " + sb + "\n");
+				Tracer.trace(state.getIdentifier(), getName(), sb.toString());
 			}			
 		}
 		return state;

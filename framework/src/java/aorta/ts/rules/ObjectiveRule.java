@@ -67,7 +67,7 @@ public class ObjectiveRule extends Transition<AgentState> {
 					newState.insertTerm(engine, result);
 
 					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + result);
-					Tracer.trace(state.getAgent().getName(), "(" + getName() + ") " + result + "\n");
+					Tracer.trace(state.getAgent().getName(), getName(), result.toString());
 
 					break;
 				

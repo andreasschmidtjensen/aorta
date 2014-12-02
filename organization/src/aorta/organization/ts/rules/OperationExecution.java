@@ -23,7 +23,7 @@ public class OperationExecution extends Transition<ArtifactState> {
 		if (state.getQueue().peek() != null) {
 			Operation op = state.getQueue().poll();
 			boolean result = op.execute(state);
-			Tracer.trace(state.getIdentifier(), "(" + getName() + ") " + op + (result ? "" : " [FAILED]") + "\n");
+			Tracer.trace(state.getIdentifier(), getName(), op + (result ? "" : " [FAILED]"));
 			if (!result) {
 				state.getArtifact().operationFailed(op);
 			}

@@ -61,7 +61,7 @@ public class Inform extends Transition<AgentState> {
 				newState.insertTerm(engine, optInf);
 				
 				logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optInf);
-				Tracer.trace(state.getAgent().getName(), optInf + " => Options\n");
+				Tracer.trace(state.getAgent().getName(), getName(), optInf.toString());
 			}
 		}
 		

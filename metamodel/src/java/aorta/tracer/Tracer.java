@@ -6,8 +6,10 @@ package aorta.tracer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -15,20 +17,27 @@ import java.util.Map;
  */
 public class Tracer {
 
-	private Map<String, List<String>> queue;
-	private Map<String, List<String>> traces;
+	private Map<String, List<Trace>> traces;
+	private Map<String, Trace> queue;
 	private static final Tracer tracer = new Tracer();
+	
+	private Set<String> ignoredEvents = new HashSet<>();
 
 	private Tracer() {
 		traces = new HashMap<>();
 		queue = new HashMap<>();
 	}
+	
+	private void ignoreEvent(String event) {
+		ignoredEvents.add(event);
+	}
+	
+	private synchronized void beginNewTrace(String agent, String event) {
+		queue.put(agent, new Trace(event));
+	}
 
-	private synchronized void addToQueue(String agent, String event) {
-		if (!queue.containsKey(agent)) {
-			queue.put(agent, new ArrayList<String>());
-		}
-		queue.get(agent).add(event);
+	private synchronized void addToQueue(String agent, String description) {
+		queue.get(agent).append(description);
 	}
 	
 	private synchronized void clearAgentQueue(String agent) {
@@ -37,46 +46,36 @@ public class Tracer {
 	
 	private synchronized void commitQueue(String agent) {
 		if (!traces.containsKey(agent)) {
-			traces.put(agent, new ArrayList<String>());
+			traces.put(agent, new ArrayList<Trace>());
 		}
-		if (queue.get(agent) != null) {
-			traces.get(agent).addAll(queue.get(agent));
-			clearAgentQueue(agent);
+		
+		Trace trace = queue.get(agent);
+		if (trace != null) {
+			if (!ignoredEvents.contains(trace.getEvent())) {
+				traces.get(agent).add(trace);
+				clearAgentQueue(agent);				
+			}
 		}
 	}	
-	
-	
-	private synchronized void addTrace(String agent, String event) {
+		
+	private synchronized void addTrace(String agent, Trace trace) {
 		if (!traces.containsKey(agent)) {
-			traces.put(agent, new ArrayList<String>());
+			traces.put(agent, new ArrayList<Trace>());
 		}
-		traces.get(agent).add(event);
+		
+		if (!ignoredEvents.contains(trace.getEvent())) {
+			traces.get(agent).add(trace);
+		}
 	}	
 	
-	public static void queue(String agent, String event) {
-		tracer.addToQueue(agent, event);
-	}
-	
-	public static void clearQueue(String agent) {
-		tracer.clearAgentQueue(agent);
-	}
-	
-	public static void trace(String agent, String event) {
-		tracer.addTrace(agent, event);
-	}
-
-	public static void trace(String agent) {
-		tracer.commitQueue(agent);
-	}
-
 	private synchronized String toString(String agent) {
-		List<String> events = traces.get(agent);
-		if (events != null) {
+		List<Trace> tr = traces.get(agent);
+		if (tr != null) {
 			StringBuilder sb = new StringBuilder();
 
 			sb.append(agent).append(":\n");
-			for (String event : events) {
-				sb.append("  ").append(event);
+			for (Trace trace : tr) {
+				sb.append(trace).append("\n");
 			}
 			return sb.toString();
 		} else {
@@ -111,4 +110,29 @@ public class Tracer {
             tracer.traces.get(agent).clear();
         }
     }
+	
+	public static void beginTrace(String agent, String event) {
+		tracer.beginNewTrace(agent, event);
+	}
+	
+	public static void queue(String agent, String description) {
+		tracer.addToQueue(agent, description);
+	}
+	
+	public static void clearQueue(String agent) {
+		tracer.clearAgentQueue(agent);
+	}
+	
+	public static void commitTrace(String agent) {
+		tracer.commitQueue(agent);
+	}
+	
+	public static void trace(String agent, String event, String description) {
+		tracer.addTrace(agent, new Trace(event, description));
+	}
+	
+	public static void ignore(String event) {
+		tracer.ignoreEvent(event);
+	}
+
 }

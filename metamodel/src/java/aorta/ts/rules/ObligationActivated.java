@@ -62,7 +62,7 @@ public class ObligationActivated extends Transition {
 					newState.insertTerm(engine, orgObl);
 
 					logger.fine("[" + state.getDescription() + "] Adding obligation: " + orgObl);
-					Tracer.trace(state.getIdentifier(), "(" + getName() + ") " + orgObl.getArg(0) + "\n");
+					Tracer.trace(state.getIdentifier(), getName(), orgObl.getArg(0).toString());
 
 					break;
 				}

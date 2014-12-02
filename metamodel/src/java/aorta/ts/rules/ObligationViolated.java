@@ -57,7 +57,7 @@ public class ObligationViolated extends Transition {
 						newState.insertTerm(engine, orgViol);
 
 						logger.fine("[" + state.getDescription() + "] Violated obligation: " + orgViol);
-						Tracer.trace(state.getIdentifier(), "(" + getName() + ") " + orgViol.getArg(0) + "\n");
+						Tracer.trace(state.getIdentifier(), getName(), orgViol.getArg(0).toString());
 
 						break;
 					}
