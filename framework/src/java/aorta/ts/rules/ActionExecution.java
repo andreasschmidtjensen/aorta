@@ -92,8 +92,6 @@ public class ActionExecution extends Transition<AgentState> {
 					Formula context = ar.getContext();
 					Formula conjunctContext = mergeConditions(ifConditions, context);
 					
-					System.out.println(context + " becomes " + conjunctContext);
-					
 					Term qualified = FormulaQualifier.qualifyGoal(ms, conjunctContext);
 					
 					engine.unify(ms, qualified, optionSolution);
