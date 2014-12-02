@@ -6,6 +6,7 @@ package aorta.ts.rules;
 
 import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
+import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.AORTAException;
@@ -18,11 +19,11 @@ import aorta.logging.Logger;
 import aorta.reasoning.ActionRule;
 import aorta.reasoning.IfRule;
 import aorta.reasoning.ReasoningRule;
+import aorta.reasoning.fml.ConjunctFormula;
 import aorta.reasoning.fml.Formula;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
 import aorta.ts.TransitionNotPossibleException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -36,7 +37,7 @@ public class ActionExecution extends Transition<AgentState> {
 
 	@Override
 	protected AgentState execute(QueryEngine engine, AgentState state) {
-		AgentState newState = executeRules(engine, state, state.getRules(), new ArrayList<Var>());
+		AgentState newState = executeRules(engine, state, state.getRules(), null);
 		if (newState == null) {
 			return state;
 		} else {
@@ -44,21 +45,18 @@ public class ActionExecution extends Transition<AgentState> {
 		}
 	}
 
-	private AgentState executeRules(QueryEngine engine, AgentState state, List<ReasoningRule> rules, List<Var> vars) {
+	private AgentState executeRules(QueryEngine engine, AgentState state, List<ReasoningRule> rules, Formula condition) {
 		for (ReasoningRule rule : rules) {
 			if (rule instanceof IfRule) {
 				IfRule ir = (IfRule) rule;
-				List<Var> irVars = checkCondition(engine, state, ir.getCondition(), vars);
-				if (irVars != null) { // returns null if unsuccessful
-					irVars.addAll(vars);
-					AgentState newState = executeRules(engine, state, ir.getRules(), irVars);
-					if (newState != null) {
-						return newState;
-					}
+				Formula conjunctCondition = mergeConditions(condition, ir.getCondition());
+				AgentState newState = executeRules(engine, state, ir.getRules(), conjunctCondition);
+				if (newState != null) {
+					return newState;
 				}
 			} else if (rule instanceof ActionRule) {
 				ActionRule ar = (ActionRule) rule;
-				AgentState newState = actionExecuted(engine, ar, state, vars);
+				AgentState newState = actionExecuted(engine, ar, state, condition);
 
 				if (newState != null) {
 					return newState;
@@ -69,26 +67,17 @@ public class ActionExecution extends Transition<AgentState> {
 		return null;
 	}
 
-	private List<Var> checkCondition(QueryEngine engine, AgentState state, Formula condition, List<Var> vars) {
-		MentalState ms = state.getMentalState();
-		Term qualified = FormulaQualifier.qualifyGoal(ms, condition);
-		engine.unify(ms, qualified, vars);
-		
-		SolveInfo info = engine.solve(ms, qualified);
-		
-		if (info.isSuccess()) {
-			try {
-				return info.getBindingVars();
-			} catch (NoSolutionException ex) {
-				// will not happen since we check isSuccess() first.
-				return null;
-			}
+	private Formula mergeConditions(Formula cond1, Formula cond2) {
+		if (cond1 != null && cond2 != null) {
+			return new ConjunctFormula(cond1, cond2);
+		} else if (cond1 != null) {
+			return cond1;
 		} else {
-			return null;
+			return cond2;
 		}
 	}
 
-	private AgentState actionExecuted(QueryEngine engine, ActionRule ar, AgentState state, List<Var> vars) {
+	private AgentState actionExecuted(QueryEngine engine, ActionRule ar, AgentState state, Formula ifConditions) {
 		AgentState newState = state;
 		try {
 			Term option = Term.createTerm(ar.getOption().toString());
@@ -96,23 +85,23 @@ public class ActionExecution extends Transition<AgentState> {
 
 			MentalState ms = state.getMentalState();
 			
-			engine.unify(ms, qualifiedOption, vars);
-
 			List<SolveInfo> solutions = engine.findAll(ms, qualifiedOption);
 			for (SolveInfo optionSolution : solutions) {
 				if (optionSolution.isSuccess()) {
 					newState.clearBindings();
 					Formula context = ar.getContext();
-					Term qualified = FormulaQualifier.qualifyGoal(ms, context);
-
+					Formula conjunctContext = mergeConditions(ifConditions, context);
+					
+					System.out.println(context + " becomes " + conjunctContext);
+					
+					Term qualified = FormulaQualifier.qualifyGoal(ms, conjunctContext);
+					
 					engine.unify(ms, qualified, optionSolution);
-					engine.unify(ms, qualified, vars);
 					SolveInfo contextSolution = engine.solve(ms, qualified);
-
+					
 					if (contextSolution.isSuccess()) {
 						List<Var> bindings = AgentState.mergeBindings(optionSolution, contextSolution);
 						engine.unify(ms, option, bindings);
-						engine.unify(ms, option, vars);
 						
 						List<Var> prevBindings = newState.getBindings();
 						try {
@@ -120,7 +109,6 @@ public class ActionExecution extends Transition<AgentState> {
 							Tracer.queue(state.getAgent().getName(), option + " : " + qualified + " => ");
 
 							newState.addBindings(bindings);
-							newState.addBindings(vars);
 							newState = ar.getAction().execute(engine, option, newState);
 							
 							Tracer.queue(state.getAgent().getName(), "\n");
