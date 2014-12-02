@@ -5,14 +5,9 @@
 package aorta.inspector;
 
 import alice.tuprolog.MalformedGoalException;
-import alice.tuprolog.NoSolutionException;
-import alice.tuprolog.SolveInfo;
-import alice.tuprolog.Struct;
-import alice.tuprolog.Var;
 import aorta.AortaAgent;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
-import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.TermFormatter;
 import aorta.parser.AORTALexer;
 import aorta.parser.AORTAParser;
@@ -25,14 +20,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import aorta.logging.Logger;
-import aorta.reasoning.ActionRule;
-import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
@@ -57,14 +50,14 @@ public class AgentInspector extends JPanel {
 
 		setLayout(new BorderLayout());
 
-		JPanel mainPanel = new JPanel(new GridLayout(1, 2));
-		add(mainPanel, BorderLayout.CENTER);
-
 		final JTextArea mentalStateArea = new JTextArea();
-		mainPanel.add(new JScrollPane(mentalStateArea));
-
 		final JTextArea traceArea = new JTextArea();
-		mainPanel.add(new JScrollPane(traceArea));
+		
+		JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
+		split.setLeftComponent(new JScrollPane(mentalStateArea));
+		split.setRightComponent(new JScrollPane(traceArea));
+		split.setResizeWeight(0.5);
+		add(split, BorderLayout.CENTER);
 
 		JPanel fmlTester = new JPanel(new BorderLayout());
 		solveResult = new JTextArea(3, 0);
