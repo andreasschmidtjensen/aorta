@@ -1,34 +1,28 @@
 // Command center (and commander) in SettlersInSpace.mas2j
 
-cost("Terran SCV", 50).
-cost("Terran Marine", 50).
-cost("Terran Siege Tank", 150).
-cost("Terran Wraith", 150).
+{ include("rules.asl") }
 
-building("Terran SCV", "Terran Command Center").
-building("Terran Marine", "Terran Barracks").
-building("Terran Siege Tank", "Terran Factory").
-building("Terran Wraith", "Terran Starport").
++!delegateTrain(Unit) : building(Unit, Bld) & link(Bld, Ag) <- .print("Building ", Unit, " at ", Ag); .send(Ag, achieve, train(Unit)).
 
-+!train(Unit) : building(Unit, Bld) & link(Bld, Ag) <- .send(Ag, achieve, train(Unit)).
++!workersTrained : not gameStart.
++!workersTrained : unit("Terran SCV", C) & C < 5 <- !train("Terran SCV").
++!workersTrained : unit("Terran SCV", C) & C > 4 <- +workersTrained.
 
-+!gathererTrained : not gameStart.
-+!gathererTrained : count("Terran SCV", C) & C < 5 <- train("Terran SCV").
-+!gathererTrained : count("Terran SCV", C) & C > 4 <- +gathererTrained.
+// +!offensiveUnitTrained.
++!defensiveUnitTrained : U = "Terran Marine" & unit("Terran Marine", N) & N < 4 <- !delegateTrain(U); !defensiveUnitTrained.
++!defensiveUnitTrained : U = "Terran Vulture" & unit("Terran Vulture", N) & N < 2 <- !delegateTrain(U); !defensiveUnitTrained.
++!defensiveUnitTrained : unit("Terran Marine", M) & M >= 4 & unit("Terran Vulture", T) & T >= 2 <- +defensiveUnitTrained.
++!defensiveUnitTrained <- .wait(500); !defensiveUnitTrained.
 
-/*+!repairerTrained.
-+!offensiveUnitTrained.
-+!defenseiveUnitTrained.*/
++!enemyLocated : not(delegated) & not(friendly(_,"Terran Vulture",_)) <- +delegated; !!delegateTrain("Terran Vulture"); !enemyLocated.
++!enemyLocated : friendly(Name, "Terran Vulture", _) & agent(Name) <- -delegated; .print("Telling ", Name, " to achieve +enemyLocated"); .send(Name, achieve, enemyLocated); .wait("+enemyLocated").
++!enemyLocated <- .wait(200); !enemyLocated.
 
-
-// +gameStart : me(Me) <- .send(commander, tell, link("Terran Command Center", Me)).
-+gameStart : me(Me) <- +link("Terran Command Center", Me).
++gameStart : .my_name(Me) <- +link("Terran Command Center", Me).
 
 +!train(Unit) 
-	: 	cost(Unit, M, G, S) & 
-		minerals(MQ) & M <= MQ &
-		gas(GQ) & G <= GQ & 
-		supply(C, Max) & C + S <= Max
+	: 	cost(Unit, M) & 
+		minerals(MQ) & M <= MQ
 	<- train(Unit).
 +!train(_).
 

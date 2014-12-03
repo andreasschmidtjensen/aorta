@@ -1,7 +1,28 @@
-if bel(me(Me), gameStart) { 
-	role(R) : true => enact(R).
+if bel(me(Me), gameStart, id(Id)) {
+	% entering organization
+	role(worker) : true => enact(worker).
+	role(commander) : cap(workersTrained) => enact(commander).
+	role(explorer) : ~org(rea(Me, commander)), goal(enemyLocated) => enact(explorer).
+	role(defender) : true => enact(defender).
 	
-	if org(rea(Me, gatherer)) { 
-		obj(O) : true => commit(doing(Me)).
+	% role enactment
+	if org(rea(Me, worker)) {
+		obj(defensiveStructuresBuilt) : org(rea(Ag,worker)), ~bel(sent(Ag, bel(score(Id, Me)))) => send(Ag, bel(score(Id, Me))).
+		obj(defensiveStructuresBuilt) : org(findall(_, rea(_,worker), LRea), length(LRea,N)), bel(findall(_, score(_,_), LScore), length(LScore,N), score(X,Me)), ~bel(score(Y,_), Y < X) => commit(defensiveStructuresBuilt).
+		
+		obj(resourcesGathered) : true => commit(resourcesGathered).
+	}
+	
+	if org(rea(Me, commander)) {
+		obj(O) : cap(O) => commit(O).
+	}
+	
+	% coordination	
+	if bel(agent(A), A \= Me) {
+		% tell others about enacting roles
+		send(_,tell,org(rea(Me,R))) : ~bel(sent(A, org(rea(Me,R)))) => send(A, org(rea(Me,R))).
+		
+		% inform about dependency objectives
+		send(Role,tell,bel(X)) : org(rea(A,Role)), ~bel(sent(A, bel(X))) => send(A, bel(X)).
 	}
 }

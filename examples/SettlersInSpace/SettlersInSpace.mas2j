@@ -27,12 +27,15 @@ devices on the bunkers.
 
 MAS settlersInSpace {
 
-	infrastructure: AORTA(organization("scbw.mm"), useArtifact)
+	infrastructure: AORTA(organization("scbw.mm"), sleep(200), notrace("Ext"))
 	environment: jason.eis.EISAdapter("../scbw/dist/scbw-with-deps.jar")
     agents:
-		terranSCV [aorta="reasoning.aorta"];
-		terranCommandCenter [aorta="reasoning.aorta"];
-		
+		terranSCV [aorta="reasoning.aorta", logEndState=true];
+		terranCommandCenter [aorta="reasoning.aorta", logEndState=true];
+		terranMarine [aorta="reasoning.aorta", logEndState=true];
+		terranVulture [aorta="reasoning.aorta", logEndState=true];
+		terranBarracks; terranFactory;
+				
 	classpath: "../scbw/dist/scbw-with-deps.jar";
 }
 

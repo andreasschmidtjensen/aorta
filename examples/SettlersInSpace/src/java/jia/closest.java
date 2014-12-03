@@ -10,8 +10,10 @@ import jason.asSyntax.NumberTerm;
 import jason.asSyntax.NumberTermImpl;
 import jason.asSyntax.Term;
 import jason.asSyntax.VarTerm;
+import java.awt.Point;
 import java.util.List;
 import jnibwapi.JNIBWAPI;
+import jnibwapi.Position;
 
 public class closest extends DefaultInternalAction  {
     private final JNIBWAPI game;
@@ -25,19 +27,25 @@ public class closest extends DefaultInternalAction  {
     
     @Override
     public Object execute(TransitionSystem ts, Unifier un, Term[] args) throws Exception {
-        int unitId = (int) ((NumberTerm) args[0]).solve();
-        List<Term> unitIds = ((ListTerm) args[1]).getAsList();
+        int posWX = (int) ((NumberTerm) args[0]).solve();
+		int posWY = (int) ((NumberTerm) args[1]).solve();
+        List<Term> unitIds = ((ListTerm) args[2]).getAsList();
         
         if (unitIds.isEmpty()) {
             return false;
         }
         
         int closestId = (int) ((NumberTerm)unitIds.get(0)).solve();
-        double closestDistance = util.distanceSq(unitId, closestId);
+		Point point = new Point(posWX, posWY);
+		Position unitPos = game.getUnit(closestId).getPosition();
+		Point unitPoint = new Point(unitPos.getWX(), unitPos.getWY());
+        double closestDistance = point.distanceSq(unitPoint);
         
         for (Term term : unitIds) {
             int id = (int) ((NumberTerm)term).solve();
-            double distance = util.distanceSq(id, unitId);
+			unitPos = game.getUnit(id).getPosition();
+			unitPoint = new Point(unitPos.getWX(), unitPos.getWY());
+            double distance = point.distanceSq(unitPoint);
             
             if (distance < closestDistance) {
                 closestDistance = distance;
@@ -45,7 +53,7 @@ public class closest extends DefaultInternalAction  {
             }
         }
         
-        VarTerm x = (VarTerm) args[2];
+        VarTerm x = (VarTerm) args[3];
         un.unifies(x, new NumberTermImpl(closestId));
         
         return true;

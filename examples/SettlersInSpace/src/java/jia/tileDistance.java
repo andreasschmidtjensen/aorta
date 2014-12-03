@@ -3,16 +3,9 @@ package jia;
 import jason.asSemantics.*;
 import jason.asSyntax.*;
 import java.awt.Point;
-import java.awt.geom.Point2D;
-import jnibwapi.*;
 
 public class tileDistance extends DefaultInternalAction  {
-    private final JNIBWAPI game;
 
-    public tileDistance() {
-        this.game = JNIBWAPI.getInstance();
-    }
-    
     @Override
     public Object execute(TransitionSystem ts, Unifier un, Term[] args) throws Exception {
         int x = (int) ((NumberTerm) args[0]).solve();

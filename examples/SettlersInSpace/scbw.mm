@@ -1,52 +1,78 @@
 ROLES:
-commander: enemyEliminated; defensesBuilt; repairerTrained; gathererTrained.
-gatherer: resourcesGathered. 
-repairer: unitRepaired(Unit).
-defender: defensesBuilt.
-attacker: enemyEliminated; enemyLocated.
-explorer: enemyLocated.
-builder: defensesBuilt.
+commander:
+	enemyEliminated;
+	defensesBuilt;
+	workersTrained;
+	enemyLocated.
+defender:
+	defensesBuilt.
+attacker:
+	enemyEliminated.
+explorer:
+	enemyLocated.
+worker:
+	unitRepaired(Unit);
+	resourcesGathered;
+	defensiveStructuresBuilt.
 
 OBJECTIVES:
-enemyEliminated: armyBuilt; enemyLocated; unitRepaired(Unit).
+enemyEliminated:
+	armyBuilt;
+	enemyLocated;
+	unitRepaired(Unit).
 offensiveUnitTrained.
-repairerTrained.
 enemyLocated.
-gathererTrained.
-resourcesGathered: gathererTrained.
-armyBuilt: resourcesGathered; offensiveUnitTrained.
-unitRepaired(Unit): repairerTrained; resourcesGathered.
-defensesBuilt: defensiveUnitTrained; unitRepaired(Unit).
+resourcesGathered.
+armyBuilt:
+	resourcesGathered;
+	offensiveUnitTrained.
+unitRepaired(Unit):
+	resourcesGathered.
+defensesBuilt:
+	defensiveUnitTrained;
+	unitRepaired(Unit);
+	defensiveStructuresBuilt.
+workersTrained.
+defensiveStructuresBuilt:
+	workersTrained.
 defensiveUnitTrained.
 
 DEPENDENCIES:
-commander > gatherer: resourcesGathered.
-defender > repairer: unitRepaired(Unit).
-attacker > repairer: unitRepaired(Unit).
-repairer > commander: resourcesGathered.
+commander > worker: resourcesGathered.
+defender > worker: unitRepaired(Unit).
+attacker > worker: unitRepaired(Unit).
 commander > defender: defensesBuilt.
 commander > attacker: enemyEliminated.
 commander > explorer: enemyLocated.
 attacker > explorer: enemyLocated.
-defender > builder: defensesBuilt.
-builder > commander: resourcesGathered.
+defender > worker: defensiveStructuresBuilt.
 
 OBLIGATIONS:
 attacker: enemyLocated < unit(soldier, Soldiers), unit(tank, Tanks), unit(aircraft, Aircrafts), Soldiers > 0, Tanks > 0, Aircrafts > 0; unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0 | true.
 attacker: enemyEliminated < false | spaceProvided(N, M), N = M; attacking(Attacker, Target).
-builder: defensesBuilt < \+(enemy(Id, Type, X, Y)) | unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0.
-commander: gathererTrained < unit(bunker, Count), Count > 2 | true.
-commander: repairerTrained < unit(bunker, Count), Count > 2 | true.
+attacker: offensiveUnitTrained < attacking(Attacker, Target) | unit(bunker, Count), Count > 1; enemy(commandCenter, Id, Wx, Wy, Bx, By).
+attacker: armyBuilt < \+(enemy(Type, Id, X, Y, Bx, By)) | unit(soldier, Soldiers), unit(tank, Tanks), unit(aircraft, Aircrafts), Soldiers > 0, Tanks > 0, Aircrafts > 0.
+commander: workersTrained < unit(bunker, Count), Count > 2 | true.
+commander: defensiveStructuresBuilt < unit(soldier, Soldiers), unit(tank, Tanks), unit(aircraft, Aircrafts), Soldiers > 0, Tanks > 0, Aircrafts > 0; unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0 | unit(worker, Count), Count > 4.
+commander: enemyLocated < unit(soldier, Soldiers), unit(tank, Tanks), unit(aircraft, Aircrafts), Soldiers > 0, Tanks > 0, Aircrafts > 0; unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0 | true.
 commander: enemyEliminated < false | spaceProvided(N, M), N = M; attacking(Attacker, Target).
-commander: defensesBuilt < \+(enemy(Id, Type, X, Y)) | unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0.
-defender: defensesBuilt < \+(enemy(Id, Type, X, Y)) | unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0.
+commander: offensiveUnitTrained < attacking(Attacker, Target) | unit(bunker, Count), Count > 1; enemy(commandCenter, Id, Wx, Wy, Bx, By).
+commander: armyBuilt < \+(enemy(Type, Id, X, Y, Bx, By)) | unit(soldier, Soldiers), unit(tank, Tanks), unit(aircraft, Aircrafts), Soldiers > 0, Tanks > 0, Aircrafts > 0.
+commander: defensiveUnitTrained < spaceProvided(N, M), N = M | unit(bunker, Count), Count > 1; enemy(commandCenter, Id, Wx, Wy, Bx, By).
+commander: defensesBuilt < \+(enemy(Type, Id, X, Y, Bx, By)) | unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0.
+defender: workersTrained < unit(bunker, Count), Count > 2 | true.
+defender: defensiveStructuresBuilt < unit(soldier, Soldiers), unit(tank, Tanks), unit(aircraft, Aircrafts), Soldiers > 0, Tanks > 0, Aircrafts > 0; unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0 | unit(worker, Count), Count > 4.
+defender: defensiveUnitTrained < spaceProvided(N, M), N = M | unit(bunker, Count), Count > 1; enemy(commandCenter, Id, Wx, Wy, Bx, By).
+defender: defensesBuilt < \+(enemy(Type, Id, X, Y, Bx, By)) | unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0.
 explorer: enemyLocated < unit(soldier, Soldiers), unit(tank, Tanks), unit(aircraft, Aircrafts), Soldiers > 0, Tanks > 0, Aircrafts > 0; unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0 | true.
-repairer: repaired(Id) < \+(friendly(Name, Type, Id, WX, WY, BX, BY)) | repairRequired(Id, Type, HP, MaxHP).
+worker: workersTrained < unit(bunker, Count), Count > 1 | true.
+worker: defensiveStructuresBuilt < unit(soldier, Soldiers), unit(tank, Tanks), unit(aircraft, Aircrafts), Soldiers > 0, Tanks > 0, Aircrafts > 0; unit(soldier, Soldiers), unit(tank, Tanks), Soldiers > 0, Tanks > 0 | unit(worker, Count), Count > 4.
+worker: repaired(Id) < \+(friendly(Name, Type, Id, WX, WY, BX, BY)) | repairRequired(Id, Type, HP, MaxHP).
 
 RULES:
 unit(worker, Count) :- unit("Terran SCV", Count).
 unit(soldier, Count) :- unit("Terran Marine", Count).
-unit(tank, Count) :- unit("Terran Siege Tank", Count).
+unit(tank, Count) :- unit("Terran Vulture", Count).
 unit(aircraft, Count) :- unit("Terran Wraith", Count).
 unit(bunker, Count) :- unit("Terran Bunker", Count).
-enemy(Id,commandCenter, X,Y) :- enemy(Id, "Terran Command Center", X, Y).
+enemy(commandCenter,Id, X,Y,Bx,By) :- enemy(X, Id, X,Y,Bx,By).
