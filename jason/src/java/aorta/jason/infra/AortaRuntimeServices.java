@@ -8,7 +8,7 @@ import aorta.AORTAException;
 import aorta.Aorta;
 import aorta.AortaAgent;
 import aorta.inspector.AgentWebInspector;
-import aorta.inspector.AortaGui;
+import aorta.gui.AortaGui;
 import aorta.jason.AortaAgentArch;
 import aorta.jason.AortaJasonBridge;
 import aorta.kr.language.OrganizationImportException;
@@ -60,7 +60,7 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 		super(masRunner);
 
 		if (useGui) {
-			gui = new AortaGui();
+			gui = AortaGui.get();
 		}
 		
 		String location;

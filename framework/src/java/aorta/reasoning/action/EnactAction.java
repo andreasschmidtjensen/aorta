@@ -72,20 +72,21 @@ public class EnactAction extends Action {
 						state.getAgent().getArtifactAgent().enact(roleName);
 						newState.removeTerm(engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
 						
-						Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");
+						Tracer.queue(state.getAgent().getName(), "ARTIFACT.enact(" + qualified + ")");
 					} catch (CartagoException ex) {
 						throw new AORTAException("The artifact could not enact", ex);
 					}
-				} else {
-					newState.insertTerm(engine, (Struct) qualified);
-					newState.removeTerm(engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
-
-					Struct send = ml.send(clonedRoleTerm, new Struct("tell"), qualified);
-					newState.insertTerm(engine, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
-
-					logger.fine("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
-					Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");
 				}
+				
+				newState.insertTerm(engine, (Struct) qualified);
+				newState.removeTerm(engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
+
+				Struct send = ml.send(clonedRoleTerm, new Struct("tell"), qualified);
+				newState.insertTerm(engine, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
+
+				logger.fine("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
+				Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");
+				
 			} else {
 				throw new AORTAException("X in enact(X) must be a Struct (was " + qualified.getClass() + ")");
 			}

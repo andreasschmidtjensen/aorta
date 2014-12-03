@@ -11,7 +11,7 @@ import ajpf.MCAPLLanguageAgent;
 import ajpf.util.AJPFLogger;
 import aorta.AORTAException;
 import aorta.Aorta;
-import aorta.inspector.AortaGui;
+import aorta.gui.AortaGui;
 import gov.nasa.jpf.vm.Verify;
 
 /**
@@ -25,7 +25,7 @@ public class AortaMAS extends MAS {
 
 	public AortaMAS(MAS mas, AILConfig config) throws AORTAException {
 		if (!Verify.isRunningInJPF()) {
-			gui = new AortaGui();
+			gui = AortaGui.get();
 		}
 
 		setEnv(mas.getEnv());

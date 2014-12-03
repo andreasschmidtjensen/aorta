@@ -40,7 +40,8 @@ public class TermQualifier {
 			Term.createTerm("_ > _"),
 			Term.createTerm("_ < _"),
 			Term.createTerm("_ = _"),
-			Term.createTerm("length(_,_)")};
+			Term.createTerm("length(_,_)"),
+			Term.createTerm("sort(_,_)")};
 	
     public static Struct qualifyStruct(Struct query, String reasoningType) {
         return (Struct) qualifyTerm((Term) query, reasoningType);

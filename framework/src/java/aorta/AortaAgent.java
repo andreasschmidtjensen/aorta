@@ -69,13 +69,13 @@ public class AortaAgent {
 	}
 
 	public void addAgentToBeliefs(AortaAgent agent) {
-		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agent.name)), KBType.BELIEF.getType());
-		state.getMentalState().getProlog().getTheoryManager().assertZ(qualified, true, null, true);
+		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agent.name)), KBType.BELIEF);
+		state.insertTerm(new QueryEngine(), qualified);
 	}
 
 	public void removeAgentFromBeliefs(AortaAgent agent) {
 		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agent.name)), KBType.BELIEF.getType());
-		state.getMentalState().getProlog().getTheoryManager().retract(qualified);
+		state.removeTerm(new QueryEngine(), qualified);
 	}
 
 	public Strategy getStrategy() {

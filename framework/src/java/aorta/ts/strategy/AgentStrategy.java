@@ -7,7 +7,6 @@ package aorta.ts.strategy;
 import aorta.AgentState;
 import aorta.ts.rules.Check;
 import aorta.ts.rules.Ext;
-import aorta.logging.Logger;
 import aorta.ts.rules.ActionExecution;
 import aorta.ts.rules.DeactRule;
 import aorta.ts.rules.Delegate;
