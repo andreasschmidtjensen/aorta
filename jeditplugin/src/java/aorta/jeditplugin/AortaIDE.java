@@ -140,7 +140,7 @@ public class AortaIDE extends JPanel implements EBComponent {
 					return;
 				}
 
-				Pattern pattern = Pattern.compile("infrastructure: AORTA\\s*\\(organization\\(\"(.*)\"\\).*\\)");
+				Pattern pattern = Pattern.compile("infrastructure: AORTA\\s*\\(organization\\(\"(.*?)\"\\).*\\)");
 				String metamodelName = null;
 				String mas2jContents = mas2j.getText(0, mas2j.getLength());
 
