@@ -46,6 +46,7 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	private AortaGui gui;
 	
 	private boolean useWebInspector = false;
+	private boolean useGui = true;
 	private int agSleepTime = 0;
 	
 	private List<AortaAgentArch> agents = new ArrayList<>();
@@ -53,16 +54,8 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	private boolean useArtifact;
 	
 	public AortaRuntimeServices(RunCentralisedMAS masRunner) {
-		this(masRunner, true);
-	}
-	
-	public AortaRuntimeServices(RunCentralisedMAS masRunner, boolean useGui) {
 		super(masRunner);
 
-		if (useGui) {
-			gui = AortaGui.get();
-		}
-		
 		String location;
 		
 		ClassParameters infrastructure = masRunner.getProject().getInfrastructure();
@@ -75,6 +68,7 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 			throw new RuntimeException(ex);
 		}
 		
+		useGui = infrastructure.getParameter("nogui") == null;
 		useWebInspector = infrastructure.getParameter("inspector") != null;
 		useArtifact = infrastructure.getParameter("artifact") != null;
 		
@@ -100,6 +94,10 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 			} catch (ParseException ex) {
 				throw new RuntimeException(ex);
 			}
+		}
+		
+		if (useGui) {
+			gui = AortaGui.get();
 		}
 		
 		if (useWebInspector) {
@@ -205,8 +203,11 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	@Override
 	public boolean killAgent(String agName, String byAg) {
 		AortaAgentArch agentArch = (AortaAgentArch) masRunner.getAg(agName);
-		AortaAgent aortaAgent = agentArch.getAortaAgent();
-		aorta.removeAgent(aortaAgent);
+		
+		if (agentArch != null) {
+			AortaAgent aortaAgent = agentArch.getAortaAgent();
+			aorta.removeAgent(aortaAgent);
+		}
 		
 		return super.killAgent(agName, byAg);
 	}
