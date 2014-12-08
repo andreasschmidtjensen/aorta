@@ -101,8 +101,8 @@ public class AortaJasonBridge implements AortaBridge {
 
 	@Override
 	public boolean addGoal(Term goal) {
-		logger.log(Level.FINE, "(" + agentArch.getAgName() + "): +!" + goal);
 		Literal jasonGoal = TermConverter.toLiteral(goal);
+		logger.log(Level.FINE, "(" + agentArch.getAgName() + "): goal(" + goal + ") -> +!" + jasonGoal);
 		agentArch.getTS().getC().addAchvGoal(jasonGoal, Intention.EmptyInt);
 		return true;
 	}
