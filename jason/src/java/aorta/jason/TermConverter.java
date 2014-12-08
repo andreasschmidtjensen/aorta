@@ -28,6 +28,9 @@ import java.util.Map;
  */
 public class TermConverter {
 
+//[AortaJasonBridge] (terranSCV3): goal(buildTerranAcademy) -> +!buildTerranAcademy
+//[AortaJasonBridge] (terranBarracks): goal(train('Terran Marine',10)) -> +!train(Terran Marine,10)
+//[AortaJasonBridge] (terranCommandCenter): goal(trainTerranSCV) -> +!trainTerranSCV
 	public static Struct fromLiteral(Literal literal) {
 		Struct result = (Struct) convertToTerm(literal);
 		return result;
@@ -158,6 +161,8 @@ public class TermConverter {
 		if (struct.isAtomic()) {
 			if (struct.getName().startsWith("\"") && struct.getName().endsWith("\"")) {
 				return new StringTermImpl(struct.getName().substring(1, struct.getName().length() - 1));
+			} else if (struct.toString().startsWith("'")) {
+				return new StringTermImpl(struct.getName());
 			} else {
 				return new LiteralImpl(positive, new Atom(struct.getName()));
 			}
