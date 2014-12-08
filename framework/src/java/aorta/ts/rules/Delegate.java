@@ -43,8 +43,8 @@ public class Delegate extends Transition<AgentState> {
 		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 		Struct optDel = FormulaQualifier.qualifyStruct(del, KBType.OPTION);
 		
-		// org(rea(A,R1)), org(dependency(R1,R2,O)), opt(obligation(A,R1,O,D)), \+ opt(delegate(R2,O))
-		Term test = Term.createTerm(orgRea + ", " + orgDep + ", " + orgObl + ", \\+ " + optDel);
+		// bel(me(A)), org(rea(A,R1)), org(dependency(R1,R2,O)), opt(obligation(A,R1,O,D)), \+ opt(delegate(R2,O))
+		Term test = Term.createTerm("bel(me(A)), " + orgRea + ", " + orgDep + ", " + orgObl + ", \\+ " + optDel);
 
 		SolveInfo result = engine.solve(ms, test);
 		if (result.isSuccess()) {
