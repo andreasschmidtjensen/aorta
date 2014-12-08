@@ -16,7 +16,7 @@ import aorta.organization.AortaArtifact;
 import aorta.organization.EnvironmentSensor;
 import aorta.parser.helper.AortaBuilder;
 import aorta.tracer.Tracer;
-import jason.NoValueForVarException;
+import jason.NoValueException;
 import jason.asSyntax.ASSyntax;
 import jason.asSyntax.Literal;
 import jason.asSyntax.NumberTerm;
@@ -77,7 +77,7 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 			try {
 				Literal sleepLit = ASSyntax.parseLiteral(sleep);
 				agSleepTime = (int) ((NumberTerm) sleepLit.getTerm(0)).solve();
-			} catch (ParseException | NoValueForVarException ex) {
+			} catch (ParseException | NoValueException ex) {
 				throw new RuntimeException(ex);
 			}
 		}
