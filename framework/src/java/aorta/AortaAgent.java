@@ -68,13 +68,13 @@ public class AortaAgent {
 		return state;
 	}
 
-	public void addAgentToBeliefs(AortaAgent agent) {
-		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agent.name)), KBType.BELIEF);
+	public void addAgentToBeliefs(String agentName) {
+		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agentName)), KBType.BELIEF);
 		state.insertTerm(new QueryEngine(), qualified);
 	}
 
-	public void removeAgentFromBeliefs(AortaAgent agent) {
-		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agent.name)), KBType.BELIEF.getType());
+	public void removeAgentFromBeliefs(String agentName) {
+		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agentName)), KBType.BELIEF.getType());
 		state.removeTerm(new QueryEngine(), qualified);
 	}
 

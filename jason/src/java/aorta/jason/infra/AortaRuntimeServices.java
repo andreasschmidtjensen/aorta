@@ -146,8 +146,6 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	}
 
 	public String createAgent(String agName, String numberedAgName, String agSource, String agClass, List<String> archClasses, ClassParameters bbPars, Settings stts, AortaEnvironment env) throws Exception {
-		System.out.println("creating agent: " + agName);
-		
 		fromAORTA = true;
 		String actualAgName = createAgent(numberedAgName, agSource, agClass, archClasses, bbPars, stts);
 		fromAORTA = false;
@@ -182,6 +180,8 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 				if (agSleepTime > 0) {
 					agentArch.setSleepTime(agSleepTime);
 				}
+			} else {
+				aorta.addIgnorantAgent(actualAgName);
 			}
 			
 		} catch (IOException | OrganizationImportException ex) {
@@ -207,6 +207,8 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 		if (agentArch != null) {
 			AortaAgent aortaAgent = agentArch.getAortaAgent();
 			aorta.removeAgent(aortaAgent);
+		} else {
+			aorta.removeIgnorantAgent(agName);
 		}
 		
 		return super.killAgent(agName, byAg);

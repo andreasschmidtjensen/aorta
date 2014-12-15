@@ -58,13 +58,13 @@ public class Aorta {
 	}
 	
 	public void addAgent(AortaAgent newAgent) {		
-        newAgent.addAgentToBeliefs(newAgent);
+        newAgent.addAgentToBeliefs(newAgent.getName());
         for (AortaAgent agent : agents) {
 			if (agent.getName().equals(newAgent.getName())) {
 				throw new IllegalStateException("Agent " + newAgent.getName() + " already exists in AORTA!");
 			}
-            agent.addAgentToBeliefs(newAgent);
-            newAgent.addAgentToBeliefs(agent);
+            agent.addAgentToBeliefs(newAgent.getName());
+            newAgent.addAgentToBeliefs(agent.getName());
         }
         
         newAgent.setAorta(this);
@@ -74,13 +74,27 @@ public class Aorta {
 			newAgent.setArtifact(artifact);
 		}
 	}
+	
+	public void addIgnorantAgent(String agentName) {
+        for (AortaAgent agent : agents) {
+			if (agent.getName().equals(agentName)) {
+				throw new IllegalStateException("Agent " + agentName + " already exists in AORTA!");
+			}
+            agent.addAgentToBeliefs(agentName);
+        }
+	}
     
     public void removeAgent(AortaAgent removedAgent) {
         if (agents.remove(removedAgent)) {
             for (AortaAgent agent : agents) {
-                agent.removeAgentFromBeliefs(removedAgent);
+                agent.removeAgentFromBeliefs(removedAgent.getName());
             }
         }        
     }
     
+	public void removeIgnorantAgent(String agentName) {
+		for (AortaAgent agent : agents) {
+			agent.removeAgentFromBeliefs(agentName);
+		}
+    }
 }
