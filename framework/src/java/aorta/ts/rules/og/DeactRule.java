@@ -7,7 +7,6 @@ package aorta.ts.rules.og;
 import alice.tuprolog.MalformedGoalException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
-import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.AgentState;
 import aorta.kr.KBType;
@@ -36,13 +35,13 @@ public class DeactRule extends Transition<AgentState> {
 		MetaLanguage language = new MetaLanguage();
 		Struct role = language.role(new Var("R"), new Var("Os"));
 		Struct oRole = new Struct("~", language.role(new Var("R")));
-		Struct rea = language.rea(new Var("A"), new Var("R"));
+		Struct rea = language.rea(new Struct(state.getAgent().getName()), new Var("R"));
 
 		Struct orgRole = FormulaQualifier.qualifyStruct(role, KBType.ORGANIZATION);
 		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 		Struct optRole = FormulaQualifier.qualifyStruct(oRole, KBType.OPTION);
 
-		// role(R,Os), rea(A,R), \+ ~role(R), \+ (member(O,Os), \+ bel(O)).
+		// org(role(R,Os)), org(rea(A,R)), \+ opt(~role(R)), \+ (member(O,Os), \+ bel(O)).
 		String test = orgRole.toString() + ", " + orgRea.toString() + ", \\+ " + optRole.toString() + ", \\+ (member(O, Os), \\+ bel(O)).";
 		try {
 			// TODO: create DeactTest 
