@@ -23,7 +23,7 @@ public class AortaPlanListener implements PlanListener {
 	
 	@Override
 	public void planAdded(Plan plan, boolean first){
-		if (first && isGoalAchievement(plan)) {
+		if (isGoalAchievement(plan)) {
 			Term term = TermConverter.convertToTerm(plan.getTrigger().getLiteral());
 			if (term instanceof Struct) {
 				Struct capability = (Struct) term;
@@ -34,7 +34,7 @@ public class AortaPlanListener implements PlanListener {
 	
 	@Override
 	public void planRemoved(Plan plan, boolean last){
-		if (last && isGoalAchievement(plan)) {
+		if (isGoalAchievement(plan)) {
 			Term term = TermConverter.convertToTerm(plan.getTrigger().getLiteral());
 			if (term instanceof Struct) {
 				Struct capability = (Struct) term;
