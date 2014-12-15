@@ -1,4 +1,4 @@
-// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTA.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTAParser.g4 by ANTLR 4.1
 package aorta.parser;
 
 import alice.tuprolog.Number;
@@ -25,11 +25,11 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link AORTAListener},
+ * This class provides an empty implementation of {@link AORTAParserListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class AORTABaseListener implements AORTAListener {
+public class AORTAParserBaseListener implements AORTAParserListener {
 	/**
 	 * {@inheritDoc}
 	 * <p/>
@@ -55,6 +55,19 @@ public class AORTABaseListener implements AORTAListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitListItem(@NotNull AORTAParser.ListItemContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterString(@NotNull AORTAParser.StringContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitString(@NotNull AORTAParser.StringContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

@@ -1,4 +1,4 @@
-grammar AORTA;
+parser grammar AORTAParser;
 
 @header {
 import alice.tuprolog.Number;
@@ -19,11 +19,8 @@ import aorta.reasoning.fml.*;
 import java.io.IOException;
 }
 
-@lexer::members {
-  private boolean init = false;
-  private boolean action = false;
-}
-// grammar
+options {   tokenVocab = AORTALexer; }
+
 aortaAgent[String name] returns [AgentBuilder agent] 
 	: {
 	   Initialization init = new Initialization();
@@ -48,19 +45,6 @@ actRule returns [ActionRule rule]
     : option COLON formulas EXECUTE action FULLSTOP
 	  { $rule = new ActionRule($option.fml, $formulas.fml, $action.aa); }
 ;
-/*actionRules returns [List<ActionRule> rules] 
-	: acts
-	  { $rules = $acts.rules; }
-;
-acts returns [List<ActionRule> rules]
-	: { $rules = new ArrayList<>(); }
-	(act { $rules.add($act.rule); } 
-	| act a=acts { $rules.add($act.rule); $rules.addAll($a.rules); });
-act returns [ActionRule rule]
-	: option COLON formulas EXECUTE action FULLSTOP
-	  { $rule = new ActionRule($option.fml, $formulas.fml, $action.aa); }
-;
-*/
 
 option returns [Term fml] 
 	: {boolean pos = true;}
@@ -68,6 +52,9 @@ option returns [Term fml]
 	  (NOT {pos=false;})? ROLE START term END { $fml = new Struct("role", $term.fml); if (!pos) { $fml = new Struct("~", $fml); } }
 	| (NOT {pos=false;})? OBJ START term END { $fml = new Struct("obj", $term.fml); if (!pos) { $fml = new Struct("~", $fml); } }
 	| SEND START t1=term COMMA illForce COMMA t2=term END  { $fml = new Struct("send", $t1.fml, $illForce.fml, $t2.fml); }
+	| OBL START r=term COMMA o=term COMMA d=term END  { $fml = new Struct("obl", $r.fml, $o.fml, $d.fml); }
+	| VIOL START r=term COMMA o=term END  { $fml = new Struct("viol", $r.fml, $o.fml); }
+	| TRUE { $fml = Term.TRUE; }
 	);
 
 illForce returns [Term fml]
@@ -105,16 +92,19 @@ prolog2 returns [Term fml]
 	  | termBuilder prolog2  { $fml = $termBuilder.fml; }
 	  | );
 termBuilder returns [Term fml]
-	: ( t3=term ' is ' t4=term MATH_OP t5=term { $fml = new Struct("is", $t3.fml, new Struct($MATH_OP.text, $t4.fml, $t5.fml)); } 
+	: ( t3=term IS t4=term MATH_OP t5=term { $fml = new Struct("is", $t3.fml, new Struct($MATH_OP.text, $t4.fml, $t5.fml)); } 
 	| term { $fml = $term.fml; }
 	| t1=term BINARY_OP t2=term { $fml = new Struct($BINARY_OP.text, $t1.fml, $t2.fml); } );
 term returns [Term fml]
 	: (formula {$fml = new Struct(((ReasoningFormula)$formula.fml).getType(), ((ReasoningFormula)$formula.fml).getFormula());}
+	  | UNARY_OP t=term {$fml = new Struct($UNARY_OP.text, $t.fml);}
+	  | string {$fml = $string.fml; }
 	  | struct {$fml = $struct.fml;}
 	  | atom {$fml = $atom.fml;}
 	  | var {$fml = $var.fml;}
 	  | number {$fml = $number.fml;})
 ;
+string returns [Struct fml]: FILEPATH { $fml = new Struct($FILEPATH.text); };
 atom returns [Struct fml]: ATOM { $fml = new Struct($ATOM.text); };
 number returns [Number fml] : NUMBER { String numStr = $NUMBER.text; $fml = new Int(Integer.parseInt(numStr)); };
 var returns [Var fml]: VAR { $fml = new Var($VAR.text); };
@@ -133,59 +123,3 @@ listContents returns [Struct fml]
 	(listItem { $fml.append($listItem.fml); } 
 	| listItem COMMA lc=listContents { $fml.append($listItem.fml); $fml.append($lc.fml); });
 listItem returns [Term fml]: prolog2 { $fml = $prolog2.fml; };
-
-// lexer
-START_BLOCK: '{';
-END_BLOCK: '}';
-START_BRACKET: '[';
-END_BRACKET: ']';
-IF: 'if';
-EXECUTE: '=>' {action = true;};
-ORGANIZATION : 'organization';
-PATH: 'path';
-TYPE: 'type';
-ACT_BLOCK: 'actions';
-EQUALS: '=';
-START : '(';
-END : ')';
-COMMA: ',';
-COLON: ':';
-SEMICOLON: ';';
-NOT : '~';
-FULLSTOP : '.' {action = false;};
-PIPE : '|';
-ROLE : 'role';
-OBJ : 'obj';
-TELL : 'tell';
-ACHIEVE : 'achieve';
-OPT : 'opt';
-BEL : 'bel';
-GOAL : 'goal';
-ORG : 'org';
-CAP : 'cap';
-CONSIDER: 'consider';
-DISREGARD: 'disregard';
-ENACT: 'enact';
-DEACT: 'deact';
-COMMIT: 'commit';
-SEND: /*{action}?*/ 'send';
-DROP: 'drop';
-TRUE: 'true';
-
-// Prolog specific tokens
-// TODO: Match names with special characters (in '')
-ATOM: [a-z][a-zA-Z0-9_]*;
-NUMBER: '-'?[0-9]+;
-VAR: {!init}? [A-Z_][a-zA-Z0-9_]*;
-MATH_OP: ('+'|'-'|'*'|'/');
-BINARY_OP: ('<'|'>'|'='|'=..'|'=:='|'=<'|'=='|'=\\='|'>'|'>='|'\\='|'\\=='|'+'|'-'|'*'|'/');
-UNARY_OP: '\\+';
-
-CLASSNAME : {init}? (
-			  [a-zA-Z_$][a-zA-Z_$0-9]*'.'
-			)*
-			[a-zA-Z_$][a-zA-Z_$0-9]* {init = false;};
-FILEPATH : '"' (~('\n'|'\r'|'"'))* '"' ; 
-
-COMMENT : '%' ~('\r'|'\n')* -> skip; // comments
-WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines

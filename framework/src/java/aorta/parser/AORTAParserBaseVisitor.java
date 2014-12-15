@@ -1,4 +1,4 @@
-// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTA.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTAParser.g4 by ANTLR 4.1
 package aorta.parser;
 
 import alice.tuprolog.Number;
@@ -22,14 +22,14 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
- * This class provides an empty implementation of {@link AORTAVisitor},
+ * This class provides an empty implementation of {@link AORTAParserVisitor},
  * which can be extended to create a visitor which only needs to handle a subset
  * of the available methods.
  *
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
-public class AORTABaseVisitor<T> extends AbstractParseTreeVisitor<T> implements AORTAVisitor<T> {
+public class AORTAParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements AORTAParserVisitor<T> {
 	/**
 	 * {@inheritDoc}
 	 * <p/>
@@ -45,6 +45,14 @@ public class AORTABaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * {@link #visitChildren} on {@code ctx}.
 	 */
 	@Override public T visitListItem(@NotNull AORTAParser.ListItemContext ctx) { return visitChildren(ctx); }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.
+	 */
+	@Override public T visitString(@NotNull AORTAParser.StringContext ctx) { return visitChildren(ctx); }
 
 	/**
 	 * {@inheritDoc}

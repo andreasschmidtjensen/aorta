@@ -8,16 +8,17 @@ import aorta.AgentState;
 import aorta.ts.rules.Check;
 import aorta.ts.rules.Ext;
 import aorta.ts.rules.ActionExecution;
-import aorta.ts.rules.DeactRule;
-import aorta.ts.rules.Delegate;
-import aorta.ts.rules.Inform;
+import aorta.ts.rules.og.DeactRule;
+import aorta.ts.rules.og.Delegate;
+import aorta.ts.rules.og.Inform;
 import aorta.ts.rules.ObligationActivated;
 import aorta.ts.rules.ObligationSatisfied;
 import aorta.ts.rules.ObligationViolated;
-import aorta.ts.rules.EnactRule;
-import aorta.ts.rules.InformSubObj;
-import aorta.ts.rules.ObjectiveRule;
+import aorta.ts.rules.og.EnactRule;
+import aorta.ts.rules.og.ObjectiveRule;
 import aorta.ts.rules.Sense;
+import aorta.ts.rules.og.ObligationRule;
+import aorta.ts.rules.og.ViolationRule;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class AgentStrategy implements Strategy<AgentState> {
 	
 	private final List<Executor> executors = new ArrayList<>();
 	
-	private Linear<AgentState> linear;
+	private final Linear<AgentState> linear;
 
 	public AgentStrategy(boolean usingArtifact) {
 		executors.add(new ExecuteStar(new Check()));
@@ -44,9 +45,10 @@ public class AgentStrategy implements Strategy<AgentState> {
 		executors.add(new ExecuteStar(new EnactRule()));
 		executors.add(new ExecuteStar(new DeactRule()));
 		executors.add(new ExecuteStar(new ObjectiveRule()));
+		executors.add(new ExecuteStar(new ObligationRule()));
+		executors.add(new ExecuteStar(new ViolationRule()));
 		executors.add(new ExecuteStar(new Delegate()));
 		executors.add(new ExecuteStar(new Inform()));
-		executors.add(new ExecuteStar(new InformSubObj()));
 		executors.add(new ExecuteOnce(new ActionExecution()));
 	
 		linear = new Linear(executors);

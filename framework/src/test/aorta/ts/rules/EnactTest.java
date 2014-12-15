@@ -4,6 +4,7 @@
  */
 package aorta.ts.rules;
 
+import aorta.ts.rules.og.EnactRule;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Theory;

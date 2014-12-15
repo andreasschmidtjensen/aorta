@@ -1,4 +1,4 @@
-// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTA.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTAParser.g4 by ANTLR 4.1
 package aorta.parser;
 
 import alice.tuprolog.Number;
@@ -28,7 +28,7 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
-public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
+public interface AORTAParserVisitor<T> extends ParseTreeVisitor<T> {
 	/**
 	 * Visit a parse tree produced by {@link AORTAParser#struct}.
 	 * @param ctx the parse tree
@@ -42,6 +42,13 @@ public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitListItem(@NotNull AORTAParser.ListItemContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AORTAParser#string}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitString(@NotNull AORTAParser.StringContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link AORTAParser#var}.

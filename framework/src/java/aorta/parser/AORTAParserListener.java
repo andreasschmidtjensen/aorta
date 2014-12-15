@@ -1,4 +1,4 @@
-// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTA.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTAParser.g4 by ANTLR 4.1
 package aorta.parser;
 
 import alice.tuprolog.Number;
@@ -25,7 +25,7 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  * This interface defines a complete listener for a parse tree produced by
  * {@link AORTAParser}.
  */
-public interface AORTAListener extends ParseTreeListener {
+public interface AORTAParserListener extends ParseTreeListener {
 	/**
 	 * Enter a parse tree produced by {@link AORTAParser#struct}.
 	 * @param ctx the parse tree
@@ -47,6 +47,17 @@ public interface AORTAListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitListItem(@NotNull AORTAParser.ListItemContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link AORTAParser#string}.
+	 * @param ctx the parse tree
+	 */
+	void enterString(@NotNull AORTAParser.StringContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AORTAParser#string}.
+	 * @param ctx the parse tree
+	 */
+	void exitString(@NotNull AORTAParser.StringContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link AORTAParser#var}.
