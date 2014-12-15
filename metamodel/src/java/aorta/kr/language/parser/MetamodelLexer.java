@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\MetamodelLexer.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/metamodel/src/java/aorta/kr/language/parser/MetamodelLexer.g4 by ANTLR 4.1
 package aorta.kr.language.parser;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
@@ -80,6 +80,21 @@ public class MetamodelLexer extends Lexer {
 		case 28: CLOSESTRING_action((RuleContext)_localctx, actionIndex); break;
 		}
 	}
+	private void OBLIGATIONS_action(RuleContext _localctx, int actionIndex) {
+		switch (actionIndex) {
+		case 1: dependencies = false; break;
+		}
+	}
+	private void OPENSTRING_action(RuleContext _localctx, int actionIndex) {
+		switch (actionIndex) {
+		case 2: pushMode(STRINGMODE);  break;
+		}
+	}
+	private void CLOSESTRING_action(RuleContext _localctx, int actionIndex) {
+		switch (actionIndex) {
+		case 5: popMode();  break;
+		}
+	}
 	private void DEPENDENCIES_action(RuleContext _localctx, int actionIndex) {
 		switch (actionIndex) {
 		case 0: dependencies = true; break;
@@ -90,24 +105,9 @@ public class MetamodelLexer extends Lexer {
 		case 4: _channel = HIDDEN;  break;
 		}
 	}
-	private void OPENSTRING_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 2: pushMode(STRINGMODE);  break;
-		}
-	}
 	private void COMMENT_action(RuleContext _localctx, int actionIndex) {
 		switch (actionIndex) {
 		case 3: skip();  break;
-		}
-	}
-	private void CLOSESTRING_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 5: popMode();  break;
-		}
-	}
-	private void OBLIGATIONS_action(RuleContext _localctx, int actionIndex) {
-		switch (actionIndex) {
-		case 1: dependencies = false; break;
 		}
 	}
 	@Override

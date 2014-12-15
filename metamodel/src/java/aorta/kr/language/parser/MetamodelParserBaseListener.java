@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\MetamodelParser.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/metamodel/src/java/aorta/kr/language/parser/MetamodelParser.g4 by ANTLR 4.1
 package aorta.kr.language.parser;
 
 	import alice.tuprolog.Number;
@@ -29,123 +29,6 @@ public class MetamodelParserBaseListener implements MetamodelParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterMetamodel(@NotNull MetamodelParser.MetamodelContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitMetamodel(@NotNull MetamodelParser.MetamodelContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterAtom(@NotNull MetamodelParser.AtomContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitAtom(@NotNull MetamodelParser.AtomContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterVar(@NotNull MetamodelParser.VarContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitVar(@NotNull MetamodelParser.VarContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterArgs(@NotNull MetamodelParser.ArgsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitArgs(@NotNull MetamodelParser.ArgsContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterListContents(@NotNull MetamodelParser.ListContentsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitListContents(@NotNull MetamodelParser.ListContentsContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterObligations(@NotNull MetamodelParser.ObligationsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitObligations(@NotNull MetamodelParser.ObligationsContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterDependency(@NotNull MetamodelParser.DependencyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitDependency(@NotNull MetamodelParser.DependencyContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterObligation(@NotNull MetamodelParser.ObligationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitObligation(@NotNull MetamodelParser.ObligationContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterDependencies(@NotNull MetamodelParser.DependenciesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitDependencies(@NotNull MetamodelParser.DependenciesContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterStruct(@NotNull MetamodelParser.StructContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -153,6 +36,19 @@ public class MetamodelParserBaseListener implements MetamodelParserListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitStruct(@NotNull MetamodelParser.StructContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterMetamodel(@NotNull MetamodelParser.MetamodelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitMetamodel(@NotNull MetamodelParser.MetamodelContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -172,65 +68,39 @@ public class MetamodelParserBaseListener implements MetamodelParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterObjectiveList(@NotNull MetamodelParser.ObjectiveListContext ctx) { }
+	@Override public void enterString(@NotNull MetamodelParser.StringContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitObjectiveList(@NotNull MetamodelParser.ObjectiveListContext ctx) { }
+	@Override public void exitString(@NotNull MetamodelParser.StringContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterObjective(@NotNull MetamodelParser.ObjectiveContext ctx) { }
+	@Override public void enterRoles(@NotNull MetamodelParser.RolesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitObjective(@NotNull MetamodelParser.ObjectiveContext ctx) { }
+	@Override public void exitRoles(@NotNull MetamodelParser.RolesContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterTermBuilder(@NotNull MetamodelParser.TermBuilderContext ctx) { }
+	@Override public void enterObligations(@NotNull MetamodelParser.ObligationsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitTermBuilder(@NotNull MetamodelParser.TermBuilderContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterNumber(@NotNull MetamodelParser.NumberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitNumber(@NotNull MetamodelParser.NumberContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterList(@NotNull MetamodelParser.ListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitList(@NotNull MetamodelParser.ListContext ctx) { }
+	@Override public void exitObligations(@NotNull MetamodelParser.ObligationsContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -263,39 +133,52 @@ public class MetamodelParserBaseListener implements MetamodelParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterListItem(@NotNull MetamodelParser.ListItemContext ctx) { }
+	@Override public void enterObjectiveList(@NotNull MetamodelParser.ObjectiveListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitListItem(@NotNull MetamodelParser.ListItemContext ctx) { }
+	@Override public void exitObjectiveList(@NotNull MetamodelParser.ObjectiveListContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterProlog(@NotNull MetamodelParser.PrologContext ctx) { }
+	@Override public void enterObjective(@NotNull MetamodelParser.ObjectiveContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitProlog(@NotNull MetamodelParser.PrologContext ctx) { }
+	@Override public void exitObjective(@NotNull MetamodelParser.ObjectiveContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterObjectives(@NotNull MetamodelParser.ObjectivesContext ctx) { }
+	@Override public void enterListContents(@NotNull MetamodelParser.ListContentsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitObjectives(@NotNull MetamodelParser.ObjectivesContext ctx) { }
+	@Override public void exitListContents(@NotNull MetamodelParser.ListContentsContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterNumber(@NotNull MetamodelParser.NumberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitNumber(@NotNull MetamodelParser.NumberContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -315,26 +198,91 @@ public class MetamodelParserBaseListener implements MetamodelParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterRoles(@NotNull MetamodelParser.RolesContext ctx) { }
+	@Override public void enterListItem(@NotNull MetamodelParser.ListItemContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitRoles(@NotNull MetamodelParser.RolesContext ctx) { }
+	@Override public void exitListItem(@NotNull MetamodelParser.ListItemContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterString(@NotNull MetamodelParser.StringContext ctx) { }
+	@Override public void enterDependency(@NotNull MetamodelParser.DependencyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitString(@NotNull MetamodelParser.StringContext ctx) { }
+	@Override public void exitDependency(@NotNull MetamodelParser.DependencyContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterVar(@NotNull MetamodelParser.VarContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitVar(@NotNull MetamodelParser.VarContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterList(@NotNull MetamodelParser.ListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitList(@NotNull MetamodelParser.ListContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterProlog(@NotNull MetamodelParser.PrologContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitProlog(@NotNull MetamodelParser.PrologContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterDependencies(@NotNull MetamodelParser.DependenciesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitDependencies(@NotNull MetamodelParser.DependenciesContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterArgs(@NotNull MetamodelParser.ArgsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitArgs(@NotNull MetamodelParser.ArgsContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -348,6 +296,58 @@ public class MetamodelParserBaseListener implements MetamodelParserListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitKrrule(@NotNull MetamodelParser.KrruleContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterObligation(@NotNull MetamodelParser.ObligationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitObligation(@NotNull MetamodelParser.ObligationContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterObjectives(@NotNull MetamodelParser.ObjectivesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitObjectives(@NotNull MetamodelParser.ObjectivesContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterAtom(@NotNull MetamodelParser.AtomContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitAtom(@NotNull MetamodelParser.AtomContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterTermBuilder(@NotNull MetamodelParser.TermBuilderContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitTermBuilder(@NotNull MetamodelParser.TermBuilderContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

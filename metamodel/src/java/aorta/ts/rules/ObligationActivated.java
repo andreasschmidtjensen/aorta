@@ -4,6 +4,7 @@
  */
 package aorta.ts.rules;
 
+import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
@@ -17,6 +18,7 @@ import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -29,9 +31,8 @@ public class ObligationActivated extends Transition {
 
 	@Override
 	protected State execute(QueryEngine engine, State state) {
-		State newState = state;
-		MentalState ms = newState.getMentalState();
-
+		MentalState ms = state.getMentalState();
+		
 		MetaLanguage language = new MetaLanguage();
 		Struct rea = language.rea(new Var("A"), new Var("R"));
 		Struct cond = language.condition(new Var("R"), new Var("O"), new Var("D"), new Var("C"));
@@ -57,9 +58,9 @@ public class ObligationActivated extends Transition {
 						&& !engine.exists(ms, orgObl)) {
 
 					if (!objective.isGround()) {
-						logger.warning("[" + state.getDescription() + "] Objective is not ground");
+						logger.warning("[" + state.getDescription() + "] Objective - " + objective + " - is not ground");
 					}
-					newState.insertTerm(engine, orgObl);
+					state.insertTerm(engine, orgObl);
 
 					logger.fine("[" + state.getDescription() + "] Adding obligation: " + orgObl);
 					Tracer.trace(state.getIdentifier(), getName(), orgObl.getArg(0).toString());
@@ -70,9 +71,9 @@ public class ObligationActivated extends Transition {
 			}
 		}
 
-		return newState;
+		return state;
 	}
-
+	
 	@Override
 	public String getName() {
 		return "Obl-Activated";

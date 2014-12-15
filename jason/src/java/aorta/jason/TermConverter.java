@@ -28,9 +28,6 @@ import java.util.Map;
  */
 public class TermConverter {
 
-//[AortaJasonBridge] (terranSCV3): goal(buildTerranAcademy) -> +!buildTerranAcademy
-//[AortaJasonBridge] (terranBarracks): goal(train('Terran Marine',10)) -> +!train(Terran Marine,10)
-//[AortaJasonBridge] (terranCommandCenter): goal(trainTerranSCV) -> +!trainTerranSCV
 	public static Struct fromLiteral(Literal literal) {
 		Struct result = (Struct) convertToTerm(literal);
 		return result;

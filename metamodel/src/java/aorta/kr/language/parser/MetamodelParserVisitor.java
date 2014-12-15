@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\MetamodelParser.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/metamodel/src/java/aorta/kr/language/parser/MetamodelParser.g4 by ANTLR 4.1
 package aorta.kr.language.parser;
 
 	import alice.tuprolog.Number;
@@ -24,74 +24,18 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface MetamodelParserVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#metamodel}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMetamodel(@NotNull MetamodelParser.MetamodelContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#atom}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAtom(@NotNull MetamodelParser.AtomContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#var}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVar(@NotNull MetamodelParser.VarContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#args}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitArgs(@NotNull MetamodelParser.ArgsContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#listContents}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitListContents(@NotNull MetamodelParser.ListContentsContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#obligations}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitObligations(@NotNull MetamodelParser.ObligationsContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#dependency}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDependency(@NotNull MetamodelParser.DependencyContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#obligation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitObligation(@NotNull MetamodelParser.ObligationContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#dependencies}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDependencies(@NotNull MetamodelParser.DependenciesContext ctx);
-
-	/**
 	 * Visit a parse tree produced by {@link MetamodelParser#struct}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitStruct(@NotNull MetamodelParser.StructContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#metamodel}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMetamodel(@NotNull MetamodelParser.MetamodelContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link MetamodelParser#role}.
@@ -101,39 +45,25 @@ public interface MetamodelParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitRole(@NotNull MetamodelParser.RoleContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#objectiveList}.
+	 * Visit a parse tree produced by {@link MetamodelParser#string}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitObjectiveList(@NotNull MetamodelParser.ObjectiveListContext ctx);
+	T visitString(@NotNull MetamodelParser.StringContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#objective}.
+	 * Visit a parse tree produced by {@link MetamodelParser#roles}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitObjective(@NotNull MetamodelParser.ObjectiveContext ctx);
+	T visitRoles(@NotNull MetamodelParser.RolesContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#termBuilder}.
+	 * Visit a parse tree produced by {@link MetamodelParser#obligations}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTermBuilder(@NotNull MetamodelParser.TermBuilderContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#number}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNumber(@NotNull MetamodelParser.NumberContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#list}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitList(@NotNull MetamodelParser.ListContext ctx);
+	T visitObligations(@NotNull MetamodelParser.ObligationsContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link MetamodelParser#rules}.
@@ -150,25 +80,32 @@ public interface MetamodelParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitProlog2(@NotNull MetamodelParser.Prolog2Context ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#listItem}.
+	 * Visit a parse tree produced by {@link MetamodelParser#objectiveList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitListItem(@NotNull MetamodelParser.ListItemContext ctx);
+	T visitObjectiveList(@NotNull MetamodelParser.ObjectiveListContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#prolog}.
+	 * Visit a parse tree produced by {@link MetamodelParser#objective}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitProlog(@NotNull MetamodelParser.PrologContext ctx);
+	T visitObjective(@NotNull MetamodelParser.ObjectiveContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#objectives}.
+	 * Visit a parse tree produced by {@link MetamodelParser#listContents}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitObjectives(@NotNull MetamodelParser.ObjectivesContext ctx);
+	T visitListContents(@NotNull MetamodelParser.ListContentsContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#number}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNumber(@NotNull MetamodelParser.NumberContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link MetamodelParser#term}.
@@ -178,18 +115,53 @@ public interface MetamodelParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitTerm(@NotNull MetamodelParser.TermContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#roles}.
+	 * Visit a parse tree produced by {@link MetamodelParser#listItem}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRoles(@NotNull MetamodelParser.RolesContext ctx);
+	T visitListItem(@NotNull MetamodelParser.ListItemContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link MetamodelParser#string}.
+	 * Visit a parse tree produced by {@link MetamodelParser#dependency}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitString(@NotNull MetamodelParser.StringContext ctx);
+	T visitDependency(@NotNull MetamodelParser.DependencyContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#var}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVar(@NotNull MetamodelParser.VarContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#list}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitList(@NotNull MetamodelParser.ListContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#prolog}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProlog(@NotNull MetamodelParser.PrologContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#dependencies}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDependencies(@NotNull MetamodelParser.DependenciesContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#args}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArgs(@NotNull MetamodelParser.ArgsContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link MetamodelParser#krrule}.
@@ -197,4 +169,32 @@ public interface MetamodelParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitKrrule(@NotNull MetamodelParser.KrruleContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#obligation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitObligation(@NotNull MetamodelParser.ObligationContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#objectives}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitObjectives(@NotNull MetamodelParser.ObjectivesContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#atom}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAtom(@NotNull MetamodelParser.AtomContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link MetamodelParser#termBuilder}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTermBuilder(@NotNull MetamodelParser.TermBuilderContext ctx);
 }

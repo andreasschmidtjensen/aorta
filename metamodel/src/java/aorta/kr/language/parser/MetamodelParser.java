@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\metamodel\src\java\aorta\kr\language\parser\MetamodelParser.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/metamodel/src/java/aorta/kr/language/parser/MetamodelParser.g4 by ANTLR 4.1
 package aorta.kr.language.parser;
 
 	import alice.tuprolog.Number;
@@ -27,11 +27,11 @@ public class MetamodelParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		END_BRACKET=2, LT=16, CLOSESTRING=29, NUMBER=20, STRLIT=30, SEMICOLON=10, 
-		ATOM=19, MATH_OP=22, COLON=9, START_BRACKET=1, ROLES=3, WS=28, COMMA=15, 
-		OBJECTIVES=4, IS=18, ENTAILS=8, OBLIGATIONS=6, FULLSTOP=11, DEPENDENCIES=5, 
-		START=13, GT=17, PIPE=12, VAR=21, OPENSTRING=25, COMMENT=27, END=14, BINARY_OP=23, 
-		STRING=26, RULES=7, UNARY_OP=24;
+		OBLIGATIONS=6, VAR=21, BINARY_OP=23, LT=16, PIPE=12, DEPENDENCIES=5, COMMENT=27, 
+		ATOM=19, OBJECTIVES=4, UNARY_OP=24, MATH_OP=22, START_BRACKET=1, SEMICOLON=10, 
+		OPENSTRING=25, CLOSESTRING=29, FULLSTOP=11, ENTAILS=8, WS=28, COMMA=15, 
+		NUMBER=20, COLON=9, IS=18, GT=17, STRLIT=30, ROLES=3, STRING=26, END_BRACKET=2, 
+		START=13, END=14, RULES=7;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'['", "']'", "'ROLES'", "'OBJECTIVES'", "'DEPENDENCIES'", 
 		"'OBLIGATIONS'", "'RULES'", "':-'", "':'", "';'", "'.'", "'|'", "'('", 
@@ -76,18 +76,18 @@ public class MetamodelParser extends Parser {
 		public DependenciesContext dependencies;
 		public ObligationsContext obligations;
 		public RulesContext rules;
+		public RolesContext roles() {
+			return getRuleContext(RolesContext.class,0);
+		}
 		public DependenciesContext dependencies() {
 			return getRuleContext(DependenciesContext.class,0);
 		}
 		public TerminalNode EOF() { return getToken(MetamodelParser.EOF, 0); }
-		public RolesContext roles() {
-			return getRuleContext(RolesContext.class,0);
+		public ObjectivesContext objectives() {
+			return getRuleContext(ObjectivesContext.class,0);
 		}
 		public ObligationsContext obligations() {
 			return getRuleContext(ObligationsContext.class,0);
-		}
-		public ObjectivesContext objectives() {
-			return getRuleContext(ObjectivesContext.class,0);
 		}
 		public RulesContext rules() {
 			return getRuleContext(RulesContext.class,0);
@@ -172,14 +172,14 @@ public class MetamodelParser extends Parser {
 	public static class RolesContext extends ParserRuleContext {
 		public List<Role> roleList;
 		public RoleContext role;
+		public TerminalNode ROLES() { return getToken(MetamodelParser.ROLES, 0); }
 		public List<RoleContext> role() {
 			return getRuleContexts(RoleContext.class);
 		}
+		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
 		public RoleContext role(int i) {
 			return getRuleContext(RoleContext.class,i);
 		}
-		public TerminalNode ROLES() { return getToken(MetamodelParser.ROLES, 0); }
-		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
 		public RolesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -240,12 +240,12 @@ public class MetamodelParser extends Parser {
 		public Role r;
 		public Token name;
 		public ObjectiveListContext objectiveList;
-		public TerminalNode FULLSTOP() { return getToken(MetamodelParser.FULLSTOP, 0); }
 		public TerminalNode ATOM() { return getToken(MetamodelParser.ATOM, 0); }
 		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
 		public ObjectiveListContext objectiveList() {
 			return getRuleContext(ObjectiveListContext.class,0);
 		}
+		public TerminalNode FULLSTOP() { return getToken(MetamodelParser.FULLSTOP, 0); }
 		public RoleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -307,10 +307,10 @@ public class MetamodelParser extends Parser {
 		public List<Term> terms;
 		public TermContext term;
 		public ObjectiveListContext ol;
+		public TerminalNode SEMICOLON() { return getToken(MetamodelParser.SEMICOLON, 0); }
 		public TermContext term() {
 			return getRuleContext(TermContext.class,0);
 		}
-		public TerminalNode SEMICOLON() { return getToken(MetamodelParser.SEMICOLON, 0); }
 		public ObjectiveListContext objectiveList() {
 			return getRuleContext(ObjectiveListContext.class,0);
 		}
@@ -374,13 +374,13 @@ public class MetamodelParser extends Parser {
 	public static class ObjectivesContext extends ParserRuleContext {
 		public List<Objective> objList;
 		public ObjectiveContext objective;
-		public ObjectiveContext objective(int i) {
-			return getRuleContext(ObjectiveContext.class,i);
-		}
-		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
-		public TerminalNode OBJECTIVES() { return getToken(MetamodelParser.OBJECTIVES, 0); }
 		public List<ObjectiveContext> objective() {
 			return getRuleContexts(ObjectiveContext.class);
+		}
+		public TerminalNode OBJECTIVES() { return getToken(MetamodelParser.OBJECTIVES, 0); }
+		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
+		public ObjectiveContext objective(int i) {
+			return getRuleContext(ObjectiveContext.class,i);
 		}
 		public ObjectivesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -442,14 +442,14 @@ public class MetamodelParser extends Parser {
 		public Objective o;
 		public PrologContext prolog;
 		public ObjectiveListContext objectiveList;
+		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
 		public PrologContext prolog() {
 			return getRuleContext(PrologContext.class,0);
 		}
-		public TerminalNode FULLSTOP() { return getToken(MetamodelParser.FULLSTOP, 0); }
-		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
 		public ObjectiveListContext objectiveList() {
 			return getRuleContext(ObjectiveListContext.class,0);
 		}
+		public TerminalNode FULLSTOP() { return getToken(MetamodelParser.FULLSTOP, 0); }
 		public ObjectiveContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -510,13 +510,13 @@ public class MetamodelParser extends Parser {
 	public static class DependenciesContext extends ParserRuleContext {
 		public List<Dependency> dependencyList;
 		public DependencyContext dependency;
-		public List<DependencyContext> dependency() {
-			return getRuleContexts(DependencyContext.class);
-		}
 		public TerminalNode DEPENDENCIES() { return getToken(MetamodelParser.DEPENDENCIES, 0); }
-		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
 		public DependencyContext dependency(int i) {
 			return getRuleContext(DependencyContext.class,i);
+		}
+		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
+		public List<DependencyContext> dependency() {
+			return getRuleContexts(DependencyContext.class);
 		}
 		public DependenciesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -579,16 +579,16 @@ public class MetamodelParser extends Parser {
 		public Token dependee;
 		public Token dependant;
 		public PrologContext prolog;
+		public List<TerminalNode> ATOM() { return getTokens(MetamodelParser.ATOM); }
 		public TerminalNode ATOM(int i) {
 			return getToken(MetamodelParser.ATOM, i);
 		}
+		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
+		public TerminalNode GT() { return getToken(MetamodelParser.GT, 0); }
 		public PrologContext prolog() {
 			return getRuleContext(PrologContext.class,0);
 		}
 		public TerminalNode FULLSTOP() { return getToken(MetamodelParser.FULLSTOP, 0); }
-		public List<TerminalNode> ATOM() { return getTokens(MetamodelParser.ATOM); }
-		public TerminalNode GT() { return getToken(MetamodelParser.GT, 0); }
-		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
 		public DependencyContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -637,14 +637,14 @@ public class MetamodelParser extends Parser {
 	public static class ObligationsContext extends ParserRuleContext {
 		public List<Obligation> obligationList;
 		public ObligationContext obligation;
+		public TerminalNode OBLIGATIONS() { return getToken(MetamodelParser.OBLIGATIONS, 0); }
 		public ObligationContext obligation(int i) {
 			return getRuleContext(ObligationContext.class,i);
 		}
+		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
 		public List<ObligationContext> obligation() {
 			return getRuleContexts(ObligationContext.class);
 		}
-		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
-		public TerminalNode OBLIGATIONS() { return getToken(MetamodelParser.OBLIGATIONS, 0); }
 		public ObligationsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -707,17 +707,17 @@ public class MetamodelParser extends Parser {
 		public PrologContext obj;
 		public PrologContext deadline;
 		public PrologContext cond;
-		public TerminalNode PIPE() { return getToken(MetamodelParser.PIPE, 0); }
-		public List<PrologContext> prolog() {
-			return getRuleContexts(PrologContext.class);
-		}
-		public TerminalNode LT() { return getToken(MetamodelParser.LT, 0); }
-		public TerminalNode FULLSTOP() { return getToken(MetamodelParser.FULLSTOP, 0); }
 		public TerminalNode ATOM() { return getToken(MetamodelParser.ATOM, 0); }
 		public PrologContext prolog(int i) {
 			return getRuleContext(PrologContext.class,i);
 		}
 		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
+		public TerminalNode LT() { return getToken(MetamodelParser.LT, 0); }
+		public TerminalNode PIPE() { return getToken(MetamodelParser.PIPE, 0); }
+		public List<PrologContext> prolog() {
+			return getRuleContexts(PrologContext.class);
+		}
+		public TerminalNode FULLSTOP() { return getToken(MetamodelParser.FULLSTOP, 0); }
 		public ObligationContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -771,11 +771,11 @@ public class MetamodelParser extends Parser {
 		public List<KrruleContext> krrule() {
 			return getRuleContexts(KrruleContext.class);
 		}
-		public TerminalNode RULES() { return getToken(MetamodelParser.RULES, 0); }
-		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
 		public KrruleContext krrule(int i) {
 			return getRuleContext(KrruleContext.class,i);
 		}
+		public TerminalNode RULES() { return getToken(MetamodelParser.RULES, 0); }
+		public TerminalNode COLON() { return getToken(MetamodelParser.COLON, 0); }
 		public RulesContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -844,10 +844,10 @@ public class MetamodelParser extends Parser {
 		public PrologContext prolog() {
 			return getRuleContext(PrologContext.class,0);
 		}
-		public TerminalNode FULLSTOP() { return getToken(MetamodelParser.FULLSTOP, 0); }
 		public AtomContext atom() {
 			return getRuleContext(AtomContext.class,0);
 		}
+		public TerminalNode FULLSTOP() { return getToken(MetamodelParser.FULLSTOP, 0); }
 		public KrruleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -958,17 +958,17 @@ public class MetamodelParser extends Parser {
 		public Prolog2Context pl;
 		public Token UNARY_OP;
 		public TermBuilderContext termBuilder;
-		public TermBuilderContext termBuilder() {
-			return getRuleContext(TermBuilderContext.class,0);
-		}
 		public TerminalNode SEMICOLON() { return getToken(MetamodelParser.SEMICOLON, 0); }
+		public TerminalNode COMMA() { return getToken(MetamodelParser.COMMA, 0); }
+		public TerminalNode UNARY_OP() { return getToken(MetamodelParser.UNARY_OP, 0); }
+		public TerminalNode END() { return getToken(MetamodelParser.END, 0); }
 		public TerminalNode START() { return getToken(MetamodelParser.START, 0); }
 		public Prolog2Context prolog2() {
 			return getRuleContext(Prolog2Context.class,0);
 		}
-		public TerminalNode COMMA() { return getToken(MetamodelParser.COMMA, 0); }
-		public TerminalNode UNARY_OP() { return getToken(MetamodelParser.UNARY_OP, 0); }
-		public TerminalNode END() { return getToken(MetamodelParser.END, 0); }
+		public TermBuilderContext termBuilder() {
+			return getRuleContext(TermBuilderContext.class,0);
+		}
 		public Prolog2Context(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1066,15 +1066,15 @@ public class MetamodelParser extends Parser {
 		public TermContext t1;
 		public Token BINARY_OP;
 		public TermContext t2;
+		public TerminalNode IS() { return getToken(MetamodelParser.IS, 0); }
 		public List<TermContext> term() {
 			return getRuleContexts(TermContext.class);
 		}
-		public TerminalNode BINARY_OP() { return getToken(MetamodelParser.BINARY_OP, 0); }
-		public TerminalNode MATH_OP() { return getToken(MetamodelParser.MATH_OP, 0); }
-		public TerminalNode IS() { return getToken(MetamodelParser.IS, 0); }
 		public TermContext term(int i) {
 			return getRuleContext(TermContext.class,i);
 		}
+		public TerminalNode BINARY_OP() { return getToken(MetamodelParser.BINARY_OP, 0); }
+		public TerminalNode MATH_OP() { return getToken(MetamodelParser.MATH_OP, 0); }
 		public TermBuilderContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1242,9 +1242,9 @@ public class MetamodelParser extends Parser {
 	public static class StringContext extends ParserRuleContext {
 		public Struct fml;
 		public Token STRLIT;
+		public TerminalNode CLOSESTRING() { return getToken(MetamodelParser.CLOSESTRING, 0); }
 		public TerminalNode STRLIT() { return getToken(MetamodelParser.STRLIT, 0); }
 		public TerminalNode OPENSTRING() { return getToken(MetamodelParser.OPENSTRING, 0); }
-		public TerminalNode CLOSESTRING() { return getToken(MetamodelParser.CLOSESTRING, 0); }
 		public StringContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1424,15 +1424,15 @@ public class MetamodelParser extends Parser {
 		public Token ATOM;
 		public ArgsContext args;
 		public ListContext list;
+		public TerminalNode ATOM() { return getToken(MetamodelParser.ATOM, 0); }
+		public TerminalNode END() { return getToken(MetamodelParser.END, 0); }
+		public TerminalNode START() { return getToken(MetamodelParser.START, 0); }
 		public ListContext list() {
 			return getRuleContext(ListContext.class,0);
 		}
-		public TerminalNode START() { return getToken(MetamodelParser.START, 0); }
-		public TerminalNode ATOM() { return getToken(MetamodelParser.ATOM, 0); }
 		public ArgsContext args() {
 			return getRuleContext(ArgsContext.class,0);
 		}
-		public TerminalNode END() { return getToken(MetamodelParser.END, 0); }
 		public StructContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1564,18 +1564,18 @@ public class MetamodelParser extends Parser {
 		public ListContentsContext listContents;
 		public TermContext t1;
 		public TermContext t2;
-		public List<TermContext> term() {
-			return getRuleContexts(TermContext.class);
-		}
-		public TerminalNode PIPE() { return getToken(MetamodelParser.PIPE, 0); }
 		public TerminalNode START_BRACKET() { return getToken(MetamodelParser.START_BRACKET, 0); }
 		public ListContentsContext listContents() {
 			return getRuleContext(ListContentsContext.class,0);
 		}
-		public TerminalNode END_BRACKET() { return getToken(MetamodelParser.END_BRACKET, 0); }
+		public List<TermContext> term() {
+			return getRuleContexts(TermContext.class);
+		}
 		public TermContext term(int i) {
 			return getRuleContext(TermContext.class,i);
 		}
+		public TerminalNode PIPE() { return getToken(MetamodelParser.PIPE, 0); }
+		public TerminalNode END_BRACKET() { return getToken(MetamodelParser.END_BRACKET, 0); }
 		public ListContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1639,12 +1639,12 @@ public class MetamodelParser extends Parser {
 		public Struct fml;
 		public ListItemContext listItem;
 		public ListContentsContext lc;
-		public ListItemContext listItem() {
-			return getRuleContext(ListItemContext.class,0);
-		}
-		public TerminalNode COMMA() { return getToken(MetamodelParser.COMMA, 0); }
 		public ListContentsContext listContents() {
 			return getRuleContext(ListContentsContext.class,0);
+		}
+		public TerminalNode COMMA() { return getToken(MetamodelParser.COMMA, 0); }
+		public ListItemContext listItem() {
+			return getRuleContext(ListItemContext.class,0);
 		}
 		public ListContentsContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);

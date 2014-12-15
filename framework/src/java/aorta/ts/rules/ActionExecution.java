@@ -98,6 +98,7 @@ public class ActionExecution extends Transition<AgentState> {
 					if (contextSolution.isSuccess()) {
 						List<Var> bindings = AgentState.mergeBindings(optionSolution, contextSolution);
 						engine.unify(ms, option, bindings);
+						engine.unify(ms, qualified, bindings);
 						
 						List<Var> prevBindings = newState.getBindings();
 						try {

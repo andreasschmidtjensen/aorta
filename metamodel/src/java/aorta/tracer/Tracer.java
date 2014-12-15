@@ -44,18 +44,22 @@ public class Tracer {
 		queue.remove(agent);
 	}
 	
-	private synchronized void commitQueue(String agent) {
+	private synchronized Trace commitQueue(String agent) {
+		Trace value = null;
 		if (!traces.containsKey(agent)) {
 			traces.put(agent, new ArrayList<Trace>());
 		}
 		
 		Trace trace = queue.get(agent);
 		if (trace != null) {
+			value = trace;
 			if (!ignoredEvents.contains(trace.getEvent())) {
 				traces.get(agent).add(trace);
 				clearAgentQueue(agent);				
 			}
 		}
+		
+		return value;
 	}	
 		
 	private synchronized void addTrace(String agent, Trace trace) {
@@ -123,8 +127,8 @@ public class Tracer {
 		tracer.clearAgentQueue(agent);
 	}
 	
-	public static void commitTrace(String agent) {
-		tracer.commitQueue(agent);
+	public static Trace commitTrace(String agent) {
+		return tracer.commitQueue(agent);
 	}
 	
 	public static void trace(String agent, String event, String description) {

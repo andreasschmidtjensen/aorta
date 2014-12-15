@@ -28,8 +28,7 @@ public class ObligationViolated extends Transition {
 	
 	@Override
 	protected State execute(QueryEngine engine, State state) {
-		State newState = state;
-		MentalState ms = newState.getMentalState();
+		MentalState ms = state.getMentalState();
 		
 		MetaLanguage language = new MetaLanguage();
 		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
@@ -54,7 +53,7 @@ public class ObligationViolated extends Transition {
 							&& !engine.exists(ms, orgViol)) { // violation not detected already
 						
 						//XXX: newState = state.clone();;
-						newState.insertTerm(engine, orgViol);
+						state.insertTerm(engine, orgViol);
 
 						logger.fine("[" + state.getDescription() + "] Violated obligation: " + orgViol);
 						Tracer.trace(state.getIdentifier(), getName(), orgViol.getArg(0).toString());
@@ -65,7 +64,7 @@ public class ObligationViolated extends Transition {
 			}
 		}
 		
-		return newState;
+		return state;
 	}
 
 	@Override

@@ -31,9 +31,8 @@ public class ObligationSatisfied extends Transition {
 
 	@Override
 	protected State execute(QueryEngine engine, State state) {
-		State newState = state;
-		MentalState ms = newState.getMentalState();
-
+		MentalState ms = state.getMentalState();
+		
 		MetaLanguage language = new MetaLanguage();
 		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
 		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
@@ -73,8 +72,8 @@ public class ObligationSatisfied extends Transition {
 					//XXX: newState = state.clone();
 					engine.unify(ms, orgObl, obligation);
 					engine.unify(ms, optObj, obligation);
-					newState.removeTerm(engine, orgObl);
-					newState.removeTerm(engine, optObj);
+					state.removeTerm(engine, orgObl);
+					state.removeTerm(engine, optObj);
 
 					logger.fine("[" + state.getDescription() + "] Removing obligation: " + orgObl);
 					Tracer.trace(state.getIdentifier(), getName(), "Satisfied " + orgObl.getArg(0));
@@ -83,7 +82,7 @@ public class ObligationSatisfied extends Transition {
 			}
 		}
 
-		return newState;
+		return state;
 	}
 
 	@Override

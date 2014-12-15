@@ -4,8 +4,6 @@
  */
 package aorta;
 
-import alice.tuprolog.NoSolutionException;
-import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Var;
 import aorta.kr.KBType;
@@ -19,7 +17,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.logging.Level;
 import aorta.logging.Logger;
 import aorta.reasoning.ReasoningRule;
 
