@@ -49,8 +49,8 @@ public class AortaGui extends JFrame {
 
 		JScrollPane scroller = new JScrollPane(agentInspectors);
 		add(scroller, BorderLayout.CENTER);
-
-		setVisible(true);
+		
+		setLocationByPlatform(true);
 	}
 
 	private JPanel createAgentList() {
@@ -64,7 +64,9 @@ public class AortaGui extends JFrame {
 		return panel;
 	}
 
-	public void addAgent(final AortaAgent agent) {
+	public void addAgent(final AortaAgent agent) {		
+		setVisible(true);
+		
 		final String name = agent.getName();
 		JCheckBox checkbox = new JCheckBox(name);
 		checkbox.addItemListener(new ItemListener() {
@@ -90,6 +92,8 @@ public class AortaGui extends JFrame {
 	}
 
 	public void addArtifact(final AortaArtifact art) {
+		setVisible(true);
+		
 		final String name = "ARTIFACT";
 		JCheckBox checkbox = new JCheckBox(name);
 		checkbox.addItemListener(new ItemListener() {

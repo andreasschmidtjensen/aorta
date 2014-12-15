@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 
 /**
  *
@@ -26,7 +27,7 @@ public abstract class EntityState {
 	
 	public abstract void update();
 
-	protected void update(MentalState ms, DefaultListModel model, Term struct, String var) {
+	protected void update(MentalState ms, JList list, Term struct, String var) {
 		List<String> values = new ArrayList<>();
 		List<SolveInfo> solutions = engine.findAll(ms, struct);
 		for (SolveInfo solution : solutions) {
@@ -39,10 +40,11 @@ public abstract class EntityState {
 				}
 			}
 		}
+		DefaultListModel model = new DefaultListModel();
 		Collections.sort(values);
-		model.clear();
 		for (String v : values) {
 			model.addElement(v);
 		}
+		list.setModel(model);
 	}
 }

@@ -9,7 +9,6 @@ import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
-import aorta.kr.MentalState;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.TermFormatter;
 import aorta.organization.AortaArtifact;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.JList;
 
 /**
  *
@@ -27,16 +27,16 @@ public class ArtifactPanel extends EntityPanel {
 	private AortaArtifact artifact;
 	private StateViewer stateViewer = StateViewer.get();
 	
-	private final DefaultListModel reaModel = new DefaultListModel();
-	private final DefaultListModel obligationModel = new DefaultListModel();
-	private final DefaultListModel violationModel = new DefaultListModel();
-
+	private final JList reaList;
+	private final JList oblList;
+	private final JList violList;
+	
 	public ArtifactPanel(AortaArtifact artifact) {
 		this.artifact = artifact;
 		
-		addListPanel("Role enactment", reaModel);
-		addListPanel("Obligations", obligationModel);
-		addListPanel("Violations", violationModel);
+		reaList = addListPanel("Role enactment");
+		oblList = addListPanel("Obligations");
+		violList = addListPanel("Violations");
 		
 		setState(new State());
 		start();
@@ -66,15 +66,12 @@ public class ArtifactPanel extends EntityPanel {
 		
 		@Override
 		public void update() {
-			MentalState ms = artifact.getState().getMentalState();
 			updateRea();
 			updateObligations();
 			updateViolations();
 		}
 
 		private void updateRea() {
-			reaModel.clear();
-			
 			List<String> values = new ArrayList<>();
 			List<SolveInfo> solutions = engine.findAll(artifact.getState().getMentalState(), REA);
 			for (SolveInfo solution : solutions) {
@@ -89,15 +86,15 @@ public class ArtifactPanel extends EntityPanel {
 					}
 				}
 			}
+			DefaultListModel reaModel = new DefaultListModel();
 			Collections.sort(values);
 			for (String v : values) {
 				reaModel.addElement(v);
 			}
+			violList.setModel(reaModel);
 		}
 		
 		private void updateObligations() {
-			obligationModel.clear();
-			
 			List<String> values = new ArrayList<>();
 			List<SolveInfo> solutions = engine.findAll(artifact.getState().getMentalState(), OBL);
 			for (SolveInfo solution : solutions) {
@@ -114,15 +111,15 @@ public class ArtifactPanel extends EntityPanel {
 					}
 				}
 			}
+			DefaultListModel obligationModel = new DefaultListModel();
 			Collections.sort(values);
 			for (String v : values) {
 				obligationModel.addElement(v);
 			}
+			oblList.setModel(obligationModel);
 		}
 		
 		private void updateViolations() {
-			violationModel.clear();
-			
 			List<String> values = new ArrayList<>();
 			List<SolveInfo> solutions = engine.findAll(artifact.getState().getMentalState(), VIOL);
 			for (SolveInfo solution : solutions) {
@@ -138,10 +135,12 @@ public class ArtifactPanel extends EntityPanel {
 					}
 				}
 			}
+			DefaultListModel violationModel = new DefaultListModel();
 			Collections.sort(values);
 			for (String v : values) {
 				violationModel.addElement(v);
 			}
+			violList.setModel(violationModel);
 		}
 		
 	}

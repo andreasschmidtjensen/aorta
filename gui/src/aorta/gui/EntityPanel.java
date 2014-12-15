@@ -9,12 +9,12 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.ListModel;
 
 /**
  *
@@ -23,7 +23,7 @@ import javax.swing.ListModel;
 public abstract class EntityPanel extends JPanel {
 	
 	private Thread updateThread;		
-	private JPanel statePanel;
+	protected JPanel statePanel;
 	private EntityState state;
 	
 	public EntityPanel() {
@@ -60,15 +60,15 @@ public abstract class EntityPanel extends JPanel {
 		}; 
 	}
 
-	protected JPanel addListPanel(String titleText, ListModel model) {
+	protected JList addListPanel(String titleText) {
 		JLabel title = new JLabel(titleText);
-		JList items = new JList(model);
+		JList items = new JList(new DefaultListModel());
 		JScrollPane scroll = new JScrollPane(items);
 		JPanel container = new JPanel(new BorderLayout());
 		container.add(title, BorderLayout.NORTH);
 		container.add(scroll, BorderLayout.CENTER);
 		statePanel.add(container);
-		return container;
+		return items;
 	}
 	
 	protected void setState(EntityState state) {

@@ -43,20 +43,23 @@ public class AgentPanel extends EntityPanel {
 	private AortaAgent agent;
 	private StateViewer stateViewer = StateViewer.get();
 	
-	private final DefaultListModel roleModel = new DefaultListModel();
-	private final DefaultListModel goalModel = new DefaultListModel();
-	private final DefaultListModel optionModel = new DefaultListModel();
-	private final DefaultListModel obligationModel = new DefaultListModel();
-	private final DefaultListModel violationModel = new DefaultListModel();
-
+	private final JList violList;
+	private final JList oblList;
+	private final JList goalList;
+	private final JList optionList;
+	private final JList roleList;
+	
 	public AgentPanel(final AortaAgent agent) {
 		this.agent = agent;
 		
-		addListPanel("Roles", roleModel);
-		addListPanel("Options", optionModel);
-		addListPanel("Goals", goalModel);
-		addListPanel("Obligations", obligationModel);
-		addListPanel("Violations", violationModel);
+		JLabel title = new JLabel(agent.getName());
+		statePanel.add(title);
+		
+		roleList = addListPanel("Roles");
+		optionList = addListPanel("Options");
+		goalList = addListPanel("Goals");
+		oblList = addListPanel("Obligations");
+		violList = addListPanel("Violations");
 		
 		setState(new State());
 		start();
@@ -73,8 +76,7 @@ public class AgentPanel extends EntityPanel {
 		return agent.getName();
 	}
 
-	class State extends EntityState {
-				
+	class State extends EntityState {				
 		// TODO: Only update if actually changed
 		final MetaLanguage ml = new MetaLanguage();
 		final Term REA = new Struct("org", ml.rea(new Struct(agent.getName()), new Var("R")));
@@ -87,17 +89,15 @@ public class AgentPanel extends EntityPanel {
 		@Override
 		public void update() {
 			MentalState ms = agent.getState().getMentalState();
-			update(ms, roleModel, REA, "R");
-			update(ms, goalModel, GOAL, "G");
-			update(ms, optionModel, OPT, "O");
+			update(ms, roleList, REA, "R");
+			update(ms, goalList, GOAL, "G");
+			update(ms, optionList, OPT, "O");
 			
 			updateObligations();
 			updateViolations();
 		}
 
 		private void updateObligations() {
-			obligationModel.clear();
-			
 			List<String> values = new ArrayList<>();
 			List<SolveInfo> solutions = engine.findAll(agent.getState().getMentalState(), OBL);
 			for (SolveInfo solution : solutions) {
@@ -113,15 +113,17 @@ public class AgentPanel extends EntityPanel {
 					}
 				}
 			}
+			DefaultListModel obligationModel = new DefaultListModel();
+			
 			Collections.sort(values);
 			for (String v : values) {
 				obligationModel.addElement(v);
 			}
+			
+			oblList.setModel(obligationModel);
 		}
 		
 		private void updateViolations() {
-			violationModel.clear();
-			
 			List<String> values = new ArrayList<>();
 			List<SolveInfo> solutions = engine.findAll(agent.getState().getMentalState(), VIOL);
 			for (SolveInfo solution : solutions) {
@@ -136,10 +138,14 @@ public class AgentPanel extends EntityPanel {
 					}
 				}
 			}
+			DefaultListModel violationModel = new DefaultListModel();
+		
 			Collections.sort(values);
 			for (String v : values) {
 				violationModel.addElement(v);
 			}
+			
+			violList.setModel(violationModel);
 		}
 		
 	}
