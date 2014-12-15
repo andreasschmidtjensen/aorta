@@ -4,6 +4,10 @@
  */
 package aorta.jeditplugin;
 
+import aorta.kr.language.model.Metamodel;
+import aorta.kr.opera.OperAConverter;
+import aorta.kr.opera.OperAImportException;
+import example.ConversionExample;
 import jason.mas2j.MAS2JProject;
 import jason.runtime.OutputStreamAdapter;
 import java.awt.BorderLayout;
@@ -11,6 +15,9 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +42,8 @@ import org.gjt.sp.jedit.Buffer;
 import org.gjt.sp.jedit.EBComponent;
 import org.gjt.sp.jedit.EBMessage;
 import org.gjt.sp.jedit.View;
+import org.gjt.sp.jedit.browser.VFSBrowser;
+import org.gjt.sp.jedit.browser.VFSFileChooserDialog;
 import org.gjt.sp.jedit.gui.DockableWindowManager;
 import org.gjt.sp.jedit.msg.BufferUpdate;
 
@@ -157,6 +166,56 @@ public class AortaIDE extends JPanel implements EBComponent {
 			}
 		});
 
+		JButton convertOpera = new JButton("Convert OperA model");
+		convertOpera.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					File file;
+					VFSFileChooserDialog dialog = new VFSFileChooserDialog(view, ".", VFSBrowser.OPEN_DIALOG, false);
+					if (dialog.getSelectedFiles() != null && dialog.getSelectedFiles().length > 0) {
+						file = new File(dialog.getSelectedFiles()[0].toString());
+						if (!file.exists()) {
+							textArea.append("The specified file, " + dialog.getSelectedFiles()[0].toString() + ", does not exist.\n");
+							return;
+						}
+					} else {
+						return;
+					}
+
+					Metamodel mm;
+					try {
+						OperAConverter converter = new OperAConverter();
+						mm = converter.getAortaMetamodel(new FileInputStream(file));
+					} catch (FileNotFoundException | OperAImportException ex) {
+						textArea.append("The model could not be converted: " + ex.getMessage() + "\n");
+						return;
+					}
+
+					File mmFile;
+					dialog = new VFSFileChooserDialog(view, ".", VFSBrowser.OPEN_DIALOG, false);
+					if (dialog.getSelectedFiles() != null && dialog.getSelectedFiles().length > 0) {
+						mmFile = new File(dialog.getSelectedFiles()[0].toString());
+					} else {
+						return;
+					}
+					
+					try (FileWriter wr = new FileWriter(mmFile)) {
+						wr.write(mm.toString());
+					} catch (IOException ex) {
+						textArea.append("The metamodel could not be saved: " + ex.getMessage() + "\n");
+						return;
+					}				
+
+					openMetamodel(mmFile.getAbsolutePath());
+
+					textArea.append("Created metamodel file (" + mmFile.getName() + ") from OperA model. Remember to specify the model in the infrastructure (i.e. infrastructure AORTA(organization(\"" + mmFile.getName() + "\").\n");
+				} catch (Exception ex) {
+					textArea.append("An error occured: " + ex.toString());
+				}
+			}
+		});
+
 		JButton refresh = new JButton("Refresh files");
 		refresh.addActionListener(new ActionListener() {
 			@Override
@@ -175,6 +234,7 @@ public class AortaIDE extends JPanel implements EBComponent {
 
 		toolBar.add(newRuleFile);
 		toolBar.add(showOrgModel);
+		toolBar.add(convertOpera);
 		toolBar.add(refresh);
 		toolBar.add(clearText);
 		toolBar.add(Box.createGlue());

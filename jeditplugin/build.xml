@@ -26,15 +26,18 @@
 		<echo>Creating installer.properties. Set jason.install.dir to Jason install location.</echo>
 	</target>
 		
-	<target name="make-installer" depends="deps-jar,jar">
+	<target name="-post-jar" depends="make-installer"></target>
+		
+	<target name="make-installer" depends="deps-jar">
 		<mkdir dir="installer" />
 		<jar destfile="installer/aorta-standalone.jar" filesetmanifest="skip" basedir="${build.classes.dir}">
 			<zipgroupfileset dir="../metamodel/dist" includes="metamodel.jar" />
+			<zipgroupfileset dir="../opera/dist" includes="opera.jar" />
 			<zipgroupfileset dir="../framework/dist" includes="framework.jar" />
 			<zipgroupfileset dir="../organization/dist" includes="organization.jar" />
 			<zipgroupfileset dir="../jason/dist" includes="jason.jar" />
 			<zipgroupfileset dir="../gui/dist" includes="gui.jar" />
-			<zipgroupfileset dir="../lib" includes="**/*.jar" excludes="jedit/**, jason.jar, junit-4.10.jar, tuprolog4ajpf.jar, operetta/**" />
+			<zipgroupfileset dir="../lib" includes="**/*.jar" excludes="jedit/**, jason.jar, junit-4.10.jar, tuprolog4ajpf.jar" />
 			<zipgroupfileset dir="../ajpf2014/lib/3rdparty/" includes="jpf.jar" />
 			<manifest>
 				<attribute name="Main-Class" value="aorta.Runner" />
