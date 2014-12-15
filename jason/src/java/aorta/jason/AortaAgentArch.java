@@ -26,6 +26,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -95,6 +96,7 @@ public class AortaAgentArch extends CentralisedAgArch {
 				logger.log(Level.SEVERE, null, ex);
 			}
 		}
+		
 		super.reasoningCycleStarting();
 	}
 
@@ -226,6 +228,12 @@ public class AortaAgentArch extends CentralisedAgArch {
 						Thread.sleep(sleepTime);
 					} catch (InterruptedException ex) {
 						stopAg();
+					}
+					
+					
+					if (getTS().getSettings().isSync()) {
+						setSleepTime(0);
+						super.run();
 					}
 				}
 			}
