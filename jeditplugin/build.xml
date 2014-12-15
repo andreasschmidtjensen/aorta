@@ -26,7 +26,7 @@
 		<echo>Creating installer.properties. Set jason.install.dir to Jason install location.</echo>
 	</target>
 		
-	<target name="-post-jar" depends="make-installer"></target>
+	<target name="-post-jar" depends="install"></target>
 		
 	<target name="make-installer" depends="deps-jar">
 		<mkdir dir="installer" />
