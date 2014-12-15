@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package aorta.ts.rules;
+package aorta.ts.rules.og;
 
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
@@ -34,15 +34,15 @@ public class ObjectiveRule extends Transition<AgentState> {
 		MentalState ms = newState.getMentalState();
 
 		MetaLanguage language = new MetaLanguage();
-		Struct obl = language.obligation(new Var("A"), new Var("R"), new Struct("bel", new Var("O")), new Var("D"));
+		Struct obl = language.obligation(new Struct(state.getAgent().getName()), new Var("R"), new Struct("bel", new Var("O")), new Var("D"));
 		Struct objective = language.objective(new Var("O"), new Var());
-		Struct rea = language.rea(new Var("A"), new Var("R"));
+		Struct rea = language.rea(new Struct(state.getAgent().getName()), new Var("R"));
 
 		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 		Struct orgObjective = FormulaQualifier.qualifyStruct(objective, KBType.ORGANIZATION);
 		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 
-		Term test = Term.createTerm(orgObl + ", " + orgObjective + ", " + orgRea + ", bel(me(A))");
+		Term test = Term.createTerm(orgObl + ", " + orgObjective + ", " + orgRea);
 		List<SolveInfo> conditionals = engine.findAll(ms, test);
 		for (SolveInfo conditional : conditionals) {
 			if (conditional.isSuccess()) {

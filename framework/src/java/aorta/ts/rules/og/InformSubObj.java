@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package aorta.ts.rules;
+package aorta.ts.rules.og;
 
 import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
