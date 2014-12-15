@@ -21,3 +21,6 @@ jeditplugin/installer.properties
 /examples/SettlersInSpace/logs/
 /examples/auctionhouse/nbproject/private/
 /examples/auctionhouse/build/
+*Lexer*.java
+*Parser*.java
+*.tokens
