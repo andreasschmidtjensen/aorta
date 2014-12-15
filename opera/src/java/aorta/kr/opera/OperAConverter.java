@@ -7,6 +7,7 @@ package aorta.kr.opera;
 import alice.tuprolog.InvalidTheoryException;
 import alice.tuprolog.Theory;
 import aorta.kr.language.model.Metamodel;
+import aorta.kr.opera.structures.CSConverter;
 import aorta.kr.opera.structures.ISConverter;
 import aorta.kr.opera.structures.NSConverter;
 import aorta.kr.opera.structures.SSConverter;
@@ -40,6 +41,7 @@ public class OperAConverter {
 		SSConverter.convert(om.getSs(), mm);
 		ISConverter.convert(om.getIs(), mm);
 		NSConverter.convert(om.getNs(), om.getSs(), mm);
+		CSConverter.convert(om.getCs(), mm);
 		
 		return mm;
 	}

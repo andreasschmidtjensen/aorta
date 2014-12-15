@@ -49,7 +49,7 @@ public class NSConverter {
 					
 					String name = rdStmt.getRole().getName();
 					name = name.substring(0, 1).toLowerCase() + name.substring(1);
-					mm.getObligations().add(new Obligation(name, ml.qualify(objective, false), ml.qualify(deadline, false), ml.qualify(activation, false)));
+					mm.getObligations().add(new Obligation(name, objective, deadline, activation));
 				} else {
 					throw new OperAImportException("Modality " + modality + " not supported!");
 				}
