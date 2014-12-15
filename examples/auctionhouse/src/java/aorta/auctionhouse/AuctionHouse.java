@@ -48,9 +48,9 @@ public class AuctionHouse extends Environment {
 						Literal percept = new LiteralImpl("time");
 						percept.addTerm(new NumberTermImpl(time));
 						removePercept(percept);
-						
+
 						time = newTime;
-						
+
 						percept = new LiteralImpl("time");
 						percept.addTerm(new NumberTermImpl(time));
 						addPercept(percept);
@@ -60,22 +60,23 @@ public class AuctionHouse extends Environment {
 						if (a.getEndTime() <= time) {
 							Literal ended = new LiteralImpl("auction_done");
 							ended.addTerm(new NumberTermImpl(a.getId()));
-							
+
 							String winner = "no_winner";
 							int bid = 0;
 							if (a.getCurrentBid() != null) {
 								winner = a.getCurrentBid().getBidder();
 								bid = a.getCurrentBid().getBid();
 							}
+							a.setEnded(true);
 							ended.addTerm(new Atom(winner));
 							ended.addTerm(new NumberTermImpl(bid));
-							
+
 							addPercept(ended);
-							
+
 							addPercept(winner, a.wonToJason());
 						}
 					}
-					
+
 					try {
 						sleep(1000);
 					} catch (InterruptedException ex) {
@@ -93,7 +94,7 @@ public class AuctionHouse extends Environment {
 	}
 
 	@Override
-	public boolean executeAction(String agName, Structure act) {
+	public synchronized boolean executeAction(String agName, Structure act) {
 		switch (act.getFunctor()) {
 			case "register": {
 				String address = ((StringTerm) act.getTerm(0)).getString();
@@ -101,7 +102,7 @@ public class AuctionHouse extends Environment {
 				return register(agName, address, account);
 			}
 			case "verify": {
-				String name = ((StringTerm) act.getTerm(0)).getString();
+				String name = ((LiteralImpl) act.getTerm(0)).getFunctor();
 				return verify(name);
 			}
 			case "start_auction": {
@@ -125,7 +126,7 @@ public class AuctionHouse extends Environment {
 				} catch (NoValueException ex) {
 					throw new RuntimeException(ex);
 				}
-				
+
 				return bid(id, agName, bid);
 			}
 			case "pay": {
@@ -135,7 +136,7 @@ public class AuctionHouse extends Environment {
 				} catch (NoValueException ex) {
 					throw new RuntimeException(ex);
 				}
-				
+
 				return pay(id, agName);
 			}
 			case "deliver": {
@@ -145,8 +146,8 @@ public class AuctionHouse extends Environment {
 				} catch (NoValueException ex) {
 					throw new RuntimeException(ex);
 				}
-				
-				return deliver(id, agName);				
+
+				return deliver(id, agName);
 			}
 			case "enter_auction": {
 				int id;
@@ -183,8 +184,8 @@ public class AuctionHouse extends Environment {
 				} catch (NoValueException ex) {
 					throw new RuntimeException(ex);
 				}
-				
-				String agent = ((StringTerm) act.getTerm(1)).getString();
+
+				String agent = ((LiteralImpl) act.getTerm(1)).getFunctor();
 				return addToAuction(id, agent);
 			}
 			case "remove_from_auction": {
@@ -195,7 +196,7 @@ public class AuctionHouse extends Environment {
 					throw new RuntimeException(ex);
 				}
 
-				String agent = ((StringTerm) act.getTerm(1)).getString();
+				String agent = ((LiteralImpl) act.getTerm(1)).getFunctor();
 				return removeFromAuction(id, agent);
 			}
 		}
@@ -212,7 +213,7 @@ public class AuctionHouse extends Environment {
 			return false;
 		}
 	}
-	
+
 	private boolean verify(String name) {
 		if (customers.containsKey(name)) {
 			Customer c = customers.get(name);
@@ -223,13 +224,15 @@ public class AuctionHouse extends Environment {
 			return false;
 		}
 	}
-	
+
 	private boolean startAuction(String name, String agName, int startPrice, int endTime) {
 		if (customers.containsKey(agName)) {
 			Auction a = new Auction(generateId(), name, agName, startPrice, endTime);
 			auctions.put(a.getId(), a);
 			addPercept(a.toJason());
 			addPercept(agName, a.myAuctionToJason());
+
+			a.addParticipant(agName);
 			addPercept(createParticipantPercept(a.getId(), agName));
 
 			return true;
@@ -240,13 +243,15 @@ public class AuctionHouse extends Environment {
 
 	private boolean bid(int id, String agName, int bid) {
 		if (customers.containsKey(agName) && auctions.containsKey(id) && auctions.get(id).participates(agName)) {
-			Bid prev = auctions.get(id).getCurrentBid();
+			Auction auction = auctions.get(id);
+			Bid prev = auction.getCurrentBid();
 			Bid b = new Bid(id, agName, bid);
-			if (auctions.get(id).bid(b)) {
+			if (auction.bid(b)) {
 				if (prev != null) {
-					removePercept(prev.toJason());
+					removePercept(prev.highToJason());
 				}
 				addPercept(b.toJason());
+				addPercept(b.highToJason());
 				return true;
 			} else {
 				addPercept(b.errorToJason());
@@ -264,39 +269,35 @@ public class AuctionHouse extends Environment {
 			if (a.getEndTime() <= time && !a.isPaid() && currentBid != null && currentBid.getBidder().equals(agName)) {
 				a.setPaid(true);
 				addPercept(createPaidPercept(id));
-				
+
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	private boolean deliver(int id, String agName) {
 		if (customers.containsKey(agName) && auctions.containsKey(id)) {
 			Auction a = auctions.get(id);
 			Bid currentBid = a.getCurrentBid();
-			if (a.isPaid() && a.getSeller().equals(agName) && currentBid != null) {
+			if (a.getSeller().equals(agName) && currentBid != null) {
 				a.setDelivered(true);
 				addPercept(createDeliveredPercept(id));
-				
+
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	private boolean removeAuction(int id) {
 		if (auctions.get(id) != null) {
 			Auction a = auctions.remove(id);
 			for (String ag : a.getParticipants()) {
 				Literal percept = createParticipantPercept(id, ag);
 				removePercept(percept);
-			}
-			if (a.getCurrentBid() != null) {
-				removePercept(a.getCurrentBid().toJason());
-				removePercept(a.getCurrentBid().getBidder(), a.wonToJason());
 			}
 			if (a.isPaid()) {
 				removePercept(createPaidPercept(id));
@@ -306,7 +307,7 @@ public class AuctionHouse extends Environment {
 			}
 			removePercept(a.toJason());
 			removePercept(a.getSeller(), a.myAuctionToJason());
-			
+
 			return true;
 		} else {
 			return false;
@@ -316,10 +317,10 @@ public class AuctionHouse extends Environment {
 	private boolean addToAuction(int id, String agent) {
 		if (customers.containsKey(agent) && auctions.containsKey(id) && !auctions.get(id).participates(agent)) {
 			auctions.get(id).addParticipant(agent);
-			
+
 			Literal percept = createParticipantPercept(id, agent);
 			addPercept(percept);
-			
+
 			return true;
 		} else {
 			return false;
@@ -329,10 +330,10 @@ public class AuctionHouse extends Environment {
 	private boolean removeFromAuction(int id, String agent) {
 		if (auctions.containsKey(id) && auctions.get(id).participates(agent)) {
 			auctions.get(id).removeParticipant(agent);
-			
+
 			Literal percept = createParticipantPercept(id, agent);
 			removePercept(percept);
-			
+
 			return true;
 		} else {
 			return false;
@@ -345,19 +346,19 @@ public class AuctionHouse extends Environment {
 		percept.addTerm(new Atom(ag));
 		return percept;
 	}
-	
+
 	private Literal createPaidPercept(int id) {
 		Literal percept = new LiteralImpl("paid");
 		percept.addTerm(new NumberTermImpl(id));
 		return percept;
 	}
-	
+
 	private Literal createDeliveredPercept(int id) {
 		Literal percept = new LiteralImpl("delivered");
 		percept.addTerm(new NumberTermImpl(id));
 		return percept;
 	}
-	
+
 	private long getTime() {
 		return (System.currentTimeMillis() - timeOffset) / 1000;
 	}

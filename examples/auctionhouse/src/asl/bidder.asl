@@ -8,4 +8,10 @@
 +delivered(Id) : auction(Id,Product,_,_,_) <- .print("I received ", Product). 
 */
 
+want("Book").
+want("DVD").
+
++!boughtItem(Item).
+
+
 +!bid(Id, Agent).

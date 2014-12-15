@@ -31,6 +31,7 @@ public class Auction {
 	private Set<String> participants;
 	private boolean paid;
 	private boolean delivered;
+	private boolean ended;
 
 	public Auction(int id, String name, String seller, int startPrice, int endTime) {
 		this.id = id;
@@ -40,6 +41,14 @@ public class Auction {
 		this.endTime = endTime;
 		
 		participants = new HashSet<>();
+	}
+
+	public boolean isEnded() {
+		return ended;
+	}
+
+	public void setEnded(boolean ended) {
+		this.ended = ended;
 	}
 
 	public int getId() {
@@ -83,6 +92,10 @@ public class Auction {
 	}
 	
 	public boolean bid(Bid bid) {
+		if (isEnded()) {
+			return false;
+		}
+		
 		if (currentBid == null || (bid.getBid() > 0 && bid.getBid() > currentBid.getBid())) {
 			currentBid = bid;
 			return true;

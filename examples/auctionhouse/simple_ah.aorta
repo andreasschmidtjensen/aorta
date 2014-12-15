@@ -1,0 +1,3 @@
+if bel(me(Me)) {
+	role(R) : goal(rea(R)) => enact(R).
+}

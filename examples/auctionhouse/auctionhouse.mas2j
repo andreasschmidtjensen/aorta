@@ -36,24 +36,21 @@
 
 MAS auctionhouse {
 
-    infrastructure: AORTA(organization("ah.mm"))
+    infrastructure: AORTA(organization("ah.mm"),notrace("Ext"))
 	environment: aorta.auctionhouse.AuctionHouse
 
 	/*
-	TODO: Implement agents for 
-		- bidders and sellers (more than one of each)
-		- manager (for sanctioning)
-		- they should be able to participate without AORTA
-		- use ah.aorta to guide using the metamodel.
-		- build the model in Opera and convert
+	Agent types:
+	a) Ignorant (i.e. AORTA is almost not used)
+	b) AORTA guides them
 	*/
-	
     agents:
-		seller;
-		test [aorta="ah.aorta"];
-        bidder [aorta="ah.aorta"];
+		manager [aorta="ah.aorta"];
+		//a_seller [aorta="simple_ah.aorta"];
+		//a_buyer [aorta="simple_ah.aorta"] #2; 
 		
-	aslSourcePath: "src/asl";
-	
+		b_seller [aorta="ah.aorta"];
+		b_buyer [aorta="ah.aorta"] #2;
+
 }
 

@@ -1,41 +1,63 @@
 ROLES:
-customer: boughtItem(Item); soldItem(Item); registered(Me); paid(Id); delivered(Id).
-buyer: bid(Id, Me).
-seller: auction(Id, Item, Me).
-manager: verified(Agent).
+customer:
+	boughtItem(Item);
+	soldItem(Item);
+	registered(Agent);
+	paid(Id);
+	delivered(Id).
+buyer:
+	bid(Id,Agent);
+	verified(Agent).
+seller:
+	auction(Id,Item,Agent);
+	verified(Agent).
+manager:
+	verified(Agent).
 
 OBJECTIVES:
-boughtItem(Item): bid(Id, Me); paid(Id); delivered(Id).
-soldItem: auction(Id, Item, Me); paid(Id); delivered(Id).
-registered(Me).
+boughtItem(Item):
+	paid(Id);
+	delivered(Id);
+	bid(Id, Agent).
+soldItem(Item):
+	paid(Id);
+	delivered(Id);
+	auction(Id, Item, Agent).
+registered(Agent).
 paid(Id).
 delivered(Id).
-bid(Id, Me).
-auction(Id, Item, Me).
-verified(Agent).
+bid(Id, Agent):
+	verified(Agent).
+auction(Id, Item, Agent):
+	verified(Agent).
+verified(Agent):
+	registered(Agent).
 
 DEPENDENCIES:
-seller > manager: verified(Agent).
-buyer > manager: verified(Agent).
-manager > seller: registered(Me).
-manager > buyer: registered(Me).
+customer > manager: verified(Agent).
+seller > buyer: bid(Id, Agent).
+buyer > seller: auction(Id, Item, Agent).
+customer > seller: delivered(Id).
+customer > buyer: paid(Id).
 
-% TODO: Deadlines should not be false --- sanctioned(Agent) represents what?
 OBLIGATIONS:
-customer: paid(Id) < \+ participant(Id, Me) | won(Id), me(Me).
-customer: delivered(Id) < \+ participant(Id, Me) | paid(Id), me(Me).
-buyer: verified(Me) < bid(Id, Me) | registered(Me), me(Me).
-seller: verified(Me) < auction(Id, Item, Me) | registered(Me), me(Me).
-manager: sanctioned(Agent) < false | viol(Agent, buyer, verified(Agent)).
-manager: sanctioned(Agent) < false | viol(Agent, seller, verified(Agent)).
-manager: \+ participant(Id, Ag) < done(Id) | bid_error(Id, Ag).
-manager: \+ auction(Id, Item, Ag) < done(Id) | \+ verified(Ag).
-manager: participant(Id, Ag) < false | auction_done(Id,Ag,Bid), \+ paid(Id), \+ participant(Id, Ag).
-manager: participant(Id, Ag) < false | auction(Id, Item, Ag, SP, ET), auction_done(Id,Ag,Bid), paid(Id), \+ delivered(Id), \+ participant(Id, Ag).
+buyer: verified(Agent) < bid(_, Agent) | me(Agent), registered(Agent).
+customer: registered(Agent) < verified(Agent) | me(Agent).
+customer: paid(Id) < \+(participant(Id, Winner)) | bid(Id, Winner), auction(Id, Item, Agent), auction_done(Id, Winner, Bid), me(Winner).
+customer: delivered(Id) < \+(participant(Id, Agent)) | bid(Id, Winner), auction(Id, Item, Agent), auction_done(Id, Winner, Bid), me(Agent).
+manager: verified(Agent) < bid(Id, Winner); auction(Id, Item, Agent) | me(Agent), registered(Agent).
+manager: rea(Agent, customer) < participant(Id, Agent) | registered(Agent).
+manager: rea(Agent, buyer) < bid(Id, Agent) | participant(Agent).
+manager: rea(Agent, seller) < auction(Id, Item, Agent) | registered(Agent).
+manager: \+(participant(Id, Agent)) < auction_done(Id) | viol(Agent, buyer, bel(verified(Agent))), participant(Id, Agent).
+manager: \+(auction(Id, Item, Agent)) < auction_done(Id) | viol(Agent, seller, bel(verified(Agent))), auction(Id, Item, Agent).
+manager: participant(Id, Agent) < false | viol(Agent, customer, bel(paid(Id))).
+manager: participant(Id, Agent) < false | viol(Agent, customer, bel(delivered(Id))).
+manager: \+(participant(Id, Agent)) < auction_done(Id) | bid_error(Id, Agent).
+seller: verified(Agent) < auction(Id, Item, Agent) | me(Agent), registered(Agent).
 
 RULES:
-%counts-as
-registered(Agent) :- registered(Agent, _, _).
-auction(Id, Item, Agent) :- auction(Id, Item, Agent, _, _).
-bid(Id, Agent) :- bid(Id, Agent, _).
-
+registered(Agent) :- registered(Agent, Address, Account).
+auction(Id,Item,Agent) :- auction(Id, Item, Agent, StartPrice, EndTime).
+bid(Id,Agent) :- bid(Id, Agent, Bid).
+auction_done(Id) :- auction_done(Id, Winner, Bid).

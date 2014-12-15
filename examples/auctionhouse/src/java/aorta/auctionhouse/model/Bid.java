@@ -71,6 +71,14 @@ public class Bid {
 		return result;
 	}
 	
+	public Literal highToJason() {
+		Literal result = new LiteralImpl("bid_high");
+		result.addTerm(new NumberTermImpl(auctionId));
+		result.addTerm(new Atom(bidder));
+		result.addTerm(new NumberTermImpl(bid));
+		return result;
+	}
+	
 	public Literal errorToJason() {
 		Literal result = new LiteralImpl("bid_error");
 		result.addTerm(new NumberTermImpl(auctionId));

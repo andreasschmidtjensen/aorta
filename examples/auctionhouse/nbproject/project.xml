@@ -6,7 +6,6 @@
             <name>auctionhouse</name>
             <source-roots>
                 <root id="src.java.dir"/>
-                <root id="src.asl.dir"/>
             </source-roots>
             <test-roots>
                 <root id="test.src.dir"/>
