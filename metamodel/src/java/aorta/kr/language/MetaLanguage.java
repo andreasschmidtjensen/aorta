@@ -61,6 +61,14 @@ public class MetaLanguage {
 		return new Struct("obj", obj);
 	}
 
+	public Struct obl(Term role, Term obl, Term deadline) {
+		return new Struct("obl", role, obl, deadline);
+	}
+
+	public Struct viol(Term role, Term obl) {
+		return new Struct("viol", role, obl);
+	}
+
 	public Struct send(Term role, Term ilf, Term contents) {
 		return new Struct("send", role, ilf, contents);
 	}
@@ -80,10 +88,10 @@ public class MetaLanguage {
 		}
 
 		// using reflection for convenience
-		for (Method method : getClass().getMethods()) {
+		outer: for (Method method : getClass().getMethods()) {
 			for (Class c : method.getParameterTypes()) {
 				if (c != Term.class) {
-					continue;
+					continue outer;
 				}
 			}
 			if (method.getReturnType() != Struct.class) {
