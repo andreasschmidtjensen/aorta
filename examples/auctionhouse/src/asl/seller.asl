@@ -1,0 +1,1 @@
++!auction(Id, Item, Agent).

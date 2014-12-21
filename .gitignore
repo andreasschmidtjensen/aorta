@@ -18,3 +18,9 @@ jeditplugin/installer.properties
 /examples/scbw/dist/
 /examples/SettlersInSpace/nbproject/private/
 /examples/SettlersInSpace/build/
+/examples/SettlersInSpace/logs/
+/examples/auctionhouse/nbproject/private/
+/examples/auctionhouse/build/
+*Lexer*.java
+*Parser*.java
+*.tokens

@@ -15,7 +15,7 @@ import aorta.kr.PrologLoader;
 import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.ts.Transition;
-import aorta.ts.strategy.Linear;
+import aorta.ts.strategy.AgentStrategy;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -29,14 +29,14 @@ public class ExtTest {
 	
 	@Test
 	public void testTransition() throws Exception {
-		Transition t = new Ext();
+		Transition<AgentState> t = new Ext();
 		
 		QueryEngine engine = new QueryEngine();
 		
 		
 		PrologLoader prologLoader = new PrologLoader();
 		MentalState ms = new MentalState(prologLoader.load());
-		AgentState state = new AgentState(new AortaAgent("agent", ms, null, new Linear()), ms, null);
+		AgentState state = new AgentState(new AortaAgent("agent", ms, null), ms, null);
 		ms = null;
 		
 		Struct bel = new Struct("raining");

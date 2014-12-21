@@ -18,7 +18,7 @@ import aorta.logging.Logger;
  *
  * @author asj
  */
-public class Ext extends Transition {
+public class Ext extends Transition<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(Ext.class.getName());
 
@@ -29,9 +29,8 @@ public class Ext extends Transition {
 		if (state.getExternalAgent().containsBBChanges() 
                 || state.getExternalAgent().containsGBChanges() 
                 || state.getExternalAgent().containsCapChanges()) {
-			Tracer.trace(state.getAgent().getName(), "(Ext)");
+			Tracer.beginTrace(state.getAgent().getName(), getName());
 			
-			//XXX: newState = state.clone();;
 			ExternalAgent ext = newState.getExternalAgent();
 
 			int newBeliefs = 0, remBeliefs = 0, 
@@ -44,46 +43,45 @@ public class Ext extends Transition {
 				newState.removeFromMentalState(engine, qualified);
 				remBeliefs++;
 				
-				Tracer.trace(state.getAgent().getName(), "-" + qualified + ";");
+				Tracer.queue(state.getAgent().getName(), "-" + qualified + ";");
 			}
 			while ((struct = ext.getNewBelief()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.BELIEF.getType());
 				newState.insertInMentalState(engine, qualified);
 				newBeliefs++;
 
-				Tracer.trace(state.getAgent().getName(), "+" + qualified + ";");
+				Tracer.queue(state.getAgent().getName(), "+" + qualified + ";");
 			}
 			while ((struct = ext.getRemovedGoal()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.GOAL.getType());
 				newState.removeFromMentalState(engine, qualified);
 				remGoals++;
 				
-				Tracer.trace(state.getAgent().getName(), "-" + qualified + ";");
+				Tracer.queue(state.getAgent().getName(), "-" + qualified + ";");
 			}
 			while ((struct = ext.getNewGoal()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.GOAL.getType());
 				newState.insertInMentalState(engine, qualified);
 				newGoals++;
 				
-				Tracer.trace(state.getAgent().getName(), "+" + qualified + ";");
+				Tracer.queue(state.getAgent().getName(), "+" + qualified + ";");
 			}
 			while ((struct = ext.getRemovedCapability()) != null) {
 				Struct cap = new Struct("cap", struct);
 				newState.removeFromMentalState(engine, cap);
 				remCaps++;
 				
-				Tracer.trace(state.getAgent().getName(), "-" + cap + ";");
+				Tracer.queue(state.getAgent().getName(), "-" + cap + ";");
 			}
 			while ((struct = ext.getNewCapability()) != null) {
 				Struct cap = new Struct("cap", struct);
 				newState.insertInMentalState(engine, cap);
 				newCaps++;
 				
-				Tracer.trace(state.getAgent().getName(), "+" + cap + ";");
+				Tracer.queue(state.getAgent().getName(), "+" + cap + ";");
 			}
 			
-			Tracer.trace(state.getAgent().getName(), "\n");
-			Tracer.trace(state.getAgent().getName());
+			Tracer.commitTrace(state.getAgent().getName());
 		
 			logger.finest(
 				"[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] New beliefs: " + newBeliefs + 

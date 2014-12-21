@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\framework\src\java\aorta\parser\AORTA.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTA.g4 by ANTLR 4.1
 package aorta.parser;
 
 import alice.tuprolog.Number;
@@ -27,48 +27,26 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface AORTAListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#atom}.
+	 * Enter a parse tree produced by {@link AORTAParser#struct}.
 	 * @param ctx the parse tree
 	 */
-	void enterAtom(@NotNull AORTAParser.AtomContext ctx);
+	void enterStruct(@NotNull AORTAParser.StructContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AORTAParser#atom}.
+	 * Exit a parse tree produced by {@link AORTAParser#struct}.
 	 * @param ctx the parse tree
 	 */
-	void exitAtom(@NotNull AORTAParser.AtomContext ctx);
+	void exitStruct(@NotNull AORTAParser.StructContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#aortaAgent}.
+	 * Enter a parse tree produced by {@link AORTAParser#listItem}.
 	 * @param ctx the parse tree
 	 */
-	void enterAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx);
+	void enterListItem(@NotNull AORTAParser.ListItemContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AORTAParser#aortaAgent}.
+	 * Exit a parse tree produced by {@link AORTAParser#listItem}.
 	 * @param ctx the parse tree
 	 */
-	void exitAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link AORTAParser#termBuilder}.
-	 * @param ctx the parse tree
-	 */
-	void enterTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link AORTAParser#termBuilder}.
-	 * @param ctx the parse tree
-	 */
-	void exitTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link AORTAParser#args}.
-	 * @param ctx the parse tree
-	 */
-	void enterArgs(@NotNull AORTAParser.ArgsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link AORTAParser#args}.
-	 * @param ctx the parse tree
-	 */
-	void exitArgs(@NotNull AORTAParser.ArgsContext ctx);
+	void exitListItem(@NotNull AORTAParser.ListItemContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link AORTAParser#var}.
@@ -82,48 +60,26 @@ public interface AORTAListener extends ParseTreeListener {
 	void exitVar(@NotNull AORTAParser.VarContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#listContents}.
+	 * Enter a parse tree produced by {@link AORTAParser#formulas}.
 	 * @param ctx the parse tree
 	 */
-	void enterListContents(@NotNull AORTAParser.ListContentsContext ctx);
+	void enterFormulas(@NotNull AORTAParser.FormulasContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AORTAParser#listContents}.
+	 * Exit a parse tree produced by {@link AORTAParser#formulas}.
 	 * @param ctx the parse tree
 	 */
-	void exitListContents(@NotNull AORTAParser.ListContentsContext ctx);
+	void exitFormulas(@NotNull AORTAParser.FormulasContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#list}.
+	 * Enter a parse tree produced by {@link AORTAParser#ifRule}.
 	 * @param ctx the parse tree
 	 */
-	void enterList(@NotNull AORTAParser.ListContext ctx);
+	void enterIfRule(@NotNull AORTAParser.IfRuleContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AORTAParser#list}.
+	 * Exit a parse tree produced by {@link AORTAParser#ifRule}.
 	 * @param ctx the parse tree
 	 */
-	void exitList(@NotNull AORTAParser.ListContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link AORTAParser#number}.
-	 * @param ctx the parse tree
-	 */
-	void enterNumber(@NotNull AORTAParser.NumberContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link AORTAParser#number}.
-	 * @param ctx the parse tree
-	 */
-	void exitNumber(@NotNull AORTAParser.NumberContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link AORTAParser#actRule}.
-	 * @param ctx the parse tree
-	 */
-	void enterActRule(@NotNull AORTAParser.ActRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link AORTAParser#actRule}.
-	 * @param ctx the parse tree
-	 */
-	void exitActRule(@NotNull AORTAParser.ActRuleContext ctx);
+	void exitIfRule(@NotNull AORTAParser.IfRuleContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link AORTAParser#rules}.
@@ -148,15 +104,15 @@ public interface AORTAListener extends ParseTreeListener {
 	void exitProlog2(@NotNull AORTAParser.Prolog2Context ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#listItem}.
+	 * Enter a parse tree produced by {@link AORTAParser#list}.
 	 * @param ctx the parse tree
 	 */
-	void enterListItem(@NotNull AORTAParser.ListItemContext ctx);
+	void enterList(@NotNull AORTAParser.ListContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AORTAParser#listItem}.
+	 * Exit a parse tree produced by {@link AORTAParser#list}.
 	 * @param ctx the parse tree
 	 */
-	void exitListItem(@NotNull AORTAParser.ListItemContext ctx);
+	void exitList(@NotNull AORTAParser.ListContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link AORTAParser#prolog}.
@@ -170,59 +126,37 @@ public interface AORTAListener extends ParseTreeListener {
 	void exitProlog(@NotNull AORTAParser.PrologContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#formulas}.
+	 * Enter a parse tree produced by {@link AORTAParser#args}.
 	 * @param ctx the parse tree
 	 */
-	void enterFormulas(@NotNull AORTAParser.FormulasContext ctx);
+	void enterArgs(@NotNull AORTAParser.ArgsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AORTAParser#formulas}.
+	 * Exit a parse tree produced by {@link AORTAParser#args}.
 	 * @param ctx the parse tree
 	 */
-	void exitFormulas(@NotNull AORTAParser.FormulasContext ctx);
+	void exitArgs(@NotNull AORTAParser.ArgsContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#term}.
+	 * Enter a parse tree produced by {@link AORTAParser#listContents}.
 	 * @param ctx the parse tree
 	 */
-	void enterTerm(@NotNull AORTAParser.TermContext ctx);
+	void enterListContents(@NotNull AORTAParser.ListContentsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AORTAParser#term}.
+	 * Exit a parse tree produced by {@link AORTAParser#listContents}.
 	 * @param ctx the parse tree
 	 */
-	void exitTerm(@NotNull AORTAParser.TermContext ctx);
+	void exitListContents(@NotNull AORTAParser.ListContentsContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#struct}.
+	 * Enter a parse tree produced by {@link AORTAParser#number}.
 	 * @param ctx the parse tree
 	 */
-	void enterStruct(@NotNull AORTAParser.StructContext ctx);
+	void enterNumber(@NotNull AORTAParser.NumberContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AORTAParser#struct}.
+	 * Exit a parse tree produced by {@link AORTAParser#number}.
 	 * @param ctx the parse tree
 	 */
-	void exitStruct(@NotNull AORTAParser.StructContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link AORTAParser#action}.
-	 * @param ctx the parse tree
-	 */
-	void enterAction(@NotNull AORTAParser.ActionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link AORTAParser#action}.
-	 * @param ctx the parse tree
-	 */
-	void exitAction(@NotNull AORTAParser.ActionContext ctx);
-
-	/**
-	 * Enter a parse tree produced by {@link AORTAParser#ifRule}.
-	 * @param ctx the parse tree
-	 */
-	void enterIfRule(@NotNull AORTAParser.IfRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link AORTAParser#ifRule}.
-	 * @param ctx the parse tree
-	 */
-	void exitIfRule(@NotNull AORTAParser.IfRuleContext ctx);
+	void exitNumber(@NotNull AORTAParser.NumberContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link AORTAParser#illForce}.
@@ -236,15 +170,15 @@ public interface AORTAListener extends ParseTreeListener {
 	void exitIllForce(@NotNull AORTAParser.IllForceContext ctx);
 
 	/**
-	 * Enter a parse tree produced by {@link AORTAParser#option}.
+	 * Enter a parse tree produced by {@link AORTAParser#aortaAgent}.
 	 * @param ctx the parse tree
 	 */
-	void enterOption(@NotNull AORTAParser.OptionContext ctx);
+	void enterAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link AORTAParser#option}.
+	 * Exit a parse tree produced by {@link AORTAParser#aortaAgent}.
 	 * @param ctx the parse tree
 	 */
-	void exitOption(@NotNull AORTAParser.OptionContext ctx);
+	void exitAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx);
 
 	/**
 	 * Enter a parse tree produced by {@link AORTAParser#formula}.
@@ -256,4 +190,70 @@ public interface AORTAListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFormula(@NotNull AORTAParser.FormulaContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link AORTAParser#action}.
+	 * @param ctx the parse tree
+	 */
+	void enterAction(@NotNull AORTAParser.ActionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AORTAParser#action}.
+	 * @param ctx the parse tree
+	 */
+	void exitAction(@NotNull AORTAParser.ActionContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link AORTAParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterTerm(@NotNull AORTAParser.TermContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AORTAParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitTerm(@NotNull AORTAParser.TermContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link AORTAParser#actRule}.
+	 * @param ctx the parse tree
+	 */
+	void enterActRule(@NotNull AORTAParser.ActRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AORTAParser#actRule}.
+	 * @param ctx the parse tree
+	 */
+	void exitActRule(@NotNull AORTAParser.ActRuleContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link AORTAParser#atom}.
+	 * @param ctx the parse tree
+	 */
+	void enterAtom(@NotNull AORTAParser.AtomContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AORTAParser#atom}.
+	 * @param ctx the parse tree
+	 */
+	void exitAtom(@NotNull AORTAParser.AtomContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link AORTAParser#option}.
+	 * @param ctx the parse tree
+	 */
+	void enterOption(@NotNull AORTAParser.OptionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AORTAParser#option}.
+	 * @param ctx the parse tree
+	 */
+	void exitOption(@NotNull AORTAParser.OptionContext ctx);
+
+	/**
+	 * Enter a parse tree produced by {@link AORTAParser#termBuilder}.
+	 * @param ctx the parse tree
+	 */
+	void enterTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AORTAParser#termBuilder}.
+	 * @param ctx the parse tree
+	 */
+	void exitTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx);
 }

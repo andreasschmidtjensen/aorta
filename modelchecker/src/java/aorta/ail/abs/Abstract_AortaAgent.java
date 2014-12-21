@@ -11,7 +11,7 @@ import aorta.AortaAgent;
 import aorta.kr.MentalState;
 import aorta.reasoning.ActionRule;
 import aorta.reasoning.ReasoningRule;
-import aorta.ts.strategy.Linear;
+import aorta.ts.strategy.AgentStrategy;
 import gov.nasa.jpf.vm.MJIEnv;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +64,7 @@ public class Abstract_AortaAgent {
 		for (Abstract_ActionRule ar : rules) {
 			arList.add(ar.toAORTA());
 		}
-		AortaAgent agent = new AortaAgent(name, new MentalState(prolog), arList, new Linear());
+		AortaAgent agent = new AortaAgent(name, new MentalState(prolog), arList);
 		return agent;
 	}
 	

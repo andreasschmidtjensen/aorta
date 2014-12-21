@@ -30,6 +30,7 @@ public final class PrologLoader {
 	public void addTheory(Theory theory, KBType type) throws InvalidTheoryException, FileNotFoundException, IOException {
 		try {
 			Theory qTheory = FormulaQualifier.qualifyTheory(prolog, type, theory);
+			
 			prolog.addTheory(qTheory);
 		} catch (Error ex) {
 			ex.printStackTrace();

@@ -34,7 +34,9 @@ metamodel returns [Metamodel mm]
 roles returns [List<Role> roleList] 
 	: { $roleList = new ArrayList<>(); }
 	ROLES COLON (role { $roleList.add($role.r); })+;
-role returns [Role r] : name=ATOM COLON objectiveList FULLSTOP { $r = new Role($name.text, $objectiveList.terms); };
+role returns [Role r] 
+	: name=ATOM FULLSTOP { $r = new Role($name.text, new ArrayList<Term>()); }
+    | name=ATOM COLON objectiveList FULLSTOP { $r = new Role($name.text, $objectiveList.terms); };
 objectiveList returns [List<Term> terms] : 
 			{ $terms = new ArrayList<>(); }
 		   ( term { $terms.add($term.fml); }

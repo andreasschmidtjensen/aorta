@@ -31,19 +31,14 @@ public class AortaLauncher extends RunCentralisedMAS {
 		
 		runner = launcher;
 	}
-	private boolean useGui = true;
 	private AortaRuntimeServices creator;
-
-	public AortaLauncher(boolean useGui) {
-		this.useGui = useGui;
-	}
 
 	public AortaLauncher() {
 	}
 
 	@Override
 	public void create() throws JasonException {
-		creator = new AortaRuntimeServices(this, useGui);
+		creator = new AortaRuntimeServices(this);
 		createEnvironment();
 		createAgs();
 		createController();

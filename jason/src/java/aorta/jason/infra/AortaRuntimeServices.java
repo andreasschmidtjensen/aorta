@@ -8,16 +8,20 @@ import aorta.AORTAException;
 import aorta.Aorta;
 import aorta.AortaAgent;
 import aorta.inspector.AgentWebInspector;
-import aorta.inspector.AortaGui;
+import aorta.gui.AortaGui;
 import aorta.jason.AortaAgentArch;
 import aorta.jason.AortaJasonBridge;
 import aorta.kr.language.OrganizationImportException;
+import aorta.organization.AortaArtifact;
+import aorta.organization.EnvironmentSensor;
 import aorta.parser.helper.AortaBuilder;
-import jason.NoValueForVarException;
+import aorta.tracer.Tracer;
+import jason.NoValueException;
 import jason.asSyntax.ASSyntax;
 import jason.asSyntax.Literal;
 import jason.asSyntax.NumberTerm;
 import jason.asSyntax.StringTerm;
+import jason.asSyntax.Term;
 import jason.asSyntax.parser.ParseException;
 import jason.infra.centralised.CentralisedAgArch;
 import jason.infra.centralised.CentralisedRuntimeServices;
@@ -42,41 +46,58 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	private AortaGui gui;
 	
 	private boolean useWebInspector = false;
+	private boolean useGui = true;
 	private int agSleepTime = 0;
 	
 	private List<AortaAgentArch> agents = new ArrayList<>();
 	
-	public AortaRuntimeServices(RunCentralisedMAS masRunner) {
-		this(masRunner, true);
-	}
+	private boolean useArtifact;
 	
-	public AortaRuntimeServices(RunCentralisedMAS masRunner, boolean useGui) {
+	public AortaRuntimeServices(RunCentralisedMAS masRunner) {
 		super(masRunner);
 
-		if (useGui) {
-			gui = new AortaGui();
-		}
-		
 		String location;
 		
+		ClassParameters infrastructure = masRunner.getProject().getInfrastructure();
+		
 		try {
-			String org = masRunner.getProject().getInfrastructure().getParameter("organization");
+			String org = infrastructure.getParameter("organization");
 			Literal orgLiteral = ASSyntax.parseLiteral(org);
 			location = ((StringTerm) orgLiteral.getTerm(0)).getString();
 		} catch (ParseException ex) {
 			throw new RuntimeException(ex);
 		}
 		
-		useWebInspector = masRunner.getProject().getInfrastructure().getParameter("inspector") != null;
+		useGui = infrastructure.getParameter("nogui") == null;
+		useWebInspector = infrastructure.getParameter("inspector") != null;
+		useArtifact = infrastructure.getParameter("artifact") != null;
 		
-		String sleep = masRunner.getProject().getInfrastructure().getParameter("sleep");
+		String sleep = infrastructure.getParameter("sleep");
 		if (sleep != null) {
 			try {
 				Literal sleepLit = ASSyntax.parseLiteral(sleep);
 				agSleepTime = (int) ((NumberTerm) sleepLit.getTerm(0)).solve();
-			} catch (ParseException | NoValueForVarException ex) {
+			} catch (ParseException | NoValueException ex) {
 				throw new RuntimeException(ex);
 			}
+		}
+		
+		String ignore = infrastructure.getParameter("notrace");
+		if (ignore != null) {
+			try {
+				Literal ignoreLit = ASSyntax.parseLiteral(ignore);
+				for (Term t : ignoreLit.getTermsArray()) {
+					if (t.isString()) {
+						Tracer.ignore(((StringTerm) t).getString());
+					}
+				}
+			} catch (ParseException ex) {
+				throw new RuntimeException(ex);
+			}
+		}
+		
+		if (useGui) {
+			gui = AortaGui.get();
 		}
 		
 		if (useWebInspector) {
@@ -100,6 +121,23 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	
 	@Override
 	public String createAgent(String agName, String agSource, String agClass, List<String> archClasses, ClassParameters bbPars, Settings stts) throws Exception {
+		if (useArtifact && !aorta.artifactInitialized()) {
+			EnvironmentSensor sensor = ((AortaEnvironment) masRunner.getEnvironmentInfraTier()).getSensor();
+			if (sensor != null) {
+				try {
+					aorta.setupArtifact(sensor);
+					
+					if (gui != null) {
+						gui.addArtifact(AortaArtifact.get());
+					}
+				} catch (AORTAException ex) {
+					throw new RuntimeException("Could not setup artifact", ex);
+				}
+			} else {
+				logger.warning("useArtifact was specified, but environment does not support it");
+			}
+		}
+		
 		if (fromAORTA) {
 			return super.createAgent(agName, agSource, agClass, archClasses, bbPars, stts);			
 		} else {
@@ -108,8 +146,6 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	}
 
 	public String createAgent(String agName, String numberedAgName, String agSource, String agClass, List<String> archClasses, ClassParameters bbPars, Settings stts, AortaEnvironment env) throws Exception {
-		System.out.println("creating agent: " + agName);
-		
 		fromAORTA = true;
 		String actualAgName = createAgent(numberedAgName, agSource, agClass, archClasses, bbPars, stts);
 		fromAORTA = false;
@@ -144,6 +180,8 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 				if (agSleepTime > 0) {
 					agentArch.setSleepTime(agSleepTime);
 				}
+			} else {
+				aorta.addIgnorantAgent(actualAgName);
 			}
 			
 		} catch (IOException | OrganizationImportException ex) {
@@ -165,8 +203,13 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	@Override
 	public boolean killAgent(String agName, String byAg) {
 		AortaAgentArch agentArch = (AortaAgentArch) masRunner.getAg(agName);
-		AortaAgent aortaAgent = agentArch.getAortaAgent();
-		aorta.removeAgent(aortaAgent);
+		
+		if (agentArch != null) {
+			AortaAgent aortaAgent = agentArch.getAortaAgent();
+			aorta.removeAgent(aortaAgent);
+		} else {
+			aorta.removeIgnorantAgent(agName);
+		}
 		
 		return super.killAgent(agName, byAg);
 	}

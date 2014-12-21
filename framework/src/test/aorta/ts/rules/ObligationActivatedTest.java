@@ -14,7 +14,7 @@ import aorta.kr.MentalState;
 import aorta.kr.PrologLoader;
 import aorta.kr.QueryEngine;
 import aorta.ts.Transition;
-import aorta.ts.strategy.Linear;
+import aorta.ts.strategy.AgentStrategy;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class ObligationActivatedTest {
 	
 	@Test
 	public void testTransition() throws Exception {
-		Transition t = new ObligationActivated();
+		Transition<AgentState> t = new ObligationActivated();
 		
 		QueryEngine engine = new QueryEngine();
 		
@@ -44,7 +44,7 @@ public class ObligationActivatedTest {
 		prologLoader.addTheory(new Theory(theory), KBType.ORGANIZATION);
 		
 		MentalState ms = new MentalState(prologLoader.load());
-		AgentState state = new AgentState(new AortaAgent("agent", ms, null, new Linear()), ms, null);
+		AgentState state = new AgentState(new AortaAgent("agent", ms, null), ms, null);
 		ms = null;
 		
 		state = t.executeTransition(engine, state);
@@ -85,7 +85,7 @@ public class ObligationActivatedTest {
 	
 	@Test
 	public void testWithPredicate() throws Exception {
-		Transition t = new ObligationActivated();
+		Transition<AgentState> t = new ObligationActivated();
 		
 		QueryEngine engine = new QueryEngine();
 		
@@ -102,7 +102,7 @@ public class ObligationActivatedTest {
 		prologLoader.addTheory(new Theory(theory), KBType.ORGANIZATION);
 		
 		MentalState ms = new MentalState(prologLoader.load());
-		AgentState state = new AgentState(new AortaAgent("agent", ms, null, new Linear()), ms, null);
+		AgentState state = new AgentState(new AortaAgent("agent", ms, null), ms, null);
 		ms = null;
 		
 		state = t.executeTransition(engine, state);

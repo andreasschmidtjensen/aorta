@@ -4,7 +4,7 @@
  */
 package aorta.parser.helper;
 
-import aorta.ts.strategy.Linear;
+import aorta.ts.strategy.AgentStrategy;
 
 /**
  *
@@ -13,6 +13,6 @@ import aorta.ts.strategy.Linear;
 public class Initialization {
     
     public String orgPath;
-    public String strategy = Linear.class.getSimpleName();
+    public String strategy = AgentStrategy.class.getSimpleName();
     
 }

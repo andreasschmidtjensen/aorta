@@ -1,6 +1,6 @@
 MAS library {
-	infrastructure: AORTA(organization("library.mm"))
-	environment: Library(1)
+	infrastructure: AORTA(organization("library.mm"), artifact)
+	environment: Library(4)
     agents:
 		bob [aorta="reasoning.aorta"];
 }

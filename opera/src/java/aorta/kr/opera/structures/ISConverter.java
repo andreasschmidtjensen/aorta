@@ -151,7 +151,7 @@ public class ISConverter {
 						String name = r.getName();
 						name = name.substring(0, 1).toLowerCase() + name.substring(1);
 						if (r.getObjectives().contains(o)) {
-							mm.getObligations().add(new Obligation(name, ml.qualify(objective, false), ml.qualify(deadline, false), ml.qualify(condition, false)));
+							mm.getObligations().add(new Obligation(name, objective, deadline, condition));
 						}
 					}
 				}

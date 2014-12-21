@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\framework\src\java\aorta\parser\AORTA.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTA.g4 by ANTLR 4.1
 package aorta.parser;
 
 import alice.tuprolog.Number;
@@ -35,52 +35,26 @@ public class AORTABaseListener implements AORTAListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterAtom(@NotNull AORTAParser.AtomContext ctx) { }
+	@Override public void enterStruct(@NotNull AORTAParser.StructContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitAtom(@NotNull AORTAParser.AtomContext ctx) { }
+	@Override public void exitStruct(@NotNull AORTAParser.StructContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx) { }
+	@Override public void enterListItem(@NotNull AORTAParser.ListItemContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterArgs(@NotNull AORTAParser.ArgsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitArgs(@NotNull AORTAParser.ArgsContext ctx) { }
+	@Override public void exitListItem(@NotNull AORTAParser.ListItemContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -100,52 +74,26 @@ public class AORTABaseListener implements AORTAListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterListContents(@NotNull AORTAParser.ListContentsContext ctx) { }
+	@Override public void enterFormulas(@NotNull AORTAParser.FormulasContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitListContents(@NotNull AORTAParser.ListContentsContext ctx) { }
+	@Override public void exitFormulas(@NotNull AORTAParser.FormulasContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterList(@NotNull AORTAParser.ListContext ctx) { }
+	@Override public void enterIfRule(@NotNull AORTAParser.IfRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitList(@NotNull AORTAParser.ListContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterNumber(@NotNull AORTAParser.NumberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitNumber(@NotNull AORTAParser.NumberContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterActRule(@NotNull AORTAParser.ActRuleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitActRule(@NotNull AORTAParser.ActRuleContext ctx) { }
+	@Override public void exitIfRule(@NotNull AORTAParser.IfRuleContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -178,13 +126,13 @@ public class AORTABaseListener implements AORTAListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterListItem(@NotNull AORTAParser.ListItemContext ctx) { }
+	@Override public void enterList(@NotNull AORTAParser.ListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitListItem(@NotNull AORTAParser.ListItemContext ctx) { }
+	@Override public void exitList(@NotNull AORTAParser.ListContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -204,65 +152,39 @@ public class AORTABaseListener implements AORTAListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterFormulas(@NotNull AORTAParser.FormulasContext ctx) { }
+	@Override public void enterArgs(@NotNull AORTAParser.ArgsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitFormulas(@NotNull AORTAParser.FormulasContext ctx) { }
+	@Override public void exitArgs(@NotNull AORTAParser.ArgsContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterTerm(@NotNull AORTAParser.TermContext ctx) { }
+	@Override public void enterListContents(@NotNull AORTAParser.ListContentsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitTerm(@NotNull AORTAParser.TermContext ctx) { }
+	@Override public void exitListContents(@NotNull AORTAParser.ListContentsContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterStruct(@NotNull AORTAParser.StructContext ctx) { }
+	@Override public void enterNumber(@NotNull AORTAParser.NumberContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitStruct(@NotNull AORTAParser.StructContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterAction(@NotNull AORTAParser.ActionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitAction(@NotNull AORTAParser.ActionContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterIfRule(@NotNull AORTAParser.IfRuleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitIfRule(@NotNull AORTAParser.IfRuleContext ctx) { }
+	@Override public void exitNumber(@NotNull AORTAParser.NumberContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -282,13 +204,13 @@ public class AORTABaseListener implements AORTAListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterOption(@NotNull AORTAParser.OptionContext ctx) { }
+	@Override public void enterAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitOption(@NotNull AORTAParser.OptionContext ctx) { }
+	@Override public void exitAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -302,6 +224,84 @@ public class AORTABaseListener implements AORTAListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitFormula(@NotNull AORTAParser.FormulaContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterAction(@NotNull AORTAParser.ActionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitAction(@NotNull AORTAParser.ActionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterTerm(@NotNull AORTAParser.TermContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitTerm(@NotNull AORTAParser.TermContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterActRule(@NotNull AORTAParser.ActRuleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitActRule(@NotNull AORTAParser.ActRuleContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterAtom(@NotNull AORTAParser.AtomContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitAtom(@NotNull AORTAParser.AtomContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterOption(@NotNull AORTAParser.OptionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitOption(@NotNull AORTAParser.OptionContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

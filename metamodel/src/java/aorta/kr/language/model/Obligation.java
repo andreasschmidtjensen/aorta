@@ -50,7 +50,7 @@ public class Obligation implements Comparable<Obligation> {
 
 	@Override
 	public String toString() {
-		return role + ": " + TermFormatter.toString(objective) + " < " + TermFormatter.toString(deadline) + " | " + TermFormatter.toString(condition) + ".";
+		return role + ": " + TermFormatter.toString(objective) + " < " + TermFormatter.toString(deadline) + " | " + TermFormatter.toString(condition) + ".";			
 	}
 
 	@Override

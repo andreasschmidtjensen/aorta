@@ -1,0 +1,42 @@
+/* 
+# The Settlers in Space scenario 
+An expedition in the year 2086 leads to the discovery of an inhabitable planet
+in another solar system. In a race to dominate the planet, different nations of
+Earth sends shuttles of military forces to occupy the planet. The planet is 
+resource-rich, so each force is able to construct a base to expand their 
+presence and build larger a military force to defeat the other nations' attempt 
+to occupy the planet.
+
+# Uses the SettlersInSpace.scx custom-map (included in this folder):
+Each player in a game controls one of the military forces. The force initially 
+consists of four \emph{workers} and a \emph{command center}. The workers can 
+gather resources and deliver them to the command center, which is then able to 
+train new units. The command center can train more workers for gathering 
+resources, or construct three types of offensive units: \emph{soldiers}, 
+\emph{tanks} and \emph{aircrafts}. Workers can furthermore repair tanks and 
+aircrafts, and can construct bunkers for defensive purposes. Soldiers can move 
+around and attack enemy units, or can enter bunkers for cover while defending 
+the base. Tanks can only attack ground units and buildings, and work in two 
+modes: tank mode and siege mode. In tank mode, it can move around the map, 
+while in siege mode, it is locked to the ground but does significantly more 
+damaged. The aircraft has the ability to move undetected around on the map for 
+short periods of time (stealth mode), which can only be detected by special 
+devices on the bunkers.
+*/
+
+
+MAS settlersInSpace {
+
+	infrastructure: AORTA(organization("scbw.mm"), sleep(200), notrace("Ext"))
+	environment: jason.eis.EISAdapter("../scbw/dist/scbw-with-deps.jar")
+    agents:
+		terranSCV [aorta="reasoning.aorta", logEndState=true];
+		terranCommandCenter [aorta="reasoning.aorta", logEndState=true];
+		terranMarine [aorta="reasoning.aorta", logEndState=true];
+		terranVulture [aorta="reasoning.aorta", logEndState=true];
+		terranBarracks; terranFactory;
+				
+	classpath: "../scbw/dist/scbw-with-deps.jar";
+}
+
+

@@ -11,7 +11,6 @@ import alice.tuprolog.Theory;
 import alice.tuprolog.Var;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.util.TermQualifier;
 import aorta.reasoning.fml.CapabilityFormula;
 import aorta.reasoning.fml.ConjunctFormula;
 import aorta.reasoning.fml.Formula;

@@ -1,4 +1,4 @@
-// Generated from C:\Dropbox\code\phd\aorta\framework\src\java\aorta\parser\AORTA.g4 by ANTLR 4.1
+// Generated from /Users/asj/Dropbox/code/phd/aorta/framework/src/java/aorta/parser/AORTA.g4 by ANTLR 4.1
 package aorta.parser;
 
 import alice.tuprolog.Number;
@@ -30,32 +30,18 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#atom}.
+	 * Visit a parse tree produced by {@link AORTAParser#struct}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAtom(@NotNull AORTAParser.AtomContext ctx);
+	T visitStruct(@NotNull AORTAParser.StructContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#aortaAgent}.
+	 * Visit a parse tree produced by {@link AORTAParser#listItem}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link AORTAParser#termBuilder}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link AORTAParser#args}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitArgs(@NotNull AORTAParser.ArgsContext ctx);
+	T visitListItem(@NotNull AORTAParser.ListItemContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link AORTAParser#var}.
@@ -65,32 +51,18 @@ public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
 	T visitVar(@NotNull AORTAParser.VarContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#listContents}.
+	 * Visit a parse tree produced by {@link AORTAParser#formulas}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitListContents(@NotNull AORTAParser.ListContentsContext ctx);
+	T visitFormulas(@NotNull AORTAParser.FormulasContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#list}.
+	 * Visit a parse tree produced by {@link AORTAParser#ifRule}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitList(@NotNull AORTAParser.ListContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link AORTAParser#number}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNumber(@NotNull AORTAParser.NumberContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link AORTAParser#actRule}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitActRule(@NotNull AORTAParser.ActRuleContext ctx);
+	T visitIfRule(@NotNull AORTAParser.IfRuleContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link AORTAParser#rules}.
@@ -107,11 +79,11 @@ public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
 	T visitProlog2(@NotNull AORTAParser.Prolog2Context ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#listItem}.
+	 * Visit a parse tree produced by {@link AORTAParser#list}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitListItem(@NotNull AORTAParser.ListItemContext ctx);
+	T visitList(@NotNull AORTAParser.ListContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link AORTAParser#prolog}.
@@ -121,39 +93,25 @@ public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
 	T visitProlog(@NotNull AORTAParser.PrologContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#formulas}.
+	 * Visit a parse tree produced by {@link AORTAParser#args}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFormulas(@NotNull AORTAParser.FormulasContext ctx);
+	T visitArgs(@NotNull AORTAParser.ArgsContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#term}.
+	 * Visit a parse tree produced by {@link AORTAParser#listContents}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTerm(@NotNull AORTAParser.TermContext ctx);
+	T visitListContents(@NotNull AORTAParser.ListContentsContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#struct}.
+	 * Visit a parse tree produced by {@link AORTAParser#number}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStruct(@NotNull AORTAParser.StructContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link AORTAParser#action}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAction(@NotNull AORTAParser.ActionContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link AORTAParser#ifRule}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIfRule(@NotNull AORTAParser.IfRuleContext ctx);
+	T visitNumber(@NotNull AORTAParser.NumberContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link AORTAParser#illForce}.
@@ -163,11 +121,11 @@ public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
 	T visitIllForce(@NotNull AORTAParser.IllForceContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link AORTAParser#option}.
+	 * Visit a parse tree produced by {@link AORTAParser#aortaAgent}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitOption(@NotNull AORTAParser.OptionContext ctx);
+	T visitAortaAgent(@NotNull AORTAParser.AortaAgentContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link AORTAParser#formula}.
@@ -175,4 +133,46 @@ public interface AORTAVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFormula(@NotNull AORTAParser.FormulaContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AORTAParser#action}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAction(@NotNull AORTAParser.ActionContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AORTAParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTerm(@NotNull AORTAParser.TermContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AORTAParser#actRule}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitActRule(@NotNull AORTAParser.ActRuleContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AORTAParser#atom}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAtom(@NotNull AORTAParser.AtomContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AORTAParser#option}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOption(@NotNull AORTAParser.OptionContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link AORTAParser#termBuilder}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTermBuilder(@NotNull AORTAParser.TermBuilderContext ctx);
 }

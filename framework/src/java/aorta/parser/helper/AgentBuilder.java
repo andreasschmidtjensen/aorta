@@ -18,7 +18,7 @@ import aorta.kr.language.OrganizationLoader;
 import aorta.kr.language.model.Metamodel;
 import aorta.parser.AORTALexer;
 import aorta.parser.AORTAParser;
-import aorta.ts.strategy.Linear;
+import aorta.ts.strategy.AgentStrategy;
 import aorta.ts.strategy.Strategy;
 import java.io.File;
 import java.io.FileInputStream;
@@ -70,15 +70,7 @@ public class AgentBuilder {
 		
 		MentalState ms = new MentalState(loader.load());
 
-		String stratClassName = init.strategy;
-		if (!stratClassName.contains(".")) {
-			// add package name
-			stratClassName = "aorta.ts.strategy." + stratClassName;
-		}
-
-		Strategy strategy = new Linear();
-		
-		AortaAgent agent = new AortaAgent(name, ms, rules, strategy);
+		AortaAgent agent = new AortaAgent(name, ms, rules);
 		agent.getState().setBridge(bridge);
 		return agent;
 	}

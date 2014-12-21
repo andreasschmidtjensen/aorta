@@ -95,6 +95,7 @@ public class AortaAgentArch extends CentralisedAgArch {
 				logger.log(Level.SEVERE, null, ex);
 			}
 		}
+		
 		super.reasoningCycleStarting();
 	}
 
@@ -167,16 +168,23 @@ public class AortaAgentArch extends CentralisedAgArch {
 	public void setSleepTime(int sleepTime) {
 		this.sleepTime = sleepTime;
 	}
+	private boolean hasSleep() {
+		return sleepTime > 0;
+	}
 	
 	@Override
 	public void setThread(Thread t) {
-		myThread = t;
-		myThread.setName(getAgName());
+		if (hasSleep()) {
+			myThread = t;
+			myThread.setName(getAgName());
+		} else {
+			super.setThread(t);
+		}
 	}
 
 	@Override
 	public boolean isRunning() {
-		return running;
+		return hasSleep() ? running : super.isRunning();
 	}
 
 	@Override
@@ -192,34 +200,46 @@ public class AortaAgentArch extends CentralisedAgArch {
 			}
 		}
 			
-		running = false;
-		if (myThread != null) {
-			myThread.interrupt();
+		if (hasSleep()) {
+			running = false;
+			if (myThread != null) {
+				myThread.interrupt();
+			}
+			synchronized (syncStopRun) {
+				masRunner.delAg(getAgName());
+			}
+			getTS().getAg().stopAg();
+			getUserAgArch().stop(); // stops all archs
+		} else {
+			super.stopAg();
 		}
-		synchronized (syncStopRun) {
-			masRunner.delAg(getAgName());
-		}
-		getTS().getAg().stopAg();
-		getUserAgArch().stop(); // stops all archs
 	}
 
 	@Override
 	public void run() {
-		synchronized (syncStopRun) {
-			TransitionSystem ts = getTS();
-			while (running) {
-				incCycleNumber();
-				ts.reasoningCycle();
-				if (sleepTime > 0) {
+		if (hasSleep()) {
+			synchronized (syncStopRun) {
+				TransitionSystem ts = getTS();
+				while (running) {
+					incCycleNumber();
+					ts.reasoningCycle();
 					try {
 						Thread.sleep(sleepTime);
 					} catch (InterruptedException ex) {
 						stopAg();
 					}
+					
+					
+					if (getTS().getSettings().isSync()) {
+						setSleepTime(0);
+						super.run();
+					}
 				}
 			}
+			logger.fine("I finished!");
+		} else {
+			super.run();
 		}
-		logger.fine("I finished!");
 	}
 
 	public void setSaveToFile(boolean saveToFile) {

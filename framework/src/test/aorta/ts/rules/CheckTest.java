@@ -12,7 +12,7 @@ import aorta.kr.PrologLoader;
 import aorta.kr.QueryEngine;
 import aorta.msg.IncomingOrganizationalMessage;
 import aorta.ts.Transition;
-import aorta.ts.strategy.Linear;
+import aorta.ts.strategy.AgentStrategy;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -25,14 +25,14 @@ public class CheckTest {
 	
 	@Test
 	public void testTransition() throws Exception {
-		Transition t = new Check();
+		Transition<AgentState> t = new Check();
 		
 		QueryEngine engine = new QueryEngine();
 		
 		PrologLoader prologLoader = new PrologLoader();
 		
 		MentalState ms = new MentalState(prologLoader.load());
-		AgentState state = new AgentState(new AortaAgent("agent", ms, null, new Linear()), ms, null);
+		AgentState state = new AgentState(new AortaAgent("agent", ms, null), ms, null);
 		ms = null;
 		
 		AgentState newState = t.executeTransition(engine, state);
