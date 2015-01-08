@@ -106,7 +106,7 @@ term returns [Term fml]
 ;
 string returns [Struct fml]: FILEPATH { $fml = new Struct($FILEPATH.text); };
 atom returns [Struct fml]: ATOM { $fml = new Struct($ATOM.text); };
-number returns [Number fml] : NUMBER { String numStr = $NUMBER.text; $fml = new Int(Integer.parseInt(numStr)); };
+number returns [Number fml] : NUMBER { String numStr = $NUMBER.text; $fml = aorta.kr.language.NumberConverter.parseNumber(numStr); };
 var returns [Var fml]: VAR { $fml = new Var($VAR.text); };
 struct returns [Struct fml]
 	: (ATOM START args END { $fml = new Struct($ATOM.text, $args.fml.toArray(new Term[0])); }

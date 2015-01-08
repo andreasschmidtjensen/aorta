@@ -93,7 +93,7 @@ term returns [Term fml]
 ;
 string returns [Struct fml]: OPENSTRING STRLIT CLOSESTRING { $fml = new Struct($STRLIT.text); };
 atom returns [Struct fml]: ATOM { $fml = new Struct($ATOM.text); };
-number returns [Number fml] : NUMBER { String numStr = $NUMBER.text; $fml = new alice.tuprolog.Double(Double.parseDouble(numStr)); };
+number returns [Number fml] : NUMBER { String numStr = $NUMBER.text; $fml = aorta.kr.language.NumberConverter.parseNumber(numStr); };
 var returns [Var fml]: VAR { $fml = new Var($VAR.text); };
 struct returns [Struct fml]
 	: (ATOM START args END { $fml = new Struct($ATOM.text, $args.fml.toArray(new Term[0])); }
