@@ -32,11 +32,13 @@ public class Role {
 	}
 
 	public Term toProlog() {
+		MetaLanguage ml = new MetaLanguage();
+		
 		Struct objs = new Struct();
 		for (Term o : objectives) {
-			objs.append(o);
+			objs.append(ml.qualify(o));
 		}
-		return new MetaLanguage().role(new Struct(name), objs);
+		return ml.role(new Struct(name), objs);
 	}
 	
 	@Override

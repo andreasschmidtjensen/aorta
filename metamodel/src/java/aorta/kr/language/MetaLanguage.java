@@ -40,16 +40,16 @@ public class MetaLanguage {
 		return new Struct("rea", agent, role);
 	}
 
-	public Struct condition(Term role, Term objective, Term deadline, Term condition) {
-		return new Struct("cond", role, objective, deadline, condition);
+	public Struct condition(Term role, Term deon, Term objective, Term deadline, Term condition) {
+		return new Struct("cond", role, deon, objective, deadline, condition);
 	}
 
-	public Struct obligation(Term agent, Term role, Term objective, Term deadline) {
-		return new Struct("obl", agent, role, objective, deadline);
+	public Struct norm(Term agent, Term role, Term deon, Term objective, Term deadline) {
+		return new Struct("norm", agent, role, deon, objective, deadline);
 	}
 
-	public Struct violation(Term agent, Term role, Term objective) {
-		return new Struct("viol", agent, role, objective);
+	public Struct violation(Term agent, Term role, Term deon, Term objective) {
+		return new Struct("viol", agent, role, deon, objective);
 	}
 
 	// Options
@@ -61,12 +61,12 @@ public class MetaLanguage {
 		return new Struct("obj", obj);
 	}
 
-	public Struct obl(Term role, Term obl, Term deadline) {
-		return new Struct("obl", role, obl, deadline);
+	public Struct norm(Term role, Term deon, Term obl, Term deadline) {
+		return new Struct("norm", role, deon, obl, deadline);
 	}
 
-	public Struct viol(Term role, Term obl) {
-		return new Struct("viol", role, obl);
+	public Struct viol(Term agent, Term role, Term deon, Term obl) {
+		return new Struct("viol", agent, role, deon, obl);
 	}
 
 	public Struct send(Term role, Term ilf, Term contents) {

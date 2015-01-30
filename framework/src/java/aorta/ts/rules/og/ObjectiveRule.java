@@ -13,6 +13,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
+import aorta.kr.language.model.Norm;
 import aorta.kr.util.FormulaQualifier;
 import aorta.kr.util.TermQualifier;
 import aorta.logging.Logger;
@@ -34,7 +35,7 @@ public class ObjectiveRule extends Transition<AgentState> {
 		MentalState ms = newState.getMentalState();
 
 		MetaLanguage language = new MetaLanguage();
-		Struct obl = language.obligation(new Struct(state.getAgent().getName()), new Var("R"), new Struct("bel", new Var("O")), new Var("D"));
+		Struct obl = language.norm(new Struct(state.getAgent().getName()), new Var("R"), new Struct(Norm.OBLIGATION), new Var("O"), new Var("D"));
 		Struct objective = language.objective(new Var("O"), new Var());
 		Struct rea = language.rea(new Struct(state.getAgent().getName()), new Var("R"));
 
@@ -52,15 +53,15 @@ public class ObjectiveRule extends Transition<AgentState> {
 				engine.unify(ms, optObj, conditional);
 				
 				Struct result = optObj;
-				Term objectiveArg = obj.getArg(0);
-				if (objectiveArg instanceof Var && ((Var)objectiveArg).getTerm() instanceof Struct) {
-					objectiveArg = ((Var)objectiveArg).getTerm();
-				}
-				if (objectiveArg instanceof Struct) {
-					if (TermQualifier.isQualified((Struct)objectiveArg)) {
-						result = (Struct) TermQualifier.qualifyTerm(language.obj(FormulaQualifier.getQualified((Struct)objectiveArg)), KBType.OPTION.getType());
-					}
-				}
+//				Term objectiveArg = obj.getArg(0);
+//				if (objectiveArg instanceof Var && ((Var)objectiveArg).getTerm() instanceof Struct) {
+//					objectiveArg = ((Var)objectiveArg).getTerm();
+//				}
+//				if (objectiveArg instanceof Struct) {
+//					if (TermQualifier.isQualified((Struct)objectiveArg)) {
+//						result = (Struct) TermQualifier.qualifyTerm(language.obj(FormulaQualifier.getQualified((Struct)objectiveArg)), KBType.OPTION.getType());
+//					}
+//				}
 				
 				if (!engine.exists(ms, result)) {
 				

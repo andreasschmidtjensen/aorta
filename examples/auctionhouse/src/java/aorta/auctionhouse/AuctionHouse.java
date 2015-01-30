@@ -39,6 +39,10 @@ public class AuctionHouse extends Environment {
 	public void init(String[] args) {
 		timeOffset = System.currentTimeMillis();
 
+		Literal badInfo = new LiteralImpl("badInfo");
+		badInfo.addTerm(new Atom("bob"));
+		addPercept(badInfo);
+		
 		thread = new Thread() {
 			@Override
 			public void run() {

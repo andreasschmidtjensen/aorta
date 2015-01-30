@@ -388,12 +388,12 @@ public class AgentWebInspector implements Inspector {
 			}
 			sb.append("</ul>");
 			
-			sb.append("<h3>Obligations</h3>");
+			sb.append("<h3>Norms</h3>");
 			sb.append("<ul>");
-			results = qe.findAll(ms, new Struct("org", ml.obligation(new Struct(agent.getName()), new Var("R"), new Var("O"), new Var("D"))));
+			results = qe.findAll(ms, new Struct("org", ml.norm(new Struct(agent.getName()), new Var("R"), new Var("Deon"), new Var("O"), new Var("D"))));
 			for (SolveInfo si : results) {
 				if (si.isSuccess()) {
-					SolveInfo viol = qe.solve(ms, new Struct("org", ml.violation(new Struct(agent.getName()), si.getVarValue("R"), si.getVarValue("O"))));
+					SolveInfo viol = qe.solve(ms, new Struct("org", ml.violation(new Struct(agent.getName()), si.getVarValue("R"), si.getVarValue("Deon"), si.getVarValue("O"))));
 					sb.append("<li")
 							.append(viol.isSuccess() ? " class=\"viol\"" : "")
 							.append(">")
@@ -404,10 +404,10 @@ public class AgentWebInspector implements Inspector {
 				}
 			}
             // violated, completed (strike through)
-            results = qe.findAll(ms, new Struct("org", ml.obligation(new Struct(agent.getName()), new Var("R"), new Var("O"), new Var("D"))));
+            results = qe.findAll(ms, new Struct("org", ml.norm(new Struct(agent.getName()), new Var("R"), new Var("Deon"), new Var("O"), new Var("D"))));
 			for (SolveInfo si : results) {
 				if (si.isSuccess()) {
-					SolveInfo viol = qe.solve(ms, new Struct("org", ml.violation(new Struct(agent.getName()), si.getVarValue("R"), si.getVarValue("O"))));
+					SolveInfo viol = qe.solve(ms, new Struct("org", ml.violation(new Struct(agent.getName()), si.getVarValue("R"), si.getVarValue("Deon"), si.getVarValue("O"))));
 					sb.append("<li")
 							.append(viol.isSuccess() ? " class=\"viol\"" : "")
 							.append(">")

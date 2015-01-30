@@ -68,7 +68,7 @@ public class SSConverter {
 				String n2 = r2.getName();
 				n2 = n2.substring(0, 1).toLowerCase() + n2.substring(1);
 				
-				mm.getDependencies().add(new aorta.kr.language.model.Dependency(n1, n2, ml.qualify(objective, false)));
+				mm.getDependencies().add(new aorta.kr.language.model.Dependency(n1, n2, ml.qualify(objective)));
 			}
 		}
 	}

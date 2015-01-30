@@ -42,7 +42,6 @@ public class Inform extends Transition<AgentState> {
 		Struct optInf = FormulaQualifier.qualifyStruct(inf, KBType.OPTION);
 		
 		
-		// TODO: O in dependency IS NOT QUALIFIED so O does not work!!!w 
 		// bel(me(A)), org(rea(A,R2)), org(dep(R1,R2,O)), bel(O), \+ opt(inform(R1, O))
 		Term test = Term.createTerm(orgRea + ", " + orgDep + ", O, \\+ " + optInf);
 

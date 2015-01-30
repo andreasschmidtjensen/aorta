@@ -2,8 +2,8 @@ package aorta.jeditplugin;
 
 import aorta.kr.language.model.Dependency;
 import aorta.kr.language.model.Metamodel;
+import aorta.kr.language.model.Norm;
 import aorta.kr.language.model.Objective;
-import aorta.kr.language.model.Obligation;
 import aorta.kr.language.model.Role;
 import aorta.kr.language.model.Rule;
 import aorta.kr.language.parser.MetamodelLexer;
@@ -18,16 +18,11 @@ import javax.swing.Icon;
 import javax.swing.text.Position;
 import javax.swing.tree.DefaultMutableTreeNode;
 import org.antlr.v4.runtime.ANTLRInputStream;
-import org.antlr.v4.runtime.BailErrorStrategy;
+import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.FailedPredicateException;
-import org.antlr.v4.runtime.InputMismatchException;
-import org.antlr.v4.runtime.NoViableAltException;
-import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.RecognitionException;
+import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
-import org.antlr.v4.runtime.misc.ParseCancellationException;
 import sidekick.Asset;
 
 public class AortaMetamodelSideKickParser extends sidekick.SideKickParser {
@@ -41,7 +36,7 @@ public class AortaMetamodelSideKickParser extends sidekick.SideKickParser {
 	}
 
 	@Override
-	public SideKickParsedData parse(Buffer buf, DefaultErrorSource errorSource) {
+	public SideKickParsedData parse(final Buffer buf, final DefaultErrorSource errorSource) {
 		String text;
 		try {
 			buf.readLock();
@@ -64,7 +59,22 @@ public class AortaMetamodelSideKickParser extends sidekick.SideKickParser {
 			parser.setTrace(false);
 
 			parser.removeErrorListeners();
-			parser.setErrorHandler(new BailErrorStrategy());
+			parser.addErrorListener(new BaseErrorListener(){ 
+				@Override
+				public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
+					Token token = (Token) offendingSymbol;
+					errorSource.addError(
+							new DefaultErrorSource.DefaultError(
+									errorSource, 
+									ErrorSource.ERROR, 
+									buf.getPath(), 
+									token.getLine() > 0 ? token.getLine() - 1 : 0, 
+									token.getStartIndex(), 
+									0, 
+									msg));
+				}
+			});
+
 
 			MetamodelParser.MetamodelContext modelContext = parser.metamodel();
 			Metamodel mm = modelContext.mm;
@@ -92,10 +102,10 @@ public class AortaMetamodelSideKickParser extends sidekick.SideKickParser {
 					dependenciesNode.add(new DefaultMutableTreeNode(dep.toProlog(), false));
 				}
 			}
-			if (!mm.getObligations().isEmpty()) {
-				DefaultMutableTreeNode obligationsNode = new DefaultMutableTreeNode("OBLIGATIONS", true);
+			if (!mm.getNorms().isEmpty()) {
+				DefaultMutableTreeNode obligationsNode = new DefaultMutableTreeNode("NORMS", true);
 				pd.root.add(obligationsNode);
-				for (Obligation obl : mm.getObligations()) {
+				for (Norm obl : mm.getNorms()) {
 					obligationsNode.add(new DefaultMutableTreeNode(obl.toProlog(), false));
 				}
 			}
@@ -108,12 +118,6 @@ public class AortaMetamodelSideKickParser extends sidekick.SideKickParser {
 				}
 			}
 
-		} catch (ParseCancellationException ex) {
-			if (ex.getCause() instanceof RecognitionException) {
-				addError(parser, (RecognitionException) ex.getCause(), errorSource, buf.getPath());
-			} else {
-				ex.printStackTrace();
-			}
 		} catch (Exception e) {
 			System.out.println("Error in Metamodel SideKick:" + e);
 			e.printStackTrace();
@@ -158,74 +162,6 @@ public class AortaMetamodelSideKickParser extends sidekick.SideKickParser {
         public DefaultMutableTreeNode createTreeNode() {
             return new DefaultMutableTreeNode(this, true);
         }
-	}
-
-	public static void addError(Parser recognizer, RecognitionException ex, DefaultErrorSource errorSource, String path) {
-		if (ex.getOffendingToken() != null && errorSource != null) {
-			int line = ex.getOffendingToken().getLine();
-			if (line < 0) {
-				line = 0;
-			}
-
-			String message = ex.toString();
-			if (ex instanceof NoViableAltException) {
-				NoViableAltException nva = (NoViableAltException) ex;
-				TokenStream tokens = recognizer.getInputStream();
-				String input;
-				if (tokens != null) {
-					if (nva.getStartToken().getType() == Token.EOF) {
-						input = "<EOF>";
-					} else {
-						input = tokens.getText(nva.getStartToken(), nva.getOffendingToken());
-					}
-				} else {
-					input = "<unknown input>";
-				}
-				message = "no viable alternative at input " + escapeWSAndQuote(input);
-//			} else if (ex instanceof LexerNoViableAltException) {
-			} else if (ex instanceof FailedPredicateException) {
-				FailedPredicateException fpe = (FailedPredicateException) ex;
-				message = "mismatched input " + getTokenErrorDisplay(fpe.getOffendingToken()) + " expecting " + fpe.getExpectedTokens().toString(recognizer.getTokenNames());
-			} else if (ex instanceof InputMismatchException) {
-				InputMismatchException ime = (InputMismatchException) ex;
-				try {
-					String ruleName = recognizer.getRuleNames()[recognizer.getContext().getRuleIndex()];
-					message = "rule " + ruleName + " " + ime.getMessage();
-				} catch (Exception ex2) {
-					message = ex.toString();
-				}
-			}
-
-			errorSource.addError(new DefaultErrorSource.DefaultError(
-					errorSource,
-					ErrorSource.ERROR,
-					path,
-					line, 0, 0,
-					message));
-		}
-	}
-
-	protected static String getTokenErrorDisplay(Token t) {
-		if (t == null) {
-			return "<no token>";
-		}
-		String s = t.getText();
-		if (s == null) {
-			if (t.getType() == Token.EOF) {
-				s = "<EOF>";
-			} else {
-				s = "<" + t.getType() + ">";
-			}
-		}
-		return escapeWSAndQuote(s);
-	}
-
-	protected static String escapeWSAndQuote(String s) {
-//		if ( s==null ) return s;
-		s = s.replace("\n", "\\n");
-		s = s.replace("\r", "\\r");
-		s = s.replace("\t", "\\t");
-		return "'" + s + "'";
 	}
 
 	public String toString() {

@@ -34,13 +34,13 @@ public class ViolationRule extends Transition<AgentState> {
 		MentalState ms = newState.getMentalState();
 
 		MetaLanguage language = new MetaLanguage();
-		Struct viol = language.violation(new Struct(state.getAgent().getName()), new Var("R"), new Var("O"));
+		Struct viol = language.violation(new Var("A"), new Var("R"), new Var("Deon"), new Var("O"));
 		Struct orgViol = FormulaQualifier.qualifyStruct(viol, KBType.ORGANIZATION);
 
 		List<SolveInfo> conditionals = engine.findAll(ms, orgViol);
 		for (SolveInfo conditional : conditionals) {
 			if (conditional.isSuccess()) {
-				Struct opt = language.viol(new Var("R"), new Var("O"));
+				Struct opt = language.viol(new Var("A"), new Var("R"), new Var("Deon"), new Var("O"));
 				Struct optViol = FormulaQualifier.qualifyStruct(opt, KBType.OPTION);
 				
 				engine.unify(ms, optViol, conditional);

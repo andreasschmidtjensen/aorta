@@ -89,7 +89,13 @@ public class AortaIDE extends JPanel implements EBComponent {
 		fileList.addListSelectionListener(new ListSelectionListener() {
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
-				openReasoningFile(((AortaFile) fileList.getSelectedValue()).file);
+				try {
+					if (fileList.getSelectedValue() != null) {
+						openReasoningFile(((AortaFile) fileList.getSelectedValue()).file);
+					}
+				} catch (Exception ex) {
+					textArea.append("Could not open AORTA file: " + ex.getMessage());
+				}
 			}
 		});
 		pLst.setPreferredSize(new Dimension(160, 50));

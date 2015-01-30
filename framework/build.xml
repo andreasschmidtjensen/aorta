@@ -22,7 +22,7 @@
 
 	<target name="antlr" depends="init-antlr" unless="up-to-date">
 		<!-- Compiling grammar -->
-		<java classname="org.antlr.v4.Tool"  fork="true">
+		<java classname="org.antlr.v4.Tool"  fork="true" failonerror="yes">
 			<arg value="${antlr.lexer}"/>
 			<arg value="${antlr.grammar}"/>
 			<arg value="-visitor"/>

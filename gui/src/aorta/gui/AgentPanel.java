@@ -44,7 +44,7 @@ public class AgentPanel extends EntityPanel {
 	private StateViewer stateViewer = StateViewer.get();
 	
 	private final JList violList;
-	private final JList oblList;
+	private final JList normList;
 	private final JList goalList;
 	private final JList optionList;
 	private final JList roleList;
@@ -58,7 +58,7 @@ public class AgentPanel extends EntityPanel {
 		roleList = addListPanel("Roles");
 		optionList = addListPanel("Options");
 		goalList = addListPanel("Goals");
-		oblList = addListPanel("Obligations");
+		normList = addListPanel("Norms");
 		violList = addListPanel("Violations");
 		
 		setState(new State());
@@ -82,8 +82,8 @@ public class AgentPanel extends EntityPanel {
 		final Term REA = new Struct("org", ml.rea(new Struct(agent.getName()), new Var("R")));
 		final Term OPT = Term.createTerm("opt(O)");
 		final Term GOAL = Term.createTerm("goal(G)");
-		final Term OBL = new Struct("org", ml.obligation(new Struct(agent.getName()), new Var("R"), new Var("O"), new Var("D")));
-		final Term VIOL = new Struct("org", ml.violation(new Struct(agent.getName()), new Var("R"), new Var("O")));
+		final Term NORM = new Struct("org", ml.norm(new Struct(agent.getName()), new Var("R"), new Var("Deon"), new Var("O"), new Var("D")));
+		final Term VIOL = new Struct("org", ml.violation(new Struct(agent.getName()), new Var("R"), new Var("Deon"), new Var("O")));
 		
 		
 		@Override
@@ -93,34 +93,35 @@ public class AgentPanel extends EntityPanel {
 			update(ms, goalList, GOAL, "G");
 			update(ms, optionList, OPT, "O");
 			
-			updateObligations();
+			updateNorms();
 			updateViolations();
 		}
 
-		private void updateObligations() {
+		private void updateNorms() {
 			List<String> values = new ArrayList<>();
-			List<SolveInfo> solutions = engine.findAll(agent.getState().getMentalState(), OBL);
+			List<SolveInfo> solutions = engine.findAll(agent.getState().getMentalState(), NORM);
 			for (SolveInfo solution : solutions) {
 				if (solution.isSuccess()) {
 					try {
 						String role = solution.getVarValue("R").toString();
 						Term objective = solution.getVarValue("O");
+						String deon = solution.getVarValue("Deon").toString();
 						Term deadline = solution.getVarValue("D");
-						String value = role + " : " + TermFormatter.toString(objective) + " < " + TermFormatter.toString(deadline);
+						String value = role + " [" + deon + "] : " + TermFormatter.toString(objective) + " < " + TermFormatter.toString(deadline);
 						values.add(anon.matcher(value).replaceAll("_"));
 					} catch (NoSolutionException ex) {
 						// ignore because of isSuccess()
 					}
 				}
 			}
-			DefaultListModel obligationModel = new DefaultListModel();
+			DefaultListModel normModel = new DefaultListModel();
 			
 			Collections.sort(values);
 			for (String v : values) {
-				obligationModel.addElement(v);
+				normModel.addElement(v);
 			}
 			
-			oblList.setModel(obligationModel);
+			normList.setModel(normModel);
 		}
 		
 		private void updateViolations() {
@@ -131,7 +132,8 @@ public class AgentPanel extends EntityPanel {
 					try {
 						String role = solution.getVarValue("R").toString();
 						Term objective = solution.getVarValue("O");
-						String value = role + " : " + TermFormatter.toString(objective);
+						String deon = solution.getVarValue("Deon").toString();
+						String value = role + " [" + deon + "] : " + TermFormatter.toString(objective);
 						values.add(anon.matcher(value).replaceAll("_"));
 					} catch (NoSolutionException ex) {
 						// ignore because of isSuccess()

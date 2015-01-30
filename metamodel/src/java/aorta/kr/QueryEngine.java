@@ -12,6 +12,7 @@ import alice.tuprolog.Prolog;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
+import alice.tuprolog.TheoryManager;
 import alice.tuprolog.Var;
 import aorta.kr.util.TermVisitor;
 import aorta.reasoning.fml.Formula;
@@ -23,18 +24,24 @@ public class QueryEngine {
 	}
 	
 	public boolean exists(MentalState ms, Term term) {
-		return ms.getProlog().solve(term).isSuccess();
+		Prolog prolog = ms.getProlog();
+		SolveInfo solve = prolog.solve(term);
+		return solve.isSuccess();
 	}
 		
 	public void insert(MentalState ms, Struct term) {
 		if (!exists(ms, term)) {
-			ms.getProlog().getTheoryManager().assertZ(term, true, null, true);
+			Prolog prolog = ms.getProlog();
+			TheoryManager theoryManager = prolog.getTheoryManager();
+			theoryManager.assertZ(term, true, null, true);
 		}
 	}
 	
 	public boolean remove(MentalState ms, Struct term) {
 		if (exists(ms, term)) {
-			return ms.getProlog().getTheoryManager().retract(term) != null;
+			Prolog prolog = ms.getProlog();
+			TheoryManager theoryManager = prolog.getTheoryManager();
+			return theoryManager.retract(term) != null;
 		} else {
 			return false;
 		}

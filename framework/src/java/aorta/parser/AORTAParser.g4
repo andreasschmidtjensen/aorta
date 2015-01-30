@@ -52,8 +52,8 @@ option returns [Term fml]
 	  (NOT {pos=false;})? ROLE START term END { $fml = new Struct("role", $term.fml); if (!pos) { $fml = new Struct("~", $fml); } }
 	| (NOT {pos=false;})? OBJ START term END { $fml = new Struct("obj", $term.fml); if (!pos) { $fml = new Struct("~", $fml); } }
 	| SEND START t1=term COMMA illForce COMMA t2=term END  { $fml = new Struct("send", $t1.fml, $illForce.fml, $t2.fml); }
-	| OBL START r=term COMMA o=term COMMA d=term END  { $fml = new Struct("obl", $r.fml, $o.fml, $d.fml); }
-	| VIOL START r=term COMMA o=term END  { $fml = new Struct("viol", $r.fml, $o.fml); }
+	| NORM START r=term COMMA deon=DEON COMMA o=term COMMA d=term END  { $fml = new Struct("norm", $r.fml, new Struct($deon.text), $o.fml, $d.fml); }
+	| VIOL START a=term COMMA r=term COMMA deon=DEON COMMA o=term END  { $fml = new Struct("viol", $a.fml, $r.fml, new Struct($deon.text), $o.fml); }
 	| TRUE { $fml = Term.TRUE; }
 	);
 
@@ -86,7 +86,7 @@ action returns [Action aa]
 prolog returns [Term fml]: prolog2 { $fml = Term.createTerm($prolog2.text); };
 prolog2 returns [Term fml]
 	: (COMMA pl=prolog2 { $fml = new Struct(",", $pl.fml); }
-	  | SEMICOLON pl=prolog2 { $fml = new Struct(";", $pl.fml); }
+	  | SEMICOLON pl=prolog2 { $fml = new Struct(";", $pl.fml); } // TODO: MAKE SEMICOLON WORK
 	  | START pl=prolog2 END prolog2 { $fml = $pl.fml; }
 	  | UNARY_OP pl=prolog2 { $fml = new Struct($UNARY_OP.text, $pl.fml); } 
 	  | termBuilder prolog2  { $fml = $termBuilder.fml; }

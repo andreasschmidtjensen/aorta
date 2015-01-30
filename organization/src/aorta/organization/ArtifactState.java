@@ -8,19 +8,13 @@ package aorta.organization;
 
 import alice.tuprolog.InvalidLibraryException;
 import alice.tuprolog.InvalidTheoryException;
-import alice.tuprolog.Struct;
-import alice.tuprolog.Term;
 import aorta.State;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
-import aorta.kr.language.MetaLanguage;
 import aorta.organization.action.Operation;
 import cartago.AgentId;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 

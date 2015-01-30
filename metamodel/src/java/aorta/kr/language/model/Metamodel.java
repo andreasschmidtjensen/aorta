@@ -26,7 +26,7 @@ public class Metamodel {
 	private List<Role> roles;
 	private List<Objective> objectives;
 	private List<Dependency> dependencies;
-	private List<Obligation> obligations;
+	private List<Norm> norms;
 	private List<Rule> rules;
 
 	public static Metamodel load(String location) throws IOException, OrganizationImportException {
@@ -47,15 +47,15 @@ public class Metamodel {
 		this.roles = new ArrayList<>();
 		this.objectives = new ArrayList<>();
 		this.dependencies = new ArrayList<>();
-		this.obligations = new ArrayList<>();
+		this.norms = new ArrayList<>();
 		this.rules = new ArrayList<>();
 	}
 
-	public Metamodel(List<Role> roles, List<Objective> objectives, List<Dependency> dependencies, List<Obligation> obligations, List<Rule> rules) {
+	public Metamodel(List<Role> roles, List<Objective> objectives, List<Dependency> dependencies, List<Norm> norms, List<Rule> rules) {
 		this.roles = roles;
 		this.objectives = objectives;
 		this.dependencies = dependencies;
-		this.obligations = obligations;
+		this.norms = norms;
 		this.rules = rules;
 	}
 
@@ -71,8 +71,8 @@ public class Metamodel {
 		return dependencies;
 	}
 
-	public List<Obligation> getObligations() {
-		return obligations;
+	public List<Norm> getNorms() {
+		return norms;
 	}
 
 	public List<Rule> getRules() {
@@ -90,8 +90,8 @@ public class Metamodel {
 		for (Dependency d : dependencies) {
 			termList.append(d.toProlog());
 		}
-		for (Obligation o : obligations) {
-			termList.append(o.toProlog());
+		for (Norm n : norms) {
+			termList.append(n.toProlog());
 		}
 		for (Rule r : rules) {
 			termList.append(r.toProlog());
@@ -116,11 +116,11 @@ public class Metamodel {
 				sb.append(d).append("\n");
 			}
 		}
-		if (!obligations.isEmpty()) {
-			Collections.sort(obligations);
-			sb.append("\nOBLIGATIONS:\n");
-			for (Obligation o : obligations) {
-				sb.append(o).append("\n");
+		if (!norms.isEmpty()) {
+			Collections.sort(norms);
+			sb.append("\nNORMS:\n");
+			for (Norm n : norms) {
+				sb.append(n).append("\n");
 			}
 		}
 		if (!rules.isEmpty()) {

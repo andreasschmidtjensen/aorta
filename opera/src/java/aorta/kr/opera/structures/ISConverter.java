@@ -8,7 +8,7 @@ import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.language.model.Metamodel;
-import aorta.kr.language.model.Obligation;
+import aorta.kr.language.model.Norm;
 import aorta.kr.opera.ConversionUtils;
 import aorta.kr.opera.OperAImportException;
 import java.util.ArrayList;
@@ -151,7 +151,7 @@ public class ISConverter {
 						String name = r.getName();
 						name = name.substring(0, 1).toLowerCase() + name.substring(1);
 						if (r.getObjectives().contains(o)) {
-							mm.getObligations().add(new Obligation(name, objective, deadline, condition));
+							mm.getNorms().add(new Norm(name, Norm.OBLIGATION, objective, deadline, condition));
 						}
 					}
 				}

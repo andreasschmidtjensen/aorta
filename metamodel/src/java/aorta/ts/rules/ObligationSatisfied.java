@@ -14,6 +14,7 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
+import aorta.kr.language.model.Norm;
 import aorta.kr.util.FormulaQualifier;
 import aorta.kr.util.TermQualifier;
 import aorta.logging.Logger;
@@ -34,7 +35,7 @@ public class ObligationSatisfied extends Transition {
 		MentalState ms = state.getMentalState();
 		
 		MetaLanguage language = new MetaLanguage();
-		Struct obl = language.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D"));
+		Struct obl = language.norm(new Var("A"), new Var("R"), new Struct(Norm.OBLIGATION), new Var("O"), new Var("D"));
 		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 
 		List<SolveInfo> obligations = engine.findAll(ms, orgObl);

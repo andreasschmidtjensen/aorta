@@ -18,17 +18,17 @@ options {   tokenVocab = MetamodelLexer; }
 metamodel returns [Metamodel mm] 
 	: {
 	   List<Dependency> dependencyList = new ArrayList<>();
-	   List<Obligation> obligationList = new ArrayList<>();
+	   List<Norm> normList = new ArrayList<>();
 	   List<Rule> ruleList = new ArrayList<>();
 	  }
 	roles 
 	objectives 
 	(dependencies { dependencyList = $dependencies.dependencyList; })? 
-	(obligations { obligationList = $obligations.obligationList; })? 
+	(norms { normList = $norms.normList ; })? 
 	(rules { ruleList = $rules.ruleList; })? 
 	EOF
 	{
-	$mm = new Metamodel($roles.roleList, $objectives.objList, dependencyList, obligationList, ruleList); 
+	$mm = new Metamodel($roles.roleList, $objectives.objList, dependencyList, normList, ruleList); 
 	};
 
 roles returns [List<Role> roleList] 
@@ -55,12 +55,12 @@ dependency returns [Dependency d]
 	: dependee=ATOM GT dependant=ATOM COLON prolog FULLSTOP
 	  { $d = new Dependency($dependee.text, $dependant.text, $prolog.fml); };
 
-obligations returns [List<Obligation> obligationList] 
-	: { $obligationList = new ArrayList<>(); }
-	OBLIGATIONS COLON (obligation { $obligationList.add($obligation.o); })+;
-obligation returns [Obligation o] 
-	: roleName=ATOM COLON obj=prolog LT deadline=prolog PIPE cond=prolog FULLSTOP
-	  { $o = new Obligation($roleName.text, $obj.fml, $deadline.fml, $cond.fml); };
+norms returns [List<Norm> normList] 
+	: { $normList = new ArrayList<>(); }
+	NORMS COLON (norm { $normList.add($norm.o); })+;
+norm returns [Norm o] 
+	: roleName=ATOM START_BRACKET d=DEON END_BRACKET COLON obj=prolog LT deadline=prolog PIPE cond=prolog FULLSTOP
+	  { $o = new Norm($roleName.text, $d.text, $obj.fml, $deadline.fml, $cond.fml); };
 
 rules returns [List<Rule> ruleList] 
 	: { $ruleList = new ArrayList<>(); }

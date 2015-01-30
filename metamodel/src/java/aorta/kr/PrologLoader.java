@@ -17,6 +17,7 @@ public final class PrologLoader {
 
 	public PrologLoader() throws InvalidLibraryException, InvalidTheoryException, IOException {
 		prolog = new Prolog();
+		
 
 		if (Verify.isRunningInJPF()) {
 			String clauses = "cl([], []).\n" +

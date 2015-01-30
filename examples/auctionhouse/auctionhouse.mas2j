@@ -39,18 +39,11 @@ MAS auctionhouse {
     infrastructure: AORTA(organization("ah.mm"),notrace("Ext"))
 	environment: aorta.auctionhouse.AuctionHouse
 
-	/*
-	Agent types:
-	a) Ignorant (i.e. AORTA is almost not used)
-	b) AORTA guides them
-	*/
     agents:
-		manager [aorta="ah.aorta"];
-		//a_seller [aorta="simple_ah.aorta"];
-		//a_buyer [aorta="simple_ah.aorta"] #2; 
-		
-		b_seller [aorta="ah.aorta"];
-		b_buyer [aorta="ah.aorta"] #2;
+		bob buyer.asl [aorta="ah.aorta"];
+		carol buyer.asl [aorta="ah.aorta"];	
+		sally seller.asl [aorta="ah.aorta"];
+		mike manager.asl [aorta="ah.aorta"];	
 
 }
 

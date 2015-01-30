@@ -39,11 +39,12 @@ public class Objective {
 	}
 	
 	public Term toProlog() {
+		MetaLanguage ml = new MetaLanguage();
 		Struct subObjs = new Struct();
 		for (Term o : subObjectives) {
-			subObjs.append(o);
+			subObjs.append(ml.qualify(o));
 		}
-		return new MetaLanguage().objective(objective, subObjs);
+		return ml.objective(ml.qualify(objective), subObjs);
 	}
 	
 	@Override

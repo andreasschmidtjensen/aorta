@@ -28,14 +28,14 @@ public class ArtifactPanel extends EntityPanel {
 	private StateViewer stateViewer = StateViewer.get();
 	
 	private final JList reaList;
-	private final JList oblList;
+	private final JList normList;
 	private final JList violList;
 	
 	public ArtifactPanel(AortaArtifact artifact) {
 		this.artifact = artifact;
 		
 		reaList = addListPanel("Role enactment");
-		oblList = addListPanel("Obligations");
+		normList = addListPanel("Norms");
 		violList = addListPanel("Violations");
 		
 		setState(new State());
@@ -60,14 +60,14 @@ public class ArtifactPanel extends EntityPanel {
 		final Term REA = new Struct("org", ml.rea(new Var("A"), new Var("R")));
 		final Term OPT = Term.createTerm("opt(O)");
 		final Term GOAL = Term.createTerm("goal(G)");
-		final Term OBL = new Struct("org", ml.obligation(new Var("A"), new Var("R"), new Var("O"), new Var("D")));
-		final Term VIOL = new Struct("org", ml.violation(new Var("A"), new Var("R"), new Var("O")));
+		final Term NORM = new Struct("org", ml.norm(new Var("A"), new Var("R"), new Var("Deon"), new Var("O"), new Var("D")));
+		final Term VIOL = new Struct("org", ml.violation(new Var("A"), new Var("R"), new Var("Deon"), new Var("O")));
 		
 		
 		@Override
 		public void update() {
 			updateRea();
-			updateObligations();
+			updateNorms();
 			updateViolations();
 		}
 
@@ -94,29 +94,30 @@ public class ArtifactPanel extends EntityPanel {
 			violList.setModel(reaModel);
 		}
 		
-		private void updateObligations() {
+		private void updateNorms() {
 			List<String> values = new ArrayList<>();
-			List<SolveInfo> solutions = engine.findAll(artifact.getState().getMentalState(), OBL);
+			List<SolveInfo> solutions = engine.findAll(artifact.getState().getMentalState(), NORM);
 			for (SolveInfo solution : solutions) {
 				if (solution.isSuccess()) {
 					try {
 						String agent = solution.getVarValue("A").toString();
 						String role = solution.getVarValue("R").toString();
+						String deon = solution.getVarValue("Deon").toString();
 						Term objective = solution.getVarValue("O");
 						Term deadline = solution.getVarValue("D");
-						String value = agent + "[" + role + "] : " + TermFormatter.toString(objective) + " < " + TermFormatter.toString(deadline);
+						String value = agent + "[" + role + " " + deon + "]: " + TermFormatter.toString(objective) + " < " + TermFormatter.toString(deadline);
 						values.add(anon.matcher(value).replaceAll("_"));
 					} catch (NoSolutionException ex) {
 						// ignore because of isSuccess()
 					}
 				}
 			}
-			DefaultListModel obligationModel = new DefaultListModel();
+			DefaultListModel normModel = new DefaultListModel();
 			Collections.sort(values);
 			for (String v : values) {
-				obligationModel.addElement(v);
+				normModel.addElement(v);
 			}
-			oblList.setModel(obligationModel);
+			normList.setModel(normModel);
 		}
 		
 		private void updateViolations() {
@@ -127,8 +128,9 @@ public class ArtifactPanel extends EntityPanel {
 					try {
 						String agent = solution.getVarValue("A").toString();
 						String role = solution.getVarValue("R").toString();
+						String deon = solution.getVarValue("Deon").toString();
 						Term objective = solution.getVarValue("O");
-						String value = agent + "[" + role + "] : " + TermFormatter.toString(objective);
+						String value = agent + "[" + role + " " + deon + "] : " + TermFormatter.toString(objective);
 						values.add(anon.matcher(value).replaceAll("_"));
 					} catch (NoSolutionException ex) {
 						// ignore because of isSuccess()

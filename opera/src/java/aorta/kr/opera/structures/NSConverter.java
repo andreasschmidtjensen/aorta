@@ -9,7 +9,6 @@ import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.language.model.Metamodel;
-import aorta.kr.language.model.Obligation;
 import aorta.kr.opera.ConversionUtils;
 import aorta.kr.opera.OperAImportException;
 import net.sf.ictalive.operetta.OM.Atom;
@@ -45,11 +44,20 @@ public class NSConverter {
 					Struct objective = ConversionUtils.stateDescriptionToStruct(rdStmt.getWhat());
 					Struct deadline = ConversionUtils.stateDescriptionToStruct(norm.getDeadline());
 					
-					Struct activation = getViolation(norm.getActivationCondition(), ss);
+					Struct activation = getViolation(norm.getActivationCondition(), modality, ss);
 					
 					String name = rdStmt.getRole().getName();
 					name = name.substring(0, 1).toLowerCase() + name.substring(1);
-					mm.getObligations().add(new Obligation(name, objective, deadline, activation));
+					mm.getNorms().add(new aorta.kr.language.model.Norm(name, aorta.kr.language.model.Norm.OBLIGATION, objective, deadline, activation));
+				} else if (modality == DeonticModality.PROHIBITION) {
+					Struct objective = ConversionUtils.stateDescriptionToStruct(rdStmt.getWhat());
+					Struct expiration = ConversionUtils.stateDescriptionToStruct(norm.getExpirationCondition());
+					
+					Struct activation = getViolation(norm.getActivationCondition(), modality, ss);
+					
+					String name = rdStmt.getRole().getName();
+					name = name.substring(0, 1).toLowerCase() + name.substring(1);
+					mm.getNorms().add(new aorta.kr.language.model.Norm(name, aorta.kr.language.model.Norm.PROHIBITION, objective, expiration, activation));
 				} else {
 					throw new OperAImportException("Modality " + modality + " not supported!");
 				}
@@ -63,7 +71,7 @@ public class NSConverter {
 		}
 	}
 	
-	private static Struct getViolation(PartialStateDescription psd, SS ss) throws OperAImportException {
+	private static Struct getViolation(PartialStateDescription psd, DeonticModality modality, SS ss) throws OperAImportException {
 		Struct result;
 		if (psd instanceof Atom) {
 			Atom a = (Atom)psd;
@@ -74,21 +82,27 @@ public class NSConverter {
 			}
 			result = new Struct(a.getPredicate(), terms);
 		} else if (psd instanceof Negation) {
-			Struct negatedFormula = getViolation(((Negation)psd).getStateFormula(), ss);
+			Struct negatedFormula = getViolation(((Negation)psd).getStateFormula(), modality, ss);
 			if (isObjective(negatedFormula, ss)) {
-				result = ml.violation(new Var("Agent"), new Var("Role"), negatedFormula);
+				result = ml.violation(
+						new Var("Agent"), 
+						new Var("Role"),  
+						new Struct(modality == DeonticModality.OBLIGATION ? 
+										aorta.kr.language.model.Norm.OBLIGATION : 
+										aorta.kr.language.model.Norm.PROHIBITION),
+						negatedFormula);
 			} else {
-				result = new Struct("\\+", getViolation(((Negation)psd).getStateFormula(), ss));
+				result = new Struct("\\+", getViolation(((Negation)psd).getStateFormula(), modality, ss));
 			}
 		} else if (psd instanceof Conjunction) {
 			Conjunction c = (Conjunction) psd;
-			result = new Struct(",", getViolation(c.getLeftStateFormula(), ss), getViolation(c.getRightStateFormula(), ss));
+			result = new Struct(",", getViolation(c.getLeftStateFormula(), modality, ss), getViolation(c.getRightStateFormula(), modality, ss));
 		} else if (psd instanceof Disjunction) {
 			Disjunction d = (Disjunction) psd;
-			result = new Struct(";", getViolation(d.getLeftStateFormula(), ss), getViolation(d.getRightStateFormula(), ss));			
+			result = new Struct(";", getViolation(d.getLeftStateFormula(), modality, ss), getViolation(d.getRightStateFormula(), modality, ss));			
 		} else if (psd instanceof Implication) {
 			Implication i = (Implication) psd;
-			result = new Struct(";", new Struct("\\+", getViolation(i.getAntecedentStateFormula(), ss)), getViolation(i.getConsequentStateFormula(), ss));			
+			result = new Struct(";", new Struct("\\+", getViolation(i.getAntecedentStateFormula(), modality, ss)), getViolation(i.getConsequentStateFormula(), modality, ss));			
 		} else {
 			throw new OperAImportException("PartialStateDescription " + psd + " not supported!");
 		}

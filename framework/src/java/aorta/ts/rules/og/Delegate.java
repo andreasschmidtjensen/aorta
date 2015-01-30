@@ -35,16 +35,16 @@ public class Delegate extends Transition<AgentState> {
 		MetaLanguage language = new MetaLanguage();
 		Struct rea = language.rea(new Struct(state.getAgent().getName()), new Var("R1"));
 		Struct dep = language.dependency(new Var("R1"), new Var("R2"), new Var("O"));
-		Struct obl = language.obligation(new Struct(state.getAgent().getName()), new Var("R"), new Var("O"), new Var("D"));
+		Struct obj = language.obj(new Var("O"));
 		Struct del = language.send(new Var("R2"), new Struct("achieve"), new Var("O"));
 
 		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 		Struct orgDep = FormulaQualifier.qualifyStruct(dep, KBType.ORGANIZATION);
-		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
+		Struct optObj = FormulaQualifier.qualifyStruct(obj, KBType.OPTION);
 		Struct optDel = FormulaQualifier.qualifyStruct(del, KBType.OPTION);
 		
-		// bel(me(A)), org(rea(A,R1)), org(dependency(R1,R2,O)), opt(obligation(A,R1,O,D)), \+ opt(delegate(R2,O))
-		Term test = Term.createTerm(orgRea + ", " + orgDep + ", " + orgObl + ", \\+ " + optDel);
+		// org(rea(A,R1)), org(dependency(R1,R2,O)), opt(obj(O)), \+ opt(delegate(R2,O))
+		Term test = Term.createTerm(orgRea + ", " + orgDep + ", " + optObj + ", \\+ " + optDel);
 
 		SolveInfo result = engine.solve(ms, test);
 		if (result.isSuccess()) {

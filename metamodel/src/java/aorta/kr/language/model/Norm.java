@@ -13,16 +13,21 @@ import aorta.kr.util.TermFormatter;
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class Obligation implements Comparable<Obligation> {
+public class Norm implements Comparable<Norm> {
+	
+	public static final String OBLIGATION = "obliged";
+	public static final String PROHIBITION = "forbidden";
 	
 	private MetaLanguage ml = new MetaLanguage();
 	private String role;
+	private String deon;
 	private Term objective;
 	private Term deadline;
 	private Term condition;
 
-	public Obligation(String role, Term objective, Term deadline, Term condition) {
+	public Norm(String role, String deon, Term objective, Term deadline, Term condition) {
 		this.role = role;
+		this.deon = deon;
 		this.objective = objective;
 		this.deadline = deadline;
 		this.condition = condition;
@@ -45,16 +50,16 @@ public class Obligation implements Comparable<Obligation> {
 	}
 	
 	public Term toProlog() {
-		return ml.condition(new Struct(role), ml.qualify(objective), ml.qualify(deadline), ml.qualify(condition));
+		return ml.condition(new Struct(role), new Struct(deon), ml.qualify(objective), ml.qualify(deadline), ml.qualify(condition));
 	}	
 
 	@Override
 	public String toString() {
-		return role + ": " + TermFormatter.toString(objective) + " < " + TermFormatter.toString(deadline) + " | " + TermFormatter.toString(condition) + ".";			
+		return role + " [" + deon + "]: " + TermFormatter.toString(objective) + " < " + TermFormatter.toString(deadline) + " | " + TermFormatter.toString(condition) + ".";			
 	}
 
 	@Override
-	public int compareTo(Obligation o) {
+	public int compareTo(Norm o) {
 		return role.compareTo(o.role);
 	}
 		

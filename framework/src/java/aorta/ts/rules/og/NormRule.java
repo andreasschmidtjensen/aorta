@@ -6,7 +6,6 @@ package aorta.ts.rules.og;
 
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
-import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.AgentState;
 import aorta.kr.KBType;
@@ -14,7 +13,6 @@ import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.FormulaQualifier;
-import aorta.kr.util.TermQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
@@ -24,9 +22,9 @@ import java.util.List;
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class ObligationRule extends Transition<AgentState> {
+public class NormRule extends Transition<AgentState> {
 
-	private static final Logger logger = Logger.getLogger(ObligationRule.class.getName());
+	private static final Logger logger = Logger.getLogger(NormRule.class.getName());
 
 	@Override
 	protected AgentState execute(QueryEngine engine, AgentState state) {
@@ -34,13 +32,13 @@ public class ObligationRule extends Transition<AgentState> {
 		MentalState ms = newState.getMentalState();
 
 		MetaLanguage language = new MetaLanguage();
-		Struct obl = language.obligation(new Struct(state.getAgent().getName()), new Var("R"), new Var("O"), new Var("D"));
+		Struct obl = language.norm(new Struct(state.getAgent().getName()), new Var("R"), new Var("Deon"), new Var("O"), new Var("D"));
 		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 
 		List<SolveInfo> conditionals = engine.findAll(ms, orgObl);
 		for (SolveInfo conditional : conditionals) {
 			if (conditional.isSuccess()) {
-				Struct opt = language.obl(new Var("R"), new Var("O"), new Var("D"));
+				Struct opt = language.norm(new Var("R"), new Var("Deon"), new Var("O"), new Var("D"));
 				Struct optObl = FormulaQualifier.qualifyStruct(opt, KBType.OPTION);
 				
 				engine.unify(ms, optObl, conditional);
@@ -63,6 +61,6 @@ public class ObligationRule extends Transition<AgentState> {
 
 	@Override
 	public String getName() {
-		return "Obligation";
+		return "Norm";
 	}
 }

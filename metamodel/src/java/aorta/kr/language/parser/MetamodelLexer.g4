@@ -9,7 +9,7 @@ END_BRACKET: ']';
 ROLES: 'ROLES';
 OBJECTIVES: 'OBJECTIVES';
 DEPENDENCIES: 'DEPENDENCIES' {dependencies = true;};
-OBLIGATIONS: 'OBLIGATIONS' {dependencies = false;};
+NORMS: 'NORMS' {dependencies = false;};
 RULES: 'RULES';
 ENTAILS: ':-';
 COLON: ':';
@@ -22,9 +22,12 @@ COMMA: ',';
 LT : '<';
 GT : {dependencies}? '>';
 
+DEON : ('obliged' | 'forbidden');
+
 IS : ' is ';
 
 // Prolog
+HASH : '#';
 ATOM: [a-z][a-zA-Z0-9_]*;
 NUMBER: '-'?[0-9]+('.'[0-9]+)?;
 VAR: [A-Z_][a-zA-Z0-9_]*;
