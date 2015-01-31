@@ -9,6 +9,7 @@ import alice.tuprolog.Var;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
+import aorta.kr.language.model.Metamodel;
 import aorta.kr.util.FormulaQualifier;
 import aorta.msg.IncomingOrganizationalMessage;
 import aorta.msg.OutgoingOrganizationalMessage;
@@ -35,8 +36,8 @@ public class AgentState extends State {
 	private AortaBridge bridge;
 	private List<Var> bindings;
 	
-	public AgentState(AortaAgent agent, MentalState mentalState, List<ReasoningRule> rules) {
-		super(mentalState);
+	public AgentState(AortaAgent agent, MentalState mentalState, Metamodel metamodel, List<ReasoningRule> rules) {
+		super(mentalState, metamodel);
 		this.agent = agent;
 		this.rules = rules;
 

@@ -8,6 +8,7 @@ import java.util.List;
 
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
+import aorta.kr.language.model.Metamodel;
 import aorta.kr.util.FormulaQualifier;
 import aorta.msg.OutgoingOrganizationalMessage;
 import aorta.ts.strategy.Strategy;
@@ -44,11 +45,11 @@ public class AortaAgent {
 	
 	private boolean lastCycleChangedState = true;
 
-	public AortaAgent(String name, MentalState mentalState, List<ReasoningRule> rules) {
+	public AortaAgent(String name, MentalState mentalState, Metamodel metamodel, List<ReasoningRule> rules) {
 		this.name = name;
 		this.strategy = new AgentStrategy(false);
 
-		state = new AgentState(this, mentalState, rules);
+		state = new AgentState(this, mentalState, metamodel, rules);
 
 		setup();
 	}

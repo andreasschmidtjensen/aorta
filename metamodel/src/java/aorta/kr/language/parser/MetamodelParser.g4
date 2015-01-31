@@ -59,8 +59,9 @@ norms returns [List<Norm> normList]
 	: { $normList = new ArrayList<>(); }
 	NORMS COLON (norm { $normList.add($norm.o); })+;
 norm returns [Norm o] 
-	: roleName=ATOM START_BRACKET d=DEON END_BRACKET COLON obj=prolog LT deadline=prolog PIPE cond=prolog FULLSTOP
-	  { $o = new Norm($roleName.text, $d.text, $obj.fml, $deadline.fml, $cond.fml); };
+	: { $o = new Norm(); }
+	roleName=ATOM (EQUALS var { $o.setAgentVar($var.fml); })?  START_BRACKET d=DEON END_BRACKET COLON obj=prolog LT deadline=prolog PIPE cond=prolog FULLSTOP
+	  { $o.setData($roleName.text, $d.text, $obj.fml, $deadline.fml, $cond.fml); };
 
 rules returns [List<Rule> ruleList] 
 	: { $ruleList = new ArrayList<>(); }

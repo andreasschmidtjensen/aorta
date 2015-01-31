@@ -13,6 +13,7 @@ import alice.tuprolog.Var;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
+import aorta.kr.language.model.Metamodel;
 import aorta.kr.util.FormulaQualifier;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +30,13 @@ public abstract class State {
 	
 	private MentalState mentalState;	
 	private List<Var> bindings;
+	private Metamodel metamodel;
 	
 	private boolean changed;
 
-	public State(MentalState mentalState) {
+	public State(MentalState mentalState, Metamodel metamodel) {
 		this.mentalState = mentalState;
+		this.metamodel = metamodel;
 		
 		bindings = new ArrayList<>();
 	}
@@ -69,10 +72,6 @@ public abstract class State {
 	}
 
 	public void insertTerm(QueryEngine engine, Struct qualifiedTerm) {
-		if (!FormulaQualifier.isQualified(qualifiedTerm)) {
-			throw new IllegalArgumentException("Provided term was not qualified: " + qualifiedTerm);
-		}
-
 		try {
 			KBType type = FormulaQualifier.getQualifier(qualifiedTerm);
 			Struct term = (Struct) FormulaQualifier.getQualified(qualifiedTerm);
@@ -91,10 +90,6 @@ public abstract class State {
 	}
 
 	public void removeTerm(QueryEngine engine, Struct qualifiedTerm) {
-		if (!FormulaQualifier.isQualified(qualifiedTerm)) {
-			throw new IllegalArgumentException("Provided term was not qualified: " + qualifiedTerm);
-		}
-
 		KBType type = FormulaQualifier.getQualifier(qualifiedTerm);
 		Struct term = (Struct) FormulaQualifier.getQualified(qualifiedTerm);
 
@@ -137,6 +132,10 @@ public abstract class State {
 		}
 	}
 
+	public Metamodel getMetamodel() {
+		return metamodel;
+	}
+	
 	public MentalState getMentalState() {
 		return mentalState;
 	}

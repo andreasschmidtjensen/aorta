@@ -10,6 +10,7 @@ import alice.tuprolog.InvalidLibraryException;
 import alice.tuprolog.InvalidTheoryException;
 import aorta.State;
 import aorta.kr.MentalState;
+import aorta.kr.language.model.Metamodel;
 import aorta.organization.action.Operation;
 import cartago.AgentId;
 import java.io.IOException;
@@ -30,8 +31,8 @@ public class ArtifactState extends State {
 	private Map<String, AgentId> agents;
 	private Queue<Operation> queue;
 	
-	public ArtifactState(MentalState mentalState, AortaArtifact artifact, EnvironmentSensor environment) throws InvalidTheoryException, IOException, InvalidLibraryException {
-		super(mentalState);
+	public ArtifactState(MentalState mentalState, Metamodel metamodel, AortaArtifact artifact, EnvironmentSensor environment) throws InvalidTheoryException, IOException, InvalidLibraryException {
+		super(mentalState, metamodel);
 		
 		this.artifact = artifact;
 		this.environment = environment;

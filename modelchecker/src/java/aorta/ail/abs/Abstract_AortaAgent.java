@@ -26,6 +26,8 @@ public class Abstract_AortaAgent {
 	private Abstract_ActionRule[] rules;
 	private String mentalState;
 
+	// TODO: Abstract_Metamodel 
+	
 	public Abstract_AortaAgent(String name, Abstract_ActionRule[] rules, String mentalState) {
 		this.name = name;
 		this.rules = rules;
@@ -64,7 +66,7 @@ public class Abstract_AortaAgent {
 		for (Abstract_ActionRule ar : rules) {
 			arList.add(ar.toAORTA());
 		}
-		AortaAgent agent = new AortaAgent(name, new MentalState(prolog), arList);
+		AortaAgent agent = new AortaAgent(name, new MentalState(prolog), null, arList);
 		return agent;
 	}
 	

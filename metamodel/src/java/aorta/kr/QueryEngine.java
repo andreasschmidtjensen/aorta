@@ -1,6 +1,5 @@
 package aorta.kr;
 
-import alice.tuprolog.Int;
 import aorta.kr.util.FormulaQualifier;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +23,12 @@ public class QueryEngine {
 	}
 	
 	public boolean exists(MentalState ms, Term term) {
+		if (ms == null) {
+			throw new NullPointerException("Mental state was null!");
+		}
+		if (term == null) {
+			throw new NullPointerException("Term was null!");
+		}
 		Prolog prolog = ms.getProlog();
 		SolveInfo solve = prolog.solve(term);
 		return solve.isSuccess();

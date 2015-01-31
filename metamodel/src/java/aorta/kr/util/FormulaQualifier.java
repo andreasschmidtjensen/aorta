@@ -166,17 +166,11 @@ public class FormulaQualifier extends TermQualifier {
 	}
 
 	public static KBType getQualifier(Struct term) {
-		for (Term r : TermQualifier.QUALIFIERS) {
-			if (r.match(term)) {
-				return KBType.get(((Struct)r).getName());
-			}
-		}
-		return null;
+		return KBType.get(term.getName());
 	}
+	
 	public static Term getQualified(Struct term) {
-		if (TermQualifier.isQualified(term)) {
-			if (term.getArg(0) == null) 
-				System.out.println("arg0 for " + term + " is " + term.getArg(0));
+		if (term.getArity() > 0) {
 			return term.getArg(0);
 		}
 		return null;

@@ -4,6 +4,7 @@
  */
 package aorta.ts.rules;
 
+import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
@@ -13,6 +14,8 @@ import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
+import aorta.kr.language.model.Metamodel;
+import aorta.kr.language.model.Norm;
 import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.Transition;
@@ -28,50 +31,78 @@ public abstract class NormActivated extends Transition {
 	private static final Logger logger = Logger.getLogger(NormActivated.class.getName());
 
 	public abstract Struct getDeon();
-	
+
 	@Override
 	protected State execute(QueryEngine engine, State state) {
 		MentalState ms = state.getMentalState();
-		
-		MetaLanguage language = new MetaLanguage();
-		Struct rea = language.rea(new Var("A"), new Var("R"));
-		Struct cond = language.condition(new Var("R"), getDeon(), new Var("O"), new Var("D"), new Var("C"));
 
-		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
-		Struct orgCond = FormulaQualifier.qualifyStruct(cond, KBType.ORGANIZATION);
-		
-		// org(rea(A,R)), org(cond(R,O,D,C)), C, \+ O, \+ org(obl(A,R,O,D))
-		Term term = Term.createTerm(orgRea + ", " + orgCond + ", C");
-		
-		List<SolveInfo> conditionals = engine.findAll(ms, term);
-		
-		for (SolveInfo conditional : conditionals) {
-			if (conditional.isSuccess()) {
-				Var objective = new Var("O");
-				engine.unify(ms, objective, conditional);
-				
-				Struct norm = language.norm(new Var("A"), new Var("R"), getDeon(), new Var("O"), new Var("D"));
-				Struct orgNorm = FormulaQualifier.qualifyStruct(norm, KBType.ORGANIZATION);
-				engine.unify(ms, orgNorm, conditional);
-				
-				if (!engine.exists(ms, objective.getTerm())
-						&& !engine.exists(ms, orgNorm)) {
+		Metamodel metamodel = state.getMetamodel();
+		MetaLanguage ml = new MetaLanguage();
 
-					if (!objective.isGround()) {
-						logger.warning("[" + state.getDescription() + "] Norm state - " + objective + " - is not ground");
-					}
-					state.insertTerm(engine, orgNorm);
+		for (Norm norm : metamodel.getNorms()) {
+			Term r = new Struct(norm.getRole());
+			Term deon = new Struct(norm.getDeon());
 
-					logger.fine("[" + state.getDescription() + "] Adding obligation: " + orgNorm);
-					Tracer.trace(state.getIdentifier(), getName(), orgNorm.getArg(0).toString());
-
-					break;
-				}
-
+			if (!deon.equals(getDeon())) {
+				continue;
 			}
+			
+			// For each agent rea(agent, r) set agVar = agent
+			//   if c => activate norm for rea(agent, r)
+			List<SolveInfo> reas = engine.findAll(ms, FormulaQualifier.qualifyStruct(ml.rea(new Var("A"), r), KBType.ORGANIZATION));
+			for (SolveInfo rea : reas) {
+				if (rea.isSuccess()) {
+					Term a = null;
+					try {
+						a = rea.getVarValue("A");
+					} catch (NoSolutionException ex) {
+						// never happens (we check for isSuccess())
+					}
+					
+					Term p = Term.createTerm(ml.qualify(norm.getObjective()).toString());
+					Term d = Term.createTerm(ml.qualify(norm.getDeadline()).toString());
+					Term c = Term.createTerm(ml.qualify(norm.getCondition()).toString());
+					
+					Term condition;
+					if (norm.hasAgentVar()) {
+						Term agVar = Term.createTerm(norm.getAgentVar().toString());
+						condition = new Struct(",", new Struct("=", agVar, a), c);
+					} else {
+						condition = c;
+					}
+					
+					Term test = new Struct(",", 
+									new Struct(",", 
+											condition, 
+											new Struct("\\+", p)), 
+									new Struct("\\+", d));
+
+					SolveInfo solution = engine.solve(ms, test);
+					if (solution.isSuccess()) {						
+						engine.unify(ms, p, solution);
+						engine.unify(ms, d, solution);
+						
+						Struct activatedNorm = ml.norm(a, r, deon, p, d);
+						Struct orgNorm = FormulaQualifier.qualifyStruct(activatedNorm, KBType.ORGANIZATION);
+						
+						if (!engine.exists(ms, orgNorm)) {
+							if (!p.isGround()) {
+								logger.warning("[" + state.getDescription() + "] Norm state - " + p + " - is not ground");
+							}
+							state.insertTerm(engine, orgNorm);
+
+							logger.fine("[" + state.getDescription() + "] Adding norm: " + orgNorm);
+							Tracer.trace(state.getIdentifier(), getName(), orgNorm.getArg(0).toString());
+
+							break;
+						}
+					}
+				}
+			}
+
 		}
 
 		return state;
 	}
-	
+
 }

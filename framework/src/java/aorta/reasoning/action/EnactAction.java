@@ -81,7 +81,7 @@ public class EnactAction extends Action {
 				newState.insertTerm(engine, (Struct) qualified);
 				newState.removeTerm(engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
 
-				Struct send = ml.send(clonedRoleTerm, new Struct("tell"), qualified);
+				Struct send = ml.send(Term.TRUE, new Struct("tell"), qualified);
 				newState.insertTerm(engine, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
 
 				logger.fine("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");

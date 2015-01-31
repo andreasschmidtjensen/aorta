@@ -2,9 +2,10 @@ lexer grammar MetamodelLexer;
 
 @lexer::members {
 	boolean dependencies = false;
+	boolean eq = false; // for equals in conditional norm
 }
 
-START_BRACKET: '[';
+START_BRACKET: '[' { eq = false; };
 END_BRACKET: ']';
 ROLES: 'ROLES';
 OBJECTIVES: 'OBJECTIVES';
@@ -21,6 +22,7 @@ END : ')';
 COMMA: ',';
 LT : '<';
 GT : {dependencies}? '>';
+EQUALS : '=';
 
 DEON : ('obliged' | 'forbidden');
 
@@ -28,7 +30,7 @@ IS : ' is ';
 
 // Prolog
 HASH : '#';
-ATOM: [a-z][a-zA-Z0-9_]*;
+ATOM: [a-z][a-zA-Z0-9_]* { eq = true; };
 NUMBER: '-'?[0-9]+('.'[0-9]+)?;
 VAR: [A-Z_][a-zA-Z0-9_]*;
 MATH_OP: ('+'|'-'|'*'|'/');

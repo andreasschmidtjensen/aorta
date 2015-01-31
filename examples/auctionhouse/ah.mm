@@ -17,11 +17,11 @@ DEPENDENCIES:
 customer > manager: verified(Agent).
 
 NORMS:
-customer [obliged]: registered(Me) < verified(Me) | me(Me).   
-customer [obliged]: paid(Item) < \+ participant(Me) | (me(Me), won(Me, Item)).
-buyer [obliged]: verified(Me) < bid(Me, Item) | (me(Me), registered(Me)).
-seller [obliged]: verified(Me) < auction(Me, Item) | (me(Me), registered(Me)).
-manager [forbidden]: verified(Ag) < false | (badInfo(Ag), registered(Ag)).
+customer=Me [obliged]: registered(Me) < verified(Me) | agent(Me).   
+customer=Me [obliged]: paid(Item) < \+ participant(Me) | won(Me, Item).
+buyer=Me [obliged]: verified(Me) < bid(Me, Item) | registered(Me).
+seller=Me [obliged]: verified(Me) < auction(Me, Item) | registered(Me).
+manager [forbidden]: verified(Ag) < false | badInfo(Ag), registered(Ag).
 
 RULES:
 registered(Agent) :- registered(Agent, Address, Account).

@@ -45,7 +45,7 @@ public class AortaArtifact extends Artifact {
 		PrologLoader loader = new PrologLoader();
 		loader.addTheory(initialModel.createTheory(), KBType.ORGANIZATION);
 		
-		state = new ArtifactState(new MentalState(loader.load()), this, environment);
+		state = new ArtifactState(new MentalState(loader.load()), initialModel, this, environment);
 				
 		strategy = new ArtifactStrategy();
 		
