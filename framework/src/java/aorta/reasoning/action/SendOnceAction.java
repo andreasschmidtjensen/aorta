@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import aorta.logging.Logger;
 import aorta.reasoning.fml.Formula;
+import aorta.ts.rules.ActionExecution;
 
 /**
  *
@@ -49,6 +50,7 @@ public class SendOnceAction extends SendAction {
 			if (!info.isSuccess()) {
 				newRecipients.add(recipient);
 				state.insertInMentalState(engine, FormulaQualifier.qualifyStruct(sent, KBType.BELIEF));
+				state.notifyTermAdded(new ActionExecution().getName(), sent);
 			}
 		}
 		

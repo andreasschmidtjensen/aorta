@@ -11,26 +11,16 @@ import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.AortaAgent;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.TermFormatter;
-import java.awt.BorderLayout;
 import aorta.logging.Logger;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import aorta.ts.rules.ObligationActivated;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.regex.Pattern;
-import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ListModel;
 
 /**
  *
@@ -38,10 +28,7 @@ import javax.swing.ListModel;
  */
 public class AgentPanel extends EntityPanel {
 
-	private static final Logger logger = Logger.getLogger(AgentPanel.class.getName());
-
-	private AortaAgent agent;
-	private StateViewer stateViewer = StateViewer.get();
+	private final AortaAgent agent;
 	
 	private final JList violList;
 	private final JList normList;
@@ -61,14 +48,16 @@ public class AgentPanel extends EntityPanel {
 		normList = addListPanel("Norms");
 		violList = addListPanel("Violations");
 		
-		setState(new State());
-		start();
+		State state = new State();		
+		setState(state);
+		agent.getState().addStateListener(state);
 	}
 
 	@Override
-	public void delegateStateViewer() {
-		stateViewer.setAgent(agent);
-		stateViewer.requestFocus();
+	public void delegateTraceViewer() {
+		ExecutionTraceView etv = ExecutionTraceView.get();
+		etv.setAgent(agent.getName());
+		etv.requestFocus();
 	}
 
 	@Override
@@ -77,6 +66,7 @@ public class AgentPanel extends EntityPanel {
 	}
 
 	class State extends EntityState {				
+		
 		// TODO: Only update if actually changed
 		final MetaLanguage ml = new MetaLanguage();
 		final Term REA = new Struct("org", ml.rea(new Struct(agent.getName()), new Var("R")));
@@ -84,7 +74,6 @@ public class AgentPanel extends EntityPanel {
 		final Term GOAL = Term.createTerm("goal(G)");
 		final Term NORM = new Struct("org", ml.norm(new Struct(agent.getName()), new Var("R"), new Var("Deon"), new Var("O"), new Var("D")));
 		final Term VIOL = new Struct("org", ml.violation(new Struct(agent.getName()), new Var("R"), new Var("Deon"), new Var("O")));
-		
 		
 		@Override
 		public void update() {
@@ -149,7 +138,7 @@ public class AgentPanel extends EntityPanel {
 			
 			violList.setModel(violationModel);
 		}
-		
+
 	}
 	
 }

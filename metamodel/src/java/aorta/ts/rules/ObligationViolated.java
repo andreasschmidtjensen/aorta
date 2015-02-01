@@ -54,7 +54,7 @@ public class ObligationViolated extends Transition {
 							&& !engine.exists(ms, orgViol)) { // violation not detected already
 						
 						//XXX: newState = state.clone();;
-						state.insertTerm(engine, orgViol);
+						add(state, engine, orgViol);
 
 						logger.fine("[" + state.getDescription() + "] Violated obligation: " + orgViol);
 						Tracer.trace(state.getIdentifier(), getName(), orgViol.getArg(0).toString());

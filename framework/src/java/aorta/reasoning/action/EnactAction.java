@@ -14,6 +14,7 @@ import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
+import aorta.ts.rules.ActionExecution;
 import cartago.CartagoException;
 
 public class EnactAction extends Action {
@@ -70,7 +71,8 @@ public class EnactAction extends Action {
 							roleName = clonedRoleTerm.toString();
 						}
 						state.getAgent().getArtifactAgent().enact(roleName);
-						newState.removeTerm(engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
+						ActionExecution tr = new ActionExecution();
+						tr.remove(newState, engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
 						
 						Tracer.queue(state.getAgent().getName(), "ARTIFACT.enact(" + qualified + ")");
 					} catch (CartagoException ex) {
@@ -78,11 +80,12 @@ public class EnactAction extends Action {
 					}
 				}
 				
-				newState.insertTerm(engine, (Struct) qualified);
-				newState.removeTerm(engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
+				ActionExecution tr = new ActionExecution();
+				tr.add(newState, engine, (Struct) qualified);
+				tr.remove(newState, engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
 
 				Struct send = ml.send(Term.TRUE, new Struct("tell"), qualified);
-				newState.insertTerm(engine, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
+				tr.add(newState, engine, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
 
 				logger.fine("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
 				Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");

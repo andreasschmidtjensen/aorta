@@ -9,12 +9,14 @@ package aorta;
 import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
+import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
 import aorta.kr.language.model.Metamodel;
 import aorta.kr.util.FormulaQualifier;
+import aorta.tracer.StateListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -32,6 +34,8 @@ public abstract class State {
 	private List<Var> bindings;
 	private Metamodel metamodel;
 	
+	private final List<StateListener> stateListeners = new ArrayList<>();
+	
 	private boolean changed;
 
 	public State(MentalState mentalState, Metamodel metamodel) {
@@ -47,6 +51,31 @@ public abstract class State {
 	public void newCycle() {
 	}
 
+	public synchronized void addStateListener(StateListener sl) {
+		stateListeners.add(sl);
+	}
+	public synchronized void removeStateListener(StateListener sl) {
+		stateListeners.remove(sl);
+	}
+	
+	public synchronized void notifyNewState() {
+		for (StateListener sl : stateListeners) {
+			sl.newState(this);
+		}
+	}
+	
+	public synchronized void notifyTermAdded(String ruleName, Term term) {
+		for (StateListener sl : stateListeners) {
+			sl.termAdded(ruleName, term);
+		}
+	}
+	
+	public synchronized void notifyTermRemoved(String ruleName, Term term) {
+		for (StateListener sl : stateListeners) {
+			sl.termRemoved(ruleName, term);
+		}
+	}
+	
 	public void prepareForTransition() {
 		changed = false;
 		bindings.clear();

@@ -1,8 +1,6 @@
 package aorta;
 
 import alice.tuprolog.Struct;
-import aorta.inspector.AgentWebInspector;
-import aorta.inspector.Inspector;
 import aorta.kr.KBType;
 import java.util.List;
 
@@ -19,6 +17,7 @@ import aorta.logging.Logger;
 import aorta.organization.AortaArtifactAgent;
 import aorta.reasoning.MessageFunction;
 import aorta.reasoning.ReasoningRule;
+import aorta.tracer.ExecutionTrace;
 import aorta.tracer.Tracer;
 import aorta.ts.strategy.AgentStrategy;
 import cartago.ArtifactId;
@@ -36,12 +35,12 @@ public class AortaAgent {
 	private AgentState state;
 	private Aorta aorta;
 	private Strategy<AgentState> strategy;
-	
+		
 	private AortaArtifactAgent artifactAgent;
     
     private String lastTrace;
     
-	private final List<Inspector> inspectors = new ArrayList<>();
+	private final ExecutionTrace trace;
 	
 	private boolean lastCycleChangedState = true;
 
@@ -51,14 +50,10 @@ public class AortaAgent {
 
 		state = new AgentState(this, mentalState, metamodel, rules);
 
+		trace = new ExecutionTrace(name);
+		state.addStateListener(trace);
+				
 		setup();
-	}
-
-	public void addInspector(Inspector inspector) {
-		inspectors.add(inspector);
-	}
-	
-	public AortaAgent() {
 	}
 
 	private void setup() {
@@ -127,13 +122,12 @@ public class AortaAgent {
 
 	public void newCycle() throws StrategyFailedException {
 		cycle++;
-		
-		if (AgentWebInspector.isRunning()) {
-			Tracer.clearTrace(name);
-		}
         
 		long start = System.currentTimeMillis();
 		logger.log(Level.FINEST, "(" + getName() + ") New AORTA cycle [" + cycle + "]. Strategy: " + strategy.getClass().getName());
+		
+		state.notifyNewState();
+		
 		state.newCycle();
 		state = strategy.execute(state);
 		
@@ -152,13 +146,11 @@ public class AortaAgent {
 		}
 
         lastTrace = Tracer.printTrace(name);
-        
-		if (lastCycleChangedState) {
-			for (Inspector i : inspectors) {
-				i.addAgentState(this);
-			}
-		}
 		logger.log(Level.FINEST, "(" + getName() + ") Cycle done [" + cycle + "] (time: " + (System.currentTimeMillis() - start) + " ms)");
+	}
+
+	public ExecutionTrace getExecutionTrace() {
+		return trace;
 	}
 
     public String getLastTrace() {

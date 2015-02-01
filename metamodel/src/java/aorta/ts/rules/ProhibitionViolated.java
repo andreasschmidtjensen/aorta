@@ -52,7 +52,7 @@ public class ProhibitionViolated extends Transition {
 						&& !engine.exists(ms, deadline.getTerm())  //deadline not reached
 						&& !engine.exists(ms, orgViol)) { // violation not detected already
 
-					state.insertTerm(engine, orgViol);
+					add(state, engine, orgViol);
 
 					logger.fine("[" + state.getDescription() + "] Violated prohibition: " + orgViol);
 					Tracer.trace(state.getIdentifier(), getName(), orgViol.getArg(0).toString());

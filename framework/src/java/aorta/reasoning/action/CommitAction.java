@@ -14,6 +14,7 @@ import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import java.util.logging.Level;
 import aorta.logging.Logger;
+import aorta.ts.rules.ActionExecution;
 
 public class CommitAction extends Action {
 
@@ -65,7 +66,8 @@ public class CommitAction extends Action {
 					asStruct = (Struct) clonedObjTerm;
 				}
 
-				newState.insertTerm(engine, asStruct, KBType.GOAL);
+				ActionExecution tr = new ActionExecution();
+				tr.add(newState, engine, asStruct, KBType.GOAL);
 
 				logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: commit(" + asStruct + ")");
 				Tracer.queue(state.getAgent().getName(), "commit(" + asStruct + ")");

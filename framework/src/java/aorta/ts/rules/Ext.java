@@ -40,42 +40,42 @@ public class Ext extends Transition<AgentState> {
 			Struct struct;
 			while ((struct = ext.getRemovedBelief()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.BELIEF.getType());
-				newState.removeFromMentalState(engine, qualified);
+				removeFromMs(newState, engine, qualified);
 				remBeliefs++;
 				
 				Tracer.queue(state.getAgent().getName(), "-" + qualified + ";");
 			}
 			while ((struct = ext.getNewBelief()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.BELIEF.getType());
-				newState.insertInMentalState(engine, qualified);
+				insertInMs(newState, engine, qualified);
 				newBeliefs++;
 
 				Tracer.queue(state.getAgent().getName(), "+" + qualified + ";");
 			}
 			while ((struct = ext.getRemovedGoal()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.GOAL.getType());
-				newState.removeFromMentalState(engine, qualified);
+				removeFromMs(newState, engine, qualified);
 				remGoals++;
 				
 				Tracer.queue(state.getAgent().getName(), "-" + qualified + ";");
 			}
 			while ((struct = ext.getNewGoal()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.GOAL.getType());
-				newState.insertInMentalState(engine, qualified);
+				insertInMs(newState, engine, qualified);
 				newGoals++;
 				
 				Tracer.queue(state.getAgent().getName(), "+" + qualified + ";");
 			}
 			while ((struct = ext.getRemovedCapability()) != null) {
 				Struct cap = new Struct("cap", struct);
-				newState.removeFromMentalState(engine, cap);
+				removeFromMs(newState, engine, cap);
 				remCaps++;
 				
 				Tracer.queue(state.getAgent().getName(), "-" + cap + ";");
 			}
 			while ((struct = ext.getNewCapability()) != null) {
 				Struct cap = new Struct("cap", struct);
-				newState.insertInMentalState(engine, cap);
+				insertInMs(newState, engine, cap);
 				newCaps++;
 				
 				Tracer.queue(state.getAgent().getName(), "+" + cap + ";");

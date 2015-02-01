@@ -4,8 +4,11 @@
  */
 package aorta.ts;
 
+import alice.tuprolog.Struct;
 import aorta.State;
+import aorta.kr.KBType;
 import aorta.kr.QueryEngine;
+import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 
 /**
@@ -26,5 +29,35 @@ public abstract class Transition<T extends State> {
 	}
     
 	public abstract String getName();
-	    
+	
+	public void add(State state, QueryEngine engine, Struct term, KBType type) {
+		state.insertTerm(engine, term, type);
+		state.notifyTermAdded(getName(), FormulaQualifier.qualifyStruct(term, type));
+	}
+	
+	public void add(State state, QueryEngine engine, Struct term) {
+		state.insertTerm(engine, term);
+		state.notifyTermAdded(getName(), term);
+	}
+	
+	public void insertInMs(State state, QueryEngine engine, Struct term) {
+		state.insertInMentalState(engine, term);
+		state.notifyTermAdded(getName(), term);
+	}
+	
+	public void remove(State state, QueryEngine engine, Struct term, KBType type) {
+		state.removeTerm(engine, term, type);
+		state.notifyTermRemoved(getName(), FormulaQualifier.qualifyStruct(term, type));
+	}
+	
+	public void remove(State state, QueryEngine engine, Struct term) {
+		state.removeTerm(engine, term);
+		state.notifyTermRemoved(getName(), term);
+	}
+	
+	public void removeFromMs(State state, QueryEngine engine, Struct term) {
+		state.removeFromMentalState(engine, term);
+		state.notifyTermRemoved(getName(), term);
+	}
+	
 }

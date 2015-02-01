@@ -7,8 +7,10 @@ package aorta.gui;
 import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Term;
+import aorta.State;
 import aorta.kr.MentalState;
 import aorta.kr.QueryEngine;
+import aorta.tracer.StateListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -20,7 +22,7 @@ import javax.swing.JList;
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public abstract class EntityState {
+public abstract class EntityState implements StateListener {
 
 	protected final QueryEngine engine = new QueryEngine();
 	protected final Pattern anon = Pattern.compile("_\\d+");
@@ -47,4 +49,18 @@ public abstract class EntityState {
 		}
 		list.setModel(model);
 	}
+
+	@Override
+	public void newState(State state) {
+		update();
+	}
+	
+	@Override
+	public void termAdded(String name, Term term) {
+	}
+
+	@Override
+	public void termRemoved(String name, Term term) {
+	}
+	
 }

@@ -65,7 +65,9 @@ public class AortaGui extends JFrame {
 	}
 
 	public void addAgent(final AortaAgent agent) {		
-		setVisible(true);
+		if (!isVisible()) {
+			setVisible(true);
+		}
 		
 		final String name = agent.getName();
 		JCheckBox checkbox = new JCheckBox(name);
@@ -73,26 +75,31 @@ public class AortaGui extends JFrame {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					AgentPanel inspector = new AgentPanel(agent);
-					inspectors.put(name, inspector);
-					agentInspectors.add(inspector);
+					AgentPanel agPanel = new AgentPanel(agent);
+					inspectors.put(name, agPanel);
+					agentInspectors.add(agPanel);
 				} else {
 					if (inspectors.containsKey(name)) {
-						EntityPanel inspector = inspectors.remove(name);
-						inspector.stop();
-						agentInspectors.remove(inspector);
+						EntityPanel entityPanel = inspectors.remove(name);
+						agentInspectors.remove(entityPanel);
 					}
 				}
 
 				agentInspectors.revalidate();
+				agentInspectors.repaint();
 			}
 		});
 		checkboxes.add(checkbox);
 		checkboxes.revalidate();
+		checkboxes.repaint();
+		
+		ExecutionTraceView.get().addExecutionTrace(agent);
 	}
 
 	public void addArtifact(final AortaArtifact art) {
-		setVisible(true);
+		if (!isVisible()) {
+			setVisible(true);
+		}
 		
 		final String name = "ARTIFACT";
 		JCheckBox checkbox = new JCheckBox(name);
@@ -106,7 +113,6 @@ public class AortaGui extends JFrame {
 				} else {
 					if (inspectors.containsKey(name)) {
 						EntityPanel inspector = inspectors.remove(name);
-						inspector.stop();
 						agentInspectors.remove(inspector);
 					}
 				}

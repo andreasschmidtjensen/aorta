@@ -48,6 +48,10 @@ public class ProhibitionExpired extends Transition {
 				Struct optObj = FormulaQualifier.qualifyStruct(obj, KBType.OPTION);
 				engine.unify(ms, optObj, obligation);
 				
+				Struct proForOpt = language.norm(new Var("R"), new Struct(Norm.PROHIBITION), new Var("O"), new Var("D"));
+				Struct optPro = FormulaQualifier.qualifyStruct(proForOpt, KBType.OPTION);
+				engine.unify(ms, optPro, obligation);
+				
 				Term objectiveArg = obj.getArg(0);
 				if (objectiveArg instanceof Var && ((Var)objectiveArg).getTerm() instanceof Struct) {
 					objectiveArg = ((Var)objectiveArg).getTerm();
@@ -75,8 +79,10 @@ public class ProhibitionExpired extends Transition {
 					//XXX: newState = state.clone();
 					engine.unify(ms, orgObl, obligation);
 					engine.unify(ms, optObj, obligation);
-					state.removeTerm(engine, orgObl);
-					state.removeTerm(engine, optObj);
+					engine.unify(ms, optPro, obligation);
+					remove(state, engine, orgObl);
+					remove(state, engine, optObj);
+					remove(state, engine, optPro);
 
 					logger.fine("[" + state.getDescription() + "] Prohibition expired (removing): " + orgObl);
 					Tracer.trace(state.getIdentifier(), getName(), "Expired " + orgObl.getArg(0));

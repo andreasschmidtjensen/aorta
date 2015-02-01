@@ -7,8 +7,8 @@ package aorta.jason.infra;
 import aorta.AORTAException;
 import aorta.Aorta;
 import aorta.AortaAgent;
-import aorta.inspector.AgentWebInspector;
 import aorta.gui.AortaGui;
+import aorta.gui.ExecutionTraceView;
 import aorta.jason.AortaAgentArch;
 import aorta.jason.AortaJasonBridge;
 import aorta.kr.language.OrganizationImportException;
@@ -45,7 +45,6 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 	private Aorta aorta;
 	private AortaGui gui;
 	
-	private boolean useWebInspector = false;
 	private boolean useGui = true;
 	private int agSleepTime = 0;
 	
@@ -69,7 +68,6 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 		}
 		
 		useGui = infrastructure.getParameter("nogui") == null;
-		useWebInspector = infrastructure.getParameter("inspector") != null;
 		useArtifact = infrastructure.getParameter("artifact") != null;
 		
 		String sleep = infrastructure.getParameter("sleep");
@@ -98,10 +96,6 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 		
 		if (useGui) {
 			gui = AortaGui.get();
-		}
-		
-		if (useWebInspector) {
-			AgentWebInspector.get();
 		}
 		
 		try {
@@ -172,10 +166,6 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 
 				if (gui != null) {
 					gui.addAgent(aortaAgent);
-				}
-				if (useWebInspector) {
-					AgentWebInspector.get().registerAgent(aortaAgent);
-					aortaAgent.addInspector(AgentWebInspector.get());
 				}
 				if (agSleepTime > 0) {
 					agentArch.setSleepTime(agSleepTime);

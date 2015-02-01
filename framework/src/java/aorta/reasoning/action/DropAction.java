@@ -15,6 +15,7 @@ import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
 import aorta.reasoning.action.Action;
+import aorta.ts.rules.ActionExecution;
 
 public class DropAction extends Action {
 	
@@ -58,7 +59,8 @@ public class DropAction extends Action {
                 }
 				
 				//XXX: newState = state.clone();;
-				newState.removeTerm(engine, asStruct, KBType.GOAL);
+				ActionExecution tr = new ActionExecution();
+				tr.remove(newState, engine, asStruct, KBType.GOAL);
 				logger.fine("[" + state.getAgent().getName() + "] Executing action: drop(" + asStruct + ")");
 				Tracer.queue(state.getAgent().getName(), "drop(" + asStruct + ")");
 			}

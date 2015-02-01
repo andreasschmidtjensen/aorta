@@ -23,6 +23,7 @@ import java.util.List;
 import aorta.logging.Logger;
 import aorta.reasoning.action.Action;
 import aorta.reasoning.fml.Formula;
+import aorta.ts.rules.ActionExecution;
 
 /**
  *
@@ -99,6 +100,7 @@ public class SendAction extends Action {
 			// add mental note that the message was sent to a recipient
 			Struct sent = ml.sent(recipient, message);
 			state.insertInMentalState(engine, FormulaQualifier.qualifyStruct(sent, KBType.BELIEF));
+			state.notifyTermAdded(new ActionExecution().getName(), sent);
 		}
 		OutgoingOrganizationalMessage msg = new OutgoingOrganizationalMessage(recipientList, message);
 		state.sendMessage(msg);

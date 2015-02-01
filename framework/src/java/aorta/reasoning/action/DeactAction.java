@@ -14,6 +14,7 @@ import aorta.kr.language.MetaLanguage;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
+import aorta.ts.rules.ActionExecution;
 import cartago.CartagoException;
 
 public class DeactAction extends Action {
@@ -73,7 +74,8 @@ public class DeactAction extends Action {
 					}
 				} else {
 					//XXX: newState = state.clone();;
-					newState.removeTerm(engine, (Struct) qualified);
+					ActionExecution tr = new ActionExecution();
+					tr.remove(newState, engine, (Struct) qualified);
 
 					logger.fine("[" + state.getAgent().getName() + "] Executing action: deact(" + qualified + ")");
 					Tracer.queue(state.getAgent().getName(), "deact(" + qualified + ")");

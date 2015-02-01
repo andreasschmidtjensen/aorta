@@ -25,7 +25,6 @@ import javax.swing.JList;
 public class ArtifactPanel extends EntityPanel {
 
 	private AortaArtifact artifact;
-	private StateViewer stateViewer = StateViewer.get();
 	
 	private final JList reaList;
 	private final JList normList;
@@ -39,13 +38,12 @@ public class ArtifactPanel extends EntityPanel {
 		violList = addListPanel("Violations");
 		
 		setState(new State());
-		start();
+		// TODO: add statelistener
 	}
 		
 	@Override
-	public void delegateStateViewer() {
-		stateViewer.setArtifact(artifact);
-		stateViewer.requestFocus();
+	public void delegateTraceViewer() {
+		
 	}
 
 	@Override
@@ -54,8 +52,7 @@ public class ArtifactPanel extends EntityPanel {
 	}
 
 	class State extends EntityState {
-				
-		// TODO: Only update if actually changed
+		
 		final MetaLanguage ml = new MetaLanguage();
 		final Term REA = new Struct("org", ml.rea(new Var("A"), new Var("R")));
 		final Term OPT = Term.createTerm("opt(O)");
@@ -144,7 +141,7 @@ public class ArtifactPanel extends EntityPanel {
 			}
 			violList.setModel(violationModel);
 		}
-		
+	
 	}
 	
 }

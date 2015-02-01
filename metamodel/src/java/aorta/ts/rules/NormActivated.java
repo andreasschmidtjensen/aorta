@@ -89,7 +89,7 @@ public abstract class NormActivated extends Transition {
 							if (!p.isGround()) {
 								logger.warning("[" + state.getDescription() + "] Norm state - " + p + " - is not ground");
 							}
-							state.insertTerm(engine, orgNorm);
+							add(state, engine, orgNorm);
 
 							logger.fine("[" + state.getDescription() + "] Adding norm: " + orgNorm);
 							Tracer.trace(state.getIdentifier(), getName(), orgNorm.getArg(0).toString());

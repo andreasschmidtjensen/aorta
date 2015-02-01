@@ -51,8 +51,7 @@ public class EnactRule extends Transition<AgentState> {
 					engine.unify(ms, optRole, result);
 
 					if (optRole.isGround()) {
-						//XXX: newState = state.clone();;
-						newState.insertTerm(engine, optRole);
+						add(newState, engine, optRole);
 
 						logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + optRole);
 						Tracer.trace(state.getAgent().getName(), getName(), optRole.getArg(0).toString());

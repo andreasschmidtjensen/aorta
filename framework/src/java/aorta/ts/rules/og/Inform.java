@@ -56,8 +56,7 @@ public class Inform extends Transition<AgentState> {
 			engine.unify(ms, optInf, state.getBindings());
 			
 			if (optInf.isGround()) {
-				//XXX: newState = state.clone();;
-				newState.insertTerm(engine, optInf);
+				add(newState, engine, optInf);
 				
 				logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optInf);
 				Tracer.trace(state.getAgent().getName(), getName(), optInf.toString());

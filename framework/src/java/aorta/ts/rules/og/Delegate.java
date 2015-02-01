@@ -58,7 +58,7 @@ public class Delegate extends Transition<AgentState> {
 			
 			if (optDel.isGround()) {
 				//XXX: newState = state.clone();;
-				newState.insertTerm(engine, optDel);
+				add(state, engine, optDel);
 				
 				logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optDel);
 				Tracer.trace(state.getAgent().getName(), getName(), optDel.toString());

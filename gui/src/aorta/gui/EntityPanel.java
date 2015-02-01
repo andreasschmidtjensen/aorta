@@ -21,8 +21,7 @@ import javax.swing.JScrollPane;
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
 public abstract class EntityPanel extends JPanel {
-	
-	private Thread updateThread;		
+			
 	protected JPanel statePanel;
 	private EntityState state;
 	
@@ -35,29 +34,18 @@ public abstract class EntityPanel extends JPanel {
 		add(statePanel, BorderLayout.CENTER);
 		statePanel.setLayout(new BoxLayout(statePanel, BoxLayout.Y_AXIS));
 		
-		JButton openStateViewer = new JButton("Show internal state");
-		openStateViewer.addActionListener(new ActionListener() {
+		JPanel buttons = new JPanel();
+		buttons.setLayout(new BoxLayout(buttons, BoxLayout.X_AXIS));
+		
+		JButton openExecutionTrace = new JButton("Show trace");
+		openExecutionTrace.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				delegateStateViewer();
+				delegateTraceViewer();
 			}
 		});
-		add(openStateViewer, BorderLayout.SOUTH);
-		
-		updateThread = new Thread() {
-			@Override
-			public void run() {
-				while (!interrupted()) {
-					try {
-						state.update();
-						sleep(2000);
-					} catch (InterruptedException ex) {
-						break;
-					}
-				}
-				System.out.println("stopped gui loop for " + getEntityName());
-			}
-		}; 
+		buttons.add(openExecutionTrace);
+		add(buttons, BorderLayout.SOUTH);
 	}
 
 	protected JList addListPanel(String titleText) {
@@ -75,15 +63,7 @@ public abstract class EntityPanel extends JPanel {
 		this.state = state;
 	}
 	
-	public void start() {
-		updateThread.start();
-	}
-
-	public void stop() {
-		updateThread.interrupt();
-	}
-	
-	public abstract void delegateStateViewer();
+	public abstract void delegateTraceViewer();
 	public abstract String getEntityName();
 	
 }

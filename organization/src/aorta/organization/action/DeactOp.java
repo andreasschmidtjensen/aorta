@@ -12,6 +12,7 @@ import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.FormulaQualifier;
 import aorta.organization.ArtifactState;
+import aorta.organization.ts.rules.OperationExecution;
 
 /**
  *
@@ -36,7 +37,8 @@ public class DeactOp extends Operation {
 		Struct qualified = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 		
 		QueryEngine qe = new QueryEngine();
-		state.removeTerm(qe, qualified);
+		OperationExecution tr = new OperationExecution();
+		tr.remove(state, qe, qualified);
 
 		return true;
 	}	

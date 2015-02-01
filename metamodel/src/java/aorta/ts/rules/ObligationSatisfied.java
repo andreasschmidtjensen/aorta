@@ -46,6 +46,10 @@ public class ObligationSatisfied extends Transition {
 				Struct optObj = FormulaQualifier.qualifyStruct(obj, KBType.OPTION);
 				engine.unify(ms, optObj, obligation);
 				
+				Struct oblForOpt = language.norm(new Var("R"), new Struct(Norm.OBLIGATION), new Var("O"), new Var("D"));
+				Struct optObl = FormulaQualifier.qualifyStruct(oblForOpt, KBType.OPTION);
+				engine.unify(ms, optObl, obligation);
+				
 				Term objectiveArg = obj.getArg(0);
 				if (objectiveArg instanceof Var && ((Var)objectiveArg).getTerm() instanceof Struct) {
 					objectiveArg = ((Var)objectiveArg).getTerm();
@@ -73,8 +77,10 @@ public class ObligationSatisfied extends Transition {
 					//XXX: newState = state.clone();
 					engine.unify(ms, orgObl, obligation);
 					engine.unify(ms, optObj, obligation);
-					state.removeTerm(engine, orgObl);
-					state.removeTerm(engine, optObj);
+					engine.unify(ms, optObl, obligation);
+					remove(state, engine, orgObl);
+					remove(state, engine, optObj);
+					remove(state, engine, optObl);
 
 					logger.fine("[" + state.getDescription() + "] Removing obligation: " + orgObl);
 					Tracer.trace(state.getIdentifier(), getName(), "Satisfied " + orgObl.getArg(0));
