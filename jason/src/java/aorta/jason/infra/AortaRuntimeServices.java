@@ -8,13 +8,13 @@ import aorta.AORTAException;
 import aorta.Aorta;
 import aorta.AortaAgent;
 import aorta.gui.AortaGui;
-import aorta.gui.ExecutionTraceView;
 import aorta.jason.AortaAgentArch;
 import aorta.jason.AortaJasonBridge;
 import aorta.kr.language.OrganizationImportException;
 import aorta.organization.AortaArtifact;
 import aorta.organization.EnvironmentSensor;
 import aorta.parser.helper.AortaBuilder;
+import aorta.tracer.StateListener;
 import aorta.tracer.Tracer;
 import jason.NoValueException;
 import jason.asSyntax.ASSyntax;
@@ -86,6 +86,7 @@ public class AortaRuntimeServices extends CentralisedRuntimeServices {
 				Literal ignoreLit = ASSyntax.parseLiteral(ignore);
 				for (Term t : ignoreLit.getTermsArray()) {
 					if (t.isString()) {
+						StateListener.IgnoredEvents.ignore(((StringTerm) t).getString());
 						Tracer.ignore(((StringTerm) t).getString());
 					}
 				}

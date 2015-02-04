@@ -114,7 +114,9 @@ public class AortaMetamodelSideKickParser extends sidekick.SideKickParser {
 				DefaultMutableTreeNode rulesNode = new DefaultMutableTreeNode("RULES", true);
 				pd.root.add(rulesNode);
 				for (Rule rule : mm.getRules()) {
-					rulesNode.add(new DefaultMutableTreeNode(rule.toString(), false));
+					if (rule != null) {
+						rulesNode.add(new DefaultMutableTreeNode(rule.toString(), false));
+					}
 				}
 			}
 

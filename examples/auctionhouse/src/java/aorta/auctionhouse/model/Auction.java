@@ -13,7 +13,10 @@ import jason.asSyntax.Literal;
 import jason.asSyntax.LiteralImpl;
 import jason.asSyntax.NumberTermImpl;
 import jason.asSyntax.StringTermImpl;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -28,10 +31,12 @@ public class Auction {
 	private int startPrice;
 	private int endTime;
 	private Bid currentBid;
+	private List<Bid> allBids = new ArrayList<>();
 	private Set<String> participants;
 	private boolean paid;
 	private boolean delivered;
 	private boolean ended;
+	
 
 	public Auction(int id, String name, String seller, int startPrice, int endTime) {
 		this.id = id;
@@ -98,18 +103,39 @@ public class Auction {
 		
 		if (currentBid == null || (bid.getBid() > 0 && bid.getBid() > currentBid.getBid())) {
 			currentBid = bid;
+			allBids.add(currentBid);
 			return true;
 		} else {
 			return false;
 		}
 	}
-
+	
 	public void addParticipant(String agent) {
 		participants.add(agent);
 	}
 	
-	public void removeParticipant(String agent) {
+	/** 
+	 * returns new highest bid
+	 * @param agent
+	 * @return 
+	 */
+	public Bid removeParticipant(String agent) {
 		participants.remove(agent);
+		
+		Iterator<Bid> it = allBids.iterator();
+		while (it.hasNext()) {
+			Bid bid = it.next();
+			if (bid.getBidder().equals(agent)) {
+				it.remove();
+			}
+		}
+		
+		if (!allBids.isEmpty()) {
+			currentBid = allBids.get(allBids.size() - 1);
+			return currentBid;
+		} else {
+			return null;
+		}
 	}
 
 	public boolean participates(String agent) {

@@ -27,7 +27,7 @@ import java.util.logging.Logger;
  * @author Andreas
  */
 public abstract class State {
-	
+		
 	private static final Logger logger = Logger.getLogger(State.class.getName());
 	
 	private MentalState mentalState;	
@@ -65,14 +65,18 @@ public abstract class State {
 	}
 	
 	public synchronized void notifyTermAdded(String ruleName, Term term) {
-		for (StateListener sl : stateListeners) {
-			sl.termAdded(ruleName, term);
+		if (!StateListener.IgnoredEvents.isIgnored(ruleName)) {
+			for (StateListener sl : stateListeners) {
+				sl.termAdded(ruleName, term);
+			}
 		}
 	}
 	
 	public synchronized void notifyTermRemoved(String ruleName, Term term) {
-		for (StateListener sl : stateListeners) {
-			sl.termRemoved(ruleName, term);
+		if (!StateListener.IgnoredEvents.isIgnored(ruleName)) {
+			for (StateListener sl : stateListeners) {
+				sl.termRemoved(ruleName, term);
+			}
 		}
 	}
 	

@@ -78,6 +78,7 @@ public abstract class NormActivated extends Transition {
 									new Struct("\\+", d));
 
 					SolveInfo solution = engine.solve(ms, test);
+										
 					if (solution.isSuccess()) {						
 						engine.unify(ms, p, solution);
 						engine.unify(ms, d, solution);

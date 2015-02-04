@@ -29,6 +29,10 @@ public class VisitedState implements StateListener, Iterable<FiredTransitionRule
 		firedRules = new LinkedHashMap<>();
 	}
 
+	public int getStateNum() {
+		return stateNum;
+	}
+
 	public String getMentalState() {
 		return mentalState;
 	}

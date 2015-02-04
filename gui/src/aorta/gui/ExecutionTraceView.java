@@ -10,14 +10,16 @@ import aorta.AortaAgent;
 import aorta.State;
 import aorta.kr.MentalState;
 import aorta.tracer.ExecutionTrace;
-import aorta.tracer.FiredTransitionRule;
 import aorta.tracer.StateListener;
-import aorta.tracer.VisitedState;
 import java.awt.BorderLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -28,7 +30,6 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 /**
@@ -81,6 +82,26 @@ public class ExecutionTraceView extends JFrame {
 		split.setRightComponent(new JScrollPane(mentalStateView));
 		split.setResizeWeight(0.5);
 		panel.add(split, BorderLayout.CENTER);
+		
+		JButton export = new JButton("Tikz");
+		export.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ExecutionModel model = ((ExecutionModel)tree.getModel());
+				try (FileWriter wr = new FileWriter(model.trace.getAgent() + ".tex")) {
+					wr.write(model.trace.toTikz());
+					System.out.println("Written to " + model.trace.getAgent() + ".tex");
+				} catch (IOException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+		
+		JPanel buttons = new JPanel();
+		buttons.setLayout(new BoxLayout(buttons, BoxLayout.X_AXIS));
+		buttons.add(export);
+		
+		panel.add(buttons, BorderLayout.SOUTH);
 	}
 	
 	public void addExecutionTrace(AortaAgent agent) {
@@ -105,10 +126,13 @@ public class ExecutionTraceView extends JFrame {
 		
 		private int stateNum = 0;
 		
+		private ExecutionTrace trace;	
+		
 		public ExecutionModel(String agentName) {
 			super(new DefaultMutableTreeNode(agentName));
 			
 			top = (DefaultMutableTreeNode) getRoot();
+			trace = new ExecutionTrace(agentName);
 		}
 
 		@Override
@@ -116,6 +140,8 @@ public class ExecutionTraceView extends JFrame {
 			DefaultMutableTreeNode ruleNode = getCurrentRuleNode(name);
 			DefaultMutableTreeNode termNode = new DefaultMutableTreeNode("+" + term);
 			insertNodeInto(termNode, ruleNode, ruleNode.getChildCount());
+			
+			trace.termAdded(name, term);
 		}
 
 		@Override
@@ -123,6 +149,8 @@ public class ExecutionTraceView extends JFrame {
 			DefaultMutableTreeNode ruleNode = getCurrentRuleNode(name);
 			DefaultMutableTreeNode termNode = new DefaultMutableTreeNode("-" + term);
 			insertNodeInto(termNode, ruleNode, ruleNode.getChildCount());
+			
+			trace.termRemoved(name, term);
 		}
 
 		@Override
@@ -130,10 +158,13 @@ public class ExecutionTraceView extends JFrame {
 			if (stateNum > 0 && currentRuleNodes.isEmpty()) {
 				// state did not change
 				stateNum--;
+				trace.revokeLastState();
 			}
 			
 			currentStateNode = new StateNode("s_" + stateNum++, state.getMentalState());
 			currentRuleNodes = new HashMap<>();
+			
+			trace.newState(state);
 		}
 		
 		private DefaultMutableTreeNode getCurrentRuleNode(String name) {
@@ -148,7 +179,7 @@ public class ExecutionTraceView extends JFrame {
 			}
 			return currentRuleNodes.get(name);
 		}
-		
+	
 	}
 	
 	private class StateNode extends DefaultMutableTreeNode {

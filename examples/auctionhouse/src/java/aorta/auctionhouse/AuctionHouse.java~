@@ -333,19 +333,10 @@ public class AuctionHouse extends Environment {
 
 	private boolean removeFromAuction(int id, String agent) {
 		if (auctions.containsKey(id) && auctions.get(id).participates(agent)) {
-			Bid newHighest = auctions.get(id).removeParticipant(agent);
+			auctions.get(id).removeParticipant(agent);
 
-			// TODO: Remove bids by that agent
 			Literal percept = createParticipantPercept(id, agent);
 			removePercept(percept);
-			
-			Bid bid = new Bid(id, agent, 0);
-			removePerceptsByUnif(bid.toJason());
-			
-			if (newHighest != null) {
-				removePerceptsByUnif(bid.highToJason());
-				addPercept(newHighest.highToJason());
-			}
 
 			return true;
 		} else {

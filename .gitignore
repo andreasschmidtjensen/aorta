@@ -24,3 +24,6 @@ jeditplugin/installer.properties
 *Lexer*.java
 *Parser*.java
 *.tokens
+*.aux
+*.fdb_latexmk
+*.gz

@@ -12,6 +12,7 @@ import jason.asSyntax.Atom;
 import jason.asSyntax.Literal;
 import jason.asSyntax.LiteralImpl;
 import jason.asSyntax.NumberTermImpl;
+import jason.asSyntax.VarTerm;
 
 /**
  *
@@ -67,7 +68,7 @@ public class Bid {
 		Literal result = new LiteralImpl("bid");
 		result.addTerm(new NumberTermImpl(auctionId));
 		result.addTerm(new Atom(bidder));
-		result.addTerm(new NumberTermImpl(bid));
+		result.addTerm(bid == 0 ? new VarTerm("Bid") : new NumberTermImpl(bid));
 		return result;
 	}
 	
@@ -75,7 +76,7 @@ public class Bid {
 		Literal result = new LiteralImpl("bid_high");
 		result.addTerm(new NumberTermImpl(auctionId));
 		result.addTerm(new Atom(bidder));
-		result.addTerm(new NumberTermImpl(bid));
+		result.addTerm(bid == 0 ? new VarTerm("Bid") : new NumberTermImpl(bid));
 		return result;
 	}
 	

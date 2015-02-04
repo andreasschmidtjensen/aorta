@@ -1,0 +1,122 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+\usepackage{makecell}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}[->]
+\tikzstyle{node} = [font=\normalfont]\node[node] (agent) {carol};
+\node[node, below=14ex of agent] (s0) {$s_{0}$};
+\draw (agent) -- node[auto=left] {\makecell[l]{
+\texttt{+opt(role(customer))}\\
+\texttt{+opt(role(buyer))}\\
+\texttt{+org(rea(carol,customer))}\\
+\texttt{+opt(send(true,tell,org(rea(carol,customer))))}\\
+\texttt{-opt(role(customer))}\\
+}} (s0);
+\node[node, below=12ex of s0] (s1) {$s_{1}$};
+\draw (s0) -- node[auto=left] {\makecell[l]{
+\texttt{+org(norm(carol,customer,obliged,bel(registered(carol)),bel(verified(carol))))}\\
+\texttt{+opt(obj(bel(registered(carol))))}\\
+\texttt{+opt(norm(customer,obliged,bel(registered(carol)),bel(verified(carol))))}\\
+\texttt{+sent(bob,org(rea(carol,customer)))}\\
+}} (s1);
+\node[node, below=6ex of s1] (s2) {$s_{2}$};
+\draw (s1) -- node[auto=left] {\makecell[l]{
+\texttt{+sent(sally,org(rea(carol,customer)))}\\
+}} (s2);
+\node[node, below=12ex of s2] (s3) {$s_{3}$};
+\draw (s2) -- node[auto=left] {\makecell[l]{
+\texttt{+om(org(rea(bob,customer)))}\\
+\texttt{+om(org(rea(mike,manager)))}\\
+\texttt{+org(norm(bob,customer,obliged,bel(registered(bob)),bel(verified(bob))))}\\
+\texttt{+sent(mike,org(rea(carol,customer)))}\\
+}} (s3);
+\node[node, below=10ex of s3] (s4) {$s_{4}$};
+\draw (s3) -- node[auto=left] {\makecell[l]{
+\texttt{+om(org(rea(sally,customer)))}\\
+\texttt{+org(norm(sally,customer,obliged,bel(registered(sally)),bel(verified(sally))))}\\
+\texttt{+goal(registered(carol))}\\
+}} (s4);
+\node[node, below=22ex of s4] (s5) {$s_{5}$};
+\draw (s4) -- node[auto=left] {\makecell[l]{
+\texttt{+om(org(rea(bob,buyer)))}\\
+\texttt{+org(norm(bob,buyer,obliged,bel(verified(bob)),bel(bid(bob,Item))))}\\
+\texttt{-org(norm(bob,customer,obliged,bel(registered(bob)),bel(verified(bob))))}\\
+\texttt{-opt(obj(registered(bob)))}\\
+\texttt{-opt(norm(customer,obliged,bel(registered(bob)),bel(verified(bob))))}\\
+\texttt{-org(norm(sally,customer,obliged,bel(registered(sally)),bel(verified(sally))))}\\
+\texttt{-opt(obj(registered(sally)))}\\
+\texttt{-opt(norm(customer,obliged,bel(registered(sally)),bel(verified(sally))))}\\
+\texttt{+org(norm(mike,manager,forbidden,bel(verified(bob)),false))}\\
+}} (s5);
+\node[node, below=16ex of s5] (s6) {$s_{6}$};
+\draw (s5) -- node[auto=left] {\makecell[l]{
+\texttt{-org(norm(carol,customer,obliged,bel(registered(carol)),bel(verified(carol))))}\\
+\texttt{-opt(obj(registered(carol)))}\\
+\texttt{-opt(norm(customer,obliged,bel(registered(carol)),bel(verified(carol))))}\\
+\texttt{+org(rea(carol,buyer))}\\
+\texttt{+opt(send(true,tell,org(rea(carol,buyer))))}\\
+\texttt{-opt(role(buyer))}\\
+}} (s6);
+\node[node, below=14ex of s6] (s7) {$s_{7}$};
+\draw (s6) -- node[auto=left] {\makecell[l]{
+\texttt{+org(norm(carol,buyer,obliged,bel(verified(carol)),bel(bid(carol,Item))))}\\
+\texttt{+opt(obj(bel(verified(carol))))}\\
+\texttt{+opt(norm(buyer,obliged,bel(verified(carol)),bel(bid(carol,\_14517841))))}\\
+\texttt{+opt(send(manager,achieve,bel(verified(carol))))}\\
+\texttt{+sent(bob,org(rea(carol,buyer)))}\\
+}} (s7);
+\node[node, below=6ex of s7] (s8) {$s_{8}$};
+\draw (s7) -- node[auto=left] {\makecell[l]{
+\texttt{+sent(sally,org(rea(carol,buyer)))}\\
+}} (s8);
+\node[node, below=6ex of s8] (s9) {$s_{9}$};
+\draw (s8) -- node[auto=left] {\makecell[l]{
+\texttt{+sent(mike,org(rea(carol,buyer)))}\\
+}} (s9);
+\node[node, below=6ex of s9] (s10) {$s_{10}$};
+\draw (s9) -- node[auto=left] {\makecell[l]{
+\texttt{+sent(mike,opt(obj(bel(verified(carol)))))}\\
+}} (s10);
+\node[node, below=8ex of s10] (s11) {$s_{11}$};
+\draw (s10) -- node[auto=left] {\makecell[l]{
+\texttt{+om(org(rea(sally,seller)))}\\
+\texttt{+org(norm(sally,seller,obliged,bel(verified(sally)),bel(auction(sally,Item))))}\\
+}} (s11);
+\node[node, below=18ex of s11] (s12) {$s_{12}$};
+\draw (s11) -- node[auto=left] {\makecell[l]{
+\texttt{+om(bel(verified(carol)))}\\
+\texttt{-org(norm(carol,buyer,obliged,bel(verified(carol)),bel(bid(carol,\_33185077))))}\\
+\texttt{-opt(obj(verified(carol)))}\\
+\texttt{-opt(norm(buyer,obliged,bel(verified(carol)),bel(bid(carol,\_33185077))))}\\
+\texttt{-org(norm(sally,seller,obliged,bel(verified(sally)),bel(auction(sally,\_8978066))))}\\
+\texttt{-opt(obj(verified(sally)))}\\
+\texttt{-opt(norm(seller,obliged,bel(verified(sally)),bel(auction(sally,\_8978066))))}\\
+}} (s12);
+\node[node, below=8ex of s12] (s13) {$s_{13}$};
+\draw (s12) -- node[auto=left] {\makecell[l]{
+\texttt{+org(viol(bob,buyer,obliged,bel(verified(bob))))}\\
+\texttt{+opt(viol(bob,buyer,obliged,bel(verified(bob))))}\\
+}} (s13);
+\node[node, below=8ex of s13] (s14) {$s_{14}$};
+\draw (s13) -- node[auto=left] {\makecell[l]{
+\texttt{+org(norm(carol,customer,obliged,bel(paidFor('PH-lamp')),'\textbackslash{+}'(bel(participates(carol,'PH-lamp')))))}\\
+\texttt{+opt(norm(customer,obliged,bel(paidFor('PH-lamp')),'\textbackslash{+}'(bel(participates(carol,'PH-lamp')))))}\\
+}} (s14);
+\node[node, below=10ex of s14] (s15) {$s_{15}$};
+\draw (s14) -- node[auto=left] {\makecell[l]{
+\texttt{+org(viol(carol,customer,obliged,bel(paidFor('PH-lamp'))))}\\
+\texttt{+opt(viol(carol,customer,obliged,bel(paidFor('PH-lamp'))))}\\
+\texttt{+goal(paidFor('PH-lamp'))}\\
+}} (s15);
+\node[node, below=10ex of s15] (s16) {$s_{16}$};
+\draw (s15) -- node[auto=left] {\makecell[l]{
+\texttt{-org(norm(carol,customer,obliged,bel(paidFor('PH-lamp')),'\textbackslash{+}'(bel(participates(carol,'PH-lamp')))))}\\
+\texttt{-opt(obj(paidFor('PH-lamp')))}\\
+\texttt{-opt(norm(customer,obliged,bel(paidFor('PH-lamp')),'\textbackslash{+}'(bel(participates(carol,'PH-lamp')))))}\\
+}} (s16);
+\node[node, below=4ex of s16] (s17) {$s_{17}$};
+\draw (s16) -- node[auto=left] {\makecell[l]{
+}} (s17);
+	\end{tikzpicture}
+\end{document}
