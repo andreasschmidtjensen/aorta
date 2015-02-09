@@ -16,14 +16,14 @@ import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 import java.util.logging.Level;
 
 /**
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class DeactRule extends Transition<AgentState> {
+public class DeactRule extends TransitionRule<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(DeactRule.class.getName());
 

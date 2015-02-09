@@ -16,7 +16,7 @@ import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -24,7 +24,7 @@ import java.util.logging.Level;
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class EnactRule extends Transition<AgentState> {
+public class EnactRule extends TransitionRule<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(EnactRule.class.getName());
 

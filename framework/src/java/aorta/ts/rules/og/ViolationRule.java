@@ -17,14 +17,14 @@ import aorta.kr.util.FormulaQualifier;
 import aorta.kr.util.TermQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 import java.util.List;
 
 /**
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class ViolationRule extends Transition<AgentState> {
+public class ViolationRule extends TransitionRule<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(ViolationRule.class.getName());
 

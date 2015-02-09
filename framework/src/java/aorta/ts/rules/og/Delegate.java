@@ -17,13 +17,13 @@ import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 
 /**
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class Delegate extends Transition<AgentState> {
+public class Delegate extends TransitionRule<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(Delegate.class.getName());
 	

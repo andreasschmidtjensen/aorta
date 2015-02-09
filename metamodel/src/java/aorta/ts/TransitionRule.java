@@ -16,9 +16,9 @@ import aorta.logging.Logger;
  * @author asj
  * @param <T>
  */
-public abstract class Transition<T extends State> {
+public abstract class TransitionRule<T extends State> {
  
-	private static final Logger logger = Logger.getLogger(Transition.class.getName());
+	private static final Logger logger = Logger.getLogger(TransitionRule.class.getName());
 	
 	protected abstract T execute(QueryEngine engine, T state);
 	

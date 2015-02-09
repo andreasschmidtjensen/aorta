@@ -9,7 +9,7 @@ import aorta.AgentState;
 import aorta.kr.QueryEngine;
 import aorta.msg.IncomingOrganizationalMessage;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 import java.util.logging.Level;
 import aorta.logging.Logger;
 import aorta.reasoning.MessageFunction;
@@ -18,7 +18,7 @@ import aorta.reasoning.MessageFunction;
  *
  * @author ascje
  */
-public class Check extends Transition<AgentState> {
+public class Check extends TransitionRule<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(Check.class.getName());
 	

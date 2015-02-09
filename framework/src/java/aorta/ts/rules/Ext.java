@@ -11,14 +11,14 @@ import aorta.kr.KBType;
 import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 import aorta.logging.Logger;
 
 /**
  *
  * @author asj
  */
-public class Ext extends Transition<AgentState> {
+public class Ext extends TransitionRule<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(Ext.class.getName());
 

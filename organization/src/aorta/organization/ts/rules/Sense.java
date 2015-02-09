@@ -12,7 +12,7 @@ import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.organization.ArtifactState;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
  *
  * @author Andreas
  */
-public class Sense extends Transition<ArtifactState> {
+public class Sense extends TransitionRule<ArtifactState> {
 
 	@Override
 	protected ArtifactState execute(QueryEngine engine, ArtifactState state) {

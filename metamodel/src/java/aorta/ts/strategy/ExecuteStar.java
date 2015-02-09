@@ -6,7 +6,7 @@
 package aorta.ts.strategy;
 
 import aorta.State;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 
 /**
  *
@@ -14,7 +14,7 @@ import aorta.ts.Transition;
  */
 public class ExecuteStar extends Executor {
 
-	public ExecuteStar(Transition transition) {
+	public ExecuteStar(TransitionRule transition) {
 		super(transition);
 	}
 

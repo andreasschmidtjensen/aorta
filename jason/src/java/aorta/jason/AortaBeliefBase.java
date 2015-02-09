@@ -20,9 +20,9 @@ import java.util.logging.Logger;
  *
  * @author ascje
  */
-public class AortaBB extends DefaultBeliefBase {
+public class AortaBeliefBase extends DefaultBeliefBase {
 
-	private static final Logger logger = Logger.getLogger(AortaBB.class.getName());
+	private static final Logger logger = Logger.getLogger(AortaBeliefBase.class.getName());
 	
 	public static final Term SILENT = new Atom("aorta_silent");
 	

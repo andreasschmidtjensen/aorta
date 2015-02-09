@@ -20,7 +20,7 @@ import aorta.reasoning.ReasoningRule;
 import aorta.reasoning.fml.ConjunctFormula;
 import aorta.reasoning.fml.Formula;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 import aorta.ts.TransitionNotPossibleException;
 import java.util.List;
 import java.util.logging.Level;
@@ -29,7 +29,7 @@ import java.util.logging.Level;
  *
  * @author asj
  */
-public class ActionExecution extends Transition<AgentState> {
+public class ActionExecution extends TransitionRule<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(ActionExecution.class.getName());
 

@@ -18,7 +18,7 @@ import aorta.kr.language.model.Metamodel;
 import aorta.kr.language.model.Norm;
 import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -26,7 +26,7 @@ import java.util.logging.Logger;
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public abstract class NormActivated extends Transition {
+public abstract class NormActivated extends TransitionRule {
 
 	private static final Logger logger = Logger.getLogger(NormActivated.class.getName());
 

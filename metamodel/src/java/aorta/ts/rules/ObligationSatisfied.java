@@ -19,14 +19,14 @@ import aorta.kr.util.FormulaQualifier;
 import aorta.kr.util.TermQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 import java.util.List;
 
 /**
  *
  * @author Andreas Schmidt Jensen <ascje at dtu.dk>
  */
-public class ObligationSatisfied extends Transition {
+public class ObligationSatisfied extends TransitionRule {
 
 	private static final Logger logger = Logger.getLogger(ObligationSatisfied.class.getName());
 

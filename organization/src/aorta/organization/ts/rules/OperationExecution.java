@@ -10,13 +10,13 @@ import aorta.kr.QueryEngine;
 import aorta.organization.ArtifactState;
 import aorta.organization.action.Operation;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 
 /**
  *
  * @author Andreas
  */
-public class OperationExecution extends Transition<ArtifactState> {
+public class OperationExecution extends TransitionRule<ArtifactState> {
 
 	@Override
 	protected ArtifactState execute(QueryEngine engine, ArtifactState state) {

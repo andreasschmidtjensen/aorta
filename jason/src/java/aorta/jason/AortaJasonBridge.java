@@ -54,7 +54,7 @@ public class AortaJasonBridge implements AortaBridge {
 		try {
 			Literal jasonMsg = TermConverter.toLiteral(msg);
 			jasonMsg.addSource(new Atom(sender));
-			jasonMsg.addAnnot(AortaBB.SILENT);
+			jasonMsg.addAnnot(AortaBeliefBase.SILENT);
 			added = agentArch.getAortaJasonAgent().addBel(jasonMsg);
 			
 			logger.log(Level.FINE, "(" + agentArch.getAgName() + "): message " + jasonMsg + " from " + sender + " (was added: " + added + ")");
@@ -112,7 +112,7 @@ public class AortaJasonBridge implements AortaBridge {
 		logger.log(Level.FINE, "(" + agentArch.getAgName() + "): message " + msg + " from " + sender + " was added as goal!");
 		Literal jasonGoal = TermConverter.toLiteral(msg);
 		jasonGoal.addSource(new Atom(sender));
-		jasonGoal.addAnnot(AortaBB.SILENT);
+		jasonGoal.addAnnot(AortaBeliefBase.SILENT);
 		agentArch.getTS().getC().addAchvGoal(jasonGoal, Intention.EmptyInt);
 		return true;
 	}

@@ -11,7 +11,7 @@ import aorta.AgentState;
 import aorta.kr.QueryEngine;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
-import aorta.ts.Transition;
+import aorta.ts.TransitionRule;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -19,7 +19,7 @@ import java.util.logging.Level;
  *
  * @author Andreas
  */
-public class Sense extends Transition<AgentState> {
+public class Sense extends TransitionRule<AgentState> {
 
 	private static final Logger logger = Logger.getLogger(Sense.class.getName());
 	

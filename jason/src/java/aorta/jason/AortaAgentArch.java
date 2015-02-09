@@ -44,7 +44,7 @@ public class AortaAgentArch extends CentralisedAgArch {
 	private Aorta aorta;
 	private AortaAgent aortaAgent;
 	private AortaJasonAgent aortaJasonAgent;
-	private AortaBB aortaBB;
+	private AortaBeliefBase aortaBB;
 
 	private ActionExec lastActionExecuted;
 	
@@ -66,11 +66,11 @@ public class AortaAgentArch extends CentralisedAgArch {
 			}
 
 			if (bbPars.getClassName().equals(DefaultBeliefBase.class.getName())) {
-				bbPars = new ClassParameters(AortaBB.class.getName());
+				bbPars = new ClassParameters(AortaBeliefBase.class.getName());
 			} else {
 				try {
-					if (!AortaBB.class.isAssignableFrom(Class.forName(bbPars.getClassName()))) {
-						logger.log(Level.SEVERE, "WARNING: " + bbPars.getClass() + " does not extend " + AortaBB.class.getName() + "!");
+					if (!AortaBeliefBase.class.isAssignableFrom(Class.forName(bbPars.getClassName()))) {
+						logger.log(Level.SEVERE, "WARNING: " + bbPars.getClass() + " does not extend " + AortaBeliefBase.class.getName() + "!");
 					}
 				} catch (ClassNotFoundException ex) {
 				}
@@ -79,7 +79,7 @@ public class AortaAgentArch extends CentralisedAgArch {
 			super.createArchs(agArchClasses, agClass, bbPars, asSrc, stts, masRunner);
 
 			aortaJasonAgent = (AortaJasonAgent) getTS().getAg();
-			aortaBB = (AortaBB) aortaJasonAgent.getBB();
+			aortaBB = (AortaBeliefBase) aortaJasonAgent.getBB();
 		} catch (JasonException e) {
 			running = false;
 			throw e;
