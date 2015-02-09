@@ -1,0 +1,8 @@
+beliefupdates:
+	{ not obj2 } Perform(obj2) {obj2}
+
+pgrules:
+  obj2 <- true | {
+    Perform(obj2);
+
+  }

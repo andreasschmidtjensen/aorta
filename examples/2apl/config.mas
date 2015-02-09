@@ -1,0 +1,5 @@
+<apaplmas>
+	<aorta organization="aorta.mm" />
+	<agent name="agent1" file="agent1.2apl" aorta="reasoning.aorta" />
+	<agent name="agent2" file="agent2.2apl" aorta="reasoning.aorta" />
+</apaplmas>

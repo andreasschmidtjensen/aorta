@@ -1,0 +1,9 @@
+if bel(me(Me)) {
+	role(R) : true => enact(R).
+
+	obj(bel(O)) : true => commit(O).
+
+	send(_, tell, org(rea(Me,R))) : bel(agent(A), A \= Me), ~bel(sent(A, org(rea(Me,R)))) => send(A, org(rea(Me,R))).
+
+	send(R, tell, bel(X)) : org(rea(A,R)), ~bel(sent(A, bel(X))) => send(A, bel(X)).
+}
