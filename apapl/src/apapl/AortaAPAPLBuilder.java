@@ -5,12 +5,13 @@
  */
 package apapl;
 
+import aorta.apapl.AortaMessenger;
 import alice.tuprolog.InvalidLibraryException;
 import alice.tuprolog.InvalidTheoryException;
 import aorta.AORTAException;
 import aorta.Aorta;
 import aorta.AortaAgent;
-import aorta.apapl.AortaAPAPLBridge;
+import aorta.apapl.AortaAPLBridge;
 import aorta.apapl.AortaAPLModule;
 import aorta.gui.AortaGui;
 import aorta.kr.language.OrganizationImportException;
@@ -150,7 +151,7 @@ public class AortaAPAPLBuilder extends APAPLBuilder {
 
 		try {
 			String aortaFile = aortaFiles.get(agentName);		
-			AortaAgent aortaAgent = builder.parseAgent(agentName, aortaFile, aorta.getOrganizationLocation(), new AortaAPAPLBridge(aortaModule));
+			AortaAgent aortaAgent = builder.parseAgent(agentName, aortaFile, aorta.getOrganizationLocation(), new AortaAPLBridge(aortaModule));
 			aortaModule.setAortaAgent(aortaAgent);
 			
 			aorta.addAgent(aortaAgent);

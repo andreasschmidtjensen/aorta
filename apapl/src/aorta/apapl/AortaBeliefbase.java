@@ -79,7 +79,10 @@ public class AortaBeliefbase extends Beliefbase {
 		super.assertBelief(b);
 		
 		for (String s : separateBelief(b)) {
-			addToAorta((Struct) Term.createTerm(b));
+			if (s.endsWith(".")) {
+				s = s.substring(0, s.length() - 1);
+			}
+			addToAorta((Struct) Term.createTerm(s));
 		}
 	}
 
@@ -156,6 +159,7 @@ public class AortaBeliefbase extends Beliefbase {
 	@Override
 	public AortaBeliefbase clone() {
 		AortaBeliefbase cloned = new AortaBeliefbase();
+		cloned.setAortaAgent(aortaAgent);
 		
 		cloned.setLogger(new Logger());
 		

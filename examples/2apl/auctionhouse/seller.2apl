@@ -1,0 +1,9 @@
+include: common.2apl;
+
+beliefs:
+	have(lamp).
+
+pgrules:
+	<- have(X) | { adopta(sold(X)); }
+	registered(Me) <- true | { @ah(register(x,y), S); }
+	auction(_, Item) <- have(Item) | { @ah(startAuction(Item, 10, 10), S); }

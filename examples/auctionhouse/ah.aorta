@@ -47,8 +47,8 @@ if bel(me(Me)) {
 		=> commit(banned(Ag)).
 	%% AR12
 	true 
-		: goal(bought(Item)), bel(auction(_,Item)), % wants to buy and an auction exists
-			bel(registered(Me)), bel(badInfo(Me)),   % but realizes he/she will never be verified
+		: goal(bought(Item)), bel(auction(_,Item)),
+			bel(registered(Me)), bel(badInfo(Me)),
 			bel(participates(Me,Item))
 		=> commit(bid(Me, Item)).
 }

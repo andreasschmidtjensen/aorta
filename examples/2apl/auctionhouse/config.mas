@@ -1,0 +1,8 @@
+<apaplmas>
+	<environment name="ah" file="dist/auctionhouse-2apl.jar"/>
+	<aorta organization="ah.mm" />
+	<agent name="bob" file="buyer.2apl" aorta="ah.aorta" />
+	<agent name="carol" file="buyer.2apl" aorta="ah.aorta" />	
+	<agent name="sally" file="seller.2apl" aorta="ah.aorta" />
+	<agent name="mike" file="manager.2apl" aorta="ah.aorta" />
+</apaplmas>

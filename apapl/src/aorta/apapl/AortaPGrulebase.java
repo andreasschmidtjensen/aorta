@@ -63,6 +63,7 @@ public class AortaPGrulebase extends PGrulebase {
 	@Override
 	public AortaPGrulebase clone() {
 		AortaPGrulebase b = new AortaPGrulebase();
+		b.setAortaAgent(aortaAgent);
 		b.setRules(getRules());
 		return b;
 	}

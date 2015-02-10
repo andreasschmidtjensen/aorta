@@ -1,0 +1,8 @@
+beliefupdates:
+	{ true } BadInfo(Ag) { badInfo(Ag) }
+	{ not registered(Ag) } Register(Ag,X,Y) { registered(Ag), registered(Ag,X,Y) }
+	{ registered(Ag), not verified(Ag) } Verify(Ag) { verified(Ag) }
+
+pcrules:
+	event(badInfo(Ag), ah) <- true | { BadInfo(Ag); }
+	event(registered(Ag,X,Y), ah) <- true | { Register(Ag,X,Y); }

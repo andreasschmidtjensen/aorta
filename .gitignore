@@ -27,3 +27,6 @@ jeditplugin/installer.properties
 *.aux
 *.fdb_latexmk
 *.gz
+/examples/2apl/auctionhouse/nbproject/private/
+/examples/2apl/auctionhouse/dist/
+/examples/2apl/auctionhouse/build/

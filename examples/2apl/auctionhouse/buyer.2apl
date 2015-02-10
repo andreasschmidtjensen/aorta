@@ -1,0 +1,9 @@
+include: common.2apl;
+
+beliefs:
+	want(lamp).
+
+pgrules:
+	<- want(X) | { adopta(bought(X)); }
+	registered(Me) <- true | { @ah(register(x,y), S); }
+	bid(_, Item) <- want(Item) | { @ah(bid(Item), S); }

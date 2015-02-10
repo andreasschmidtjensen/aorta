@@ -53,8 +53,8 @@ public class AortaAPLModule extends APLModule {
 	public void setAortaAgent(AortaAgent aortaAgent) {
 		this.aortaAgent = aortaAgent;
 		
-		((AortaBeliefbase)getBeliefbase()).setAortaAgent(aortaAgent);
-		((AortaGoalbase)getGoalbase()).setAortaAgent(aortaAgent);
+		getBeliefbase().setAortaAgent(aortaAgent);
+		getGoalbase().setAortaAgent(aortaAgent);
 		((AortaPGrulebase)getPGrulebase()).setAortaAgent(aortaAgent);
 	}
 

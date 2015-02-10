@@ -1,0 +1,5 @@
+include: common.2apl; 
+
+pgrules:
+	verified(Agent) <- registered(Agent) and not badInfo(Agent) | 
+		{ @ah(verify(Agent), S); B(S = ok); Verify(Agent); }

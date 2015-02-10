@@ -112,7 +112,7 @@ public class AortaAPAPLParse extends Parser {
 	 * @param files files that are included
 	 * @throws ParseModuleException
 	 */
-	private void parseProgram(APLModule a, File file, LinkedList<File> files)
+	private void parseProgram(AortaAPLModule a, File file, LinkedList<File> files)
 	throws ParseModuleException
 	{
 		int BELIEFBASE = 0;
@@ -161,7 +161,7 @@ public class AortaAPAPLParse extends Parser {
 			parser.setContent(restCode);
 									
 			parser.setBeliefLines(belief.split("\n", -1).length);
-			
+
 			parser.ReInit(new StringReader(restCode));
 			parser.Program(a,files);
 		

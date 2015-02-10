@@ -37,12 +37,27 @@ public class AortaGoalbase extends Goalbase {
 			aortaAgent.getState().getExternalAgent().addGoal(s);
 		}
 	}
-
-	private void addToAorta(Goal goal) {
-		for (Literal lit : goal.getList()) {
-			Struct struct = TermConverter.apl2aorta(lit);
-			addToAorta(struct);
+	
+	public static Struct combine(List<Struct> structs) {
+		Struct first = null;
+		Struct second;
+		for (Struct s : structs) {
+			if (first == null) {
+				first = s;
+			} else {
+				second = s;
+				first = new Struct(",", first, second);
+			}
 		}
+		return first;
+	}
+	
+	private void addToAorta(Goal goal) {		
+		List<Struct> list = new ArrayList<>();		
+		for (Literal lit : goal.getList()) {
+			list.add(TermConverter.apl2aorta(lit));
+		}
+		addToAorta(combine(list));
 	}
 
 	private void addToAorta(Struct struct) {
@@ -54,10 +69,11 @@ public class AortaGoalbase extends Goalbase {
 	}
 
 	private void removeFromAorta(Goal goal) {
+		List<Struct> list = new ArrayList<>();		
 		for (Literal lit : goal.getList()) {
-			Struct struct = TermConverter.apl2aorta(lit);
-			aortaAgent.getState().getExternalAgent().removeGoal(struct);
+			list.add(TermConverter.apl2aorta(lit));
 		}
+		aortaAgent.getState().getExternalAgent().removeGoal(combine(list));
 	}
 
 	public void assertFromAorta(Literal literal) {
@@ -76,27 +92,27 @@ public class AortaGoalbase extends Goalbase {
 
 	@Override
 	public void assertGoal(Goal goal) {
-		super.assertGoal(goal);
-
 		for (Goal g : getGoalbase()) {
 			if (g.equals(goal)) {
 				return;
 			}
 		}
+		
+		super.assertGoal(goal);
 
 		addToAorta(goal);
 	}
 
 	@Override
-	public void assertGoalHead(Goal goal) {
-		super.assertGoalHead(goal);
-
+	public void assertGoalHead(Goal goal) {		
 		for (Goal g : getGoalbase()) {
 			if (g.equals(goal)) {
 				return;
 			}
 		}
 
+		super.assertGoalHead(goal);
+		
 		addToAorta(goal);
 	}
 
@@ -199,6 +215,8 @@ public class AortaGoalbase extends Goalbase {
 	@Override
 	public AortaGoalbase clone() {
 		AortaGoalbase gb = new AortaGoalbase();
+		gb.setAortaAgent(aortaAgent);
+		
 		for (Goal g : getGoalbase()) {
 			gb.assertGoal(g);
 		}

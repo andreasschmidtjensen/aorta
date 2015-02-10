@@ -165,18 +165,18 @@ public class AortaAPAPL {
             } else
             {
 	            // start the MAS
-//	            mas.step(100);
+	            mas.step(100);
            
-				mas.start();
-            	System.out.println("MAS started. Press a key to quit.");
-            
-	            try {
-					System.in.read();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-	            mas.takeDown();
+//				mas.start();
+//            	System.out.println("MAS started. Press a key to quit.");
+//            
+//	            try {
+//					System.in.read();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//	            mas.takeDown();
 	            System.out.println("Done");
             }
         }

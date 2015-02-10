@@ -4,4 +4,5 @@
 
 +!banned(Agent) 
 	: participant(Id,Agent) & auction(Id,Item,_,_,_) 
-	<- remove_from_auction(Id,Agent); .print("Removing ", Agent, " from auction for ", Item).
+	<- remove_from_auction(Id,Agent); 
+		.print("Removing ", Agent, " from auction for ", Item).
