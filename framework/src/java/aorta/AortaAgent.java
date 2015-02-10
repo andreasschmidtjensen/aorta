@@ -126,7 +126,9 @@ public class AortaAgent {
 		long start = System.currentTimeMillis();
 		logger.log(Level.FINEST, "(" + getName() + ") New AORTA cycle [" + cycle + "]. Strategy: " + strategy.getClass().getName());
 		
-		state.notifyNewState();
+		if (cycle == 1) {
+			state.notifyNewState();
+		}
 		
 		state.newCycle();
 		state = strategy.execute(state);
@@ -146,6 +148,8 @@ public class AortaAgent {
 		}
 
         lastTrace = Tracer.printTrace(name);
+		
+		state.notifyNewState();
 		logger.log(Level.FINEST, "(" + getName() + ") Cycle done [" + cycle + "] (time: " + (System.currentTimeMillis() - start) + " ms)");
 	}
 

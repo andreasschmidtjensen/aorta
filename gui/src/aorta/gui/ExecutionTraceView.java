@@ -159,19 +159,17 @@ public class ExecutionTraceView extends JFrame {
 				// state did not change
 				stateNum--;
 				trace.revokeLastState();
+				removeNodeFromParent(currentStateNode);
 			}
 			
 			currentStateNode = new StateNode("s_" + stateNum++, state.getMentalState());
 			currentRuleNodes = new HashMap<>();
 			
 			trace.newState(state);
+			insertNodeInto(currentStateNode, top, top.getChildCount());
 		}
 		
 		private DefaultMutableTreeNode getCurrentRuleNode(String name) {
-			if (currentRuleNodes.isEmpty()) {
-				insertNodeInto(currentStateNode, top, top.getChildCount());
-			}
-			
 			if (!currentRuleNodes.containsKey(name)) {
 				DefaultMutableTreeNode ruleNode = new DefaultMutableTreeNode(name);
 				currentRuleNodes.put(name, ruleNode);
