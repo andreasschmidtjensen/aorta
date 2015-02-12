@@ -50,6 +50,8 @@ public class AgentState extends State {
 
 	public void setBridge(AortaBridge bridge) {
 		this.bridge = bridge;
+		
+		bridge.addBelief(new Struct("me", new Struct(agent.getName())));
 	}
 
 	public AortaBridge getBridge() {

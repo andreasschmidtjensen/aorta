@@ -15,9 +15,10 @@ public class MentalState {
         this.prolog = prolog;
     }
 	
-    public void addAgentOwnName(String name) {
+    public Struct addAgentOwnName(String name) {
+		Struct myName = new Struct("me", new Struct(name));
         // removes from the knowledgebase all instances of me/1
-        Struct qualified = FormulaQualifier.qualifyStruct(new Struct("me", new Struct(name)), KBType.BELIEF.getType());
+        Struct qualified = FormulaQualifier.qualifyStruct(myName, KBType.BELIEF.getType());
         if (!prolog.solve(qualified).isSuccess()) {
             qualified = FormulaQualifier.qualifyStruct(new Struct("me", new Var()), KBType.BELIEF.getType());
             ClauseInfo ci;
@@ -28,9 +29,10 @@ public class MentalState {
 			} catch (Exception ex) {}
 
             // adds to the knowledgebase the agents own name
-            qualified = FormulaQualifier.qualifyStruct(new Struct("me", new Struct(name)), KBType.BELIEF.getType());
+            qualified = FormulaQualifier.qualifyStruct(myName, KBType.BELIEF.getType());
             prolog.getTheoryManager().assertZ(qualified, true, null, true);
         }
+		return myName;
     }
 
     public Prolog getProlog() {
