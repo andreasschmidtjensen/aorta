@@ -6,4 +6,5 @@ beliefs:
 pgrules:
 	<- have(X) | { adopta(sold(X)); }
 	registered(Me) <- true | { @ah(register(x,y), S); }
-	auction(_, Item) <- have(Item) | { @ah(startAuction(Item, 10, 10), S); }
+	sold(Item) <- me(Me) and verified(Me) | { adopta(auction(Me,Item)); }
+	auction(_, Item) <- me(Me) and registered(Me,_,_) and have(Item) and not auction(_,Item,Me,_,_) | { print("Starting auction"); @ah(startAuction(Item, 5, 10), S); }

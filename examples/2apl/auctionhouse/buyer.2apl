@@ -6,4 +6,17 @@ beliefs:
 pgrules:
 	<- want(X) | { adopta(bought(X)); }
 	registered(Me) <- true | { @ah(register(x,y), S); }
-	bid(_, Item) <- want(Item) | { @ah(bid(Item), S); }
+	
+	bought(Item) <- auction(Id,Item,_,_,_) | { @ah(enterAuction(Id), S); } 
+	bought(Item) <- auction(Id,Item,_,_,_) and me(Me) and verified(Me) | { adopta(bid(Me,Item)); }
+	
+	bid(bob, Item) <- auction(Id,Item,_,_,_) | { @ah(bid(Id,10), S); }
+	bid(carol, Item) <- auction(Id,Item,_,_,_) and bid_high(Id,bob,_) | { @ah(bid(Id,15), S); }
+	bid(carol, Item) <- auction(Id,Item,_,_,_) | { @ah(bid(Id,5), S); }
+	
+	paidFor(Item) <- auction(Id,Item,_,_,_) and won(Id) | { @ah(pay(Id), S); }
+
+pcrules:
+	event(neg(participant(Id,Me)), ah) <- me(Me) and auction(Id,Item,_,_,_) | { if G(bid(Me,Item)) dropgoal(bid(Me,Item)); }
+
+	event(won(Id), ah) <- auction(Id,Item,_,_,_) | { dropgoal(bid(Me,Item)); +bought(Item); @ah(leaveAuction(Id), S); } 

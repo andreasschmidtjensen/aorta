@@ -70,6 +70,7 @@ public class AortaBeliefbase extends Beliefbase {
 		if (literal.getSign()) {
 			addToAorta(literal);
 		} else {
+			literal.setSign(true); // otherwise it tries to remove \+ p
 			removeFromAorta(literal);
 		}
 	}

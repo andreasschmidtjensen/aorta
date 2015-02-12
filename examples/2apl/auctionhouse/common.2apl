@@ -1,8 +1,12 @@
 beliefupdates:
-	{ true } BadInfo(Ag) { badInfo(Ag) }
-	{ not registered(Ag) } Register(Ag,X,Y) { registered(Ag), registered(Ag,X,Y) }
-	{ registered(Ag), not verified(Ag) } Verify(Ag) { verified(Ag) }
+	{ bid_high(OldId, OldAg, OldBid) } NewBid(Id,Ag,Bid) { not bid_high(OldId, OldAg, OldBid), bid_high(Id,Ag,Bid) } 
+	{ true } NewBid(Id,Ag,Bid) { bid_high(Id,Ag,Bid) } 
 
 pcrules:
-	event(badInfo(Ag), ah) <- true | { BadInfo(Ag); }
-	event(registered(Ag,X,Y), ah) <- true | { Register(Ag,X,Y); }
+	event(badInfo(Ag), ah) <- true | { +badInfo(Ag); }
+	event(registered(Ag,X,Y), ah) <- true | { +registered(Ag); +registered(Ag,X,Y); }
+	event(auction(Id,Item,Owner,StartPrice,EndTime), ah) <- true | { +auction(Id,Item,Owner,StartPrice,EndTime); }
+	event(bid_high(Id,Bidder,Price), ah) <- true | { NewBid(Id,Bidder,Price); }
+	event(bid(Id,Bidder,Price), ah) <- true | { print(bid(Id,Bidder,Price)); +bid(Id,Bidder,Price); }
+	event(auction_done(Id,Winner,Bid), ah) <- true | { +auction_done(Id,Winner,Bid); }
+	event(participant(Id,Agent), ah) <- true | { +participant(Id,Agent); }

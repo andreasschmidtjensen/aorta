@@ -2,4 +2,7 @@ include: common.2apl;
 
 pgrules:
 	verified(Agent) <- registered(Agent) and not badInfo(Agent) | 
-		{ @ah(verify(Agent), S); B(S = ok); Verify(Agent); }
+		{ @ah(verify(Agent), S); B(S = ok); +verified(Agent); }
+
+	banned(Agent) <- participant(Id,Agent) and auction(Id,_,_,_,_) |
+		{ @ah(removeFromAuction(Id,Agent), S); }
