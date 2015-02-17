@@ -8,7 +8,6 @@ package aorta.organization.ts.rules;
 
 import alice.tuprolog.Struct;
 import aorta.kr.KBType;
-import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.organization.ArtifactState;
 import aorta.tracer.Tracer;
@@ -23,14 +22,14 @@ import java.util.List;
 public class Sense extends TransitionRule<ArtifactState> {
 
 	@Override
-	protected ArtifactState execute(QueryEngine engine, ArtifactState state) {
+	protected ArtifactState execute(ArtifactState state) {
 		if (state.getEnvironment() != null) {
 			List<Struct> envState = state.getEnvironment().getEnvState();
 			List<Struct> qualified = new ArrayList<>();
 			for (Struct s : envState) {
 				qualified.add(FormulaQualifier.qualifyStruct(s, KBType.BELIEF));
 			}
-			List<Struct>[] result = engine.mergeKBs(state.getMentalState(), KBType.BELIEF, qualified);
+			List<Struct>[] result = state.getMentalState().mergeKBs(KBType.BELIEF, qualified);
 			List<Struct> added = result[0];
 			List<Struct> removed = result[1];
 			

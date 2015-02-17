@@ -5,7 +5,6 @@ import aorta.kr.KBType;
 import java.util.List;
 
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.model.Metamodel;
 import aorta.kr.util.FormulaQualifier;
 import aorta.msg.OutgoingOrganizationalMessage;
@@ -78,12 +77,12 @@ public class AortaAgent {
 
 	public void addAgentToBeliefs(String agentName) {
 		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agentName)), KBType.BELIEF);
-		state.insertTerm(new QueryEngine(), qualified);
+		state.insertTerm(qualified);
 	}
 
 	public void removeAgentFromBeliefs(String agentName) {
 		Struct qualified = FormulaQualifier.qualifyStruct(new Struct("agent", new Struct(agentName)), KBType.BELIEF.getType());
-		state.removeTerm(new QueryEngine(), qualified);
+		state.removeTerm(qualified);
 	}
 
 	public Strategy getStrategy() {
@@ -110,8 +109,7 @@ public class AortaAgent {
 						if (p.obsPropChanges()) {
 							ArtifactObsProperty prop = (ArtifactObsProperty) p.getPropChanged()[0];
 							List<Struct> orgStructs = (List<Struct>) prop.getValue();
-							QueryEngine engine = new QueryEngine();
-							return engine.mergeKBs(state.getMentalState(), KBType.ORGANIZATION, orgStructs);
+							return state.getMentalState().mergeKBs(KBType.ORGANIZATION, orgStructs);
 						}
 					} catch (NullPointerException ex) {
 						// event in percept is null if no percept... no way to check it

@@ -13,7 +13,6 @@ import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.model.Metamodel;
 import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.StateListener;
@@ -104,46 +103,46 @@ public abstract class State {
 		this.mentalState = mentalState;
 	}
 
-	public void insertTerm(QueryEngine engine, Struct term, KBType type) {
+	public void insertTerm(Struct term, KBType type) {
 		final Struct qualified = FormulaQualifier.qualifyStruct(term, type);
-		insertInMentalState(engine, qualified);
+		insertInMentalState(qualified);
 
 		logger.log(Level.FINEST, "Updating mental state; inserting " + qualified);
 	}
 
-	public void insertTerm(QueryEngine engine, Struct qualifiedTerm) {
+	public void insertTerm(Struct qualifiedTerm) {
 		try {
 			KBType type = FormulaQualifier.getQualifier(qualifiedTerm);
 			Struct term = (Struct) FormulaQualifier.getQualified(qualifiedTerm);
 
-			insertTerm(engine, term, type);
+			insertTerm(term, type);
 		} catch (NullPointerException ex) {
 			logger.log(Level.SEVERE, qualifiedTerm + " threw NPE for insertTerm(" + qualifiedTerm + ")", ex);
 		}
 	}
 
-	public void removeTerm(QueryEngine engine, Struct term, KBType type) {
+	public void removeTerm(Struct term, KBType type) {
 		final Struct qualified = FormulaQualifier.qualifyStruct(term, type);
-		removeFromMentalState(engine, qualified);
+		removeFromMentalState(qualified);
 
 		logger.log(Level.FINEST, "Updating mental state; removing " +qualified);
 	}
 
-	public void removeTerm(QueryEngine engine, Struct qualifiedTerm) {
+	public void removeTerm(Struct qualifiedTerm) {
 		KBType type = FormulaQualifier.getQualifier(qualifiedTerm);
 		Struct term = (Struct) FormulaQualifier.getQualified(qualifiedTerm);
 
-		removeTerm(engine, term, type);
+		removeTerm(term, type);
 	}
 
-	public void insertInMentalState(QueryEngine engine, Struct struct) {
-		engine.insert(mentalState, struct);			
+	public void insertInMentalState(Struct struct) {
+		mentalState.insert(struct);			
 		logger.fine("insertIntoMentalState(" + struct + ")");
 		setChanged(true);
 	}
 
-	public void removeFromMentalState(QueryEngine engine, final Struct struct) {
-		engine.remove(mentalState, struct);			
+	public void removeFromMentalState(final Struct struct) {
+		mentalState.remove(struct);			
 		logger.fine("removeFromMentalState(" + struct + ")");
 		setChanged(true);
 	}

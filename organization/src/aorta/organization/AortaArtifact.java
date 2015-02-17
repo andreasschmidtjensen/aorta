@@ -9,7 +9,6 @@ import alice.tuprolog.InvalidTheoryException;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.PrologLoader;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.model.Metamodel;
 import aorta.organization.action.Operation;
 import aorta.organization.action.DeactOp;
@@ -49,7 +48,7 @@ public class AortaArtifact extends Artifact {
 				
 		strategy = new ArtifactStrategy();
 		
-		defineObsProperty("model", new QueryEngine().toStructs(state.getMentalState().getProlog(), KBType.ORGANIZATION));
+		defineObsProperty("model", state.getMentalState().toStructs(KBType.ORGANIZATION));
 		
 		execInternalOp("cycle");
 	}
@@ -75,7 +74,7 @@ public class AortaArtifact extends Artifact {
 				cycle++;
 				
 				if (state.hasChanged()) {
-					getObsProperty("model").updateValue(new QueryEngine().toStructs(state.getMentalState().getProlog(), KBType.ORGANIZATION));
+					getObsProperty("model").updateValue(state.getMentalState().toStructs(KBType.ORGANIZATION));
 				}
 			} catch (StrategyFailedException ex) {
 				ex.printStackTrace();

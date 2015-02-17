@@ -13,8 +13,6 @@ import aorta.AortaAgent;
 import aorta.kr.MentalState;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.TermFormatter;
-import aorta.logging.Logger;
-import aorta.ts.rules.ObligationActivated;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -88,7 +86,7 @@ public class AgentPanel extends EntityPanel {
 
 		private void updateNorms() {
 			List<String> values = new ArrayList<>();
-			List<SolveInfo> solutions = engine.findAll(agent.getState().getMentalState(), NORM);
+			List<SolveInfo> solutions = agent.getState().getMentalState().findAll(NORM);
 			for (SolveInfo solution : solutions) {
 				if (solution.isSuccess()) {
 					try {
@@ -115,7 +113,7 @@ public class AgentPanel extends EntityPanel {
 		
 		private void updateViolations() {
 			List<String> values = new ArrayList<>();
-			List<SolveInfo> solutions = engine.findAll(agent.getState().getMentalState(), VIOL);
+			List<SolveInfo> solutions = agent.getState().getMentalState().findAll(VIOL);
 			for (SolveInfo solution : solutions) {
 				if (solution.isSuccess()) {
 					try {

@@ -9,10 +9,8 @@ import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
 import aorta.kr.util.FormulaQualifier;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.tracer.Tracer;
-import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
 import aorta.ts.rules.ActionExecution;
 import cartago.CartagoException;
@@ -31,7 +29,7 @@ public class DeactAction extends Action {
 	}
 
 	@Override
-	protected AgentState executeAction(QueryEngine engine, Term option, AgentState state)
+	protected AgentState executeAction(Term option, AgentState state)
 			throws AORTAException {
 		AgentState newState = state;
 		
@@ -45,7 +43,7 @@ public class DeactAction extends Action {
 		Term term = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
 		MentalState ms = state.getMentalState();
 
-		SolveInfo result = engine.solve(ms, term);
+		SolveInfo result = ms.solve(term);
 		
 		logger.finest("Attempting to deact: " + result.isSuccess());
 		
@@ -53,7 +51,7 @@ public class DeactAction extends Action {
 			state.addBindings(result);
 			
 			Term qualified = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
-			engine.unify(ms, qualified, state.getBindings());
+			ms.unify(qualified, state.getBindings());
 			
 			if (!qualified.isGround()) {
 				throw new AORTAException("Cannot execute action: term '" + qualified + "' is not ground.");
@@ -74,7 +72,7 @@ public class DeactAction extends Action {
 					}
 				} else {
 					ActionExecution tr = new ActionExecution();
-					tr.remove(newState, engine, (Struct) qualified);
+					tr.remove(newState, (Struct) qualified);
 
 					logger.fine("[" + state.getAgent().getName() + "] Executing action: deact(" + qualified + ")");
 					Tracer.queue(state.getAgent().getName(), "deact(" + qualified + ")");

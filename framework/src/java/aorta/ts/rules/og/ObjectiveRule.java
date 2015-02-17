@@ -11,11 +11,9 @@ import alice.tuprolog.Var;
 import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.language.model.Norm;
 import aorta.kr.util.FormulaQualifier;
-import aorta.kr.util.TermQualifier;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionRule;
@@ -30,7 +28,7 @@ public class ObjectiveRule extends TransitionRule<AgentState> {
 	private static final Logger logger = Logger.getLogger(ObjectiveRule.class.getName());
 
 	@Override
-	protected AgentState execute(QueryEngine engine, AgentState state) {
+	protected AgentState execute(AgentState state) {
 		AgentState newState = state;
 		MentalState ms = newState.getMentalState();
 
@@ -44,13 +42,13 @@ public class ObjectiveRule extends TransitionRule<AgentState> {
 		Struct orgRea = FormulaQualifier.qualifyStruct(rea, KBType.ORGANIZATION);
 
 		Term test = Term.createTerm(orgObl + ", " + orgObjective + ", " + orgRea);
-		List<SolveInfo> conditionals = engine.findAll(ms, test);
+		List<SolveInfo> conditionals = ms.findAll(test);
 		for (SolveInfo conditional : conditionals) {
 			if (conditional.isSuccess()) {
 				Struct obj = language.obj(new Var("O"));
 				Struct optObj = FormulaQualifier.qualifyStruct(obj, KBType.OPTION);
 				
-				engine.unify(ms, optObj, conditional);
+				ms.unify(optObj, conditional);
 				
 				Struct result = optObj;
 //				Term objectiveArg = obj.getArg(0);
@@ -63,8 +61,8 @@ public class ObjectiveRule extends TransitionRule<AgentState> {
 //					}
 //				}
 				
-				if (!engine.exists(ms, result)) {
-					add(newState, engine, result);
+				if (!ms.exists(result)) {
+					add(newState, result);
 
 					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + result);
 					Tracer.trace(state.getAgent().getName(), getName(), result.toString());

@@ -8,7 +8,6 @@ import alice.tuprolog.Struct;
 import aorta.AgentState;
 import aorta.ExternalAgent;
 import aorta.kr.KBType;
-import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionRule;
@@ -23,7 +22,7 @@ public class Ext extends TransitionRule<AgentState> {
 	private static final Logger logger = Logger.getLogger(Ext.class.getName());
 
 	@Override
-	public AgentState execute(QueryEngine engine, AgentState state) {
+	public AgentState execute(AgentState state) {
 
 		AgentState newState = state;
 		if (state.getExternalAgent().containsBBChanges() 
@@ -40,42 +39,42 @@ public class Ext extends TransitionRule<AgentState> {
 			Struct struct;
 			while ((struct = ext.getRemovedBelief()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.BELIEF.getType());
-				removeFromMs(newState, engine, qualified);
+				removeFromMs(newState, qualified);
 				remBeliefs++;
 				
 				Tracer.queue(state.getAgent().getName(), "-" + qualified + ";");
 			}
 			while ((struct = ext.getNewBelief()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.BELIEF.getType());
-				insertInMs(newState, engine, qualified);
+				insertInMs(newState, qualified);
 				newBeliefs++;
 
 				Tracer.queue(state.getAgent().getName(), "+" + qualified + ";");
 			}
 			while ((struct = ext.getRemovedGoal()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.GOAL.getType());
-				removeFromMs(newState, engine, qualified);
+				removeFromMs(newState, qualified);
 				remGoals++;
 				
 				Tracer.queue(state.getAgent().getName(), "-" + qualified + ";");
 			}
 			while ((struct = ext.getNewGoal()) != null) {
 				Struct qualified = FormulaQualifier.qualifyStruct(struct, KBType.GOAL.getType());
-				insertInMs(newState, engine, qualified);
+				insertInMs(newState, qualified);
 				newGoals++;
 				
 				Tracer.queue(state.getAgent().getName(), "+" + qualified + ";");
 			}
 			while ((struct = ext.getRemovedCapability()) != null) {
 				Struct cap = new Struct("cap", struct);
-				removeFromMs(newState, engine, cap);
+				removeFromMs(newState, cap);
 				remCaps++;
 				
 				Tracer.queue(state.getAgent().getName(), "-" + cap + ";");
 			}
 			while ((struct = ext.getNewCapability()) != null) {
 				Struct cap = new Struct("cap", struct);
-				insertInMs(newState, engine, cap);
+				insertInMs(newState, cap);
 				newCaps++;
 				
 				Tracer.queue(state.getAgent().getName(), "+" + cap + ";");

@@ -10,7 +10,6 @@ import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.AgentState;
 import aorta.kr.KBType;
-import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.msg.OutgoingOrganizationalMessage;
 import aorta.reasoning.fml.BeliefFormula;
@@ -42,14 +41,13 @@ public class SendOnceAction extends SendAction {
 	@Override
 	protected void sendMessage(List<Term> recipientList, Term message, AgentState state) throws TransitionNotPossibleException {
 		List<Term> newRecipients = new ArrayList<>();
-		QueryEngine engine = new QueryEngine();
 		for (Term recipient : recipientList) {
 			// message should only be send once to each recipient
 			Struct sent = new Struct("sent", recipient, message);
-			SolveInfo info = engine.solve(state.getMentalState(), new BeliefFormula(sent));
+			SolveInfo info = state.getMentalState().solve(new BeliefFormula(sent));
 			if (!info.isSuccess()) {
 				newRecipients.add(recipient);
-				state.insertInMentalState(engine, FormulaQualifier.qualifyStruct(sent, KBType.BELIEF));
+				state.insertInMentalState(FormulaQualifier.qualifyStruct(sent, KBType.BELIEF));
 				state.notifyTermAdded(new ActionExecution().getName(), sent);
 			}
 		}

@@ -11,7 +11,6 @@ import aorta.AORTAException;
 import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 import aorta.reasoning.ActionRule;
@@ -33,8 +32,8 @@ public class ActionExecution extends TransitionRule<AgentState> {
 	private static final Logger logger = Logger.getLogger(ActionExecution.class.getName());
 
 	@Override
-	protected AgentState execute(QueryEngine engine, AgentState state) {
-		AgentState newState = executeRules(engine, state, state.getRules(), null);
+	protected AgentState execute(AgentState state) {
+		AgentState newState = executeRules(state, state.getRules(), null);
 		if (newState == null) {
 			return state;
 		} else {
@@ -42,18 +41,18 @@ public class ActionExecution extends TransitionRule<AgentState> {
 		}
 	}
 
-	private AgentState executeRules(QueryEngine engine, AgentState state, List<ReasoningRule> rules, Formula condition) {
+	private AgentState executeRules(AgentState state, List<ReasoningRule> rules, Formula condition) {
 		for (ReasoningRule rule : rules) {
 			if (rule instanceof IfRule) {
 				IfRule ir = (IfRule) rule;
 				Formula conjunctCondition = mergeConditions(condition, ir.getCondition());
-				AgentState newState = executeRules(engine, state, ir.getRules(), conjunctCondition);
+				AgentState newState = executeRules(state, ir.getRules(), conjunctCondition);
 				if (newState != null) {
 					return newState;
 				}
 			} else if (rule instanceof ActionRule) {
 				ActionRule ar = (ActionRule) rule;
-				AgentState newState = actionExecuted(engine, ar, state, condition);
+				AgentState newState = actionExecuted(ar, state, condition);
 
 				if (newState != null) {
 					return newState;
@@ -74,7 +73,7 @@ public class ActionExecution extends TransitionRule<AgentState> {
 		}
 	}
 
-	private AgentState actionExecuted(QueryEngine engine, ActionRule ar, AgentState state, Formula ifConditions) {
+	private AgentState actionExecuted(ActionRule ar, AgentState state, Formula ifConditions) {
 		AgentState newState = state;
 		try {
 			Term option = Term.createTerm(ar.getOption().toString());
@@ -82,7 +81,7 @@ public class ActionExecution extends TransitionRule<AgentState> {
 
 			MentalState ms = state.getMentalState();
 			
-			List<SolveInfo> solutions = engine.findAll(ms, qualifiedOption);
+			List<SolveInfo> solutions = ms.findAll(qualifiedOption);
 			for (SolveInfo optionSolution : solutions) {
 				if (optionSolution.isSuccess()) {
 					newState.clearBindings();
@@ -91,13 +90,13 @@ public class ActionExecution extends TransitionRule<AgentState> {
 					
 					Term qualified = FormulaQualifier.qualifyGoal(ms, conjunctContext);
 					
-					engine.unify(ms, qualified, optionSolution);
-					SolveInfo contextSolution = engine.solve(ms, qualified);
+					ms.unify(qualified, optionSolution);
+					SolveInfo contextSolution = ms.solve(qualified);
 					
 					if (contextSolution.isSuccess()) {
 						List<Var> bindings = AgentState.mergeBindings(optionSolution, contextSolution);
-						engine.unify(ms, option, bindings);
-						engine.unify(ms, qualified, bindings);
+						ms.unify(option, bindings);
+						ms.unify(qualified, bindings);
 						
 						List<Var> prevBindings = newState.getBindings();
 						
@@ -105,7 +104,7 @@ public class ActionExecution extends TransitionRule<AgentState> {
 						Tracer.queue(state.getAgent().getName(), option + " : " + qualified + " => ");
 
 						newState.addBindings(bindings);
-						AgentState resultingState = ar.getAction().execute(engine, option, newState);
+						AgentState resultingState = ar.getAction().execute(option, newState);
 
 						if (resultingState != null) {
 							Tracer.commitTrace(state.getAgent().getName());

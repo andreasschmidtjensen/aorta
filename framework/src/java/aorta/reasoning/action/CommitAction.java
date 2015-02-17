@@ -8,10 +8,8 @@ import aorta.AORTAException;
 import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
-import aorta.ts.TransitionNotPossibleException;
 import java.util.logging.Level;
 import aorta.logging.Logger;
 import aorta.ts.rules.ActionExecution;
@@ -30,7 +28,7 @@ public class CommitAction extends Action {
 	}
 
 	@Override
-	protected AgentState executeAction(QueryEngine engine, Term option, AgentState state) throws AORTAException {
+	protected AgentState executeAction(Term option, AgentState state) throws AORTAException {
 		AgentState newState = state;
 
 		MentalState ms = state.getMentalState();
@@ -38,20 +36,20 @@ public class CommitAction extends Action {
 		final Term clonedObjTerm = Term.createTerm(objective.toString());
 
 		String bef = clonedObjTerm.toString();
-		engine.unify(ms, clonedObjTerm, state.getBindings());
+		ms.unify(clonedObjTerm, state.getBindings());
 
 		Term belTerm = FormulaQualifier.qualifyTerm(clonedObjTerm, KBType.BELIEF);
 		Term goalTerm = FormulaQualifier.qualifyTerm(clonedObjTerm, KBType.GOAL);
 
 		Term test = Term.createTerm("\\+ " + belTerm + ", \\+ " + goalTerm);
 
-		SolveInfo result = engine.solve(ms, test);
+		SolveInfo result = ms.solve(test);
 
 		logger.log(Level.FINEST, "Attempting to commit: " + result.isSuccess());
 		if (result.isSuccess()) {
 			state.addBindings(result);
 
-			engine.unify(ms, clonedObjTerm, state.getBindings());
+			ms.unify(clonedObjTerm, state.getBindings());
 
 			Struct asStruct;
 			if (clonedObjTerm instanceof Var) {
@@ -61,7 +59,7 @@ public class CommitAction extends Action {
 			}
 
 			ActionExecution tr = new ActionExecution();
-			tr.add(newState, engine, asStruct, KBType.GOAL);
+			tr.add(newState, asStruct, KBType.GOAL);
 
 			logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: commit(" + asStruct + ")");
 			Tracer.queue(state.getAgent().getName(), "commit(" + asStruct + ")");

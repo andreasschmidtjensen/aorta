@@ -6,12 +6,10 @@ package aorta;
 
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
-import aorta.AortaAgent;
 import aorta.jason.AortaJasonAgent;
 import aorta.jason.TermConverter;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import jason.JasonException;
 import jason.asSemantics.DefaultInternalAction;
@@ -54,10 +52,9 @@ public abstract class KBQueryAction extends DefaultInternalAction {
 		MentalState ms = aorta.getState().getMentalState();
 		alice.tuprolog.Term qualified = FormulaQualifier.qualifyTerm(aortaTerm, kbType, true);
 		
-		QueryEngine q = new QueryEngine();
-		SolveInfo info = q.solve(ms, qualified);
+		SolveInfo info = ms.solve(qualified);
 		if (info.isSuccess()) {
-			q.unify(ms, qualified, info);
+			ms.unify(qualified, info);
 			aortaTerm = ((Struct) qualified).getArg(0);
 			
 			return un.unifies(args[0], TermConverter.toLiteral(aortaTerm));

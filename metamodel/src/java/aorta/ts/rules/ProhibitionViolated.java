@@ -10,7 +10,6 @@ import alice.tuprolog.Var;
 import aorta.State;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.language.model.Norm;
 import aorta.kr.util.FormulaQualifier;
@@ -28,7 +27,7 @@ public class ProhibitionViolated extends TransitionRule {
 	private static final Logger logger = Logger.getLogger(ProhibitionViolated.class.getName());
 	
 	@Override
-	protected State execute(QueryEngine engine, State state) {
+	protected State execute(State state) {
 		MentalState ms = state.getMentalState();
 		
 		MetaLanguage language = new MetaLanguage();
@@ -36,23 +35,23 @@ public class ProhibitionViolated extends TransitionRule {
 		
 		Struct orgProhib = FormulaQualifier.qualifyStruct(prohib, KBType.ORGANIZATION);
 		
-		List<SolveInfo> obligations = engine.findAll(ms, orgProhib);
+		List<SolveInfo> obligations = ms.findAll(orgProhib);
 		for (SolveInfo obligation : obligations) {
 			if (obligation.isSuccess()) {
 				
 				Var forbiddenState = new Var("O");
 				Var deadline = new Var("D");
-				engine.unify(ms, forbiddenState, obligation);
-				engine.unify(ms, deadline, obligation);
+				ms.unify(forbiddenState, obligation);
+				ms.unify(deadline, obligation);
 				
 				Struct orgViol = FormulaQualifier.qualifyStruct(language.violation(new Var("A"), new Var("R"), new Struct(Norm.PROHIBITION), new Var("O")), KBType.ORGANIZATION);
-				engine.unify(ms, orgViol, obligation);
+				ms.unify(orgViol, obligation);
 
-				if (engine.exists(ms, forbiddenState.getTerm())  //prohibited state reached
-						&& !engine.exists(ms, deadline.getTerm())  //deadline not reached
-						&& !engine.exists(ms, orgViol)) { // violation not detected already
+				if (ms.exists(forbiddenState.getTerm())  //prohibited state reached
+						&& !ms.exists(deadline.getTerm())  //deadline not reached
+						&& !ms.exists(orgViol)) { // violation not detected already
 
-					add(state, engine, orgViol);
+					add(state, orgViol);
 
 					logger.fine("[" + state.getDescription() + "] Violated prohibition: " + orgViol);
 					Tracer.trace(state.getIdentifier(), getName(), orgViol.getArg(0).toString());

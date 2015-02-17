@@ -10,7 +10,6 @@ import alice.tuprolog.Var;
 import aorta.State;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.language.model.Norm;
 import aorta.kr.util.FormulaQualifier;
@@ -28,7 +27,7 @@ public class ObligationViolated extends TransitionRule {
 	private static final Logger logger = Logger.getLogger(ObligationViolated.class.getName());
 	
 	@Override
-	protected State execute(QueryEngine engine, State state) {
+	protected State execute(State state) {
 		MentalState ms = state.getMentalState();
 		
 		MetaLanguage language = new MetaLanguage();
@@ -36,25 +35,25 @@ public class ObligationViolated extends TransitionRule {
 		
 		Struct orgObl = FormulaQualifier.qualifyStruct(obl, KBType.ORGANIZATION);
 		
-		List<SolveInfo> obligations = engine.findAll(ms, orgObl);
+		List<SolveInfo> obligations = ms.findAll(orgObl);
 		for (SolveInfo obligation : obligations) {
 			if (obligation.isSuccess()) {
 				
 				Var objective = new Var("O");
 				Var deadline = new Var("D");
-				engine.unify(ms, objective, obligation);
-				engine.unify(ms, deadline, obligation);
+				ms.unify(objective, obligation);
+				ms.unify(deadline, obligation);
 				
 //				if (objective.isGround() && deadline.isGround()) {
 					Struct orgViol = FormulaQualifier.qualifyStruct(language.violation(new Var("A"), new Var("R"), new Struct(Norm.OBLIGATION), new Var("O")), KBType.ORGANIZATION);
-					engine.unify(ms, orgViol, obligation);
+					ms.unify(orgViol, obligation);
 
-					if (!engine.exists(ms, objective.getTerm())  //objective not completed
-							&& engine.exists(ms, deadline.getTerm())  //deadline reached
-							&& !engine.exists(ms, orgViol)) { // violation not detected already
+					if (!ms.exists(objective.getTerm())  //objective not completed
+							&& ms.exists(deadline.getTerm())  //deadline reached
+							&& !ms.exists(orgViol)) { // violation not detected already
 						
 						//XXX: newState = state.clone();;
-						add(state, engine, orgViol);
+						add(state, orgViol);
 
 						logger.fine("[" + state.getDescription() + "] Violated obligation: " + orgViol);
 						Tracer.trace(state.getIdentifier(), getName(), orgViol.getArg(0).toString());

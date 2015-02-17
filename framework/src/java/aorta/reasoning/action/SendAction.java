@@ -6,12 +6,10 @@ package aorta.reasoning.action;
 
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
-import alice.tuprolog.Var;
 import aorta.AORTAException;
 import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.FormulaQualifier;
 import aorta.msg.OutgoingOrganizationalMessage;
@@ -21,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import aorta.logging.Logger;
-import aorta.reasoning.action.Action;
 import aorta.reasoning.fml.Formula;
 import aorta.ts.rules.ActionExecution;
 
@@ -55,16 +52,16 @@ public class SendAction extends Action {
 	}
 
 	@Override
-	protected AgentState executeAction(QueryEngine engine, Term option, AgentState state) throws AORTAException {
+	protected AgentState executeAction(Term option, AgentState state) throws AORTAException {
 		AgentState newState = state;
 		
 		MentalState ms = state.getMentalState();
 		
 		final Term clonedMsgTerm = Term.createTerm(message.toString());		
-		engine.unify(ms, clonedMsgTerm, state.getBindings());
+		ms.unify(clonedMsgTerm, state.getBindings());
 		
 		Term recipientsTerm = Term.createTerm(recipients.toString());
-		engine.unify(ms, recipientsTerm, state.getBindings());
+		ms.unify(recipientsTerm, state.getBindings());
 				
 		List<Term> rcpList = new ArrayList<>();
 		if (recipientsTerm.getTerm().isList()) {
@@ -93,11 +90,10 @@ public class SendAction extends Action {
 	protected void sendMessage(List<Term> recipientList, Term message, AgentState state) throws TransitionNotPossibleException {
 		MetaLanguage ml = new MetaLanguage();
 		
-		QueryEngine engine = new QueryEngine();
 		for (Term recipient : recipientList) {
 			// add mental note that the message was sent to a recipient
 			Struct sent = ml.sent(recipient, message);
-			state.insertInMentalState(engine, FormulaQualifier.qualifyStruct(sent, KBType.BELIEF));
+			state.insertInMentalState(FormulaQualifier.qualifyStruct(sent, KBType.BELIEF));
 			state.notifyTermAdded(new ActionExecution().getName(), sent);
 		}
 		OutgoingOrganizationalMessage msg = new OutgoingOrganizationalMessage(recipientList, message);

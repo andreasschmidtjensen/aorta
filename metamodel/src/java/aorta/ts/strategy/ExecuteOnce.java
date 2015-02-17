@@ -21,7 +21,7 @@ public class ExecuteOnce extends Executor {
 	@Override
 	State execute(State state) {
 		state.prepareForTransition();
-		return transition.executeTransition(engine, state);
+		return transition.executeTransition(state);
 	}
 	
 }

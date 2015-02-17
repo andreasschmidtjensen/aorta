@@ -8,11 +8,9 @@ import aorta.AORTAException;
 import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
-import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
 import aorta.ts.rules.ActionExecution;
 import cartago.CartagoException;
@@ -32,7 +30,7 @@ public class EnactAction extends Action {
 	}
 
 	@Override
-	protected AgentState executeAction(QueryEngine engine, Term option, AgentState state) throws AORTAException {
+	protected AgentState executeAction(Term option, AgentState state) throws AORTAException {
 		AgentState newState = state;
 		
 		MentalState ms = state.getMentalState();
@@ -48,16 +46,16 @@ public class EnactAction extends Action {
 		Term t2 = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
 
 		Term test = Term.createTerm(t1 + ", \\+ " + t2);
-		engine.unify(ms, test, state.getBindings());
+		ms.unify(test, state.getBindings());
 
-		SolveInfo result = engine.solve(ms, test);
+		SolveInfo result = ms.solve(test);
 		
 		logger.finest("Attempting to enact: " + result.isSuccess());
 		if (result.isSuccess()) {
 			state.addBindings(result);
 
 			Term qualified = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
-			engine.unify(ms, qualified, state.getBindings());
+			ms.unify(qualified, state.getBindings());
 			
 			if (!qualified.isGround()) {
 				throw new AORTAException("Cannot execute action: term '" + qualified + "' is not ground.");
@@ -72,7 +70,7 @@ public class EnactAction extends Action {
 						}
 						state.getAgent().getArtifactAgent().enact(roleName);
 						ActionExecution tr = new ActionExecution();
-						tr.remove(newState, engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
+						tr.remove(newState, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
 						
 						Tracer.queue(state.getAgent().getName(), "ARTIFACT.enact(" + qualified + ")");
 					} catch (CartagoException ex) {
@@ -81,11 +79,11 @@ public class EnactAction extends Action {
 				}
 				
 				ActionExecution tr = new ActionExecution();
-				tr.add(newState, engine, (Struct) qualified);
-				tr.remove(newState, engine, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
+				tr.add(newState, (Struct) qualified);
+				tr.remove(newState, FormulaQualifier.qualifyStruct((Struct) option, KBType.OPTION));
 
 				Struct send = ml.send(Term.TRUE, new Struct("tell"), qualified);
-				tr.add(newState, engine, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
+				tr.add(newState, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
 
 				logger.fine("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
 				Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");

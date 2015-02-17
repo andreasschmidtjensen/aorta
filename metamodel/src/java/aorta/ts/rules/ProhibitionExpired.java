@@ -12,7 +12,6 @@ import alice.tuprolog.Var;
 import aorta.State;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.language.model.Norm;
 import aorta.kr.util.FormulaQualifier;
@@ -31,7 +30,7 @@ public class ProhibitionExpired extends TransitionRule {
 	private static final Logger logger = Logger.getLogger(ProhibitionExpired.class.getName());
 
 	@Override
-	protected State execute(QueryEngine engine, State state) {
+	protected State execute(State state) {
 		MentalState ms = state.getMentalState();
 		
 		MetaLanguage language = new MetaLanguage();
@@ -41,16 +40,16 @@ public class ProhibitionExpired extends TransitionRule {
 		Term test = Term.createTerm(orgObl + ", D");
 		
 		// check: norm(A,R,forbidden,O,D), D
-		List<SolveInfo> obligations = engine.findAll(ms, test);
+		List<SolveInfo> obligations = ms.findAll(test);
 		for (SolveInfo obligation : obligations) {
 			if (obligation.isSuccess()) {				
 				Struct obj = language.obj(new Var("O"));
 				Struct optObj = FormulaQualifier.qualifyStruct(obj, KBType.OPTION);
-				engine.unify(ms, optObj, obligation);
+				ms.unify(optObj, obligation);
 				
 				Struct proForOpt = language.norm(new Var("R"), new Struct(Norm.PROHIBITION), new Var("O"), new Var("D"));
 				Struct optPro = FormulaQualifier.qualifyStruct(proForOpt, KBType.OPTION);
-				engine.unify(ms, optPro, obligation);
+				ms.unify(optPro, obligation);
 				
 				Term objectiveArg = obj.getArg(0);
 				if (objectiveArg instanceof Var && ((Var)objectiveArg).getTerm() instanceof Struct) {
@@ -75,14 +74,14 @@ public class ProhibitionExpired extends TransitionRule {
 					}
 				}
 
-				if (!engine.exists(ms, objectiveArg)) {
+				if (!ms.exists(objectiveArg)) {
 					//XXX: newState = state.clone();
-					engine.unify(ms, orgObl, obligation);
-					engine.unify(ms, optObj, obligation);
-					engine.unify(ms, optPro, obligation);
-					remove(state, engine, orgObl);
-					remove(state, engine, optObj);
-					remove(state, engine, optPro);
+					ms.unify(orgObl, obligation);
+					ms.unify(optObj, obligation);
+					ms.unify(optPro, obligation);
+					remove(state, orgObl);
+					remove(state, optObj);
+					remove(state, optPro);
 
 					logger.fine("[" + state.getDescription() + "] Prohibition expired (removing): " + orgObl);
 					Tracer.trace(state.getIdentifier(), getName(), "Expired " + orgObl.getArg(0));

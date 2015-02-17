@@ -11,7 +11,6 @@ import alice.tuprolog.Var;
 import aorta.AgentState;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
@@ -29,7 +28,7 @@ public class EnactRule extends TransitionRule<AgentState> {
 	private static final Logger logger = Logger.getLogger(EnactRule.class.getName());
 
 	@Override
-	protected AgentState execute(QueryEngine engine, AgentState state) {
+	protected AgentState execute(AgentState state) {
 		AgentState newState = state;
 		MentalState ms = newState.getMentalState();
 
@@ -45,13 +44,13 @@ public class EnactRule extends TransitionRule<AgentState> {
 		String test = orgRole.toString() + ", bel(me(A)), \\+ " + orgRea.toString() + ", \\+ " + optRole.toString() + ", member(bel(G),Os), cap(G).";
 		try {
 			// org(role(R,Os)), \+ org(rea(Ag,R)), \+ opt(role(R,Os)), member(G,Os), cap(G)
-			List<SolveInfo> results = engine.findAll(ms, test);
+			List<SolveInfo> results = ms.findAll(test);
 			for (SolveInfo result : results) {
 				if (result.isSuccess()) {
-					engine.unify(ms, optRole, result);
+					ms.unify(optRole, result);
 
 					if (optRole.isGround()) {
-						add(newState, engine, optRole);
+						add(newState, optRole);
 
 						logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + optRole);
 						Tracer.trace(state.getAgent().getName(), getName(), optRole.getArg(0).toString());

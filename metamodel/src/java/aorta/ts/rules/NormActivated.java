@@ -12,7 +12,6 @@ import alice.tuprolog.Var;
 import aorta.State;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.MetaLanguage;
 import aorta.kr.language.model.Metamodel;
 import aorta.kr.language.model.Norm;
@@ -33,7 +32,7 @@ public abstract class NormActivated extends TransitionRule {
 	public abstract Struct getDeon();
 
 	@Override
-	protected State execute(QueryEngine engine, State state) {
+	protected State execute(State state) {
 		MentalState ms = state.getMentalState();
 
 		Metamodel metamodel = state.getMetamodel();
@@ -49,7 +48,7 @@ public abstract class NormActivated extends TransitionRule {
 			
 			// For each agent rea(agent, r) set agVar = agent
 			//   if c => activate norm for rea(agent, r)
-			List<SolveInfo> reas = engine.findAll(ms, FormulaQualifier.qualifyStruct(ml.rea(new Var("A"), r), KBType.ORGANIZATION));
+			List<SolveInfo> reas = ms.findAll(FormulaQualifier.qualifyStruct(ml.rea(new Var("A"), r), KBType.ORGANIZATION));
 			for (SolveInfo rea : reas) {
 				if (rea.isSuccess()) {
 					Term a = null;
@@ -75,20 +74,20 @@ public abstract class NormActivated extends TransitionRule {
 											condition, 
 											new Struct("\\+", p));
 
-					SolveInfo solution = engine.solve(ms, test);
+					SolveInfo solution = ms.solve(test);
 										
 					if (solution.isSuccess()) {						
-						engine.unify(ms, p, solution);
-						engine.unify(ms, d, solution);
+						ms.unify(p, solution);
+						ms.unify(d, solution);
 						
 						Struct activatedNorm = ml.norm(a, r, deon, p, d);
 						Struct orgNorm = FormulaQualifier.qualifyStruct(activatedNorm, KBType.ORGANIZATION);
 						
-						if (!engine.exists(ms, orgNorm)) {
+						if (!ms.exists(orgNorm)) {
 							if (!p.isGround()) {
 								logger.warning("[" + state.getDescription() + "] Norm state - " + p + " - is not ground");
 							}
-							add(state, engine, orgNorm);
+							add(state, orgNorm);
 
 							logger.fine("[" + state.getDescription() + "] Adding norm: " + orgNorm);
 							Tracer.trace(state.getIdentifier(), getName(), orgNorm.getArg(0).toString());

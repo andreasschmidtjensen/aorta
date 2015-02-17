@@ -8,7 +8,6 @@ import alice.tuprolog.Struct;
 import alice.tuprolog.Var;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.model.Metamodel;
 import aorta.kr.util.FormulaQualifier;
 import aorta.msg.IncomingOrganizationalMessage;
@@ -69,7 +68,7 @@ public class AgentState extends State {
 	}
 
 	@Override
-	public void insertTerm(QueryEngine engine, Struct term, KBType type) {
+	public void insertTerm(Struct term, KBType type) {
 		boolean insert = true;
 		if (bridge != null) {
 			switch (type) {
@@ -83,11 +82,11 @@ public class AgentState extends State {
 		}
 
 		if (insert) {
-			super.insertTerm(engine, term, type);
+			super.insertTerm(term, type);
 		}
 	}
 
-	public void insertMessage(QueryEngine engine, IncomingOrganizationalMessage msg) {
+	public void insertMessage(IncomingOrganizationalMessage msg) {
 		Struct om = (Struct) msg.getMessage();
 		Struct contents = (Struct) om.getArg(0);
 		boolean insert = true;
@@ -111,14 +110,14 @@ public class AgentState extends State {
 		}
 
 		if (insert) {
-			engine.insert(getMentalState(), contents);
+			getMentalState().insert(contents);
 			logger.fine("insertMessage(" + msg + ")");
 			setChanged(true);
 		}
 	}
 
 	@Override
-	public void removeTerm(QueryEngine engine, Struct term, KBType type) {
+	public void removeTerm(Struct term, KBType type) {
 		boolean remove = true;
 		if (bridge != null) {
 			switch (type) {
@@ -132,7 +131,7 @@ public class AgentState extends State {
 		}
 
 		if (remove) {
-			super.removeTerm(engine, term, type);
+			super.removeTerm(term, type);
 		}
 	}
 

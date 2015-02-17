@@ -6,7 +6,6 @@
 package aorta.ts.strategy;
 
 import aorta.State;
-import aorta.kr.QueryEngine;
 import aorta.ts.TransitionRule;
 
 /**
@@ -16,7 +15,6 @@ import aorta.ts.TransitionRule;
  */
 public abstract class Executor<T extends State> {
 
-	protected QueryEngine engine = new QueryEngine();
 	protected TransitionRule transition;
 
 	public Executor(TransitionRule transition) {

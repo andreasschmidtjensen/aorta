@@ -24,7 +24,7 @@ public class ExecuteStar extends Executor {
 		boolean cont = true;
 		while (cont) {
 			state.prepareForTransition();
-			state = transition.executeTransition(engine, state);
+			state = transition.executeTransition(state);
 
 			cont = state.hasChanged();
 			if (state.hasChanged()) {

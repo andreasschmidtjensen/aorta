@@ -6,7 +6,6 @@
 
 package aorta.organization.ts.rules;
 
-import aorta.kr.QueryEngine;
 import aorta.organization.ArtifactState;
 import aorta.organization.action.Operation;
 import aorta.tracer.Tracer;
@@ -19,7 +18,7 @@ import aorta.ts.TransitionRule;
 public class OperationExecution extends TransitionRule<ArtifactState> {
 
 	@Override
-	protected ArtifactState execute(QueryEngine engine, ArtifactState state) {
+	protected ArtifactState execute(ArtifactState state) {
 		if (state.getQueue().peek() != null) {
 			Operation op = state.getQueue().poll();
 			boolean result = op.execute(state);

@@ -6,13 +6,11 @@ package aorta.ts.rules;
 
 import alice.tuprolog.Struct;
 import aorta.AgentState;
-import aorta.kr.QueryEngine;
 import aorta.msg.IncomingOrganizationalMessage;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionRule;
 import java.util.logging.Level;
 import aorta.logging.Logger;
-import aorta.reasoning.MessageFunction;
 
 /**
  *
@@ -23,7 +21,7 @@ public class Check extends TransitionRule<AgentState> {
 	private static final Logger logger = Logger.getLogger(Check.class.getName());
 	
 	@Override
-	public AgentState execute(QueryEngine engine, AgentState state) {
+	public AgentState execute(AgentState state) {
 		AgentState newState = state;
 		
 		IncomingOrganizationalMessage iom;
@@ -38,7 +36,7 @@ public class Check extends TransitionRule<AgentState> {
 
 				Tracer.trace(state.getAgent().getName(), getName(), iom.toString());
 				
-				newState = state.getAgent().getMessageFunction().process(engine, iom, newState);
+				newState = state.getAgent().getMessageFunction().process(iom, newState);
 			}
 		}
 		

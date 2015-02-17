@@ -7,7 +7,6 @@ package aorta.ts;
 import alice.tuprolog.Struct;
 import aorta.State;
 import aorta.kr.KBType;
-import aorta.kr.QueryEngine;
 import aorta.kr.util.FormulaQualifier;
 import aorta.logging.Logger;
 
@@ -20,43 +19,43 @@ public abstract class TransitionRule<T extends State> {
  
 	private static final Logger logger = Logger.getLogger(TransitionRule.class.getName());
 	
-	protected abstract T execute(QueryEngine engine, T state);
+	protected abstract T execute(T state);
 	
-	public T executeTransition(QueryEngine engine, T state) {
+	public T executeTransition(T state) {
 		logger.finest("[" + state.getDescription() + "] Executing transition: " + getName());
 		state.prepareForTransition(); // clears bindings
-		return execute(engine, state);
+		return execute(state);
 	}
     
 	public abstract String getName();
 	
-	public void add(State state, QueryEngine engine, Struct term, KBType type) {
-		state.insertTerm(engine, term, type);
+	public void add(State state, Struct term, KBType type) {
+		state.insertTerm(term, type);
 		state.notifyTermAdded(getName(), FormulaQualifier.qualifyStruct(term, type));
 	}
 	
-	public void add(State state, QueryEngine engine, Struct term) {
-		state.insertTerm(engine, term);
+	public void add(State state, Struct term) {
+		state.insertTerm(term);
 		state.notifyTermAdded(getName(), term);
 	}
 	
-	public void insertInMs(State state, QueryEngine engine, Struct term) {
-		state.insertInMentalState(engine, term);
+	public void insertInMs(State state, Struct term) {
+		state.insertInMentalState(term);
 		state.notifyTermAdded(getName(), term);
 	}
 	
-	public void remove(State state, QueryEngine engine, Struct term, KBType type) {
-		state.removeTerm(engine, term, type);
+	public void remove(State state, Struct term, KBType type) {
+		state.removeTerm(term, type);
 		state.notifyTermRemoved(getName(), FormulaQualifier.qualifyStruct(term, type));
 	}
 	
-	public void remove(State state, QueryEngine engine, Struct term) {
-		state.removeTerm(engine, term);
+	public void remove(State state, Struct term) {
+		state.removeTerm(term);
 		state.notifyTermRemoved(getName(), term);
 	}
 	
-	public void removeFromMs(State state, QueryEngine engine, Struct term) {
-		state.removeFromMentalState(engine, term);
+	public void removeFromMs(State state, Struct term) {
+		state.removeFromMentalState(term);
 		state.notifyTermRemoved(getName(), term);
 	}
 	

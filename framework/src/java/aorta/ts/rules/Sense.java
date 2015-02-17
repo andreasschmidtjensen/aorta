@@ -8,7 +8,6 @@ package aorta.ts.rules;
 
 import alice.tuprolog.Struct;
 import aorta.AgentState;
-import aorta.kr.QueryEngine;
 import aorta.logging.Logger;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionRule;
@@ -24,7 +23,7 @@ public class Sense extends TransitionRule<AgentState> {
 	private static final Logger logger = Logger.getLogger(Sense.class.getName());
 	
 	@Override
-	protected AgentState execute(QueryEngine engine, AgentState state) {
+	protected AgentState execute(AgentState state) {
 		try {
 			List<Struct>[] result = state.getAgent().getArtifactAgent().perceive();
 			List<Struct> added = result[0];

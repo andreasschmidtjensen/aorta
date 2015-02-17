@@ -70,7 +70,7 @@ public class ArtifactPanel extends EntityPanel {
 
 		private void updateRea() {
 			List<String> values = new ArrayList<>();
-			List<SolveInfo> solutions = engine.findAll(artifact.getState().getMentalState(), REA);
+			List<SolveInfo> solutions = artifact.getState().getMentalState().findAll(REA);
 			for (SolveInfo solution : solutions) {
 				if (solution.isSuccess()) {
 					try {
@@ -93,7 +93,7 @@ public class ArtifactPanel extends EntityPanel {
 		
 		private void updateNorms() {
 			List<String> values = new ArrayList<>();
-			List<SolveInfo> solutions = engine.findAll(artifact.getState().getMentalState(), NORM);
+			List<SolveInfo> solutions = artifact.getState().getMentalState().findAll(NORM);
 			for (SolveInfo solution : solutions) {
 				if (solution.isSuccess()) {
 					try {
@@ -119,7 +119,7 @@ public class ArtifactPanel extends EntityPanel {
 		
 		private void updateViolations() {
 			List<String> values = new ArrayList<>();
-			List<SolveInfo> solutions = engine.findAll(artifact.getState().getMentalState(), VIOL);
+			List<SolveInfo> solutions = artifact.getState().getMentalState().findAll(VIOL);
 			for (SolveInfo solution : solutions) {
 				if (solution.isSuccess()) {
 					try {

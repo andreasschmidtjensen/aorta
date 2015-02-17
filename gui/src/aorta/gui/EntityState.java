@@ -9,7 +9,6 @@ import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Term;
 import aorta.State;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.tracer.StateListener;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,14 +23,13 @@ import javax.swing.JList;
  */
 public abstract class EntityState implements StateListener {
 
-	protected final QueryEngine engine = new QueryEngine();
 	protected final Pattern anon = Pattern.compile("_\\d+");
 	
 	public abstract void update();
 
 	protected void update(MentalState ms, JList list, Term struct, String var) {
 		List<String> values = new ArrayList<>();
-		List<SolveInfo> solutions = engine.findAll(ms, struct);
+		List<SolveInfo> solutions = ms.findAll(struct);
 		for (SolveInfo solution : solutions) {
 			if (solution.isSuccess()) {
 				try {
