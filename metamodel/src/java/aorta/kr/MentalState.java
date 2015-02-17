@@ -4,6 +4,7 @@ import alice.tuprolog.ClauseInfo;
 import alice.tuprolog.MalformedGoalException;
 import alice.tuprolog.NoMoreSolutionException;
 import alice.tuprolog.NoSolutionException;
+import alice.tuprolog.Parser;
 import alice.tuprolog.Prolog;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
@@ -227,6 +228,10 @@ public class MentalState {
 		return result;
 	}
     
+	public Term parseTerm(String term) {
+		Parser parser = new Parser(prolog.getOperatorManager(), term);
+		return parser.nextTerm(false);
+	}
 
     @Override
     public String toString() {
@@ -234,4 +239,5 @@ public class MentalState {
 		theory = theory.replace("\n\n", "\n");
 		return theory;
     }
+
 }

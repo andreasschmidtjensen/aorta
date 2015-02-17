@@ -38,8 +38,8 @@ public class FormulaQualifier extends TermQualifier {
 	}
 	
 	public static Term qualifyGoal(MentalState ms, Formula fml, boolean qualifyUnboundVars) {
-		Parser parser = new Parser(ms.getProlog().getOperatorManager(), qualifyGoalFml(fml, qualifyUnboundVars));
-		return parser.nextTerm(false);
+		String qualifiedGoal = qualifyGoalFml(fml, qualifyUnboundVars);
+		return ms.parseTerm(qualifiedGoal);
 	}
 	
 	public static String qualifyGoalFml(Formula fml, boolean qualifyUnboundVars) {
