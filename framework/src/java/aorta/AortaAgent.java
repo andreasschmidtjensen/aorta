@@ -24,22 +24,34 @@ import cartago.ArtifactId;
 import cartago.ArtifactObsProperty;
 import cartago.CartagoException;
 import cartago.util.agent.Percept;
+import gov.nasa.jpf.annotation.FilterField;
 import java.util.ArrayList;
 
 public class AortaAgent {
 
+	@FilterField
 	private int cycle;
 	
 	public static final Logger logger = Logger.getLogger(AortaAgent.class.getName());
+	
+	@FilterField
 	private String name;
+	
 	private AgentState state;
+	
+	@FilterField
 	private Aorta aorta;
+	
+	@FilterField
 	private Strategy<AgentState> strategy;
 		
+	@FilterField
 	private AortaArtifactAgent artifactAgent;
     
+	@FilterField
     private String lastTrace;
     
+	@FilterField
 	private final ExecutionTrace trace;
 	
 	private boolean lastCycleChangedState = true;

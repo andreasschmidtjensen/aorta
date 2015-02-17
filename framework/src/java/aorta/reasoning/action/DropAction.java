@@ -1,6 +1,5 @@
 package aorta.reasoning.action;
 
-import alice.tuprolog.NoSolutionException;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
@@ -14,7 +13,6 @@ import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionNotPossibleException;
 import aorta.logging.Logger;
-import aorta.reasoning.action.Action;
 import aorta.ts.rules.ActionExecution;
 
 public class DropAction extends Action {
@@ -58,14 +56,13 @@ public class DropAction extends Action {
                     asStruct = (Struct) clonedObjTerm;
                 }
 				
-				//XXX: newState = state.clone();;
 				ActionExecution tr = new ActionExecution();
 				tr.remove(newState, engine, asStruct, KBType.GOAL);
 				logger.fine("[" + state.getAgent().getName() + "] Executing action: drop(" + asStruct + ")");
 				Tracer.queue(state.getAgent().getName(), "drop(" + asStruct + ")");
 			}
 		} else {
-			throw new TransitionNotPossibleException();
+			return null;
 		}
 		
 		return newState;

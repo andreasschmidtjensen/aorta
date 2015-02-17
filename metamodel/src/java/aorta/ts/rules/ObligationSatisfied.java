@@ -54,24 +54,6 @@ public class ObligationSatisfied extends TransitionRule {
 				if (objectiveArg instanceof Var && ((Var)objectiveArg).getTerm() instanceof Struct) {
 					objectiveArg = ((Var)objectiveArg).getTerm();
 				}
-				if (objectiveArg instanceof Struct) {
-					if (TermQualifier.isQualified((Struct)objectiveArg)) {
-						try {
-							Term qualifiedArg = FormulaQualifier.getQualified((Struct)objectiveArg);
-							if (qualifiedArg == null) {
-								// ugly fix
-								int tries = 5;
-								while (tries > 0 && qualifiedArg == null)  {
-									qualifiedArg = FormulaQualifier.getQualified((Struct)objectiveArg);
-									tries--;
-								}
-							}
-							optObj = (Struct) TermQualifier.qualifyTerm(language.obj(qualifiedArg), KBType.OPTION.getType());							
-						} catch (InvalidTermException ex) {
-							System.out.println("InvalidTermException for " + obj);
-						}
-					}
-				}
 
 				if (engine.exists(ms, objectiveArg)) {
 					//XXX: newState = state.clone();

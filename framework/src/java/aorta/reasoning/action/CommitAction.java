@@ -46,8 +46,6 @@ public class CommitAction extends Action {
 		Term test = Term.createTerm("\\+ " + belTerm + ", \\+ " + goalTerm);
 
 		SolveInfo result = engine.solve(ms, test);
-//		System.out.println("Trying to commit to " + clonedObjTerm + " via test: " + test + ": " + result);
-//		System.out.println("Mental state: " + ms);
 
 		logger.log(Level.FINEST, "Attempting to commit: " + result.isSuccess());
 		if (result.isSuccess()) {
@@ -55,25 +53,20 @@ public class CommitAction extends Action {
 
 			engine.unify(ms, clonedObjTerm, state.getBindings());
 
-//			if (!clonedObjTerm.isGround()) {
-//				throw new AORTAException("Cannot execute action: term '" + clonedObjTerm + "' is not ground.");
-//			} else {
-				//XXX: newState = state.clone();;
-				Struct asStruct;
-				if (clonedObjTerm instanceof Var) {
-					asStruct = (Struct) clonedObjTerm.getTerm();
-				} else {
-					asStruct = (Struct) clonedObjTerm;
-				}
+			Struct asStruct;
+			if (clonedObjTerm instanceof Var) {
+				asStruct = (Struct) clonedObjTerm.getTerm();
+			} else {
+				asStruct = (Struct) clonedObjTerm;
+			}
 
-				ActionExecution tr = new ActionExecution();
-				tr.add(newState, engine, asStruct, KBType.GOAL);
+			ActionExecution tr = new ActionExecution();
+			tr.add(newState, engine, asStruct, KBType.GOAL);
 
-				logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: commit(" + asStruct + ")");
-				Tracer.queue(state.getAgent().getName(), "commit(" + asStruct + ")");
-//			}
+			logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: commit(" + asStruct + ")");
+			Tracer.queue(state.getAgent().getName(), "commit(" + asStruct + ")");
 		} else {
-			throw new TransitionNotPossibleException("No solution for " + clonedObjTerm);
+			return null;
 		}
 
 		return newState;

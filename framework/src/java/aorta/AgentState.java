@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Queue;
 import aorta.logging.Logger;
 import aorta.reasoning.ReasoningRule;
+import gov.nasa.jpf.annotation.FilterField;
 
 /**
  *
@@ -30,10 +31,19 @@ public class AgentState extends State {
 	private static final Logger logger = Logger.getLogger(AgentState.class.getName());
 	
 	private AortaAgent agent;
+	
+	@FilterField
 	private List<ReasoningRule> rules;
+	
 	private Queue<OutgoingOrganizationalMessage> out;
+	
+	@FilterField
 	private ExternalAgent externalAgent;
+	
+	@FilterField
 	private AortaBridge bridge;
+	
+	@FilterField
 	private List<Var> bindings;
 	
 	public AgentState(AortaAgent agent, MentalState mentalState, Metamodel metamodel, List<ReasoningRule> rules) {
@@ -102,6 +112,7 @@ public class AgentState extends State {
 
 		if (insert) {
 			engine.insert(getMentalState(), contents);
+			logger.fine("insertMessage(" + msg + ")");
 			setChanged(true);
 		}
 	}
@@ -126,7 +137,8 @@ public class AgentState extends State {
 	}
 
 	public void sendMessage(OutgoingOrganizationalMessage msg) {
-		out.add(msg);			
+		out.add(msg);	
+		logger.fine("sendMessage(" + msg + ")");
 		setChanged(true);
 	}
 	

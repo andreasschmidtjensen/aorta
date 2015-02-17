@@ -20,7 +20,7 @@ import aorta.kr.util.FormulaQualifier;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionRule;
 import java.util.List;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
 
 /**
  *
@@ -72,10 +72,8 @@ public abstract class NormActivated extends TransitionRule {
 					}
 					
 					Term test = new Struct(",", 
-									new Struct(",", 
 											condition, 
-											new Struct("\\+", p)), 
-									new Struct("\\+", d));
+											new Struct("\\+", p));
 
 					SolveInfo solution = engine.solve(ms, test);
 										

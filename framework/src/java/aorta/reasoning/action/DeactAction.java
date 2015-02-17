@@ -73,7 +73,6 @@ public class DeactAction extends Action {
 						throw new AORTAException("The artifact could not deact", ex);
 					}
 				} else {
-					//XXX: newState = state.clone();;
 					ActionExecution tr = new ActionExecution();
 					tr.remove(newState, engine, (Struct) qualified);
 
@@ -84,7 +83,7 @@ public class DeactAction extends Action {
 				throw new AORTAException("X in deact(X) must be a Struct (was " + qualified.getClass() + ")");
 			}
 		} else {
-			throw new TransitionNotPossibleException();
+			return null;
 		}
 		
 		return newState;

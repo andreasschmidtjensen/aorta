@@ -94,7 +94,7 @@ public class EnactAction extends Action {
 				throw new AORTAException("X in enact(X) must be a Struct (was " + qualified.getClass() + ")");
 			}
 		} else {
-			throw new TransitionNotPossibleException();
+			return null;
 		}
 		
 		return newState;

@@ -66,8 +66,6 @@ public class SendAction extends Action {
 		Term recipientsTerm = Term.createTerm(recipients.toString());
 		engine.unify(ms, recipientsTerm, state.getBindings());
 				
-//		System.out.println("Wants to send " + clonedMsgTerm + " to " + recipientsTerm);
-		
 		List<Term> rcpList = new ArrayList<>();
 		if (recipientsTerm.getTerm().isList()) {
 			Struct lt = (Struct) recipientsTerm.getTerm();
@@ -79,14 +77,14 @@ public class SendAction extends Action {
 			rcpList.add(recipientsTerm.getTerm());
 		}
 		
-//		System.out.println("rcps: " + rcpList);
-		
 		if (!clonedMsgTerm.isGround()) {
 			throw new AORTAException("Cannot execute action: term '" + clonedMsgTerm + "' is not ground.");
 		} else {
-			//XXX: newState = state.clone();;
-			
-			sendMessage(rcpList, clonedMsgTerm, newState);
+			try {
+				sendMessage(rcpList, clonedMsgTerm, newState);
+			} catch (TransitionNotPossibleException ex) {
+				return null;
+			}
 		}
 		
 		return newState;

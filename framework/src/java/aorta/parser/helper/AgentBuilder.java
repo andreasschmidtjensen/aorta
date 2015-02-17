@@ -72,7 +72,9 @@ public class AgentBuilder {
 		MentalState ms = new MentalState(loader.load());
 
 		AortaAgent agent = new AortaAgent(name, ms, metamodel, rules);
-		agent.getState().setBridge(bridge);
+		if (bridge != null) {
+			agent.getState().setBridge(bridge);
+		}
 		return agent;
 	}
 

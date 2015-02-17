@@ -20,7 +20,8 @@ import aorta.tracer.StateListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import aorta.logging.Logger;
+import gov.nasa.jpf.annotation.FilterField;
 
 /**
  *
@@ -30,10 +31,16 @@ public abstract class State {
 		
 	private static final Logger logger = Logger.getLogger(State.class.getName());
 	
+	@FilterField
 	private MentalState mentalState;	
+	
+	@FilterField
 	private List<Var> bindings;
+	
+	@FilterField
 	private Metamodel metamodel;
 	
+	@FilterField
 	private final List<StateListener> stateListeners = new ArrayList<>();
 	
 	private boolean changed;
@@ -129,14 +136,16 @@ public abstract class State {
 		removeTerm(engine, term, type);
 	}
 
-	public void insertInMentalState(QueryEngine engine, Struct contents) {
-		engine.insert(mentalState, contents);			
-		changed = true;
+	public void insertInMentalState(QueryEngine engine, Struct struct) {
+		engine.insert(mentalState, struct);			
+		logger.fine("insertIntoMentalState(" + struct + ")");
+		setChanged(true);
 	}
 
-	public void removeFromMentalState(QueryEngine engine, final Struct qualified) {
-		engine.remove(mentalState, qualified);			
-		changed = true;
+	public void removeFromMentalState(QueryEngine engine, final Struct struct) {
+		engine.remove(mentalState, struct);			
+		logger.fine("removeFromMentalState(" + struct + ")");
+		setChanged(true);
 	}
 	
 	public List<Var> getBindings() {

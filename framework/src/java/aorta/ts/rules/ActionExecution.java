@@ -21,7 +21,6 @@ import aorta.reasoning.fml.ConjunctFormula;
 import aorta.reasoning.fml.Formula;
 import aorta.tracer.Tracer;
 import aorta.ts.TransitionRule;
-import aorta.ts.TransitionNotPossibleException;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -101,21 +100,22 @@ public class ActionExecution extends TransitionRule<AgentState> {
 						engine.unify(ms, qualified, bindings);
 						
 						List<Var> prevBindings = newState.getBindings();
-						try {
-							Tracer.beginTrace(state.getAgent().getName(), getName());
-							Tracer.queue(state.getAgent().getName(), option + " : " + qualified + " => ");
+						
+						Tracer.beginTrace(state.getAgent().getName(), getName());
+						Tracer.queue(state.getAgent().getName(), option + " : " + qualified + " => ");
 
-							newState.addBindings(bindings);
-							newState = ar.getAction().execute(engine, option, newState);
+						newState.addBindings(bindings);
+						AgentState resultingState = ar.getAction().execute(engine, option, newState);
 
+						if (resultingState != null) {
 							Tracer.commitTrace(state.getAgent().getName());
 
-							return newState;
-						} catch (TransitionNotPossibleException ex) {
+							return resultingState;
+						} else {
 							newState.setBindings(prevBindings);
 
+							logger.log(Level.FINE, "Transition was not possible (" + Tracer.getQueue(state.getAgent().getName()) + ")");
 							Tracer.clearQueue(state.getAgent().getName());
-							logger.log(Level.FINE, "Transition was not possible (" + ex.getMessage() + ")");
 						}
 					}
 

@@ -123,6 +123,10 @@ public class Tracer {
 		tracer.addToQueue(agent, description);
 	}
 	
+	public static String getQueue(String agent) {
+		return tracer.queue.get(agent).toString();
+	}
+	
 	public static void clearQueue(String agent) {
 		tracer.clearAgentQueue(agent);
 	}
