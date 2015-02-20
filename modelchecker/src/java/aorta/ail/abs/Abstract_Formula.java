@@ -27,7 +27,7 @@ import gov.nasa.jpf.vm.MJIEnv;
  */
 public abstract class Abstract_Formula {
 
-	static Abstract_Formula convert(Formula context) {
+	public static Abstract_Formula convert(Formula context) {
 		if (context instanceof BeliefFormula) {
 			return new Abstract_BeliefFormula(((BeliefFormula) context).getFormula().toString());
 		} else if (context instanceof ConjunctFormula) {

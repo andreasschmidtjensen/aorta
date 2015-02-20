@@ -1,6 +1,7 @@
 package aorta.kr;
 
 import alice.tuprolog.ClauseInfo;
+import alice.tuprolog.InvalidTheoryException;
 import alice.tuprolog.MalformedGoalException;
 import alice.tuprolog.NoMoreSolutionException;
 import alice.tuprolog.NoSolutionException;
@@ -9,12 +10,14 @@ import alice.tuprolog.Prolog;
 import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
+import alice.tuprolog.Theory;
 import alice.tuprolog.TheoryManager;
 import alice.tuprolog.Var;
 import aorta.kr.util.FormulaQualifier;
 import aorta.kr.util.TermVisitor;
 import aorta.reasoning.fml.Formula;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -25,6 +28,15 @@ public class MentalState {
     public MentalState(Prolog prolog) {
         this.prolog = prolog;
     }
+	
+	public MentalState(String theory) {
+		try {
+			prolog = new Prolog();
+			prolog.addTheory(new Theory(theory));
+		} catch (InvalidTheoryException ex) {
+			throw new RuntimeException(ex);
+		}
+	}
 	
     public Struct addAgentOwnName(String name) {
 		Struct myName = new Struct("me", new Struct(name));
@@ -164,6 +176,38 @@ public class MentalState {
 	}
 	
 	public List<SolveInfo> findAll(Term term) {
+		return Arrays.asList(performFindAll(term));
+	}
+	
+	public List<SolveInfo> findAll(String query) throws MalformedGoalException {
+		return Arrays.asList(performFindAll(query));
+	}
+
+	public Term unify(Term qualified, List<Var> bindings) {
+		if (bindings.isEmpty()) {
+			return qualified;
+		}
+		
+		return performUnify(qualified, bindings.toArray(new Var[bindings.size()]));
+	}
+		
+	public Term unify(Term qualified, SolveInfo solveInfo) {
+		if (solveInfo.isSuccess()) { 
+			try {
+				return unify(qualified, solveInfo.getBindingVars());
+			} catch (NoSolutionException ex) {
+				// ignore because of isSuccess
+			}
+		}
+		return qualified;
+	}
+
+	public List<Var> getVars(Term term) {
+		return Arrays.asList(performGetVars(term));
+	}
+    
+	/// The *perform*XXX are delegates used to optimize the modelchecker
+	private SolveInfo[] performFindAll(Term term) {
 		List<SolveInfo> result = new ArrayList<>();
 		
 		SolveInfo solve = prolog.solve(term);
@@ -178,10 +222,10 @@ public class MentalState {
 				// not thrown since hasOpenAlternatives has been checked.
 			}
 		}
-		return result;
+		return result.toArray(new SolveInfo[result.size()]);
 	}
-
-	public List<SolveInfo> findAll(String query) throws MalformedGoalException {
+	
+	private SolveInfo[] performFindAll(String query) throws MalformedGoalException {
 		List<SolveInfo> result = new ArrayList<>();
 		
 		SolveInfo solve = prolog.solve(query);
@@ -196,24 +240,18 @@ public class MentalState {
 				// not thrown since hasOpenAlternatives has been checked.
 			}
 		}
-		return result;
+		return result.toArray(new SolveInfo[result.size()]);
 	}
 
-	public void unify(Term qualified, List<Var> bindings) {
-		new TermVisitor(prolog).unify(qualified, bindings);
-	}
-	
-	public void unify(Term qualified, SolveInfo solveInfo) {
-		if (solveInfo.isSuccess()) { 
-			try {
-				unify(qualified, solveInfo.getBindingVars());
-			} catch (NoSolutionException ex) {
-				// ignore because of isSuccess
-			}
+	private Term performUnify(Term qualified, Var[] bindings) {
+		if (prolog == null) {
+			prolog = new Prolog();
 		}
+		new TermVisitor(prolog).unify(qualified, Arrays.asList(bindings));
+		return qualified;
 	}
-
-	public List<Var> getVars(Term term) {
+		
+	private Var[] performGetVars(Term term) {
 		List<Var> result = new ArrayList<>();
 		
 		if (term instanceof Var) {
@@ -225,9 +263,10 @@ public class MentalState {
 			}
 		}
 		
-		return result;
+		return result.toArray(new Var[result.size()]);
 	}
-    
+	/// End *perform* delegates
+	
 	public Term parseTerm(String term) {
 		Parser parser = new Parser(prolog.getOperatorManager(), term);
 		return parser.nextTerm(false);

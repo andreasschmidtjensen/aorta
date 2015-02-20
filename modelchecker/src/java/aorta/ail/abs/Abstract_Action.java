@@ -23,7 +23,7 @@ import gov.nasa.jpf.vm.MJIEnv;
  */
 public abstract class Abstract_Action {
 
-	static Abstract_Action convert(Action action) {
+	public static Abstract_Action convert(Action action) {
 		if (action instanceof CommitAction) {
 			return new Abstract_CommitAction(((CommitAction)action).getObjective().toString());
 		} else if (action instanceof DropAction) {

@@ -1,0 +1,6 @@
+env = gwendolen.auctionhouse.AuctionHouse
+
+mas.file = simple_ah.aortasetup
+mas.builder = aorta.ail.AortaMASBuilder
+
+log.warning = ajpf.MCAPLcontroller,ajpf.MCAPLAgent,ail.mas.DefaultEnvironment,ail.semantics.AILAgent,aorta.ail.AortaAILAgent,aorta.ail.AILBridge, 

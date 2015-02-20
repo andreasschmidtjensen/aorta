@@ -53,13 +53,13 @@ public class Delegate extends TransitionRule<AgentState> {
 				// not thrown because of isSuccess
 			}
 
-			ms.unify(optDel, state.getBindings());
+			optDel = (Struct) ms.unify(optDel, state.getBindings());
 			
 			if (optDel.isGround()) {
 				//XXX: newState = state.clone();;
 				add(state, optDel);
 				
-				logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optDel);
+				logger.finer("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optDel);
 				Tracer.trace(state.getAgent().getName(), getName(), optDel.toString());
 			}
 		}

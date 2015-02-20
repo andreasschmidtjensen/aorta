@@ -4,6 +4,7 @@
  */
 package aorta.logging;
 
+import gov.nasa.jpf.annotation.FilterField;
 import gov.nasa.jpf.vm.Verify;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,9 +27,12 @@ public abstract class Logger {
 
 	static class ModelcheckingLogger extends Logger {
 		
-		private SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyyHHmmss");
-		private String logName;
-		private Level logLevel = Level.INFO;
+		@FilterField
+		private SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyyHHmmss");		
+		@FilterField
+		private String logName;		
+		@FilterField
+		private Level logLevel = Level.FINE;
 
 		private ModelcheckingLogger(String logName) {
 			this.logName = logName;

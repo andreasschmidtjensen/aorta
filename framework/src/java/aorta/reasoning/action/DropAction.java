@@ -31,7 +31,7 @@ public class DropAction extends Action {
 	protected AgentState executeAction(Term option, AgentState state) throws AORTAException {
 		AgentState newState = state;
 		
-		final Term clonedObjTerm = Term.createTerm(objective.toString());
+		Term clonedObjTerm = Term.createTerm(objective.toString());
 				
 		// Check that it is already a goal
 		Term goalTerm = FormulaQualifier.qualifyTerm(clonedObjTerm, KBType.GOAL.getType(), true);
@@ -42,7 +42,7 @@ public class DropAction extends Action {
 		if (result.isSuccess()) {
 			state.addBindings(result);
 			
-			ms.unify(clonedObjTerm, state.getBindings());
+			clonedObjTerm = ms.unify(clonedObjTerm, state.getBindings());
 			
 			if (!clonedObjTerm.isGround()) {
 				throw new AORTAException("Cannot execute action: term '" + clonedObjTerm + "' is not ground.");
@@ -56,7 +56,7 @@ public class DropAction extends Action {
 				
 				ActionExecution tr = new ActionExecution();
 				tr.remove(newState, asStruct, KBType.GOAL);
-				logger.fine("[" + state.getAgent().getName() + "] Executing action: drop(" + asStruct + ")");
+				logger.finer("[" + state.getAgent().getName() + "] Executing action: drop(" + asStruct + ")");
 				Tracer.queue(state.getAgent().getName(), "drop(" + asStruct + ")");
 			}
 		} else {

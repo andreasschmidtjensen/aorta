@@ -1,0 +1,63 @@
+GWENDOLEN
+:name: carol
+
+:Initial Beliefs:
+want(lamp)
+me(carol)
+
+:Belief Rules:
+B registered(Me) :- B registered(Me,Add,Acc);
+
+:Initial Goals:
+
+:Plans:
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), *registered(Me,Add,Acc);
+
++!verified(Me) [achieve] : { ~.sent(Agent, Me, :achieve, verified(Me)) } <- *manager(Agent), .send(Agent, :achieve, verified(Me)), *verified(Me);
+
++auction(Id,Item,Ag,SP,ET) : { B want(Item), B me(Me) } <- +!registered(Me) [achieve], +!verified(Me) [achieve];
+
++.received(:tell, manager(Agent)) : { ~B manager(Agent) } <- +manager(Agent);
++.received(:tell, verified(Agent)) : { ~B verified(Agent) } <- +verified(Agent);
+
+:name: sally
+
+:Initial Beliefs:
+have(lamp)
+me(sally)
+
+:Belief Rules:
+B registered(Me) :- B registered(Me,Add,Acc);
+B auction(Agent,Item) :- B auction(Id, Item, Agent, StartPrice, EndTime);
+
+:Initial Goals:
+sold(lamp) [achieve]
+
+:Plans: 
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), +!registered(Me) [achieve];
+
++!sold(Item) [achieve] : { B me(Me), ~B registered(Me) } <- +!registered(Me) [achieve], *registered(Me,Add,Acc), +!verified(Me) [achieve], +!auction(Me,Item) [achieve];
+
++!verified(Me) [achieve] : { ~.sent(Agent, Me, :achieve, verified(Me)) } <- *manager(Agent), .send(Agent, :achieve, verified(Me)), *verified(Me);
+
++!auction(Me,Item) [achieve] : { ~B auction(Me,Item) } <- start_auction(Item, 10, 2), +sold(Item);
+
++.received(:tell, manager(Agent)) : { ~B manager(Agent) } <- +manager(Agent);
++.received(:tell, verified(Agent)) : { ~B verified(Agent) } <- +verified(Agent);
+
+:name: mike
+
+:Initial Beliefs:
+me(mike)
+
+:Initial Goals:
+
+:Plans: 
+
++!verified(Agent) [achieve] : { B registered(Agent,Add,Acc) } <- verify(Agent);
+
++registered(Ag,Add,Acc) : { B me(Me) } <- .send(Ag, :tell, manager(Me));
+
++.received(:achieve, verified(Agent)) : { True } <- +!verified(Agent) [achieve], .send(Agent, :tell, verified(Agent));

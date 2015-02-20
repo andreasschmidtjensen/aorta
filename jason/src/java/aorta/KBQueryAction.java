@@ -54,7 +54,7 @@ public abstract class KBQueryAction extends DefaultInternalAction {
 		
 		SolveInfo info = ms.solve(qualified);
 		if (info.isSuccess()) {
-			ms.unify(qualified, info);
+			qualified = ms.unify(qualified, info);
 			aortaTerm = ((Struct) qualified).getArg(0);
 			
 			return un.unifies(args[0], TermConverter.toLiteral(aortaTerm));

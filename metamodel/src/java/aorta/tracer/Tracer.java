@@ -4,6 +4,7 @@
  */
 package aorta.tracer;
 
+import gov.nasa.jpf.annotation.FilterField;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -17,10 +18,13 @@ import java.util.Set;
  */
 public class Tracer {
 
+	@FilterField
 	private Map<String, List<Trace>> traces;
+	@FilterField
 	private Map<String, Trace> queue;
+	@FilterField
 	private static final Tracer tracer = new Tracer();
-	
+	@FilterField
 	private Set<String> ignoredEvents = new HashSet<>();
 
 	private Tracer() {

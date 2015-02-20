@@ -46,7 +46,7 @@ public class EnactAction extends Action {
 		Term t2 = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
 
 		Term test = Term.createTerm(t1 + ", \\+ " + t2);
-		ms.unify(test, state.getBindings());
+		test = ms.unify(test, state.getBindings());
 
 		SolveInfo result = ms.solve(test);
 		
@@ -55,7 +55,7 @@ public class EnactAction extends Action {
 			state.addBindings(result);
 
 			Term qualified = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
-			ms.unify(qualified, state.getBindings());
+			qualified = ms.unify(qualified, state.getBindings());
 			
 			if (!qualified.isGround()) {
 				throw new AORTAException("Cannot execute action: term '" + qualified + "' is not ground.");
@@ -85,7 +85,7 @@ public class EnactAction extends Action {
 				Struct send = ml.send(Term.TRUE, new Struct("tell"), qualified);
 				tr.add(newState, FormulaQualifier.qualifyStruct(send, KBType.OPTION));
 
-				logger.fine("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
+				logger.finer("[" + state.getAgent().getName() + "] Executing action: enact(" + qualified + ")");
 				Tracer.queue(state.getAgent().getName(), "enact(" + qualified + ")");
 				
 			} else {

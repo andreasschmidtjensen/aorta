@@ -12,6 +12,7 @@ import ajpf.util.AJPFLogger;
 import aorta.AORTAException;
 import aorta.Aorta;
 import aorta.gui.AortaGui;
+import gov.nasa.jpf.annotation.FilterField;
 import gov.nasa.jpf.vm.Verify;
 
 /**
@@ -20,11 +21,14 @@ import gov.nasa.jpf.vm.Verify;
  */
 public class AortaMAS extends MAS {
 
+	@FilterField
 	private Aorta aorta;
 	private AortaGui gui;
 
 	public AortaMAS(MAS mas, AILConfig config) throws AORTAException {
-		if (!Verify.isRunningInJPF()) {
+		boolean showGui = config.getProperty("aorta.nogui") == null;
+		
+		if (showGui && !Verify.isRunningInJPF()) {
 			gui = AortaGui.get();
 		}
 

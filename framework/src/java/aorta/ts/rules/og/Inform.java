@@ -52,12 +52,12 @@ public class Inform extends TransitionRule<AgentState> {
 				// not thrown because of isSuccess
 			}
 
-			ms.unify(optInf, state.getBindings());
+			optInf = (Struct) ms.unify(optInf, state.getBindings());
 			
 			if (optInf.isGround()) {
 				add(newState, optInf);
 				
-				logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optInf);
+				logger.finer("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Added option: " + optInf);
 				Tracer.trace(state.getAgent().getName(), getName(), optInf.toString());
 			}
 		}

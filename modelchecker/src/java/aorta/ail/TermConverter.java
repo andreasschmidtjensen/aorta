@@ -58,7 +58,10 @@ public class TermConverter {
 		throw new IllegalArgumentException("term of wrong type: " + term + " (class: " + term.getClass() + ")");
 	}
 
-	private static Var parseVar(VarTerm vt) {
+	private static Term parseVar(VarTerm vt) {
+		if (vt.hasValue()) {
+			return convertToTerm(vt.getValue());
+		}
 		return new Var(vt.getFunctor());
 	}
 

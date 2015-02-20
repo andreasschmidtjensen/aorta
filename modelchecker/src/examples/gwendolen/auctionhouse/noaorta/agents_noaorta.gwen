@@ -1,0 +1,145 @@
+GWENDOLEN
+:name: bob
+
+:Initial Beliefs:
+badInfo(bob)
+want(lamp)
+me(bob)
+
+:Belief Rules:
+B registered(Me) :- B registered(Me,Add,Acc);
+B auction(Agent,Item) :- B auction(Id, Item, Agent, StartPrice, EndTime);
+B bid(Agent,Item) :- (B bid(Id, Agent, Bid), B auction(Id, Item, A, SP, ET));
+B won(Agent,Item) :- (B auction_done(Id,Agent,Bid), B auction(Id, Item, A, SP, ET));
+B participates(Agent,Item) :- (B auction(Id, Item, Ag, SP, ET), B participant(Id, Agent));
+B paidFor(Item) :- (B paid(Id), B auction(Id, Item, Ag, SP, ET));
+
+:Initial Goals:
+
+:Plans:
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), +!registered(Me) [achieve];
+
++!bought(Item) [achieve] : { B auction(Id,Item,C,SP,ET), B me(Me) } <- +!verified(Me) [achieve], +!bid(Me, Item) [achieve], -!bought(Item) [achieve];
+
++!verified(Me) [achieve] : { ~.sent(Agent, Me, :achieve, verified(Me)) } <- *manager(Agent), .send(Agent, :achieve, verified(Me)), *verified(Me);
+
++!bid(Me,Item) [achieve] : { B won(Ag,Item) } <- -!bid(Me,Item) [achieve];
++!bid(Me,Item) [achieve] : { B auction(Id,Item,Ag,SP,ET), B bid_high(Id,Me,Bid) } <- *bid_high(Id,carol,BobBid), +!bid(Me,Item) [achieve];
++!bid(Me,Item) [achieve] : { B auction(Id,Item,Ag,SP,ET) } <- bid(Id), +!bid(Me,Item) [achieve];
+
+-participant(Id, Me) : { B me(Me), B auction(Id,Item,A,SP,ET) } <- -!bought(Item) [achieve], -!bid(Me,Item) [achieve];
+	
++won(Id) : { B auction(Id,Item,A,SP,ET) } <- -!bid(Me,Item) [achieve], +bought(Item), leave_auction(Id);
+	
++!paidFor(Item) [achieve] : { B auction(Id,Item,A,SP,ET), B won(Id) } <- pay(Id), -!paidFor(Item) [achieve];
+
++auction(Id,Item,Ag,SP,ET) : { B want(Item), B me(Me) } <- +!registered(Me) [achieve], *registered(Me,Add,Acc), enter_auction(Id), +!bought(Item) [achieve];
+
++.received(:tell, manager(Agent)) : { ~B manager(Agent) } <- +manager(Agent);
++.received(:tell, verified(Agent)) : { ~B verified(Agent) } <- +verified(Agent);
++.received(:achieve, paidFor(Item)) : { B want(Item) } <- +!paidFor(Item) [achieve];
+
+:name: carol
+
+:Initial Beliefs:
+badInfo(bob)
+want(lamp)
+me(carol)
+
+:Belief Rules:
+B registered(Me) :- B registered(Me,Add,Acc);
+B auction(Agent,Item) :- B auction(Id, Item, Agent, StartPrice, EndTime);
+B bid(Agent,Item) :- (B bid(Id, Agent, Bid), B auction(Id, Item, A, SP, ET));
+B won(Agent,Item) :- (B auction_done(Id,Agent,Bid), B auction(Id, Item, A, SP, ET));
+B participates(Agent,Item) :- (B auction(Id, Item, Ag, SP, ET), B participant(Id, Agent));
+B paidFor(Item) :- (B paid(Id), B auction(Id, Item, Ag, SP, ET));
+
+:Initial Goals:
+
+:Plans:
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), +!registered(Me) [achieve];
+
++!bought(Item) [achieve] : { B auction(Id,Item,C,SP,ET), B me(Me) } <- +!verified(Me) [achieve], +!bid(Me, Item) [achieve], -!bought(Item) [achieve];
+
++!verified(Me) [achieve] : { ~.sent(Agent, Me, :achieve, verified(Me)) } <- *manager(Agent), .send(Agent, :achieve, verified(Me)), *verified(Me);
+
++!bid(Me,Item) [achieve] : { B won(Ag,Item) } <- -!bid(Me,Item) [achieve];
++!bid(Me,Item) [achieve] : { B auction(Id,Item,Ag,SP,ET), B bid_high(Id,Me,Bid) } <- *bid_high(Id,bob,BobBid), +!bid(Me,Item) [achieve];
++!bid(Me,Item) [achieve] : { B auction(Id,Item,Ag,SP,ET) } <- bid(Id), +!bid(Me,Item) [achieve];
+
+-participant(Id, Me) : { B me(Me), B auction(Id,Item,A,SP,ET) } <- -!bought(Item) [achieve], -!bid(Me,Item) [achieve];
+	
++won(Id) : { B auction(Id,Item,A,SP,ET) } <- -!bid(Me,Item) [achieve], +bought(Item), leave_auction(Id);
+
++!paidFor(Item) [achieve] : { B auction(Id,Item,A,SP,ET), B won(Id) } <- pay(Id), -!paidFor(Item) [achieve];
+
++auction(Id,Item,Ag,SP,ET) : { B want(Item), B me(Me) } <- +!registered(Me) [achieve], *registered(Me,Add,Acc), enter_auction(Id), +!bought(Item) [achieve];
+
++.received(:tell, manager(Agent)) : { ~B manager(Agent) } <- +manager(Agent);
++.received(:tell, verified(Agent)) : { ~B verified(Agent) } <- +verified(Agent);
++.received(:achieve, paidFor(Item)) : { B want(Item) } <- +!paidFor(Item) [achieve];
+
+:name: sally
+
+:Initial Beliefs:
+badInfo(bob)
+have(lamp)
+me(sally)
+
+:Belief Rules:
+B registered(Me) :- B registered(Me,Add,Acc);
+B auction(Agent,Item) :- B auction(Id, Item, Agent, StartPrice, EndTime);
+B bid(Agent,Item) :- (B bid(Id, Agent, Bid), B auction(Id, Item, A, SP, ET));
+B won(Agent,Item) :- (B auction_done(Id,Agent,Bid), B auction(Id, Item, A, SP, ET));
+B participates(Agent,Item) :- (B auction(Id, Item, Ag, SP, ET), B participant(Id, Agent));
+B paidFor(Item) :- (B paid(Id), B auction(Id, Item, Ag, SP, ET));
+
+:Initial Goals:
+sold(lamp) [achieve]
+
+:Plans: 
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), +!registered(Me) [achieve];
+
++!sold(Item) [achieve] : { B me(Me), ~B registered(Me) } <- +!registered(Me) [achieve], +!sold(Item) [achieve];
++!sold(Item) [achieve] : { B me(Me) } <- +!verified(Me) [achieve], +!auction(Me,Item) [achieve];
+
++!verified(Me) [achieve] : { ~.sent(Agent, Me, :achieve, verified(Me)) } <- *manager(Agent), .send(Agent, :achieve, verified(Me)), *verified(Me);
+
++!auction(Me,Item) [achieve] : { ~B auction(Me,Item) } <- start_auction(Item, 10, 2), *auction(Id,Item,Me,SP,ET), *auction_done(Id,Winner,Bid), +sold(Item), +!getPaid(Id) [achieve];
+
+-participant(Id, Agent) : { B me(Me), B auction(Id,Item,Me,SP,ET), B won(Agent,Item) } <- .send(Agent, :achieve, paidFor(Item));
+
++!getPaid(Id) [achieve] : {True} <- *paid(Id), -!getPaid(Id) [achieve];
+
++.received(:tell, manager(Agent)) : { ~B manager(Agent) } <- +manager(Agent);
++.received(:tell, verified(Agent)) : { ~B verified(Agent) } <- +verified(Agent);
+
+:name: mike
+
+:Initial Beliefs:
+badInfo(bob)
+me(mike)
+
+:Belief Rules:
+B registered(Me) :- B registered(Me,Add,Acc);
+B auction(Agent,Item) :- B auction(Id, Item, Agent, StartPrice, EndTime);
+B bid(Agent,Item) :- (B bid(Id, Agent, Bid), B auction(Id, Item, A, SP, ET));
+B won(Agent,Item) :- (B auction_done(Id,Agent,Bid), B auction(Id, Item, A, SP, ET));
+B participates(Agent,Item) :- (B auction(Id, Item, Ag, SP, ET), B participant(Id, Agent));
+B paidFor(Item) :- (B paid(Id), B auction(Id, Item, Ag, SP, ET));
+
+:Initial Goals:
+
+:Plans: 
+
++!verified(Agent) [achieve] : { ~B badInfo(Agent), B registered(Agent,Add,Acc) } <- verify(Agent);
++!verified(Agent) [achieve] : { B badInfo(Agent) } <- -!verified(Agent) [achieve];
++!banned(Agent) [achieve] : { B participant(Id, Agent), B auction(Id,Item,A,SP,ET) } <- remove_from_auction(Id,Agent), -!banned(Agent) [achieve];
+
++registered(Ag,Add,Acc) : { B me(Me) } <- .send(Ag, :tell, manager(Me));
++bid(Id,Agent,Bid) : { ~B verified(Agent) } <- print(banned(Agent)), +!banned(Agent) [achieve];
+
++.received(:achieve, verified(Agent)) : { ~B badInfo(agent) } <- +!verified(Agent) [achieve], .send(all, :tell, verified(Agent));

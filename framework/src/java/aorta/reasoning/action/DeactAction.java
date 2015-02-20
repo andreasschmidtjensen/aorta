@@ -51,7 +51,7 @@ public class DeactAction extends Action {
 			state.addBindings(result);
 			
 			Term qualified = FormulaQualifier.qualifyTerm(reaDef, KBType.ORGANIZATION.getType());
-			ms.unify(qualified, state.getBindings());
+			qualified = ms.unify(qualified, state.getBindings());
 			
 			if (!qualified.isGround()) {
 				throw new AORTAException("Cannot execute action: term '" + qualified + "' is not ground.");
@@ -74,7 +74,7 @@ public class DeactAction extends Action {
 					ActionExecution tr = new ActionExecution();
 					tr.remove(newState, (Struct) qualified);
 
-					logger.fine("[" + state.getAgent().getName() + "] Executing action: deact(" + qualified + ")");
+					logger.finer("[" + state.getAgent().getName() + "] Executing action: deact(" + qualified + ")");
 					Tracer.queue(state.getAgent().getName(), "deact(" + qualified + ")");
 				}
 			} else {

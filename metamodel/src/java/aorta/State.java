@@ -137,13 +137,13 @@ public abstract class State {
 
 	public void insertInMentalState(Struct struct) {
 		mentalState.insert(struct);			
-		logger.fine("insertIntoMentalState(" + struct + ")");
+		logger.finer("insertIntoMentalState(" + struct + ")");
 		setChanged(true);
 	}
 
 	public void removeFromMentalState(final Struct struct) {
 		mentalState.remove(struct);			
-		logger.fine("removeFromMentalState(" + struct + ")");
+		logger.finer("removeFromMentalState(" + struct + ")");
 		setChanged(true);
 	}
 	

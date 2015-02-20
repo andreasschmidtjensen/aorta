@@ -33,10 +33,10 @@ public class CommitAction extends Action {
 
 		MentalState ms = state.getMentalState();
 
-		final Term clonedObjTerm = Term.createTerm(objective.toString());
+		Term clonedObjTerm = Term.createTerm(objective.toString());
 
 		String bef = clonedObjTerm.toString();
-		ms.unify(clonedObjTerm, state.getBindings());
+		clonedObjTerm = ms.unify(clonedObjTerm, state.getBindings());
 
 		Term belTerm = FormulaQualifier.qualifyTerm(clonedObjTerm, KBType.BELIEF);
 		Term goalTerm = FormulaQualifier.qualifyTerm(clonedObjTerm, KBType.GOAL);
@@ -49,7 +49,7 @@ public class CommitAction extends Action {
 		if (result.isSuccess()) {
 			state.addBindings(result);
 
-			ms.unify(clonedObjTerm, state.getBindings());
+			clonedObjTerm = ms.unify(clonedObjTerm, state.getBindings());
 
 			Struct asStruct;
 			if (clonedObjTerm instanceof Var) {
@@ -61,7 +61,7 @@ public class CommitAction extends Action {
 			ActionExecution tr = new ActionExecution();
 			tr.add(newState, asStruct, KBType.GOAL);
 
-			logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: commit(" + asStruct + ")");
+			logger.finer("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Executing action: commit(" + asStruct + ")");
 			Tracer.queue(state.getAgent().getName(), "commit(" + asStruct + ")");
 		} else {
 			return null;

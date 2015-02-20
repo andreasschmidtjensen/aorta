@@ -1,0 +1,2584 @@
+----------------------------------- search started
+      [skipping static init instructions]
+JavaPathfinder v7.0 (rev ${version}) - (C) RIACS/NASA Ames Research Center
+
+
+====================================================== system under test
+ail.util.AJPF_w_AIL.main("simple_ah.ail","simple_ah.psl","reg_carol")
+
+====================================================== search started: 20-02-15 11:04
+		 # choice: gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:"<root>" ,1/1,isCascaded:false}
+[INFO] Number: 2
+Incoming: 0,2,
+Old: ~B(carol,registered(carol(),address(),account())),~T R ~B(carol,registered(carol(),address(),account())),
+Next: ~T R ~B(carol,registered(carol(),address(),account())),
+
+		 # garbage collection
+1: 53830
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 0 to []
+[FINE] Entering new Product States with Initial State in Path
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<0, 2, 0>
+[FINE] Current DFS State: <0, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0]
+----------------------------------- [1] forward: 0 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2,3]
+		 # garbage collection
+2: 38388
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 1 to [0]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <0, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<1, 2, 0>
+[FINE]      <1, 2, 0>
+[FINE] States by incoming for 0 is [<1, 2, 0>]
+[FINE] Current DFS State: <0, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>]
+[FINE] Current DFS State: <1, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1]
+----------------------------------- [2] forward: 1 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[FINE] 20022015110436 <aorta.AortaAgent> (carol) New AORTA cycle [1]. Goals: 
+[FINE] 20022015110436 <aorta.AortaAgent> (carol) Cycle done [1] (time: 672 ms)
+*****************************
+******** AORTA CYCLE ********
+f8dafc8d383598884f73f686608659fb
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110436 <aorta.AortaAgent> (carol) New AORTA cycle [2]. Goals: 
+[FINE] 20022015110437 <aorta.AortaAgent> (carol) Sending 1 messages.
+******************************* [carol] send(0:om(org(rea(carol,customer))), mike) ************************************
+[INFO] carol done send(0:om(org(rea(carol,customer))), mike)
+[FINE] 20022015110437 <aorta.AortaAgent> (carol) Cycle done [2] (time: 829 ms)
+*****************************
+******** AORTA CYCLE ********
+0a6c2bc90781d85ae03c35f3f230a1be
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+3: 43569
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 2 to [0, 1]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <1, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<2, 2, 0>
+[FINE]      <2, 2, 0>
+[FINE] States by incoming for 1 is [<2, 2, 0>]
+[FINE] Current DFS State: <1, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>]
+[FINE] Current DFS State: <2, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2]
+----------------------------------- [3] forward: 2 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[FINE] 20022015110437 <aorta.AortaAgent> (carol) New AORTA cycle [3]. Goals: 
+[FINE] 20022015110438 <aorta.AortaAgent> (carol) Sending 1 messages.
+******************************* [carol] send(0:om(org(rea(carol,customer))), sally) ************************************
+[INFO] carol done send(0:om(org(rea(carol,customer))), sally)
+[FINE] 20022015110438 <aorta.AortaAgent> (carol) Cycle done [3] (time: 531 ms)
+*****************************
+******** AORTA CYCLE ********
+1b8b8663a82b3c93402bceebca0a5997
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+4: 50934
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 3 to [0, 1, 2]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <2, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<3, 2, 0>
+[FINE]      <3, 2, 0>
+[FINE] States by incoming for 2 is [<3, 2, 0>]
+[FINE] Current DFS State: <2, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>]
+[FINE] Current DFS State: <3, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3]
+----------------------------------- [4] forward: 3 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[FINE] 20022015110438 <aorta.AortaAgent> (carol) New AORTA cycle [4]. Goals: 
+[FINE] 20022015110439 <aorta.AortaAgent> (carol) Cycle done [4] (time: 594 ms)
+*****************************
+******** AORTA CYCLE ********
+1b8b8663a82b3c93402bceebca0a5997
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+5: 49320
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 4 to [0, 1, 2, 3]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <3, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<4, 2, 0>
+[FINE]      <4, 2, 0>
+[FINE] States by incoming for 3 is [<4, 2, 0>]
+[FINE] Current DFS State: <3, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>]
+[FINE] Current DFS State: <4, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4]
+----------------------------------- [5] forward: 4 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110439 <aorta.AortaAgent> (mike) New AORTA cycle [1]. Goals: 
+[FINE] 20022015110440 <aorta.AortaAgent> (mike) Cycle done [1] (time: 859 ms)
+*****************************
+******** AORTA CYCLE ********
+532f628aed661bd8e086e284811a1f76
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110440 <aorta.AortaAgent> (mike) New AORTA cycle [2]. Goals: 
+[FINE] 20022015110440 <aorta.AortaAgent> (mike) Sending 1 messages.
+******************************* [mike] send(0:om(org(rea(mike,manager))), carol) ************************************
+[INFO] Waking agent carol
+[INFO] mike done send(0:om(org(rea(mike,manager))), carol)
+[FINE] 20022015110440 <aorta.AortaAgent> (mike) Cycle done [2] (time: 625 ms)
+*****************************
+******** AORTA CYCLE ********
+af5926e8a261b3e684ee81565f08c121
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+6: 1145
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 5 to [0, 1, 2, 3, 4]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <4, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<5, 2, 0>
+[FINE]      <5, 2, 0>
+[FINE] States by incoming for 4 is [<5, 2, 0>]
+[FINE] Current DFS State: <4, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>]
+[FINE] Current DFS State: <5, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5]
+----------------------------------- [6] forward: 5 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[FINE] 20022015110440 <aorta.AortaAgent> (carol) New AORTA cycle [5]. Goals: 
+[FINE] 20022015110441 <aorta.AortaAgent> (carol) Cycle done [5] (time: 687 ms)
+*****************************
+******** AORTA CYCLE ********
+1b8b8663a82b3c93402bceebca0a5997
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110441 <aorta.AortaAgent> (carol) New AORTA cycle [6]. Goals: 
+[FINE] 20022015110442 <aorta.AortaAgent> (carol) Cycle done [6] (time: 625 ms)
+*****************************
+******** AORTA CYCLE ********
+0519889461859d757a8fc95c70dc7826
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110442 <aorta.AortaAgent> (carol) New AORTA cycle [7]. Goals: 
+[FINE] 20022015110443 <aorta.AortaAgent> (carol) Cycle done [7] (time: 688 ms)
+*****************************
+******** AORTA CYCLE ********
+0519889461859d757a8fc95c70dc7826
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+7: 38118
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 6 to [0, 1, 2, 3, 4, 5]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <5, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<6, 2, 0>
+[FINE]      <6, 2, 0>
+[FINE] States by incoming for 5 is [<6, 2, 0>]
+[FINE] Current DFS State: <5, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>]
+[FINE] Current DFS State: <6, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6]
+----------------------------------- [7] forward: 6 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110443 <aorta.AortaAgent> (mike) New AORTA cycle [3]. Goals: 
+[FINE] 20022015110443 <aorta.AortaAgent> (mike) Sending 1 messages.
+******************************* [mike] send(0:om(org(rea(mike,manager))), sally) ************************************
+[INFO] mike done send(0:om(org(rea(mike,manager))), sally)
+[FINE] 20022015110443 <aorta.AortaAgent> (mike) Cycle done [3] (time: 578 ms)
+*****************************
+******** AORTA CYCLE ********
+6387a3ccc02384001f185bb2c334347e
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+8: 63425
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 7 to [0, 1, 2, 3, 4, 5, 6]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <6, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<7, 2, 0>
+[FINE]      <7, 2, 0>
+[FINE] States by incoming for 6 is [<7, 2, 0>]
+[FINE] Current DFS State: <6, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>]
+[FINE] Current DFS State: <7, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7]
+----------------------------------- [8] forward: 7 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110444 <aorta.AortaAgent> (mike) New AORTA cycle [4]. Goals: 
+[FINE] 20022015110444 <aorta.AortaAgent> (mike) Cycle done [4] (time: 625 ms)
+*****************************
+******** AORTA CYCLE ********
+6387a3ccc02384001f185bb2c334347e
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent mike
+		 # garbage collection
+9: 38101
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 8 to [0, 1, 2, 3, 4, 5, 6, 7]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <7, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<8, 2, 0>
+[FINE]      <8, 2, 0>
+[FINE] States by incoming for 7 is [<8, 2, 0>]
+[FINE] Current DFS State: <7, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>]
+[FINE] Current DFS State: <8, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+----------------------------------- [9] forward: 8 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[FINE] 20022015110444 <aorta.AortaAgent> (sally) New AORTA cycle [1]. Goals: 
+[FINE] 20022015110445 <aorta.AortaAgent> (sally) Cycle done [1] (time: 734 ms)
+*****************************
+******** AORTA CYCLE ********
+50576d42f058014de2e085a85335cadc
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110445 <aorta.AortaAgent> (sally) New AORTA cycle [2]. Goals: sold(lamp);
+[FINE] 20022015110446 <aorta.AortaAgent> (sally) Sending 1 messages.
+******************************* [sally] send(0:om(org(rea(sally,customer))), carol) ************************************
+[INFO] Waking agent carol
+[INFO] sally done send(0:om(org(rea(sally,customer))), carol)
+[FINE] 20022015110446 <aorta.AortaAgent> (sally) Cycle done [2] (time: 1250 ms)
+*****************************
+******** AORTA CYCLE ********
+0e40cede4dab9dba705f73993afe3c70
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+10: 11204
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 9 to [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <8, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<9, 2, 0>
+[FINE]      <9, 2, 0>
+[FINE] States by incoming for 8 is [<9, 2, 0>]
+[FINE] Current DFS State: <8, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>]
+[FINE] Current DFS State: <9, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+----------------------------------- [10] forward: 9 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110446 <aorta.AortaAgent> (carol) New AORTA cycle [8]. Goals: 
+[FINE] 20022015110447 <aorta.AortaAgent> (carol) Cycle done [8] (time: 516 ms)
+*****************************
+******** AORTA CYCLE ********
+0519889461859d757a8fc95c70dc7826
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110449 <aorta.AortaAgent> (carol) New AORTA cycle [9]. Goals: 
+[FINE] 20022015110450 <aorta.AortaAgent> (carol) Cycle done [9] (time: 875 ms)
+*****************************
+******** AORTA CYCLE ********
+30b33ad8cddd86528fc4a6b726ad3ddb
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110450 <aorta.AortaAgent> (carol) New AORTA cycle [10]. Goals: 
+[FINE] 20022015110451 <aorta.AortaAgent> (carol) Cycle done [10] (time: 922 ms)
+*****************************
+******** AORTA CYCLE ********
+30b33ad8cddd86528fc4a6b726ad3ddb
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+11: 24570
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 10 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <9, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<10, 2, 0>
+[FINE]      <10, 2, 0>
+[FINE] States by incoming for 9 is [<10, 2, 0>]
+[FINE] Current DFS State: <9, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>]
+[FINE] Current DFS State: <10, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+----------------------------------- [11] forward: 10 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[FINE] 20022015110451 <aorta.AortaAgent> (sally) New AORTA cycle [3]. Goals: sold(lamp);
+[FINE] 20022015110452 <aorta.AortaAgent> (sally) Sending 1 messages.
+******************************* [sally] send(0:om(org(rea(sally,customer))), mike) ************************************
+[INFO] Waking agent mike
+[INFO] sally done send(0:om(org(rea(sally,customer))), mike)
+[FINE] 20022015110452 <aorta.AortaAgent> (sally) Cycle done [3] (time: 704 ms)
+*****************************
+******** AORTA CYCLE ********
+381189a7c9e3acc9356ca242f5bbbc1f
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+12: 40931
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 11 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <10, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<11, 2, 0>
+[FINE]      <11, 2, 0>
+[FINE] States by incoming for 10 is [<11, 2, 0>]
+[FINE] Current DFS State: <10, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>]
+[FINE] Current DFS State: <11, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+----------------------------------- [12] forward: 11 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110452 <aorta.AortaAgent> (mike) New AORTA cycle [5]. Goals: 
+[FINE] 20022015110453 <aorta.AortaAgent> (mike) Cycle done [5] (time: 785 ms)
+*****************************
+******** AORTA CYCLE ********
+6387a3ccc02384001f185bb2c334347e
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110453 <aorta.AortaAgent> (mike) New AORTA cycle [6]. Goals: 
+[FINE] 20022015110454 <aorta.AortaAgent> (mike) Cycle done [6] (time: 965 ms)
+*****************************
+******** AORTA CYCLE ********
+84d3fda8015bdb0f34d9d37d72ce130f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110454 <aorta.AortaAgent> (mike) New AORTA cycle [7]. Goals: 
+[FINE] 20022015110455 <aorta.AortaAgent> (mike) Cycle done [7] (time: 782 ms)
+*****************************
+******** AORTA CYCLE ********
+84d3fda8015bdb0f34d9d37d72ce130f
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent mike
+		 # garbage collection
+13: 13212
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 12 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <11, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<12, 2, 0>
+[FINE]      <12, 2, 0>
+[FINE] States by incoming for 11 is [<12, 2, 0>]
+[FINE] Current DFS State: <11, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>]
+[FINE] Current DFS State: <12, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+----------------------------------- [13] forward: 12 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[FINE] 20022015110455 <aorta.AortaAgent> (sally) New AORTA cycle [4]. Goals: sold(lamp);
+[FINE] 20022015110456 <aorta.AortaAgent> (sally) Cycle done [4] (time: 771 ms)
+*****************************
+******** AORTA CYCLE ********
+94d35a408dc7347ef8401e91f8a56bb2
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110456 <aorta.AortaAgent> (sally) New AORTA cycle [5]. Goals: sold(lamp);registered(sally);
+[FINE] 20022015110457 <aorta.AortaAgent> (sally) Cycle done [5] (time: 845 ms)
+*****************************
+******** AORTA CYCLE ********
+94d35a408dc7347ef8401e91f8a56bb2
+********  END CYCLE  ********
+*****************************
+******************************* [sally] register(address,account) ************************************
+[INFO] Waking agent carol
+[INFO] Waking agent mike
+		 # garbage collection
+14: 33783
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 13 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <12, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<13, 2, 0>
+[FINE]      <13, 2, 0>
+[FINE] States by incoming for 12 is [<13, 2, 0>]
+[FINE] Current DFS State: <12, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>]
+[FINE] Current DFS State: <13, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+----------------------------------- [14] forward: 13 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[FINE] 20022015110457 <aorta.AortaAgent> (carol) New AORTA cycle [11]. Goals: 
+[FINE] 20022015110458 <aorta.AortaAgent> (carol) Cycle done [11] (time: 750 ms)
+*****************************
+******** AORTA CYCLE ********
+30b33ad8cddd86528fc4a6b726ad3ddb
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110458 <aorta.AortaAgent> (carol) New AORTA cycle [12]. Goals: 
+[FINE] 20022015110459 <aorta.AortaAgent> (carol) Cycle done [12] (time: 906 ms)
+*****************************
+******** AORTA CYCLE ********
+34197a7d3e699c2c3a69d752050b2fdd
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110459 <aorta.AortaAgent> (carol) New AORTA cycle [13]. Goals: 
+[FINE] 20022015110500 <aorta.AortaAgent> (carol) Cycle done [13] (time: 953 ms)
+*****************************
+******** AORTA CYCLE ********
+34197a7d3e699c2c3a69d752050b2fdd
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+15: 42733
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 14 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <13, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<14, 2, 0>
+[FINE]      <14, 2, 0>
+[FINE] States by incoming for 13 is [<14, 2, 0>]
+[FINE] Current DFS State: <13, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>]
+[FINE] Current DFS State: <14, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+----------------------------------- [15] forward: 14 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110500 <aorta.AortaAgent> (mike) New AORTA cycle [8]. Goals: 
+[FINE] 20022015110501 <aorta.AortaAgent> (mike) Cycle done [8] (time: 828 ms)
+*****************************
+******** AORTA CYCLE ********
+84d3fda8015bdb0f34d9d37d72ce130f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110501 <aorta.AortaAgent> (mike) New AORTA cycle [9]. Goals: 
+[FINE] 20022015110502 <aorta.AortaAgent> (mike) Cycle done [9] (time: 806 ms)
+*****************************
+******** AORTA CYCLE ********
+073439f35c808cd245f9c4cf4d4146b7
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110502 <aorta.AortaAgent> (mike) New AORTA cycle [10]. Goals: 
+[FINE] 20022015110502 <aorta.AortaAgent> (mike) Cycle done [10] (time: 813 ms)
+*****************************
+******** AORTA CYCLE ********
+073439f35c808cd245f9c4cf4d4146b7
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent mike
+		 # garbage collection
+16: 48781
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 15 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <14, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<15, 2, 0>
+[FINE]      <15, 2, 0>
+[FINE] States by incoming for 14 is [<15, 2, 0>]
+[FINE] Current DFS State: <14, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>]
+[FINE] Current DFS State: <15, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+----------------------------------- [16] forward: 15 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[FINE] 20022015110503 <aorta.AortaAgent> (sally) New AORTA cycle [6]. Goals: sold(lamp);registered(sally);
+[FINE] 20022015110503 <aorta.AortaAgent> (sally) Cycle done [6] (time: 766 ms)
+*****************************
+******** AORTA CYCLE ********
+94d35a408dc7347ef8401e91f8a56bb2
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110504 <aorta.AortaAgent> (sally) New AORTA cycle [7]. Goals: sold(lamp);registered(sally);
+[FINE] 20022015110504 <aorta.AortaAgent> (sally) Cycle done [7] (time: 563 ms)
+*****************************
+******** AORTA CYCLE ********
+cb8c79519647f51087219a75b4102968
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110504 <aorta.AortaAgent> (sally) New AORTA cycle [8]. Goals: sold(lamp);registered(sally);
+[FINE] 20022015110505 <aorta.AortaAgent> (sally) Sending 1 messages.
+******************************* [sally] send(0:om(org(rea(sally,seller))), carol) ************************************
+[INFO] Waking agent carol
+[INFO] sally done send(0:om(org(rea(sally,seller))), carol)
+[FINE] 20022015110505 <aorta.AortaAgent> (sally) Cycle done [8] (time: 1190 ms)
+*****************************
+******** AORTA CYCLE ********
+33a1c319fdee3b9e5b825e249bfed0d9
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+17: 60327
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 16 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <15, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<16, 2, 0>
+[FINE]      <16, 2, 0>
+[FINE] States by incoming for 15 is [<16, 2, 0>]
+[FINE] Current DFS State: <15, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>]
+[FINE] Current DFS State: <16, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+----------------------------------- [17] forward: 16 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110506 <aorta.AortaAgent> (carol) New AORTA cycle [14]. Goals: 
+[FINE] 20022015110508 <aorta.AortaAgent> (carol) Cycle done [14] (time: 2641 ms)
+*****************************
+******** AORTA CYCLE ********
+34197a7d3e699c2c3a69d752050b2fdd
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110508 <aorta.AortaAgent> (carol) New AORTA cycle [15]. Goals: 
+[FINE] 20022015110509 <aorta.AortaAgent> (carol) Cycle done [15] (time: 969 ms)
+*****************************
+******** AORTA CYCLE ********
+3a7f321d05b9b252540a55c7daf063be
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110509 <aorta.AortaAgent> (carol) New AORTA cycle [16]. Goals: 
+[FINE] 20022015110510 <aorta.AortaAgent> (carol) Cycle done [16] (time: 906 ms)
+*****************************
+******** AORTA CYCLE ********
+3a7f321d05b9b252540a55c7daf063be
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+18: 2000
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 17 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <16, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<17, 2, 0>
+[FINE]      <17, 2, 0>
+[FINE] States by incoming for 16 is [<17, 2, 0>]
+[FINE] Current DFS State: <16, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>]
+[FINE] Current DFS State: <17, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+----------------------------------- [18] forward: 17 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[FINE] 20022015110510 <aorta.AortaAgent> (sally) New AORTA cycle [9]. Goals: sold(lamp);
+[FINE] 20022015110511 <aorta.AortaAgent> (sally) Sending 1 messages.
+******************************* [sally] send(0:om(org(rea(sally,seller))), mike) ************************************
+[INFO] Waking agent mike
+[INFO] sally done send(0:om(org(rea(sally,seller))), mike)
+[FINE] 20022015110511 <aorta.AortaAgent> (sally) Cycle done [9] (time: 849 ms)
+*****************************
+******** AORTA CYCLE ********
+5c8453b09d0503b754b13c76b3e1f94a
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+19: 1804
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 18 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <17, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<18, 2, 0>
+[FINE]      <18, 2, 0>
+[FINE] States by incoming for 17 is [<18, 2, 0>]
+[FINE] Current DFS State: <17, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>]
+[FINE] Current DFS State: <18, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+----------------------------------- [19] forward: 18 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110511 <aorta.AortaAgent> (mike) New AORTA cycle [11]. Goals: 
+[FINE] 20022015110512 <aorta.AortaAgent> (mike) Cycle done [11] (time: 694 ms)
+*****************************
+******** AORTA CYCLE ********
+073439f35c808cd245f9c4cf4d4146b7
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110512 <aorta.AortaAgent> (mike) New AORTA cycle [12]. Goals: 
+[FINE] 20022015110513 <aorta.AortaAgent> (mike) Cycle done [12] (time: 921 ms)
+*****************************
+******** AORTA CYCLE ********
+ec9b3b21a3e19dbc952b9502a4d355fb
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110513 <aorta.AortaAgent> (mike) New AORTA cycle [13]. Goals: 
+[FINE] 20022015110514 <aorta.AortaAgent> (mike) Cycle done [13] (time: 814 ms)
+*****************************
+******** AORTA CYCLE ********
+ec9b3b21a3e19dbc952b9502a4d355fb
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent mike
+		 # garbage collection
+20: 61738
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 19 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <18, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<19, 2, 0>
+[FINE]      <19, 2, 0>
+[FINE] States by incoming for 18 is [<19, 2, 0>]
+[FINE] Current DFS State: <18, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>]
+[FINE] Current DFS State: <19, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+----------------------------------- [20] forward: 19 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[FINE] 20022015110514 <aorta.AortaAgent> (sally) New AORTA cycle [10]. Goals: sold(lamp);
+[FINE] 20022015110515 <aorta.AortaAgent> (sally) Sending 1 messages.
+******************************* [sally] send(0:om(opt(obj(bel(verified(sally))))), mike) ************************************
+[INFO] Waking agent mike
+[INFO] sally done send(0:om(opt(obj(bel(verified(sally))))), mike)
+[FINE] 20022015110515 <aorta.AortaAgent> (sally) Cycle done [10] (time: 892 ms)
+*****************************
+******** AORTA CYCLE ********
+db835d4bb6b8347ba4fbb767883af861
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+21: 58873
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 20 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <19, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<20, 2, 0>
+[FINE]      <20, 2, 0>
+[FINE] States by incoming for 19 is [<20, 2, 0>]
+[FINE] Current DFS State: <19, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>]
+[FINE] Current DFS State: <20, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+----------------------------------- [21] forward: 20 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110515 <aorta.AortaAgent> (mike) New AORTA cycle [14]. Goals: 
+[FINE] 20022015110516 <aorta.AortaAgent> (mike) Cycle done [14] (time: 852 ms)
+*****************************
+******** AORTA CYCLE ********
+ec9b3b21a3e19dbc952b9502a4d355fb
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110516 <aorta.AortaAgent> (mike) New AORTA cycle [15]. Goals: 
+[FINE] 20022015110517 <aorta.AortaAgent> (mike) Cycle done [15] (time: 803 ms)
+*****************************
+******** AORTA CYCLE ********
+4be75e2bf805a3871299ce97a04501cf
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110517 <aorta.AortaAgent> (mike) New AORTA cycle [16]. Goals: verified(sally);
+[FINE] 20022015110518 <aorta.AortaAgent> (mike) Cycle done [16] (time: 876 ms)
+*****************************
+******** AORTA CYCLE ********
+4be75e2bf805a3871299ce97a04501cf
+********  END CYCLE  ********
+*****************************
+******************************* [mike] verify(sally) ************************************
+		 # garbage collection
+22: 27260
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 21 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <20, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<21, 2, 0>
+[FINE]      <21, 2, 0>
+[FINE] States by incoming for 20 is [<21, 2, 0>]
+[FINE] Current DFS State: <20, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>]
+[FINE] Current DFS State: <21, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+----------------------------------- [22] forward: 21 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110518 <aorta.AortaAgent> (mike) New AORTA cycle [17]. Goals: verified(sally);
+[FINE] 20022015110519 <aorta.AortaAgent> (mike) Cycle done [17] (time: 891 ms)
+*****************************
+******** AORTA CYCLE ********
+4be75e2bf805a3871299ce97a04501cf
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110519 <aorta.AortaAgent> (mike) New AORTA cycle [18]. Goals: verified(sally);
+[FINE] 20022015110520 <aorta.AortaAgent> (mike) Cycle done [18] (time: 906 ms)
+*****************************
+******** AORTA CYCLE ********
+4be75e2bf805a3871299ce97a04501cf
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110520 <aorta.AortaAgent> (mike) New AORTA cycle [19]. Goals: verified(sally);
+[FINE] 20022015110521 <aorta.AortaAgent> (mike) Sending 1 messages.
+******************************* [mike] send(0:om(bel(verified(sally))), sally) ************************************
+[INFO] mike done send(0:om(bel(verified(sally))), sally)
+[FINE] 20022015110521 <aorta.AortaAgent> (mike) Cycle done [19] (time: 891 ms)
+*****************************
+******** AORTA CYCLE ********
+ca22261f338256c069919dd5297977cf
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+23: 62420
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 22 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <21, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<22, 2, 0>
+[FINE]      <22, 2, 0>
+[FINE] States by incoming for 21 is [<22, 2, 0>]
+[FINE] Current DFS State: <21, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>]
+[FINE] Current DFS State: <22, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+----------------------------------- [23] forward: 22 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110521 <aorta.AortaAgent> (mike) New AORTA cycle [20]. Goals: verified(sally);
+[FINE] 20022015110522 <aorta.AortaAgent> (mike) Cycle done [20] (time: 749 ms)
+*****************************
+******** AORTA CYCLE ********
+ca22261f338256c069919dd5297977cf
+********  END CYCLE  ********
+*****************************
+******************************* [mike] verify(sally) ************************************
+		 # garbage collection
+24: 3974
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 23 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <22, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<23, 2, 0>
+[FINE]      <23, 2, 0>
+[FINE] States by incoming for 22 is [<23, 2, 0>]
+[FINE] Current DFS State: <22, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>]
+[FINE] Current DFS State: <23, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+----------------------------------- [24] forward: 23 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110522 <aorta.AortaAgent> (mike) New AORTA cycle [21]. Goals: verified(sally);
+[FINE] 20022015110523 <aorta.AortaAgent> (mike) Cycle done [21] (time: 885 ms)
+*****************************
+******** AORTA CYCLE ********
+e30df9fb0655f4ef1a113f5d1af0d325
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110523 <aorta.AortaAgent> (mike) New AORTA cycle [22]. Goals: 
+[FINE] 20022015110524 <aorta.AortaAgent> (mike) Cycle done [22] (time: 937 ms)
+*****************************
+******** AORTA CYCLE ********
+e30df9fb0655f4ef1a113f5d1af0d325
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110524 <aorta.AortaAgent> (mike) New AORTA cycle [23]. Goals: 
+[FINE] 20022015110525 <aorta.AortaAgent> (mike) Cycle done [23] (time: 813 ms)
+*****************************
+******** AORTA CYCLE ********
+e30df9fb0655f4ef1a113f5d1af0d325
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110525 <aorta.AortaAgent> (mike) New AORTA cycle [24]. Goals: 
+[FINE] 20022015110526 <aorta.AortaAgent> (mike) Cycle done [24] (time: 969 ms)
+*****************************
+******** AORTA CYCLE ********
+e30df9fb0655f4ef1a113f5d1af0d325
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent mike
+		 # garbage collection
+25: 59370
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 24 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <23, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<24, 2, 0>
+[FINE]      <24, 2, 0>
+[FINE] States by incoming for 23 is [<24, 2, 0>]
+[FINE] Current DFS State: <23, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <24, 2, 0>]
+[FINE] Current DFS State: <24, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+----------------------------------- [25] forward: 24 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[FINE] 20022015110526 <aorta.AortaAgent> (sally) New AORTA cycle [11]. Goals: sold(lamp);
+[FINE] 20022015110527 <aorta.AortaAgent> (sally) Cycle done [11] (time: 1038 ms)
+*****************************
+******** AORTA CYCLE ********
+db835d4bb6b8347ba4fbb767883af861
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110527 <aorta.AortaAgent> (sally) New AORTA cycle [12]. Goals: sold(lamp);
+[FINE] 20022015110528 <aorta.AortaAgent> (sally) Cycle done [12] (time: 1000 ms)
+*****************************
+******** AORTA CYCLE ********
+24abf6f464e0ad44b2de699f2c48402f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110528 <aorta.AortaAgent> (sally) New AORTA cycle [13]. Goals: sold(lamp);
+[FINE] 20022015110529 <aorta.AortaAgent> (sally) Cycle done [13] (time: 782 ms)
+*****************************
+******** AORTA CYCLE ********
+24abf6f464e0ad44b2de699f2c48402f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110529 <aorta.AortaAgent> (sally) New AORTA cycle [14]. Goals: sold(lamp);
+[FINE] 20022015110530 <aorta.AortaAgent> (sally) Cycle done [14] (time: 921 ms)
+*****************************
+******** AORTA CYCLE ********
+24abf6f464e0ad44b2de699f2c48402f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110530 <aorta.AortaAgent> (sally) New AORTA cycle [15]. Goals: sold(lamp);
+[FINE] 20022015110535 <aorta.AortaAgent> (sally) Cycle done [15] (time: 4063 ms)
+*****************************
+******** AORTA CYCLE ********
+e9743be8d6fd035be8365f7d26c6e359
+********  END CYCLE  ********
+*****************************
+******************************* [sally] start_auction(lamp,10,0) ************************************
+[INFO] Waking agent carol
+		 # garbage collection
+26: 1020
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 25 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <24, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<25, 2, 0>
+[FINE]      <25, 2, 0>
+[FINE] States by incoming for 24 is [<25, 2, 0>]
+[FINE] Current DFS State: <24, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <24, 2, 0>, <25, 2, 0>]
+[FINE] Current DFS State: <25, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+----------------------------------- [26] forward: 25 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110535 <aorta.AortaAgent> (carol) New AORTA cycle [17]. Goals: 
+[FINE] 20022015110536 <aorta.AortaAgent> (carol) Cycle done [17] (time: 1250 ms)
+*****************************
+******** AORTA CYCLE ********
+3a7f321d05b9b252540a55c7daf063be
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110536 <aorta.AortaAgent> (carol) New AORTA cycle [18]. Goals: 
+[FINE] 20022015110537 <aorta.AortaAgent> (carol) Cycle done [18] (time: 984 ms)
+*****************************
+******** AORTA CYCLE ********
+61d33962f13e71867bbfdf6d307286d4
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110537 <aorta.AortaAgent> (carol) New AORTA cycle [19]. Goals: 
+[FINE] 20022015110538 <aorta.AortaAgent> (carol) Cycle done [19] (time: 922 ms)
+*****************************
+******** AORTA CYCLE ********
+b432b78141b228a21fb305e4e6c5dbe9
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110538 <aorta.AortaAgent> (carol) New AORTA cycle [20]. Goals: 
+[FINE] 20022015110539 <aorta.AortaAgent> (carol) Cycle done [20] (time: 875 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110539 <aorta.AortaAgent> (carol) New AORTA cycle [21]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110543 <aorta.AortaAgent> (carol) Cycle done [21] (time: 3797 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110543 <aorta.AortaAgent> (carol) New AORTA cycle [22]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110544 <aorta.AortaAgent> (carol) Cycle done [22] (time: 968 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110545 <aorta.AortaAgent> (carol) New AORTA cycle [23]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110546 <aorta.AortaAgent> (carol) Cycle done [23] (time: 953 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+******************************* [carol] register(address,account) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+27: 38314
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 26 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <25, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<26, 2, 0>
+[FINE]      <26, 2, 0>
+[FINE] States by incoming for 25 is [<26, 2, 0>]
+[FINE] Current DFS State: <25, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <24, 2, 0>, <25, 2, 0>, <26, 2, 0>]
+[FINE] Current DFS State: <26, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+----------------------------------- [27] forward: 26 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[FINE] 20022015110546 <aorta.AortaAgent> (carol) New AORTA cycle [24]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110547 <aorta.AortaAgent> (carol) Cycle done [24] (time: 844 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110547 <aorta.AortaAgent> (carol) New AORTA cycle [25]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110548 <aorta.AortaAgent> (carol) Cycle done [25] (time: 875 ms)
+*****************************
+******** AORTA CYCLE ********
+6064c6a7899f8a49277149878a8cc05f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110548 <aorta.AortaAgent> (carol) New AORTA cycle [26]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110549 <aorta.AortaAgent> (carol) Cycle done [26] (time: 922 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+******************************* [carol] enter_auction(1) ************************************
+[FINE] 20022015110549 <aorta.AortaAgent> (carol) New AORTA cycle [27]. Goals: bought(lamp);
+[FINE] 20022015110550 <aorta.AortaAgent> (carol) Cycle done [27] (time: 875 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110550 <aorta.AortaAgent> (carol) New AORTA cycle [28]. Goals: bought(lamp);
+[FINE] 20022015110551 <aorta.AortaAgent> (carol) Cycle done [28] (time: 883 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110551 <aorta.AortaAgent> (carol) New AORTA cycle [29]. Goals: bought(lamp);
+[FINE] 20022015110552 <aorta.AortaAgent> (carol) Cycle done [29] (time: 756 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110552 <aorta.AortaAgent> (carol) New AORTA cycle [30]. Goals: bought(lamp);
+[FINE] 20022015110553 <aorta.AortaAgent> (carol) Cycle done [30] (time: 922 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+28: 38068
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+[INFO] Adding 27 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+[INFO] Always True from Now On
+----------------------------------- [28] forward: 27 visited
+[FINE] pruning 26
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27]
+[FINE] index is 27
+----------------------------------- [27] backtrack: 26
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[FINE] 20022015110553 <aorta.AortaAgent> (mike) New AORTA cycle [25]. Goals: 
+[FINE] 20022015110554 <aorta.AortaAgent> (mike) Cycle done [25] (time: 1021 ms)
+*****************************
+******** AORTA CYCLE ********
+e30df9fb0655f4ef1a113f5d1af0d325
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110555 <aorta.AortaAgent> (mike) New AORTA cycle [26]. Goals: 
+[FINE] 20022015110555 <aorta.AortaAgent> (mike) Cycle done [26] (time: 772 ms)
+*****************************
+******** AORTA CYCLE ********
+0fba7cfebcf3d581ffc65e5ce7370a5c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110555 <aorta.AortaAgent> (mike) New AORTA cycle [27]. Goals: 
+[FINE] 20022015110556 <aorta.AortaAgent> (mike) Cycle done [27] (time: 875 ms)
+*****************************
+******** AORTA CYCLE ********
+0b4d4b3ee3347ae3f713459ba78efb91
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110557 <aorta.AortaAgent> (mike) New AORTA cycle [28]. Goals: 
+[FINE] 20022015110557 <aorta.AortaAgent> (mike) Cycle done [28] (time: 719 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110557 <aorta.AortaAgent> (mike) New AORTA cycle [29]. Goals: 
+[FINE] 20022015110558 <aorta.AortaAgent> (mike) Cycle done [29] (time: 798 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110558 <aorta.AortaAgent> (mike) New AORTA cycle [30]. Goals: 
+[FINE] 20022015110602 <aorta.AortaAgent> (mike) Cycle done [30] (time: 3953 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110602 <aorta.AortaAgent> (mike) New AORTA cycle [31]. Goals: 
+[FINE] 20022015110603 <aorta.AortaAgent> (mike) Cycle done [31] (time: 593 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent mike
+		 # garbage collection
+29: 53117
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 28 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <26, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<28, 2, 0>
+[FINE]      <28, 2, 0>
+[FINE] States by incoming for 26 is [<28, 2, 0>]
+[FINE] Current DFS State: <26, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <24, 2, 0>, <25, 2, 0>, <26, 2, 0>, <28, 2, 0>]
+[FINE] Current DFS State: <28, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28]
+----------------------------------- [28] forward: 28 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110603 <aorta.AortaAgent> (carol) New AORTA cycle [24]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110604 <aorta.AortaAgent> (carol) Cycle done [24] (time: 969 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110604 <aorta.AortaAgent> (carol) New AORTA cycle [25]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110608 <aorta.AortaAgent> (carol) Cycle done [25] (time: 3436 ms)
+*****************************
+******** AORTA CYCLE ********
+6064c6a7899f8a49277149878a8cc05f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110608 <aorta.AortaAgent> (carol) New AORTA cycle [26]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110609 <aorta.AortaAgent> (carol) Cycle done [26] (time: 891 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+******************************* [carol] enter_auction(1) ************************************
+[FINE] 20022015110609 <aorta.AortaAgent> (carol) New AORTA cycle [27]. Goals: bought(lamp);
+[FINE] 20022015110610 <aorta.AortaAgent> (carol) Cycle done [27] (time: 733 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110610 <aorta.AortaAgent> (carol) New AORTA cycle [28]. Goals: bought(lamp);
+[FINE] 20022015110611 <aorta.AortaAgent> (carol) Cycle done [28] (time: 750 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110611 <aorta.AortaAgent> (carol) New AORTA cycle [29]. Goals: bought(lamp);
+[FINE] 20022015110611 <aorta.AortaAgent> (carol) Cycle done [29] (time: 816 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110612 <aorta.AortaAgent> (carol) New AORTA cycle [30]. Goals: bought(lamp);
+[FINE] 20022015110617 <aorta.AortaAgent> (carol) Cycle done [30] (time: 5203 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+30: 6491
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 29]
+[INFO] Adding 29 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 29]
+[INFO] Always True from Now On
+----------------------------------- [29] forward: 29 visited
+[FINE] pruning 28
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 29]
+[FINE] index is 28
+----------------------------------- [28] backtrack: 28
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[FINE] 20022015110617 <aorta.AortaAgent> (sally) New AORTA cycle [16]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110620 <aorta.AortaAgent> (sally) Cycle done [16] (time: 3391 ms)
+*****************************
+******** AORTA CYCLE ********
+e9743be8d6fd035be8365f7d26c6e359
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110620 <aorta.AortaAgent> (sally) New AORTA cycle [17]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110621 <aorta.AortaAgent> (sally) Cycle done [17] (time: 984 ms)
+*****************************
+******** AORTA CYCLE ********
+a4401345d9b1b274d94dc296ef123a3d
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110622 <aorta.AortaAgent> (sally) New AORTA cycle [18]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110622 <aorta.AortaAgent> (sally) Cycle done [18] (time: 640 ms)
+*****************************
+******** AORTA CYCLE ********
+2b89ef3619183870d273ee7df8454337
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110622 <aorta.AortaAgent> (sally) New AORTA cycle [19]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110623 <aorta.AortaAgent> (sally) Cycle done [19] (time: 986 ms)
+*****************************
+******** AORTA CYCLE ********
+f04f521c08f3ac10af3250dc5c3817cc
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110623 <aorta.AortaAgent> (sally) New AORTA cycle [20]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110624 <aorta.AortaAgent> (sally) Cycle done [20] (time: 922 ms)
+*****************************
+******** AORTA CYCLE ********
+deb65a2f5ce2e63ef8732fafc0d1b0f7
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110624 <aorta.AortaAgent> (sally) New AORTA cycle [21]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110625 <aorta.AortaAgent> (sally) Cycle done [21] (time: 797 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110625 <aorta.AortaAgent> (sally) New AORTA cycle [22]. Goals: sold(lamp);
+[FINE] 20022015110626 <aorta.AortaAgent> (sally) Cycle done [22] (time: 719 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110626 <aorta.AortaAgent> (sally) New AORTA cycle [23]. Goals: sold(lamp);
+[FINE] 20022015110627 <aorta.AortaAgent> (sally) Cycle done [23] (time: 953 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110627 <aorta.AortaAgent> (sally) New AORTA cycle [24]. Goals: sold(lamp);
+[FINE] 20022015110628 <aorta.AortaAgent> (sally) Cycle done [24] (time: 922 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110628 <aorta.AortaAgent> (sally) New AORTA cycle [25]. Goals: sold(lamp);
+[FINE] 20022015110630 <aorta.AortaAgent> (sally) Cycle done [25] (time: 1172 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110630 <aorta.AortaAgent> (sally) New AORTA cycle [26]. Goals: sold(lamp);
+[FINE] 20022015110630 <aorta.AortaAgent> (sally) Cycle done [26] (time: 655 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110631 <aorta.AortaAgent> (sally) New AORTA cycle [27]. Goals: sold(lamp);
+[FINE] 20022015110636 <aorta.AortaAgent> (sally) Cycle done [27] (time: 5153 ms)
+*****************************
+******** AORTA CYCLE ********
+d22451f853f7f4cd89e3d44bf5ed6037
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110636 <aorta.AortaAgent> (sally) New AORTA cycle [28]. Goals: 
+[FINE] 20022015110639 <aorta.AortaAgent> (sally) Cycle done [28] (time: 3234 ms)
+*****************************
+******** AORTA CYCLE ********
+d22451f853f7f4cd89e3d44bf5ed6037
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110639 <aorta.AortaAgent> (sally) New AORTA cycle [29]. Goals: 
+[FINE] 20022015110645 <aorta.AortaAgent> (sally) Cycle done [29] (time: 5548 ms)
+*****************************
+******** AORTA CYCLE ********
+d22451f853f7f4cd89e3d44bf5ed6037
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent sally
+		 # garbage collection
+31: 860
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 30 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <28, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<30, 2, 0>
+[FINE]      <30, 2, 0>
+[FINE] States by incoming for 27 is [<30, 2, 0>]
+[FINE] Current DFS State: <28, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <24, 2, 0>, <25, 2, 0>, <26, 2, 0>, <28, 2, 0>, <30, 2, 0>]
+[FINE] Current DFS State: <30, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 30]
+----------------------------------- [29] forward: 30 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[FINE] 20022015110647 <aorta.AortaAgent> (carol) New AORTA cycle [24]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110648 <aorta.AortaAgent> (carol) Cycle done [24] (time: 751 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110648 <aorta.AortaAgent> (carol) New AORTA cycle [25]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110649 <aorta.AortaAgent> (carol) Cycle done [25] (time: 1015 ms)
+*****************************
+******** AORTA CYCLE ********
+6064c6a7899f8a49277149878a8cc05f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110649 <aorta.AortaAgent> (carol) New AORTA cycle [26]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110650 <aorta.AortaAgent> (carol) Cycle done [26] (time: 875 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+******************************* [carol] enter_auction(1) ************************************
+[FINE] 20022015110650 <aorta.AortaAgent> (carol) New AORTA cycle [27]. Goals: bought(lamp);
+[FINE] 20022015110654 <aorta.AortaAgent> (carol) Cycle done [27] (time: 4078 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110654 <aorta.AortaAgent> (carol) New AORTA cycle [28]. Goals: bought(lamp);
+[FINE] 20022015110655 <aorta.AortaAgent> (carol) Cycle done [28] (time: 609 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110655 <aorta.AortaAgent> (carol) New AORTA cycle [29]. Goals: bought(lamp);
+[FINE] 20022015110659 <aorta.AortaAgent> (carol) Cycle done [29] (time: 3705 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110659 <aorta.AortaAgent> (carol) New AORTA cycle [30]. Goals: bought(lamp);
+[FINE] 20022015110703 <aorta.AortaAgent> (carol) Cycle done [30] (time: 3559 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+32: 28301
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 30, 31]
+[INFO] Adding 31 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 30, 31]
+[INFO] Always True from Now On
+----------------------------------- [30] forward: 31 visited
+[FINE] pruning 30
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 30, 31]
+[FINE] index is 29
+----------------------------------- [29] backtrack: 30
+[FINE] Setting done 30
+[FINE] setting done: 30
+----------------------------------- [29] done: 30
+[FINE] pruning 28
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28, 30]
+[FINE] index is 28
+----------------------------------- [28] backtrack: 28
+[FINE] Setting done 28
+[FINE] setting done: 28
+----------------------------------- [28] done: 28
+[FINE] pruning 26
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28]
+[FINE] index is 27
+----------------------------------- [27] backtrack: 26
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[FINE] 20022015110709 <aorta.AortaAgent> (sally) New AORTA cycle [16]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110710 <aorta.AortaAgent> (sally) Cycle done [16] (time: 891 ms)
+*****************************
+******** AORTA CYCLE ********
+e9743be8d6fd035be8365f7d26c6e359
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110710 <aorta.AortaAgent> (sally) New AORTA cycle [17]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110714 <aorta.AortaAgent> (sally) Cycle done [17] (time: 3875 ms)
+*****************************
+******** AORTA CYCLE ********
+a4401345d9b1b274d94dc296ef123a3d
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110714 <aorta.AortaAgent> (sally) New AORTA cycle [18]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110717 <aorta.AortaAgent> (sally) Cycle done [18] (time: 3468 ms)
+*****************************
+******** AORTA CYCLE ********
+2b89ef3619183870d273ee7df8454337
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110717 <aorta.AortaAgent> (sally) New AORTA cycle [19]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110721 <aorta.AortaAgent> (sally) Cycle done [19] (time: 3563 ms)
+*****************************
+******** AORTA CYCLE ********
+f04f521c08f3ac10af3250dc5c3817cc
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110721 <aorta.AortaAgent> (sally) New AORTA cycle [20]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110722 <aorta.AortaAgent> (sally) Cycle done [20] (time: 860 ms)
+*****************************
+******** AORTA CYCLE ********
+deb65a2f5ce2e63ef8732fafc0d1b0f7
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110725 <aorta.AortaAgent> (sally) New AORTA cycle [21]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110725 <aorta.AortaAgent> (sally) Cycle done [21] (time: 704 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110725 <aorta.AortaAgent> (sally) New AORTA cycle [22]. Goals: sold(lamp);
+[FINE] 20022015110729 <aorta.AortaAgent> (sally) Cycle done [22] (time: 3549 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110729 <aorta.AortaAgent> (sally) New AORTA cycle [23]. Goals: sold(lamp);
+[FINE] 20022015110732 <aorta.AortaAgent> (sally) Cycle done [23] (time: 3427 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110733 <aorta.AortaAgent> (sally) New AORTA cycle [24]. Goals: sold(lamp);
+[FINE] 20022015110737 <aorta.AortaAgent> (sally) Cycle done [24] (time: 3955 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110737 <aorta.AortaAgent> (sally) New AORTA cycle [25]. Goals: sold(lamp);
+[FINE] 20022015110742 <aorta.AortaAgent> (sally) Cycle done [25] (time: 5613 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110742 <aorta.AortaAgent> (sally) New AORTA cycle [26]. Goals: sold(lamp);
+[FINE] 20022015110746 <aorta.AortaAgent> (sally) Cycle done [26] (time: 3255 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110748 <aorta.AortaAgent> (sally) New AORTA cycle [27]. Goals: sold(lamp);
+[FINE] 20022015110755 <aorta.AortaAgent> (sally) Cycle done [27] (time: 6506 ms)
+*****************************
+******** AORTA CYCLE ********
+d22451f853f7f4cd89e3d44bf5ed6037
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110755 <aorta.AortaAgent> (sally) New AORTA cycle [28]. Goals: 
+[FINE] 20022015110802 <aorta.AortaAgent> (sally) Cycle done [28] (time: 6687 ms)
+*****************************
+******** AORTA CYCLE ********
+d22451f853f7f4cd89e3d44bf5ed6037
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110804 <aorta.AortaAgent> (sally) New AORTA cycle [29]. Goals: 
+[FINE] 20022015110816 <aorta.AortaAgent> (sally) Cycle done [29] (time: 11672 ms)
+*****************************
+******** AORTA CYCLE ********
+d22451f853f7f4cd89e3d44bf5ed6037
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent sally
+		 # garbage collection
+33: 20071
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 32 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <26, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<32, 2, 0>
+[FINE]      <32, 2, 0>
+[FINE] States by incoming for 26 is [<28, 2, 0>, <32, 2, 0>]
+[FINE] Current DFS State: <30, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <28, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <26, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <24, 2, 0>, <25, 2, 0>, <26, 2, 0>, <32, 2, 0>]
+[FINE] Current DFS State: <32, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32]
+----------------------------------- [28] forward: 32 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015110822 <aorta.AortaAgent> (carol) New AORTA cycle [24]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110823 <aorta.AortaAgent> (carol) Cycle done [24] (time: 928 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110823 <aorta.AortaAgent> (carol) New AORTA cycle [25]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110827 <aorta.AortaAgent> (carol) Cycle done [25] (time: 3759 ms)
+*****************************
+******** AORTA CYCLE ********
+6064c6a7899f8a49277149878a8cc05f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110827 <aorta.AortaAgent> (carol) New AORTA cycle [26]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015110831 <aorta.AortaAgent> (carol) Cycle done [26] (time: 3641 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+******************************* [carol] enter_auction(1) ************************************
+[FINE] 20022015110831 <aorta.AortaAgent> (carol) New AORTA cycle [27]. Goals: bought(lamp);
+[FINE] 20022015110835 <aorta.AortaAgent> (carol) Cycle done [27] (time: 3999 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110835 <aorta.AortaAgent> (carol) New AORTA cycle [28]. Goals: bought(lamp);
+[FINE] 20022015110836 <aorta.AortaAgent> (carol) Cycle done [28] (time: 829 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110836 <aorta.AortaAgent> (carol) New AORTA cycle [29]. Goals: bought(lamp);
+[FINE] 20022015110839 <aorta.AortaAgent> (carol) Cycle done [29] (time: 3594 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110840 <aorta.AortaAgent> (carol) New AORTA cycle [30]. Goals: bought(lamp);
+[FINE] 20022015110843 <aorta.AortaAgent> (carol) Cycle done [30] (time: 3500 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+34: 54843
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 33]
+[INFO] Adding 33 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 33]
+[INFO] Always True from Now On
+----------------------------------- [29] forward: 33 visited
+[FINE] pruning 32
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 33]
+[FINE] index is 28
+----------------------------------- [28] backtrack: 32
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[FINE] 20022015110846 <aorta.AortaAgent> (mike) New AORTA cycle [25]. Goals: 
+[FINE] 20022015110847 <aorta.AortaAgent> (mike) Cycle done [25] (time: 940 ms)
+*****************************
+******** AORTA CYCLE ********
+e30df9fb0655f4ef1a113f5d1af0d325
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110847 <aorta.AortaAgent> (mike) New AORTA cycle [26]. Goals: 
+[FINE] 20022015110851 <aorta.AortaAgent> (mike) Cycle done [26] (time: 3998 ms)
+*****************************
+******** AORTA CYCLE ********
+0fba7cfebcf3d581ffc65e5ce7370a5c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110851 <aorta.AortaAgent> (mike) New AORTA cycle [27]. Goals: 
+[FINE] 20022015110855 <aorta.AortaAgent> (mike) Cycle done [27] (time: 3589 ms)
+*****************************
+******** AORTA CYCLE ********
+0b4d4b3ee3347ae3f713459ba78efb91
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110855 <aorta.AortaAgent> (mike) New AORTA cycle [28]. Goals: 
+[FINE] 20022015110856 <aorta.AortaAgent> (mike) Cycle done [28] (time: 875 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110859 <aorta.AortaAgent> (mike) New AORTA cycle [29]. Goals: 
+[FINE] 20022015110900 <aorta.AortaAgent> (mike) Cycle done [29] (time: 984 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110903 <aorta.AortaAgent> (mike) New AORTA cycle [30]. Goals: 
+[FINE] 20022015110906 <aorta.AortaAgent> (mike) Cycle done [30] (time: 3571 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110906 <aorta.AortaAgent> (mike) New AORTA cycle [31]. Goals: 
+[FINE] 20022015110910 <aorta.AortaAgent> (mike) Cycle done [31] (time: 3546 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 30 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <32, 2, 0>: 
+[FINE]      <30, 2, 0>
+[FINE] Current DFS State: <32, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 30]
+----------------------------------- [29] forward: 30 visited
+[FINE] pruning 32
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32, 30]
+[FINE] index is 28
+----------------------------------- [28] backtrack: 32
+[FINE] Setting done 32
+[FINE] setting done: 32
+----------------------------------- [28] done: 32
+[FINE] pruning 26
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 32]
+[FINE] index is 27
+----------------------------------- [27] backtrack: 26
+[FINE] Setting done 26
+[FINE] setting done: 26
+----------------------------------- [27] done: 26
+[FINE] pruning 25
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+[FINE] index is 26
+----------------------------------- [26] backtrack: 25
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[FINE] 20022015110913 <aorta.AortaAgent> (sally) New AORTA cycle [16]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110917 <aorta.AortaAgent> (sally) Cycle done [16] (time: 3906 ms)
+*****************************
+******** AORTA CYCLE ********
+e9743be8d6fd035be8365f7d26c6e359
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110917 <aorta.AortaAgent> (sally) New AORTA cycle [17]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110920 <aorta.AortaAgent> (sally) Cycle done [17] (time: 3515 ms)
+*****************************
+******** AORTA CYCLE ********
+e3747b5c4781f1a3dee034b789f2a33f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110920 <aorta.AortaAgent> (sally) New AORTA cycle [18]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110921 <aorta.AortaAgent> (sally) Cycle done [18] (time: 969 ms)
+*****************************
+******** AORTA CYCLE ********
+95ee42df138560cb8478e42811e807e6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110921 <aorta.AortaAgent> (sally) New AORTA cycle [19]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110925 <aorta.AortaAgent> (sally) Cycle done [19] (time: 3547 ms)
+*****************************
+******** AORTA CYCLE ********
+2190a7c8bb9771dfebbc53f9205030da
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110925 <aorta.AortaAgent> (sally) New AORTA cycle [20]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015110929 <aorta.AortaAgent> (sally) Cycle done [20] (time: 3578 ms)
+*****************************
+******** AORTA CYCLE ********
+a4d0e7ebdbb1bbe97979eaaa339b4cf6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110929 <aorta.AortaAgent> (sally) New AORTA cycle [21]. Goals: sold(lamp);
+[FINE] 20022015110933 <aorta.AortaAgent> (sally) Cycle done [21] (time: 3776 ms)
+*****************************
+******** AORTA CYCLE ********
+a4d0e7ebdbb1bbe97979eaaa339b4cf6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110933 <aorta.AortaAgent> (sally) New AORTA cycle [22]. Goals: sold(lamp);
+[FINE] 20022015110933 <aorta.AortaAgent> (sally) Cycle done [22] (time: 671 ms)
+*****************************
+******** AORTA CYCLE ********
+a4d0e7ebdbb1bbe97979eaaa339b4cf6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110936 <aorta.AortaAgent> (sally) New AORTA cycle [23]. Goals: sold(lamp);
+[FINE] 20022015110937 <aorta.AortaAgent> (sally) Cycle done [23] (time: 731 ms)
+*****************************
+******** AORTA CYCLE ********
+a4d0e7ebdbb1bbe97979eaaa339b4cf6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110940 <aorta.AortaAgent> (sally) New AORTA cycle [24]. Goals: sold(lamp);
+[FINE] 20022015110941 <aorta.AortaAgent> (sally) Cycle done [24] (time: 797 ms)
+*****************************
+******** AORTA CYCLE ********
+a4d0e7ebdbb1bbe97979eaaa339b4cf6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110944 <aorta.AortaAgent> (sally) New AORTA cycle [25]. Goals: sold(lamp);
+[FINE] 20022015110948 <aorta.AortaAgent> (sally) Cycle done [25] (time: 4187 ms)
+*****************************
+******** AORTA CYCLE ********
+b747c0e91c8831c5a966d214d3e009ab
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110948 <aorta.AortaAgent> (sally) New AORTA cycle [26]. Goals: 
+[FINE] 20022015110952 <aorta.AortaAgent> (sally) Cycle done [26] (time: 3907 ms)
+*****************************
+******** AORTA CYCLE ********
+b747c0e91c8831c5a966d214d3e009ab
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015110952 <aorta.AortaAgent> (sally) New AORTA cycle [27]. Goals: 
+[FINE] 20022015110958 <aorta.AortaAgent> (sally) Cycle done [27] (time: 5829 ms)
+*****************************
+******** AORTA CYCLE ********
+b747c0e91c8831c5a966d214d3e009ab
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent sally
+		 # garbage collection
+35: 30061
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 34 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <25, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<34, 2, 0>
+[FINE]      <34, 2, 0>
+[FINE] States by incoming for 25 is [<26, 2, 0>, <34, 2, 0>]
+[FINE] Current DFS State: <32, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <26, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <25, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <24, 2, 0>, <25, 2, 0>, <34, 2, 0>]
+[FINE] Current DFS State: <34, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34]
+----------------------------------- [27] forward: 34 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[FINE] 20022015110958 <aorta.AortaAgent> (carol) New AORTA cycle [17]. Goals: 
+[FINE] 20022015111002 <aorta.AortaAgent> (carol) Cycle done [17] (time: 3704 ms)
+*****************************
+******** AORTA CYCLE ********
+3a7f321d05b9b252540a55c7daf063be
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111002 <aorta.AortaAgent> (carol) New AORTA cycle [18]. Goals: 
+[FINE] 20022015111006 <aorta.AortaAgent> (carol) Cycle done [18] (time: 3859 ms)
+*****************************
+******** AORTA CYCLE ********
+61d33962f13e71867bbfdf6d307286d4
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111006 <aorta.AortaAgent> (carol) New AORTA cycle [19]. Goals: 
+[FINE] 20022015111010 <aorta.AortaAgent> (carol) Cycle done [19] (time: 3630 ms)
+*****************************
+******** AORTA CYCLE ********
+b432b78141b228a21fb305e4e6c5dbe9
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111010 <aorta.AortaAgent> (carol) New AORTA cycle [20]. Goals: 
+[FINE] 20022015111014 <aorta.AortaAgent> (carol) Cycle done [20] (time: 3589 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111014 <aorta.AortaAgent> (carol) New AORTA cycle [21]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111014 <aorta.AortaAgent> (carol) Cycle done [21] (time: 831 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111015 <aorta.AortaAgent> (carol) New AORTA cycle [22]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111018 <aorta.AortaAgent> (carol) Cycle done [22] (time: 3633 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111022 <aorta.AortaAgent> (carol) New AORTA cycle [23]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111023 <aorta.AortaAgent> (carol) Cycle done [23] (time: 985 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+******************************* [carol] register(address,account) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+36: 17771
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 35 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <34, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<35, 2, 0>
+[FINE]      <35, 2, 0>
+[FINE] States by incoming for 30 is [<35, 2, 0>]
+[FINE] Current DFS State: <34, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <24, 2, 0>, <25, 2, 0>, <34, 2, 0>, <35, 2, 0>]
+[FINE] Current DFS State: <35, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35]
+----------------------------------- [28] forward: 35 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015111026 <aorta.AortaAgent> (carol) New AORTA cycle [24]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111030 <aorta.AortaAgent> (carol) Cycle done [24] (time: 3924 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111030 <aorta.AortaAgent> (carol) New AORTA cycle [25]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111031 <aorta.AortaAgent> (carol) Cycle done [25] (time: 891 ms)
+*****************************
+******** AORTA CYCLE ********
+6064c6a7899f8a49277149878a8cc05f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111034 <aorta.AortaAgent> (carol) New AORTA cycle [26]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111035 <aorta.AortaAgent> (carol) Cycle done [26] (time: 859 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+******************************* [carol] enter_auction(1) ************************************
+[FINE] 20022015111035 <aorta.AortaAgent> (carol) New AORTA cycle [27]. Goals: bought(lamp);
+[FINE] 20022015111038 <aorta.AortaAgent> (carol) Cycle done [27] (time: 3554 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111039 <aorta.AortaAgent> (carol) New AORTA cycle [28]. Goals: bought(lamp);
+[FINE] 20022015111042 <aorta.AortaAgent> (carol) Cycle done [28] (time: 3367 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111042 <aorta.AortaAgent> (carol) New AORTA cycle [29]. Goals: bought(lamp);
+[FINE] 20022015111046 <aorta.AortaAgent> (carol) Cycle done [29] (time: 3485 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111046 <aorta.AortaAgent> (carol) New AORTA cycle [30]. Goals: bought(lamp);
+[FINE] 20022015111049 <aorta.AortaAgent> (carol) Cycle done [30] (time: 3282 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+37: 31100
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35, 36]
+[INFO] Adding 36 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35, 36]
+[INFO] Always True from Now On
+----------------------------------- [29] forward: 36 visited
+[FINE] pruning 35
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35, 36]
+[FINE] index is 28
+----------------------------------- [28] backtrack: 35
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[FINE] 20022015111049 <aorta.AortaAgent> (mike) New AORTA cycle [25]. Goals: 
+[FINE] 20022015111053 <aorta.AortaAgent> (mike) Cycle done [25] (time: 3610 ms)
+*****************************
+******** AORTA CYCLE ********
+e30df9fb0655f4ef1a113f5d1af0d325
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111056 <aorta.AortaAgent> (mike) New AORTA cycle [26]. Goals: 
+[FINE] 20022015111056 <aorta.AortaAgent> (mike) Cycle done [26] (time: 702 ms)
+*****************************
+******** AORTA CYCLE ********
+0fba7cfebcf3d581ffc65e5ce7370a5c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111056 <aorta.AortaAgent> (mike) New AORTA cycle [27]. Goals: 
+[FINE] 20022015111100 <aorta.AortaAgent> (mike) Cycle done [27] (time: 3766 ms)
+*****************************
+******** AORTA CYCLE ********
+0b4d4b3ee3347ae3f713459ba78efb91
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111100 <aorta.AortaAgent> (mike) New AORTA cycle [28]. Goals: 
+[FINE] 20022015111104 <aorta.AortaAgent> (mike) Cycle done [28] (time: 3700 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111104 <aorta.AortaAgent> (mike) New AORTA cycle [29]. Goals: 
+[FINE] 20022015111108 <aorta.AortaAgent> (mike) Cycle done [29] (time: 875 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111108 <aorta.AortaAgent> (mike) New AORTA cycle [30]. Goals: 
+[FINE] 20022015111109 <aorta.AortaAgent> (mike) Cycle done [30] (time: 747 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111112 <aorta.AortaAgent> (mike) New AORTA cycle [31]. Goals: 
+[FINE] 20022015111115 <aorta.AortaAgent> (mike) Cycle done [31] (time: 3547 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent mike
+		 # garbage collection
+38: 25944
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 37 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <35, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<37, 2, 0>
+[FINE]      <37, 2, 0>
+[FINE] States by incoming for 31 is [<37, 2, 0>]
+[FINE] Current DFS State: <35, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <24, 2, 0>, <25, 2, 0>, <34, 2, 0>, <35, 2, 0>, <37, 2, 0>]
+[FINE] Current DFS State: <37, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35, 37]
+----------------------------------- [29] forward: 37 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[FINE] 20022015111115 <aorta.AortaAgent> (carol) New AORTA cycle [24]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111119 <aorta.AortaAgent> (carol) Cycle done [24] (time: 3656 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111119 <aorta.AortaAgent> (carol) New AORTA cycle [25]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111124 <aorta.AortaAgent> (carol) Cycle done [25] (time: 4313 ms)
+*****************************
+******** AORTA CYCLE ********
+6064c6a7899f8a49277149878a8cc05f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111124 <aorta.AortaAgent> (carol) New AORTA cycle [26]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111125 <aorta.AortaAgent> (carol) Cycle done [26] (time: 750 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+******************************* [carol] enter_auction(1) ************************************
+[FINE] 20022015111128 <aorta.AortaAgent> (carol) New AORTA cycle [27]. Goals: bought(lamp);
+[FINE] 20022015111128 <aorta.AortaAgent> (carol) Cycle done [27] (time: 863 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111132 <aorta.AortaAgent> (carol) New AORTA cycle [28]. Goals: bought(lamp);
+[FINE] 20022015111132 <aorta.AortaAgent> (carol) Cycle done [28] (time: 719 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111135 <aorta.AortaAgent> (carol) New AORTA cycle [29]. Goals: bought(lamp);
+[FINE] 20022015111139 <aorta.AortaAgent> (carol) Cycle done [29] (time: 3575 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111139 <aorta.AortaAgent> (carol) New AORTA cycle [30]. Goals: bought(lamp);
+[FINE] 20022015111143 <aorta.AortaAgent> (carol) Cycle done [30] (time: 3641 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+		 # garbage collection
+39: 18407
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35, 37, 38]
+[INFO] Adding 38 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35, 37, 38]
+[INFO] Always True from Now On
+----------------------------------- [30] forward: 38 visited
+[FINE] pruning 37
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35, 37, 38]
+[FINE] index is 29
+----------------------------------- [29] backtrack: 37
+[FINE] Setting done 37
+[FINE] setting done: 37
+----------------------------------- [29] done: 37
+[FINE] pruning 35
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35, 37]
+[FINE] index is 28
+----------------------------------- [28] backtrack: 35
+[FINE] Setting done 35
+[FINE] setting done: 35
+----------------------------------- [28] done: 35
+[FINE] pruning 34
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34, 35]
+[FINE] index is 27
+----------------------------------- [27] backtrack: 34
+[FINE] Setting done 34
+[FINE] setting done: 34
+----------------------------------- [27] done: 34
+[FINE] pruning 25
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 34]
+[FINE] index is 26
+----------------------------------- [26] backtrack: 25
+[FINE] Setting done 25
+[FINE] setting done: 25
+----------------------------------- [26] done: 25
+[FINE] pruning 24
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+[FINE] index is 25
+----------------------------------- [25] backtrack: 24
+[FINE] Setting done 24
+[FINE] setting done: 24
+----------------------------------- [25] done: 24
+[FINE] pruning 23
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+[FINE] index is 24
+----------------------------------- [24] backtrack: 23
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[FINE] 20022015111148 <aorta.AortaAgent> (sally) New AORTA cycle [11]. Goals: sold(lamp);
+[FINE] 20022015111152 <aorta.AortaAgent> (sally) Cycle done [11] (time: 3656 ms)
+*****************************
+******** AORTA CYCLE ********
+db835d4bb6b8347ba4fbb767883af861
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111152 <aorta.AortaAgent> (sally) New AORTA cycle [12]. Goals: sold(lamp);
+[FINE] 20022015111153 <aorta.AortaAgent> (sally) Cycle done [12] (time: 922 ms)
+*****************************
+******** AORTA CYCLE ********
+24abf6f464e0ad44b2de699f2c48402f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111153 <aorta.AortaAgent> (sally) New AORTA cycle [13]. Goals: sold(lamp);
+[FINE] 20022015111157 <aorta.AortaAgent> (sally) Cycle done [13] (time: 3824 ms)
+*****************************
+******** AORTA CYCLE ********
+24abf6f464e0ad44b2de699f2c48402f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111157 <aorta.AortaAgent> (sally) New AORTA cycle [14]. Goals: sold(lamp);
+[FINE] 20022015111157 <aorta.AortaAgent> (sally) Cycle done [14] (time: 703 ms)
+*****************************
+******** AORTA CYCLE ********
+24abf6f464e0ad44b2de699f2c48402f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111158 <aorta.AortaAgent> (sally) New AORTA cycle [15]. Goals: sold(lamp);
+[FINE] 20022015111201 <aorta.AortaAgent> (sally) Cycle done [15] (time: 3375 ms)
+*****************************
+******** AORTA CYCLE ********
+e9743be8d6fd035be8365f7d26c6e359
+********  END CYCLE  ********
+*****************************
+******************************* [sally] start_auction(lamp,10,0) ************************************
+[INFO] Waking agent carol
+		 # garbage collection
+40: 44110
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 39 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <23, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<39, 2, 0>
+[FINE]      <39, 2, 0>
+[FINE] States by incoming for 23 is [<39, 2, 0>, <24, 2, 0>]
+[FINE] Current DFS State: <37, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <35, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <34, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <25, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <24, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <23, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <39, 2, 0>]
+[FINE] Current DFS State: <39, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39]
+----------------------------------- [25] forward: 39 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[FINE] 20022015111201 <aorta.AortaAgent> (carol) New AORTA cycle [17]. Goals: 
+[FINE] 20022015111205 <aorta.AortaAgent> (carol) Cycle done [17] (time: 3454 ms)
+*****************************
+******** AORTA CYCLE ********
+3a7f321d05b9b252540a55c7daf063be
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111205 <aorta.AortaAgent> (carol) New AORTA cycle [18]. Goals: 
+[FINE] 20022015111206 <aorta.AortaAgent> (carol) Cycle done [18] (time: 898 ms)
+*****************************
+******** AORTA CYCLE ********
+61d33962f13e71867bbfdf6d307286d4
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111206 <aorta.AortaAgent> (carol) New AORTA cycle [19]. Goals: 
+[FINE] 20022015111210 <aorta.AortaAgent> (carol) Cycle done [19] (time: 3886 ms)
+*****************************
+******** AORTA CYCLE ********
+b432b78141b228a21fb305e4e6c5dbe9
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111210 <aorta.AortaAgent> (carol) New AORTA cycle [20]. Goals: 
+[FINE] 20022015111211 <aorta.AortaAgent> (carol) Cycle done [20] (time: 750 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111211 <aorta.AortaAgent> (carol) New AORTA cycle [21]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111214 <aorta.AortaAgent> (carol) Cycle done [21] (time: 3719 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111214 <aorta.AortaAgent> (carol) New AORTA cycle [22]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111218 <aorta.AortaAgent> (carol) Cycle done [22] (time: 3404 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111218 <aorta.AortaAgent> (carol) New AORTA cycle [23]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111222 <aorta.AortaAgent> (carol) Cycle done [23] (time: 3906 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+******************************* [carol] register(address,account) ************************************
+		 # garbage collection
+41: 5605
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 40 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <39, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<40, 2, 0>
+[FINE]      <40, 2, 0>
+[FINE] States by incoming for 33 is [<40, 2, 0>]
+[FINE] Current DFS State: <39, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <39, 2, 0>, <40, 2, 0>]
+[FINE] Current DFS State: <40, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39, 40]
+----------------------------------- [26] forward: 40 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[FINE] 20022015111225 <aorta.AortaAgent> (carol) New AORTA cycle [24]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111226 <aorta.AortaAgent> (carol) Cycle done [24] (time: 970 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111226 <aorta.AortaAgent> (carol) New AORTA cycle [25]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111230 <aorta.AortaAgent> (carol) Cycle done [25] (time: 3706 ms)
+*****************************
+******** AORTA CYCLE ********
+6064c6a7899f8a49277149878a8cc05f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111230 <aorta.AortaAgent> (carol) New AORTA cycle [26]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111234 <aorta.AortaAgent> (carol) Cycle done [26] (time: 3626 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+******************************* [carol] enter_auction(1) ************************************
+[FINE] 20022015111234 <aorta.AortaAgent> (carol) New AORTA cycle [27]. Goals: bought(lamp);
+[FINE] 20022015111238 <aorta.AortaAgent> (carol) Cycle done [27] (time: 3631 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111238 <aorta.AortaAgent> (carol) New AORTA cycle [28]. Goals: bought(lamp);
+[FINE] 20022015111238 <aorta.AortaAgent> (carol) Cycle done [28] (time: 589 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111238 <aorta.AortaAgent> (carol) New AORTA cycle [29]. Goals: bought(lamp);
+[FINE] 20022015111242 <aorta.AortaAgent> (carol) Cycle done [29] (time: 3701 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111242 <aorta.AortaAgent> (carol) New AORTA cycle [30]. Goals: bought(lamp);
+[FINE] 20022015111246 <aorta.AortaAgent> (carol) Cycle done [30] (time: 3547 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+42: 35217
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39, 40, 41]
+[INFO] Adding 41 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39, 40, 41]
+[INFO] Always True from Now On
+----------------------------------- [27] forward: 41 visited
+[FINE] pruning 40
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39, 40, 41]
+[FINE] index is 26
+----------------------------------- [26] backtrack: 40
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[FINE] 20022015111249 <aorta.AortaAgent> (mike) New AORTA cycle [21]. Goals: verified(sally);
+[FINE] 20022015111250 <aorta.AortaAgent> (mike) Cycle done [21] (time: 962 ms)
+*****************************
+******** AORTA CYCLE ********
+e30df9fb0655f4ef1a113f5d1af0d325
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111250 <aorta.AortaAgent> (mike) New AORTA cycle [22]. Goals: 
+[FINE] 20022015111251 <aorta.AortaAgent> (mike) Cycle done [22] (time: 847 ms)
+*****************************
+******** AORTA CYCLE ********
+e30df9fb0655f4ef1a113f5d1af0d325
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111251 <aorta.AortaAgent> (mike) New AORTA cycle [23]. Goals: 
+[FINE] 20022015111251 <aorta.AortaAgent> (mike) Cycle done [23] (time: 781 ms)
+*****************************
+******** AORTA CYCLE ********
+0fba7cfebcf3d581ffc65e5ce7370a5c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111252 <aorta.AortaAgent> (mike) New AORTA cycle [24]. Goals: 
+[FINE] 20022015111252 <aorta.AortaAgent> (mike) Cycle done [24] (time: 812 ms)
+*****************************
+******** AORTA CYCLE ********
+0b4d4b3ee3347ae3f713459ba78efb91
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111253 <aorta.AortaAgent> (mike) New AORTA cycle [25]. Goals: 
+[FINE] 20022015111253 <aorta.AortaAgent> (mike) Cycle done [25] (time: 594 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111253 <aorta.AortaAgent> (mike) New AORTA cycle [26]. Goals: 
+[FINE] 20022015111254 <aorta.AortaAgent> (mike) Cycle done [26] (time: 844 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111254 <aorta.AortaAgent> (mike) New AORTA cycle [27]. Goals: 
+[FINE] 20022015111258 <aorta.AortaAgent> (mike) Cycle done [27] (time: 3781 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111258 <aorta.AortaAgent> (mike) New AORTA cycle [28]. Goals: 
+[FINE] 20022015111259 <aorta.AortaAgent> (mike) Cycle done [28] (time: 766 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111259 <aorta.AortaAgent> (mike) New AORTA cycle [29]. Goals: 
+[FINE] 20022015111303 <aorta.AortaAgent> (mike) Cycle done [29] (time: 3659 ms)
+*****************************
+******** AORTA CYCLE ********
+cf6d782b2ae011e34281a90ad0c230a6
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent mike
+		 # garbage collection
+43: 10580
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 42 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39, 40]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <40, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<42, 2, 0>
+[FINE]      <42, 2, 0>
+[FINE] States by incoming for 34 is [<42, 2, 0>]
+[FINE] Current DFS State: <40, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>, <8, 2, 0>, <9, 2, 0>, <10, 2, 0>, <11, 2, 0>, <12, 2, 0>, <13, 2, 0>, <14, 2, 0>, <15, 2, 0>, <16, 2, 0>, <17, 2, 0>, <18, 2, 0>, <19, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>, <39, 2, 0>, <40, 2, 0>, <42, 2, 0>]
+[FINE] Current DFS State: <42, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39, 40, 42]
+----------------------------------- [27] forward: 42 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[FINE] 20022015111305 <aorta.AortaAgent> (carol) New AORTA cycle [24]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111309 <aorta.AortaAgent> (carol) Cycle done [24] (time: 3270 ms)
+*****************************
+******** AORTA CYCLE ********
+693dbd6784999ca6b3612296e7be8c1c
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111309 <aorta.AortaAgent> (carol) New AORTA cycle [25]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111313 <aorta.AortaAgent> (carol) Cycle done [25] (time: 3881 ms)
+*****************************
+******** AORTA CYCLE ********
+6064c6a7899f8a49277149878a8cc05f
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111313 <aorta.AortaAgent> (carol) New AORTA cycle [26]. Goals: bought(lamp);registered(carol);
+[FINE] 20022015111313 <aorta.AortaAgent> (carol) Cycle done [26] (time: 625 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+******************************* [carol] enter_auction(1) ************************************
+[FINE] 20022015111317 <aorta.AortaAgent> (carol) New AORTA cycle [27]. Goals: bought(lamp);
+[FINE] 20022015111317 <aorta.AortaAgent> (carol) Cycle done [27] (time: 813 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111317 <aorta.AortaAgent> (carol) New AORTA cycle [28]. Goals: bought(lamp);
+[FINE] 20022015111321 <aorta.AortaAgent> (carol) Cycle done [28] (time: 3503 ms)
+*****************************
+******** AORTA CYCLE ********
+9008576baa29a34f31372cbe99ef4025
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111321 <aorta.AortaAgent> (carol) New AORTA cycle [29]. Goals: bought(lamp);
+[FINE] 20022015111325 <aorta.AortaAgent> (carol) Cycle done [29] (time: 3551 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111325 <aorta.AortaAgent> (carol) New AORTA cycle [30]. Goals: bought(lamp);
+[FINE] 20022015111328 <aorta.AortaAgent> (carol) Cycle done [30] (time: 3452 ms)
+*****************************
+******** AORTA CYCLE ********
+af41642db57961dd0317c3a1c3b73086
+********  END CYCLE  ********
+*****************************
+[INFO] Sleeping agent carol
+		 # garbage collection
+44: 57928
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39, 40, 42, 43]
+[INFO] Adding 43 to [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39, 40, 42, 43]
+[INFO] Always True from Now On
+----------------------------------- [28] forward: 43 visited
+[FINE] pruning 42
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 39, 40, 42, 43]
+[FINE] index is 27
+----------------------------------- [27] backtrack: 42
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[FINE] 20022015111331 <aorta.AortaAgent> (sally) New AORTA cycle [16]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015111332 <aorta.AortaAgent> (sally) Cycle done [16] (time: 952 ms)
+*****************************
+******** AORTA CYCLE ********
+e9743be8d6fd035be8365f7d26c6e359
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111335 <aorta.AortaAgent> (sally) New AORTA cycle [17]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015111336 <aorta.AortaAgent> (sally) Cycle done [17] (time: 819 ms)
+*****************************
+******** AORTA CYCLE ********
+a4401345d9b1b274d94dc296ef123a3d
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111336 <aorta.AortaAgent> (sally) New AORTA cycle [18]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015111340 <aorta.AortaAgent> (sally) Cycle done [18] (time: 3677 ms)
+*****************************
+******** AORTA CYCLE ********
+2b89ef3619183870d273ee7df8454337
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111340 <aorta.AortaAgent> (sally) New AORTA cycle [19]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015111344 <aorta.AortaAgent> (sally) Cycle done [19] (time: 3752 ms)
+*****************************
+******** AORTA CYCLE ********
+f04f521c08f3ac10af3250dc5c3817cc
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111344 <aorta.AortaAgent> (sally) New AORTA cycle [20]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015111348 <aorta.AortaAgent> (sally) Cycle done [20] (time: 3535 ms)
+*****************************
+******** AORTA CYCLE ********
+deb65a2f5ce2e63ef8732fafc0d1b0f7
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111348 <aorta.AortaAgent> (sally) New AORTA cycle [21]. Goals: sold(lamp);auction(sally,lamp);
+[FINE] 20022015111351 <aorta.AortaAgent> (sally) Cycle done [21] (time: 3417 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111351 <aorta.AortaAgent> (sally) New AORTA cycle [22]. Goals: sold(lamp);
+[FINE] 20022015111355 <aorta.AortaAgent> (sally) Cycle done [22] (time: 3516 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111355 <aorta.AortaAgent> (sally) New AORTA cycle [23]. Goals: sold(lamp);
+[FINE] 20022015111358 <aorta.AortaAgent> (sally) Cycle done [23] (time: 3266 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111358 <aorta.AortaAgent> (sally) New AORTA cycle [24]. Goals: sold(lamp);
+[FINE] 20022015111401 <aorta.AortaAgent> (sally) Cycle done [24] (time: 3313 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111401 <aorta.AortaAgent> (sally) New AORTA cycle [25]. Goals: sold(lamp);
+[FINE] 20022015111408 <aorta.AortaAgent> (sally) Cycle done [25] (time: 6297 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111408 <aorta.AortaAgent> (sally) New AORTA cycle [26]. Goals: sold(lamp);
+[FINE] 20022015111414 <aorta.AortaAgent> (sally) Cycle done [26] (time: 5782 ms)
+*****************************
+******** AORTA CYCLE ********
+aa722ef66c66ff5d0a63c964f90aaace
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111414 <aorta.AortaAgent> (sally) New AORTA cycle [27]. Goals: sold(lamp);
+[FINE] 20022015111422 <aorta.AortaAgent> (sally) Cycle done [27] (time: 8531 ms)
+*****************************
+******** AORTA CYCLE ********
+d22451f853f7f4cd89e3d44bf5ed6037
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111425 <aorta.AortaAgent> (sally) New AORTA cycle [28]. Goals: 
+[FINE] 20022015111439 <aorta.AortaAgent> (sally) Cycle done [28] (time: 14194 ms)
+*****************************
+******** AORTA CYCLE ********
+d22451f853f7f4cd89e3d44bf5ed6037
+********  END CYCLE  ********
+*****************************
+[FINE] 20022015111442 <aorta.AortaAgent> (sally) New AORTA cycle [29]. Goals: 
+[FINE] 20022015111550 <aorta.AortaAgent> (sally) Cycle done [29] (time: 67525 ms)
+*****************************
+******** AORTA CYCLE ********
+[SEVERE] JPF out of memory
+[WARNING] WARNING: search constraint encountered, eventualities not checked
+
+====================================================== search constraint
+JPF out of memory
+
+====================================================== snapshot 
+thread java.lang.Thread:{id:0,name:main,status:RUNNING,priority:5,lockCount:0,suspendCount:0}
+  owned locks:alice.tuprolog.TheoryManager@50c31,alice.tuprolog.OperatorManager@50c2a
+  call stack:
+[SEVERE] JPF exception, terminating: exception during out-of-memory termination

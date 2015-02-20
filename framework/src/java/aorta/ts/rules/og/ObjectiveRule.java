@@ -48,7 +48,7 @@ public class ObjectiveRule extends TransitionRule<AgentState> {
 				Struct obj = language.obj(new Var("O"));
 				Struct optObj = FormulaQualifier.qualifyStruct(obj, KBType.OPTION);
 				
-				ms.unify(optObj, conditional);
+				optObj = (Struct) ms.unify(optObj, conditional);
 				
 				Struct result = optObj;
 //				Term objectiveArg = obj.getArg(0);
@@ -64,7 +64,7 @@ public class ObjectiveRule extends TransitionRule<AgentState> {
 				if (!ms.exists(result)) {
 					add(newState, result);
 
-					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + result);
+					logger.finer("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + result);
 					Tracer.trace(state.getAgent().getName(), getName(), result.toString());
 
 					break;

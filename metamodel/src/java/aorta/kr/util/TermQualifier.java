@@ -7,6 +7,7 @@ package aorta.kr.util;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
+import gov.nasa.jpf.annotation.FilterField;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -16,9 +17,11 @@ import java.util.LinkedList;
  */
 public class TermQualifier {
 	
+	@FilterField 
 	public static final Term[] QUALIFIERS = new Term[] {
 		Term.createTerm("goal(_)"),Term.createTerm("org(_)"),Term.createTerm("opt(_)"),Term.createTerm("bel(_)")
 	};
+	@FilterField 
 	public static final Term[] RESERVED_TERMS = new Term[] {
 			QUALIFIERS[0],QUALIFIERS[1],QUALIFIERS[2],QUALIFIERS[3],
 			Term.createTerm("true"),

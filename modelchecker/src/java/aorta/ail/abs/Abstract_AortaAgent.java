@@ -8,10 +8,10 @@ import alice.tuprolog.InvalidTheoryException;
 import alice.tuprolog.Prolog;
 import alice.tuprolog.Theory;
 import aorta.AortaAgent;
+import aorta.ail.abs.mm.Abstract_Metamodel;
+import aorta.ail.abs.rule.Abstract_ReasoningRule;
 import aorta.kr.MentalState;
-import aorta.reasoning.ActionRule;
 import aorta.reasoning.ReasoningRule;
-import aorta.ts.strategy.AgentStrategy;
 import gov.nasa.jpf.vm.MJIEnv;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,29 +22,27 @@ import java.util.List;
  */
 public class Abstract_AortaAgent {
 	
-	private String name;
-	private Abstract_ActionRule[] rules;
-	private String mentalState;
-
-	// TODO: Abstract_Metamodel 
+	private final String name;
+	private final Abstract_ReasoningRule[] rules;
+	private final String mentalState;
+	private final Abstract_Metamodel metamodel;
 	
-	public Abstract_AortaAgent(String name, Abstract_ActionRule[] rules, String mentalState) {
+	public Abstract_AortaAgent(String name, Abstract_ReasoningRule[] rules, String mentalState, Abstract_Metamodel metamodel) {
 		this.name = name;
 		this.rules = rules;
 		this.mentalState = mentalState;
+		this.metamodel = metamodel;
 	}
 
 	public Abstract_AortaAgent(AortaAgent aortaAgent) {
 		name = aortaAgent.getName();
 		mentalState = aortaAgent.getState().getMentalState().getProlog().getTheory().toString();
-		List<ReasoningRule> actionRules = aortaAgent.getState().getRules();
-		rules = new Abstract_ActionRule[actionRules.size()];
-		for (int i = 0; i < actionRules.size(); i++) {
-            if (actionRules.get(i) instanceof ActionRule) { //TODO Include ifRule
-                rules[i] = new Abstract_ActionRule((ActionRule) actionRules.get(i));
-            }
-                
+		List<ReasoningRule> reasoningRules = aortaAgent.getState().getRules();
+		rules = new Abstract_ReasoningRule[reasoningRules.size()];
+		for (int i = 0; i < reasoningRules.size(); i++) {
+			rules[i] = Abstract_ReasoningRule.convert(reasoningRules.get(i));
 		}
+		metamodel = new Abstract_Metamodel(aortaAgent.getState().getMetamodel());
 	}
 
 	public String getMentalState() {
@@ -55,19 +53,17 @@ public class Abstract_AortaAgent {
 		return name;
 	}
 
-	public Abstract_ActionRule[] getRules() {
+	public Abstract_ReasoningRule[] getRules() {
 		return rules;
 	}
 	
 	public AortaAgent toAORTA() throws InvalidTheoryException {
-		Prolog prolog = new Prolog();
-		prolog.addTheory(new Theory(mentalState));
-		List<ReasoningRule> arList = new ArrayList<>();
-		for (Abstract_ActionRule ar : rules) {
-			arList.add(ar.toAORTA());
+		List<ReasoningRule> reasoningRules = new ArrayList<>();
+		for (Abstract_ReasoningRule rr : rules) {
+			reasoningRules.add(rr.toAORTA());
 		}
-		AortaAgent agent = new AortaAgent(name, new MentalState(prolog), null, arList);
-		return agent;
+
+		return new AortaAgent(name, new MentalState(mentalState), metamodel.toAORTA(), reasoningRules);
 	}
 	
 	public int newJPFObject(MJIEnv env) {
@@ -79,6 +75,7 @@ public class Abstract_AortaAgent {
        	}
       	env.setReferenceField(objref, "rules", rulesRef);
      	env.setReferenceField(objref, "mentalState", env.newString(mentalState));
+		env.setReferenceField(objref, "metamodel", metamodel.newJPFObject(env));
       	return objref;
    	
     }

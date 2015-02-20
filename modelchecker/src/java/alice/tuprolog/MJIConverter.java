@@ -4,6 +4,15 @@
  */
 package alice.tuprolog;
 
+import aorta.reasoning.fml.BeliefFormula;
+import aorta.reasoning.fml.CapabilityFormula;
+import aorta.reasoning.fml.ConjunctFormula;
+import aorta.reasoning.fml.Formula;
+import aorta.reasoning.fml.GoalFormula;
+import aorta.reasoning.fml.NegatedFormula;
+import aorta.reasoning.fml.OptionFormula;
+import aorta.reasoning.fml.OrganizationalFormula;
+import aorta.reasoning.fml.TrueFormula;
 import gov.nasa.jpf.vm.ElementInfo;
 import gov.nasa.jpf.vm.MJIEnv;
 
@@ -110,4 +119,55 @@ public class MJIConverter {
 		return term;
 	}
 
+	public static Formula getFormula(MJIEnv env, ElementInfo ei) {
+		String fmlClass = ei.getClassInfo().getName();
+		Formula fml = null;
+		switch (fmlClass) {
+			case "aorta.reasoning.fml.BeliefFormula": {
+				ElementInfo formulaInfo = (ElementInfo) ei.getFieldValueObject("formula");
+				fml = new BeliefFormula(getTerm(env, formulaInfo));
+				break;
+			}
+			case "aorta.reasoning.fml.CapabilityFormula": {
+				ElementInfo formulaInfo = (ElementInfo) ei.getFieldValueObject("formula");
+				fml = new CapabilityFormula(getTerm(env, formulaInfo));				
+				break;
+			}
+			case "aorta.reasoning.fml.ConjunctFormula": {
+				ElementInfo formulaInfo1 = (ElementInfo) ei.getFieldValueObject("fml1");
+				ElementInfo formulaInfo2 = (ElementInfo) ei.getFieldValueObject("fml1");
+				Formula fml1 = getFormula(env, formulaInfo1);
+				Formula fml2 = getFormula(env, formulaInfo2);
+				fml = new ConjunctFormula(fml1, fml2);
+				break;
+			}
+			case "aorta.reasoning.fml.GoalFormula": {
+				ElementInfo formulaInfo = (ElementInfo) ei.getFieldValueObject("formula");
+				fml = new GoalFormula(getTerm(env, formulaInfo));				
+				break;
+			}
+			case "aorta.reasoning.fml.NegatedFormula":  {
+				ElementInfo formulaInfo = (ElementInfo) ei.getFieldValueObject("formula");
+				fml = new CapabilityFormula(getTerm(env, formulaInfo));				
+				break;
+			}
+			case "aorta.reasoning.fml.OptionFormula": {
+				ElementInfo formulaInfo = (ElementInfo) ei.getFieldValueObject("formula");
+				Formula negForm = getFormula(env, formulaInfo);
+				fml = new NegatedFormula(negForm);
+				break;
+			}
+			case "aorta.reasoning.fml.OrganizationalFormula": {
+				ElementInfo formulaInfo = (ElementInfo) ei.getFieldValueObject("formula");
+				fml = new OrganizationalFormula(getTerm(env, formulaInfo));				
+				break;
+			}
+			case "aorta.reasoning.fml.TrueFormula":
+				fml = new TrueFormula();
+				break;
+		}
+
+		return fml;
+	}
+	
 }

@@ -40,14 +40,14 @@ public class ViolationRule extends TransitionRule<AgentState> {
 				Struct opt = language.viol(new Var("A"), new Var("R"), new Var("Deon"), new Var("O"));
 				Struct optViol = FormulaQualifier.qualifyStruct(opt, KBType.OPTION);
 				
-				ms.unify(optViol, conditional);
+				optViol = (Struct) ms.unify(optViol, conditional);
 				
 				Struct result = optViol;
 				
 				if (!ms.exists(result)) {
 					add(newState, result);
 
-					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + result);
+					logger.finer("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + result);
 					Tracer.trace(state.getAgent().getName(), getName(), result.toString());
 
 					break;

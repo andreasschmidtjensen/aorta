@@ -32,7 +32,7 @@ public class Check extends TransitionRule<AgentState> {
 				Struct oMsg = (Struct) iom.getMessage();
 				Struct msg = (Struct) oMsg.getArg(0);
 
-				logger.log(Level.FINE, "Handling msg: " + msg + " from " + iom.getSender());
+				logger.log(Level.FINER, "Handling msg: " + msg + " from " + iom.getSender());
 
 				Tracer.trace(state.getAgent().getName(), getName(), iom.toString());
 				

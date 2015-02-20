@@ -5,6 +5,7 @@
 package aorta.ail;
 
 import ail.semantics.AILAgent;
+import ail.semantics.RCStage;
 import ail.syntax.AILAnnotation;
 import ail.syntax.Deed;
 import ail.syntax.Event;
@@ -13,9 +14,9 @@ import ail.syntax.Intention;
 import ail.syntax.Literal;
 import ail.syntax.Message;
 import ail.syntax.Plan;
-import ail.syntax.Predicate;
 import ail.syntax.PredicatewAnnotation;
 import ail.syntax.StringTerm;
+import ail.syntax.annotation.SourceAnnotation;
 import ajpf.psl.MCAPLFormula;
 import ajpf.psl.MCAPLPredicate;
 import ajpf.util.AJPFLogger;
@@ -24,24 +25,23 @@ import alice.tuprolog.InvalidTheoryException;
 import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import aorta.AORTAException;
+import aorta.AgentState;
 import aorta.Aorta;
 import aorta.AortaAgent;
+import aorta.ExternalAgent;
 import aorta.ail.abs.Abstract_AortaAgent;
 import aorta.kr.KBType;
 import aorta.kr.MentalState;
-import aorta.kr.QueryEngine;
 import aorta.kr.language.OrganizationImportException;
 import aorta.kr.util.FormulaQualifier;
-import aorta.logging.Logger;
 import aorta.msg.IncomingOrganizationalMessage;
 import aorta.parser.helper.AortaBuilder;
 import aorta.ts.strategy.StrategyFailedException;
+import gov.nasa.jpf.annotation.FilterField;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.Level;
 
-// TODO: Avoid large statespace in beginning when setting up agents
 /**
  *
  * @author asj
@@ -49,8 +49,14 @@ import java.util.logging.Level;
 public class AortaAILAgent extends AILAgent {
 
 	private static final String logname = AortaAILAgent.class.getName();
+	
 	private AortaAgent aortaAgent;
+	
+	@FilterField
 	private Abstract_AortaAgent absAortaAgent;
+	
+	@FilterField
+	private final RCStage initialRCStage;
 
 	public AortaAILAgent(AILAgent ailAgent, Aorta aorta, String aortaFile) {
 		setEnv(ailAgent.getEnv());
@@ -61,14 +67,16 @@ public class AortaAILAgent extends AILAgent {
 		setIntention(ailAgent.getIntention()); // can have at most one intention (the initial goal)
 		setPlanLibrary(ailAgent.getPL());
 		setReasoningCycle(ailAgent.getReasoningCycle());
+		setTrackPlanUsage(ailAgent.getTrackPlanUsage());
+		
+		initialRCStage = getReasoningCycle().getStage();
 		
 		buildAortaAgent(ailAgent.getAgName(), aortaFile, aorta.getOrganizationLocation());
 		try {
 			aortaAgent = absAortaAgent.toAORTA();
 			aortaAgent.getState().setBridge(new AILBridge(this));
 		} catch (InvalidTheoryException ex) {
-			AJPFLogger.severe(logname, "Could not parse AORTA program: " + ex.getMessage());
-			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}	
 		
 		aortaAgent.setAorta(aorta);
@@ -76,7 +84,8 @@ public class AortaAILAgent extends AILAgent {
 			aortaAgent.getState().getExternalAgent().addBelief(TermConverter.fromLiteral(b));
 		}
 		
-		AJPFLogger.info(logname, getAgName() + ": Initial goal: " + getIntention());
+		Literal me = TermConverter.toLiteral(new Struct("me", new Struct(fAgName)));
+		addBel(me, new SourceAnnotation(new Literal("aorta")));
 		
 		// initial goal:
 		Intention initialGoal = getIntention();
@@ -99,14 +108,14 @@ public class AortaAILAgent extends AILAgent {
 		}
 	}
 	
-	public void buildAortaAgent(String agName, String aortaFile, String metamodelLocation) {
+	public final void buildAortaAgent(String agName, String aortaFile, String metamodelLocation) {
 		AortaBuilder builder = new AortaBuilder();
 		try {
 			AortaAgent ag = builder.parseAgent(agName, aortaFile, metamodelLocation, new AILBridge(this));
 			absAortaAgent = new Abstract_AortaAgent(ag);
 		} catch (InvalidTheoryException | IOException | InvalidLibraryException | OrganizationImportException | AORTAException ex) {
 			AJPFLogger.severe(logname, "Could not parse AORTA program: " + ex.getMessage());
-			ex.printStackTrace();
+			throw new RuntimeException(ex);
 		}
 	}
 
@@ -131,25 +140,10 @@ public class AortaAILAgent extends AILAgent {
 	}
 
 	@Override
-	public boolean MCAPLhasIntention(MCAPLFormula fmla) {
-		return super.MCAPLhasIntention(fmla);
-	}
-
-	@Override
-	public void MCAPLtellawake() {
-		super.MCAPLtellawake();
-	}
-
-	@Override
-	public boolean MCAPLwantstosleep() {
-		return super.MCAPLwantstosleep() && !aortaAgent.hasChanged();
-	}
-
-	@Override
 	public boolean MCAPLhasOrganizationalBelief(MCAPLFormula phi) {
 		MentalState ms = aortaAgent.getState().getMentalState();
 		Struct aortaTerm = FormulaQualifier.qualifyStruct(TermConverter.fromLiteral(new Literal(Literal.LPos, new PredicatewAnnotation((MCAPLPredicate) phi))), KBType.ORGANIZATION);
-		boolean hasOrgBel = new QueryEngine().exists(ms, aortaTerm);
+		boolean hasOrgBel = ms.exists(aortaTerm);
 		return hasOrgBel;
 	}
 
@@ -157,19 +151,37 @@ public class AortaAILAgent extends AILAgent {
 	public boolean MCAPLhasOrganizationalOption(MCAPLFormula phi) {
 		MentalState ms = aortaAgent.getState().getMentalState();
 		Struct aortaTerm = FormulaQualifier.qualifyStruct(TermConverter.fromLiteral(new Literal(Literal.LPos, new PredicatewAnnotation((MCAPLPredicate) phi))), KBType.OPTION);
-		boolean hasOption = new QueryEngine().exists(ms, aortaTerm);
+		boolean hasOption = ms.exists(aortaTerm);
 		return hasOption;
 	}
 
+	private String lastPrint = "";
 	@Override
 	public void MCAPLreason(int flag) {
-		try {
-			aortaAgent.newCycle();
-		} catch (StrategyFailedException ex) {
-			AJPFLogger.warning(logname, "Could not finish cycle: " + ex.getMessage());
+		if (initialRCStage == null || getReasoningCycle().getStage() == initialRCStage) {
+			try {
+				aortaAgent.newCycle();
+			} catch (StrategyFailedException ex) {
+				AJPFLogger.warning(logname, "Could not finish cycle: " + ex.getMessage());
+			}
+			
+			System.out.println("*****************************");
+			System.out.println("******** AORTA CYCLE ********");
+			System.out.println(aortaAgent);
+			System.out.println("********  END CYCLE  ********");
+			System.out.println("*****************************");
+			
 		}
-
+		
 		super.MCAPLreason(flag);
+//		
+//		if (getGoalBase().size() > 0) {
+//			String print = fAgName + ": " + getGoalBase();
+//			if (!print.equals(lastPrint)) {
+//				System.out.println(print);
+//				lastPrint = print;
+//			}
+//		}
 	}
 
 	@Override
@@ -178,15 +190,15 @@ public class AortaAILAgent extends AILAgent {
 	}
 
 	@Override
-	public void tellawake() {
-		super.tellawake();
-	}
-
-	@Override
-	public void addBel(Literal bel, AILAnnotation s) {
+	public final void addBel(Literal bel, AILAnnotation s) {
 		super.addBel(bel, s);
-
-		aortaAgent.getState().getExternalAgent().addBelief(TermConverter.fromLiteral(bel));
+		
+		if (aortaAgent != null) {
+			AgentState state = aortaAgent.getState();
+			ExternalAgent externalAgent = state.getExternalAgent();
+			Struct fromLiteral = TermConverter.fromLiteral(bel);
+			externalAgent.addBelief(fromLiteral);
+		}
 	}
 
 	@Override
@@ -225,12 +237,14 @@ public class AortaAILAgent extends AILAgent {
 	}
 
 	private void addGoalToAorta(Goal g) {
-		QueryEngine qe = new QueryEngine();
 		Struct aortaGoal = TermConverter.fromLiteral(g.getLiteral());
 		Struct qualifiedGoal = FormulaQualifier.qualifyStruct(aortaGoal, KBType.GOAL);
 		
-		if (!qe.exists(aortaAgent.getState().getMentalState(), qualifiedGoal)) {
-			aortaAgent.getState().getExternalAgent().addGoal(aortaGoal);
+		AgentState state = aortaAgent.getState();		
+		MentalState ms = state.getMentalState();
+		
+		if (!ms.exists(qualifiedGoal)) {
+			state.getExternalAgent().addGoal(aortaGoal);
 		}
 	}
 

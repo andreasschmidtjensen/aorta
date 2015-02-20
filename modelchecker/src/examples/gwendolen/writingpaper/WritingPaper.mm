@@ -17,12 +17,12 @@ writer > editor: fdv.
 editor > writer: wsec.
 editor > writer: wref.
 
-OBLIGATIONS:
-editor: wtitle < fdv | true.
-editor: wabs < fdv | true.
-editor: wsectitle < fdv | true.
-editor: fdv < (wsec; wcon; wref) | (wtitle,wabs,wsectitle).
-writer: wsec < sv | fdv.
-writer: wref < sv | fdv.
-editor: wcon < sv | fdv.
-editor: sv < false | (wsec, wref, wcon).
+NORMS:
+editor [obliged]: wtitle < fdv | true.
+editor [obliged]: wabs < fdv | true.
+editor [obliged]: wsectitle < fdv | true.
+editor [obliged]: fdv < (wsec; wcon; wref) | (wtitle,wabs,wsectitle).
+writer [obliged]: wsec < sv | fdv.
+writer [obliged]: wref < sv | fdv.
+editor [obliged]: wcon < sv | fdv.
+editor [obliged]: sv < false | (wsec, wref, wcon).

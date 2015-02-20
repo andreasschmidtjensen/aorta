@@ -1604,7 +1604,7 @@ public class AILAgent implements MCAPLLanguageAgent {
 	}
 
 	//---------------------- REASON
-	
+	String lastPrint = "";
 	/**
 	 * Call the reasoning cycle.  This method relies heavily on the implementation
 	 * of the reasoning cycle and OSRule interface.  While the Reasoning Cycle does
@@ -1615,6 +1615,11 @@ public class AILAgent implements MCAPLLanguageAgent {
 	 * cycle.  
 	 */
 	public void reason() {
+//		String print = "[" + fAgName + "] " + getGoalBase();
+//		if (!print.equals(lastPrint)) {
+//			lastPrint = print;
+//			System.out.println(lastPrint);
+//		}
 		if (RC.not_interrupted()) {
 		RC.setStopandCheck(false);
 	

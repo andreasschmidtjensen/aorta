@@ -47,12 +47,12 @@ public class EnactRule extends TransitionRule<AgentState> {
 			List<SolveInfo> results = ms.findAll(test);
 			for (SolveInfo result : results) {
 				if (result.isSuccess()) {
-					ms.unify(optRole, result);
+					optRole = (Struct) ms.unify(optRole, result);
 
 					if (optRole.isGround()) {
 						add(newState, optRole);
 
-						logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + optRole);
+						logger.finer("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + optRole);
 						Tracer.trace(state.getAgent().getName(), getName(), optRole.getArg(0).toString());
 					} else {
 						logger.warning("Failed to consider role, not ground: " + optRole);

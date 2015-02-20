@@ -77,8 +77,8 @@ public abstract class NormActivated extends TransitionRule {
 					SolveInfo solution = ms.solve(test);
 										
 					if (solution.isSuccess()) {						
-						ms.unify(p, solution);
-						ms.unify(d, solution);
+						p = ms.unify(p, solution);
+						d = ms.unify(d, solution);
 						
 						Struct activatedNorm = ml.norm(a, r, deon, p, d);
 						Struct orgNorm = FormulaQualifier.qualifyStruct(activatedNorm, KBType.ORGANIZATION);
@@ -89,7 +89,7 @@ public abstract class NormActivated extends TransitionRule {
 							}
 							add(state, orgNorm);
 
-							logger.fine("[" + state.getDescription() + "] Adding norm: " + orgNorm);
+							logger.finer("[" + state.getDescription() + "] Adding norm: " + orgNorm);
 							Tracer.trace(state.getIdentifier(), getName(), orgNorm.getArg(0).toString());
 
 							break;

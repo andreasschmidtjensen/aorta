@@ -201,7 +201,7 @@ public class MCAPLcontroller  {
 	
 	public MCAPLJobber scheduling() {
 		List<MCAPLJobber> activeJobs = scheduler.getActiveJobbers();
-		//AJPFLogger.info("ajpf.MCAPLcontroller", "About to pick job");
+		AJPFLogger.fine("ajpf.MCAPLcontroller", "About to pick job from " + activeJobs);
 		if (!activeJobs.isEmpty()) {
 			a = null;
 			int job_num = pickJob(activeJobs.size());

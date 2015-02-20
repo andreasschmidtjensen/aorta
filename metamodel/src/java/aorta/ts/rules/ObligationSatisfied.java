@@ -41,11 +41,11 @@ public class ObligationSatisfied extends TransitionRule {
 				
 				Struct obj = language.obj(new Var("O"));
 				Struct optObj = FormulaQualifier.qualifyStruct(obj, KBType.OPTION);
-				ms.unify(optObj, obligation);
+				optObj = (Struct) ms.unify(optObj, obligation);
 				
 				Struct oblForOpt = language.norm(new Var("R"), new Struct(Norm.OBLIGATION), new Var("O"), new Var("D"));
 				Struct optObl = FormulaQualifier.qualifyStruct(oblForOpt, KBType.OPTION);
-				ms.unify(optObl, obligation);
+				optObl = (Struct) ms.unify(optObl, obligation);
 				
 				Term objectiveArg = obj.getArg(0);
 				if (objectiveArg instanceof Var && ((Var)objectiveArg).getTerm() instanceof Struct) {
@@ -54,14 +54,14 @@ public class ObligationSatisfied extends TransitionRule {
 
 				if (ms.exists(objectiveArg)) {
 					//XXX: newState = state.clone();
-					ms.unify(orgObl, obligation);
-					ms.unify(optObj, obligation);
-					ms.unify(optObl, obligation);
+					orgObl = (Struct) ms.unify(orgObl, obligation);
+					optObj = (Struct) ms.unify(optObj, obligation);
+					optObl = (Struct) ms.unify(optObl, obligation);
 					remove(state, orgObl);
 					remove(state, optObj);
 					remove(state, optObl);
 
-					logger.fine("[" + state.getDescription() + "] Removing obligation: " + orgObl);
+					logger.finer("[" + state.getDescription() + "] Removing obligation: " + orgObl);
 					Tracer.trace(state.getIdentifier(), getName(), "Satisfied " + orgObl.getArg(0));
 					break;
 				}

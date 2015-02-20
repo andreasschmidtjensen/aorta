@@ -57,11 +57,11 @@ public class SendAction extends Action {
 		
 		MentalState ms = state.getMentalState();
 		
-		final Term clonedMsgTerm = Term.createTerm(message.toString());		
-		ms.unify(clonedMsgTerm, state.getBindings());
+		Term clonedMsgTerm = Term.createTerm(message.toString());		
+		clonedMsgTerm = ms.unify(clonedMsgTerm, state.getBindings());
 		
 		Term recipientsTerm = Term.createTerm(recipients.toString());
-		ms.unify(recipientsTerm, state.getBindings());
+		recipientsTerm = ms.unify(recipientsTerm, state.getBindings());
 				
 		List<Term> rcpList = new ArrayList<>();
 		if (recipientsTerm.getTerm().isList()) {
@@ -99,7 +99,7 @@ public class SendAction extends Action {
 		OutgoingOrganizationalMessage msg = new OutgoingOrganizationalMessage(recipientList, message);
 		state.sendMessage(msg);
 		
-		logger.fine("[" + state.getAgent().getName() + "] Executing action: send(" + recipientList + "," + message + ")");
+		logger.finer("[" + state.getAgent().getName() + "] Executing action: send(" + recipientList + "," + message + ")");
 		Tracer.queue(state.getAgent().getName(), "send(" + recipientList + "," + message + ")");
 	}
 	

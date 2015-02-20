@@ -1,0 +1,1947 @@
+To reproduce:
+ C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\auctionhouse> java -Xmx1000m -jar C:\Dropbox\code\phd\jpf-core/build/runJPF.jar +shell.port=4242 C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\auctionhouse\modelchecker.jpf
+----------------------------------- search started
+      [skipping static init instructions]
+JavaPathfinder v7.0 (rev ${version}) - (C) RIACS/NASA Ames Research Center
+
+
+====================================================== system under test
+ail.util.AJPF_w_AIL.main("ah_noaorta_simple.ail","ah_noaorta.psl","reg_sally")
+
+====================================================== search started: 19-02-15 11:06
+		 # choice: gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:"<root>" ,1/1,isCascaded:false}
+[INFO] Number: 2
+Incoming: 0,2,
+Old: ~B(sally,registered(sally(),address(),account())),~T R ~B(sally,registered(sally(),address(),account())),
+Next: ~T R ~B(sally,registered(sally(),address(),account())),
+
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 0 to []
+[FINE] Entering new Product States with Initial State in Path
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<0, 2, 0>
+[FINE] Current DFS State: <0, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0]
+----------------------------------- [1] forward: 0 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2,3]
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 1 to [0]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <0, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<1, 2, 0>
+[FINE]      <1, 2, 0>
+[FINE] States by incoming for 0 is [<1, 2, 0>]
+[FINE] Current DFS State: <0, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>]
+[FINE] Current DFS State: <1, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1]
+----------------------------------- [2] forward: 1 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 2 to [0, 1]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <1, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<2, 2, 0>
+[FINE]      <2, 2, 0>
+[FINE] States by incoming for 1 is [<2, 2, 0>]
+[FINE] Current DFS State: <1, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>]
+[FINE] Current DFS State: <2, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2]
+----------------------------------- [3] forward: 2 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 3 to [0, 1, 2]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <2, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<3, 2, 0>
+[FINE]      <3, 2, 0>
+[FINE] States by incoming for 2 is [<3, 2, 0>]
+[FINE] Current DFS State: <2, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>]
+[FINE] Current DFS State: <3, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3]
+----------------------------------- [4] forward: 3 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+******************************* [sally] register(address,account) ************************************
+[INFO] Waking agent carol
+[INFO] Waking agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 4 to [0, 1, 2, 3]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <3, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<4, 2, 0>
+[FINE]      <4, 2, 0>
+[FINE] States by incoming for 3 is [<4, 2, 0>]
+[FINE] Current DFS State: <3, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>]
+[FINE] Current DFS State: <4, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4]
+----------------------------------- [5] forward: 4 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 5 to [0, 1, 2, 3, 4]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <4, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<5, 2, 0>
+[FINE]      <5, 2, 0>
+[FINE] States by incoming for 4 is [<5, 2, 0>]
+[FINE] Current DFS State: <4, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>]
+[FINE] Current DFS State: <5, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5]
+----------------------------------- [6] forward: 5 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 6 to [0, 1, 2, 3, 4, 5]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <5, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<6, 2, 0>
+[FINE]      <6, 2, 0>
+[FINE] States by incoming for 5 is [<6, 2, 0>]
+[FINE] Current DFS State: <5, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>]
+[FINE] Current DFS State: <6, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6]
+----------------------------------- [7] forward: 6 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 7 to [0, 1, 2, 3, 4, 5, 6]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <6, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<7, 2, 0>
+[FINE]      <7, 2, 0>
+[FINE] States by incoming for 6 is [<7, 2, 0>]
+[FINE] Current DFS State: <6, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <5, 2, 0>, <6, 2, 0>, <7, 2, 0>]
+[FINE] Current DFS State: <7, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7]
+----------------------------------- [8] forward: 7 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] Waking agent mike
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[INFO] Adding 8 to [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[INFO] Always True from Now On
+----------------------------------- [9] forward: 8 visited
+[FINE] pruning 7
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[FINE] index is 8
+----------------------------------- [8] backtrack: 7
+[FINE] Setting done 7
+[FINE] setting done: 7
+----------------------------------- [8] done: 7
+[FINE] pruning 6
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 7]
+[FINE] index is 7
+----------------------------------- [7] backtrack: 6
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6, 9]
+[INFO] Adding 9 to [0, 1, 2, 3, 4, 5, 6, 9]
+[INFO] Always True from Now On
+----------------------------------- [8] forward: 9 visited
+[FINE] pruning 6
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6, 9]
+[FINE] index is 7
+----------------------------------- [7] backtrack: 6
+[FINE] Setting done 6
+[FINE] setting done: 6
+----------------------------------- [7] done: 6
+[FINE] pruning 5
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 6]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 5
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 10]
+[INFO] Adding 10 to [0, 1, 2, 3, 4, 5, 10]
+[INFO] Always True from Now On
+----------------------------------- [7] forward: 10 visited
+[FINE] pruning 5
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5, 10]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 5
+[FINE] Setting done 5
+[FINE] setting done: 5
+----------------------------------- [6] done: 5
+[FINE] pruning 4
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 5]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 4
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 11 to [0, 1, 2, 3, 4]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <4, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<11, 2, 0>
+[FINE]      <11, 2, 0>
+[FINE] States by incoming for 4 is [<5, 2, 0>, <11, 2, 0>]
+[FINE] Current DFS State: <7, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <6, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <5, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <4, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <11, 2, 0>]
+[FINE] Current DFS State: <11, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 11]
+----------------------------------- [6] forward: 11 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 6 to [0, 1, 2, 3, 4, 11]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <11, 2, 0>: 
+[FINE]      <6, 2, 0>
+[FINE] Current DFS State: <11, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 11, 6]
+----------------------------------- [7] forward: 6 visited
+[FINE] pruning 11
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 11, 6]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 11
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 12 to [0, 1, 2, 3, 4, 11]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <11, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<12, 2, 0>
+[FINE]      <12, 2, 0>
+[FINE] States by incoming for 8 is [<6, 2, 0>, <12, 2, 0>]
+[FINE] Current DFS State: <11, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <3, 2, 0>, <4, 2, 0>, <11, 2, 0>, <12, 2, 0>]
+[FINE] Current DFS State: <12, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 11, 12]
+----------------------------------- [7] forward: 12 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 7 to [0, 1, 2, 3, 4, 11, 12]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <12, 2, 0>: 
+[FINE]      <7, 2, 0>
+[FINE] Current DFS State: <12, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 3, 4, 11, 12, 7]
+----------------------------------- [8] forward: 7 visited
+[FINE] pruning 12
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 11, 12, 7]
+[FINE] index is 7
+----------------------------------- [7] backtrack: 12
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] Waking agent mike
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 11, 12, 13]
+[INFO] Adding 13 to [0, 1, 2, 3, 4, 11, 12, 13]
+[INFO] Always True from Now On
+----------------------------------- [8] forward: 13 visited
+[FINE] pruning 12
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 11, 12, 13]
+[FINE] index is 7
+----------------------------------- [7] backtrack: 12
+[FINE] Setting done 12
+[FINE] setting done: 12
+----------------------------------- [7] done: 12
+[FINE] pruning 11
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 11, 12]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 11
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 11, 14]
+[INFO] Adding 14 to [0, 1, 2, 3, 4, 11, 14]
+[INFO] Always True from Now On
+----------------------------------- [7] forward: 14 visited
+[FINE] pruning 11
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 11, 14]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 11
+[FINE] Setting done 11
+[FINE] setting done: 11
+----------------------------------- [6] done: 11
+[FINE] pruning 4
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 11]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 4
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3, 4, 15]
+[INFO] Adding 15 to [0, 1, 2, 3, 4, 15]
+[INFO] Always True from Now On
+----------------------------------- [6] forward: 15 visited
+[FINE] pruning 4
+[FINE] pruning 1 state from [0, 1, 2, 3, 4, 15]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 4
+[FINE] Setting done 4
+[FINE] setting done: 4
+----------------------------------- [5] done: 4
+[FINE] pruning 3
+[FINE] pruning 1 state from [0, 1, 2, 3, 4]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 3
+[FINE] Setting done 3
+[FINE] setting done: 3
+----------------------------------- [4] done: 3
+[FINE] pruning 2
+[FINE] pruning 1 state from [0, 1, 2, 3]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 2
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [sally] register(address,account) ************************************
+[INFO] Waking agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 16 to [0, 1, 2]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <2, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<16, 2, 0>
+[FINE]      <16, 2, 0>
+[FINE] States by incoming for 2 is [<3, 2, 0>, <16, 2, 0>]
+[FINE] Current DFS State: <12, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <11, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <4, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <3, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <2, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <16, 2, 0>]
+[FINE] Current DFS State: <16, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 16]
+----------------------------------- [4] forward: 16 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 17 to [0, 1, 2, 16]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <16, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<17, 2, 0>
+[FINE]      <17, 2, 0>
+[FINE] States by incoming for 10 is [<17, 2, 0>]
+[FINE] Current DFS State: <16, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>, <16, 2, 0>, <17, 2, 0>]
+[FINE] Current DFS State: <17, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 16, 17]
+----------------------------------- [5] forward: 17 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 6 to [0, 1, 2, 16, 17]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <17, 2, 0>: 
+[FINE]      <6, 2, 0>
+[FINE] Current DFS State: <17, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 16, 17, 6]
+----------------------------------- [6] forward: 6 visited
+[FINE] pruning 17
+[FINE] pruning 1 state from [0, 1, 2, 16, 17, 6]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 17
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 16, 17, 18]
+[INFO] Adding 18 to [0, 1, 2, 16, 17, 18]
+[INFO] Always True from Now On
+----------------------------------- [6] forward: 18 visited
+[FINE] pruning 17
+[FINE] pruning 1 state from [0, 1, 2, 16, 17, 18]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 17
+[FINE] Setting done 17
+[FINE] setting done: 17
+----------------------------------- [5] done: 17
+[FINE] pruning 16
+[FINE] pruning 1 state from [0, 1, 2, 16, 17]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 16
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 11 to [0, 1, 2, 16]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <16, 2, 0>: 
+[FINE]      <11, 2, 0>
+[FINE] Current DFS State: <17, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <16, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2, 16, 11]
+----------------------------------- [5] forward: 11 visited
+[FINE] pruning 16
+[FINE] pruning 1 state from [0, 1, 2, 16, 11]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 16
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 16, 19]
+[INFO] Adding 19 to [0, 1, 2, 16, 19]
+[INFO] Always True from Now On
+----------------------------------- [5] forward: 19 visited
+[FINE] pruning 16
+[FINE] pruning 1 state from [0, 1, 2, 16, 19]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 16
+[FINE] Setting done 16
+[FINE] setting done: 16
+----------------------------------- [4] done: 16
+[FINE] pruning 2
+[FINE] pruning 1 state from [0, 1, 2, 16]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 2
+[FINE] Setting done 2
+[FINE] setting done: 2
+----------------------------------- [3] done: 2
+[FINE] pruning 1
+[FINE] pruning 1 state from [0, 1, 2]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 1
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 20 to [0, 1]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <1, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<20, 2, 0>
+[FINE]      <20, 2, 0>
+[FINE] States by incoming for 1 is [<2, 2, 0>, <20, 2, 0>]
+[FINE] Current DFS State: <16, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <2, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <1, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <20, 2, 0>]
+[FINE] Current DFS State: <20, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 20]
+----------------------------------- [3] forward: 20 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 3 to [0, 1, 20]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <20, 2, 0>: 
+[FINE]      <3, 2, 0>
+[FINE] Current DFS State: <20, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 20, 3]
+----------------------------------- [4] forward: 3 visited
+[FINE] pruning 20
+[FINE] pruning 1 state from [0, 1, 20, 3]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 20
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [sally] register(address,account) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 21 to [0, 1, 20]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <20, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<21, 2, 0>
+[FINE]      <21, 2, 0>
+[FINE] States by incoming for 12 is [<3, 2, 0>, <21, 2, 0>]
+[FINE] Current DFS State: <20, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <20, 2, 0>, <21, 2, 0>]
+[FINE] Current DFS State: <21, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 20, 21]
+----------------------------------- [4] forward: 21 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 5 to [0, 1, 20, 21]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <21, 2, 0>: 
+[FINE]      <5, 2, 0>
+[FINE] Current DFS State: <21, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 20, 21, 5]
+----------------------------------- [5] forward: 5 visited
+[FINE] pruning 21
+[FINE] pruning 1 state from [0, 1, 20, 21, 5]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 21
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 22 to [0, 1, 20, 21]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <21, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<22, 2, 0>
+[FINE]      <22, 2, 0>
+[FINE] States by incoming for 13 is [<5, 2, 0>, <22, 2, 0>]
+[FINE] Current DFS State: <21, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>]
+[FINE] Current DFS State: <22, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 20, 21, 22]
+----------------------------------- [5] forward: 22 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 6 to [0, 1, 20, 21, 22]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <22, 2, 0>: 
+[FINE]      <6, 2, 0>
+[FINE] Current DFS State: <22, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 20, 21, 22, 6]
+----------------------------------- [6] forward: 6 visited
+[FINE] pruning 22
+[FINE] pruning 1 state from [0, 1, 20, 21, 22, 6]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 22
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 23 to [0, 1, 20, 21, 22]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <22, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<23, 2, 0>
+[FINE]      <23, 2, 0>
+[FINE] States by incoming for 14 is [<6, 2, 0>, <23, 2, 0>]
+[FINE] Current DFS State: <22, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <20, 2, 0>, <21, 2, 0>, <22, 2, 0>, <23, 2, 0>]
+[FINE] Current DFS State: <23, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 20, 21, 22, 23]
+----------------------------------- [6] forward: 23 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 7 to [0, 1, 20, 21, 22, 23]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <23, 2, 0>: 
+[FINE]      <7, 2, 0>
+[FINE] Current DFS State: <23, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 20, 21, 22, 23, 7]
+----------------------------------- [7] forward: 7 visited
+[FINE] pruning 23
+[FINE] pruning 1 state from [0, 1, 20, 21, 22, 23, 7]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 23
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] Waking agent mike
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 20, 21, 22, 23, 24]
+[INFO] Adding 24 to [0, 1, 20, 21, 22, 23, 24]
+[INFO] Always True from Now On
+----------------------------------- [7] forward: 24 visited
+[FINE] pruning 23
+[FINE] pruning 1 state from [0, 1, 20, 21, 22, 23, 24]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 23
+[FINE] Setting done 23
+[FINE] setting done: 23
+----------------------------------- [6] done: 23
+[FINE] pruning 22
+[FINE] pruning 1 state from [0, 1, 20, 21, 22, 23]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 22
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 20, 21, 22, 25]
+[INFO] Adding 25 to [0, 1, 20, 21, 22, 25]
+[INFO] Always True from Now On
+----------------------------------- [6] forward: 25 visited
+[FINE] pruning 22
+[FINE] pruning 1 state from [0, 1, 20, 21, 22, 25]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 22
+[FINE] Setting done 22
+[FINE] setting done: 22
+----------------------------------- [5] done: 22
+[FINE] pruning 21
+[FINE] pruning 1 state from [0, 1, 20, 21, 22]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 21
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 20, 21, 26]
+[INFO] Adding 26 to [0, 1, 20, 21, 26]
+[INFO] Always True from Now On
+----------------------------------- [5] forward: 26 visited
+[FINE] pruning 21
+[FINE] pruning 1 state from [0, 1, 20, 21, 26]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 21
+[FINE] Setting done 21
+[FINE] setting done: 21
+----------------------------------- [4] done: 21
+[FINE] pruning 20
+[FINE] pruning 1 state from [0, 1, 20, 21]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 20
+[FINE] Setting done 20
+[FINE] setting done: 20
+----------------------------------- [3] done: 20
+[FINE] pruning 1
+[FINE] pruning 1 state from [0, 1, 20]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 1
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [sally] register(address,account) ************************************
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 27 to [0, 1]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <1, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<27, 2, 0>
+[FINE]      <27, 2, 0>
+[FINE] States by incoming for 1 is [<27, 2, 0>, <2, 2, 0>, <20, 2, 0>]
+[FINE] Current DFS State: <23, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <22, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <21, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <20, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <1, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <27, 2, 0>]
+[FINE] Current DFS State: <27, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 27]
+----------------------------------- [3] forward: 27 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 17 to [0, 1, 27]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <27, 2, 0>: 
+[FINE]      <17, 2, 0>
+[FINE] Current DFS State: <27, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 27, 17]
+----------------------------------- [4] forward: 17 visited
+[FINE] pruning 27
+[FINE] pruning 1 state from [0, 1, 27, 17]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 27
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 22 to [0, 1, 27]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <27, 2, 0>: 
+[FINE]      <22, 2, 0>
+[FINE] Current DFS State: <27, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 27, 22]
+----------------------------------- [4] forward: 22 visited
+[FINE] pruning 27
+[FINE] pruning 1 state from [0, 1, 27, 22]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 27
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 27, 28]
+[INFO] Adding 28 to [0, 1, 27, 28]
+[INFO] Always True from Now On
+----------------------------------- [4] forward: 28 visited
+[FINE] pruning 27
+[FINE] pruning 1 state from [0, 1, 27, 28]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 27
+[FINE] Setting done 27
+[FINE] setting done: 27
+----------------------------------- [3] done: 27
+[FINE] pruning 1
+[FINE] pruning 1 state from [0, 1, 27]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 1
+[FINE] Setting done 1
+[FINE] setting done: 1
+----------------------------------- [2] done: 1
+[FINE] pruning 0
+[FINE] pruning 1 state from [0, 1]
+[FINE] index is 1
+----------------------------------- [1] backtrack: 0
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2,3]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 29 to [0]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <0, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<29, 2, 0>
+[FINE]      <29, 2, 0>
+[FINE] States by incoming for 0 is [<29, 2, 0>, <1, 2, 0>]
+[FINE] Current DFS State: <27, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <1, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <0, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <29, 2, 0>]
+[FINE] Current DFS State: <29, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29]
+----------------------------------- [2] forward: 29 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 2 to [0, 29]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <29, 2, 0>: 
+[FINE]      <2, 2, 0>
+[FINE] Current DFS State: <29, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 2]
+----------------------------------- [3] forward: 2 visited
+[FINE] pruning 29
+[FINE] pruning 1 state from [0, 29, 2]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 29
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 30 to [0, 29]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <29, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<30, 2, 0>
+[FINE]      <30, 2, 0>
+[FINE] States by incoming for 17 is [<2, 2, 0>, <30, 2, 0>]
+[FINE] Current DFS State: <29, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <29, 2, 0>, <30, 2, 0>]
+[FINE] Current DFS State: <30, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30]
+----------------------------------- [3] forward: 30 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 3 to [0, 29, 30]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <30, 2, 0>: 
+[FINE]      <3, 2, 0>
+[FINE] Current DFS State: <30, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 3]
+----------------------------------- [4] forward: 3 visited
+[FINE] pruning 30
+[FINE] pruning 1 state from [0, 29, 30, 3]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 30
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [sally] register(address,account) ************************************
+[INFO] Waking agent carol
+[INFO] Waking agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 31 to [0, 29, 30]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <30, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<31, 2, 0>
+[FINE]      <31, 2, 0>
+[FINE] States by incoming for 18 is [<31, 2, 0>, <3, 2, 0>]
+[FINE] Current DFS State: <30, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <29, 2, 0>, <30, 2, 0>, <31, 2, 0>]
+[FINE] Current DFS State: <31, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31]
+----------------------------------- [4] forward: 31 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2,3]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 4 to [0, 29, 30, 31]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <31, 2, 0>: 
+[FINE]      <4, 2, 0>
+[FINE] Current DFS State: <31, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 4]
+----------------------------------- [5] forward: 4 visited
+[FINE] pruning 31
+[FINE] pruning 1 state from [0, 29, 30, 31, 4]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 31
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2,3]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 32 to [0, 29, 30, 31]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <31, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<32, 2, 0>
+[FINE]      <32, 2, 0>
+[FINE] States by incoming for 19 is [<4, 2, 0>, <32, 2, 0>]
+[FINE] Current DFS State: <31, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <29, 2, 0>, <30, 2, 0>, <31, 2, 0>, <32, 2, 0>]
+[FINE] Current DFS State: <32, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 32]
+----------------------------------- [5] forward: 32 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 5 to [0, 29, 30, 31, 32]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <32, 2, 0>: 
+[FINE]      <5, 2, 0>
+[FINE] Current DFS State: <32, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 32, 5]
+----------------------------------- [6] forward: 5 visited
+[FINE] pruning 32
+[FINE] pruning 1 state from [0, 29, 30, 31, 32, 5]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 32
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 33 to [0, 29, 30, 31, 32]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <32, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<33, 2, 0>
+[FINE]      <33, 2, 0>
+[FINE] States by incoming for 20 is [<33, 2, 0>, <5, 2, 0>]
+[FINE] Current DFS State: <32, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <29, 2, 0>, <30, 2, 0>, <31, 2, 0>, <32, 2, 0>, <33, 2, 0>]
+[FINE] Current DFS State: <33, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 32, 33]
+----------------------------------- [6] forward: 33 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 6 to [0, 29, 30, 31, 32, 33]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <33, 2, 0>: 
+[FINE]      <6, 2, 0>
+[FINE] Current DFS State: <33, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 32, 33, 6]
+----------------------------------- [7] forward: 6 visited
+[FINE] pruning 33
+[FINE] pruning 1 state from [0, 29, 30, 31, 32, 33, 6]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 33
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 34 to [0, 29, 30, 31, 32, 33]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <33, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<34, 2, 0>
+[FINE]      <34, 2, 0>
+[FINE] States by incoming for 21 is [<6, 2, 0>, <34, 2, 0>]
+[FINE] Current DFS State: <33, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <29, 2, 0>, <30, 2, 0>, <31, 2, 0>, <32, 2, 0>, <33, 2, 0>, <34, 2, 0>]
+[FINE] Current DFS State: <34, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 32, 33, 34]
+----------------------------------- [7] forward: 34 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 7 to [0, 29, 30, 31, 32, 33, 34]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <34, 2, 0>: 
+[FINE]      <7, 2, 0>
+[FINE] Current DFS State: <34, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 32, 33, 34, 7]
+----------------------------------- [8] forward: 7 visited
+[FINE] pruning 34
+[FINE] pruning 1 state from [0, 29, 30, 31, 32, 33, 34, 7]
+[FINE] index is 7
+----------------------------------- [7] backtrack: 34
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] Waking agent mike
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 29, 30, 31, 32, 33, 34, 35]
+[INFO] Adding 35 to [0, 29, 30, 31, 32, 33, 34, 35]
+[INFO] Always True from Now On
+----------------------------------- [8] forward: 35 visited
+[FINE] pruning 34
+[FINE] pruning 1 state from [0, 29, 30, 31, 32, 33, 34, 35]
+[FINE] index is 7
+----------------------------------- [7] backtrack: 34
+[FINE] Setting done 34
+[FINE] setting done: 34
+----------------------------------- [7] done: 34
+[FINE] pruning 33
+[FINE] pruning 1 state from [0, 29, 30, 31, 32, 33, 34]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 33
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 29, 30, 31, 32, 33, 36]
+[INFO] Adding 36 to [0, 29, 30, 31, 32, 33, 36]
+[INFO] Always True from Now On
+----------------------------------- [7] forward: 36 visited
+[FINE] pruning 33
+[FINE] pruning 1 state from [0, 29, 30, 31, 32, 33, 36]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 33
+[FINE] Setting done 33
+[FINE] setting done: 33
+----------------------------------- [6] done: 33
+[FINE] pruning 32
+[FINE] pruning 1 state from [0, 29, 30, 31, 32, 33]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 32
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 29, 30, 31, 32, 37]
+[INFO] Adding 37 to [0, 29, 30, 31, 32, 37]
+[INFO] Always True from Now On
+----------------------------------- [6] forward: 37 visited
+[FINE] pruning 32
+[FINE] pruning 1 state from [0, 29, 30, 31, 32, 37]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 32
+[FINE] Setting done 32
+[FINE] setting done: 32
+----------------------------------- [5] done: 32
+[FINE] pruning 31
+[FINE] pruning 1 state from [0, 29, 30, 31, 32]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 31
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2,3]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 38 to [0, 29, 30, 31]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <31, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<38, 2, 0>
+[FINE]      <38, 2, 0>
+[FINE] States by incoming for 19 is [<4, 2, 0>, <32, 2, 0>, <38, 2, 0>]
+[FINE] Current DFS State: <34, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <33, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <32, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <31, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <29, 2, 0>, <30, 2, 0>, <31, 2, 0>, <38, 2, 0>]
+[FINE] Current DFS State: <38, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 38]
+----------------------------------- [5] forward: 38 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2,3]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 11 to [0, 29, 30, 31, 38]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <38, 2, 0>: 
+[FINE]      <11, 2, 0>
+[FINE] Current DFS State: <38, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 38, 11]
+----------------------------------- [6] forward: 11 visited
+[FINE] pruning 38
+[FINE] pruning 1 state from [0, 29, 30, 31, 38, 11]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 38
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2,3]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 33 to [0, 29, 30, 31, 38]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <38, 2, 0>: 
+[FINE]      <33, 2, 0>
+[FINE] Current DFS State: <38, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 38, 33]
+----------------------------------- [6] forward: 33 visited
+[FINE] pruning 38
+[FINE] pruning 1 state from [0, 29, 30, 31, 38, 33]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 38
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2,3]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 39 to [0, 29, 30, 31, 38]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <38, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<39, 2, 0>
+[FINE]      <39, 2, 0>
+[FINE] States by incoming for 23 is [<33, 2, 0>, <11, 2, 0>, <39, 2, 0>]
+[FINE] Current DFS State: <38, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <29, 2, 0>, <30, 2, 0>, <31, 2, 0>, <38, 2, 0>, <39, 2, 0>]
+[FINE] Current DFS State: <39, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 38, 39]
+----------------------------------- [6] forward: 39 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 12 to [0, 29, 30, 31, 38, 39]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <39, 2, 0>: 
+[FINE]      <12, 2, 0>
+[FINE] Current DFS State: <39, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 38, 39, 12]
+----------------------------------- [7] forward: 12 visited
+[FINE] pruning 39
+[FINE] pruning 1 state from [0, 29, 30, 31, 38, 39, 12]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 39
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 34 to [0, 29, 30, 31, 38, 39]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <39, 2, 0>: 
+[FINE]      <34, 2, 0>
+[FINE] Current DFS State: <39, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 30, 31, 38, 39, 34]
+----------------------------------- [7] forward: 34 visited
+[FINE] pruning 39
+[FINE] pruning 1 state from [0, 29, 30, 31, 38, 39, 34]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 39
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] Waking agent mike
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 29, 30, 31, 38, 39, 40]
+[INFO] Adding 40 to [0, 29, 30, 31, 38, 39, 40]
+[INFO] Always True from Now On
+----------------------------------- [7] forward: 40 visited
+[FINE] pruning 39
+[FINE] pruning 1 state from [0, 29, 30, 31, 38, 39, 40]
+[FINE] index is 6
+----------------------------------- [6] backtrack: 39
+[FINE] Setting done 39
+[FINE] setting done: 39
+----------------------------------- [6] done: 39
+[FINE] pruning 38
+[FINE] pruning 1 state from [0, 29, 30, 31, 38, 39]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 38
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,2,>3]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 29, 30, 31, 38, 41]
+[INFO] Adding 41 to [0, 29, 30, 31, 38, 41]
+[INFO] Always True from Now On
+----------------------------------- [6] forward: 41 visited
+[FINE] pruning 38
+[FINE] pruning 1 state from [0, 29, 30, 31, 38, 41]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 38
+[FINE] Setting done 38
+[FINE] setting done: 38
+----------------------------------- [5] done: 38
+[FINE] pruning 31
+[FINE] pruning 1 state from [0, 29, 30, 31, 38]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 31
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,2,>3]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 29, 30, 31, 42]
+[INFO] Adding 42 to [0, 29, 30, 31, 42]
+[INFO] Always True from Now On
+----------------------------------- [5] forward: 42 visited
+[FINE] pruning 31
+[FINE] pruning 1 state from [0, 29, 30, 31, 42]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 31
+[FINE] Setting done 31
+[FINE] setting done: 31
+----------------------------------- [4] done: 31
+[FINE] pruning 30
+[FINE] pruning 1 state from [0, 29, 30, 31]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 30
+[FINE] Setting done 30
+[FINE] setting done: 30
+----------------------------------- [3] done: 30
+[FINE] pruning 29
+[FINE] pruning 1 state from [0, 29, 30]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 29
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [sally] register(address,account) ************************************
+[INFO] Waking agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 43 to [0, 29]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <29, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<43, 2, 0>
+[FINE]      <43, 2, 0>
+[FINE] States by incoming for 17 is [<2, 2, 0>, <30, 2, 0>, <43, 2, 0>]
+[FINE] Current DFS State: <39, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <38, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <31, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <30, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <29, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <29, 2, 0>, <43, 2, 0>]
+[FINE] Current DFS State: <43, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 43]
+----------------------------------- [3] forward: 43 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2,3]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 16 to [0, 29, 43]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <43, 2, 0>: 
+[FINE]      <16, 2, 0>
+[FINE] Current DFS State: <43, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 43, 16]
+----------------------------------- [4] forward: 16 visited
+[FINE] pruning 43
+[FINE] pruning 1 state from [0, 29, 43, 16]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 43
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2,3]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 44 to [0, 29, 43]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <43, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<44, 2, 0>
+[FINE]      <44, 2, 0>
+[FINE] States by incoming for 25 is [<16, 2, 0>, <44, 2, 0>]
+[FINE] Current DFS State: <43, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <29, 2, 0>, <43, 2, 0>, <44, 2, 0>]
+[FINE] Current DFS State: <44, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 43, 44]
+----------------------------------- [4] forward: 44 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 17 to [0, 29, 43, 44]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <44, 2, 0>: 
+[FINE]      <17, 2, 0>
+[FINE] Current DFS State: <44, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 43, 44, 17]
+----------------------------------- [5] forward: 17 visited
+[FINE] pruning 44
+[FINE] pruning 1 state from [0, 29, 43, 44, 17]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 44
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 33 to [0, 29, 43, 44]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <44, 2, 0>: 
+[FINE]      <33, 2, 0>
+[FINE] Current DFS State: <44, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 43, 44, 33]
+----------------------------------- [5] forward: 33 visited
+[FINE] pruning 44
+[FINE] pruning 1 state from [0, 29, 43, 44, 33]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 44
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 29, 43, 44, 45]
+[INFO] Adding 45 to [0, 29, 43, 44, 45]
+[INFO] Always True from Now On
+----------------------------------- [5] forward: 45 visited
+[FINE] pruning 44
+[FINE] pruning 1 state from [0, 29, 43, 44, 45]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 44
+[FINE] Setting done 44
+[FINE] setting done: 44
+----------------------------------- [4] done: 44
+[FINE] pruning 43
+[FINE] pruning 1 state from [0, 29, 43, 44]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 43
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2,3]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 38 to [0, 29, 43]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <43, 2, 0>: 
+[FINE]      <38, 2, 0>
+[FINE] Current DFS State: <44, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <43, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 29, 43, 38]
+----------------------------------- [4] forward: 38 visited
+[FINE] pruning 43
+[FINE] pruning 1 state from [0, 29, 43, 38]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 43
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,2,>3]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 29, 43, 46]
+[INFO] Adding 46 to [0, 29, 43, 46]
+[INFO] Always True from Now On
+----------------------------------- [4] forward: 46 visited
+[FINE] pruning 43
+[FINE] pruning 1 state from [0, 29, 43, 46]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 43
+[FINE] Setting done 43
+[FINE] setting done: 43
+----------------------------------- [3] done: 43
+[FINE] pruning 29
+[FINE] pruning 1 state from [0, 29, 43]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 29
+[FINE] Setting done 29
+[FINE] setting done: 29
+----------------------------------- [2] done: 29
+[FINE] pruning 0
+[FINE] pruning 1 state from [0, 29]
+[FINE] index is 1
+----------------------------------- [1] backtrack: 0
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2,3]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 47 to [0]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <0, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<47, 2, 0>
+[FINE]      <47, 2, 0>
+[FINE] States by incoming for 0 is [<29, 2, 0>, <1, 2, 0>, <47, 2, 0>]
+[FINE] Current DFS State: <43, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <29, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <0, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <47, 2, 0>]
+[FINE] Current DFS State: <47, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47]
+----------------------------------- [2] forward: 47 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 20 to [0, 47]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <47, 2, 0>: 
+[FINE]      <20, 2, 0>
+[FINE] Current DFS State: <47, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 20]
+----------------------------------- [3] forward: 20 visited
+[FINE] pruning 47
+[FINE] pruning 1 state from [0, 47, 20]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 47
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 30 to [0, 47]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <47, 2, 0>: 
+[FINE]      <30, 2, 0>
+[FINE] Current DFS State: <47, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 30]
+----------------------------------- [3] forward: 30 visited
+[FINE] pruning 47
+[FINE] pruning 1 state from [0, 47, 30]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 47
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [sally] register(address,account) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 48 to [0, 47]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <47, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<48, 2, 0>
+[FINE]      <48, 2, 0>
+[FINE] States by incoming for 27 is [<30, 2, 0>, <20, 2, 0>, <48, 2, 0>]
+[FINE] Current DFS State: <47, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <47, 2, 0>, <48, 2, 0>]
+[FINE] Current DFS State: <48, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 48]
+----------------------------------- [3] forward: 48 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2,3]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 21 to [0, 47, 48]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <48, 2, 0>: 
+[FINE]      <21, 2, 0>
+[FINE] Current DFS State: <48, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 48, 21]
+----------------------------------- [4] forward: 21 visited
+[FINE] pruning 48
+[FINE] pruning 1 state from [0, 47, 48, 21]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 48
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2,3]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 32 to [0, 47, 48]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <48, 2, 0>: 
+[FINE]      <32, 2, 0>
+[FINE] Current DFS State: <48, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 48, 32]
+----------------------------------- [4] forward: 32 visited
+[FINE] pruning 48
+[FINE] pruning 1 state from [0, 47, 48, 32]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 48
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2,3]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 49 to [0, 47, 48]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <48, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<49, 2, 0>
+[FINE]      <49, 2, 0>
+[FINE] States by incoming for 28 is [<32, 2, 0>, <49, 2, 0>, <21, 2, 0>]
+[FINE] Current DFS State: <48, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <47, 2, 0>, <48, 2, 0>, <49, 2, 0>]
+[FINE] Current DFS State: <49, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 48, 49]
+----------------------------------- [4] forward: 49 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2,3]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 22 to [0, 47, 48, 49]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <49, 2, 0>: 
+[FINE]      <22, 2, 0>
+[FINE] Current DFS State: <49, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 48, 49, 22]
+----------------------------------- [5] forward: 22 visited
+[FINE] pruning 49
+[FINE] pruning 1 state from [0, 47, 48, 49, 22]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 49
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2,3]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 33 to [0, 47, 48, 49]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <49, 2, 0>: 
+[FINE]      <33, 2, 0>
+[FINE] Current DFS State: <49, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 48, 49, 33]
+----------------------------------- [5] forward: 33 visited
+[FINE] pruning 49
+[FINE] pruning 1 state from [0, 47, 48, 49, 33]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 49
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2,3]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 50 to [0, 47, 48, 49]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <49, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<50, 2, 0>
+[FINE]      <50, 2, 0>
+[FINE] States by incoming for 29 is [<33, 2, 0>, <22, 2, 0>, <50, 2, 0>]
+[FINE] Current DFS State: <49, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <47, 2, 0>, <48, 2, 0>, <49, 2, 0>, <50, 2, 0>]
+[FINE] Current DFS State: <50, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 48, 49, 50]
+----------------------------------- [5] forward: 50 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 23 to [0, 47, 48, 49, 50]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <50, 2, 0>: 
+[FINE]      <23, 2, 0>
+[FINE] Current DFS State: <50, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 48, 49, 50, 23]
+----------------------------------- [6] forward: 23 visited
+[FINE] pruning 50
+[FINE] pruning 1 state from [0, 47, 48, 49, 50, 23]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 50
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 34 to [0, 47, 48, 49, 50]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <50, 2, 0>: 
+[FINE]      <34, 2, 0>
+[FINE] Current DFS State: <50, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 47, 48, 49, 50, 34]
+----------------------------------- [6] forward: 34 visited
+[FINE] pruning 50
+[FINE] pruning 1 state from [0, 47, 48, 49, 50, 34]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 50
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] Waking agent mike
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 47, 48, 49, 50, 51]
+[INFO] Adding 51 to [0, 47, 48, 49, 50, 51]
+[INFO] Always True from Now On
+----------------------------------- [6] forward: 51 visited
+[FINE] pruning 50
+[FINE] pruning 1 state from [0, 47, 48, 49, 50, 51]
+[FINE] index is 5
+----------------------------------- [5] backtrack: 50
+[FINE] Setting done 50
+[FINE] setting done: 50
+----------------------------------- [5] done: 50
+[FINE] pruning 49
+[FINE] pruning 1 state from [0, 47, 48, 49, 50]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 49
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,2,>3]
+******************************* [sally] send(achieve:verified(sally), mike) ************************************
+[INFO] sally done send(achieve:verified(sally), mike)
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 47, 48, 49, 52]
+[INFO] Adding 52 to [0, 47, 48, 49, 52]
+[INFO] Always True from Now On
+----------------------------------- [5] forward: 52 visited
+[FINE] pruning 49
+[FINE] pruning 1 state from [0, 47, 48, 49, 52]
+[FINE] index is 4
+----------------------------------- [4] backtrack: 49
+[FINE] Setting done 49
+[FINE] setting done: 49
+----------------------------------- [4] done: 49
+[FINE] pruning 48
+[FINE] pruning 1 state from [0, 47, 48, 49]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 48
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,2,>3]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 47, 48, 53]
+[INFO] Adding 53 to [0, 47, 48, 53]
+[INFO] Always True from Now On
+----------------------------------- [4] forward: 53 visited
+[FINE] pruning 48
+[FINE] pruning 1 state from [0, 47, 48, 53]
+[FINE] index is 3
+----------------------------------- [3] backtrack: 48
+[FINE] Setting done 48
+[FINE] setting done: 48
+----------------------------------- [3] done: 48
+[FINE] pruning 47
+[FINE] pruning 1 state from [0, 47, 48]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 47
+[FINE] Setting done 47
+[FINE] setting done: 47
+----------------------------------- [2] done: 47
+[FINE] pruning 0
+[FINE] pruning 1 state from [0, 47]
+[FINE] index is 1
+----------------------------------- [1] backtrack: 0
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,2,>3]
+******************************* [sally] register(address,account) ************************************
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 54 to [0]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <0, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<54, 2, 0>
+[FINE]      <54, 2, 0>
+[FINE] States by incoming for 0 is [<29, 2, 0>, <1, 2, 0>, <47, 2, 0>, <54, 2, 0>]
+[FINE] Current DFS State: <50, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <49, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <48, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <47, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <0, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <54, 2, 0>]
+[FINE] Current DFS State: <54, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 54]
+----------------------------------- [2] forward: 54 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2,3]
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 27 to [0, 54]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <54, 2, 0>: 
+[FINE]      <27, 2, 0>
+[FINE] Current DFS State: <54, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 54, 27]
+----------------------------------- [3] forward: 27 visited
+[FINE] pruning 54
+[FINE] pruning 1 state from [0, 54, 27]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 54
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2,3]
+[INFO] Sleeping agent carol
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 44 to [0, 54]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <54, 2, 0>: 
+[FINE]      <44, 2, 0>
+[FINE] Current DFS State: <54, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 54, 44]
+----------------------------------- [3] forward: 44 visited
+[FINE] pruning 54
+[FINE] pruning 1 state from [0, 54, 44]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 54
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2,3]
+******************************* [mike] send(tell:manager(mike), sally) ************************************
+[INFO] mike done send(tell:manager(mike), sally)
+		 # garbage collection
+[FINE] Entering addModelState
+[INFO] Adding 49 to [0, 54]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <54, 2, 0>: 
+[FINE]      <49, 2, 0>
+[FINE] Current DFS State: <54, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 54, 49]
+----------------------------------- [3] forward: 49 visited
+[FINE] pruning 54
+[FINE] pruning 1 state from [0, 54, 49]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 54
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,2,>3]
+[INFO] Sleeping agent sally
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Current Path: [0, 54, 55]
+[INFO] Adding 55 to [0, 54, 55]
+[INFO] Always True from Now On
+----------------------------------- [3] forward: 55 visited
+[FINE] pruning 54
+[FINE] pruning 1 state from [0, 54, 55]
+[FINE] index is 2
+----------------------------------- [2] backtrack: 54
+[FINE] Setting done 54
+[FINE] setting done: 54
+----------------------------------- [2] done: 54
+[FINE] pruning 0
+[FINE] pruning 1 state from [0, 54]
+[FINE] index is 1
+----------------------------------- [1] backtrack: 0
+----------------------------------- [1] done: 0
+[FINE] pruning -1
+[FINE] pruning 1 state from [0]
+[FINE] index is 0
+----------------------------------- [0] backtrack: -1
+[FINE] Setting done 0
+[FINE] setting done: 0
+[FINE] Current DFS State: <54, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] Current DFS State: <0, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+----------------------------------- [0] done: -1
+----------------------------------- search finished
+
+====================================================== results
+no errors detected
+
+====================================================== statistics
+elapsed time:       00:00:13
+states:             new=32, visited=59, backtracked=91, end=0
+search:             maxDepth=8, constraints hit=0
+choice generators:  thread=1 (signal=0, lock=1, shared ref=0), data=32
+heap:               new=445334, released=432050, max live=5620, gc-cycles=91
+instructions:       52646928
+max memory:         348MB
+loaded code:        classes=324, methods=4898
+
+====================================================== search finished: 19-02-15 11:07

@@ -49,6 +49,8 @@ public class Modelchecker {
 	private String modelFile;
 	private Map<String, String> properties;
 	private boolean save;
+	
+	private final String memory = "-Xmx1000m";
 
 	public Modelchecker(String ailFile) {
 		this.ailFile = ailFile;
@@ -83,7 +85,7 @@ public class Modelchecker {
 		System.out.println("Properties: ");
 		String str;
 		while ((str = in.readLine()) != null) {
-			if (!str.startsWith("#")) {
+			if (!str.startsWith("#") && !str.trim().isEmpty()) {
 				String[] pair = str.split(":");
 				properties.put(pair[0].trim(), pair[1].trim());
 				System.out.println(" > " + str);
@@ -132,11 +134,12 @@ public class Modelchecker {
 
 	private void checkInExistingModel(String propertyKey, MCAPLmodel model) {
 		String property = properties.get(propertyKey);
-	
+
+		System.out.print("Verifying " + property + ": ");
+		
 		ExistingModelChecker mc = new ExistingModelChecker(model, property);
 		mc.start();
 
-		System.out.print("Verifying " + property + ": ");
 		if (mc.getAcceptingPath().isEmpty()) {
 			System.out.println("no errors detected!");
 		} else {
@@ -158,8 +161,8 @@ public class Modelchecker {
 		System.out.println("Saving model to " + modelFile);
 
 		String jarLocation = JPFSiteUtils.getSiteCoreDir().getAbsolutePath() + "/build/runJPF.jar";
-		System.out.println("Executing java -Xmx1000m -jar " + jarLocation + " +shell.port=4242 " + jpfFile + " in " + System.getProperty("user.dir"));
-		Process process = new ProcessBuilder("java", "-Xmx1000m", "-jar", jarLocation, "+shell.port=4242", jpfFile).start();
+		System.out.println("Executing java " + memory + " -jar " + jarLocation + " +shell.port=4242 " + jpfFile + " in " + System.getProperty("user.dir"));
+		Process process = new ProcessBuilder("java", memory, "-jar", jarLocation, "+shell.port=4242", jpfFile).start();
 
 		InputStream is = process.getInputStream();
 		InputStreamReader isr = new InputStreamReader(is);
@@ -168,7 +171,6 @@ public class Modelchecker {
 
 		boolean print = true;
 		while ((line = br.readLine()) != null) {
-			print = !line.trim().startsWith("# exception: ");
 			if (print) {
 				System.out.println(line);
 			}
@@ -184,10 +186,10 @@ public class Modelchecker {
 			System.out.println("Verifying property: " + prop);
 
 			String jarLocation = JPFSiteUtils.getSiteCoreDir().getAbsolutePath() + "/build/runJPF.jar";
-			System.out.println("Executing java -Xmx1000m -jar " + jarLocation + " +shell.port=4242 " + jpfFile + " in " + System.getProperty("user.dir"));
+			System.out.println("Executing java " + memory + " -jar " + jarLocation + " +shell.port=4242 " + jpfFile + " in " + System.getProperty("user.dir"));
 			writer.write("To reproduce:\n ");
-			writer.write(System.getProperty("user.dir") + "> java -Xmx1000m -jar " + jarLocation + " +shell.port=4242 " + jpfFile + "\n");
-			Process process = new ProcessBuilder("java", "-Xmx1000m", "-jar", jarLocation, "+shell.port=4242", jpfFile).start();
+			writer.write(System.getProperty("user.dir") + "> java " + memory + " -jar " + jarLocation + " +shell.port=4242 " + jpfFile + "\n");
+			Process process = new ProcessBuilder("java", memory, "-jar", jarLocation, "+shell.port=4242", jpfFile).start();
 
 			InputStream is = process.getInputStream();
 			InputStreamReader isr = new InputStreamReader(is);
@@ -212,9 +214,10 @@ public class Modelchecker {
 		contents.append("@using = aortamc\n");
 		contents.append("target = ail.util.AJPF_w_AIL\n");
 		contents.append("target.args = ").append(ailFile).append(",").append(pslFile).append(",").append(propertyKey).append("\n");
-		contents.append("log.info = ail.mas.DefaultEnvironment,ajpf.product.Product,ajpf.MCAPLAgent,aorta.ail.AortaAILAgent,aorta.ts.impl.Ext,aorta.reasoning.coordination.CoordinationRule\n");
-		contents.append("log.finest = ajpf.psl.buchi.BuchiAutomaton,ajpf.product.MCAPLmodel\n");
-		contents.append("listener+=,.listener.ExecTracker\n");
+		contents.append("log.info=ajpf.MCAPLAgent\n");
+		contents.append("log.fine=ail.mas.DefaultEnvironment,ajpf.product.Product,aorta.ail.AortaAILAgent\n");
+		contents.append("log.finest=ajpf.psl.buchi.BuchiAutomaton,ajpf.product.MCAPLmodel\n");
+		contents.append("listener+=,listener.ExecTracker\n");
 		contents.append("et.print_insn=false\n");
 		if (save) {
 			contents.append("ajpf.model_only=true\n");

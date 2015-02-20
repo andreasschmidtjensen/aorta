@@ -31,6 +31,8 @@ import ajpf.util.VerifyList;
 import ajpf.PerceptListener;
 import ajpf.MCAPLScheduler;
 import ajpf.MCAPLJobber;
+import java.util.Collection;
+import java.util.Set;
 
 
 /**

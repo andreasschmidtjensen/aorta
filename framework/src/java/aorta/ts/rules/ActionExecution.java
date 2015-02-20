@@ -90,13 +90,13 @@ public class ActionExecution extends TransitionRule<AgentState> {
 					
 					Term qualified = FormulaQualifier.qualifyGoal(ms, conjunctContext);
 					
-					ms.unify(qualified, optionSolution);
+					qualified = ms.unify(qualified, optionSolution);
 					SolveInfo contextSolution = ms.solve(qualified);
 					
 					if (contextSolution.isSuccess()) {
 						List<Var> bindings = AgentState.mergeBindings(optionSolution, contextSolution);
-						ms.unify(option, bindings);
-						ms.unify(qualified, bindings);
+						option = ms.unify(option, bindings);
+						qualified = ms.unify(qualified, bindings);
 						
 						List<Var> prevBindings = newState.getBindings();
 						
@@ -113,7 +113,7 @@ public class ActionExecution extends TransitionRule<AgentState> {
 						} else {
 							newState.setBindings(prevBindings);
 
-							logger.log(Level.FINE, "Transition was not possible (" + Tracer.getQueue(state.getAgent().getName()) + ")");
+							logger.log(Level.FINER, "Transition was not possible (" + Tracer.getQueue(state.getAgent().getName()) + ")");
 							Tracer.clearQueue(state.getAgent().getName());
 						}
 					}
@@ -122,7 +122,7 @@ public class ActionExecution extends TransitionRule<AgentState> {
 			}
 		} catch (AORTAException ex) {
 			Tracer.clearQueue(state.getAgent().getName());
-			logger.log(Level.FINE, "Transition was not possible (" + ex.getMessage() + ")");
+			logger.log(Level.FINER, "Transition was not possible (" + ex.getMessage() + ")");
 		}
 
 		return null;

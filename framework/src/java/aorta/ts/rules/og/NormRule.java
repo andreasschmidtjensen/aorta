@@ -40,14 +40,14 @@ public class NormRule extends TransitionRule<AgentState> {
 				Struct opt = language.norm(new Var("R"), new Var("Deon"), new Var("O"), new Var("D"));
 				Struct optObl = FormulaQualifier.qualifyStruct(opt, KBType.OPTION);
 				
-				ms.unify(optObl, conditional);
+				optObl = (Struct) ms.unify(optObl, conditional);
 				
 				Struct result = optObl;
 				
 				if (!ms.exists(result)) {
 					add(newState, result);
 
-					logger.fine("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + result);
+					logger.finer("[" + state.getAgent().getName() + "/" + state.getAgent().getCycle() + "] Adding option: " + result);
 					Tracer.trace(state.getAgent().getName(), getName(), result.toString());
 
 					break;

@@ -41,11 +41,12 @@ public class ProhibitionViolated extends TransitionRule {
 				
 				Var forbiddenState = new Var("O");
 				Var deadline = new Var("D");
-				ms.unify(forbiddenState, obligation);
-				ms.unify(deadline, obligation);
+				
+				forbiddenState = (Var) ms.unify(forbiddenState, obligation);
+				deadline = (Var) ms.unify(deadline, obligation);
 				
 				Struct orgViol = FormulaQualifier.qualifyStruct(language.violation(new Var("A"), new Var("R"), new Struct(Norm.PROHIBITION), new Var("O")), KBType.ORGANIZATION);
-				ms.unify(orgViol, obligation);
+				orgViol = (Struct) ms.unify(orgViol, obligation);
 
 				if (ms.exists(forbiddenState.getTerm())  //prohibited state reached
 						&& !ms.exists(deadline.getTerm())  //deadline not reached
@@ -53,7 +54,7 @@ public class ProhibitionViolated extends TransitionRule {
 
 					add(state, orgViol);
 
-					logger.fine("[" + state.getDescription() + "] Violated prohibition: " + orgViol);
+					logger.finer("[" + state.getDescription() + "] Violated prohibition: " + orgViol);
 					Tracer.trace(state.getIdentifier(), getName(), orgViol.getArg(0).toString());
 
 					break;

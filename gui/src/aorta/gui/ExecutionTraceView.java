@@ -37,57 +37,57 @@ import javax.swing.tree.TreeSelectionModel;
  * @author asj
  */
 public class ExecutionTraceView extends JFrame {
-	
+
 	private static final ExecutionTraceView viewer = new ExecutionTraceView();
-	
+
 	private final JTree tree;
 	final JTextArea mentalStateView = new JTextArea();
-	
+
 	private final Map<String, ExecutionModel> traces = new HashMap<>();
-	
+
 	public static ExecutionTraceView get() {
 		return viewer;
 	}
-	
+
 	private ExecutionTraceView() {
 		super("Execution Tracer");
 		
-		setSize(800,500);
-		
+		setSize(800, 500);
+
 		JPanel panel = new JPanel();
 		add(panel);
 		panel.setLayout(new BorderLayout());
-		
+
 		tree = new JTree();
 		JScrollPane treeView = new JScrollPane(tree);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		tree.addTreeSelectionListener(new TreeSelectionListener() {
 			@Override
 			public void valueChanged(TreeSelectionEvent e) {
-				 DefaultMutableTreeNode node = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+				DefaultMutableTreeNode node = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
 
 				if (node == null) {
 					return;
 				}
-				
+
 				if (node instanceof StateNode) {
-					mentalStateView.setText(((StateNode)node).getMentalState());
+					mentalStateView.setText(((StateNode) node).getMentalState());
 				}
 
 			}
 		});
-		
+
 		JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true);
 		split.setLeftComponent(new JScrollPane(treeView));
 		split.setRightComponent(new JScrollPane(mentalStateView));
 		split.setResizeWeight(0.5);
 		panel.add(split, BorderLayout.CENTER);
-		
+
 		JButton export = new JButton("Tikz");
 		export.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ExecutionModel model = ((ExecutionModel)tree.getModel());
+				ExecutionModel model = ((ExecutionModel) tree.getModel());
 				try (FileWriter wr = new FileWriter(model.trace.getAgent() + ".tex")) {
 					wr.write(model.trace.toTikz());
 					System.out.println("Written to " + model.trace.getAgent() + ".tex");
@@ -96,41 +96,41 @@ public class ExecutionTraceView extends JFrame {
 				}
 			}
 		});
-		
+
 		JPanel buttons = new JPanel();
 		buttons.setLayout(new BoxLayout(buttons, BoxLayout.X_AXIS));
 		buttons.add(export);
-		
+
 		panel.add(buttons, BorderLayout.SOUTH);
 	}
-	
+
 	public void addExecutionTrace(AortaAgent agent) {
 		ExecutionModel model = new ExecutionModel(agent.getName());
 		agent.getState().addStateListener(model);
 		traces.put(agent.getName(), model);
 	}
-	
+
 	public void setAgent(String agent) {
 		if (!isVisible()) {
 			setVisible(true);
 		}
 		tree.setModel(traces.get(agent));
 	}
-	
+
 	private class ExecutionModel extends DefaultTreeModel implements StateListener {
 
 		private final DefaultMutableTreeNode top;
-		
+
 		private DefaultMutableTreeNode currentStateNode;
 		private Map<String, DefaultMutableTreeNode> currentRuleNodes;
-		
+
 		private int stateNum = 0;
-		
-		private ExecutionTrace trace;	
-		
+
+		private ExecutionTrace trace;
+
 		public ExecutionModel(String agentName) {
 			super(new DefaultMutableTreeNode(agentName));
-			
+
 			top = (DefaultMutableTreeNode) getRoot();
 			trace = new ExecutionTrace(agentName);
 		}
@@ -140,7 +140,7 @@ public class ExecutionTraceView extends JFrame {
 			DefaultMutableTreeNode ruleNode = getCurrentRuleNode(name);
 			DefaultMutableTreeNode termNode = new DefaultMutableTreeNode("+" + term);
 			insertNodeInto(termNode, ruleNode, ruleNode.getChildCount());
-			
+
 			trace.termAdded(name, term);
 		}
 
@@ -149,7 +149,7 @@ public class ExecutionTraceView extends JFrame {
 			DefaultMutableTreeNode ruleNode = getCurrentRuleNode(name);
 			DefaultMutableTreeNode termNode = new DefaultMutableTreeNode("-" + term);
 			insertNodeInto(termNode, ruleNode, ruleNode.getChildCount());
-			
+
 			trace.termRemoved(name, term);
 		}
 
@@ -161,14 +161,14 @@ public class ExecutionTraceView extends JFrame {
 				trace.revokeLastState();
 				removeNodeFromParent(currentStateNode);
 			}
-			
+
 			currentStateNode = new StateNode("s_" + stateNum++, state.getMentalState());
 			currentRuleNodes = new HashMap<>();
-			
+
 			trace.newState(state);
 			insertNodeInto(currentStateNode, top, top.getChildCount());
 		}
-		
+
 		private DefaultMutableTreeNode getCurrentRuleNode(String name) {
 			if (!currentRuleNodes.containsKey(name)) {
 				DefaultMutableTreeNode ruleNode = new DefaultMutableTreeNode(name);
@@ -177,23 +177,23 @@ public class ExecutionTraceView extends JFrame {
 			}
 			return currentRuleNodes.get(name);
 		}
-	
+
 	}
-	
+
 	private class StateNode extends DefaultMutableTreeNode {
 
 		private String mentalState;
-		
+
 		public StateNode(String name, MentalState ms) {
 			super(name);
-			
+
 			mentalState = ms.toString();
 		}
 
 		public String getMentalState() {
 			return mentalState;
-		}		
-		
+		}
+
 	}
-	
+
 }

@@ -1,0 +1,9 @@
+mas.file = agents.gwen
+mas.builder = gwendolen.GwendolenMASBuilder
+
+aorta.organization = ah.mm
+aorta.nogui
+aorta.bob = ah.aorta
+aorta.carol = ah.aorta
+aorta.sally = ah.aorta
+aorta.mike = ah.aorta

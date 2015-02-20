@@ -9,7 +9,6 @@ import ail.syntax.Event;
 import ail.syntax.Goal;
 import ail.syntax.Intention;
 import ail.syntax.Literal;
-import ail.syntax.Message;
 import ail.syntax.SendAction;
 import ail.syntax.annotation.SourceAnnotation;
 import ail.util.AILexception;

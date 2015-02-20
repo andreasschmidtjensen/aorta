@@ -1,0 +1,54 @@
+if bel(me(Me)) {
+	% ROLE ENACTMENT
+	%% AR1
+	role(customer) : true => enact(customer).
+	%% AR2
+	role(buyer) : goal(bought(Item)), bel(registered(Me)) => enact(buyer).
+	%% AR3
+	role(seller) : goal(sold(Item)), bel(registered(Me)) => enact(seller).
+	%% AR4
+	role(manager) : true => enact(manager).
+	
+	% COORDINATION
+	%% AR5
+	send(_, tell, org(rea(Me, Role)))
+		: bel(agent(A), A \= Me), ~bel(sent(A, org(rea(Me,Role))))
+		=> send(A, org(rea(Me, Role))).
+	%% AR6
+	send(manager, achieve, bel(verified(Me)))
+		: org(rea(A, manager)), ~bel(sent(A, opt(obj(bel(verified(Me))))))
+		=> send(A, opt(obj(bel(verified(Me))))).
+	%% AR7
+	send(customer, tell, bel(verified(You)))
+		: org(rea(You, customer)), ~bel(sent(You, bel(verified(You))))
+		=> send(You, bel(verified(You))).
+		
+	% COMMITMENT
+	%% AR8
+	obj(bel(verified(Agent)))
+		: org(rea(Me,manager)),
+			~org(norm(Me, manager, forbidden, bel(verified(Agent)), false))
+		=> commit(verified(Agent)).
+	%% AR9a
+	obj(bel(registered(Me)))
+		: goal(bought(Item))
+		=> commit(registered(Me)).
+	%% AR9b
+	obj(bel(registered(Me)))
+		: goal(sold(Item))
+		=> commit(registered(Me)).	
+	%% AR10 
+	viol(Me, customer, obliged, bel(paidFor(Item)))
+		: bel(want(Item))
+		=> commit(paidFor(Item)).
+	%% AR11
+	viol(Ag, buyer, obliged, bel(verified(Ag))) 
+		: org(rea(Me, manager)), bel(participates(Ag,_)) 
+		=> commit(banned(Ag)).
+	%% AR12
+	true 
+		: goal(bought(Item)), bel(auction(_,Item)),
+			bel(registered(Me)), bel(badInfo(Me)),
+			bel(participates(Me,Item))
+		=> commit(bid(Me, Item)).
+}

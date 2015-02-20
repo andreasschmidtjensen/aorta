@@ -1,0 +1,50 @@
+GWENDOLEN
+:name: carol
+
+:Initial Beliefs:
+want(lamp)
+
+:Belief Rules:
+B registered(Me) :- B registered(Me,Add,Acc);
+
+:Initial Goals:
+
+:Plans:
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), +!registered(Me) [achieve];
+
++!bought(Item) [achieve] : { B auction(Id,Item,C,SP,ET), B me(Me) } <- *verified(Me), +bought(Item), -!bought(Item) [achieve];
+
++auction(Id,Item,Ag,SP,ET) : { B want(Item) } <- +!bought(Item) [achieve];
++registered(Me,Add,Acc) : { B me(Me), B auction(Id,Item,Ag,SP,ET), G bought(Item) [achieve] } <- enter_auction(Id);
+
+:name: sally
+
+:Initial Beliefs:
+have(lamp)
+
+:Belief Rules:
+B registered(Me) :- B registered(Me,Add,Acc);
+B auction(Agent,Item) :- B auction(Id, Item, Agent, StartPrice, EndTime);
+
+:Initial Goals:
+sold(lamp) [achieve]
+
+:Plans: 
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), +!registered(Me) [achieve];
+
++!sold(Item) [achieve] : { B me(Me) } <- *verified(Me), +!auction(Me,Item) [achieve];
+
++!auction(Me,Item) [achieve] : { ~B auction(Me,Item) } <- start_auction(Item, 10, 0), +sold(Item);
+
+
+:name: mike
+
+:Initial Beliefs:
+
+:Initial Goals:
+
+:Plans: 
+
++!verified(Agent) [achieve] : { B registered(Agent,Add,Acc) } <- verify(Agent);

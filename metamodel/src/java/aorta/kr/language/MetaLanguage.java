@@ -9,6 +9,7 @@ import alice.tuprolog.Struct;
 import alice.tuprolog.Term;
 import alice.tuprolog.Var;
 import aorta.kr.util.TermQualifier;
+import gov.nasa.jpf.annotation.FilterField;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Iterator;
@@ -19,6 +20,7 @@ import java.util.Iterator;
  */
 public class MetaLanguage {
 
+	@FilterField 
 	private static final Term[] qualifiers = new Term[]{
 		Term.createTerm("goal(_)"), Term.createTerm("org(_)"), Term.createTerm("opt(_)"), Term.createTerm("bel(_)")
 	};

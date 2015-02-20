@@ -29,11 +29,13 @@ public class AgentState extends State {
 
 	private static final Logger logger = Logger.getLogger(AgentState.class.getName());
 	
+	@FilterField
 	private AortaAgent agent;
 	
 	@FilterField
 	private List<ReasoningRule> rules;
 	
+	@FilterField
 	private Queue<OutgoingOrganizationalMessage> out;
 	
 	@FilterField
@@ -41,10 +43,7 @@ public class AgentState extends State {
 	
 	@FilterField
 	private AortaBridge bridge;
-	
-	@FilterField
-	private List<Var> bindings;
-	
+		
 	public AgentState(AortaAgent agent, MentalState mentalState, Metamodel metamodel, List<ReasoningRule> rules) {
 		super(mentalState, metamodel);
 		this.agent = agent;
@@ -53,8 +52,6 @@ public class AgentState extends State {
 		out = new LinkedList<>();
 
 		externalAgent = new ExternalAgent();
-
-		bindings = new ArrayList<>();
 	}
 
 	public void setBridge(AortaBridge bridge) {
@@ -111,7 +108,7 @@ public class AgentState extends State {
 
 		if (insert) {
 			getMentalState().insert(contents);
-			logger.fine("insertMessage(" + msg + ")");
+			logger.finer("insertMessage(" + msg + ")");
 			setChanged(true);
 		}
 	}
@@ -137,7 +134,7 @@ public class AgentState extends State {
 
 	public void sendMessage(OutgoingOrganizationalMessage msg) {
 		out.add(msg);	
-		logger.fine("sendMessage(" + msg + ")");
+		logger.finer("sendMessage(" + msg + ")");
 		setChanged(true);
 	}
 	

@@ -1,6 +1,9 @@
 package aorta;
 
+import alice.tuprolog.NoSolutionException;
+import alice.tuprolog.SolveInfo;
 import alice.tuprolog.Struct;
+import alice.tuprolog.Var;
 import aorta.kr.KBType;
 import java.util.List;
 
@@ -16,7 +19,8 @@ import aorta.logging.Logger;
 import aorta.organization.AortaArtifactAgent;
 import aorta.reasoning.MessageFunction;
 import aorta.reasoning.ReasoningRule;
-import aorta.tracer.ExecutionTrace;
+import aorta.tracer.ConsoleTrace;
+import aorta.tracer.StateListener;
 import aorta.tracer.Tracer;
 import aorta.ts.strategy.AgentStrategy;
 import cartago.ArtifactId;
@@ -28,7 +32,6 @@ import java.util.ArrayList;
 
 public class AortaAgent {
 
-	@FilterField
 	private int cycle;
 	
 	public static final Logger logger = Logger.getLogger(AortaAgent.class.getName());
@@ -51,7 +54,7 @@ public class AortaAgent {
     private String lastTrace;
     
 	@FilterField
-	private final ExecutionTrace trace;
+	private final StateListener trace;
 	
 	private boolean lastCycleChangedState = true;
 
@@ -61,8 +64,8 @@ public class AortaAgent {
 
 		state = new AgentState(this, mentalState, metamodel, rules);
 
-		trace = new ExecutionTrace(name);
-		state.addStateListener(trace);
+		trace = new ConsoleTrace(name);
+//		state.addStateListener(trace);
 				
 		setup();
 	}
@@ -133,8 +136,18 @@ public class AortaAgent {
 	public void newCycle() throws StrategyFailedException {
 		cycle++;
         
+		String goals = "";
+		List<SolveInfo> infos = state.getMentalState().findAll(new Struct("goal", new Var("G")));
+		for (SolveInfo info : infos) {
+			if (info.isSuccess()) {
+				try {
+					goals += info.getVarValue("G") + ";";
+				} catch (NoSolutionException ex) {}
+			}
+		}
+		
 		long start = System.currentTimeMillis();
-		logger.log(Level.FINEST, "(" + getName() + ") New AORTA cycle [" + cycle + "]. Strategy: " + strategy.getClass().getName());
+		logger.log(Level.FINE, "(" + getName() + ") New AORTA cycle [" + cycle + "]. Goals: " + goals);
 		
 		if (cycle == 1) {
 			state.notifyNewState();
@@ -146,7 +159,7 @@ public class AortaAgent {
 		lastCycleChangedState = state.hasChanged();
 		
 		if (!state.getOut().isEmpty()) {
-			logger.log(Level.FINEST, "(" + getName() + ") Sending " + state.getOut().size() + " messages.");
+			logger.log(Level.FINE, "(" + getName() + ") Sending " + state.getOut().size() + " messages.");
 			Iterator<OutgoingOrganizationalMessage> it = state.getOut().iterator();
 			while (it.hasNext()) {
 				OutgoingOrganizationalMessage msg = it.next();
@@ -160,11 +173,7 @@ public class AortaAgent {
         lastTrace = Tracer.printTrace(name);
 		
 		state.notifyNewState();
-		logger.log(Level.FINEST, "(" + getName() + ") Cycle done [" + cycle + "] (time: " + (System.currentTimeMillis() - start) + " ms)");
-	}
-
-	public ExecutionTrace getExecutionTrace() {
-		return trace;
+		logger.log(Level.FINE, "(" + getName() + ") Cycle done [" + cycle + "] (time: " + (System.currentTimeMillis() - start) + " ms)");
 	}
 
     public String getLastTrace() {

@@ -1,0 +1,12 @@
+To reproduce:
+ C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\auctionhouse\aorta\simple> java -Xmx1000m -jar C:\Dropbox\code\phd\jpf-core/build/runJPF.jar +shell.port=4242 C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\auctionhouse\aorta\simple\modelchecker.jpf
+----------------------------------- search started
+      [skipping static init instructions]
+JavaPathfinder v7.0 (rev ${version}) - (C) RIACS/NASA Ames Research Center
+
+
+====================================================== system under test
+ail.util.AJPF_w_AIL.main("simple_ah.ail","simple_ah.psl","reg_carol")
+
+====================================================== search started: 20-02-15 09:41
+		 # choice: gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:"<root>" ,1/1,isCascaded:false}
