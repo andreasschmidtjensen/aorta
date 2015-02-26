@@ -1,0 +1,31 @@
+GWENDOLEN
+:name: alice
+
+:Initial Beliefs:
+
+:Belief Rules:
+
+:Initial Goals:
+
+:Plans:
+
++!wtitle [achieve] : {True} <- +wtitle;
++!wabs [achieve] : {True} <- +wabs;
++!wsectitle [achieve] : {True} <- +wsectitle;
++!fdv [achieve] : {True} <- +fdv;
++!wcon [achieve] : {True} <- +wcon;
++!sv [achieve] : {True} <- +sv;
+
+
+:name: bob
+
+:Initial Beliefs:
+
+:Belief Rules:
+
+:Initial Goals:
+
+:Plans:
+
++!wsec [achieve] : {True} <- +wsec;
++!wref [achieve] : {True} <- +wref;

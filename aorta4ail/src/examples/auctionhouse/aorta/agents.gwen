@@ -1,0 +1,86 @@
+GWENDOLEN
+:name: bob
+
+:Initial Beliefs:
+badInfo(bob)
+want(lamp)
+
+:Initial Goals:
+
+:Plans:
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), +!registered(Me) [achieve];
+
++!bought(Item) [achieve] : { B auction(Id,Item,C,SP,ET), B me(Me) } <- *verified(Me), +!bid_done(Me, Item) [achieve], -!bought(Item) [achieve];
+
++!bid_done(Me,Item) [achieve] : { B won(Ag,Item) } <- -!bid_done(Me,Item) [achieve];
++!bid_done(Me,Item) [achieve] : { B auction(Id,Item,Ag,SP,ET), B bid_high(Id,Me,Bid) } <- *bid_high(Id,carol,BobBid), +!bid_done(Me,Item) [achieve];
++!bid_done(Me,Item) [achieve] : { B auction(Id,Item,Ag,SP,ET) } <- bid(Id), +!bid_done(Me,Item) [achieve];
+
+-participates(Me,Item) : { B me(Me) } <- -!bought(Item) [achieve], -!bid_done(Me,Item) [achieve];
+	
++won(Id) : { B auction(Id,Item,A,SP,ET) } <- -!bid_done(Me,Item) [achieve], +bought(Item), leave_auction(Id);
+	
++!paidFor(Item) [achieve] : { B auction(Id,Item,A,SP,ET), B me(Me), B won(Me,Item) } <- pay(Id), -!paidFor(Item) [achieve];
+
++auction(Id,Item,Ag,SP,ET) : { B want(Item) } <- +!bought(Item) [achieve];
++registered(Me) : { B me(Me), B auction(Id,Item,Ag,SP,ET), G bought(Item) [achieve] } <- enter_auction(Id);
+
+
+:name: carol
+
+:Initial Beliefs:
+badInfo(bob)
+want(lamp)
+
+:Initial Goals:
+
+:Plans:
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), +!registered(Me) [achieve];
+
++!bought(Item) [achieve] : { B auction(Id,Item,C,SP,ET), B me(Me) } <- *verified(Me), +!bid_done(Me, Item) [achieve], -!bought(Item) [achieve];
+
++!bid_done(Me,Item) [achieve] : { B won(Ag,Item) } <- -!bid_done(Me,Item) [achieve];
++!bid_done(Me,Item) [achieve] : { B auction(Id,Item,Ag,SP,ET), B bid_high(Id,Me,Bid) } <- *bid_high(Id,bob,BobBid), +!bid_done(Me,Item) [achieve];
++!bid_done(Me,Item) [achieve] : { B auction(Id,Item,Ag,SP,ET) } <- bid(Id), +!bid_done(Me,Item) [achieve];
+
+-participates(Me,Item) : { B me(Me) } <- -!bought(Item) [achieve], -!bid_done(Me,Item) [achieve];
+	
++won(Id) : { B auction(Id,Item,A,SP,ET) } <- -!bid_done(Me,Item) [achieve], +bought(Item), leave_auction(Id);
+
++!paidFor(Item) [achieve] : { B auction(Id,Item,A,SP,ET), B me(Me), B won(Me,Item) } <- pay(Id), -!paidFor(Item) [achieve];
+
++auction(Id,Item,Ag,SP,ET) : { B want(Item) } <- +!bought(Item) [achieve];
++registered(Me) : { B me(Me), B auction(Id,Item,Ag,SP,ET), G bought(Item) [achieve] } <- enter_auction(Id);
+
+:name: sally
+
+:Initial Beliefs:
+badInfo(bob)
+have(lamp)
+
+:Initial Goals:
+sold(lamp) [achieve]
+
+:Plans: 
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), +!registered(Me) [achieve];
+
++!sold(Item) [achieve] : { B me(Me) } <- *verified(Me), +!auction_created(Me,Item) [achieve];
+
++!auction_created(Me,Item) [achieve] : { ~B auction(Me,Item) } <- start_auction(Item, 10, 1), *auction(Id,Item,Me,SP,ET), *auction_done(Id,Winner,Bid), +sold(Item);
+
+
+:name: mike
+
+:Initial Beliefs:
+badInfo(bob)
+
+:Initial Goals:
+
+:Plans: 
+
++!verified(Agent) [achieve] : { ~B badInfo(Agent), B registered(Agent) } <- verify(Agent);
++!verified(Agent) [achieve] : { B badInfo(Agent) } <- -!verified(Agent) [achieve];
++!banned(Agent) [achieve] : { B participates(Agent,Item), B auction(Id,Item,A,SP,ET) } <- remove_from_auction(Id,Agent), +banned(Agent), -!banned(Agent) [achieve];

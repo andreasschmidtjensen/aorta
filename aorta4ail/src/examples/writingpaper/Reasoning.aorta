@@ -1,0 +1,5 @@
+role(R) : true => enact(R).
+obj(O) : bel(me(Me)), org(norm(Me,R,obliged,O,D)) => commit(O).
+send(X, tell, rea(Me,R)) : bel(agent(Ag)), ~bel(me(Ag)), ~bel(sent(Ag, org(rea(Me,R)))) => send(Ag, org(rea(Me,R))).
+send(R, achieve, O) : org(rea(Ag, R)), ~bel(me(Ag)), ~bel(sent(Ag, goal(O))) => send(Ag, goal(O)).
+send(R, tell, O) : org(rea(Ag, R)), ~bel(me(Ag)), ~bel(sent(Ag, bel(O))) => send(Ag, bel(O)).

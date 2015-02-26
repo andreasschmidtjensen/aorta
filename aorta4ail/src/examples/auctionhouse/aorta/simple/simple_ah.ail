@@ -1,0 +1,7 @@
+env = auctionhouse.AuctionHouse
+
+mas.file = simple_ah.aortasetup
+mas.builder = aorta.AortaMASBuilder
+
+log.warning = ajpf.MCAPLcontroller,ajpf.MCAPLAgent,ail.mas.DefaultEnvironment,ail.semantics.AILAgent,aorta.ail.AortaAILAgent,aorta.ail.AILBridge, 
+log.fine = aorta.semantics.operationalrules.nc.OblAct,aorta.semantics.operationalrules.nc.OblViol

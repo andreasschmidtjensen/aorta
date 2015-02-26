@@ -1,0 +1,5 @@
+mas.file = WritingPaper.gwen
+mas.builder = gwendolen.GwendolenMASBuilder
+
+aorta.model = WritingPaper.mm
+aorta.rules =  Reasoning.aorta

@@ -1,0 +1,8 @@
+@using = mcapl
+@using = aortamc
+target = ail.util.AJPF_w_AIL
+target.args = WritingPaper.ail,WritingPaper.psl,all
+log.info = ail.mas.DefaultEnvironment,ajpf.product.Product,ajpf.MCAPLAgent
+log.finest = ajpf.psl.buchi.BuchiAutomaton,ajpf.product.MCAPLmodel
+listener+=,.listener.ExecTracker
+et.print_insn=false
