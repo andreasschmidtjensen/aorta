@@ -86,6 +86,7 @@ proposition returns [Abstract_Proposition p1] :
 	p5 = intentionproperty {$p1 = (Abstract_Proposition) $p5.p;} | p6 = lastactionproperty {$p1 = (Abstract_Proposition) $p6.p;} |
 	p7 = perceptproperty {$p1 = (Abstract_Proposition) $p7.p;} |
 	p8 = orgproperty {$p1 = (Abstract_Proposition) $p8.p;} | p9 = optproperty {$p1 = (Abstract_Proposition) $p9.p;} |
+	p10 = capproperty {$p1 = (Abstract_Proposition) $p10.p;} |
 	p = trueprop {$p1 = (Abstract_Proposition) $p.p;};
 	
 beliefproperty returns [Abstract_AgBelief p] :
@@ -96,6 +97,8 @@ orgproperty returns [Abstract_OrgBelief p] :
 	ORG OPENBRACKET ag=agentname COMMASEP f=formula CLOSEBRACKET {$p = new Abstract_OrgBelief($ag.s, (Abstract_Formula) $f.f);};	
 optproperty returns [Abstract_OrgOption p] :
 	OPT OPENBRACKET ag=agentname COMMASEP f=formula CLOSEBRACKET {$p = new Abstract_OrgOption($ag.s, (Abstract_Formula) $f.f);};		
+capproperty returns [Abstract_AgCap p] :
+	CAP OPENBRACKET ag=agentname COMMASEP f=formula CLOSEBRACKET {$p = new Abstract_AgCap($ag.s, (Abstract_Formula) $f.f);};
 falseprop returns [Abstract_FalseProp p] :
 	FALSE {$p = new Abstract_FalseProp();};
 intentionproperty returns [Abstract_AgIntention p] :
@@ -137,6 +140,7 @@ BELIEVE
 GOAL 	:	{!informula }?=> 'G' {informula=true;};
 ORG 	:	{!informula }?=> 'Org' {informula=true;};
 OPT 	:	{!informula }?=> 'Opt' {informula=true;};
+CAP		:	{!informula }?=> 'C' {informula=true;};
 FALSE	: 	{!informula }?=> 'F';
 INTENTION
 	:	{!informula }?=> 'I' {informula=true;};

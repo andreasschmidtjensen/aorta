@@ -87,6 +87,7 @@ public interface MCAPLLanguageAgent {
 	
 	public boolean MCAPLhasOrganizationalBelief(MCAPLFormula phi);
 	public boolean MCAPLhasOrganizationalOption(MCAPLFormula phi);
+	public boolean MCAPLhasCapability(MCAPLFormula fmla);
 	
 	/**
 	 * Succeeds if the agent "wants to sleep" - typically envisaged for when the 

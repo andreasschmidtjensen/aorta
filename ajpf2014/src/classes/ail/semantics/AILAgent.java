@@ -1866,15 +1866,20 @@ public class AILAgent implements MCAPLLanguageAgent {
 		return false;
 	}
 	
-
+	@Override
 	public boolean MCAPLhasOrganizationalBelief(MCAPLFormula phi) {
 		return false;
 	}
 
+	@Override
 	public boolean MCAPLhasOrganizationalOption(MCAPLFormula phi) {
 		return false;
 	}
 
+	@Override
+	public boolean MCAPLhasCapability(MCAPLFormula fmla) {
+		return false;
+	}
 
 	/*
 	 * (non-Javadoc)

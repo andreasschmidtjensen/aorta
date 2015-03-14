@@ -25,7 +25,6 @@
 package ajpf;
 
 import ajpf.product.MCAPLmodel;
-import ajpf.product.ModelState;
 import gov.nasa.jpf.PropertyListenerAdapter;
 import gov.nasa.jpf.search.Search;
 import gov.nasa.jpf.vm.VM;
@@ -48,18 +47,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import ajpf.product.Product;
-import ajpf.product.Product.ProductState;
 import ajpf.psl.ast.Property_AST;
 import ajpf.psl.MCAPLProperty;
 import ajpf.psl.ast.Native_Proposition;
 import ajpf.psl.Proposition;
-import ajpf.psl.Until;
-import ajpf.psl.buchi.BuchiAutomaton;
-import ajpf.psl.buchi.BuchiState;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.List;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Special listener class for the MCAPL Project.
@@ -296,6 +294,19 @@ public class MCAPLListener extends PropertyListenerAdapter {
 		 return Product.AutomataType.DEFAULT_AUTOMATA;
 	 }
 
+	Set<Integer> visited = new HashSet<>();
+	private void DFS(int v, String inc) {
+		visited.add(v);
+
+		MCAPLmodel m = product_automata.getModel();
+		System.out.println(inc + v + " : " + m.getState(v).getProps());
+		if (m.getNeighbors(v) != null) {
+			for (int w : m.getNeighbors(v)) {
+				DFS(w, inc + "  ");
+			}
+		}
+	}
+
 	 /*
 	  * (non-Javadoc)
 	  * @see gov.nasa.jpf.PropertyListenerAdapter#searchFinished(gov.nasa.jpf.search.Search)
@@ -306,6 +317,8 @@ public class MCAPLListener extends PropertyListenerAdapter {
 		 Config config = search.getVM().getConfig();
 		 product_automata.setConfig(config);
 
+//		 DFS(0, "");
+	 		 
 		 if (config.containsKey("ajpf.model.file")) {
 			 try {
 				MCAPLmodel model = product_automata.getModel();

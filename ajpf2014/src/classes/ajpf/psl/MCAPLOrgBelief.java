@@ -24,9 +24,6 @@
 
 package ajpf.psl;
 
-import gov.nasa.jpf.JPF;
-
-import java.util.logging.Logger;
 
 import ajpf.MCAPLAgent;
 import ajpf.MCAPLcontroller;

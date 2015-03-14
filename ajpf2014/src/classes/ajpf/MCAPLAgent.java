@@ -270,6 +270,10 @@ public class MCAPLAgent implements PerceptListener, MCAPLJobber {
 		return agent.MCAPLhasOrganizationalOption(fmla);
 	}
 	
+	public boolean hasCapability(MCAPLFormula fmla) {
+		return agent.MCAPLhasCapability(fmla);
+	}
+	
 	// Miscellaneous other methods.
 	
 	/**
@@ -300,7 +304,7 @@ public class MCAPLAgent implements PerceptListener, MCAPLJobber {
 	}
 	
 	public String toString() {
-		return getAgName();
+		return agent.toString();
 	}
 
 	/**

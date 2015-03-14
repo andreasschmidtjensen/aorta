@@ -213,7 +213,7 @@ public class MCAPLcontroller  {
 		//	pickJob(1);
 		//}
 		AJPFLogger.fine("ajpf.MCAPLcontroller", "Picked jobber " + a.getName() + " from " + activeJobs);
-		a.do_job();
+		a.do_job();		
 		specification.checkProperties();
 		return a;
 	}
@@ -348,4 +348,5 @@ public class MCAPLcontroller  {
 	public static String getAbsFilename(String filename) {
 		return System.getProperty("user.dir") + "/" + filename;
 	}
+
 }

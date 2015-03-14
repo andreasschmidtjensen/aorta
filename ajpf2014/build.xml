@@ -213,5 +213,16 @@
    
   </target>
 
+	<target name="antlr">
+		<java classname="org.antlr.Tool" fork="true" failonerror="true" classpath="../lib/aorta4ail/antlr-3.4-complete.jar">
+			<arg value="-verbose"/>
+			<arg value="-o"/>
+			<arg path="src/main/ajpf/psl/parser/"/>
+			<arg path="src/main/ajpf/psl/parser/A_PSL.g"/>
+		</java>
+		<!-- use mcaplantlr -->
+		<replace file="src/main/ajpf/psl/parser/A_PSLParser.java" token="org.antlr" value="mcaplantlr"/>
+		<replace file="src/main/ajpf/psl/parser/A_PSLLexer.java" token="org.antlr" value="mcaplantlr"/>
+	</target>
   
 </project>

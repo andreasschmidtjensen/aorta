@@ -46,8 +46,9 @@ public class Finally extends Until {
 	 * @see mcapl.psl.Release#toString()
 	 */
 	public String toString() {
-		String s = "<>";
+		String s = "<>(";
 		s += finalprop.toString();
+		s += ")";
 		return s;
 	}
 }

@@ -57,7 +57,11 @@ public class AIL {
 		// Lastly we construct a controller.
 		MCAPLcontroller mccontrol = new MCAPLcontroller(mas, "", 1);
 		// Start the system.
-		mccontrol.begin(); 
+		mccontrol.begin();
+		
+		for (AILAgent ag : mas.getAgs().values()) {
+			System.out.println(ag);
+		}
 		mas.finalize();
 
 	}
