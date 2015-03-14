@@ -1,0 +1,2258 @@
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 0
+agent1
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 1
+agent1
+=============
+After Stage StageF :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageA :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageF :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageA :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 2
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 3
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 4
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 5
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 6
+agent1
+=============
+After Stage StageF :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageA :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageF :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageA :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 7
+agent1
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 8
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageF :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageA :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageF :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageA :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 9
+agent1
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 10
+agent1
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 11
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 12
+agent1
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageF :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageA :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageF :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageA :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+New state: 13
+agent1
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent1,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage OG1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.og.Enact.apply(Enact.java:46)
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage AE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[role/1-role(customer), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+aorta.semantics.operationalrules.ae.ActExec.apply(ActExec.java:51)
+aorta.semantics.operationalrules.ae.ActExec.checkCondition(ActExec.java:66)
+agent1
+=============
+After Stage NC1 :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent1), ]
+[]
+[]
+empty
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ]
+[]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]
+agent2
+=============
+After Stage StageE :
+[agent/1-agent(agent1), agent(agent2), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]
+[]
+[]
+
+[]
+[]
+[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]
+[send/3-send(true,tell,rea(agent2,customer)), ]
+[role(customer) : (True) => enact(customer), send(true,tell,rea(Me,Role)) : ((((me(Me)("")) & agent(A)("")) & not (me(A)(""))) & not (sent(A,org(rea(Me,Role)))(""))) => send(org(rea(Me,Role)),A)0]

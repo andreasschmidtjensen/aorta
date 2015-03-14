@@ -29,7 +29,7 @@ public class Modelchecker {
 
 	public static void main(String[] args) throws Exception {
 		if (args.length < 1) {
-			System.out.println("Usage: Modelchecker AIL-File [PSL-File] [-save] [p=Property] [m=Model-file]");
+			System.out.println("Usage: Modelchecker AIL-File [PSL-File] [-save] [p=Property] [m=Model-file] [-summarize]");
 			System.exit(1);
 		}
 
@@ -49,6 +49,7 @@ public class Modelchecker {
 	private String modelFile;
 	private Map<String, String> properties;
 	private boolean save;
+	private boolean summarize;
 	
 	private final String memory = "-Xmx1000m";
 
@@ -70,6 +71,8 @@ public class Modelchecker {
 					modelFile = arg.substring(2);
 				} else if (arg.equals("-save")) {
 					save = true;
+				} else if (arg.equals("-summarize")) {
+					summarize = true;
 				}
 			}
 		}
@@ -83,6 +86,7 @@ public class Modelchecker {
 
 		BufferedReader in = new BufferedReader(new FileReader(pslFile));
 		System.out.println("Properties: ");
+		
 		String str;
 		while ((str = in.readLine()) != null) {
 			if (!str.startsWith("#") && !str.trim().isEmpty()) {
@@ -181,6 +185,10 @@ public class Modelchecker {
 		String prop = properties.get(propertyKey);
 		String jpfFile = createJPFFile(propertyKey);
 
+		String time = null;
+		String states = null;
+		String depth = null;
+		
 		File outputFile = new File("out/" + propertyKey + ".log");
 		try (FileWriter writer = new FileWriter(outputFile)) {
 			System.out.println("Verifying property: " + prop);
@@ -196,14 +204,24 @@ public class Modelchecker {
 			BufferedReader br = new BufferedReader(isr);
 			String line;
 
-			boolean print = true;
 			while ((line = br.readLine()) != null) {
-				print = !line.trim().startsWith("# exception: ");
-				if (print) {
-					writer.write(line + "\n");
-					writer.flush();
-					System.out.println(line);
+				writer.write(line + "\n");
+				writer.flush();
+				System.out.println(line);
+				
+				if (line.startsWith("elapsed time:")) {
+					time = line.substring(14).trim();
+				} else if (line.startsWith("states:")) {
+					states = line.substring(8).trim();
+				} else if (line.startsWith("search:")) {
+					depth = line.substring(8).trim();
 				}
+			}
+		}
+		if (summarize) {
+			File summaryFile = new File("out/summary.log");
+			try (FileWriter writer = new FileWriter(summaryFile, true)) {
+				writer.append(propertyKey + ": time=" + time + ", " + states + ", " + depth + "\n");
 			}
 		}
 	}

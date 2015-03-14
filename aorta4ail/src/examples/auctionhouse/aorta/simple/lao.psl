@@ -1,0 +1,2 @@
+initiative: <>(Org(sally, rea(sally, seller)) & <>(I(sally, verified(sally)) || B(sally, sent(mike, opt(obj(verified(sally)))))))
+good: []((Org(mike, rea(mike, manager)) & I(mike, verified(sally))) -> <>D(mike, verify(sally)))

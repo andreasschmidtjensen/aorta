@@ -1,0 +1,6 @@
+GWENDOLEN
+:name: agent1
+:Initial Beliefs:
+:Initial Goals:
+:Plans:
++!registered(Me) [achieve] : { True } <- register(address, account);

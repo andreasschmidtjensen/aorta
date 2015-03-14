@@ -12,6 +12,8 @@ import ail.syntax.Unifier;
 import ail.syntax.VarTerm;
 import ajpf.MCAPLAgent;
 import ajpf.MCAPLLanguageAgent;
+import ajpf.psl.And;
+import ajpf.psl.Finally;
 import ajpf.psl.MCAPLAgBelief;
 import ajpf.psl.MCAPLOrgBelief;
 import ajpf.psl.MCAPLOrgOption;
@@ -30,7 +32,9 @@ import aorta.syntax.metamodel.Rea;
 import aorta.syntax.metamodel.Role;
 import aorta.syntax.metamodel.Violation;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -38,6 +42,7 @@ import java.util.Set;
  * @author asj
  */
 public class CreateProp {
+	
 	public static void main(String[] args) throws Exception {
 		if (args.length < 1) {
 			System.out.println("Usage: java modelchecker.CreateProp <aortasetup-file> [Var=term(;Var=term)*]");
@@ -49,22 +54,52 @@ public class CreateProp {
 			bindings = args[1].split(";");
 		}
 		
-		Unifier unif = new Unifier();
+		CreateProp cp = new CreateProp(masFile, bindings);		
+		Map<String, MCAPLProperty> properties = cp.createProperties();
+		
+		MCAPLProperty everything = properties.get("everything");
+		System.out.println("Propositions: " + everything.getProps().size());
+		for (String key : properties.keySet()) {
+			System.out.println(key + ": " + properties.get(key));
+		}
+			
+		long time = System.currentTimeMillis();	
+		MCAPLProperty negprop = everything.negate();
+		Set<Until> untils = negprop.getUntils();
+		BuchiState init = new BuchiState(0, negprop, 1);
+		BuchiAutomaton buchi = new BuchiAutomaton();
+		buchi.init(init, untils);
+		
+		System.out.println("Büchi created in " + (System.currentTimeMillis() - time) + "ms");
+	}
+		
+	private ArrayList<MCAPLAgent> ags;
+	private Metamodel mm;
+	private Unifier unif;
+
+	public CreateProp(String masFile, String[] bindings) {		
+		AortaMASBuilder b = new AortaMASBuilder();
+		MAS mas = b.getMAS(masFile);	
+		mm = b.getModel();
+		ags = new ArrayList<>();
+		for (MCAPLLanguageAgent ag : mas.getMCAPLAgents()) {
+			ags.add(new MCAPLAgent(ag, 0, null));
+		}
+		
+		unif = new Unifier();
 		for (String binding : bindings) {
 			String[] bind = binding.split("=");
 			String var = bind[0];
 			String term = bind[1];
 			unif.unifyTerms(new Predicate(term), new VarTerm(var));
 		}
-		
-		AortaMASBuilder b = new AortaMASBuilder();
-		MAS mas = b.getMAS(masFile);	
-		Metamodel mm = b.getModel();
-		List<MCAPLAgent> ags = new ArrayList<>();
-		for (MCAPLLanguageAgent ag : mas.getMCAPLAgents()) {
-			ags.add(new MCAPLAgent(ag, 0, null));
-		}
-		
+	}
+	
+	public Map<String, MCAPLProperty> createProperties() {
+		Map<String, MCAPLProperty> properties = new LinkedHashMap<>();
+	
+		MCAPLProperty enactment = null;
+		MCAPLProperty informed = null;
 		List<MCAPLProperty> result = new ArrayList<>();
 		for (Role role : mm.getRoles()) {
 			for (MCAPLAgent ag : ags) {
@@ -72,12 +107,33 @@ public class CreateProp {
 					Rea rea = new Rea(ag2.getAgName(), role.getName());					
 					MCAPLProperty prop = new MCAPLOrgBelief(ag, rea.getAsLiteral());					
 					result.add(prop);
+					
+					if (ag == ag2) {
+						if (enactment == null) {
+							enactment = prop;
+						} else {
+							enactment = new And(enactment, prop);
+						}
+					} else {					
+						if (informed == null) {
+							informed = prop;
+						} else {
+							informed = new And(informed, prop);
+						}
+					}
+					
+					properties.put("rea_" + ag.getAgName() + "_" + ag2.getAgName(), new Finally(prop));
 				}
 				Literal opt = new Literal("role");
 				opt.addTerm(new Predicate(role.getName()));
 				result.add(new MCAPLOrgOption(ag, opt));
 			}
 		}
+		properties.put("enactment", new Finally(enactment));
+		if (informed != null) {
+			properties.put("informed", new Finally(informed));
+		}
+		
 		for (Objective obj : mm.getObjectives()) {
 			for (MCAPLAgent ag : ags) {
 				Literal opt = new Literal("obj");
@@ -112,17 +168,17 @@ public class CreateProp {
 		for (ConditionalNorm cNorm : mm.getConditionalNorms()) {
 			for (MCAPLAgent ag : ags) {				
 				for (MCAPLAgent ag2 : ags) {
-					Unifier unifier = new Unifier();
-					unifier.compose(unif);
+					Unifier cnUnif = new Unifier();
+					cnUnif.compose(unif);
 					if (cNorm.hasAgentVar()) {
-						unifier.unifyTerms(new Predicate(ag2.getAgName()), cNorm.getAgentVar());
+						cnUnif.unifyTerms(new Predicate(ag2.getAgName()), cNorm.getAgentVar());
 					}
 					Literal objective = cNorm.getObjective().clone();
 					objective.setNegated(true);
 					Literal deadline = cNorm.getDeadline().clone();
 					deadline.setNegated(true);
-					objective.apply(unifier);
-					deadline.apply(unifier);
+					objective.apply(cnUnif);
+					deadline.apply(cnUnif);
 
 					Norm norm = new Norm(ag2.getAgName(), cNorm.getRole(), cNorm.getDeon(), objective, deadline);
 					Violation viol = new Violation(ag2.getAgName(), cNorm.getRole(), cNorm.getDeon(), objective);
@@ -142,8 +198,7 @@ public class CreateProp {
 				}					
 			}
 		}
-		
-		System.out.println("Size: " + result.size());
+				
 		String property = "";
 		for (int i = 0; i < result.size(); i++) {
 			if (i > 0) {
@@ -151,21 +206,14 @@ public class CreateProp {
 			}
 			property += (result.get(i));
 		}
-		// TODO: FIX VARIBLES
-		System.out.println(property);
 		
-		long time = System.currentTimeMillis();
 		Property_AST ast = new Property_AST();
 		ast.parse(property);
 		MCAPLProperty prop = ast.toMCAPLNative();
-				
-		MCAPLProperty negprop = prop.negate();
-		Set<Until> untils = negprop.getUntils();
-		BuchiState init = new BuchiState(0, negprop, 1);
-		BuchiAutomaton buchi = new BuchiAutomaton();
-		buchi.init(init, untils);
 		
-		System.out.println("Büchi created in " + (System.currentTimeMillis() - time) + "ms");
+		properties.put("everything", prop);		
+		
+		return properties;
 	}
 	
 }

@@ -1,0 +1,7 @@
+@using = mcapl
+@using = aortamc
+target = ail.util.AJPF_w_AIL
+target.args = 9customer_inform.ail,9customer_inform.psl,informed_9
+log.info=ajpf.MCAPLAgent,ail.mas.DefaultEnvironment,ajpf.product.Product,aorta.ail.AortaAILAgent,ajpf.psl.buchi.BuchiAutomaton,ajpf.product.MCAPLmodel
+listener+=,.listener.ExecTracker
+et.print_insn=false

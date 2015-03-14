@@ -40,7 +40,7 @@ public class Enact extends AortaOSRule {
 						opt.addTerm(new Predicate(r.getName()));
 												
 						if (!ag.optContains(opt)) {
-							AJPFLogger.fine(getLoggerName(), "Adding " + r + " as option");
+							AJPFLogger.fine(getLoggerName(), "Adding " + opt + " as option for " + ag.getAgName());
 							ag.addOpt(opt);
 
 							ag.aortaChanged();

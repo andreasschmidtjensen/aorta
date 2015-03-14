@@ -1,0 +1,10 @@
+#java -jar ../../../../../../standalone/aorta-modelchecker.jar 1customer.ail 1customer.psl -summarize
+#java -jar ../../../../../../standalone/aorta-modelchecker.jar 2customer.ail 2customer.psl -summarize
+#java -jar ../../../../../../standalone/aorta-modelchecker.jar 3customer.ail 3customer.psl -summarize
+#java -jar ../../../../../../standalone/aorta-modelchecker.jar 4customer.ail 4customer.psl -summarize
+java -jar ../../../../../../standalone/aorta-modelchecker.jar 5customer.ail 5customer.psl -summarize
+java -jar ../../../../../../standalone/aorta-modelchecker.jar 6customer.ail 6customer.psl -summarize
+java -jar ../../../../../../standalone/aorta-modelchecker.jar 7customer.ail 7customer.psl -summarize
+java -jar ../../../../../../standalone/aorta-modelchecker.jar 8customer.ail 8customer.psl -summarize
+java -jar ../../../../../../standalone/aorta-modelchecker.jar 9customer.ail 9customer.psl -summarize
+java -jar ../../../../../../standalone/aorta-modelchecker.jar 10customer.ail 10customer.psl -summarize

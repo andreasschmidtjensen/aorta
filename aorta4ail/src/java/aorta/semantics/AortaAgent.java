@@ -27,6 +27,7 @@ import aorta.syntax.metamodel.Metamodel;
 import aorta.syntax.metamodel.Norm;
 import aorta.syntax.metamodel.Rea;
 import aorta.syntax.metamodel.Violation;
+import gov.nasa.jpf.annotation.FilterField;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -42,13 +43,21 @@ public class AortaAgent extends AILAgent {
 	private static final String BB_ORG = "org";
 	private static final String BB_OPT = "opt";
 
+	@FilterField
 	protected List<AortaRule> aortaRules = new ArrayList<>();
+	
+	@FilterField
 	private Metamodel metamodel;
 
+	@FilterField
 	private final Set<String> reas = new HashSet<>();
 	private final Set<Literal> capabilities = new HashSet<>();
 
+	@FilterField
 	private boolean allowedToSleep = true;
+	
+	@FilterField
+	private boolean lastRCStageChangedAgent = true;
 
 	public AortaAgent(AILAgent original) {
 		super();
@@ -77,9 +86,16 @@ public class AortaAgent extends AILAgent {
 	}
 
 	public void aortaChanged() {
+		lastRCStageChangedAgent = true;
 		setAllowedToSleep(false);
 		tellawake();
 	}
+
+	public boolean lastRCStageChangedAgent() {
+		boolean b = lastRCStageChangedAgent;
+		lastRCStageChangedAgent = false;
+		return b;
+	}	
 
 	public void setAllowedToSleep(boolean allowedToSleep) {
 		this.allowedToSleep = allowedToSleep;
@@ -236,60 +252,45 @@ public class AortaAgent extends AILAgent {
 		}
 	}
 
-	@Override
-	public void newMessages(Set<Message> msgs) {
-		// NOTE: we use the simple messagefunction that simply adds to the relevant KB
+	public void receiveMessage(Message msg) {
+		// handle aorta message
+		Predicate pred = (Predicate) msg.getPropCont();
+		Literal aMsg = new Literal(true, new PredicatewAnnotation((Predicate) pred.getTerm(0)));
+		switch (pred.getFunctor()) {
+			case "bel":
+				addBel(aMsg, new SourceAnnotation(new Predicate(msg.
+						getSender())));
 
-		Set<Message> aplMessages = new HashSet<>(); // messages not intended for AORTA
-		for (Message msg : msgs) {
-			if ("om".equals(msg.getPropCont().getFunctor())) {
-				// handle aorta message
-				Predicate pred = (Predicate) ((Literal) msg.getPropCont()).
-						getTerm(0);
-				Literal aMsg = new Literal(true, new PredicatewAnnotation((Predicate) pred.getTerm(0)));
-				switch (pred.getFunctor()) {
-					case "bel":
-						addBel(aMsg, new SourceAnnotation(new Predicate(msg.
-								getSender())));
-						
-						ArrayList<Deed> ds = new ArrayList<>();
-						ArrayList<Guard> gs  = new ArrayList<>();
-						Unifier u = new Unifier();
+				ArrayList<Deed> ds = new ArrayList<>();
+				ArrayList<Guard> gs  = new ArrayList<>();
+				Unifier u = new Unifier();
 
-						ds.add(new Deed(Deed.AILAddition, Deed.AILBel, aMsg));
-						gs.add(new Guard(new GBelief(GBelief.GTrue)));
-						Intention i = new Intention(new Event(Event.Estart), ds, gs, u, AILAgent.refertopercept());
-						addNewIntention(i);
-						
-						break;
-					case "goal":
-						addNewIntention(new Intention(new Goal(aMsg, Goal.achieveGoal), new SourceAnnotation(new Predicate(msg.getSender()))));
-						break;
-					case "org":
-						addOrg(aMsg);
-						break;
-					case "opt":
-						addOpt(aMsg);
-						break;
-					default:
-						throw new IllegalArgumentException("Wrong message: "
-								+ aMsg);
-				}
+				ds.add(new Deed(Deed.AILAddition, Deed.AILBel, aMsg));
+				gs.add(new Guard(new GBelief(GBelief.GTrue)));
+				Intention i = new Intention(new Event(Event.Estart), ds, gs, u, AILAgent.refertopercept());
+				addNewIntention(i);
 
-				tellawake();
-			} else {
-				aplMessages.add(msg);
-			}
+				break;
+			case "goal":
+				addNewIntention(new Intention(new Goal(aMsg, Goal.achieveGoal), new SourceAnnotation(new Predicate(msg.getSender()))));
+				break;
+			case "org":
+				addOrg(aMsg);
+				break;
+			case "opt":
+				addOpt(aMsg);
+				break;
+			default:
+				throw new IllegalArgumentException("Wrong message: "
+						+ aMsg);
 		}
 
-		super.newMessages(aplMessages);
+		tellawake();
 	}
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n" + getInbox() + "\n" + metamodel.
-				dynToString() + "\n" + getBB(BB_ORG) + "\n" + getBB(BB_OPT) + "\n"
-				+ aortaRules.toString();
+		return super.toString() + "\n" + getInbox() + "\n" + getBB(BB_ORG) + "\n" + getBB(BB_OPT);
 	}
 
 	@Override
@@ -310,4 +311,16 @@ public class AortaAgent extends AILAgent {
 		Literal lit = new Literal(Literal.LPos, new PredicatewAnnotation((MCAPLPredicate) phi));
 		return optContains(lit);
 	}
+
+	@Override
+	public boolean MCAPLhasCapability(MCAPLFormula phi) {
+		Literal cap = new Literal(Literal.LPos, new PredicatewAnnotation((MCAPLPredicate) phi));
+		for (Literal l : capabilities) {
+			if (cap.clone().match(l, new Unifier())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }

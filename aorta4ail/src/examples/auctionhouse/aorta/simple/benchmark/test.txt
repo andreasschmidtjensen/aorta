@@ -1,0 +1,922 @@
+new state: 0
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 1
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent2,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]]]
+
+new state: 2
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 3
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+new state: 4
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 5
+
+
+
+
+
+
+new state: 6
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent3,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]]]
+
+new state: 7
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 8
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+new state: 9
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 10
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+new state: 11
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 12
+
+
+
+
+
+
+new state: 13
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 14
+new state: 15
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 16
+new state: 17
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 18
+
+
+
+
+
+
+
+
+
+
+
+
+new state: 19
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 20
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+new state: 21
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 22
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+new state: 23
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 24
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+
+
+
+
+
+
+new state: 25
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 26
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+new state: 27
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 28
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent3,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]]]
+
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent3,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]]]
+
+new state: 29
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+
+
+
+
+
+
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+new state: 30
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+
+
+
+
+
+
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+new state: 31
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+
+
+
+
+
+
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent3,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]]]
+
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent3,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]]]
+
+new state: 32
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 33
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+new state: 34
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 35
+
+
+
+
+
+
+new state: 36
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+new state: 37
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 38
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+new state: 39
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+
+
+
+
+
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+new state: 40
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 41
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+new state: 42
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 43
+
+
+
+
+
+
+new state: 44
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+
+
+
+new state: 45
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 46
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+
+
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+
+
+
+new state: 47
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+
+
+
+
+
+
+new state: 48
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+
+
+
+
+
+
+new state: 49
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+
+
+
+
+
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+
+
+
+
+
+
+
+
+
+new state: 50
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 51
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+new state: 52
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 53
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+new state: 54
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 55
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+
+
+
+
+
+
+new state: 56
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 57
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+new state: 58
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 59
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent3,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]]]
+
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent3,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]]]
+
+new state: 60
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 61
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent2,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]]]
+
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+new state: 62
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 63
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent2,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]]]
+
+new state: 64
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 65
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+
+
+
+
+
+
+new state: 66
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 67
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+new state: 68
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 69
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+new state: 70
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 71
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), sent(agent3,org(rea(agent2,customer))), ]]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+new state: 72
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 73
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent2,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]]]
+
+new state: 74
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 75
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent2,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]]]
+
+new state: 76
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 77
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent2,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]]]
+
+
+
+
+
+
+
+new state: 78
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ]]]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 79
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent2,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]]]
+
+
+
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), sent(agent2,org(rea(agent3,customer))), ]]]
+
+new state: 80
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent1,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent1,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent1), , sent/2-sent(agent2,org(rea(agent1,customer))), ]]]
+
+new state: 81
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent2,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent2,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent2), , sent/2-sent(agent1,org(rea(agent2,customer))), ]]]
+
+	[ChangeDelta, position: 9, lines: [[]] to [[role/1-role(customer), ]]]
+
+	[ChangeDelta, position: 8, lines: [[obj/2-obj(registered(Agent),[]), , role/2-role(customer,[registered(Agent),]), ], [role/1-role(customer), ]] to [[obj/2-obj(registered(Agent),[]), , rea/2-rea(agent3,customer), , role/2-role(customer,[registered(Agent),]), ], [send/3-send(true,tell,rea(agent3,customer)), ]]]
+
+	[ChangeDelta, position: 5, lines: [empty] to []]
+
+	[ChangeDelta, position: 2, lines: [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), ]] to [[agent/1-agent(agent1), agent(agent2), agent(agent3), , me/1-me(agent3), , sent/2-sent(agent1,org(rea(agent3,customer))), ]]]
+

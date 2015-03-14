@@ -1,0 +1,5 @@
+role(customer) : true => enact(customer).
+
+send(true, tell, rea(Me, Role))
+	: bel(me(Me)), bel(agent(A)), ~bel(me(A)), ~bel(sent(A, org(rea(Me,Role))))
+	=> send(A, org(rea(Me, Role))).

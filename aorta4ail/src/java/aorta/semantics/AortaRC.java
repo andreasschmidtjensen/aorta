@@ -21,34 +21,38 @@ import java.util.List;
  */
 public class AortaRC implements ReasoningCycle {
 	
-	private RCStage currentstage;
+	@FilterField private RCStage currentstage;
 	
-	private final List<AortaRCStage> nc = new ArrayList<>();
-	private final List<AortaRCStage> og = new ArrayList<>();
+	@FilterField private final List<AortaRCStage> nc = new ArrayList<>();
+	@FilterField private final List<AortaRCStage> og = new ArrayList<>();
 			
-	private final AortaRCStage nc1 = new AortaRCStage(1, "NC1");
-	private final AortaRCStage nc2 = new AortaRCStage(2, "NC2");
-	private final AortaRCStage nc3 = new AortaRCStage(3, "NC3");
-	private final AortaRCStage nc4 = new AortaRCStage(4, "NC4");
-	private final AortaRCStage nc5 = new AortaRCStage(5, "NC5");
-	private final AortaRCStage nc6 = new AortaRCStage(6, "NC6");
+	@FilterField private final AortaRCStage nc1 = new AortaRCStage(1, "NC1");
+	@FilterField private final AortaRCStage nc2 = new AortaRCStage(2, "NC2");
+	@FilterField private final AortaRCStage nc3 = new AortaRCStage(3, "NC3");
+	@FilterField private final AortaRCStage nc4 = new AortaRCStage(4, "NC4");
+	@FilterField private final AortaRCStage nc5 = new AortaRCStage(5, "NC5");
+	@FilterField private final AortaRCStage nc6 = new AortaRCStage(6, "NC6");
 	
-	private final AortaRCStage og1 = new AortaRCStage(10, "OG1");
-	private final AortaRCStage og2 = new AortaRCStage(11, "OG2");
-	private final AortaRCStage og3 = new AortaRCStage(12, "OG3");
-	private final AortaRCStage og4 = new AortaRCStage(13, "OG4");
-	private final AortaRCStage og5 = new AortaRCStage(14, "OG5");
-	private final AortaRCStage og6 = new AortaRCStage(15, "OG6");
-	private final AortaRCStage og7 = new AortaRCStage(16, "OG7");
+	@FilterField private final AortaRCStage og1 = new AortaRCStage(10, "OG1");
+	@FilterField private final AortaRCStage og2 = new AortaRCStage(11, "OG2");
+	@FilterField private final AortaRCStage og3 = new AortaRCStage(12, "OG3");
+	@FilterField private final AortaRCStage og4 = new AortaRCStage(13, "OG4");
+	@FilterField private final AortaRCStage og5 = new AortaRCStage(14, "OG5");
+	@FilterField private final AortaRCStage og6 = new AortaRCStage(15, "OG6");
+	@FilterField private final AortaRCStage og7 = new AortaRCStage(16, "OG7");
 	
-	private final AortaRCStage ae = new AortaRCStage(20, "AE");
+	@FilterField private final AortaRCStage ae = new AortaRCStage(20, "AE");
 	
 	/**
 	 * Used to detect when to delegate cycle(AILAgent) to agentCycle.
 	 */
+	@FilterField
 	private final RCStage initialRCStage;
 
+	@FilterField
 	private final ReasoningCycle agentCycle;
+	
+	@FilterField
 	private boolean aortaDone;
 
 	public AortaRC(ReasoningCycle agentCycle) {
@@ -96,6 +100,7 @@ public class AortaRC implements ReasoningCycle {
 	 */
 	@FilterField
 	private boolean stopandcheck = false;
+	@FilterField
 	private boolean interrupted = false;
 	
 	@Override
@@ -119,6 +124,9 @@ public class AortaRC implements ReasoningCycle {
 			if (index < nc.size() - 1) {
 				currentstage = nc.get(index + 1);
 			} else {
+				if (ag.lastRCStageChangedAgent()) {
+					stopandcheck = true;
+				}
 				currentstage = og1;
 			}
 		} else if (currentstage instanceof AortaRCStage && og.contains((AortaRCStage) currentstage)) {			
@@ -126,11 +134,15 @@ public class AortaRC implements ReasoningCycle {
 			if (index < og.size() - 1) {
 				currentstage = og.get(index + 1);
 			} else {
-				stopandcheck = true;
+				if (ag.lastRCStageChangedAgent()) {
+					stopandcheck = true;
+				}
 				currentstage = ae;
 			}
-		} else if (currentstage == ae) {			
-			stopandcheck = true;
+		} else if (currentstage == ae) {		
+			if (ag.lastRCStageChangedAgent()) {
+				stopandcheck = true;
+			}
 			currentstage = agentCycle.getStage();
 			aortaDone = true;
 		} else {

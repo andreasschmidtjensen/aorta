@@ -1,0 +1,63 @@
+BEFORE OPTIMIZATION:
+enactment_1: time=00:00:01, new=2, visited=2, backtracked=4, end=0
+enactment_2: time=00:00:02, new=6, visited=8, backtracked=14, end=0
+informed_2: time=00:00:03, new=18, visited=20, backtracked=38, end=0
+enactment_3: time=00:00:09, new=54, visited=108, backtracked=162, end=0
+informed_3: time=00:00:59, new=382, visited=748, backtracked=1130, end=0
+enactment_4: time=00:32:04, new=2132, visited=5979, backtracked=8111, end=0
+informed_4: time=03:14:25, new=49738, visited=139324, backtracked=189062, end=0
+
+AFTER OPTIMIZATION:
+enactment_1: time=00:00:04, new=2, visited=2, backtracked=4, end=0
+enactment_2: time=00:00:04, new=10, visited=12, backtracked=22, end=0
+informed_2: time=00:00:04, new=14, visited=16, backtracked=30, end=0
+enactment_3: time=00:00:15, new=46, visited=92, backtracked=138, end=0
+informed_3: time=00:00:39, new=232, visited=451, backtracked=683, end=0
+enactment_4: time=00:03:19, new=1006, visited=2904, backtracked=3910, end=0
+informed_4: time=00:46:17, new=12872, visited=37083, backtracked=49955, end=0
+enactment_5: time=04:24:37, new=59284, visited=228161, backtracked=287445, end=0
+
+
+NEW:
+enactment_1: time=00:00:03, new=2, visited=2, backtracked=4, end=0, maxDepth=2, constraints hit=0
+enactment_2: time=00:00:03, new=6, visited=6, backtracked=12, end=0, maxDepth=3, constraints hit=0
+informed_2: time=00:00:03, new=4, visited=5, backtracked=9, end=0, maxDepth=3, constraints hit=0
+enactment_3: time=00:00:06, new=10, visited=14, backtracked=24, end=0, maxDepth=4, constraints hit=0
+informed_3: time=00:00:05, new=10, visited=14, backtracked=24, end=0, maxDepth=4, constraints hit=0
+enactment_4: time=00:00:10, new=26, visited=44, backtracked=70, end=0, maxDepth=5, constraints hit=0
+informed_4: time=00:00:11, new=26, visited=44, backtracked=70, end=0, maxDepth=5, constraints hit=0
+enactment_5: time=00:00:26, new=66, visited=138, backtracked=204, end=0, maxDepth=6, constraints hit=0
+informed_5: time=00:00:27, new=66, visited=138, backtracked=204, end=0, maxDepth=6, constraints hit=0
+enactment_6: time=00:01:32, new=162, visited=412, backtracked=574, end=0, maxDepth=7, constraints hit=0
+informed_6: time=00:01:31, new=162, visited=412, backtracked=574, end=0, maxDepth=7, constraints hit=0
+enactment_7: time=00:27:37, new=1458, visited=6562, backtracked=8020, end=0, maxDepth=29, constraints hit=0
+informed_7: time=00:28:29, new=1458, visited=6562, backtracked=8020, end=0, maxDepth=29, constraints hit=0
+enactment_8: time=01:50:34, new=4374, visited=22600, backtracked=26974, end=0, maxDepth=37, constraints hit=0
+informed_9: time=06:38:31, new=13122, visited=76546, backtracked=89668, end=0, maxDepth=46, constraints hit=0
+informed_10: time=26:45:16, new=39366, visited=255880, backtracked=295246, end=0, maxDepth=56, constraints hit=0
+
+informed_6: time=00:08:34, new=486, visited=1864, backtracked=2350, end=0, maxDepth=22, constraints hit=0
+informed_2: time=00:00:06, new=6, visited=8, backtracked=14, end=0, maxDepth=4, constraints hit=0
+informed_3: time=00:00:12, new=18, visited=34, backtracked=52, end=0, maxDepth=7, constraints hit=0
+informed_4: time=00:00:32, new=54, visited=136, backtracked=190, end=0, maxDepth=11, constraints hit=0
+informed_5: time=00:01:53, new=162, visited=514, backtracked=676, end=0, maxDepth=16, constraints hit=0
+
+
+MORE STATES:
+enactment_1: time=00:00:03, new=2, visited=2, backtracked=4, end=0, maxDepth=2, constraints hit=0
+enactment_2: time=00:00:04, new=6, visited=6, backtracked=12, end=0, maxDepth=3, constraints hit=0
+enactment_3: time=00:00:06, new=14, visited=18, backtracked=32, end=0, maxDepth=4, constraints hit=0
+enactment_4: time=00:00:11, new=30, visited=50, backtracked=80, end=0, maxDepth=5, constraints hit=0
+enactment_5: time=00:00:21, new=62, visited=130, backtracked=192, end=0, maxDepth=6, constraints hit=0
+enactment_6: time=00:00:50, new=126, visited=322, backtracked=448, end=0, maxDepth=7, constraints hit=0
+enactment_7: time=00:02:04, new=254, visited=770, backtracked=1024, end=0, maxDepth=8, constraints hit=0
+enactment_8: time=00:05:04, new=510, visited=1794, backtracked=2304, end=0, maxDepth=9, constraints hit=0
+enactment_9: time=00:10:57, new=1022, visited=4098, backtracked=5120, end=0, maxDepth=10, constraints hit=0
+enactment_10: time=00:26:03, new=2046, visited=9218, backtracked=11264, end=0, maxDepth=11, constraints hit=0
+informed_2: time=00:00:06, new=10, visited=12, backtracked=22, end=0, maxDepth=4, constraints hit=0
+informed_3: time=00:00:17, new=38, visited=66, backtracked=104, end=0, maxDepth=7, constraints hit=0
+informed_4: time=00:01:31, new=130, visited=304, backtracked=434, end=0, maxDepth=11, constraints hit=0
+informed_5: time=00:09:33, new=422, visited=1250, backtracked=1672, end=0, maxDepth=16, constraints hit=0
+informed_6: time=00:52:41, new=1330, visited=4784, backtracked=6114, end=0, maxDepth=22, constraints hit=0
+informed_7: time=03:35:15, new=4118, visited=17458, backtracked=21576, end=0, maxDepth=29, constraints hit=0
+informed_8: time=17:31:29, new=12610, visited=61632, backtracked=74242, end=0, maxDepth=37, constraints hit=0

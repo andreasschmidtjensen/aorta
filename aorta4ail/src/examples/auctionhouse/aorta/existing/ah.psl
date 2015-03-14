@@ -1,0 +1,10 @@
+# standard properties
+reg_bob: <>(B(bob, registered(bob)))
+not_ver_bob: [](~B(bob, verified(bob)))
+bid_bob: <>(B(bob, bid_done(bob, lamp)))
+
+# AORTA properties
+enactment: <>Org(bob, rea(bob, buyer))
+mike_informed_enactment: <>Org(bob, rea(mike, manager))
+mike_does_not_verify_bob: [](~Org(mike, viol(mike, manager, forbidden, verified(bob))))
+violation_action: [](Org(bob, viol(bob, buyer, obliged, verified(bob))) -> <>D(mike, remove_from_auction(1,bob)))

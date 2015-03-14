@@ -1,0 +1,48 @@
+GWENDOLEN
+:name: agent1
+:Initial Beliefs:
+:Initial Goals:
+:Plans:
++!registered(Me) [achieve] : { True } <- register(address, account);
+
+:name: agent2
+:Initial Beliefs:
+:Initial Goals:
+:Plans:
++!registered(Me) [achieve] : { True } <- register(address, account);
+
+:name: agent3
+:Initial Beliefs:
+:Initial Goals:
+:Plans:
++!registered(Me) [achieve] : { True } <- register(address, account);
+
+:name: agent4
+:Initial Beliefs:
+:Initial Goals:
+:Plans:
++!registered(Me) [achieve] : { True } <- register(address, account);
+
+:name: agent5
+:Initial Beliefs:
+:Initial Goals:
+:Plans:
++!registered(Me) [achieve] : { True } <- register(address, account);
+
+:name: agent6
+:Initial Beliefs:
+:Initial Goals:
+:Plans:
++!registered(Me) [achieve] : { True } <- register(address, account);
+
+:name: agent7
+:Initial Beliefs:
+:Initial Goals:
+:Plans:
++!registered(Me) [achieve] : { True } <- register(address, account);
+
+:name: agent8
+:Initial Beliefs:
+:Initial Goals:
+:Plans:
++!registered(Me) [achieve] : { True } <- register(address, account);

@@ -1,0 +1,36 @@
+role(customer) : true => enact(customer).
+role(buyer) : bel(me(Me)), goal(bought(Item)), bel(registered(Me)) => enact(buyer).
+role(seller) : bel(me(Me)), goal(sold(Item)), bel(registered(Me)) => enact(seller).
+role(manager) : true => enact(manager).
+
+send(true, tell, rea(Me, Role))
+	: bel(me(Me)), bel(agent(A)), ~bel(me(A)), ~bel(sent(A, org(rea(Me,Role))))
+	=> send(A, org(rea(Me, Role))).
+send(manager, achieve, verified(Me))
+	: bel(me(Me)), org(rea(A, manager)), ~bel(sent(A, opt(obj(verified(Me)))))
+	=> send(A, opt(obj(verified(Me)))).
+send(customer, tell, verified(You))
+	: org(rea(You, customer)), ~bel(sent(You, bel(verified(You))))
+	=> send(You, bel(verified(You))).
+
+obj(verified(Agent))
+	: bel(me(Me)), org(rea(Me,manager)),
+		~org(norm(Me, manager, forbidden, verified(Agent), false))
+	=> commit(verified(Agent)).
+obj(registered(Me))
+	: bel(me(Me)), goal(bought(Item))
+	=> commit(registered(Me)).
+obj(registered(Me))
+	: bel(me(Me)), goal(sold(Item))
+	=> commit(registered(Me)).	
+viol(Me, customer, obliged, paidFor(Item))
+	: bel(me(Me)), bel(want(Item))
+	=> commit(paidFor(Item)).
+viol(Ag, buyer, obliged, verified(Ag))
+	: bel(me(Me)), org(rea(Me, manager)), bel(participates(Ag,Item)) 
+	=> commit(banned(Ag)).
+true 
+	: bel(me(Me)), goal(bought(Item)), bel(auction_created(Ag,Item)),
+		bel(registered(Me)), bel(badInfo(Me)),
+		bel(participates(Me,Item))
+	=> commit(bid_done(Me, Item)).

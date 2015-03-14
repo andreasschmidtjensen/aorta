@@ -1,0 +1,7 @@
+reg_bob: time=00:00:50, new=34, visited=42, backtracked=76, end=0, maxDepth=6, constraints hit=0
+not_ver_bob: time=00:04:43, new=154, visited=166, backtracked=320, end=4, maxDepth=14, constraints hit=0
+bid_bob: time=00:03:27, new=100, visited=127, backtracked=227, end=0, maxDepth=10, constraints hit=0
+enactment: time=00:00:57, new=34, visited=42, backtracked=76, end=0, maxDepth=6, constraints hit=0
+mike_informed_enactment: time=00:00:21, new=12, visited=17, backtracked=29, end=0, maxDepth=7, constraints hit=0
+mike_does_not_verify_bob: time=00:04:10, new=154, visited=166, backtracked=320, end=4, maxDepth=14, constraints hit=0
+violation_action: time=00:04:40, new=154, visited=166, backtracked=320, end=4, maxDepth=14, constraints hit=0

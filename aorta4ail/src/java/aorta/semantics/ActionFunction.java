@@ -5,6 +5,8 @@
  */
 package aorta.semantics;
 
+import ail.mas.DefaultEnvironment;
+import ail.semantics.AILAgent;
 import ail.syntax.Action;
 import ail.syntax.Goal;
 import ail.syntax.Intention;
@@ -132,10 +134,6 @@ public class ActionFunction {
 				Term content = act.getContent();
 				content.apply(unif);
 				
-				Literal om = new Literal("om");
-				om.addTerm(content);
-				act.setTerm(0, om);
-				
 				Literal sent = new Literal("sent");
 				sent.addTerm(act.getReceiver());
 				sent.addTerm(content);
@@ -144,13 +142,22 @@ public class ActionFunction {
 				
 				Message msg = act.getMessage(ag.getAgName());
 				msg.apply(unif);
-				
-				try {
-					ag.getEnv().executeAction(ag.getAgName(), act);
-					return true;
-				} catch (AILexception ex) {
-					ex.printStackTrace(System.err);
-					return false;
+			
+				if (ag.getEnv() instanceof DefaultEnvironment) {
+					DefaultEnvironment env = (DefaultEnvironment)ag.getEnv();				
+					AortaAgent otherAg = (AortaAgent)(env).agentmap.get(act.getReceiver().getFunctor());
+					otherAg.receiveMessage(msg);
+					otherAg.aortaChanged();
+					otherAg.tellawake();
+					env.notifyListeners(otherAg.getAgName());
+				} else {
+					try {
+						ag.getEnv().executeAction(ag.getAgName(), act);
+						return true;
+					} catch (AILexception ex) {
+						ex.printStackTrace(System.err);
+						return false;
+					}
 				}
 			}
 

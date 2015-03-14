@@ -1,0 +1,43 @@
+AORTA:
+enactment: time=00:07:37, new=974, visited=2014, backtracked=2988, end=0
+mike_informed_enactment: time=00:15:32, new=2630, visited=5357, backtracked=7987, end=0
+opt_leadsto_goal: time=00:18:21, new=3673, visited=7588, backtracked=11261, end=0
+commitment: time=00:01:27, new=403, visited=812, backtracked=1215, end=0
+norm_activation: time=00:03:57, new=756, visited=1561, backtracked=2317, end=0
+norm_fulfillment: time=00:25:35, new=4103, visited=8452, backtracked=12555, end=0
+
+GENERAL:
+reg_sally: time=00:03:17, new=756, visited=1561, backtracked=2317, end=0
+reg_carol: time=00:27:32, new=4584, visited=9188, backtracked=13772, end=0
+ver_sally: time=00:20:26, new=4103, visited=8452, backtracked=12555, end=0
+ver_carol: time=00:34:51, new=5057, visited=10086, backtracked=15143, end=0
+auction: time=00:29:32, new=4492, visited=9231, backtracked=13723, end=0
+
+
+OPTIMIZED:
+reg_sally: time=00:01:54, new=160, visited=311, backtracked=471
+reg_carol: time=00:14:39, new=1027, visited=1896, backtracked=2923
+ver_sally: time=00:07:52, new=706, visited=1344, backtracked=2050
+ver_carol: time=00:18:41, new=1229, visited=2258, backtracked=3487
+auction: time=00:15:32, new=1010, visited=1923, backtracked=2933
+enactment: time=00:03:39, new=262, visited=506, backtracked=768
+mike_informed_enactment: time=00:00:48, new=62, visited=124, backtracked=186
+opt_leadsto_goal: time=00:03:02, new=294, visited=558, backtracked=852
+commitment: time=00:00:44, new=74, visited=140, backtracked=214
+norm_activation: time=00:01:57, new=160, visited=311, backtracked=471
+norm_fulfillment: time=00:11:37, new=842, visited=1592, backtracked=2434
+
+ENACT:
+enact_sally1: time=00:00:22, new=22, visited=42, backtracked=64, end=0, maxDepth=7, constraints hit=0
+enact_mike: time=00:00:58, new=62, visited=124, backtracked=186, end=0, maxDepth=11, constraints hit=0
+enact_sally2: time=00:02:35, new=160, visited=311, backtracked=471, end=0, maxDepth=13, constraints hit=0
+enact_carol1: time=00:01:52, new=96, visited=195, backtracked=291, end=0, maxDepth=14, constraints hit=0
+
+
+
+initiative: time=00:07:53, new=294, visited=558, backtracked=852, end=0, maxDepth=14, constraints hit=0
+initiative: time=null, null, null
+initiative: time=00:00:36, new=28, visited=0, backtracked=0, end=1, maxDepth=28, constraints hit=0
+test3: time=00:00:24, new=28, visited=0, backtracked=0, end=1, maxDepth=28, constraints hit=0
+good: time=00:27:14, new=1306, visited=2366, backtracked=3672, end=6, maxDepth=28, constraints hit=0
+good: time=00:33:46, new=1306, visited=2366, backtracked=3672, end=6, maxDepth=28, constraints hit=0

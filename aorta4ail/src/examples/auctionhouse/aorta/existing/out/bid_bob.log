@@ -1,0 +1,1689 @@
+To reproduce:
+ /Users/asj/Dropbox/code/phd/aorta/aorta4ail/src/examples/auctionhouse/aorta/existing> java -Xmx1000m -jar /Users/asj/Dropbox/code/phd/jpf-core/build/runJPF.jar +shell.port=4242 /Users/asj/Dropbox/code/phd/aorta/aorta4ail/src/examples/auctionhouse/aorta/existing/modelchecker.jpf
+----------------------------------- search started
+      [skipping static init instructions]
+JavaPathfinder v7.0 (rev ${version}) - (C) RIACS/NASA Ames Research Center
+
+
+====================================================== system under test
+ail.util.AJPF_w_AIL.main("ah.ail","ah.psl","bid_bob")
+
+====================================================== search started: 05-03-15 09:39
+		 # choice: gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:"<root>" ,1/1,isCascaded:false}
+[INFO] Number: 2
+Incoming: 0,2,
+Old: ~B(bob,bid_done(bob(),lamp())),~T R ~B(bob,bid_done(bob(),lamp())),
+Next: ~T R ~B(bob,bid_done(bob(),lamp())),
+
+		 # garbage collection
+[INFO] Adding 0 to []
+[INFO] Current Path: [0]
+----------------------------------- [1] forward: 0 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 1 to [0]
+[INFO] Current Path: [0, 1]
+----------------------------------- [2] forward: 1 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 2 to [0, 1]
+[INFO] Current Path: [0, 1, 2]
+----------------------------------- [3] forward: 2 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] register(address,account) ************************************
+		 # garbage collection
+[INFO] Adding 3 to [0, 1, 2]
+[INFO] Current Path: [0, 1, 2, 3]
+----------------------------------- [4] forward: 3 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 4 to [0, 1, 2, 3]
+[INFO] Current Path: [0, 1, 2, 3, 4]
+----------------------------------- [5] forward: 4 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 5 to [0, 1, 2, 3, 4]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5]
+----------------------------------- [6] forward: 5 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 6]
+[INFO] Adding 6 to [0, 1, 2, 3, 4, 5, 6]
+[INFO] Always True from Now On
+----------------------------------- [7] forward: 6 visited
+----------------------------------- [6] backtrack: 5
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+		 # garbage collection
+[INFO] Adding 7 to [0, 1, 2, 3, 4, 5]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7]
+----------------------------------- [7] forward: 7 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 8 to [0, 1, 2, 3, 4, 5, 7]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 8]
+----------------------------------- [8] forward: 8 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 8, 9]
+[INFO] Adding 9 to [0, 1, 2, 3, 4, 5, 7, 8, 9]
+[INFO] Always True from Now On
+----------------------------------- [9] forward: 9 visited
+----------------------------------- [8] backtrack: 8
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 10 to [0, 1, 2, 3, 4, 5, 7, 8]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 8, 10]
+----------------------------------- [9] forward: 10 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 8, 10, 11]
+[INFO] Adding 11 to [0, 1, 2, 3, 4, 5, 7, 8, 10, 11]
+[INFO] Always True from Now On
+----------------------------------- [10] forward: 11 visited
+----------------------------------- [9] backtrack: 10
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 12 to [0, 1, 2, 3, 4, 5, 7, 8, 10]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 8, 10, 12]
+----------------------------------- [10] forward: 12 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 8, 10, 12, 13]
+[INFO] Adding 13 to [0, 1, 2, 3, 4, 5, 7, 8, 10, 12, 13]
+[INFO] Always True from Now On
+----------------------------------- [11] forward: 13 visited
+----------------------------------- [10] backtrack: 12
+----------------------------------- [10] done: 12
+----------------------------------- [9] backtrack: 10
+----------------------------------- [9] done: 10
+----------------------------------- [8] backtrack: 8
+----------------------------------- [8] done: 8
+----------------------------------- [7] backtrack: 7
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 14 to [0, 1, 2, 3, 4, 5, 7]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 14]
+----------------------------------- [8] forward: 14 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 15 to [0, 1, 2, 3, 4, 5, 7, 14]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 14, 15]
+----------------------------------- [9] forward: 15 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Adding 11 to [0, 1, 2, 3, 4, 5, 7, 14, 15]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 14, 15, 11]
+----------------------------------- [10] forward: 11 visited
+----------------------------------- [9] backtrack: 15
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 16 to [0, 1, 2, 3, 4, 5, 7, 14, 15]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 14, 15, 16]
+----------------------------------- [10] forward: 16 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+		 # garbage collection
+[INFO] Adding 13 to [0, 1, 2, 3, 4, 5, 7, 14, 15, 16]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 14, 15, 16, 13]
+----------------------------------- [11] forward: 13 visited
+----------------------------------- [10] backtrack: 16
+----------------------------------- [10] done: 16
+----------------------------------- [9] backtrack: 15
+----------------------------------- [9] done: 15
+----------------------------------- [8] backtrack: 14
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 17 to [0, 1, 2, 3, 4, 5, 7, 14]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 14, 17]
+----------------------------------- [9] forward: 17 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 18 to [0, 1, 2, 3, 4, 5, 7, 14, 17]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 14, 17, 18]
+----------------------------------- [10] forward: 18 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 14, 17, 18, 19]
+[INFO] Adding 19 to [0, 1, 2, 3, 4, 5, 7, 14, 17, 18, 19]
+[INFO] Always True from Now On
+----------------------------------- [11] forward: 19 visited
+----------------------------------- [10] backtrack: 18
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 16 to [0, 1, 2, 3, 4, 5, 7, 14, 17, 18]
+[INFO] Current Path: [0, 1, 2, 3, 4, 5, 7, 14, 17, 18, 16]
+----------------------------------- [11] forward: 16 visited
+----------------------------------- [10] backtrack: 18
+----------------------------------- [10] done: 18
+----------------------------------- [9] backtrack: 17
+----------------------------------- [9] done: 17
+----------------------------------- [8] backtrack: 14
+----------------------------------- [8] done: 14
+----------------------------------- [7] backtrack: 7
+----------------------------------- [7] done: 7
+----------------------------------- [6] backtrack: 5
+----------------------------------- [6] done: 5
+----------------------------------- [5] backtrack: 4
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+		 # garbage collection
+[INFO] Adding 20 to [0, 1, 2, 3, 4]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20]
+----------------------------------- [6] forward: 20 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] enter_auction(1) ************************************
+		 # garbage collection
+[INFO] Adding 21 to [0, 1, 2, 3, 4, 20]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21]
+----------------------------------- [7] forward: 21 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 22 to [0, 1, 2, 3, 4, 20, 21]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21, 22]
+----------------------------------- [8] forward: 22 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21, 22, 23]
+[INFO] Adding 23 to [0, 1, 2, 3, 4, 20, 21, 22, 23]
+[INFO] Always True from Now On
+----------------------------------- [9] forward: 23 visited
+----------------------------------- [8] backtrack: 22
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 24 to [0, 1, 2, 3, 4, 20, 21, 22]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21, 22, 24]
+----------------------------------- [9] forward: 24 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21, 22, 24, 25]
+[INFO] Adding 25 to [0, 1, 2, 3, 4, 20, 21, 22, 24, 25]
+[INFO] Always True from Now On
+----------------------------------- [10] forward: 25 visited
+----------------------------------- [9] backtrack: 24
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 26 to [0, 1, 2, 3, 4, 20, 21, 22, 24]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21, 22, 24, 26]
+----------------------------------- [10] forward: 26 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+		 # garbage collection
+[INFO] Adding 13 to [0, 1, 2, 3, 4, 20, 21, 22, 24, 26]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21, 22, 24, 26, 13]
+----------------------------------- [11] forward: 13 visited
+----------------------------------- [10] backtrack: 26
+----------------------------------- [10] done: 26
+----------------------------------- [9] backtrack: 24
+----------------------------------- [9] done: 24
+----------------------------------- [8] backtrack: 22
+----------------------------------- [8] done: 22
+----------------------------------- [7] backtrack: 21
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 27 to [0, 1, 2, 3, 4, 20, 21]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21, 27]
+----------------------------------- [8] forward: 27 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+******************************* [bob] bid(1) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 28 to [0, 1, 2, 3, 4, 20, 21, 27]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21, 27, 28]
+----------------------------------- [9] forward: 28 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21, 27, 28, 29]
+[INFO] Adding 29 to [0, 1, 2, 3, 4, 20, 21, 27, 28, 29]
+[INFO] Always True from Now On
+----------------------------------- [10] forward: 29 visited
+----------------------------------- [9] backtrack: 28
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 24 to [0, 1, 2, 3, 4, 20, 21, 27, 28]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 21, 27, 28, 24]
+----------------------------------- [10] forward: 24 visited
+----------------------------------- [9] backtrack: 28
+----------------------------------- [9] done: 28
+----------------------------------- [8] backtrack: 27
+----------------------------------- [8] done: 27
+----------------------------------- [7] backtrack: 21
+----------------------------------- [7] done: 21
+----------------------------------- [6] backtrack: 20
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 30 to [0, 1, 2, 3, 4, 20]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 30]
+----------------------------------- [7] forward: 30 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+******************************* [bob] enter_auction(1) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 31 to [0, 1, 2, 3, 4, 20, 30]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 30, 31]
+----------------------------------- [8] forward: 31 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 32 to [0, 1, 2, 3, 4, 20, 30, 31]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 30, 31, 32]
+----------------------------------- [9] forward: 32 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 30, 31, 32, 33]
+[INFO] Adding 33 to [0, 1, 2, 3, 4, 20, 30, 31, 32, 33]
+[INFO] Always True from Now On
+----------------------------------- [10] forward: 33 visited
+----------------------------------- [9] backtrack: 32
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 24 to [0, 1, 2, 3, 4, 20, 30, 31, 32]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 30, 31, 32, 24]
+----------------------------------- [10] forward: 24 visited
+----------------------------------- [9] backtrack: 32
+----------------------------------- [9] done: 32
+----------------------------------- [8] backtrack: 31
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 27 to [0, 1, 2, 3, 4, 20, 30, 31]
+[INFO] Current Path: [0, 1, 2, 3, 4, 20, 30, 31, 27]
+----------------------------------- [9] forward: 27 visited
+----------------------------------- [8] backtrack: 31
+----------------------------------- [8] done: 31
+----------------------------------- [7] backtrack: 30
+----------------------------------- [7] done: 30
+----------------------------------- [6] backtrack: 20
+----------------------------------- [6] done: 20
+----------------------------------- [5] backtrack: 4
+----------------------------------- [5] done: 4
+----------------------------------- [4] backtrack: 3
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+		 # garbage collection
+[INFO] Adding 34 to [0, 1, 2, 3]
+[INFO] Current Path: [0, 1, 2, 3, 34]
+----------------------------------- [5] forward: 34 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 35 to [0, 1, 2, 3, 34]
+[INFO] Current Path: [0, 1, 2, 3, 34, 35]
+----------------------------------- [6] forward: 35 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 22 to [0, 1, 2, 3, 34, 35]
+[INFO] Current Path: [0, 1, 2, 3, 34, 35, 22]
+----------------------------------- [7] forward: 22 visited
+----------------------------------- [6] backtrack: 35
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 36 to [0, 1, 2, 3, 34, 35]
+[INFO] Current Path: [0, 1, 2, 3, 34, 35, 36]
+----------------------------------- [7] forward: 36 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 32 to [0, 1, 2, 3, 34, 35, 36]
+[INFO] Current Path: [0, 1, 2, 3, 34, 35, 36, 32]
+----------------------------------- [8] forward: 32 visited
+----------------------------------- [7] backtrack: 36
+----------------------------------- [7] done: 36
+----------------------------------- [6] backtrack: 35
+----------------------------------- [6] done: 35
+----------------------------------- [5] backtrack: 34
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 37 to [0, 1, 2, 3, 34]
+[INFO] Current Path: [0, 1, 2, 3, 34, 37]
+----------------------------------- [6] forward: 37 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 38 to [0, 1, 2, 3, 34, 37]
+[INFO] Current Path: [0, 1, 2, 3, 34, 37, 38]
+----------------------------------- [7] forward: 38 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 39 to [0, 1, 2, 3, 34, 37, 38]
+[INFO] Current Path: [0, 1, 2, 3, 34, 37, 38, 39]
+----------------------------------- [8] forward: 39 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 3, 34, 37, 38, 39, 40]
+[INFO] Adding 40 to [0, 1, 2, 3, 34, 37, 38, 39, 40]
+[INFO] Always True from Now On
+----------------------------------- [9] forward: 40 visited
+----------------------------------- [8] backtrack: 39
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 24 to [0, 1, 2, 3, 34, 37, 38, 39]
+[INFO] Current Path: [0, 1, 2, 3, 34, 37, 38, 39, 24]
+----------------------------------- [9] forward: 24 visited
+----------------------------------- [8] backtrack: 39
+----------------------------------- [8] done: 39
+----------------------------------- [7] backtrack: 38
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 36 to [0, 1, 2, 3, 34, 37, 38]
+[INFO] Current Path: [0, 1, 2, 3, 34, 37, 38, 36]
+----------------------------------- [8] forward: 36 visited
+----------------------------------- [7] backtrack: 38
+----------------------------------- [7] done: 38
+----------------------------------- [6] backtrack: 37
+----------------------------------- [6] done: 37
+----------------------------------- [5] backtrack: 34
+----------------------------------- [5] done: 34
+----------------------------------- [4] backtrack: 3
+----------------------------------- [4] done: 3
+----------------------------------- [3] backtrack: 2
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+		 # garbage collection
+[INFO] Adding 41 to [0, 1, 2]
+[INFO] Current Path: [0, 1, 2, 41]
+----------------------------------- [4] forward: 41 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] register(address,account) ************************************
+		 # garbage collection
+[INFO] Adding 42 to [0, 1, 2, 41]
+[INFO] Current Path: [0, 1, 2, 41, 42]
+----------------------------------- [5] forward: 42 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 43 to [0, 1, 2, 41, 42]
+[INFO] Current Path: [0, 1, 2, 41, 42, 43]
+----------------------------------- [6] forward: 43 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 44 to [0, 1, 2, 41, 42, 43]
+[INFO] Current Path: [0, 1, 2, 41, 42, 43, 44]
+----------------------------------- [7] forward: 44 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 41, 42, 43, 44, 45]
+[INFO] Adding 45 to [0, 1, 2, 41, 42, 43, 44, 45]
+[INFO] Always True from Now On
+----------------------------------- [8] forward: 45 visited
+----------------------------------- [7] backtrack: 44
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 24 to [0, 1, 2, 41, 42, 43, 44]
+[INFO] Current Path: [0, 1, 2, 41, 42, 43, 44, 24]
+----------------------------------- [8] forward: 24 visited
+----------------------------------- [7] backtrack: 44
+----------------------------------- [7] done: 44
+----------------------------------- [6] backtrack: 43
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 36 to [0, 1, 2, 41, 42, 43]
+[INFO] Current Path: [0, 1, 2, 41, 42, 43, 36]
+----------------------------------- [7] forward: 36 visited
+----------------------------------- [6] backtrack: 43
+----------------------------------- [6] done: 43
+----------------------------------- [5] backtrack: 42
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 46 to [0, 1, 2, 41, 42]
+[INFO] Current Path: [0, 1, 2, 41, 42, 46]
+----------------------------------- [6] forward: 46 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 38 to [0, 1, 2, 41, 42, 46]
+[INFO] Current Path: [0, 1, 2, 41, 42, 46, 38]
+----------------------------------- [7] forward: 38 visited
+----------------------------------- [6] backtrack: 46
+----------------------------------- [6] done: 46
+----------------------------------- [5] backtrack: 42
+----------------------------------- [5] done: 42
+----------------------------------- [4] backtrack: 41
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 47 to [0, 1, 2, 41]
+[INFO] Current Path: [0, 1, 2, 41, 47]
+----------------------------------- [5] forward: 47 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+******************************* [bob] register(address,account) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 48 to [0, 1, 2, 41, 47]
+[INFO] Current Path: [0, 1, 2, 41, 47, 48]
+----------------------------------- [6] forward: 48 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 49 to [0, 1, 2, 41, 47, 48]
+[INFO] Current Path: [0, 1, 2, 41, 47, 48, 49]
+----------------------------------- [7] forward: 49 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 50 to [0, 1, 2, 41, 47, 48, 49]
+[INFO] Current Path: [0, 1, 2, 41, 47, 48, 49, 50]
+----------------------------------- [8] forward: 50 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 2, 41, 47, 48, 49, 50, 51]
+[INFO] Adding 51 to [0, 1, 2, 41, 47, 48, 49, 50, 51]
+[INFO] Always True from Now On
+----------------------------------- [9] forward: 51 visited
+----------------------------------- [8] backtrack: 50
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 24 to [0, 1, 2, 41, 47, 48, 49, 50]
+[INFO] Current Path: [0, 1, 2, 41, 47, 48, 49, 50, 24]
+----------------------------------- [9] forward: 24 visited
+----------------------------------- [8] backtrack: 50
+----------------------------------- [8] done: 50
+----------------------------------- [7] backtrack: 49
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 36 to [0, 1, 2, 41, 47, 48, 49]
+[INFO] Current Path: [0, 1, 2, 41, 47, 48, 49, 36]
+----------------------------------- [8] forward: 36 visited
+----------------------------------- [7] backtrack: 49
+----------------------------------- [7] done: 49
+----------------------------------- [6] backtrack: 48
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 46 to [0, 1, 2, 41, 47, 48]
+[INFO] Current Path: [0, 1, 2, 41, 47, 48, 46]
+----------------------------------- [7] forward: 46 visited
+----------------------------------- [6] backtrack: 48
+----------------------------------- [6] done: 48
+----------------------------------- [5] backtrack: 47
+----------------------------------- [5] done: 47
+----------------------------------- [4] backtrack: 41
+----------------------------------- [4] done: 41
+----------------------------------- [3] backtrack: 2
+----------------------------------- [3] done: 2
+----------------------------------- [2] backtrack: 1
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+		 # garbage collection
+[INFO] Adding 52 to [0, 1]
+[INFO] Current Path: [0, 1, 52]
+----------------------------------- [3] forward: 52 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 53 to [0, 1, 52]
+[INFO] Current Path: [0, 1, 52, 53]
+----------------------------------- [4] forward: 53 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] register(address,account) ************************************
+		 # garbage collection
+[INFO] Adding 54 to [0, 1, 52, 53]
+[INFO] Current Path: [0, 1, 52, 53, 54]
+----------------------------------- [5] forward: 54 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 55 to [0, 1, 52, 53, 54]
+[INFO] Current Path: [0, 1, 52, 53, 54, 55]
+----------------------------------- [6] forward: 55 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 56 to [0, 1, 52, 53, 54, 55]
+[INFO] Current Path: [0, 1, 52, 53, 54, 55, 56]
+----------------------------------- [7] forward: 56 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 52, 53, 54, 55, 56, 57]
+[INFO] Adding 57 to [0, 1, 52, 53, 54, 55, 56, 57]
+[INFO] Always True from Now On
+----------------------------------- [8] forward: 57 visited
+----------------------------------- [7] backtrack: 56
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 24 to [0, 1, 52, 53, 54, 55, 56]
+[INFO] Current Path: [0, 1, 52, 53, 54, 55, 56, 24]
+----------------------------------- [8] forward: 24 visited
+----------------------------------- [7] backtrack: 56
+----------------------------------- [7] done: 56
+----------------------------------- [6] backtrack: 55
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 36 to [0, 1, 52, 53, 54, 55]
+[INFO] Current Path: [0, 1, 52, 53, 54, 55, 36]
+----------------------------------- [7] forward: 36 visited
+----------------------------------- [6] backtrack: 55
+----------------------------------- [6] done: 55
+----------------------------------- [5] backtrack: 54
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 46 to [0, 1, 52, 53, 54]
+[INFO] Current Path: [0, 1, 52, 53, 54, 46]
+----------------------------------- [6] forward: 46 visited
+----------------------------------- [5] backtrack: 54
+----------------------------------- [5] done: 54
+----------------------------------- [4] backtrack: 53
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 58 to [0, 1, 52, 53]
+[INFO] Current Path: [0, 1, 52, 53, 58]
+----------------------------------- [5] forward: 58 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+******************************* [bob] register(address,account) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 48 to [0, 1, 52, 53, 58]
+[INFO] Current Path: [0, 1, 52, 53, 58, 48]
+----------------------------------- [6] forward: 48 visited
+----------------------------------- [5] backtrack: 58
+----------------------------------- [5] done: 58
+----------------------------------- [4] backtrack: 53
+----------------------------------- [4] done: 53
+----------------------------------- [3] backtrack: 52
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 59 to [0, 1, 52]
+[INFO] Current Path: [0, 1, 52, 59]
+----------------------------------- [4] forward: 59 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0]
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 60 to [0, 1, 52, 59]
+[INFO] Current Path: [0, 1, 52, 59, 60]
+----------------------------------- [5] forward: 60 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] register(address,account) ************************************
+		 # garbage collection
+[INFO] Adding 61 to [0, 1, 52, 59, 60]
+[INFO] Current Path: [0, 1, 52, 59, 60, 61]
+----------------------------------- [6] forward: 61 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 62 to [0, 1, 52, 59, 60, 61]
+[INFO] Current Path: [0, 1, 52, 59, 60, 61, 62]
+----------------------------------- [7] forward: 62 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 63 to [0, 1, 52, 59, 60, 61, 62]
+[INFO] Current Path: [0, 1, 52, 59, 60, 61, 62, 63]
+----------------------------------- [8] forward: 63 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 1, 52, 59, 60, 61, 62, 63, 64]
+[INFO] Adding 64 to [0, 1, 52, 59, 60, 61, 62, 63, 64]
+[INFO] Always True from Now On
+----------------------------------- [9] forward: 64 visited
+----------------------------------- [8] backtrack: 63
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 24 to [0, 1, 52, 59, 60, 61, 62, 63]
+[INFO] Current Path: [0, 1, 52, 59, 60, 61, 62, 63, 24]
+----------------------------------- [9] forward: 24 visited
+----------------------------------- [8] backtrack: 63
+----------------------------------- [8] done: 63
+----------------------------------- [7] backtrack: 62
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 36 to [0, 1, 52, 59, 60, 61, 62]
+[INFO] Current Path: [0, 1, 52, 59, 60, 61, 62, 36]
+----------------------------------- [8] forward: 36 visited
+----------------------------------- [7] backtrack: 62
+----------------------------------- [7] done: 62
+----------------------------------- [6] backtrack: 61
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 46 to [0, 1, 52, 59, 60, 61]
+[INFO] Current Path: [0, 1, 52, 59, 60, 61, 46]
+----------------------------------- [7] forward: 46 visited
+----------------------------------- [6] backtrack: 61
+----------------------------------- [6] done: 61
+----------------------------------- [5] backtrack: 60
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 58 to [0, 1, 52, 59, 60]
+[INFO] Current Path: [0, 1, 52, 59, 60, 58]
+----------------------------------- [6] forward: 58 visited
+----------------------------------- [5] backtrack: 60
+----------------------------------- [5] done: 60
+----------------------------------- [4] backtrack: 59
+----------------------------------- [4] done: 59
+----------------------------------- [3] backtrack: 52
+----------------------------------- [3] done: 52
+----------------------------------- [2] backtrack: 1
+----------------------------------- [2] done: 1
+----------------------------------- [1] backtrack: 0
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+		 # garbage collection
+[INFO] Adding 65 to [0]
+[INFO] Current Path: [0, 65]
+----------------------------------- [2] forward: 65 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 2 to [0, 65]
+[INFO] Current Path: [0, 65, 2]
+----------------------------------- [3] forward: 2 visited
+----------------------------------- [2] backtrack: 65
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] register(address,account) ************************************
+		 # garbage collection
+[INFO] Adding 66 to [0, 65]
+[INFO] Current Path: [0, 65, 66]
+----------------------------------- [3] forward: 66 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 3 to [0, 65, 66]
+[INFO] Current Path: [0, 65, 66, 3]
+----------------------------------- [4] forward: 3 visited
+----------------------------------- [3] backtrack: 66
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+		 # garbage collection
+[INFO] Adding 67 to [0, 65, 66]
+[INFO] Current Path: [0, 65, 66, 67]
+----------------------------------- [4] forward: 67 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 4 to [0, 65, 66, 67]
+[INFO] Current Path: [0, 65, 66, 67, 4]
+----------------------------------- [5] forward: 4 visited
+----------------------------------- [4] backtrack: 67
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 68 to [0, 65, 66, 67]
+[INFO] Current Path: [0, 65, 66, 67, 68]
+----------------------------------- [5] forward: 68 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 5 to [0, 65, 66, 67, 68]
+[INFO] Current Path: [0, 65, 66, 67, 68, 5]
+----------------------------------- [6] forward: 5 visited
+----------------------------------- [5] backtrack: 68
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 66, 67, 68, 69]
+[INFO] Adding 69 to [0, 65, 66, 67, 68, 69]
+[INFO] Always True from Now On
+----------------------------------- [6] forward: 69 visited
+----------------------------------- [5] backtrack: 68
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+		 # garbage collection
+[INFO] Adding 70 to [0, 65, 66, 67, 68]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70]
+----------------------------------- [6] forward: 70 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 7 to [0, 65, 66, 67, 68, 70]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 7]
+----------------------------------- [7] forward: 7 visited
+----------------------------------- [6] backtrack: 70
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+		 # garbage collection
+[INFO] Adding 71 to [0, 65, 66, 67, 68, 70]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 71]
+----------------------------------- [7] forward: 71 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 8 to [0, 65, 66, 67, 68, 70, 71]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 71, 8]
+----------------------------------- [8] forward: 8 visited
+----------------------------------- [7] backtrack: 71
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 71, 72]
+[INFO] Adding 72 to [0, 65, 66, 67, 68, 70, 71, 72]
+[INFO] Always True from Now On
+----------------------------------- [8] forward: 72 visited
+----------------------------------- [7] backtrack: 71
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 73 to [0, 65, 66, 67, 68, 70, 71]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 71, 73]
+----------------------------------- [8] forward: 73 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 10 to [0, 65, 66, 67, 68, 70, 71, 73]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 71, 73, 10]
+----------------------------------- [9] forward: 10 visited
+----------------------------------- [8] backtrack: 73
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 71, 73, 74]
+[INFO] Adding 74 to [0, 65, 66, 67, 68, 70, 71, 73, 74]
+[INFO] Always True from Now On
+----------------------------------- [9] forward: 74 visited
+----------------------------------- [8] backtrack: 73
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 75 to [0, 65, 66, 67, 68, 70, 71, 73]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 71, 73, 75]
+----------------------------------- [9] forward: 75 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 12 to [0, 65, 66, 67, 68, 70, 71, 73, 75]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 71, 73, 75, 12]
+----------------------------------- [10] forward: 12 visited
+----------------------------------- [9] backtrack: 75
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+		 # garbage collection
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 71, 73, 75, 76]
+[INFO] Adding 76 to [0, 65, 66, 67, 68, 70, 71, 73, 75, 76]
+[INFO] Always True from Now On
+----------------------------------- [10] forward: 76 visited
+----------------------------------- [9] backtrack: 75
+----------------------------------- [9] done: 75
+----------------------------------- [8] backtrack: 73
+----------------------------------- [8] done: 73
+----------------------------------- [7] backtrack: 71
+----------------------------------- [7] done: 71
+----------------------------------- [6] backtrack: 70
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 77 to [0, 65, 66, 67, 68, 70]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77]
+----------------------------------- [7] forward: 77 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 14 to [0, 65, 66, 67, 68, 70, 77]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 14]
+----------------------------------- [8] forward: 14 visited
+----------------------------------- [7] backtrack: 77
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+		 # garbage collection
+[INFO] Adding 78 to [0, 65, 66, 67, 68, 70, 77]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 78]
+----------------------------------- [8] forward: 78 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 15 to [0, 65, 66, 67, 68, 70, 77, 78]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 78, 15]
+----------------------------------- [9] forward: 15 visited
+----------------------------------- [8] backtrack: 78
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Adding 74 to [0, 65, 66, 67, 68, 70, 77, 78]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 78, 74]
+----------------------------------- [9] forward: 74 visited
+----------------------------------- [8] backtrack: 78
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 79 to [0, 65, 66, 67, 68, 70, 77, 78]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 78, 79]
+----------------------------------- [9] forward: 79 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 16 to [0, 65, 66, 67, 68, 70, 77, 78, 79]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 78, 79, 16]
+----------------------------------- [10] forward: 16 visited
+----------------------------------- [9] backtrack: 79
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+		 # garbage collection
+[INFO] Adding 76 to [0, 65, 66, 67, 68, 70, 77, 78, 79]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 78, 79, 76]
+----------------------------------- [10] forward: 76 visited
+----------------------------------- [9] backtrack: 79
+----------------------------------- [9] done: 79
+----------------------------------- [8] backtrack: 78
+----------------------------------- [8] done: 78
+----------------------------------- [7] backtrack: 77
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 80 to [0, 65, 66, 67, 68, 70, 77]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 80]
+----------------------------------- [8] forward: 80 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 17 to [0, 65, 66, 67, 68, 70, 77, 80]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 80, 17]
+----------------------------------- [9] forward: 17 visited
+----------------------------------- [8] backtrack: 80
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 81 to [0, 65, 66, 67, 68, 70, 77, 80]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 80, 81]
+----------------------------------- [9] forward: 81 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 18 to [0, 65, 66, 67, 68, 70, 77, 80, 81]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 80, 81, 18]
+----------------------------------- [10] forward: 18 visited
+----------------------------------- [9] backtrack: 81
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 80, 81, 82]
+[INFO] Adding 82 to [0, 65, 66, 67, 68, 70, 77, 80, 81, 82]
+[INFO] Always True from Now On
+----------------------------------- [10] forward: 82 visited
+----------------------------------- [9] backtrack: 81
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 79 to [0, 65, 66, 67, 68, 70, 77, 80, 81]
+[INFO] Current Path: [0, 65, 66, 67, 68, 70, 77, 80, 81, 79]
+----------------------------------- [10] forward: 79 visited
+----------------------------------- [9] backtrack: 81
+----------------------------------- [9] done: 81
+----------------------------------- [8] backtrack: 80
+----------------------------------- [8] done: 80
+----------------------------------- [7] backtrack: 77
+----------------------------------- [7] done: 77
+----------------------------------- [6] backtrack: 70
+----------------------------------- [6] done: 70
+----------------------------------- [5] backtrack: 68
+----------------------------------- [5] done: 68
+----------------------------------- [4] backtrack: 67
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+		 # garbage collection
+[INFO] Adding 83 to [0, 65, 66, 67]
+[INFO] Current Path: [0, 65, 66, 67, 83]
+----------------------------------- [5] forward: 83 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 20 to [0, 65, 66, 67, 83]
+[INFO] Current Path: [0, 65, 66, 67, 83, 20]
+----------------------------------- [6] forward: 20 visited
+----------------------------------- [5] backtrack: 83
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] enter_auction(1) ************************************
+		 # garbage collection
+[INFO] Adding 84 to [0, 65, 66, 67, 83]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84]
+----------------------------------- [6] forward: 84 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 21 to [0, 65, 66, 67, 83, 84]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 21]
+----------------------------------- [7] forward: 21 visited
+----------------------------------- [6] backtrack: 84
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 85 to [0, 65, 66, 67, 83, 84]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 85]
+----------------------------------- [7] forward: 85 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 22 to [0, 65, 66, 67, 83, 84, 85]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 85, 22]
+----------------------------------- [8] forward: 22 visited
+----------------------------------- [7] backtrack: 85
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 85, 86]
+[INFO] Adding 86 to [0, 65, 66, 67, 83, 84, 85, 86]
+[INFO] Always True from Now On
+----------------------------------- [8] forward: 86 visited
+----------------------------------- [7] backtrack: 85
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 87 to [0, 65, 66, 67, 83, 84, 85]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 85, 87]
+----------------------------------- [8] forward: 87 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 24 to [0, 65, 66, 67, 83, 84, 85, 87]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 85, 87, 24]
+----------------------------------- [9] forward: 24 visited
+----------------------------------- [8] backtrack: 87
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 85, 87, 88]
+[INFO] Adding 88 to [0, 65, 66, 67, 83, 84, 85, 87, 88]
+[INFO] Always True from Now On
+----------------------------------- [9] forward: 88 visited
+----------------------------------- [8] backtrack: 87
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 89 to [0, 65, 66, 67, 83, 84, 85, 87]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 85, 87, 89]
+----------------------------------- [9] forward: 89 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 26 to [0, 65, 66, 67, 83, 84, 85, 87, 89]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 85, 87, 89, 26]
+----------------------------------- [10] forward: 26 visited
+----------------------------------- [9] backtrack: 89
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+		 # garbage collection
+[INFO] Adding 76 to [0, 65, 66, 67, 83, 84, 85, 87, 89]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 85, 87, 89, 76]
+----------------------------------- [10] forward: 76 visited
+----------------------------------- [9] backtrack: 89
+----------------------------------- [9] done: 89
+----------------------------------- [8] backtrack: 87
+----------------------------------- [8] done: 87
+----------------------------------- [7] backtrack: 85
+----------------------------------- [7] done: 85
+----------------------------------- [6] backtrack: 84
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 90 to [0, 65, 66, 67, 83, 84]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 90]
+----------------------------------- [7] forward: 90 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 27 to [0, 65, 66, 67, 83, 84, 90]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 90, 27]
+----------------------------------- [8] forward: 27 visited
+----------------------------------- [7] backtrack: 90
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [bob] bid(1) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 91 to [0, 65, 66, 67, 83, 84, 90]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 90, 91]
+----------------------------------- [8] forward: 91 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 28 to [0, 65, 66, 67, 83, 84, 90, 91]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 90, 91, 28]
+----------------------------------- [9] forward: 28 visited
+----------------------------------- [8] backtrack: 91
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 90, 91, 92]
+[INFO] Adding 92 to [0, 65, 66, 67, 83, 84, 90, 91, 92]
+[INFO] Always True from Now On
+----------------------------------- [9] forward: 92 visited
+----------------------------------- [8] backtrack: 91
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 87 to [0, 65, 66, 67, 83, 84, 90, 91]
+[INFO] Current Path: [0, 65, 66, 67, 83, 84, 90, 91, 87]
+----------------------------------- [9] forward: 87 visited
+----------------------------------- [8] backtrack: 91
+----------------------------------- [8] done: 91
+----------------------------------- [7] backtrack: 90
+----------------------------------- [7] done: 90
+----------------------------------- [6] backtrack: 84
+----------------------------------- [6] done: 84
+----------------------------------- [5] backtrack: 83
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 93 to [0, 65, 66, 67, 83]
+[INFO] Current Path: [0, 65, 66, 67, 83, 93]
+----------------------------------- [6] forward: 93 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 30 to [0, 65, 66, 67, 83, 93]
+[INFO] Current Path: [0, 65, 66, 67, 83, 93, 30]
+----------------------------------- [7] forward: 30 visited
+----------------------------------- [6] backtrack: 93
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [bob] enter_auction(1) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 94 to [0, 65, 66, 67, 83, 93]
+[INFO] Current Path: [0, 65, 66, 67, 83, 93, 94]
+----------------------------------- [7] forward: 94 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 31 to [0, 65, 66, 67, 83, 93, 94]
+[INFO] Current Path: [0, 65, 66, 67, 83, 93, 94, 31]
+----------------------------------- [8] forward: 31 visited
+----------------------------------- [7] backtrack: 94
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 95 to [0, 65, 66, 67, 83, 93, 94]
+[INFO] Current Path: [0, 65, 66, 67, 83, 93, 94, 95]
+----------------------------------- [8] forward: 95 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 32 to [0, 65, 66, 67, 83, 93, 94, 95]
+[INFO] Current Path: [0, 65, 66, 67, 83, 93, 94, 95, 32]
+----------------------------------- [9] forward: 32 visited
+----------------------------------- [8] backtrack: 95
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 66, 67, 83, 93, 94, 95, 96]
+[INFO] Adding 96 to [0, 65, 66, 67, 83, 93, 94, 95, 96]
+[INFO] Always True from Now On
+----------------------------------- [9] forward: 96 visited
+----------------------------------- [8] backtrack: 95
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 87 to [0, 65, 66, 67, 83, 93, 94, 95]
+[INFO] Current Path: [0, 65, 66, 67, 83, 93, 94, 95, 87]
+----------------------------------- [9] forward: 87 visited
+----------------------------------- [8] backtrack: 95
+----------------------------------- [8] done: 95
+----------------------------------- [7] backtrack: 94
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 90 to [0, 65, 66, 67, 83, 93, 94]
+[INFO] Current Path: [0, 65, 66, 67, 83, 93, 94, 90]
+----------------------------------- [8] forward: 90 visited
+----------------------------------- [7] backtrack: 94
+----------------------------------- [7] done: 94
+----------------------------------- [6] backtrack: 93
+----------------------------------- [6] done: 93
+----------------------------------- [5] backtrack: 83
+----------------------------------- [5] done: 83
+----------------------------------- [4] backtrack: 67
+----------------------------------- [4] done: 67
+----------------------------------- [3] backtrack: 66
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+		 # garbage collection
+[INFO] Adding 97 to [0, 65, 66]
+[INFO] Current Path: [0, 65, 66, 97]
+----------------------------------- [4] forward: 97 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 34 to [0, 65, 66, 97]
+[INFO] Current Path: [0, 65, 66, 97, 34]
+----------------------------------- [5] forward: 34 visited
+----------------------------------- [4] backtrack: 97
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+		 # garbage collection
+[INFO] Adding 98 to [0, 65, 66, 97]
+[INFO] Current Path: [0, 65, 66, 97, 98]
+----------------------------------- [5] forward: 98 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 35 to [0, 65, 66, 97, 98]
+[INFO] Current Path: [0, 65, 66, 97, 98, 35]
+----------------------------------- [6] forward: 35 visited
+----------------------------------- [5] backtrack: 98
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 85 to [0, 65, 66, 97, 98]
+[INFO] Current Path: [0, 65, 66, 97, 98, 85]
+----------------------------------- [6] forward: 85 visited
+----------------------------------- [5] backtrack: 98
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 99 to [0, 65, 66, 97, 98]
+[INFO] Current Path: [0, 65, 66, 97, 98, 99]
+----------------------------------- [6] forward: 99 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 36 to [0, 65, 66, 97, 98, 99]
+[INFO] Current Path: [0, 65, 66, 97, 98, 99, 36]
+----------------------------------- [7] forward: 36 visited
+----------------------------------- [6] backtrack: 99
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 95 to [0, 65, 66, 97, 98, 99]
+[INFO] Current Path: [0, 65, 66, 97, 98, 99, 95]
+----------------------------------- [7] forward: 95 visited
+----------------------------------- [6] backtrack: 99
+----------------------------------- [6] done: 99
+----------------------------------- [5] backtrack: 98
+----------------------------------- [5] done: 98
+----------------------------------- [4] backtrack: 97
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 100 to [0, 65, 66, 97]
+[INFO] Current Path: [0, 65, 66, 97, 100]
+----------------------------------- [5] forward: 100 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 37 to [0, 65, 66, 97, 100]
+[INFO] Current Path: [0, 65, 66, 97, 100, 37]
+----------------------------------- [6] forward: 37 visited
+----------------------------------- [5] backtrack: 100
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 101 to [0, 65, 66, 97, 100]
+[INFO] Current Path: [0, 65, 66, 97, 100, 101]
+----------------------------------- [6] forward: 101 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 38 to [0, 65, 66, 97, 100, 101]
+[INFO] Current Path: [0, 65, 66, 97, 100, 101, 38]
+----------------------------------- [7] forward: 38 visited
+----------------------------------- [6] backtrack: 101
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 102 to [0, 65, 66, 97, 100, 101]
+[INFO] Current Path: [0, 65, 66, 97, 100, 101, 102]
+----------------------------------- [7] forward: 102 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 39 to [0, 65, 66, 97, 100, 101, 102]
+[INFO] Current Path: [0, 65, 66, 97, 100, 101, 102, 39]
+----------------------------------- [8] forward: 39 visited
+----------------------------------- [7] backtrack: 102
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 66, 97, 100, 101, 102, 103]
+[INFO] Adding 103 to [0, 65, 66, 97, 100, 101, 102, 103]
+[INFO] Always True from Now On
+----------------------------------- [8] forward: 103 visited
+----------------------------------- [7] backtrack: 102
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 87 to [0, 65, 66, 97, 100, 101, 102]
+[INFO] Current Path: [0, 65, 66, 97, 100, 101, 102, 87]
+----------------------------------- [8] forward: 87 visited
+----------------------------------- [7] backtrack: 102
+----------------------------------- [7] done: 102
+----------------------------------- [6] backtrack: 101
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 99 to [0, 65, 66, 97, 100, 101]
+[INFO] Current Path: [0, 65, 66, 97, 100, 101, 99]
+----------------------------------- [7] forward: 99 visited
+----------------------------------- [6] backtrack: 101
+----------------------------------- [6] done: 101
+----------------------------------- [5] backtrack: 100
+----------------------------------- [5] done: 100
+----------------------------------- [4] backtrack: 97
+----------------------------------- [4] done: 97
+----------------------------------- [3] backtrack: 66
+----------------------------------- [3] done: 66
+----------------------------------- [2] backtrack: 65
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+		 # garbage collection
+[INFO] Adding 104 to [0, 65]
+[INFO] Current Path: [0, 65, 104]
+----------------------------------- [3] forward: 104 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 41 to [0, 65, 104]
+[INFO] Current Path: [0, 65, 104, 41]
+----------------------------------- [4] forward: 41 visited
+----------------------------------- [3] backtrack: 104
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] register(address,account) ************************************
+		 # garbage collection
+[INFO] Adding 105 to [0, 65, 104]
+[INFO] Current Path: [0, 65, 104, 105]
+----------------------------------- [4] forward: 105 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 42 to [0, 65, 104, 105]
+[INFO] Current Path: [0, 65, 104, 105, 42]
+----------------------------------- [5] forward: 42 visited
+----------------------------------- [4] backtrack: 105
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+		 # garbage collection
+[INFO] Adding 106 to [0, 65, 104, 105]
+[INFO] Current Path: [0, 65, 104, 105, 106]
+----------------------------------- [5] forward: 106 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 43 to [0, 65, 104, 105, 106]
+[INFO] Current Path: [0, 65, 104, 105, 106, 43]
+----------------------------------- [6] forward: 43 visited
+----------------------------------- [5] backtrack: 106
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 107 to [0, 65, 104, 105, 106]
+[INFO] Current Path: [0, 65, 104, 105, 106, 107]
+----------------------------------- [6] forward: 107 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 44 to [0, 65, 104, 105, 106, 107]
+[INFO] Current Path: [0, 65, 104, 105, 106, 107, 44]
+----------------------------------- [7] forward: 44 visited
+----------------------------------- [6] backtrack: 107
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 104, 105, 106, 107, 108]
+[INFO] Adding 108 to [0, 65, 104, 105, 106, 107, 108]
+[INFO] Always True from Now On
+----------------------------------- [7] forward: 108 visited
+----------------------------------- [6] backtrack: 107
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 87 to [0, 65, 104, 105, 106, 107]
+[INFO] Current Path: [0, 65, 104, 105, 106, 107, 87]
+----------------------------------- [7] forward: 87 visited
+----------------------------------- [6] backtrack: 107
+----------------------------------- [6] done: 107
+----------------------------------- [5] backtrack: 106
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 99 to [0, 65, 104, 105, 106]
+[INFO] Current Path: [0, 65, 104, 105, 106, 99]
+----------------------------------- [6] forward: 99 visited
+----------------------------------- [5] backtrack: 106
+----------------------------------- [5] done: 106
+----------------------------------- [4] backtrack: 105
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 109 to [0, 65, 104, 105]
+[INFO] Current Path: [0, 65, 104, 105, 109]
+----------------------------------- [5] forward: 109 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 46 to [0, 65, 104, 105, 109]
+[INFO] Current Path: [0, 65, 104, 105, 109, 46]
+----------------------------------- [6] forward: 46 visited
+----------------------------------- [5] backtrack: 109
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 101 to [0, 65, 104, 105, 109]
+[INFO] Current Path: [0, 65, 104, 105, 109, 101]
+----------------------------------- [6] forward: 101 visited
+----------------------------------- [5] backtrack: 109
+----------------------------------- [5] done: 109
+----------------------------------- [4] backtrack: 105
+----------------------------------- [4] done: 105
+----------------------------------- [3] backtrack: 104
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 110 to [0, 65, 104]
+[INFO] Current Path: [0, 65, 104, 110]
+----------------------------------- [4] forward: 110 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 47 to [0, 65, 104, 110]
+[INFO] Current Path: [0, 65, 104, 110, 47]
+----------------------------------- [5] forward: 47 visited
+----------------------------------- [4] backtrack: 110
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [bob] register(address,account) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 111 to [0, 65, 104, 110]
+[INFO] Current Path: [0, 65, 104, 110, 111]
+----------------------------------- [5] forward: 111 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 48 to [0, 65, 104, 110, 111]
+[INFO] Current Path: [0, 65, 104, 110, 111, 48]
+----------------------------------- [6] forward: 48 visited
+----------------------------------- [5] backtrack: 111
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+		 # garbage collection
+[INFO] Adding 112 to [0, 65, 104, 110, 111]
+[INFO] Current Path: [0, 65, 104, 110, 111, 112]
+----------------------------------- [6] forward: 112 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 49 to [0, 65, 104, 110, 111, 112]
+[INFO] Current Path: [0, 65, 104, 110, 111, 112, 49]
+----------------------------------- [7] forward: 49 visited
+----------------------------------- [6] backtrack: 112
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 113 to [0, 65, 104, 110, 111, 112]
+[INFO] Current Path: [0, 65, 104, 110, 111, 112, 113]
+----------------------------------- [7] forward: 113 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 50 to [0, 65, 104, 110, 111, 112, 113]
+[INFO] Current Path: [0, 65, 104, 110, 111, 112, 113, 50]
+----------------------------------- [8] forward: 50 visited
+----------------------------------- [7] backtrack: 113
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 65, 104, 110, 111, 112, 113, 114]
+[INFO] Adding 114 to [0, 65, 104, 110, 111, 112, 113, 114]
+[INFO] Always True from Now On
+----------------------------------- [8] forward: 114 visited
+----------------------------------- [7] backtrack: 113
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 87 to [0, 65, 104, 110, 111, 112, 113]
+[INFO] Current Path: [0, 65, 104, 110, 111, 112, 113, 87]
+----------------------------------- [8] forward: 87 visited
+----------------------------------- [7] backtrack: 113
+----------------------------------- [7] done: 113
+----------------------------------- [6] backtrack: 112
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 99 to [0, 65, 104, 110, 111, 112]
+[INFO] Current Path: [0, 65, 104, 110, 111, 112, 99]
+----------------------------------- [7] forward: 99 visited
+----------------------------------- [6] backtrack: 112
+----------------------------------- [6] done: 112
+----------------------------------- [5] backtrack: 111
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 109 to [0, 65, 104, 110, 111]
+[INFO] Current Path: [0, 65, 104, 110, 111, 109]
+----------------------------------- [6] forward: 109 visited
+----------------------------------- [5] backtrack: 111
+----------------------------------- [5] done: 111
+----------------------------------- [4] backtrack: 110
+----------------------------------- [4] done: 110
+----------------------------------- [3] backtrack: 104
+----------------------------------- [3] done: 104
+----------------------------------- [2] backtrack: 65
+----------------------------------- [2] done: 65
+----------------------------------- [1] backtrack: 0
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+		 # garbage collection
+[INFO] Adding 115 to [0]
+[INFO] Current Path: [0, 115]
+----------------------------------- [2] forward: 115 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 52 to [0, 115]
+[INFO] Current Path: [0, 115, 52]
+----------------------------------- [3] forward: 52 visited
+----------------------------------- [2] backtrack: 115
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+		 # garbage collection
+[INFO] Adding 116 to [0, 115]
+[INFO] Current Path: [0, 115, 116]
+----------------------------------- [3] forward: 116 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 53 to [0, 115, 116]
+[INFO] Current Path: [0, 115, 116, 53]
+----------------------------------- [4] forward: 53 visited
+----------------------------------- [3] backtrack: 116
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] register(address,account) ************************************
+		 # garbage collection
+[INFO] Adding 117 to [0, 115, 116]
+[INFO] Current Path: [0, 115, 116, 117]
+----------------------------------- [4] forward: 117 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 54 to [0, 115, 116, 117]
+[INFO] Current Path: [0, 115, 116, 117, 54]
+----------------------------------- [5] forward: 54 visited
+----------------------------------- [4] backtrack: 117
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+		 # garbage collection
+[INFO] Adding 118 to [0, 115, 116, 117]
+[INFO] Current Path: [0, 115, 116, 117, 118]
+----------------------------------- [5] forward: 118 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 55 to [0, 115, 116, 117, 118]
+[INFO] Current Path: [0, 115, 116, 117, 118, 55]
+----------------------------------- [6] forward: 55 visited
+----------------------------------- [5] backtrack: 118
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 119 to [0, 115, 116, 117, 118]
+[INFO] Current Path: [0, 115, 116, 117, 118, 119]
+----------------------------------- [6] forward: 119 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 56 to [0, 115, 116, 117, 118, 119]
+[INFO] Current Path: [0, 115, 116, 117, 118, 119, 56]
+----------------------------------- [7] forward: 56 visited
+----------------------------------- [6] backtrack: 119
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 115, 116, 117, 118, 119, 120]
+[INFO] Adding 120 to [0, 115, 116, 117, 118, 119, 120]
+[INFO] Always True from Now On
+----------------------------------- [7] forward: 120 visited
+----------------------------------- [6] backtrack: 119
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 87 to [0, 115, 116, 117, 118, 119]
+[INFO] Current Path: [0, 115, 116, 117, 118, 119, 87]
+----------------------------------- [7] forward: 87 visited
+----------------------------------- [6] backtrack: 119
+----------------------------------- [6] done: 119
+----------------------------------- [5] backtrack: 118
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 99 to [0, 115, 116, 117, 118]
+[INFO] Current Path: [0, 115, 116, 117, 118, 99]
+----------------------------------- [6] forward: 99 visited
+----------------------------------- [5] backtrack: 118
+----------------------------------- [5] done: 118
+----------------------------------- [4] backtrack: 117
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 109 to [0, 115, 116, 117]
+[INFO] Current Path: [0, 115, 116, 117, 109]
+----------------------------------- [5] forward: 109 visited
+----------------------------------- [4] backtrack: 117
+----------------------------------- [4] done: 117
+----------------------------------- [3] backtrack: 116
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 121 to [0, 115, 116]
+[INFO] Current Path: [0, 115, 116, 121]
+----------------------------------- [4] forward: 121 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 58 to [0, 115, 116, 121]
+[INFO] Current Path: [0, 115, 116, 121, 58]
+----------------------------------- [5] forward: 58 visited
+----------------------------------- [4] backtrack: 121
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+******************************* [bob] register(address,account) ************************************
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 111 to [0, 115, 116, 121]
+[INFO] Current Path: [0, 115, 116, 121, 111]
+----------------------------------- [5] forward: 111 visited
+----------------------------------- [4] backtrack: 121
+----------------------------------- [4] done: 121
+----------------------------------- [3] backtrack: 116
+----------------------------------- [3] done: 116
+----------------------------------- [2] backtrack: 115
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 122 to [0, 115]
+[INFO] Current Path: [0, 115, 122]
+----------------------------------- [3] forward: 122 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[INFO] Adding 59 to [0, 115, 122]
+[INFO] Current Path: [0, 115, 122, 59]
+----------------------------------- [4] forward: 59 visited
+----------------------------------- [3] backtrack: 122
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1]
+[INFO] Waking agent mike
+		 # garbage collection
+[INFO] Adding 123 to [0, 115, 122]
+[INFO] Current Path: [0, 115, 122, 123]
+----------------------------------- [4] forward: 123 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 60 to [0, 115, 122, 123]
+[INFO] Current Path: [0, 115, 122, 123, 60]
+----------------------------------- [5] forward: 60 visited
+----------------------------------- [4] backtrack: 123
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] register(address,account) ************************************
+		 # garbage collection
+[INFO] Adding 124 to [0, 115, 122, 123]
+[INFO] Current Path: [0, 115, 122, 123, 124]
+----------------------------------- [5] forward: 124 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 61 to [0, 115, 122, 123, 124]
+[INFO] Current Path: [0, 115, 122, 123, 124, 61]
+----------------------------------- [6] forward: 61 visited
+----------------------------------- [5] backtrack: 124
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+		 # garbage collection
+[INFO] Adding 125 to [0, 115, 122, 123, 124]
+[INFO] Current Path: [0, 115, 122, 123, 124, 125]
+----------------------------------- [6] forward: 125 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 62 to [0, 115, 122, 123, 124, 125]
+[INFO] Current Path: [0, 115, 122, 123, 124, 125, 62]
+----------------------------------- [7] forward: 62 visited
+----------------------------------- [6] backtrack: 125
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+******************************* [bob] enter_auction(1) ************************************
+******************************* [bob] bid(1) ************************************
+		 # garbage collection
+[INFO] Adding 126 to [0, 115, 122, 123, 124, 125]
+[INFO] Current Path: [0, 115, 122, 123, 124, 125, 126]
+----------------------------------- [7] forward: 126 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1,2]
+		 # garbage collection
+[INFO] Adding 63 to [0, 115, 122, 123, 124, 125, 126]
+[INFO] Current Path: [0, 115, 122, 123, 124, 125, 126, 63]
+----------------------------------- [8] forward: 63 visited
+----------------------------------- [7] backtrack: 126
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,>1,2]
+[INFO] Sleeping agent bob
+		 # garbage collection
+[INFO] Current Path: [0, 115, 122, 123, 124, 125, 126, 127]
+[INFO] Adding 127 to [0, 115, 122, 123, 124, 125, 126, 127]
+[INFO] Always True from Now On
+----------------------------------- [8] forward: 127 visited
+----------------------------------- [7] backtrack: 126
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+******************************* [mike] remove_from_auction(1,bob) ************************************
+		 # garbage collection
+[INFO] Adding 87 to [0, 115, 122, 123, 124, 125, 126]
+[INFO] Current Path: [0, 115, 122, 123, 124, 125, 126, 87]
+----------------------------------- [8] forward: 87 visited
+----------------------------------- [7] backtrack: 126
+----------------------------------- [7] done: 126
+----------------------------------- [6] backtrack: 125
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 99 to [0, 115, 122, 123, 124, 125]
+[INFO] Current Path: [0, 115, 122, 123, 124, 125, 99]
+----------------------------------- [7] forward: 99 visited
+----------------------------------- [6] backtrack: 125
+----------------------------------- [6] done: 125
+----------------------------------- [5] backtrack: 124
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 109 to [0, 115, 122, 123, 124]
+[INFO] Current Path: [0, 115, 122, 123, 124, 109]
+----------------------------------- [6] forward: 109 visited
+----------------------------------- [5] backtrack: 124
+----------------------------------- [5] done: 124
+----------------------------------- [4] backtrack: 123
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,0,1,>2]
+[INFO] Sleeping agent mike
+		 # garbage collection
+[INFO] Adding 121 to [0, 115, 122, 123]
+[INFO] Current Path: [0, 115, 122, 123, 121]
+----------------------------------- [5] forward: 121 visited
+----------------------------------- [4] backtrack: 123
+----------------------------------- [4] done: 123
+----------------------------------- [3] backtrack: 122
+----------------------------------- [3] done: 122
+----------------------------------- [2] backtrack: 115
+----------------------------------- [2] done: 115
+----------------------------------- [1] backtrack: 0
+----------------------------------- [1] done: 0
+----------------------------------- [0] backtrack: -1
+----------------------------------- [0] done: -1
+----------------------------------- search finished
+
+====================================================== results
+no errors detected
+
+====================================================== statistics
+elapsed time:       00:03:27
+states:             new=100, visited=127, backtracked=227, end=0
+search:             maxDepth=10, constraints hit=0
+choice generators:  thread=1 (signal=0, lock=1, shared ref=0), data=100
+heap:               new=7806032, released=7776686, max live=9145, gc-cycles=227
+instructions:       625816779
+max memory:         171MB
+loaded code:        classes=366, methods=5215
+
+====================================================== search finished: 05-03-15 09:42

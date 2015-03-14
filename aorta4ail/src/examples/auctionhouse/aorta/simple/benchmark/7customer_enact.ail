@@ -1,0 +1,3 @@
+env = auctionhouse.AuctionHouse
+mas.file = 7customer_enact.aortasetup
+mas.builder = aorta.AortaMASBuilder

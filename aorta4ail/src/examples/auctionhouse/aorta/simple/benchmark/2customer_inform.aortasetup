@@ -1,0 +1,4 @@
+mas.file = 2customer.gwen
+mas.builder = gwendolen.GwendolenMASBuilder
+aorta.model = ah.mm
+aorta.rules =  ah_inform.aorta

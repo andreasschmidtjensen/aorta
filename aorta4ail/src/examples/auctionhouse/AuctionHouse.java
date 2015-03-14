@@ -127,6 +127,9 @@ public class AuctionHouse extends DefaultEnvironment implements MCAPLJobber {
 	@Override
 	public Unifier executeAction(String agName, Action act) throws AILexception {
 		Unifier unifier = null;
+				
+		lastAction = act;
+		lastAgent = agName;
 		
 		System.out.println("******************************* [" + agName + "] " + printAction(act) + " ************************************");
 		try {
@@ -219,7 +222,7 @@ public class AuctionHouse extends DefaultEnvironment implements MCAPLJobber {
 		return unifier;
 	}
 
-	private Unifier register(String name, String address, String account) throws AILexception {
+	protected Unifier register(String name, String address, String account) throws AILexception {
 		if (!customers.containsKey(name)) {
 			Customer c = new Customer(name, address, account);
 			customers.put(name, c);
@@ -230,7 +233,7 @@ public class AuctionHouse extends DefaultEnvironment implements MCAPLJobber {
 		}
 	}
 
-	private Unifier verify(String verifier, String name) throws AILexception {
+	protected Unifier verify(String verifier, String name) throws AILexception {
 		if (customers.containsKey(name)) {
 			Customer c = customers.get(name);
 			c.setVerified(true);
@@ -241,7 +244,7 @@ public class AuctionHouse extends DefaultEnvironment implements MCAPLJobber {
 		}
 	}
 
-	private Unifier startAuction(String name, String agName, int startPrice, int duration) throws AILexception {
+	protected Unifier startAuction(String name, String agName, int startPrice, int duration) throws AILexception {
 		if (customers.containsKey(agName)) {
 			Auction a = new Auction(generateId(), name, agName, startPrice, duration);
 			auctions.put(a.getId(), a);

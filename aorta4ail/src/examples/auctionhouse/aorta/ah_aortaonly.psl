@@ -1,0 +1,13 @@
+# AORTA properties
+enact_sally1: <>(Org(sally, rea(sally, customer))) 
+enact_mike: <>(Org(mike, rea(mike, manager)))
+enact_sally2: <>(Org(sally, rea(sally, seller))) 
+enact_carol1: <>(Org(carol, rea(carol, customer)))  
+enact_carol2: <>(Org(carol, rea(carol, buyer)))  
+mike_informed_enactment: <>(Org(carol, rea(mike, manager)) & Org(sally, rea(mike, manager)))
+opt_leadsto_goal: <>(Opt(sally, obj(verified(sally))) R Opt(mike, obj(verified(sally)))) 
+commitment: <>(Opt(sally, obj(registered(sally))) U G(sally, registered(sally)))
+norm_activation: <>(B(sally, registered(sally)) R Org(sally, norm(sally, seller, obliged, verified(sally), auction_created(sally, _))))
+norm_fulfillment: <>((B(sally, registered(sally)) R Org(sally, norm(sally, seller, obliged, verified(sally), auction_created(sally, _)))) U (B(sally, verified(sally)) & ~Org(sally, norm(sally, seller, obliged, verified(sally), auction_created(sally, _)))))
+violation: <>(Org(carol, viol(carol, buyer, obliged, paidFor(lamp))) U B(carol, paidFor(lamp)))
+mike_does_not_verify_bob: [](~Org(mike, viol(mike, manager, forbidden, verified(bob))))

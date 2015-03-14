@@ -1,0 +1,1 @@
+informed_3: <>(Org(agent1,rea(agent2,customer)) & Org(agent1,rea(agent3,customer)) & Org(agent2,rea(agent1,customer)) & Org(agent2,rea(agent3,customer)) & Org(agent3,rea(agent1,customer)) & Org(agent3,rea(agent2,customer)))

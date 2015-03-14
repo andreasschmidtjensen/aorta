@@ -1,0 +1,12 @@
+reg_sally: time=00:48:16, new=2548, visited=6711, backtracked=9259, end=0, maxDepth=19, constraints hit=0
+enact_sally1: time=00:02:53, new=142, visited=360, backtracked=502, end=0, maxDepth=11, constraints hit=0
+enact_mike: time=00:17:51, new=658, visited=1806, backtracked=2464, end=0, maxDepth=17, constraints hit=0
+enact_sally2: time=01:14:50, new=2548, visited=6711, backtracked=9259, end=0, maxDepth=19, constraints hit=0
+enact_carol1: time=01:47:37, new=1878, visited=5260, backtracked=7138, end=0, maxDepth=30, constraints hit=0
+reg_carol: time=77:32:23, new=53926, visited=149436, backtracked=203362, end=0, maxDepth=39, constraints hit=0
+ver_sally: time=06:41:29, new=14056, visited=38179, backtracked=52235, end=0, maxDepth=24, constraints hit=0
+enact_carol2: time=85:00:53, new=53926, visited=149436, backtracked=203362, end=0, maxDepth=39, constraints hit=0
+mike_informed_enactment: time=00:18:26, new=658, visited=1806, backtracked=2464, end=0, maxDepth=17, constraints hit=0
+opt_leadsto_goal: time=01:46:49, new=4960, visited=13155, backtracked=18115, end=0, maxDepth=21, constraints hit=0
+commitment: time=00:13:19, new=894, visited=2254, backtracked=3148, end=0, maxDepth=15, constraints hit=0
+norm_activation: time=null, null, null

@@ -1,0 +1,32 @@
+GWENDOLEN
+:name: bob
+
+:Initial Beliefs:
+want(lamp)
+badInfo(bob)
+
+:Initial Goals:
+
+:Plans:
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), +!registered(Me) [achieve];
+
++!bought(Item) [achieve] : { B auction_created(C,Item), B me(Me) } <- *verified(Me), +bought(Item), -!bought(Item) [achieve];
+
++!bid_done(Me,Item) [achieve] : { B auction(Id,Item,Ag,SP,ET) } <- bid(Id);
+
++auction(Id,Item,Ag,SP,ET) : { B want(Item) } <- +!bought(Item) [achieve];
++registered(Me) : { B me(Me), B auction(Id,Item,Ag,SP,ET), G bought(Item) [achieve] } <- enter_auction(Id);
+
+:name: mike
+
+:Initial Beliefs:
+badInfo(bob)
+
+:Initial Goals:
+
+:Plans: 
+
++!verified(Agent) [achieve] : { ~B badInfo(Agent), B registered(Agent) } <- verify(Agent);
++!verified(Agent) [achieve] : { B badInfo(Agent) } <- -!verified(Agent) [achieve];
++!banned(Agent) [achieve] : { B participates(Agent,Item), B auction(Id,Item,A,SP,ET) } <- remove_from_auction(Id,Agent), +banned(Agent), -!banned(Agent) [achieve];

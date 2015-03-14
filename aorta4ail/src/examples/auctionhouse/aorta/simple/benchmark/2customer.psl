@@ -1,0 +1,2 @@
+enactment_2: <>(Org(agent1,rea(agent1,customer)) & Org(agent2,rea(agent2,customer)))
+informed_2: <>(Org(agent1,rea(agent2,customer)) & Org(agent2,rea(agent1,customer)))
