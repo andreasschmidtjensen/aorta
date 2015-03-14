@@ -1,4 +1,4 @@
-have("PH-lamp").
+have(lamp).
 
 +have(Item) <- !sold(Item).
 

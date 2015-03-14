@@ -1,4 +1,4 @@
-want("PH-lamp").
+want(lamp).
 
 +want(Item) <- !bought(Item).
 
@@ -16,17 +16,17 @@ want("PH-lamp").
 		!bought(Item).
 +!bought(Item)
 	:	auction(_,Item,_,_,_) & .my_name(Me) & verified(Me)
-	<-	!bid(_, Item).
+	<-	!bid(Me, Item).
 	
-+!bid(_, Item) 
++!bid(Me, Item) 
 	: auction(Id,Item,_,_,_) & bid_high(Id,Me,P) & .my_name(Me)
 	<- .wait(1000); !bid(_, Item).
-+!bid(_, Item) 
++!bid(Me, Item) 
 	: auction(Id,Item,_,SP,_) & not(bid_high(Id,_,_)) 
-	<- .print("Bidding ", SP, " on ", Item); bid(Id, SP); !bid(_,Item).
-+!bid(_, Item) 
+	<- .print("Bidding ", SP, " on ", Item); bid(Id, SP); !bid(Me,Item).
++!bid(Me, Item) 
 	: auction(Id,Item,_,_,_) & bid_high(Id,_,P) 
-	<- .print("Bidding ", P+5, " on ", Item); bid(Id, P + 5); !bid(_,Item).
+	<- .print("Bidding ", P+5, " on ", Item); bid(Id, P + 5); !bid(Me,Item).
 
 -participant(Id, Me)
 	: .my_name(Me) & auction(Id,Item,_,_,_) & .intend(bid(_,Item))

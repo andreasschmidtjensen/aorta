@@ -80,6 +80,12 @@ public class Customer {
 		return result;
 	}
 
+	public Literal toJason2() {
+		Literal result = new LiteralImpl("registered");
+		result.addTerm(new Atom(name));
+		return result;
+	}
+
 	public Literal verifiedToJason() {
 		Literal result = new LiteralImpl("verified");
 		result.addTerm(new Atom(name));

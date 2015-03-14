@@ -118,7 +118,7 @@ public class AuctionHouse extends Environment {
 					throw new RuntimeException(ex);
 				}
 
-				String name = ((StringTerm) act.getTerm(0)).getString();
+				String name = act.getTerm(0).toString();
 				int endTime = (int) ((System.currentTimeMillis() - timeOffset) / 1000 + durationInSec);
 				return startAuction(name, agName, startPrice, endTime);
 			}
@@ -212,6 +212,7 @@ public class AuctionHouse extends Environment {
 			Customer c = new Customer(name, address, account);
 			customers.put(name, c);
 			addPercept(c.toJason());
+			addPercept(c.toJason2());
 			return true;
 		} else {
 			return false;
@@ -320,10 +321,13 @@ public class AuctionHouse extends Environment {
 
 	private boolean addToAuction(int id, String agent) {
 		if (customers.containsKey(agent) && auctions.containsKey(id) && !auctions.get(id).participates(agent)) {
-			auctions.get(id).addParticipant(agent);
+			Auction auction = auctions.get(id);
+			auction.addParticipant(agent);
 
 			Literal percept = createParticipantPercept(id, agent);
 			addPercept(percept);
+			
+			addPercept(createParticipantPercept2(agent, auction.getName()));
 
 			return true;
 		} else {
@@ -357,6 +361,12 @@ public class AuctionHouse extends Environment {
 		Literal percept = new LiteralImpl("participant");
 		percept.addTerm(new NumberTermImpl(id));
 		percept.addTerm(new Atom(ag));
+		return percept;
+	}
+	private Literal createParticipantPercept2(String ag, String name) {
+		Literal percept = new LiteralImpl("participates");
+		percept.addTerm(new Atom(ag));
+		percept.addTerm(new Atom(name));
 		return percept;
 	}
 

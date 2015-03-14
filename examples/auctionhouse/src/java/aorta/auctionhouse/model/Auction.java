@@ -174,7 +174,7 @@ public class Auction {
 	public Literal toJason() {
 		Literal result = new LiteralImpl("auction");
 		result.addTerm(new NumberTermImpl(id));
-		result.addTerm(new StringTermImpl(name));
+		result.addTerm(new Atom(name));
 		result.addTerm(new Atom(seller));
 		result.addTerm(new NumberTermImpl(startPrice));
 		result.addTerm(new NumberTermImpl(endTime));

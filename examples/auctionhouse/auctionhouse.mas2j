@@ -40,7 +40,7 @@ MAS auctionhouse {
 	environment: aorta.auctionhouse.AuctionHouse
 
     agents:
-		bob buyer.asl [aorta="ah.aorta"];
+		bob buyer.asl [aorta="ah.aorta",dm="eah.dm",c="bid(bob,lamp) && participates(bob,lamp) && registered(bob) && verified(bob) && badInfo(bob) && viol(bob,buyer,obliged,verified(bob))"];
 		carol buyer.asl [aorta="ah.aorta"];	
 		sally seller.asl [aorta="ah.aorta"];
 		mike manager.asl [aorta="ah.aorta"];	
