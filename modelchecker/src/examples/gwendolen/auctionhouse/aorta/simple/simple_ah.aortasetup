@@ -2,7 +2,7 @@ mas.file = simple_agents.gwen
 mas.builder = gwendolen.GwendolenMASBuilder
 
 aorta.organization = ah.mm
-aorta.nogui
+#aorta.nogui
 aorta.bob = ah.aorta
 aorta.carol = ah.aorta
 aorta.sally = ah.aorta

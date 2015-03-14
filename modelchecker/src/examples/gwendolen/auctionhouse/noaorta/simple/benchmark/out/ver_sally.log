@@ -1,0 +1,26 @@
+To reproduce:
+ C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\auctionhouse\noaorta\simple\benchmark> java -Xmx1000m -jar C:\Dropbox\code\phd\jpf-core/build/runJPF.jar +shell.port=4242 C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\auctionhouse\noaorta\simple\benchmark\modelchecker.jpf
+----------------------------------- search started
+      [skipping static init instructions]
+JavaPathfinder v7.0 (rev ${version}) - (C) RIACS/NASA Ames Research Center
+
+
+====================================================== system under test
+ail.util.AJPF_w_AIL.main("1customer.ail","1customer.psl","ver_sally")
+
+====================================================== search started: 26-02-15 14:56
+		 # choice: gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:"<root>" ,1/1,isCascaded:false}
+---ail.util.AJPF_w_AIL:[main]:0
+---ail.util.AJPF_w_AIL:main:54
+---ail.util.AJPF_w_AIL:run:65
+---ail.mas.AIL:AILSetup:72
+---ail.mas.AIL:buildMAS:101
+---ajpf.MCAPLcontroller:getFilename:345
+[SEVERE] Could not find file.  Checked: 
+ agents_noaorta_simple.gwen,
+ nullagents_noaorta_simple.gwen,
+ C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\auctionhouse\noaorta\simple\benchmarkagents_noaorta_simple.gwen
+		 # thread terminated: main index: 0
+		 # garbage collection
+----------------------------------- [1] forward: 0 new end
+----------------------------------- [0] backtrack: -1

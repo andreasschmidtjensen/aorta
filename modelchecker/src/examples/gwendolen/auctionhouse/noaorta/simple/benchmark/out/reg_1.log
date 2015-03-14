@@ -1,0 +1,108 @@
+To reproduce:
+ C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\auctionhouse\noaorta\simple\benchmark> java -Xmx1000m -jar C:\Dropbox\code\phd\jpf-core/build/runJPF.jar +shell.port=4242 C:\Dropbox\code\phd\aorta\modelchecker\src\examples\gwendolen\auctionhouse\noaorta\simple\benchmark\modelchecker.jpf
+----------------------------------- search started
+      [skipping static init instructions]
+JavaPathfinder v7.0 (rev ${version}) - (C) RIACS/NASA Ames Research Center
+
+
+====================================================== system under test
+ail.util.AJPF_w_AIL.main("1customer.ail","1customer.psl","reg_1")
+
+====================================================== search started: 26-02-15 14:57
+		 # choice: gov.nasa.jpf.vm.choice.ThreadChoiceFromSet {id:"<root>" ,1/1,isCascaded:false}
+[INFO] Number: 2
+Incoming: 0,2,
+Old: ~B(agent1,registered(agent1(),address(),account())),~T R ~B(agent1,registered(agent1(),address(),account())),
+Next: ~T R ~B(agent1,registered(agent1(),address(),account())),
+
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 0 to []
+[FINE] Entering new Product States with Initial State in Path
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<0, 2, 0>
+[FINE] Current DFS State: <0, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0]
+----------------------------------- [1] forward: 0 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+******************************* [agent1] register(address,account) ************************************
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 1 to [0]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <0, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<1, 2, 0>
+[FINE]      <1, 2, 0>
+[FINE] States by incoming for 0 is [<1, 2, 0>]
+[FINE] Current DFS State: <0, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>]
+[FINE] Current DFS State: <1, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1]
+----------------------------------- [2] forward: 1 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="agentSchedulerChoice",isCascaded:false,>0,1]
+		 # garbage collection
+[FINE] Entering addModelState
+[FINE] adding state
+[INFO] Adding 2 to [0, 1]
+[FINE] Entering new Product States in order to expand the path
+[FINE] [-1]
+[FINE] Adding new successors to <1, 2, 0>: 
+[FINER] Empty Until Array
+[FINE] [-1]
+[FINE] Creating Product State:<2, 2, 0>
+[FINE]      <2, 2, 0>
+[FINE] States by incoming for 1 is [<2, 2, 0>]
+[FINE] Current DFS State: <1, 2, 0>
+[FINE] New Path: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>]
+[FINE] Current DFS State: <2, 2, 0>
+[FINE] Model isn't done
+[INFO] Current Path: [0, 1, 2]
+----------------------------------- [3] forward: 2 new
+		 # choice: gov.nasa.jpf.vm.choice.IntChoiceFromSet[id="endStateChoice",isCascaded:false,>0]
+		 # thread terminated: main index: 0
+		 # garbage collection
+[FINE] Current Path Ended
+[FINE] Entering new Product States with Integer
+[FINE] [-1]
+[FINE] Adding new successors to <2, 2, 0>: 
+[FINE]      <2, 2, 0>
+[FINE] Current DFS State: <2, 2, 0>
+[FINE] Moving into second DFS
+[FINE] Accepting untils: [-1]
+[FINE] This state is accepting
+[FINE] returning [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>]
+[FINE] Entering justaddModelState
+[FINE] adding state
+[INFO] Current Path: [0, 1, 2, 3]
+----------------------------------- [4] forward: 3 new end
+
+====================================================== error 1
+ajpf.MCAPLListener
+An Accepting Path has been found: [<0, 2, 0>, <1, 2, 0>, <2, 2, 0>]
+
+====================================================== snapshot #1
+no live threads
+----------------------------------- search finished
+
+====================================================== results
+error #1: ajpf.MCAPLListener "An Accepting Path has been found: [<0, 2, 0>, <1, ..."
+
+====================================================== statistics
+elapsed time:       00:00:03
+states:             new=4, visited=0, backtracked=0, end=1
+search:             maxDepth=4, constraints hit=0
+choice generators:  thread=1 (signal=0, lock=1, shared ref=0), data=3
+heap:               new=13381, released=10221, max live=3299, gc-cycles=4
+instructions:       1346333
+max memory:         120MB
+loaded code:        classes=310, methods=4728
+
+====================================================== search finished: 26-02-15 14:57

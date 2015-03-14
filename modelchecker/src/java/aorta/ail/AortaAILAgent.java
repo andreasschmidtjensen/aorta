@@ -165,12 +165,6 @@ public class AortaAILAgent extends AILAgent {
 				AJPFLogger.warning(logname, "Could not finish cycle: " + ex.getMessage());
 			}
 			
-			System.out.println("*****************************");
-			System.out.println("******** AORTA CYCLE ********");
-			System.out.println(aortaAgent);
-			System.out.println("********  END CYCLE  ********");
-			System.out.println("*****************************");
-			
 		}
 		
 		super.MCAPLreason(flag);

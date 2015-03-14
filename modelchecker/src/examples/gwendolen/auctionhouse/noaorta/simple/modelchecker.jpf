@@ -1,7 +1,7 @@
 @using = mcapl
 @using = aortamc
 target = ail.util.AJPF_w_AIL
-target.args = ah_noaorta_simple.ail,ah_noaorta.psl,all
+target.args = ah_noaorta_simple.ail,ah_noaorta.psl,test
 log.info=ajpf.MCAPLAgent
 log.fine=ail.mas.DefaultEnvironment,ajpf.product.Product,aorta.ail.AortaAILAgent
 log.finest=ajpf.psl.buchi.BuchiAutomaton,ajpf.product.MCAPLmodel

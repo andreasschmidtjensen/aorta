@@ -1,0 +1,17 @@
+GWENDOLEN
+:name: agent1
+
+:Initial Beliefs:
+me(agent1)
+
+:Belief Rules:
+B registered(Me) :- B registered(Me,Add,Acc);
+
+:Initial Goals:
+sold(lamp) [achieve]
+
+:Plans: 
+
++!registered(Me) [achieve] : { ~B registered(Me) } <- register(address, account), -!registered(Me) [achieve];
+
++!sold(Item) [achieve] : { B me(Me), ~B registered(Me) } <- +!registered(Me) [achieve], +sold(Item);
