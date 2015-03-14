@@ -120,7 +120,7 @@ public class AortaJasonAgent extends Agent {
 				influences.add(neg);
 				
 				try {
-					QDTModel qdt = gen.generate(influences);
+					QDTModel qdt = gen.generate(influences, controllable);
 					Set<dm.syntax.Literal> beliefs = new HashSet<>();
 					for (jason.asSyntax.Literal bel : getBB()) {
 						bel = (jason.asSyntax.Literal) bel.clone();
