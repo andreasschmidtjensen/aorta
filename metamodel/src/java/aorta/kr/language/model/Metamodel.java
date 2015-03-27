@@ -6,6 +6,7 @@ package aorta.kr.language.model;
 
 import alice.tuprolog.InvalidTheoryException;
 import alice.tuprolog.Struct;
+import alice.tuprolog.Term;
 import alice.tuprolog.Theory;
 import aorta.kr.language.OrganizationImportException;
 import aorta.kr.language.OrganizationLoader;
@@ -63,10 +64,28 @@ public class Metamodel {
 		return roles;
 	}
 
+	public Role getRole(String roleName) {
+		for (Role role : roles) {
+			if (roleName.equals(role.getName())) {
+				return role;
+			}
+		}
+		return null;
+	}
+	
 	public List<Objective> getObjectives() {
 		return objectives;
 	}
 
+	public Objective getObjective(Term objective) {
+		for (Objective obj : objectives) {
+			if (obj.getObjective().equals(objective)) {
+				return obj;
+			}
+		}
+		return null;
+	}
+	
 	public List<Dependency> getDependencies() {
 		return dependencies;
 	}

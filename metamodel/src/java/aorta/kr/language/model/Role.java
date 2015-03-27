@@ -46,12 +46,12 @@ public class Role {
 		StringBuilder sb = new StringBuilder();
 		sb.append(name);
 		if (!objectives.isEmpty()) {
-			sb.append(":\n");
+			sb.append(": ");
 			for (int i = 0; i < objectives.size(); i++) {
 				if (i > 0) {
-					sb.append(";\n");
+					sb.append("; ");
 				}
-				sb.append("\t").append(objectives.get(i));
+				sb.append(objectives.get(i));
 			}
 		}
 		sb.append(".");

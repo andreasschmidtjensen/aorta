@@ -52,12 +52,12 @@ public class Objective {
 		StringBuilder sb = new StringBuilder();
 		sb.append(TermFormatter.toString(objective));
 		if (!subObjectives.isEmpty()) {
-			sb.append(":\n");
+			sb.append(": ");
 			for (int i = 0; i < subObjectives.size(); i++) {
 				if (i > 0) {
-					sb.append(";\n");
+					sb.append("; ");
 				}
-				sb.append("\t").append(TermFormatter.toString(subObjectives.get(i)));
+				sb.append(TermFormatter.toString(subObjectives.get(i)));
 			}
 		}
 		sb.append(".");
