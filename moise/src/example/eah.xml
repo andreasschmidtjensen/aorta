@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="http://moise.sourceforge.net/xml/os.xsl" type="text/xsl" ?>
+
+<organisational-specification 
+	id="eah"
+	os-version="0.8"  
+	xmlns="http://moise.sourceforge.net/os"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://moise.sourceforge.net/os
+						http://moise.sourceforge.net/xml/os.xsd">
+
+	<structural-specification>
+		<role-definitions>
+			<role id="buyer" />
+			<role id="seller" />
+			<role id="customer" />
+			<role id="manager" />
+		</role-definitions>
+		<group-specification id="eahgroup">
+			<roles>
+				<role id="buyer" min="1" max="1" />
+				<role id="seller" min="1" max="1" />
+				<role id="customer" min="1" max="1" />
+				<role id="manager" min="1" max="1" />
+			</roles>
+			<links>
+				<link from="manager" to="customer" type="authority" scope="intra-group" bi-dir="false" />
+			</links>
+		</group-specification>
+	</structural-specification>
+
+	<functional-specification>
+		<scheme id="participate">
+			<goal id="verified">
+				<argument id="1" value="Agent" />
+				<plan operator="sequence">
+					<goal id="registered"><argument id="1" value="Agent" /></goal>
+				</plan>
+			</goal>
+			<mission id="mParticipate">
+				<goal id="registered" />
+				<goal id="verified" />
+			</mission>
+			<mission id="mVerify">
+				<goal id="verified" />
+			</mission>
+		</scheme>
+		<scheme id="sellItem">
+			<goal id="soldItem">
+				<argument id="1" value="Item" />
+				<plan operator="sequence">
+					<goal id="verified"><argument id="1" value="Agent" /></goal>
+					<goal id="won">
+						<argument id="1" value="Agent" />
+						<argument id="2" value="Item" />
+						<plan operator="sequence">
+							<goal id="auction">
+								<argument id="1" value="Agent" />
+								<argument id="2" value="Item" />
+							</goal>
+							<goal id="bid">
+								<argument id="1" value="Agent" />
+								<argument id="2" value="Item" />
+							</goal>
+						</plan>
+					</goal>
+					<goal id="paidFor">
+						<argument id="1" value="Item" />
+					</goal>
+				</plan>
+			</goal>
+			<mission id="mSell">
+				<goal id="soldItem" />
+				<goal id="auction" />
+				<goal id="verified" />
+			</mission>
+		</scheme>		
+		<scheme id="buyItem">
+			<goal id="boughtItem">
+				<argument id="1" value="Item" />
+				<plan operator="sequence">
+					<goal id="verified"><argument id="1" value="Agent" /></goal>
+					<goal id="won">
+						<argument id="1" value="Agent" />
+						<argument id="2" value="Item" />
+						<plan operator="sequence">
+							<goal id="bid">
+								<argument id="1" value="Agent" />
+								<argument id="2" value="Item" />
+							</goal>
+						</plan>
+					</goal>
+					<goal id="paidFor">
+						<argument id="1" value="Item" />
+					</goal>
+				</plan>
+			</goal>
+			<mission id="mBuy">
+				<goal id="boughtItem" />
+				<goal id="bid" />
+			</mission>
+		</scheme>
+		<scheme id="ban">
+			<goal id="banned">
+				<argument id="1" value="Agent" />
+				<plan operator="parallel">
+					<goal id="neg_verified">
+						<argument id="1" value="Agent" />
+					</goal>
+					<goal id="bid">
+						<argument id="1" value="Agent" />
+						<argument id="2" value="Item" />
+					</goal>
+				</plan>
+			</goal>
+			<mission id="mBan">
+				<goal id="banned" />
+			</mission>
+		</scheme>
+	</functional-specification>
+
+	<normative-specification>
+		<norm id="n1" type="obligation" role="customer" mission="mParticipate" />
+		<norm id="n2" type="permission" role="seller" mission="mSell" />
+		<norm id="n3" type="permission" role="buyer" mission="mBuy" />
+		<norm id="n4" type="permission" role="manager" mission="mBan" />
+		<norm id="n5" type="permission" role="manager" mission="mVerify" />
+	</normative-specification>
+
+</organisational-specification>
