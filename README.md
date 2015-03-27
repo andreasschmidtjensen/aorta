@@ -5,15 +5,23 @@ Read more about AORTA [here](http://www2.compute.dtu.dk/~ascje/AORTA/).
 
 The project consists of the following:
 
-* metamodel: The AORTA metamodel
-* opera: A translator from the OperA model to the AORTA metamodel
-* framework: The AORTA framework
-* jason: The integration with Jason
-* jeditplugin: A plugin for JEdit for Jason
-* bw4t: An example usage of the jason-integration using Blocks World for Teams
-* ajpf2014: A modified version of AJPF to incorporate organizational properties as used in AORTA
-* modelchecker: A model checker for AORTA using AJPF. Enables verification of AIL-systems integrated with AORTA.
-* examples: A collection of example programs that can be run in AORTA+Jason
+* *metamodel*: The AORTA metamodel
+* *framework*: The AORTA framework
+* *gui*: GUI for the execution of AORTA agents
+* **Integrations**
+	* *jason*: The integration with Jason
+	* *jeditplugin*: A plugin for JEdit for Jason
+	* *apapl*: Integration with 2APL
+* **Model checking**
+	* *ajpf2014*: A modified version of AJPF to incorporate organizational properties as used in AORTA.
+	* *aorta4ail*: Implementation of AORTA operational semantics in AIL for optimized model checking.
+	* *modelchecker*: A model checker for AORTA using AJPF. Enables verification of AIL-systems integrated with AORTA (but without optimizations).
+* **Examples**
+	* *examples*: A collection of smaller example programs that can be run in AORTA+Jason or AORTA+2APL
+	* *bw4t*: An example usage of the jason-integration using Blocks World for Teams
+* **Organizational modeling**
+	* *opera*: A translator from the OperA model to the AORTA metamodel
+	* *moise*: A translator from the Moise+ model to the AORTA metamodel
 
 AORTA should be built using at least Java 7 (and exactly Java 7 to use the model checker).
 
