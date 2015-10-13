@@ -29,6 +29,7 @@ public class TermQualifier {
 			Term.createTerm("_ \\= _"),
 			Term.createTerm("\\+(_)"),
 			Term.createTerm("member(_,_)"),
+			Term.createTerm("select(_,_,_)"),
 			Term.createTerm("append(_,_,_)"),
 			Term.createTerm("findall(_,_,_)"),
 			Term.createTerm("intersection(_,_,_)"),
