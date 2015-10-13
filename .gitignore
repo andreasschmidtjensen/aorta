@@ -11,6 +11,7 @@
 *.mm~
 *.mm~
 *.class
+.DS_Store
 bin/
 jeditplugin/installer.properties
 /examples/scbw/nbproject/private/

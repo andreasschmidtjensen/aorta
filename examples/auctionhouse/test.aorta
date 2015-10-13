@@ -1,0 +1,2 @@
+%role(R) : org(role(R,Os)), ~(bel(member(bel(O),Os)), ~cap(O))  => enact(R).
+role(R) : org(role(R,Os)), bel(member(bel(O1),Os), member(bel(O2),Os), O1 \= O2), cap(O1), cap(O2) => enact(R).
